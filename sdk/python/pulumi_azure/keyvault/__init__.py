@@ -17,6 +17,7 @@ from .get_key import *
 from .get_key_vault import *
 from .get_managed_hardware_security_module import *
 from .get_secret import *
+from .get_secrets import *
 from .key import *
 from .key_vault import *
 from .managed_hardware_security_module import *

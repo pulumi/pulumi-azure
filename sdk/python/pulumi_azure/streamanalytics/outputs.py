@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'FunctionJavaScriptUDFInput',
     'FunctionJavaScriptUDFOutput',
+    'JobIdentity',
     'OutputBlobSerialization',
     'OutputEventHubSerialization',
     'OutputServiceBusQueueSerialization',
@@ -19,6 +20,7 @@ __all__ = [
     'StreamInputBlobSerialization',
     'StreamInputEventHubSerialization',
     'StreamInputIotHubSerialization',
+    'GetJobIdentityResult',
 ]
 
 @pulumi.output_type
@@ -55,6 +57,67 @@ class FunctionJavaScriptUDFOutput(dict):
         The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class JobIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+        :param str principal_id: The ID of the Principal (Client) in Azure Active Directory.
+        :param str tenant_id: The ID of the Azure Active Directory Tenant.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The ID of the Principal (Client) in Azure Active Directory.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The ID of the Azure Active Directory Tenant.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -575,5 +638,45 @@ class StreamInputIotHubSerialization(dict):
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
         """
         return pulumi.get(self, "field_delimiter")
+
+
+@pulumi.output_type
+class GetJobIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The ID of the Principal (Client) in Azure Active Directory.
+        :param str tenant_id: The ID of the Azure Active Directory Tenant.
+        :param str type: The type of identity used for the Stream Analytics Job.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The ID of the Principal (Client) in Azure Active Directory.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The ID of the Azure Active Directory Tenant.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of identity used for the Stream Analytics Job.
+        """
+        return pulumi.get(self, "type")
 
 

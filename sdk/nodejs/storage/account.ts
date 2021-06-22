@@ -307,6 +307,7 @@ export class Account extends pulumi.CustomResource {
      * The hostname with port if applicable for web storage in the secondary location.
      */
     public /*out*/ readonly secondaryWebHost!: pulumi.Output<string>;
+    public readonly shareProperties!: pulumi.Output<outputs.storage.AccountShareProperties>;
     /**
      * A `staticWebsite` block as defined below.
      */
@@ -381,6 +382,7 @@ export class Account extends pulumi.CustomResource {
             inputs["secondaryTableHost"] = state ? state.secondaryTableHost : undefined;
             inputs["secondaryWebEndpoint"] = state ? state.secondaryWebEndpoint : undefined;
             inputs["secondaryWebHost"] = state ? state.secondaryWebHost : undefined;
+            inputs["shareProperties"] = state ? state.shareProperties : undefined;
             inputs["staticWebsite"] = state ? state.staticWebsite : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -414,6 +416,7 @@ export class Account extends pulumi.CustomResource {
             inputs["queueProperties"] = args ? args.queueProperties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routing"] = args ? args.routing : undefined;
+            inputs["shareProperties"] = args ? args.shareProperties : undefined;
             inputs["staticWebsite"] = args ? args.staticWebsite : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["primaryAccessKey"] = undefined /*out*/;
@@ -669,6 +672,7 @@ export interface AccountState {
      * The hostname with port if applicable for web storage in the secondary location.
      */
     secondaryWebHost?: pulumi.Input<string>;
+    shareProperties?: pulumi.Input<inputs.storage.AccountShareProperties>;
     /**
      * A `staticWebsite` block as defined below.
      */
@@ -764,6 +768,7 @@ export interface AccountArgs {
      * A `routing` block as defined below.
      */
     routing?: pulumi.Input<inputs.storage.AccountRouting>;
+    shareProperties?: pulumi.Input<inputs.storage.AccountShareProperties>;
     /**
      * A `staticWebsite` block as defined below.
      */

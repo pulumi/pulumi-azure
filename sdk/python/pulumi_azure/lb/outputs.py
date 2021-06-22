@@ -73,7 +73,9 @@ class LoadBalancerFrontendIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "inboundNatRules":
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "inboundNatRules":
             suggest = "inbound_nat_rules"
         elif key == "loadBalancerRules":
             suggest = "load_balancer_rules"
@@ -105,6 +107,7 @@ class LoadBalancerFrontendIpConfiguration(dict):
 
     def __init__(__self__, *,
                  name: str,
+                 availability_zone: Optional[str] = None,
                  id: Optional[str] = None,
                  inbound_nat_rules: Optional[Sequence[str]] = None,
                  load_balancer_rules: Optional[Sequence[str]] = None,
@@ -118,6 +121,8 @@ class LoadBalancerFrontendIpConfiguration(dict):
                  zones: Optional[str] = None):
         """
         :param str name: Specifies the name of the frontend ip configuration.
+        :param str availability_zone: A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+               `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
         :param str id: The id of the Frontend IP Configuration.
         :param Sequence[str] inbound_nat_rules: The list of IDs of inbound rules that use this frontend IP.
         :param Sequence[str] load_balancer_rules: The list of IDs of load balancing rules that use this frontend IP.
@@ -128,9 +133,10 @@ class LoadBalancerFrontendIpConfiguration(dict):
         :param str public_ip_address_id: The ID of a Public IP Address which should be associated with the Load Balancer.
         :param str public_ip_prefix_id: The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
         :param str subnet_id: The ID of the Subnet which should be associated with the IP Configuration.
-        :param str zones: A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
         """
         pulumi.set(__self__, "name", name)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if inbound_nat_rules is not None:
@@ -161,6 +167,15 @@ class LoadBalancerFrontendIpConfiguration(dict):
         Specifies the name of the frontend ip configuration.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        """
+        A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+        `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
+        """
+        return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter
@@ -245,9 +260,6 @@ class LoadBalancerFrontendIpConfiguration(dict):
     @property
     @pulumi.getter
     def zones(self) -> Optional[str]:
-        """
-        A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
-        """
         return pulumi.get(self, "zones")
 
 

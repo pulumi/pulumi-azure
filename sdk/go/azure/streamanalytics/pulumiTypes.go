@@ -238,6 +238,175 @@ func (o FunctionJavaScriptUDFOutputTypePtrOutput) Type() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type JobIdentity struct {
+	// The ID of the Principal (Client) in Azure Active Directory.
+	PrincipalId *string `pulumi:"principalId"`
+	// The ID of the Azure Active Directory Tenant.
+	TenantId *string `pulumi:"tenantId"`
+	// The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// JobIdentityInput is an input type that accepts JobIdentityArgs and JobIdentityOutput values.
+// You can construct a concrete instance of `JobIdentityInput` via:
+//
+//          JobIdentityArgs{...}
+type JobIdentityInput interface {
+	pulumi.Input
+
+	ToJobIdentityOutput() JobIdentityOutput
+	ToJobIdentityOutputWithContext(context.Context) JobIdentityOutput
+}
+
+type JobIdentityArgs struct {
+	// The ID of the Principal (Client) in Azure Active Directory.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The ID of the Azure Active Directory Tenant.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JobIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobIdentity)(nil)).Elem()
+}
+
+func (i JobIdentityArgs) ToJobIdentityOutput() JobIdentityOutput {
+	return i.ToJobIdentityOutputWithContext(context.Background())
+}
+
+func (i JobIdentityArgs) ToJobIdentityOutputWithContext(ctx context.Context) JobIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobIdentityOutput)
+}
+
+func (i JobIdentityArgs) ToJobIdentityPtrOutput() JobIdentityPtrOutput {
+	return i.ToJobIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i JobIdentityArgs) ToJobIdentityPtrOutputWithContext(ctx context.Context) JobIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobIdentityOutput).ToJobIdentityPtrOutputWithContext(ctx)
+}
+
+// JobIdentityPtrInput is an input type that accepts JobIdentityArgs, JobIdentityPtr and JobIdentityPtrOutput values.
+// You can construct a concrete instance of `JobIdentityPtrInput` via:
+//
+//          JobIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type JobIdentityPtrInput interface {
+	pulumi.Input
+
+	ToJobIdentityPtrOutput() JobIdentityPtrOutput
+	ToJobIdentityPtrOutputWithContext(context.Context) JobIdentityPtrOutput
+}
+
+type jobIdentityPtrType JobIdentityArgs
+
+func JobIdentityPtr(v *JobIdentityArgs) JobIdentityPtrInput {
+	return (*jobIdentityPtrType)(v)
+}
+
+func (*jobIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobIdentity)(nil)).Elem()
+}
+
+func (i *jobIdentityPtrType) ToJobIdentityPtrOutput() JobIdentityPtrOutput {
+	return i.ToJobIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *jobIdentityPtrType) ToJobIdentityPtrOutputWithContext(ctx context.Context) JobIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobIdentityPtrOutput)
+}
+
+type JobIdentityOutput struct{ *pulumi.OutputState }
+
+func (JobIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobIdentity)(nil)).Elem()
+}
+
+func (o JobIdentityOutput) ToJobIdentityOutput() JobIdentityOutput {
+	return o
+}
+
+func (o JobIdentityOutput) ToJobIdentityOutputWithContext(ctx context.Context) JobIdentityOutput {
+	return o
+}
+
+func (o JobIdentityOutput) ToJobIdentityPtrOutput() JobIdentityPtrOutput {
+	return o.ToJobIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o JobIdentityOutput) ToJobIdentityPtrOutputWithContext(ctx context.Context) JobIdentityPtrOutput {
+	return o.ApplyT(func(v JobIdentity) *JobIdentity {
+		return &v
+	}).(JobIdentityPtrOutput)
+}
+
+// The ID of the Principal (Client) in Azure Active Directory.
+func (o JobIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure Active Directory Tenant.
+func (o JobIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+func (o JobIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JobIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type JobIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (JobIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobIdentity)(nil)).Elem()
+}
+
+func (o JobIdentityPtrOutput) ToJobIdentityPtrOutput() JobIdentityPtrOutput {
+	return o
+}
+
+func (o JobIdentityPtrOutput) ToJobIdentityPtrOutputWithContext(ctx context.Context) JobIdentityPtrOutput {
+	return o
+}
+
+func (o JobIdentityPtrOutput) Elem() JobIdentityOutput {
+	return o.ApplyT(func(v *JobIdentity) JobIdentity { return *v }).(JobIdentityOutput)
+}
+
+// The ID of the Principal (Client) in Azure Active Directory.
+func (o JobIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure Active Directory Tenant.
+func (o JobIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+func (o JobIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type OutputBlobSerialization struct {
 	// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 	Encoding *string `pulumi:"encoding"`
@@ -1666,11 +1835,128 @@ func (o StreamInputIotHubSerializationPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetJobIdentity struct {
+	// The ID of the Principal (Client) in Azure Active Directory.
+	PrincipalId string `pulumi:"principalId"`
+	// The ID of the Azure Active Directory Tenant.
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for the Stream Analytics Job.
+	Type string `pulumi:"type"`
+}
+
+// GetJobIdentityInput is an input type that accepts GetJobIdentityArgs and GetJobIdentityOutput values.
+// You can construct a concrete instance of `GetJobIdentityInput` via:
+//
+//          GetJobIdentityArgs{...}
+type GetJobIdentityInput interface {
+	pulumi.Input
+
+	ToGetJobIdentityOutput() GetJobIdentityOutput
+	ToGetJobIdentityOutputWithContext(context.Context) GetJobIdentityOutput
+}
+
+type GetJobIdentityArgs struct {
+	// The ID of the Principal (Client) in Azure Active Directory.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The ID of the Azure Active Directory Tenant.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of identity used for the Stream Analytics Job.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetJobIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobIdentity)(nil)).Elem()
+}
+
+func (i GetJobIdentityArgs) ToGetJobIdentityOutput() GetJobIdentityOutput {
+	return i.ToGetJobIdentityOutputWithContext(context.Background())
+}
+
+func (i GetJobIdentityArgs) ToGetJobIdentityOutputWithContext(ctx context.Context) GetJobIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobIdentityOutput)
+}
+
+// GetJobIdentityArrayInput is an input type that accepts GetJobIdentityArray and GetJobIdentityArrayOutput values.
+// You can construct a concrete instance of `GetJobIdentityArrayInput` via:
+//
+//          GetJobIdentityArray{ GetJobIdentityArgs{...} }
+type GetJobIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetJobIdentityArrayOutput() GetJobIdentityArrayOutput
+	ToGetJobIdentityArrayOutputWithContext(context.Context) GetJobIdentityArrayOutput
+}
+
+type GetJobIdentityArray []GetJobIdentityInput
+
+func (GetJobIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobIdentity)(nil)).Elem()
+}
+
+func (i GetJobIdentityArray) ToGetJobIdentityArrayOutput() GetJobIdentityArrayOutput {
+	return i.ToGetJobIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobIdentityArray) ToGetJobIdentityArrayOutputWithContext(ctx context.Context) GetJobIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobIdentityArrayOutput)
+}
+
+type GetJobIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetJobIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobIdentity)(nil)).Elem()
+}
+
+func (o GetJobIdentityOutput) ToGetJobIdentityOutput() GetJobIdentityOutput {
+	return o
+}
+
+func (o GetJobIdentityOutput) ToGetJobIdentityOutputWithContext(ctx context.Context) GetJobIdentityOutput {
+	return o
+}
+
+// The ID of the Principal (Client) in Azure Active Directory.
+func (o GetJobIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The ID of the Azure Active Directory Tenant.
+func (o GetJobIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the Stream Analytics Job.
+func (o GetJobIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetJobIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobIdentity)(nil)).Elem()
+}
+
+func (o GetJobIdentityArrayOutput) ToGetJobIdentityArrayOutput() GetJobIdentityArrayOutput {
+	return o
+}
+
+func (o GetJobIdentityArrayOutput) ToGetJobIdentityArrayOutputWithContext(ctx context.Context) GetJobIdentityArrayOutput {
+	return o
+}
+
+func (o GetJobIdentityArrayOutput) Index(i pulumi.IntInput) GetJobIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobIdentity {
+		return vs[0].([]GetJobIdentity)[vs[1].(int)]
+	}).(GetJobIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFInputTypeOutput{})
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFOutputTypeOutput{})
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFOutputTypePtrOutput{})
+	pulumi.RegisterOutputType(JobIdentityOutput{})
+	pulumi.RegisterOutputType(JobIdentityPtrOutput{})
 	pulumi.RegisterOutputType(OutputBlobSerializationOutput{})
 	pulumi.RegisterOutputType(OutputBlobSerializationPtrOutput{})
 	pulumi.RegisterOutputType(OutputEventHubSerializationOutput{})
@@ -1687,4 +1973,6 @@ func init() {
 	pulumi.RegisterOutputType(StreamInputEventHubSerializationPtrOutput{})
 	pulumi.RegisterOutputType(StreamInputIotHubSerializationOutput{})
 	pulumi.RegisterOutputType(StreamInputIotHubSerializationPtrOutput{})
+	pulumi.RegisterOutputType(GetJobIdentityOutput{})
+	pulumi.RegisterOutputType(GetJobIdentityArrayOutput{})
 }

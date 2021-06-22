@@ -21,15 +21,22 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// A mapping of tags to assign to this replication location.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+        /// </summary>
+        public readonly bool? ZoneRedundancyEnabled;
 
         [OutputConstructor]
         private RegistryGeoreplication(
             string location,
 
-            ImmutableDictionary<string, string>? tags)
+            ImmutableDictionary<string, string>? tags,
+
+            bool? zoneRedundancyEnabled)
         {
             Location = location;
             Tags = tags;
+            ZoneRedundancyEnabled = zoneRedundancyEnabled;
         }
     }
 }

@@ -3182,7 +3182,7 @@ class MetricAlertCriteriaDimension(dict):
                  values: Sequence[str]):
         """
         :param str name: One of the dimension names.
-        :param str operator: The dimension operator. Possible values are `Include` and `Exclude`.
+        :param str operator: The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
         :param Sequence[str] values: The list of dimension values.
         """
         pulumi.set(__self__, "name", name)
@@ -3201,7 +3201,7 @@ class MetricAlertCriteriaDimension(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        The dimension operator. Possible values are `Include` and `Exclude`.
+        The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
         """
         return pulumi.get(self, "operator")
 
@@ -3373,7 +3373,7 @@ class MetricAlertDynamicCriteriaDimension(dict):
                  values: Sequence[str]):
         """
         :param str name: One of the dimension names.
-        :param str operator: The dimension operator. Possible values are `Include` and `Exclude`.
+        :param str operator: The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
         :param Sequence[str] values: The list of dimension values.
         """
         pulumi.set(__self__, "name", name)
@@ -3392,7 +3392,7 @@ class MetricAlertDynamicCriteriaDimension(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        The dimension operator. Possible values are `Include` and `Exclude`.
+        The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
         """
         return pulumi.get(self, "operator")
 

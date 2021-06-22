@@ -27,6 +27,10 @@ __all__ = [
     'AccountQueuePropertiesLogging',
     'AccountQueuePropertiesMinuteMetrics',
     'AccountRouting',
+    'AccountShareProperties',
+    'AccountSharePropertiesCorsRule',
+    'AccountSharePropertiesRetentionPolicy',
+    'AccountSharePropertiesSmb',
     'AccountStaticWebsite',
     'BlobInventoryPolicyRule',
     'BlobInventoryPolicyRuleFilter',
@@ -1214,6 +1218,252 @@ class AccountRouting(dict):
         Should microsoft routing storage endpoints be published? Defaults to `false`.
         """
         return pulumi.get(self, "publish_microsoft_endpoints")
+
+
+@pulumi.output_type
+class AccountShareProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "corsRules":
+            suggest = "cors_rules"
+        elif key == "retentionPolicy":
+            suggest = "retention_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountShareProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountShareProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountShareProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cors_rules: Optional[Sequence['outputs.AccountSharePropertiesCorsRule']] = None,
+                 retention_policy: Optional['outputs.AccountSharePropertiesRetentionPolicy'] = None,
+                 smb: Optional['outputs.AccountSharePropertiesSmb'] = None):
+        """
+        :param Sequence['AccountSharePropertiesCorsRuleArgs'] cors_rules: A `cors_rule` block as defined below.
+        :param 'AccountSharePropertiesRetentionPolicyArgs' retention_policy: (Optional) A `retention_policy` block as defined below.
+        :param 'AccountSharePropertiesSmbArgs' smb: (Optional) A `smb` block as defined below.
+        """
+        if cors_rules is not None:
+            pulumi.set(__self__, "cors_rules", cors_rules)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if smb is not None:
+            pulumi.set(__self__, "smb", smb)
+
+    @property
+    @pulumi.getter(name="corsRules")
+    def cors_rules(self) -> Optional[Sequence['outputs.AccountSharePropertiesCorsRule']]:
+        """
+        A `cors_rule` block as defined below.
+        """
+        return pulumi.get(self, "cors_rules")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.AccountSharePropertiesRetentionPolicy']:
+        """
+        (Optional) A `retention_policy` block as defined below.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter
+    def smb(self) -> Optional['outputs.AccountSharePropertiesSmb']:
+        """
+        (Optional) A `smb` block as defined below.
+        """
+        return pulumi.get(self, "smb")
+
+
+@pulumi.output_type
+class AccountSharePropertiesCorsRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "exposedHeaders":
+            suggest = "exposed_headers"
+        elif key == "maxAgeInSeconds":
+            suggest = "max_age_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountSharePropertiesCorsRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountSharePropertiesCorsRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountSharePropertiesCorsRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_headers: Sequence[str],
+                 allowed_methods: Sequence[str],
+                 allowed_origins: Sequence[str],
+                 exposed_headers: Sequence[str],
+                 max_age_in_seconds: int):
+        """
+        :param Sequence[str] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
+        :param Sequence[str] allowed_methods: A list of http headers that are allowed to be executed by the origin. Valid options are
+               `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        :param Sequence[str] allowed_origins: A list of origin domains that will be allowed by CORS.
+        :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
+        :param int max_age_in_seconds: The number of seconds the client should cache a preflight response.
+        """
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "exposed_headers", exposed_headers)
+        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Sequence[str]:
+        """
+        A list of headers that are allowed to be a part of the cross-origin request.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Sequence[str]:
+        """
+        A list of http headers that are allowed to be executed by the origin. Valid options are
+        `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[str]:
+        """
+        A list of origin domains that will be allowed by CORS.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> Sequence[str]:
+        """
+        A list of response headers that are exposed to CORS clients.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> int:
+        """
+        The number of seconds the client should cache a preflight response.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
+
+
+@pulumi.output_type
+class AccountSharePropertiesRetentionPolicy(dict):
+    def __init__(__self__, *,
+                 days: Optional[int] = None):
+        """
+        :param int days: Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[int]:
+        """
+        Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        """
+        return pulumi.get(self, "days")
+
+
+@pulumi.output_type
+class AccountSharePropertiesSmb(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationTypes":
+            suggest = "authentication_types"
+        elif key == "channelEncryptionTypes":
+            suggest = "channel_encryption_types"
+        elif key == "kerberosTicketEncryptionTypes":
+            suggest = "kerberos_ticket_encryption_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountSharePropertiesSmb. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountSharePropertiesSmb.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountSharePropertiesSmb.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_types: Optional[Sequence[str]] = None,
+                 channel_encryption_types: Optional[Sequence[str]] = None,
+                 kerberos_ticket_encryption_types: Optional[Sequence[str]] = None,
+                 versions: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] authentication_types: (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+        :param Sequence[str] channel_encryption_types: (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+        :param Sequence[str] kerberos_ticket_encryption_types: (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+        :param Sequence[str] versions: (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+        """
+        if authentication_types is not None:
+            pulumi.set(__self__, "authentication_types", authentication_types)
+        if channel_encryption_types is not None:
+            pulumi.set(__self__, "channel_encryption_types", channel_encryption_types)
+        if kerberos_ticket_encryption_types is not None:
+            pulumi.set(__self__, "kerberos_ticket_encryption_types", kerberos_ticket_encryption_types)
+        if versions is not None:
+            pulumi.set(__self__, "versions", versions)
+
+    @property
+    @pulumi.getter(name="authenticationTypes")
+    def authentication_types(self) -> Optional[Sequence[str]]:
+        """
+        (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+        """
+        return pulumi.get(self, "authentication_types")
+
+    @property
+    @pulumi.getter(name="channelEncryptionTypes")
+    def channel_encryption_types(self) -> Optional[Sequence[str]]:
+        """
+        (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+        """
+        return pulumi.get(self, "channel_encryption_types")
+
+    @property
+    @pulumi.getter(name="kerberosTicketEncryptionTypes")
+    def kerberos_ticket_encryption_types(self) -> Optional[Sequence[str]]:
+        """
+        (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+        """
+        return pulumi.get(self, "kerberos_ticket_encryption_types")
+
+    @property
+    @pulumi.getter
+    def versions(self) -> Optional[Sequence[str]]:
+        """
+        (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+        """
+        return pulumi.get(self, "versions")
 
 
 @pulumi.output_type

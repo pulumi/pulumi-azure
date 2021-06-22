@@ -2552,6 +2552,121 @@ func (o FactoryGithubConfigurationPtrOutput) RootFolder() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type FactoryGlobalParameter struct {
+	// Specifies the global parameter name.
+	Name string `pulumi:"name"`
+	// Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
+	Type string `pulumi:"type"`
+	// Specifies the global parameter value.
+	Value string `pulumi:"value"`
+}
+
+// FactoryGlobalParameterInput is an input type that accepts FactoryGlobalParameterArgs and FactoryGlobalParameterOutput values.
+// You can construct a concrete instance of `FactoryGlobalParameterInput` via:
+//
+//          FactoryGlobalParameterArgs{...}
+type FactoryGlobalParameterInput interface {
+	pulumi.Input
+
+	ToFactoryGlobalParameterOutput() FactoryGlobalParameterOutput
+	ToFactoryGlobalParameterOutputWithContext(context.Context) FactoryGlobalParameterOutput
+}
+
+type FactoryGlobalParameterArgs struct {
+	// Specifies the global parameter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the global parameter value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FactoryGlobalParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FactoryGlobalParameter)(nil)).Elem()
+}
+
+func (i FactoryGlobalParameterArgs) ToFactoryGlobalParameterOutput() FactoryGlobalParameterOutput {
+	return i.ToFactoryGlobalParameterOutputWithContext(context.Background())
+}
+
+func (i FactoryGlobalParameterArgs) ToFactoryGlobalParameterOutputWithContext(ctx context.Context) FactoryGlobalParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FactoryGlobalParameterOutput)
+}
+
+// FactoryGlobalParameterArrayInput is an input type that accepts FactoryGlobalParameterArray and FactoryGlobalParameterArrayOutput values.
+// You can construct a concrete instance of `FactoryGlobalParameterArrayInput` via:
+//
+//          FactoryGlobalParameterArray{ FactoryGlobalParameterArgs{...} }
+type FactoryGlobalParameterArrayInput interface {
+	pulumi.Input
+
+	ToFactoryGlobalParameterArrayOutput() FactoryGlobalParameterArrayOutput
+	ToFactoryGlobalParameterArrayOutputWithContext(context.Context) FactoryGlobalParameterArrayOutput
+}
+
+type FactoryGlobalParameterArray []FactoryGlobalParameterInput
+
+func (FactoryGlobalParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FactoryGlobalParameter)(nil)).Elem()
+}
+
+func (i FactoryGlobalParameterArray) ToFactoryGlobalParameterArrayOutput() FactoryGlobalParameterArrayOutput {
+	return i.ToFactoryGlobalParameterArrayOutputWithContext(context.Background())
+}
+
+func (i FactoryGlobalParameterArray) ToFactoryGlobalParameterArrayOutputWithContext(ctx context.Context) FactoryGlobalParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FactoryGlobalParameterArrayOutput)
+}
+
+type FactoryGlobalParameterOutput struct{ *pulumi.OutputState }
+
+func (FactoryGlobalParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FactoryGlobalParameter)(nil)).Elem()
+}
+
+func (o FactoryGlobalParameterOutput) ToFactoryGlobalParameterOutput() FactoryGlobalParameterOutput {
+	return o
+}
+
+func (o FactoryGlobalParameterOutput) ToFactoryGlobalParameterOutputWithContext(ctx context.Context) FactoryGlobalParameterOutput {
+	return o
+}
+
+// Specifies the global parameter name.
+func (o FactoryGlobalParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FactoryGlobalParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
+func (o FactoryGlobalParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FactoryGlobalParameter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the global parameter value.
+func (o FactoryGlobalParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FactoryGlobalParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FactoryGlobalParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (FactoryGlobalParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FactoryGlobalParameter)(nil)).Elem()
+}
+
+func (o FactoryGlobalParameterArrayOutput) ToFactoryGlobalParameterArrayOutput() FactoryGlobalParameterArrayOutput {
+	return o
+}
+
+func (o FactoryGlobalParameterArrayOutput) ToFactoryGlobalParameterArrayOutputWithContext(ctx context.Context) FactoryGlobalParameterArrayOutput {
+	return o
+}
+
+func (o FactoryGlobalParameterArrayOutput) Index(i pulumi.IntInput) FactoryGlobalParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FactoryGlobalParameter {
+		return vs[0].([]FactoryGlobalParameter)[vs[1].(int)]
+	}).(FactoryGlobalParameterOutput)
+}
+
 type FactoryIdentity struct {
 	// Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -5143,6 +5258,156 @@ func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput) SecretName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+type LinkedServiceOdataBasicAuthentication struct {
+	// The password associated with the username, which can be used to authenticate to the OData endpoint.
+	Password string `pulumi:"password"`
+	// The username which can be used to authenticate to the OData endpoint.
+	Username string `pulumi:"username"`
+}
+
+// LinkedServiceOdataBasicAuthenticationInput is an input type that accepts LinkedServiceOdataBasicAuthenticationArgs and LinkedServiceOdataBasicAuthenticationOutput values.
+// You can construct a concrete instance of `LinkedServiceOdataBasicAuthenticationInput` via:
+//
+//          LinkedServiceOdataBasicAuthenticationArgs{...}
+type LinkedServiceOdataBasicAuthenticationInput interface {
+	pulumi.Input
+
+	ToLinkedServiceOdataBasicAuthenticationOutput() LinkedServiceOdataBasicAuthenticationOutput
+	ToLinkedServiceOdataBasicAuthenticationOutputWithContext(context.Context) LinkedServiceOdataBasicAuthenticationOutput
+}
+
+type LinkedServiceOdataBasicAuthenticationArgs struct {
+	// The password associated with the username, which can be used to authenticate to the OData endpoint.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username which can be used to authenticate to the OData endpoint.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (LinkedServiceOdataBasicAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceOdataBasicAuthentication)(nil)).Elem()
+}
+
+func (i LinkedServiceOdataBasicAuthenticationArgs) ToLinkedServiceOdataBasicAuthenticationOutput() LinkedServiceOdataBasicAuthenticationOutput {
+	return i.ToLinkedServiceOdataBasicAuthenticationOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceOdataBasicAuthenticationArgs) ToLinkedServiceOdataBasicAuthenticationOutputWithContext(ctx context.Context) LinkedServiceOdataBasicAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOdataBasicAuthenticationOutput)
+}
+
+func (i LinkedServiceOdataBasicAuthenticationArgs) ToLinkedServiceOdataBasicAuthenticationPtrOutput() LinkedServiceOdataBasicAuthenticationPtrOutput {
+	return i.ToLinkedServiceOdataBasicAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceOdataBasicAuthenticationArgs) ToLinkedServiceOdataBasicAuthenticationPtrOutputWithContext(ctx context.Context) LinkedServiceOdataBasicAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOdataBasicAuthenticationOutput).ToLinkedServiceOdataBasicAuthenticationPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceOdataBasicAuthenticationPtrInput is an input type that accepts LinkedServiceOdataBasicAuthenticationArgs, LinkedServiceOdataBasicAuthenticationPtr and LinkedServiceOdataBasicAuthenticationPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceOdataBasicAuthenticationPtrInput` via:
+//
+//          LinkedServiceOdataBasicAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceOdataBasicAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceOdataBasicAuthenticationPtrOutput() LinkedServiceOdataBasicAuthenticationPtrOutput
+	ToLinkedServiceOdataBasicAuthenticationPtrOutputWithContext(context.Context) LinkedServiceOdataBasicAuthenticationPtrOutput
+}
+
+type linkedServiceOdataBasicAuthenticationPtrType LinkedServiceOdataBasicAuthenticationArgs
+
+func LinkedServiceOdataBasicAuthenticationPtr(v *LinkedServiceOdataBasicAuthenticationArgs) LinkedServiceOdataBasicAuthenticationPtrInput {
+	return (*linkedServiceOdataBasicAuthenticationPtrType)(v)
+}
+
+func (*linkedServiceOdataBasicAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceOdataBasicAuthentication)(nil)).Elem()
+}
+
+func (i *linkedServiceOdataBasicAuthenticationPtrType) ToLinkedServiceOdataBasicAuthenticationPtrOutput() LinkedServiceOdataBasicAuthenticationPtrOutput {
+	return i.ToLinkedServiceOdataBasicAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceOdataBasicAuthenticationPtrType) ToLinkedServiceOdataBasicAuthenticationPtrOutputWithContext(ctx context.Context) LinkedServiceOdataBasicAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOdataBasicAuthenticationPtrOutput)
+}
+
+type LinkedServiceOdataBasicAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceOdataBasicAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceOdataBasicAuthentication)(nil)).Elem()
+}
+
+func (o LinkedServiceOdataBasicAuthenticationOutput) ToLinkedServiceOdataBasicAuthenticationOutput() LinkedServiceOdataBasicAuthenticationOutput {
+	return o
+}
+
+func (o LinkedServiceOdataBasicAuthenticationOutput) ToLinkedServiceOdataBasicAuthenticationOutputWithContext(ctx context.Context) LinkedServiceOdataBasicAuthenticationOutput {
+	return o
+}
+
+func (o LinkedServiceOdataBasicAuthenticationOutput) ToLinkedServiceOdataBasicAuthenticationPtrOutput() LinkedServiceOdataBasicAuthenticationPtrOutput {
+	return o.ToLinkedServiceOdataBasicAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceOdataBasicAuthenticationOutput) ToLinkedServiceOdataBasicAuthenticationPtrOutputWithContext(ctx context.Context) LinkedServiceOdataBasicAuthenticationPtrOutput {
+	return o.ApplyT(func(v LinkedServiceOdataBasicAuthentication) *LinkedServiceOdataBasicAuthentication {
+		return &v
+	}).(LinkedServiceOdataBasicAuthenticationPtrOutput)
+}
+
+// The password associated with the username, which can be used to authenticate to the OData endpoint.
+func (o LinkedServiceOdataBasicAuthenticationOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceOdataBasicAuthentication) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The username which can be used to authenticate to the OData endpoint.
+func (o LinkedServiceOdataBasicAuthenticationOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceOdataBasicAuthentication) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type LinkedServiceOdataBasicAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceOdataBasicAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceOdataBasicAuthentication)(nil)).Elem()
+}
+
+func (o LinkedServiceOdataBasicAuthenticationPtrOutput) ToLinkedServiceOdataBasicAuthenticationPtrOutput() LinkedServiceOdataBasicAuthenticationPtrOutput {
+	return o
+}
+
+func (o LinkedServiceOdataBasicAuthenticationPtrOutput) ToLinkedServiceOdataBasicAuthenticationPtrOutputWithContext(ctx context.Context) LinkedServiceOdataBasicAuthenticationPtrOutput {
+	return o
+}
+
+func (o LinkedServiceOdataBasicAuthenticationPtrOutput) Elem() LinkedServiceOdataBasicAuthenticationOutput {
+	return o.ApplyT(func(v *LinkedServiceOdataBasicAuthentication) LinkedServiceOdataBasicAuthentication { return *v }).(LinkedServiceOdataBasicAuthenticationOutput)
+}
+
+// The password associated with the username, which can be used to authenticate to the OData endpoint.
+func (o LinkedServiceOdataBasicAuthenticationPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceOdataBasicAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username which can be used to authenticate to the OData endpoint.
+func (o LinkedServiceOdataBasicAuthenticationPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceOdataBasicAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinkedServiceSnowflakeKeyVaultPassword struct {
 	// Specifies the name of an existing Key Vault Data Factory Linked Service.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
@@ -6178,6 +6443,8 @@ func init() {
 	pulumi.RegisterOutputType(DatasetSqlServerTableSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(FactoryGithubConfigurationOutput{})
 	pulumi.RegisterOutputType(FactoryGithubConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FactoryGlobalParameterOutput{})
+	pulumi.RegisterOutputType(FactoryGlobalParameterArrayOutput{})
 	pulumi.RegisterOutputType(FactoryIdentityOutput{})
 	pulumi.RegisterOutputType(FactoryIdentityPtrOutput{})
 	pulumi.RegisterOutputType(FactoryVstsConfigurationOutput{})
@@ -6208,6 +6475,8 @@ func init() {
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceOdataBasicAuthenticationOutput{})
+	pulumi.RegisterOutputType(LinkedServiceOdataBasicAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultConnectionStringOutput{})

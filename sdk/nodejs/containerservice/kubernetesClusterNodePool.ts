@@ -63,9 +63,17 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
+     * A `kubeletConfig` block as defined below.
+     */
+    public readonly kubeletConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolKubeletConfig | undefined>;
+    /**
      * The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
      */
     public readonly kubernetesClusterId!: pulumi.Output<string>;
+    /**
+     * A `linuxOsConfig` block as defined below.
+     */
+    public readonly linuxOsConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolLinuxOsConfig | undefined>;
     /**
      * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
      */
@@ -165,7 +173,9 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["enableHostEncryption"] = state ? state.enableHostEncryption : undefined;
             inputs["enableNodePublicIp"] = state ? state.enableNodePublicIp : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
+            inputs["kubeletConfig"] = state ? state.kubeletConfig : undefined;
             inputs["kubernetesClusterId"] = state ? state.kubernetesClusterId : undefined;
+            inputs["linuxOsConfig"] = state ? state.linuxOsConfig : undefined;
             inputs["maxCount"] = state ? state.maxCount : undefined;
             inputs["maxPods"] = state ? state.maxPods : undefined;
             inputs["minCount"] = state ? state.minCount : undefined;
@@ -199,7 +209,9 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["enableHostEncryption"] = args ? args.enableHostEncryption : undefined;
             inputs["enableNodePublicIp"] = args ? args.enableNodePublicIp : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            inputs["kubeletConfig"] = args ? args.kubeletConfig : undefined;
             inputs["kubernetesClusterId"] = args ? args.kubernetesClusterId : undefined;
+            inputs["linuxOsConfig"] = args ? args.linuxOsConfig : undefined;
             inputs["maxCount"] = args ? args.maxCount : undefined;
             inputs["maxPods"] = args ? args.maxPods : undefined;
             inputs["minCount"] = args ? args.minCount : undefined;
@@ -253,9 +265,17 @@ export interface KubernetesClusterNodePoolState {
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
+     * A `kubeletConfig` block as defined below.
+     */
+    kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolKubeletConfig>;
+    /**
      * The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
      */
     kubernetesClusterId?: pulumi.Input<string>;
+    /**
+     * A `linuxOsConfig` block as defined below.
+     */
+    linuxOsConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolLinuxOsConfig>;
     /**
      * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
      */
@@ -363,9 +383,17 @@ export interface KubernetesClusterNodePoolArgs {
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
+     * A `kubeletConfig` block as defined below.
+     */
+    kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolKubeletConfig>;
+    /**
      * The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
      */
     kubernetesClusterId: pulumi.Input<string>;
+    /**
+     * A `linuxOsConfig` block as defined below.
+     */
+    linuxOsConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolLinuxOsConfig>;
     /**
      * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
      */

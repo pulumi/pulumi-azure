@@ -27,6 +27,7 @@ from .get_namespace_authorization_rule import *
 from .get_service_bus_namespace import *
 from .namespace import *
 from .namespace_authorization_rule import *
+from .namespace_customer_managed_key import *
 from .queue import *
 from .queue_authorization_rule import *
 from .subscription import *

@@ -77,10 +77,22 @@ namespace Pulumi.Azure.ApiManagement
         public Output<ImmutableArray<Outputs.ServiceCertificate>> Certificates { get; private set; } = null!;
 
         /// <summary>
+        /// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        /// </summary>
+        [Output("clientCertificateEnabled")]
+        public Output<bool?> ClientCertificateEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The URL for the Developer Portal associated with this API Management service.
         /// </summary>
         [Output("developerPortalUrl")]
         public Output<string> DeveloperPortalUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Disable the gateway in master region? This is only supported when `additional_location` is set.
+        /// </summary>
+        [Output("gatewayDisabled")]
+        public Output<bool?> GatewayDisabled { get; private set; } = null!;
 
         /// <summary>
         /// The URL of the Regional Gateway for the API Management Service in the specified region.
@@ -117,6 +129,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Output("managementApiUrl")]
         public Output<string> ManagementApiUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+        /// </summary>
+        [Output("minApiVersion")]
+        public Output<string?> MinApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -233,6 +251,12 @@ namespace Pulumi.Azure.ApiManagement
         [Output("virtualNetworkType")]
         public Output<string?> VirtualNetworkType { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of availability zones.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Service resource with the given unique name, arguments, and options.
@@ -304,6 +328,18 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
+        /// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        /// </summary>
+        [Input("clientCertificateEnabled")]
+        public Input<bool>? ClientCertificateEnabled { get; set; }
+
+        /// <summary>
+        /// Disable the gateway in master region? This is only supported when `additional_location` is set.
+        /// </summary>
+        [Input("gatewayDisabled")]
+        public Input<bool>? GatewayDisabled { get; set; }
+
+        /// <summary>
         /// A `hostname_configuration` block as defined below.
         /// </summary>
         [Input("hostnameConfiguration")]
@@ -320,6 +356,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+        /// </summary>
+        [Input("minApiVersion")]
+        public Input<string>? MinApiVersion { get; set; }
 
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -418,6 +460,18 @@ namespace Pulumi.Azure.ApiManagement
         [Input("virtualNetworkType")]
         public Input<string>? VirtualNetworkType { get; set; }
 
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of availability zones.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
+
         public ServiceArgs()
         {
         }
@@ -450,10 +504,22 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
+        /// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        /// </summary>
+        [Input("clientCertificateEnabled")]
+        public Input<bool>? ClientCertificateEnabled { get; set; }
+
+        /// <summary>
         /// The URL for the Developer Portal associated with this API Management service.
         /// </summary>
         [Input("developerPortalUrl")]
         public Input<string>? DeveloperPortalUrl { get; set; }
+
+        /// <summary>
+        /// Disable the gateway in master region? This is only supported when `additional_location` is set.
+        /// </summary>
+        [Input("gatewayDisabled")]
+        public Input<bool>? GatewayDisabled { get; set; }
 
         /// <summary>
         /// The URL of the Regional Gateway for the API Management Service in the specified region.
@@ -490,6 +556,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("managementApiUrl")]
         public Input<string>? ManagementApiUrl { get; set; }
+
+        /// <summary>
+        /// The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+        /// </summary>
+        [Input("minApiVersion")]
+        public Input<string>? MinApiVersion { get; set; }
 
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -623,6 +695,18 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("virtualNetworkType")]
         public Input<string>? VirtualNetworkType { get; set; }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of availability zones.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public ServiceState()
         {

@@ -58,6 +58,8 @@ type Factory struct {
 	CustomerManagedKeyId pulumi.StringPtrOutput `pulumi:"customerManagedKeyId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrOutput `pulumi:"githubConfiguration"`
+	// A list of `globalParameter` blocks as defined above.
+	GlobalParameters FactoryGlobalParameterArrayOutput `pulumi:"globalParameters"`
 	// An `identity` block as defined below.
 	Identity FactoryIdentityOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -110,6 +112,8 @@ type factoryState struct {
 	CustomerManagedKeyId *string `pulumi:"customerManagedKeyId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration *FactoryGithubConfiguration `pulumi:"githubConfiguration"`
+	// A list of `globalParameter` blocks as defined above.
+	GlobalParameters []FactoryGlobalParameter `pulumi:"globalParameters"`
 	// An `identity` block as defined below.
 	Identity *FactoryIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -131,6 +135,8 @@ type FactoryState struct {
 	CustomerManagedKeyId pulumi.StringPtrInput
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrInput
+	// A list of `globalParameter` blocks as defined above.
+	GlobalParameters FactoryGlobalParameterArrayInput
 	// An `identity` block as defined below.
 	Identity FactoryIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -156,6 +162,8 @@ type factoryArgs struct {
 	CustomerManagedKeyId *string `pulumi:"customerManagedKeyId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration *FactoryGithubConfiguration `pulumi:"githubConfiguration"`
+	// A list of `globalParameter` blocks as defined above.
+	GlobalParameters []FactoryGlobalParameter `pulumi:"globalParameters"`
 	// An `identity` block as defined below.
 	Identity *FactoryIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -178,6 +186,8 @@ type FactoryArgs struct {
 	CustomerManagedKeyId pulumi.StringPtrInput
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrInput
+	// A list of `globalParameter` blocks as defined above.
+	GlobalParameters FactoryGlobalParameterArrayInput
 	// An `identity` block as defined below.
 	Identity FactoryIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

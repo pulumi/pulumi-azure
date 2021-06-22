@@ -52,10 +52,22 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> EvictionPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// A `kubelet_config` block as defined below.
+        /// </summary>
+        [Output("kubeletConfig")]
+        public Output<Outputs.KubernetesClusterNodePoolKubeletConfig?> KubeletConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("kubernetesClusterId")]
         public Output<string> KubernetesClusterId { get; private set; } = null!;
+
+        /// <summary>
+        /// A `linux_os_config` block as defined below.
+        /// </summary>
+        [Output("linuxOsConfig")]
+        public Output<Outputs.KubernetesClusterNodePoolLinuxOsConfig?> LinuxOsConfig { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
@@ -260,10 +272,22 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
+        /// A `kubelet_config` block as defined below.
+        /// </summary>
+        [Input("kubeletConfig")]
+        public Input<Inputs.KubernetesClusterNodePoolKubeletConfigArgs>? KubeletConfig { get; set; }
+
+        /// <summary>
         /// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kubernetesClusterId", required: true)]
         public Input<string> KubernetesClusterId { get; set; } = null!;
+
+        /// <summary>
+        /// A `linux_os_config` block as defined below.
+        /// </summary>
+        [Input("linuxOsConfig")]
+        public Input<Inputs.KubernetesClusterNodePoolLinuxOsConfigArgs>? LinuxOsConfig { get; set; }
 
         /// <summary>
         /// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
@@ -447,10 +471,22 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
+        /// A `kubelet_config` block as defined below.
+        /// </summary>
+        [Input("kubeletConfig")]
+        public Input<Inputs.KubernetesClusterNodePoolKubeletConfigGetArgs>? KubeletConfig { get; set; }
+
+        /// <summary>
         /// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kubernetesClusterId")]
         public Input<string>? KubernetesClusterId { get; set; }
+
+        /// <summary>
+        /// A `linux_os_config` block as defined below.
+        /// </summary>
+        [Input("linuxOsConfig")]
+        public Input<Inputs.KubernetesClusterNodePoolLinuxOsConfigGetArgs>? LinuxOsConfig { get; set; }
 
         /// <summary>
         /// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.

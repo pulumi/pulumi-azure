@@ -630,7 +630,7 @@ class LinuxVirtualMachineBootDiagnostics(dict):
     def __init__(__self__, *,
                  storage_account_uri: Optional[str] = None):
         """
-        :param str storage_account_uri: The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+        :param str storage_account_uri: The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
         """
         if storage_account_uri is not None:
             pulumi.set(__self__, "storage_account_uri", storage_account_uri)
@@ -639,7 +639,7 @@ class LinuxVirtualMachineBootDiagnostics(dict):
     @pulumi.getter(name="storageAccountUri")
     def storage_account_uri(self) -> Optional[str]:
         """
-        The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+        The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
         """
         return pulumi.get(self, "storage_account_uri")
 
@@ -1090,7 +1090,7 @@ class LinuxVirtualMachineScaleSetBootDiagnostics(dict):
     def __init__(__self__, *,
                  storage_account_uri: Optional[str] = None):
         """
-        :param str storage_account_uri: The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+        :param str storage_account_uri: The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
         """
         if storage_account_uri is not None:
             pulumi.set(__self__, "storage_account_uri", storage_account_uri)
@@ -1099,7 +1099,7 @@ class LinuxVirtualMachineScaleSetBootDiagnostics(dict):
     @pulumi.getter(name="storageAccountUri")
     def storage_account_uri(self) -> Optional[str]:
         """
-        The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+        The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
         """
         return pulumi.get(self, "storage_account_uri")
 
@@ -5264,7 +5264,7 @@ class WindowsVirtualMachineBootDiagnostics(dict):
     def __init__(__self__, *,
                  storage_account_uri: Optional[str] = None):
         """
-        :param str storage_account_uri: The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+        :param str storage_account_uri: The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
         """
         if storage_account_uri is not None:
             pulumi.set(__self__, "storage_account_uri", storage_account_uri)
@@ -5273,7 +5273,7 @@ class WindowsVirtualMachineBootDiagnostics(dict):
     @pulumi.getter(name="storageAccountUri")
     def storage_account_uri(self) -> Optional[str]:
         """
-        The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+        The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
         """
         return pulumi.get(self, "storage_account_uri")
 
@@ -5707,7 +5707,7 @@ class WindowsVirtualMachineScaleSetBootDiagnostics(dict):
     def __init__(__self__, *,
                  storage_account_uri: Optional[str] = None):
         """
-        :param str storage_account_uri: The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+        :param str storage_account_uri: The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
         """
         if storage_account_uri is not None:
             pulumi.set(__self__, "storage_account_uri", storage_account_uri)
@@ -5716,7 +5716,7 @@ class WindowsVirtualMachineScaleSetBootDiagnostics(dict):
     @pulumi.getter(name="storageAccountUri")
     def storage_account_uri(self) -> Optional[str]:
         """
-        The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+        The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
         """
         return pulumi.get(self, "storage_account_uri")
 

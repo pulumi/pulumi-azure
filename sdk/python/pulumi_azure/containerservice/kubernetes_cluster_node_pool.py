@@ -22,6 +22,8 @@ class KubernetesClusterNodePoolArgs:
                  enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
+                 linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
@@ -50,6 +52,8 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below.
+        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
@@ -82,6 +86,10 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if eviction_policy is not None:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if kubelet_config is not None:
+            pulumi.set(__self__, "kubelet_config", kubelet_config)
+        if linux_os_config is not None:
+            pulumi.set(__self__, "linux_os_config", linux_os_config)
         if max_count is not None:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
@@ -204,6 +212,30 @@ class KubernetesClusterNodePoolArgs:
     @eviction_policy.setter
     def eviction_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "eviction_policy", value)
+
+    @property
+    @pulumi.getter(name="kubeletConfig")
+    def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]:
+        """
+        A `kubelet_config` block as defined below.
+        """
+        return pulumi.get(self, "kubelet_config")
+
+    @kubelet_config.setter
+    def kubelet_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]):
+        pulumi.set(self, "kubelet_config", value)
+
+    @property
+    @pulumi.getter(name="linuxOsConfig")
+    def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]:
+        """
+        A `linux_os_config` block as defined below.
+        """
+        return pulumi.get(self, "linux_os_config")
+
+    @linux_os_config.setter
+    def linux_os_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]):
+        pulumi.set(self, "linux_os_config", value)
 
     @property
     @pulumi.getter(name="maxCount")
@@ -442,7 +474,9 @@ class _KubernetesClusterNodePoolState:
                  enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+                 linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
@@ -470,7 +504,9 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
@@ -502,8 +538,12 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if eviction_policy is not None:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if kubelet_config is not None:
+            pulumi.set(__self__, "kubelet_config", kubelet_config)
         if kubernetes_cluster_id is not None:
             pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
+        if linux_os_config is not None:
+            pulumi.set(__self__, "linux_os_config", linux_os_config)
         if max_count is not None:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
@@ -606,6 +646,18 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "eviction_policy", value)
 
     @property
+    @pulumi.getter(name="kubeletConfig")
+    def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]:
+        """
+        A `kubelet_config` block as defined below.
+        """
+        return pulumi.get(self, "kubelet_config")
+
+    @kubelet_config.setter
+    def kubelet_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]):
+        pulumi.set(self, "kubelet_config", value)
+
+    @property
     @pulumi.getter(name="kubernetesClusterId")
     def kubernetes_cluster_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -616,6 +668,18 @@ class _KubernetesClusterNodePoolState:
     @kubernetes_cluster_id.setter
     def kubernetes_cluster_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kubernetes_cluster_id", value)
+
+    @property
+    @pulumi.getter(name="linuxOsConfig")
+    def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]:
+        """
+        A `linux_os_config` block as defined below.
+        """
+        return pulumi.get(self, "linux_os_config")
+
+    @linux_os_config.setter
+    def linux_os_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]):
+        pulumi.set(self, "linux_os_config", value)
 
     @property
     @pulumi.getter(name="maxCount")
@@ -868,7 +932,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+                 linux_os_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
@@ -906,7 +972,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']] kubelet_config: A `kubelet_config` block as defined below.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
@@ -963,7 +1031,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+                 linux_os_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
@@ -1001,9 +1071,11 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["enable_host_encryption"] = enable_host_encryption
             __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
             __props__.__dict__["eviction_policy"] = eviction_policy
+            __props__.__dict__["kubelet_config"] = kubelet_config
             if kubernetes_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_cluster_id'")
             __props__.__dict__["kubernetes_cluster_id"] = kubernetes_cluster_id
+            __props__.__dict__["linux_os_config"] = linux_os_config
             __props__.__dict__["max_count"] = max_count
             __props__.__dict__["max_pods"] = max_pods
             __props__.__dict__["min_count"] = min_count
@@ -1041,7 +1113,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             enable_host_encryption: Optional[pulumi.Input[bool]] = None,
             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
+            kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']]] = None,
             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+            linux_os_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']]] = None,
             max_count: Optional[pulumi.Input[int]] = None,
             max_pods: Optional[pulumi.Input[int]] = None,
             min_count: Optional[pulumi.Input[int]] = None,
@@ -1074,7 +1148,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']] kubelet_config: A `kubelet_config` block as defined below.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
@@ -1105,7 +1181,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["enable_host_encryption"] = enable_host_encryption
         __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
         __props__.__dict__["eviction_policy"] = eviction_policy
+        __props__.__dict__["kubelet_config"] = kubelet_config
         __props__.__dict__["kubernetes_cluster_id"] = kubernetes_cluster_id
+        __props__.__dict__["linux_os_config"] = linux_os_config
         __props__.__dict__["max_count"] = max_count
         __props__.__dict__["max_pods"] = max_pods
         __props__.__dict__["min_count"] = min_count
@@ -1169,12 +1247,28 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         return pulumi.get(self, "eviction_policy")
 
     @property
+    @pulumi.getter(name="kubeletConfig")
+    def kubelet_config(self) -> pulumi.Output[Optional['outputs.KubernetesClusterNodePoolKubeletConfig']]:
+        """
+        A `kubelet_config` block as defined below.
+        """
+        return pulumi.get(self, "kubelet_config")
+
+    @property
     @pulumi.getter(name="kubernetesClusterId")
     def kubernetes_cluster_id(self) -> pulumi.Output[str]:
         """
         The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kubernetes_cluster_id")
+
+    @property
+    @pulumi.getter(name="linuxOsConfig")
+    def linux_os_config(self) -> pulumi.Output[Optional['outputs.KubernetesClusterNodePoolLinuxOsConfig']]:
+        """
+        A `linux_os_config` block as defined below.
+        """
+        return pulumi.get(self, "linux_os_config")
 
     @property
     @pulumi.getter(name="maxCount")

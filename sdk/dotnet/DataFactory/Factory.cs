@@ -60,6 +60,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.FactoryGithubConfiguration?> GithubConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// A list of `global_parameter` blocks as defined above.
+        /// </summary>
+        [Output("globalParameters")]
+        public Output<ImmutableArray<Outputs.FactoryGlobalParameter>> GlobalParameters { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -159,6 +165,18 @@ namespace Pulumi.Azure.DataFactory
         [Input("githubConfiguration")]
         public Input<Inputs.FactoryGithubConfigurationArgs>? GithubConfiguration { get; set; }
 
+        [Input("globalParameters")]
+        private InputList<Inputs.FactoryGlobalParameterArgs>? _globalParameters;
+
+        /// <summary>
+        /// A list of `global_parameter` blocks as defined above.
+        /// </summary>
+        public InputList<Inputs.FactoryGlobalParameterArgs> GlobalParameters
+        {
+            get => _globalParameters ?? (_globalParameters = new InputList<Inputs.FactoryGlobalParameterArgs>());
+            set => _globalParameters = value;
+        }
+
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
@@ -225,6 +243,18 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("githubConfiguration")]
         public Input<Inputs.FactoryGithubConfigurationGetArgs>? GithubConfiguration { get; set; }
+
+        [Input("globalParameters")]
+        private InputList<Inputs.FactoryGlobalParameterGetArgs>? _globalParameters;
+
+        /// <summary>
+        /// A list of `global_parameter` blocks as defined above.
+        /// </summary>
+        public InputList<Inputs.FactoryGlobalParameterGetArgs> GlobalParameters
+        {
+            get => _globalParameters ?? (_globalParameters = new InputList<Inputs.FactoryGlobalParameterGetArgs>());
+            set => _globalParameters = value;
+        }
 
         /// <summary>
         /// An `identity` block as defined below.

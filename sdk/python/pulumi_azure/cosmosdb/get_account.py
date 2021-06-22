@@ -373,7 +373,7 @@ def get_account(name: Optional[str] = None,
 
     example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
         resource_group_name="tfex-cosmosdb-account-rg")
-    pulumi.export("cosmosdbAccountEndpoint", data["azurerm_cosmosdb_account"]["jobs"]["endpoint"])
+    pulumi.export("cosmosdbAccountEndpoint", example.endpoint)
     ```
 
 

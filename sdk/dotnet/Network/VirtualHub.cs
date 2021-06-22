@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Network
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
     ///             VirtualWanId = exampleVirtualWan.Id,
-    ///             AddressPrefix = "10.0.1.0/24",
+    ///             AddressPrefix = "10.0.0.0/23",
     ///         });
     ///     }
     /// 
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Network
     public partial class VirtualHub : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
+        /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
         /// </summary>
         [Output("addressPrefix")]
         public Output<string?> AddressPrefix { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
+        /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
         /// </summary>
         [Input("addressPrefix")]
         public Input<string>? AddressPrefix { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualHubState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
+        /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
         /// </summary>
         [Input("addressPrefix")]
         public Input<string>? AddressPrefix { get; set; }

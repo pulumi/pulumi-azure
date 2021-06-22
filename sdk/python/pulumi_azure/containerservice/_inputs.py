@@ -35,6 +35,9 @@ __all__ = [
     'KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs',
     'KubernetesClusterAutoScalerProfileArgs',
     'KubernetesClusterDefaultNodePoolArgs',
+    'KubernetesClusterDefaultNodePoolKubeletConfigArgs',
+    'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs',
+    'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs',
     'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs',
     'KubernetesClusterIdentityArgs',
     'KubernetesClusterKubeAdminConfigArgs',
@@ -44,6 +47,9 @@ __all__ = [
     'KubernetesClusterLinuxProfileSshKeyArgs',
     'KubernetesClusterNetworkProfileArgs',
     'KubernetesClusterNetworkProfileLoadBalancerProfileArgs',
+    'KubernetesClusterNodePoolKubeletConfigArgs',
+    'KubernetesClusterNodePoolLinuxOsConfigArgs',
+    'KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs',
     'KubernetesClusterNodePoolUpgradeSettingsArgs',
     'KubernetesClusterRoleBasedAccessControlArgs',
     'KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs',
@@ -1960,6 +1966,8 @@ class KubernetesClusterDefaultNodePoolArgs:
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 kubelet_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs']] = None,
+                 linux_os_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
@@ -1983,6 +1991,8 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
@@ -2008,6 +2018,10 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if kubelet_config is not None:
+            pulumi.set(__self__, "kubelet_config", kubelet_config)
+        if linux_os_config is not None:
+            pulumi.set(__self__, "linux_os_config", linux_os_config)
         if max_count is not None:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
@@ -2112,6 +2126,30 @@ class KubernetesClusterDefaultNodePoolArgs:
     @enable_node_public_ip.setter
     def enable_node_public_ip(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_node_public_ip", value)
+
+    @property
+    @pulumi.getter(name="kubeletConfig")
+    def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs']]:
+        """
+        A `kubelet_config` block as defined below.
+        """
+        return pulumi.get(self, "kubelet_config")
+
+    @kubelet_config.setter
+    def kubelet_config(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs']]):
+        pulumi.set(self, "kubelet_config", value)
+
+    @property
+    @pulumi.getter(name="linuxOsConfig")
+    def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs']]:
+        """
+        A `linux_os_config` block as defined below.
+        """
+        return pulumi.get(self, "linux_os_config")
+
+    @linux_os_config.setter
+    def linux_os_config(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs']]):
+        pulumi.set(self, "linux_os_config", value)
 
     @property
     @pulumi.getter(name="maxCount")
@@ -2298,6 +2336,715 @@ class KubernetesClusterDefaultNodePoolArgs:
     @vnet_subnet_id.setter
     def vnet_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_subnet_id", value)
+
+
+@pulumi.input_type
+class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
+    def __init__(__self__, *,
+                 allowed_unsafe_sysctls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 container_log_max_line: Optional[pulumi.Input[int]] = None,
+                 container_log_max_size_mb: Optional[pulumi.Input[int]] = None,
+                 cpu_cfs_quota_enabled: Optional[pulumi.Input[bool]] = None,
+                 cpu_cfs_quota_period: Optional[pulumi.Input[str]] = None,
+                 cpu_manager_policy: Optional[pulumi.Input[str]] = None,
+                 image_gc_high_threshold: Optional[pulumi.Input[int]] = None,
+                 image_gc_low_threshold: Optional[pulumi.Input[int]] = None,
+                 pod_max_pid: Optional[pulumi.Input[int]] = None,
+                 topology_manager_policy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_unsafe_sysctls: Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+        :param pulumi.Input[int] container_log_max_line: Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] container_log_max_size_mb: Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] cpu_cfs_quota_enabled: Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+        :param pulumi.Input[str] cpu_cfs_quota_period: Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] cpu_manager_policy: Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+        :param pulumi.Input[int] image_gc_high_threshold: Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] image_gc_low_threshold: Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] pod_max_pid: Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] topology_manager_policy: Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+        """
+        if allowed_unsafe_sysctls is not None:
+            pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
+        if container_log_max_line is not None:
+            pulumi.set(__self__, "container_log_max_line", container_log_max_line)
+        if container_log_max_size_mb is not None:
+            pulumi.set(__self__, "container_log_max_size_mb", container_log_max_size_mb)
+        if cpu_cfs_quota_enabled is not None:
+            pulumi.set(__self__, "cpu_cfs_quota_enabled", cpu_cfs_quota_enabled)
+        if cpu_cfs_quota_period is not None:
+            pulumi.set(__self__, "cpu_cfs_quota_period", cpu_cfs_quota_period)
+        if cpu_manager_policy is not None:
+            pulumi.set(__self__, "cpu_manager_policy", cpu_manager_policy)
+        if image_gc_high_threshold is not None:
+            pulumi.set(__self__, "image_gc_high_threshold", image_gc_high_threshold)
+        if image_gc_low_threshold is not None:
+            pulumi.set(__self__, "image_gc_low_threshold", image_gc_low_threshold)
+        if pod_max_pid is not None:
+            pulumi.set(__self__, "pod_max_pid", pod_max_pid)
+        if topology_manager_policy is not None:
+            pulumi.set(__self__, "topology_manager_policy", topology_manager_policy)
+
+    @property
+    @pulumi.getter(name="allowedUnsafeSysctls")
+    def allowed_unsafe_sysctls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "allowed_unsafe_sysctls")
+
+    @allowed_unsafe_sysctls.setter
+    def allowed_unsafe_sysctls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_unsafe_sysctls", value)
+
+    @property
+    @pulumi.getter(name="containerLogMaxLine")
+    def container_log_max_line(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "container_log_max_line")
+
+    @container_log_max_line.setter
+    def container_log_max_line(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "container_log_max_line", value)
+
+    @property
+    @pulumi.getter(name="containerLogMaxSizeMb")
+    def container_log_max_size_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "container_log_max_size_mb")
+
+    @container_log_max_size_mb.setter
+    def container_log_max_size_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "container_log_max_size_mb", value)
+
+    @property
+    @pulumi.getter(name="cpuCfsQuotaEnabled")
+    def cpu_cfs_quota_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cpu_cfs_quota_enabled")
+
+    @cpu_cfs_quota_enabled.setter
+    def cpu_cfs_quota_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cpu_cfs_quota_enabled", value)
+
+    @property
+    @pulumi.getter(name="cpuCfsQuotaPeriod")
+    def cpu_cfs_quota_period(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cpu_cfs_quota_period")
+
+    @cpu_cfs_quota_period.setter
+    def cpu_cfs_quota_period(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu_cfs_quota_period", value)
+
+    @property
+    @pulumi.getter(name="cpuManagerPolicy")
+    def cpu_manager_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cpu_manager_policy")
+
+    @cpu_manager_policy.setter
+    def cpu_manager_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu_manager_policy", value)
+
+    @property
+    @pulumi.getter(name="imageGcHighThreshold")
+    def image_gc_high_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "image_gc_high_threshold")
+
+    @image_gc_high_threshold.setter
+    def image_gc_high_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_gc_high_threshold", value)
+
+    @property
+    @pulumi.getter(name="imageGcLowThreshold")
+    def image_gc_low_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "image_gc_low_threshold")
+
+    @image_gc_low_threshold.setter
+    def image_gc_low_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_gc_low_threshold", value)
+
+    @property
+    @pulumi.getter(name="podMaxPid")
+    def pod_max_pid(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "pod_max_pid")
+
+    @pod_max_pid.setter
+    def pod_max_pid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "pod_max_pid", value)
+
+    @property
+    @pulumi.getter(name="topologyManagerPolicy")
+    def topology_manager_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "topology_manager_policy")
+
+    @topology_manager_policy.setter
+    def topology_manager_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "topology_manager_policy", value)
+
+
+@pulumi.input_type
+class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
+    def __init__(__self__, *,
+                 swap_file_size_mb: Optional[pulumi.Input[int]] = None,
+                 sysctl_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs']] = None,
+                 transparent_huge_page_defrag: Optional[pulumi.Input[str]] = None,
+                 transparent_huge_page_enabled: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] swap_file_size_mb: Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs'] sysctl_config: A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] transparent_huge_page_defrag: specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] transparent_huge_page_enabled: Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+        """
+        if swap_file_size_mb is not None:
+            pulumi.set(__self__, "swap_file_size_mb", swap_file_size_mb)
+        if sysctl_config is not None:
+            pulumi.set(__self__, "sysctl_config", sysctl_config)
+        if transparent_huge_page_defrag is not None:
+            pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
+        if transparent_huge_page_enabled is not None:
+            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
+
+    @property
+    @pulumi.getter(name="swapFileSizeMb")
+    def swap_file_size_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "swap_file_size_mb")
+
+    @swap_file_size_mb.setter
+    def swap_file_size_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "swap_file_size_mb", value)
+
+    @property
+    @pulumi.getter(name="sysctlConfig")
+    def sysctl_config(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs']]:
+        """
+        A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sysctl_config")
+
+    @sysctl_config.setter
+    def sysctl_config(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs']]):
+        pulumi.set(self, "sysctl_config", value)
+
+    @property
+    @pulumi.getter(name="transparentHugePageDefrag")
+    def transparent_huge_page_defrag(self) -> Optional[pulumi.Input[str]]:
+        """
+        specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "transparent_huge_page_defrag")
+
+    @transparent_huge_page_defrag.setter
+    def transparent_huge_page_defrag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transparent_huge_page_defrag", value)
+
+    @property
+    @pulumi.getter(name="transparentHugePageEnabled")
+    def transparent_huge_page_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "transparent_huge_page_enabled")
+
+    @transparent_huge_page_enabled.setter
+    def transparent_huge_page_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transparent_huge_page_enabled", value)
+
+
+@pulumi.input_type
+class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs:
+    def __init__(__self__, *,
+                 fs_aio_max_nr: Optional[pulumi.Input[int]] = None,
+                 fs_file_max: Optional[pulumi.Input[int]] = None,
+                 fs_inotify_max_user_watches: Optional[pulumi.Input[int]] = None,
+                 fs_nr_open: Optional[pulumi.Input[int]] = None,
+                 kernel_threads_max: Optional[pulumi.Input[int]] = None,
+                 net_core_netdev_max_backlog: Optional[pulumi.Input[int]] = None,
+                 net_core_optmem_max: Optional[pulumi.Input[int]] = None,
+                 net_core_rmem_default: Optional[pulumi.Input[int]] = None,
+                 net_core_rmem_max: Optional[pulumi.Input[int]] = None,
+                 net_core_somaxconn: Optional[pulumi.Input[int]] = None,
+                 net_core_wmem_default: Optional[pulumi.Input[int]] = None,
+                 net_core_wmem_max: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_ip_local_port_range_max: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_ip_local_port_range_min: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_neigh_default_gc_thresh1: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_neigh_default_gc_thresh2: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_neigh_default_gc_thresh3: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_fin_timeout: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_keepalive_intvl: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_keepalive_probes: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_keepalive_time: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_max_syn_backlog: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_max_tw_buckets: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_tw_reuse: Optional[pulumi.Input[bool]] = None,
+                 net_netfilter_nf_conntrack_buckets: Optional[pulumi.Input[int]] = None,
+                 net_netfilter_nf_conntrack_max: Optional[pulumi.Input[int]] = None,
+                 vm_max_map_count: Optional[pulumi.Input[int]] = None,
+                 vm_swappiness: Optional[pulumi.Input[int]] = None,
+                 vm_vfs_cache_pressure: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] fs_aio_max_nr: The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] fs_file_max: The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] fs_inotify_max_user_watches: The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] fs_nr_open: The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] kernel_threads_max: The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_netdev_max_backlog: The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_optmem_max: The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_rmem_default: The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_rmem_max: The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_somaxconn: The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_wmem_default: The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_wmem_max: The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_ip_local_port_range_max: The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_ip_local_port_range_min: The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_neigh_default_gc_thresh1: The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_neigh_default_gc_thresh2: The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_neigh_default_gc_thresh3: The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_tcp_fin_timeout: The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_tcp_keepalive_intvl: The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_tcp_keepalive_probes: The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_tcp_keepalive_time: The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_tcp_max_syn_backlog: The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_tcp_max_tw_buckets: The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] net_ipv4_tcp_tw_reuse: The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_netfilter_nf_conntrack_buckets: The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_netfilter_nf_conntrack_max: The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] vm_max_map_count: The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] vm_swappiness: The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] vm_vfs_cache_pressure: The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        """
+        if fs_aio_max_nr is not None:
+            pulumi.set(__self__, "fs_aio_max_nr", fs_aio_max_nr)
+        if fs_file_max is not None:
+            pulumi.set(__self__, "fs_file_max", fs_file_max)
+        if fs_inotify_max_user_watches is not None:
+            pulumi.set(__self__, "fs_inotify_max_user_watches", fs_inotify_max_user_watches)
+        if fs_nr_open is not None:
+            pulumi.set(__self__, "fs_nr_open", fs_nr_open)
+        if kernel_threads_max is not None:
+            pulumi.set(__self__, "kernel_threads_max", kernel_threads_max)
+        if net_core_netdev_max_backlog is not None:
+            pulumi.set(__self__, "net_core_netdev_max_backlog", net_core_netdev_max_backlog)
+        if net_core_optmem_max is not None:
+            pulumi.set(__self__, "net_core_optmem_max", net_core_optmem_max)
+        if net_core_rmem_default is not None:
+            pulumi.set(__self__, "net_core_rmem_default", net_core_rmem_default)
+        if net_core_rmem_max is not None:
+            pulumi.set(__self__, "net_core_rmem_max", net_core_rmem_max)
+        if net_core_somaxconn is not None:
+            pulumi.set(__self__, "net_core_somaxconn", net_core_somaxconn)
+        if net_core_wmem_default is not None:
+            pulumi.set(__self__, "net_core_wmem_default", net_core_wmem_default)
+        if net_core_wmem_max is not None:
+            pulumi.set(__self__, "net_core_wmem_max", net_core_wmem_max)
+        if net_ipv4_ip_local_port_range_max is not None:
+            pulumi.set(__self__, "net_ipv4_ip_local_port_range_max", net_ipv4_ip_local_port_range_max)
+        if net_ipv4_ip_local_port_range_min is not None:
+            pulumi.set(__self__, "net_ipv4_ip_local_port_range_min", net_ipv4_ip_local_port_range_min)
+        if net_ipv4_neigh_default_gc_thresh1 is not None:
+            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh1", net_ipv4_neigh_default_gc_thresh1)
+        if net_ipv4_neigh_default_gc_thresh2 is not None:
+            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh2", net_ipv4_neigh_default_gc_thresh2)
+        if net_ipv4_neigh_default_gc_thresh3 is not None:
+            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh3", net_ipv4_neigh_default_gc_thresh3)
+        if net_ipv4_tcp_fin_timeout is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_fin_timeout", net_ipv4_tcp_fin_timeout)
+        if net_ipv4_tcp_keepalive_intvl is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_keepalive_intvl", net_ipv4_tcp_keepalive_intvl)
+        if net_ipv4_tcp_keepalive_probes is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_keepalive_probes", net_ipv4_tcp_keepalive_probes)
+        if net_ipv4_tcp_keepalive_time is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_keepalive_time", net_ipv4_tcp_keepalive_time)
+        if net_ipv4_tcp_max_syn_backlog is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_max_syn_backlog", net_ipv4_tcp_max_syn_backlog)
+        if net_ipv4_tcp_max_tw_buckets is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_max_tw_buckets", net_ipv4_tcp_max_tw_buckets)
+        if net_ipv4_tcp_tw_reuse is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_tw_reuse", net_ipv4_tcp_tw_reuse)
+        if net_netfilter_nf_conntrack_buckets is not None:
+            pulumi.set(__self__, "net_netfilter_nf_conntrack_buckets", net_netfilter_nf_conntrack_buckets)
+        if net_netfilter_nf_conntrack_max is not None:
+            pulumi.set(__self__, "net_netfilter_nf_conntrack_max", net_netfilter_nf_conntrack_max)
+        if vm_max_map_count is not None:
+            pulumi.set(__self__, "vm_max_map_count", vm_max_map_count)
+        if vm_swappiness is not None:
+            pulumi.set(__self__, "vm_swappiness", vm_swappiness)
+        if vm_vfs_cache_pressure is not None:
+            pulumi.set(__self__, "vm_vfs_cache_pressure", vm_vfs_cache_pressure)
+
+    @property
+    @pulumi.getter(name="fsAioMaxNr")
+    def fs_aio_max_nr(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "fs_aio_max_nr")
+
+    @fs_aio_max_nr.setter
+    def fs_aio_max_nr(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fs_aio_max_nr", value)
+
+    @property
+    @pulumi.getter(name="fsFileMax")
+    def fs_file_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "fs_file_max")
+
+    @fs_file_max.setter
+    def fs_file_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fs_file_max", value)
+
+    @property
+    @pulumi.getter(name="fsInotifyMaxUserWatches")
+    def fs_inotify_max_user_watches(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "fs_inotify_max_user_watches")
+
+    @fs_inotify_max_user_watches.setter
+    def fs_inotify_max_user_watches(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fs_inotify_max_user_watches", value)
+
+    @property
+    @pulumi.getter(name="fsNrOpen")
+    def fs_nr_open(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "fs_nr_open")
+
+    @fs_nr_open.setter
+    def fs_nr_open(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fs_nr_open", value)
+
+    @property
+    @pulumi.getter(name="kernelThreadsMax")
+    def kernel_threads_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "kernel_threads_max")
+
+    @kernel_threads_max.setter
+    def kernel_threads_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "kernel_threads_max", value)
+
+    @property
+    @pulumi.getter(name="netCoreNetdevMaxBacklog")
+    def net_core_netdev_max_backlog(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_netdev_max_backlog")
+
+    @net_core_netdev_max_backlog.setter
+    def net_core_netdev_max_backlog(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_netdev_max_backlog", value)
+
+    @property
+    @pulumi.getter(name="netCoreOptmemMax")
+    def net_core_optmem_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_optmem_max")
+
+    @net_core_optmem_max.setter
+    def net_core_optmem_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_optmem_max", value)
+
+    @property
+    @pulumi.getter(name="netCoreRmemDefault")
+    def net_core_rmem_default(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_rmem_default")
+
+    @net_core_rmem_default.setter
+    def net_core_rmem_default(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_rmem_default", value)
+
+    @property
+    @pulumi.getter(name="netCoreRmemMax")
+    def net_core_rmem_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_rmem_max")
+
+    @net_core_rmem_max.setter
+    def net_core_rmem_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_rmem_max", value)
+
+    @property
+    @pulumi.getter(name="netCoreSomaxconn")
+    def net_core_somaxconn(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_somaxconn")
+
+    @net_core_somaxconn.setter
+    def net_core_somaxconn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_somaxconn", value)
+
+    @property
+    @pulumi.getter(name="netCoreWmemDefault")
+    def net_core_wmem_default(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_wmem_default")
+
+    @net_core_wmem_default.setter
+    def net_core_wmem_default(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_wmem_default", value)
+
+    @property
+    @pulumi.getter(name="netCoreWmemMax")
+    def net_core_wmem_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_wmem_max")
+
+    @net_core_wmem_max.setter
+    def net_core_wmem_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_wmem_max", value)
+
+    @property
+    @pulumi.getter(name="netIpv4IpLocalPortRangeMax")
+    def net_ipv4_ip_local_port_range_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_ip_local_port_range_max")
+
+    @net_ipv4_ip_local_port_range_max.setter
+    def net_ipv4_ip_local_port_range_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_ip_local_port_range_max", value)
+
+    @property
+    @pulumi.getter(name="netIpv4IpLocalPortRangeMin")
+    def net_ipv4_ip_local_port_range_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_ip_local_port_range_min")
+
+    @net_ipv4_ip_local_port_range_min.setter
+    def net_ipv4_ip_local_port_range_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_ip_local_port_range_min", value)
+
+    @property
+    @pulumi.getter(name="netIpv4NeighDefaultGcThresh1")
+    def net_ipv4_neigh_default_gc_thresh1(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh1")
+
+    @net_ipv4_neigh_default_gc_thresh1.setter
+    def net_ipv4_neigh_default_gc_thresh1(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_neigh_default_gc_thresh1", value)
+
+    @property
+    @pulumi.getter(name="netIpv4NeighDefaultGcThresh2")
+    def net_ipv4_neigh_default_gc_thresh2(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh2")
+
+    @net_ipv4_neigh_default_gc_thresh2.setter
+    def net_ipv4_neigh_default_gc_thresh2(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_neigh_default_gc_thresh2", value)
+
+    @property
+    @pulumi.getter(name="netIpv4NeighDefaultGcThresh3")
+    def net_ipv4_neigh_default_gc_thresh3(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh3")
+
+    @net_ipv4_neigh_default_gc_thresh3.setter
+    def net_ipv4_neigh_default_gc_thresh3(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_neigh_default_gc_thresh3", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpFinTimeout")
+    def net_ipv4_tcp_fin_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_fin_timeout")
+
+    @net_ipv4_tcp_fin_timeout.setter
+    def net_ipv4_tcp_fin_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_fin_timeout", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpKeepaliveIntvl")
+    def net_ipv4_tcp_keepalive_intvl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_keepalive_intvl")
+
+    @net_ipv4_tcp_keepalive_intvl.setter
+    def net_ipv4_tcp_keepalive_intvl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_keepalive_intvl", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpKeepaliveProbes")
+    def net_ipv4_tcp_keepalive_probes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_keepalive_probes")
+
+    @net_ipv4_tcp_keepalive_probes.setter
+    def net_ipv4_tcp_keepalive_probes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_keepalive_probes", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpKeepaliveTime")
+    def net_ipv4_tcp_keepalive_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_keepalive_time")
+
+    @net_ipv4_tcp_keepalive_time.setter
+    def net_ipv4_tcp_keepalive_time(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_keepalive_time", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpMaxSynBacklog")
+    def net_ipv4_tcp_max_syn_backlog(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_max_syn_backlog")
+
+    @net_ipv4_tcp_max_syn_backlog.setter
+    def net_ipv4_tcp_max_syn_backlog(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_max_syn_backlog", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpMaxTwBuckets")
+    def net_ipv4_tcp_max_tw_buckets(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_max_tw_buckets")
+
+    @net_ipv4_tcp_max_tw_buckets.setter
+    def net_ipv4_tcp_max_tw_buckets(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_max_tw_buckets", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpTwReuse")
+    def net_ipv4_tcp_tw_reuse(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_tw_reuse")
+
+    @net_ipv4_tcp_tw_reuse.setter
+    def net_ipv4_tcp_tw_reuse(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "net_ipv4_tcp_tw_reuse", value)
+
+    @property
+    @pulumi.getter(name="netNetfilterNfConntrackBuckets")
+    def net_netfilter_nf_conntrack_buckets(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_netfilter_nf_conntrack_buckets")
+
+    @net_netfilter_nf_conntrack_buckets.setter
+    def net_netfilter_nf_conntrack_buckets(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_netfilter_nf_conntrack_buckets", value)
+
+    @property
+    @pulumi.getter(name="netNetfilterNfConntrackMax")
+    def net_netfilter_nf_conntrack_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_netfilter_nf_conntrack_max")
+
+    @net_netfilter_nf_conntrack_max.setter
+    def net_netfilter_nf_conntrack_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_netfilter_nf_conntrack_max", value)
+
+    @property
+    @pulumi.getter(name="vmMaxMapCount")
+    def vm_max_map_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vm_max_map_count")
+
+    @vm_max_map_count.setter
+    def vm_max_map_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vm_max_map_count", value)
+
+    @property
+    @pulumi.getter(name="vmSwappiness")
+    def vm_swappiness(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vm_swappiness")
+
+    @vm_swappiness.setter
+    def vm_swappiness(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vm_swappiness", value)
+
+    @property
+    @pulumi.getter(name="vmVfsCachePressure")
+    def vm_vfs_cache_pressure(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vm_vfs_cache_pressure")
+
+    @vm_vfs_cache_pressure.setter
+    def vm_vfs_cache_pressure(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vm_vfs_cache_pressure", value)
 
 
 @pulumi.input_type
@@ -2982,6 +3729,711 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
 
 
 @pulumi.input_type
+class KubernetesClusterNodePoolKubeletConfigArgs:
+    def __init__(__self__, *,
+                 allowed_unsafe_sysctls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 container_log_max_line: Optional[pulumi.Input[int]] = None,
+                 container_log_max_size_mb: Optional[pulumi.Input[int]] = None,
+                 cpu_cfs_quota_enabled: Optional[pulumi.Input[bool]] = None,
+                 cpu_cfs_quota_period: Optional[pulumi.Input[str]] = None,
+                 cpu_manager_policy: Optional[pulumi.Input[str]] = None,
+                 image_gc_high_threshold: Optional[pulumi.Input[int]] = None,
+                 image_gc_low_threshold: Optional[pulumi.Input[int]] = None,
+                 pod_max_pid: Optional[pulumi.Input[int]] = None,
+                 topology_manager_policy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_unsafe_sysctls: Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+        :param pulumi.Input[int] container_log_max_line: Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] container_log_max_size_mb: Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] cpu_cfs_quota_enabled: Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+        :param pulumi.Input[str] cpu_cfs_quota_period: Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] cpu_manager_policy: Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+        :param pulumi.Input[int] image_gc_high_threshold: Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] image_gc_low_threshold: Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] topology_manager_policy: Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+        """
+        if allowed_unsafe_sysctls is not None:
+            pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
+        if container_log_max_line is not None:
+            pulumi.set(__self__, "container_log_max_line", container_log_max_line)
+        if container_log_max_size_mb is not None:
+            pulumi.set(__self__, "container_log_max_size_mb", container_log_max_size_mb)
+        if cpu_cfs_quota_enabled is not None:
+            pulumi.set(__self__, "cpu_cfs_quota_enabled", cpu_cfs_quota_enabled)
+        if cpu_cfs_quota_period is not None:
+            pulumi.set(__self__, "cpu_cfs_quota_period", cpu_cfs_quota_period)
+        if cpu_manager_policy is not None:
+            pulumi.set(__self__, "cpu_manager_policy", cpu_manager_policy)
+        if image_gc_high_threshold is not None:
+            pulumi.set(__self__, "image_gc_high_threshold", image_gc_high_threshold)
+        if image_gc_low_threshold is not None:
+            pulumi.set(__self__, "image_gc_low_threshold", image_gc_low_threshold)
+        if pod_max_pid is not None:
+            pulumi.set(__self__, "pod_max_pid", pod_max_pid)
+        if topology_manager_policy is not None:
+            pulumi.set(__self__, "topology_manager_policy", topology_manager_policy)
+
+    @property
+    @pulumi.getter(name="allowedUnsafeSysctls")
+    def allowed_unsafe_sysctls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "allowed_unsafe_sysctls")
+
+    @allowed_unsafe_sysctls.setter
+    def allowed_unsafe_sysctls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_unsafe_sysctls", value)
+
+    @property
+    @pulumi.getter(name="containerLogMaxLine")
+    def container_log_max_line(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "container_log_max_line")
+
+    @container_log_max_line.setter
+    def container_log_max_line(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "container_log_max_line", value)
+
+    @property
+    @pulumi.getter(name="containerLogMaxSizeMb")
+    def container_log_max_size_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "container_log_max_size_mb")
+
+    @container_log_max_size_mb.setter
+    def container_log_max_size_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "container_log_max_size_mb", value)
+
+    @property
+    @pulumi.getter(name="cpuCfsQuotaEnabled")
+    def cpu_cfs_quota_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cpu_cfs_quota_enabled")
+
+    @cpu_cfs_quota_enabled.setter
+    def cpu_cfs_quota_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cpu_cfs_quota_enabled", value)
+
+    @property
+    @pulumi.getter(name="cpuCfsQuotaPeriod")
+    def cpu_cfs_quota_period(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cpu_cfs_quota_period")
+
+    @cpu_cfs_quota_period.setter
+    def cpu_cfs_quota_period(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu_cfs_quota_period", value)
+
+    @property
+    @pulumi.getter(name="cpuManagerPolicy")
+    def cpu_manager_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cpu_manager_policy")
+
+    @cpu_manager_policy.setter
+    def cpu_manager_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu_manager_policy", value)
+
+    @property
+    @pulumi.getter(name="imageGcHighThreshold")
+    def image_gc_high_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "image_gc_high_threshold")
+
+    @image_gc_high_threshold.setter
+    def image_gc_high_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_gc_high_threshold", value)
+
+    @property
+    @pulumi.getter(name="imageGcLowThreshold")
+    def image_gc_low_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "image_gc_low_threshold")
+
+    @image_gc_low_threshold.setter
+    def image_gc_low_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_gc_low_threshold", value)
+
+    @property
+    @pulumi.getter(name="podMaxPid")
+    def pod_max_pid(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "pod_max_pid")
+
+    @pod_max_pid.setter
+    def pod_max_pid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "pod_max_pid", value)
+
+    @property
+    @pulumi.getter(name="topologyManagerPolicy")
+    def topology_manager_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "topology_manager_policy")
+
+    @topology_manager_policy.setter
+    def topology_manager_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "topology_manager_policy", value)
+
+
+@pulumi.input_type
+class KubernetesClusterNodePoolLinuxOsConfigArgs:
+    def __init__(__self__, *,
+                 swap_file_size_mb: Optional[pulumi.Input[int]] = None,
+                 sysctl_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs']] = None,
+                 transparent_huge_page_defrag: Optional[pulumi.Input[str]] = None,
+                 transparent_huge_page_enabled: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] swap_file_size_mb: Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs'] sysctl_config: A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] transparent_huge_page_defrag: specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] transparent_huge_page_enabled: Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+        """
+        if swap_file_size_mb is not None:
+            pulumi.set(__self__, "swap_file_size_mb", swap_file_size_mb)
+        if sysctl_config is not None:
+            pulumi.set(__self__, "sysctl_config", sysctl_config)
+        if transparent_huge_page_defrag is not None:
+            pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
+        if transparent_huge_page_enabled is not None:
+            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
+
+    @property
+    @pulumi.getter(name="swapFileSizeMb")
+    def swap_file_size_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "swap_file_size_mb")
+
+    @swap_file_size_mb.setter
+    def swap_file_size_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "swap_file_size_mb", value)
+
+    @property
+    @pulumi.getter(name="sysctlConfig")
+    def sysctl_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs']]:
+        """
+        A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sysctl_config")
+
+    @sysctl_config.setter
+    def sysctl_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs']]):
+        pulumi.set(self, "sysctl_config", value)
+
+    @property
+    @pulumi.getter(name="transparentHugePageDefrag")
+    def transparent_huge_page_defrag(self) -> Optional[pulumi.Input[str]]:
+        """
+        specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "transparent_huge_page_defrag")
+
+    @transparent_huge_page_defrag.setter
+    def transparent_huge_page_defrag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transparent_huge_page_defrag", value)
+
+    @property
+    @pulumi.getter(name="transparentHugePageEnabled")
+    def transparent_huge_page_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "transparent_huge_page_enabled")
+
+    @transparent_huge_page_enabled.setter
+    def transparent_huge_page_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transparent_huge_page_enabled", value)
+
+
+@pulumi.input_type
+class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs:
+    def __init__(__self__, *,
+                 fs_aio_max_nr: Optional[pulumi.Input[int]] = None,
+                 fs_file_max: Optional[pulumi.Input[int]] = None,
+                 fs_inotify_max_user_watches: Optional[pulumi.Input[int]] = None,
+                 fs_nr_open: Optional[pulumi.Input[int]] = None,
+                 kernel_threads_max: Optional[pulumi.Input[int]] = None,
+                 net_core_netdev_max_backlog: Optional[pulumi.Input[int]] = None,
+                 net_core_optmem_max: Optional[pulumi.Input[int]] = None,
+                 net_core_rmem_default: Optional[pulumi.Input[int]] = None,
+                 net_core_rmem_max: Optional[pulumi.Input[int]] = None,
+                 net_core_somaxconn: Optional[pulumi.Input[int]] = None,
+                 net_core_wmem_default: Optional[pulumi.Input[int]] = None,
+                 net_core_wmem_max: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_ip_local_port_range_max: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_ip_local_port_range_min: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_neigh_default_gc_thresh1: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_neigh_default_gc_thresh2: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_neigh_default_gc_thresh3: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_fin_timeout: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_keepalive_intvl: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_keepalive_probes: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_keepalive_time: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_max_syn_backlog: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_max_tw_buckets: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_tw_reuse: Optional[pulumi.Input[bool]] = None,
+                 net_netfilter_nf_conntrack_buckets: Optional[pulumi.Input[int]] = None,
+                 net_netfilter_nf_conntrack_max: Optional[pulumi.Input[int]] = None,
+                 vm_max_map_count: Optional[pulumi.Input[int]] = None,
+                 vm_swappiness: Optional[pulumi.Input[int]] = None,
+                 vm_vfs_cache_pressure: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] fs_aio_max_nr: The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] fs_file_max: The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] fs_inotify_max_user_watches: The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] fs_nr_open: The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] kernel_threads_max: The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_netdev_max_backlog: The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_optmem_max: The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_rmem_default: The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_rmem_max: The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_somaxconn: The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_wmem_default: The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_core_wmem_max: The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_ip_local_port_range_max: The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_ip_local_port_range_min: The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_neigh_default_gc_thresh1: The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_neigh_default_gc_thresh2: The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_neigh_default_gc_thresh3: The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_tcp_fin_timeout: The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_tcp_keepalive_intvl: The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_tcp_keepalive_probes: The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_tcp_keepalive_time: The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_tcp_max_syn_backlog: The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_ipv4_tcp_max_tw_buckets: The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] net_ipv4_tcp_tw_reuse: Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_netfilter_nf_conntrack_buckets: The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_netfilter_nf_conntrack_max: The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] vm_max_map_count: The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] vm_swappiness: The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] vm_vfs_cache_pressure: The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        """
+        if fs_aio_max_nr is not None:
+            pulumi.set(__self__, "fs_aio_max_nr", fs_aio_max_nr)
+        if fs_file_max is not None:
+            pulumi.set(__self__, "fs_file_max", fs_file_max)
+        if fs_inotify_max_user_watches is not None:
+            pulumi.set(__self__, "fs_inotify_max_user_watches", fs_inotify_max_user_watches)
+        if fs_nr_open is not None:
+            pulumi.set(__self__, "fs_nr_open", fs_nr_open)
+        if kernel_threads_max is not None:
+            pulumi.set(__self__, "kernel_threads_max", kernel_threads_max)
+        if net_core_netdev_max_backlog is not None:
+            pulumi.set(__self__, "net_core_netdev_max_backlog", net_core_netdev_max_backlog)
+        if net_core_optmem_max is not None:
+            pulumi.set(__self__, "net_core_optmem_max", net_core_optmem_max)
+        if net_core_rmem_default is not None:
+            pulumi.set(__self__, "net_core_rmem_default", net_core_rmem_default)
+        if net_core_rmem_max is not None:
+            pulumi.set(__self__, "net_core_rmem_max", net_core_rmem_max)
+        if net_core_somaxconn is not None:
+            pulumi.set(__self__, "net_core_somaxconn", net_core_somaxconn)
+        if net_core_wmem_default is not None:
+            pulumi.set(__self__, "net_core_wmem_default", net_core_wmem_default)
+        if net_core_wmem_max is not None:
+            pulumi.set(__self__, "net_core_wmem_max", net_core_wmem_max)
+        if net_ipv4_ip_local_port_range_max is not None:
+            pulumi.set(__self__, "net_ipv4_ip_local_port_range_max", net_ipv4_ip_local_port_range_max)
+        if net_ipv4_ip_local_port_range_min is not None:
+            pulumi.set(__self__, "net_ipv4_ip_local_port_range_min", net_ipv4_ip_local_port_range_min)
+        if net_ipv4_neigh_default_gc_thresh1 is not None:
+            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh1", net_ipv4_neigh_default_gc_thresh1)
+        if net_ipv4_neigh_default_gc_thresh2 is not None:
+            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh2", net_ipv4_neigh_default_gc_thresh2)
+        if net_ipv4_neigh_default_gc_thresh3 is not None:
+            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh3", net_ipv4_neigh_default_gc_thresh3)
+        if net_ipv4_tcp_fin_timeout is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_fin_timeout", net_ipv4_tcp_fin_timeout)
+        if net_ipv4_tcp_keepalive_intvl is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_keepalive_intvl", net_ipv4_tcp_keepalive_intvl)
+        if net_ipv4_tcp_keepalive_probes is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_keepalive_probes", net_ipv4_tcp_keepalive_probes)
+        if net_ipv4_tcp_keepalive_time is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_keepalive_time", net_ipv4_tcp_keepalive_time)
+        if net_ipv4_tcp_max_syn_backlog is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_max_syn_backlog", net_ipv4_tcp_max_syn_backlog)
+        if net_ipv4_tcp_max_tw_buckets is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_max_tw_buckets", net_ipv4_tcp_max_tw_buckets)
+        if net_ipv4_tcp_tw_reuse is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_tw_reuse", net_ipv4_tcp_tw_reuse)
+        if net_netfilter_nf_conntrack_buckets is not None:
+            pulumi.set(__self__, "net_netfilter_nf_conntrack_buckets", net_netfilter_nf_conntrack_buckets)
+        if net_netfilter_nf_conntrack_max is not None:
+            pulumi.set(__self__, "net_netfilter_nf_conntrack_max", net_netfilter_nf_conntrack_max)
+        if vm_max_map_count is not None:
+            pulumi.set(__self__, "vm_max_map_count", vm_max_map_count)
+        if vm_swappiness is not None:
+            pulumi.set(__self__, "vm_swappiness", vm_swappiness)
+        if vm_vfs_cache_pressure is not None:
+            pulumi.set(__self__, "vm_vfs_cache_pressure", vm_vfs_cache_pressure)
+
+    @property
+    @pulumi.getter(name="fsAioMaxNr")
+    def fs_aio_max_nr(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "fs_aio_max_nr")
+
+    @fs_aio_max_nr.setter
+    def fs_aio_max_nr(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fs_aio_max_nr", value)
+
+    @property
+    @pulumi.getter(name="fsFileMax")
+    def fs_file_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "fs_file_max")
+
+    @fs_file_max.setter
+    def fs_file_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fs_file_max", value)
+
+    @property
+    @pulumi.getter(name="fsInotifyMaxUserWatches")
+    def fs_inotify_max_user_watches(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "fs_inotify_max_user_watches")
+
+    @fs_inotify_max_user_watches.setter
+    def fs_inotify_max_user_watches(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fs_inotify_max_user_watches", value)
+
+    @property
+    @pulumi.getter(name="fsNrOpen")
+    def fs_nr_open(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "fs_nr_open")
+
+    @fs_nr_open.setter
+    def fs_nr_open(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fs_nr_open", value)
+
+    @property
+    @pulumi.getter(name="kernelThreadsMax")
+    def kernel_threads_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "kernel_threads_max")
+
+    @kernel_threads_max.setter
+    def kernel_threads_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "kernel_threads_max", value)
+
+    @property
+    @pulumi.getter(name="netCoreNetdevMaxBacklog")
+    def net_core_netdev_max_backlog(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_netdev_max_backlog")
+
+    @net_core_netdev_max_backlog.setter
+    def net_core_netdev_max_backlog(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_netdev_max_backlog", value)
+
+    @property
+    @pulumi.getter(name="netCoreOptmemMax")
+    def net_core_optmem_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_optmem_max")
+
+    @net_core_optmem_max.setter
+    def net_core_optmem_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_optmem_max", value)
+
+    @property
+    @pulumi.getter(name="netCoreRmemDefault")
+    def net_core_rmem_default(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_rmem_default")
+
+    @net_core_rmem_default.setter
+    def net_core_rmem_default(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_rmem_default", value)
+
+    @property
+    @pulumi.getter(name="netCoreRmemMax")
+    def net_core_rmem_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_rmem_max")
+
+    @net_core_rmem_max.setter
+    def net_core_rmem_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_rmem_max", value)
+
+    @property
+    @pulumi.getter(name="netCoreSomaxconn")
+    def net_core_somaxconn(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_somaxconn")
+
+    @net_core_somaxconn.setter
+    def net_core_somaxconn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_somaxconn", value)
+
+    @property
+    @pulumi.getter(name="netCoreWmemDefault")
+    def net_core_wmem_default(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_wmem_default")
+
+    @net_core_wmem_default.setter
+    def net_core_wmem_default(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_wmem_default", value)
+
+    @property
+    @pulumi.getter(name="netCoreWmemMax")
+    def net_core_wmem_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_core_wmem_max")
+
+    @net_core_wmem_max.setter
+    def net_core_wmem_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_wmem_max", value)
+
+    @property
+    @pulumi.getter(name="netIpv4IpLocalPortRangeMax")
+    def net_ipv4_ip_local_port_range_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_ip_local_port_range_max")
+
+    @net_ipv4_ip_local_port_range_max.setter
+    def net_ipv4_ip_local_port_range_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_ip_local_port_range_max", value)
+
+    @property
+    @pulumi.getter(name="netIpv4IpLocalPortRangeMin")
+    def net_ipv4_ip_local_port_range_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_ip_local_port_range_min")
+
+    @net_ipv4_ip_local_port_range_min.setter
+    def net_ipv4_ip_local_port_range_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_ip_local_port_range_min", value)
+
+    @property
+    @pulumi.getter(name="netIpv4NeighDefaultGcThresh1")
+    def net_ipv4_neigh_default_gc_thresh1(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh1")
+
+    @net_ipv4_neigh_default_gc_thresh1.setter
+    def net_ipv4_neigh_default_gc_thresh1(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_neigh_default_gc_thresh1", value)
+
+    @property
+    @pulumi.getter(name="netIpv4NeighDefaultGcThresh2")
+    def net_ipv4_neigh_default_gc_thresh2(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh2")
+
+    @net_ipv4_neigh_default_gc_thresh2.setter
+    def net_ipv4_neigh_default_gc_thresh2(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_neigh_default_gc_thresh2", value)
+
+    @property
+    @pulumi.getter(name="netIpv4NeighDefaultGcThresh3")
+    def net_ipv4_neigh_default_gc_thresh3(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh3")
+
+    @net_ipv4_neigh_default_gc_thresh3.setter
+    def net_ipv4_neigh_default_gc_thresh3(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_neigh_default_gc_thresh3", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpFinTimeout")
+    def net_ipv4_tcp_fin_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_fin_timeout")
+
+    @net_ipv4_tcp_fin_timeout.setter
+    def net_ipv4_tcp_fin_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_fin_timeout", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpKeepaliveIntvl")
+    def net_ipv4_tcp_keepalive_intvl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_keepalive_intvl")
+
+    @net_ipv4_tcp_keepalive_intvl.setter
+    def net_ipv4_tcp_keepalive_intvl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_keepalive_intvl", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpKeepaliveProbes")
+    def net_ipv4_tcp_keepalive_probes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_keepalive_probes")
+
+    @net_ipv4_tcp_keepalive_probes.setter
+    def net_ipv4_tcp_keepalive_probes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_keepalive_probes", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpKeepaliveTime")
+    def net_ipv4_tcp_keepalive_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_keepalive_time")
+
+    @net_ipv4_tcp_keepalive_time.setter
+    def net_ipv4_tcp_keepalive_time(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_keepalive_time", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpMaxSynBacklog")
+    def net_ipv4_tcp_max_syn_backlog(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_max_syn_backlog")
+
+    @net_ipv4_tcp_max_syn_backlog.setter
+    def net_ipv4_tcp_max_syn_backlog(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_max_syn_backlog", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpMaxTwBuckets")
+    def net_ipv4_tcp_max_tw_buckets(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_max_tw_buckets")
+
+    @net_ipv4_tcp_max_tw_buckets.setter
+    def net_ipv4_tcp_max_tw_buckets(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_max_tw_buckets", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpTwReuse")
+    def net_ipv4_tcp_tw_reuse(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_tw_reuse")
+
+    @net_ipv4_tcp_tw_reuse.setter
+    def net_ipv4_tcp_tw_reuse(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "net_ipv4_tcp_tw_reuse", value)
+
+    @property
+    @pulumi.getter(name="netNetfilterNfConntrackBuckets")
+    def net_netfilter_nf_conntrack_buckets(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_netfilter_nf_conntrack_buckets")
+
+    @net_netfilter_nf_conntrack_buckets.setter
+    def net_netfilter_nf_conntrack_buckets(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_netfilter_nf_conntrack_buckets", value)
+
+    @property
+    @pulumi.getter(name="netNetfilterNfConntrackMax")
+    def net_netfilter_nf_conntrack_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "net_netfilter_nf_conntrack_max")
+
+    @net_netfilter_nf_conntrack_max.setter
+    def net_netfilter_nf_conntrack_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_netfilter_nf_conntrack_max", value)
+
+    @property
+    @pulumi.getter(name="vmMaxMapCount")
+    def vm_max_map_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vm_max_map_count")
+
+    @vm_max_map_count.setter
+    def vm_max_map_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vm_max_map_count", value)
+
+    @property
+    @pulumi.getter(name="vmSwappiness")
+    def vm_swappiness(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vm_swappiness")
+
+    @vm_swappiness.setter
+    def vm_swappiness(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vm_swappiness", value)
+
+    @property
+    @pulumi.getter(name="vmVfsCachePressure")
+    def vm_vfs_cache_pressure(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vm_vfs_cache_pressure")
+
+    @vm_vfs_cache_pressure.setter
+    def vm_vfs_cache_pressure(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vm_vfs_cache_pressure", value)
+
+
+@pulumi.input_type
 class KubernetesClusterNodePoolUpgradeSettingsArgs:
     def __init__(__self__, *,
                  max_surge: pulumi.Input[str]):
@@ -3292,14 +4744,18 @@ class RegistryEncryptionArgs:
 class RegistryGeoreplicationArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] location: A location where the container registry should be geo-replicated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to this replication location.
+        :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
         """
         pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zone_redundancy_enabled is not None:
+            pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
 
     @property
     @pulumi.getter
@@ -3324,6 +4780,18 @@ class RegistryGeoreplicationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="zoneRedundancyEnabled")
+    def zone_redundancy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_redundancy_enabled")
+
+    @zone_redundancy_enabled.setter
+    def zone_redundancy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundancy_enabled", value)
 
 
 @pulumi.input_type

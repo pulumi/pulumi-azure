@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .application import *
 from .application_group import *
 from .host_pool import *
 from .workspace import *

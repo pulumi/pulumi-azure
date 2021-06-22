@@ -10,6 +10,331 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ComputeClusterIdentity struct {
+	PrincipalId *string `pulumi:"principalId"`
+	TenantId    *string `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+	Type string `pulumi:"type"`
+}
+
+// ComputeClusterIdentityInput is an input type that accepts ComputeClusterIdentityArgs and ComputeClusterIdentityOutput values.
+// You can construct a concrete instance of `ComputeClusterIdentityInput` via:
+//
+//          ComputeClusterIdentityArgs{...}
+type ComputeClusterIdentityInput interface {
+	pulumi.Input
+
+	ToComputeClusterIdentityOutput() ComputeClusterIdentityOutput
+	ToComputeClusterIdentityOutputWithContext(context.Context) ComputeClusterIdentityOutput
+}
+
+type ComputeClusterIdentityArgs struct {
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ComputeClusterIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeClusterIdentity)(nil)).Elem()
+}
+
+func (i ComputeClusterIdentityArgs) ToComputeClusterIdentityOutput() ComputeClusterIdentityOutput {
+	return i.ToComputeClusterIdentityOutputWithContext(context.Background())
+}
+
+func (i ComputeClusterIdentityArgs) ToComputeClusterIdentityOutputWithContext(ctx context.Context) ComputeClusterIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterIdentityOutput)
+}
+
+func (i ComputeClusterIdentityArgs) ToComputeClusterIdentityPtrOutput() ComputeClusterIdentityPtrOutput {
+	return i.ToComputeClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeClusterIdentityArgs) ToComputeClusterIdentityPtrOutputWithContext(ctx context.Context) ComputeClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterIdentityOutput).ToComputeClusterIdentityPtrOutputWithContext(ctx)
+}
+
+// ComputeClusterIdentityPtrInput is an input type that accepts ComputeClusterIdentityArgs, ComputeClusterIdentityPtr and ComputeClusterIdentityPtrOutput values.
+// You can construct a concrete instance of `ComputeClusterIdentityPtrInput` via:
+//
+//          ComputeClusterIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeClusterIdentityPtrInput interface {
+	pulumi.Input
+
+	ToComputeClusterIdentityPtrOutput() ComputeClusterIdentityPtrOutput
+	ToComputeClusterIdentityPtrOutputWithContext(context.Context) ComputeClusterIdentityPtrOutput
+}
+
+type computeClusterIdentityPtrType ComputeClusterIdentityArgs
+
+func ComputeClusterIdentityPtr(v *ComputeClusterIdentityArgs) ComputeClusterIdentityPtrInput {
+	return (*computeClusterIdentityPtrType)(v)
+}
+
+func (*computeClusterIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeClusterIdentity)(nil)).Elem()
+}
+
+func (i *computeClusterIdentityPtrType) ToComputeClusterIdentityPtrOutput() ComputeClusterIdentityPtrOutput {
+	return i.ToComputeClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *computeClusterIdentityPtrType) ToComputeClusterIdentityPtrOutputWithContext(ctx context.Context) ComputeClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterIdentityPtrOutput)
+}
+
+type ComputeClusterIdentityOutput struct{ *pulumi.OutputState }
+
+func (ComputeClusterIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeClusterIdentity)(nil)).Elem()
+}
+
+func (o ComputeClusterIdentityOutput) ToComputeClusterIdentityOutput() ComputeClusterIdentityOutput {
+	return o
+}
+
+func (o ComputeClusterIdentityOutput) ToComputeClusterIdentityOutputWithContext(ctx context.Context) ComputeClusterIdentityOutput {
+	return o
+}
+
+func (o ComputeClusterIdentityOutput) ToComputeClusterIdentityPtrOutput() ComputeClusterIdentityPtrOutput {
+	return o.ToComputeClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeClusterIdentityOutput) ToComputeClusterIdentityPtrOutputWithContext(ctx context.Context) ComputeClusterIdentityPtrOutput {
+	return o.ApplyT(func(v ComputeClusterIdentity) *ComputeClusterIdentity {
+		return &v
+	}).(ComputeClusterIdentityPtrOutput)
+}
+func (o ComputeClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputeClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ComputeClusterIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeClusterIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeClusterIdentity)(nil)).Elem()
+}
+
+func (o ComputeClusterIdentityPtrOutput) ToComputeClusterIdentityPtrOutput() ComputeClusterIdentityPtrOutput {
+	return o
+}
+
+func (o ComputeClusterIdentityPtrOutput) ToComputeClusterIdentityPtrOutputWithContext(ctx context.Context) ComputeClusterIdentityPtrOutput {
+	return o
+}
+
+func (o ComputeClusterIdentityPtrOutput) Elem() ComputeClusterIdentityOutput {
+	return o.ApplyT(func(v *ComputeClusterIdentity) ComputeClusterIdentity { return *v }).(ComputeClusterIdentityOutput)
+}
+
+func (o ComputeClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComputeClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeClusterScaleSettings struct {
+	// Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+	MaxNodeCount int `pulumi:"maxNodeCount"`
+	// Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+	MinNodeCount                    int    `pulumi:"minNodeCount"`
+	ScaleDownNodesAfterIdleDuration string `pulumi:"scaleDownNodesAfterIdleDuration"`
+}
+
+// ComputeClusterScaleSettingsInput is an input type that accepts ComputeClusterScaleSettingsArgs and ComputeClusterScaleSettingsOutput values.
+// You can construct a concrete instance of `ComputeClusterScaleSettingsInput` via:
+//
+//          ComputeClusterScaleSettingsArgs{...}
+type ComputeClusterScaleSettingsInput interface {
+	pulumi.Input
+
+	ToComputeClusterScaleSettingsOutput() ComputeClusterScaleSettingsOutput
+	ToComputeClusterScaleSettingsOutputWithContext(context.Context) ComputeClusterScaleSettingsOutput
+}
+
+type ComputeClusterScaleSettingsArgs struct {
+	// Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+	MaxNodeCount pulumi.IntInput `pulumi:"maxNodeCount"`
+	// Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+	MinNodeCount                    pulumi.IntInput    `pulumi:"minNodeCount"`
+	ScaleDownNodesAfterIdleDuration pulumi.StringInput `pulumi:"scaleDownNodesAfterIdleDuration"`
+}
+
+func (ComputeClusterScaleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeClusterScaleSettings)(nil)).Elem()
+}
+
+func (i ComputeClusterScaleSettingsArgs) ToComputeClusterScaleSettingsOutput() ComputeClusterScaleSettingsOutput {
+	return i.ToComputeClusterScaleSettingsOutputWithContext(context.Background())
+}
+
+func (i ComputeClusterScaleSettingsArgs) ToComputeClusterScaleSettingsOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterScaleSettingsOutput)
+}
+
+func (i ComputeClusterScaleSettingsArgs) ToComputeClusterScaleSettingsPtrOutput() ComputeClusterScaleSettingsPtrOutput {
+	return i.ToComputeClusterScaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeClusterScaleSettingsArgs) ToComputeClusterScaleSettingsPtrOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterScaleSettingsOutput).ToComputeClusterScaleSettingsPtrOutputWithContext(ctx)
+}
+
+// ComputeClusterScaleSettingsPtrInput is an input type that accepts ComputeClusterScaleSettingsArgs, ComputeClusterScaleSettingsPtr and ComputeClusterScaleSettingsPtrOutput values.
+// You can construct a concrete instance of `ComputeClusterScaleSettingsPtrInput` via:
+//
+//          ComputeClusterScaleSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeClusterScaleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToComputeClusterScaleSettingsPtrOutput() ComputeClusterScaleSettingsPtrOutput
+	ToComputeClusterScaleSettingsPtrOutputWithContext(context.Context) ComputeClusterScaleSettingsPtrOutput
+}
+
+type computeClusterScaleSettingsPtrType ComputeClusterScaleSettingsArgs
+
+func ComputeClusterScaleSettingsPtr(v *ComputeClusterScaleSettingsArgs) ComputeClusterScaleSettingsPtrInput {
+	return (*computeClusterScaleSettingsPtrType)(v)
+}
+
+func (*computeClusterScaleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeClusterScaleSettings)(nil)).Elem()
+}
+
+func (i *computeClusterScaleSettingsPtrType) ToComputeClusterScaleSettingsPtrOutput() ComputeClusterScaleSettingsPtrOutput {
+	return i.ToComputeClusterScaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *computeClusterScaleSettingsPtrType) ToComputeClusterScaleSettingsPtrOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterScaleSettingsPtrOutput)
+}
+
+type ComputeClusterScaleSettingsOutput struct{ *pulumi.OutputState }
+
+func (ComputeClusterScaleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeClusterScaleSettings)(nil)).Elem()
+}
+
+func (o ComputeClusterScaleSettingsOutput) ToComputeClusterScaleSettingsOutput() ComputeClusterScaleSettingsOutput {
+	return o
+}
+
+func (o ComputeClusterScaleSettingsOutput) ToComputeClusterScaleSettingsOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsOutput {
+	return o
+}
+
+func (o ComputeClusterScaleSettingsOutput) ToComputeClusterScaleSettingsPtrOutput() ComputeClusterScaleSettingsPtrOutput {
+	return o.ToComputeClusterScaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeClusterScaleSettingsOutput) ToComputeClusterScaleSettingsPtrOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsPtrOutput {
+	return o.ApplyT(func(v ComputeClusterScaleSettings) *ComputeClusterScaleSettings {
+		return &v
+	}).(ComputeClusterScaleSettingsPtrOutput)
+}
+
+// Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterScaleSettingsOutput) MaxNodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ComputeClusterScaleSettings) int { return v.MaxNodeCount }).(pulumi.IntOutput)
+}
+
+// Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterScaleSettingsOutput) MinNodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ComputeClusterScaleSettings) int { return v.MinNodeCount }).(pulumi.IntOutput)
+}
+
+func (o ComputeClusterScaleSettingsOutput) ScaleDownNodesAfterIdleDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeClusterScaleSettings) string { return v.ScaleDownNodesAfterIdleDuration }).(pulumi.StringOutput)
+}
+
+type ComputeClusterScaleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeClusterScaleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeClusterScaleSettings)(nil)).Elem()
+}
+
+func (o ComputeClusterScaleSettingsPtrOutput) ToComputeClusterScaleSettingsPtrOutput() ComputeClusterScaleSettingsPtrOutput {
+	return o
+}
+
+func (o ComputeClusterScaleSettingsPtrOutput) ToComputeClusterScaleSettingsPtrOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsPtrOutput {
+	return o
+}
+
+func (o ComputeClusterScaleSettingsPtrOutput) Elem() ComputeClusterScaleSettingsOutput {
+	return o.ApplyT(func(v *ComputeClusterScaleSettings) ComputeClusterScaleSettings { return *v }).(ComputeClusterScaleSettingsOutput)
+}
+
+// Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterScaleSettingsPtrOutput) MaxNodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeClusterScaleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxNodeCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterScaleSettingsPtrOutput) MinNodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeClusterScaleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinNodeCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ComputeClusterScaleSettingsPtrOutput) ScaleDownNodesAfterIdleDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeClusterScaleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScaleDownNodesAfterIdleDuration
+	}).(pulumi.StringPtrOutput)
+}
+
 type InferenceClusterSsl struct {
 	// The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Cert *string `pulumi:"cert"`
@@ -493,6 +818,10 @@ func (o GetWorkspaceIdentityArrayOutput) Index(i pulumi.IntInput) GetWorkspaceId
 }
 
 func init() {
+	pulumi.RegisterOutputType(ComputeClusterIdentityOutput{})
+	pulumi.RegisterOutputType(ComputeClusterIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ComputeClusterScaleSettingsOutput{})
+	pulumi.RegisterOutputType(ComputeClusterScaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(InferenceClusterSslOutput{})
 	pulumi.RegisterOutputType(InferenceClusterSslPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})

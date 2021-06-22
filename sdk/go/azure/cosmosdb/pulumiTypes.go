@@ -2194,6 +2194,8 @@ type GremlinGraphIndexPolicy struct {
 	IncludedPaths []string `pulumi:"includedPaths"`
 	// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
 	IndexingMode string `pulumi:"indexingMode"`
+	// One or more `spatialIndex` blocks as defined below.
+	SpatialIndices []GremlinGraphIndexPolicySpatialIndex `pulumi:"spatialIndices"`
 }
 
 // GremlinGraphIndexPolicyInput is an input type that accepts GremlinGraphIndexPolicyArgs and GremlinGraphIndexPolicyOutput values.
@@ -2218,6 +2220,8 @@ type GremlinGraphIndexPolicyArgs struct {
 	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
 	// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
 	IndexingMode pulumi.StringInput `pulumi:"indexingMode"`
+	// One or more `spatialIndex` blocks as defined below.
+	SpatialIndices GremlinGraphIndexPolicySpatialIndexArrayInput `pulumi:"spatialIndices"`
 }
 
 func (GremlinGraphIndexPolicyArgs) ElementType() reflect.Type {
@@ -2294,6 +2298,11 @@ func (o GremlinGraphIndexPolicyOutput) IncludedPaths() pulumi.StringArrayOutput 
 // Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
 func (o GremlinGraphIndexPolicyOutput) IndexingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinGraphIndexPolicy) string { return v.IndexingMode }).(pulumi.StringOutput)
+}
+
+// One or more `spatialIndex` blocks as defined below.
+func (o GremlinGraphIndexPolicyOutput) SpatialIndices() GremlinGraphIndexPolicySpatialIndexArrayOutput {
+	return o.ApplyT(func(v GremlinGraphIndexPolicy) []GremlinGraphIndexPolicySpatialIndex { return v.SpatialIndices }).(GremlinGraphIndexPolicySpatialIndexArrayOutput)
 }
 
 type GremlinGraphIndexPolicyArrayOutput struct{ *pulumi.OutputState }
@@ -2519,6 +2528,109 @@ func (o GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput) Index(i pulumi.In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GremlinGraphIndexPolicyCompositeIndexIndex {
 		return vs[0].([]GremlinGraphIndexPolicyCompositeIndexIndex)[vs[1].(int)]
 	}).(GremlinGraphIndexPolicyCompositeIndexIndexOutput)
+}
+
+type GremlinGraphIndexPolicySpatialIndex struct {
+	// Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+	Path  string   `pulumi:"path"`
+	Types []string `pulumi:"types"`
+}
+
+// GremlinGraphIndexPolicySpatialIndexInput is an input type that accepts GremlinGraphIndexPolicySpatialIndexArgs and GremlinGraphIndexPolicySpatialIndexOutput values.
+// You can construct a concrete instance of `GremlinGraphIndexPolicySpatialIndexInput` via:
+//
+//          GremlinGraphIndexPolicySpatialIndexArgs{...}
+type GremlinGraphIndexPolicySpatialIndexInput interface {
+	pulumi.Input
+
+	ToGremlinGraphIndexPolicySpatialIndexOutput() GremlinGraphIndexPolicySpatialIndexOutput
+	ToGremlinGraphIndexPolicySpatialIndexOutputWithContext(context.Context) GremlinGraphIndexPolicySpatialIndexOutput
+}
+
+type GremlinGraphIndexPolicySpatialIndexArgs struct {
+	// Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+	Path  pulumi.StringInput      `pulumi:"path"`
+	Types pulumi.StringArrayInput `pulumi:"types"`
+}
+
+func (GremlinGraphIndexPolicySpatialIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphIndexPolicySpatialIndex)(nil)).Elem()
+}
+
+func (i GremlinGraphIndexPolicySpatialIndexArgs) ToGremlinGraphIndexPolicySpatialIndexOutput() GremlinGraphIndexPolicySpatialIndexOutput {
+	return i.ToGremlinGraphIndexPolicySpatialIndexOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphIndexPolicySpatialIndexArgs) ToGremlinGraphIndexPolicySpatialIndexOutputWithContext(ctx context.Context) GremlinGraphIndexPolicySpatialIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphIndexPolicySpatialIndexOutput)
+}
+
+// GremlinGraphIndexPolicySpatialIndexArrayInput is an input type that accepts GremlinGraphIndexPolicySpatialIndexArray and GremlinGraphIndexPolicySpatialIndexArrayOutput values.
+// You can construct a concrete instance of `GremlinGraphIndexPolicySpatialIndexArrayInput` via:
+//
+//          GremlinGraphIndexPolicySpatialIndexArray{ GremlinGraphIndexPolicySpatialIndexArgs{...} }
+type GremlinGraphIndexPolicySpatialIndexArrayInput interface {
+	pulumi.Input
+
+	ToGremlinGraphIndexPolicySpatialIndexArrayOutput() GremlinGraphIndexPolicySpatialIndexArrayOutput
+	ToGremlinGraphIndexPolicySpatialIndexArrayOutputWithContext(context.Context) GremlinGraphIndexPolicySpatialIndexArrayOutput
+}
+
+type GremlinGraphIndexPolicySpatialIndexArray []GremlinGraphIndexPolicySpatialIndexInput
+
+func (GremlinGraphIndexPolicySpatialIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GremlinGraphIndexPolicySpatialIndex)(nil)).Elem()
+}
+
+func (i GremlinGraphIndexPolicySpatialIndexArray) ToGremlinGraphIndexPolicySpatialIndexArrayOutput() GremlinGraphIndexPolicySpatialIndexArrayOutput {
+	return i.ToGremlinGraphIndexPolicySpatialIndexArrayOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphIndexPolicySpatialIndexArray) ToGremlinGraphIndexPolicySpatialIndexArrayOutputWithContext(ctx context.Context) GremlinGraphIndexPolicySpatialIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphIndexPolicySpatialIndexArrayOutput)
+}
+
+type GremlinGraphIndexPolicySpatialIndexOutput struct{ *pulumi.OutputState }
+
+func (GremlinGraphIndexPolicySpatialIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphIndexPolicySpatialIndex)(nil)).Elem()
+}
+
+func (o GremlinGraphIndexPolicySpatialIndexOutput) ToGremlinGraphIndexPolicySpatialIndexOutput() GremlinGraphIndexPolicySpatialIndexOutput {
+	return o
+}
+
+func (o GremlinGraphIndexPolicySpatialIndexOutput) ToGremlinGraphIndexPolicySpatialIndexOutputWithContext(ctx context.Context) GremlinGraphIndexPolicySpatialIndexOutput {
+	return o
+}
+
+// Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+func (o GremlinGraphIndexPolicySpatialIndexOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinGraphIndexPolicySpatialIndex) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o GremlinGraphIndexPolicySpatialIndexOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GremlinGraphIndexPolicySpatialIndex) []string { return v.Types }).(pulumi.StringArrayOutput)
+}
+
+type GremlinGraphIndexPolicySpatialIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (GremlinGraphIndexPolicySpatialIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GremlinGraphIndexPolicySpatialIndex)(nil)).Elem()
+}
+
+func (o GremlinGraphIndexPolicySpatialIndexArrayOutput) ToGremlinGraphIndexPolicySpatialIndexArrayOutput() GremlinGraphIndexPolicySpatialIndexArrayOutput {
+	return o
+}
+
+func (o GremlinGraphIndexPolicySpatialIndexArrayOutput) ToGremlinGraphIndexPolicySpatialIndexArrayOutputWithContext(ctx context.Context) GremlinGraphIndexPolicySpatialIndexArrayOutput {
+	return o
+}
+
+func (o GremlinGraphIndexPolicySpatialIndexArrayOutput) Index(i pulumi.IntInput) GremlinGraphIndexPolicySpatialIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GremlinGraphIndexPolicySpatialIndex {
+		return vs[0].([]GremlinGraphIndexPolicySpatialIndex)[vs[1].(int)]
+	}).(GremlinGraphIndexPolicySpatialIndexOutput)
 }
 
 type GremlinGraphUniqueKey struct {
@@ -3401,6 +3513,8 @@ type SqlContainerIndexingPolicy struct {
 	IncludedPaths []SqlContainerIndexingPolicyIncludedPath `pulumi:"includedPaths"`
 	// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
 	IndexingMode *string `pulumi:"indexingMode"`
+	// One or more `spatialIndex` blocks as defined below.
+	SpatialIndices []SqlContainerIndexingPolicySpatialIndex `pulumi:"spatialIndices"`
 }
 
 // SqlContainerIndexingPolicyInput is an input type that accepts SqlContainerIndexingPolicyArgs and SqlContainerIndexingPolicyOutput values.
@@ -3423,6 +3537,8 @@ type SqlContainerIndexingPolicyArgs struct {
 	IncludedPaths SqlContainerIndexingPolicyIncludedPathArrayInput `pulumi:"includedPaths"`
 	// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
 	IndexingMode pulumi.StringPtrInput `pulumi:"indexingMode"`
+	// One or more `spatialIndex` blocks as defined below.
+	SpatialIndices SqlContainerIndexingPolicySpatialIndexArrayInput `pulumi:"spatialIndices"`
 }
 
 func (SqlContainerIndexingPolicyArgs) ElementType() reflect.Type {
@@ -3524,6 +3640,11 @@ func (o SqlContainerIndexingPolicyOutput) IndexingMode() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v SqlContainerIndexingPolicy) *string { return v.IndexingMode }).(pulumi.StringPtrOutput)
 }
 
+// One or more `spatialIndex` blocks as defined below.
+func (o SqlContainerIndexingPolicyOutput) SpatialIndices() SqlContainerIndexingPolicySpatialIndexArrayOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicy) []SqlContainerIndexingPolicySpatialIndex { return v.SpatialIndices }).(SqlContainerIndexingPolicySpatialIndexArrayOutput)
+}
+
 type SqlContainerIndexingPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (SqlContainerIndexingPolicyPtrOutput) ElementType() reflect.Type {
@@ -3580,6 +3701,16 @@ func (o SqlContainerIndexingPolicyPtrOutput) IndexingMode() pulumi.StringPtrOutp
 		}
 		return v.IndexingMode
 	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `spatialIndex` blocks as defined below.
+func (o SqlContainerIndexingPolicyPtrOutput) SpatialIndices() SqlContainerIndexingPolicySpatialIndexArrayOutput {
+	return o.ApplyT(func(v *SqlContainerIndexingPolicy) []SqlContainerIndexingPolicySpatialIndex {
+		if v == nil {
+			return nil
+		}
+		return v.SpatialIndices
+	}).(SqlContainerIndexingPolicySpatialIndexArrayOutput)
 }
 
 type SqlContainerIndexingPolicyCompositeIndex struct {
@@ -3979,6 +4110,112 @@ func (o SqlContainerIndexingPolicyIncludedPathArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlContainerIndexingPolicyIncludedPath {
 		return vs[0].([]SqlContainerIndexingPolicyIncludedPath)[vs[1].(int)]
 	}).(SqlContainerIndexingPolicyIncludedPathOutput)
+}
+
+type SqlContainerIndexingPolicySpatialIndex struct {
+	// Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+	Path string `pulumi:"path"`
+	// A set of spatial types of the path.
+	Types []string `pulumi:"types"`
+}
+
+// SqlContainerIndexingPolicySpatialIndexInput is an input type that accepts SqlContainerIndexingPolicySpatialIndexArgs and SqlContainerIndexingPolicySpatialIndexOutput values.
+// You can construct a concrete instance of `SqlContainerIndexingPolicySpatialIndexInput` via:
+//
+//          SqlContainerIndexingPolicySpatialIndexArgs{...}
+type SqlContainerIndexingPolicySpatialIndexInput interface {
+	pulumi.Input
+
+	ToSqlContainerIndexingPolicySpatialIndexOutput() SqlContainerIndexingPolicySpatialIndexOutput
+	ToSqlContainerIndexingPolicySpatialIndexOutputWithContext(context.Context) SqlContainerIndexingPolicySpatialIndexOutput
+}
+
+type SqlContainerIndexingPolicySpatialIndexArgs struct {
+	// Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+	Path pulumi.StringInput `pulumi:"path"`
+	// A set of spatial types of the path.
+	Types pulumi.StringArrayInput `pulumi:"types"`
+}
+
+func (SqlContainerIndexingPolicySpatialIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerIndexingPolicySpatialIndex)(nil)).Elem()
+}
+
+func (i SqlContainerIndexingPolicySpatialIndexArgs) ToSqlContainerIndexingPolicySpatialIndexOutput() SqlContainerIndexingPolicySpatialIndexOutput {
+	return i.ToSqlContainerIndexingPolicySpatialIndexOutputWithContext(context.Background())
+}
+
+func (i SqlContainerIndexingPolicySpatialIndexArgs) ToSqlContainerIndexingPolicySpatialIndexOutputWithContext(ctx context.Context) SqlContainerIndexingPolicySpatialIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicySpatialIndexOutput)
+}
+
+// SqlContainerIndexingPolicySpatialIndexArrayInput is an input type that accepts SqlContainerIndexingPolicySpatialIndexArray and SqlContainerIndexingPolicySpatialIndexArrayOutput values.
+// You can construct a concrete instance of `SqlContainerIndexingPolicySpatialIndexArrayInput` via:
+//
+//          SqlContainerIndexingPolicySpatialIndexArray{ SqlContainerIndexingPolicySpatialIndexArgs{...} }
+type SqlContainerIndexingPolicySpatialIndexArrayInput interface {
+	pulumi.Input
+
+	ToSqlContainerIndexingPolicySpatialIndexArrayOutput() SqlContainerIndexingPolicySpatialIndexArrayOutput
+	ToSqlContainerIndexingPolicySpatialIndexArrayOutputWithContext(context.Context) SqlContainerIndexingPolicySpatialIndexArrayOutput
+}
+
+type SqlContainerIndexingPolicySpatialIndexArray []SqlContainerIndexingPolicySpatialIndexInput
+
+func (SqlContainerIndexingPolicySpatialIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlContainerIndexingPolicySpatialIndex)(nil)).Elem()
+}
+
+func (i SqlContainerIndexingPolicySpatialIndexArray) ToSqlContainerIndexingPolicySpatialIndexArrayOutput() SqlContainerIndexingPolicySpatialIndexArrayOutput {
+	return i.ToSqlContainerIndexingPolicySpatialIndexArrayOutputWithContext(context.Background())
+}
+
+func (i SqlContainerIndexingPolicySpatialIndexArray) ToSqlContainerIndexingPolicySpatialIndexArrayOutputWithContext(ctx context.Context) SqlContainerIndexingPolicySpatialIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicySpatialIndexArrayOutput)
+}
+
+type SqlContainerIndexingPolicySpatialIndexOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerIndexingPolicySpatialIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerIndexingPolicySpatialIndex)(nil)).Elem()
+}
+
+func (o SqlContainerIndexingPolicySpatialIndexOutput) ToSqlContainerIndexingPolicySpatialIndexOutput() SqlContainerIndexingPolicySpatialIndexOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicySpatialIndexOutput) ToSqlContainerIndexingPolicySpatialIndexOutputWithContext(ctx context.Context) SqlContainerIndexingPolicySpatialIndexOutput {
+	return o
+}
+
+// Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+func (o SqlContainerIndexingPolicySpatialIndexOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicySpatialIndex) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// A set of spatial types of the path.
+func (o SqlContainerIndexingPolicySpatialIndexOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicySpatialIndex) []string { return v.Types }).(pulumi.StringArrayOutput)
+}
+
+type SqlContainerIndexingPolicySpatialIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerIndexingPolicySpatialIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlContainerIndexingPolicySpatialIndex)(nil)).Elem()
+}
+
+func (o SqlContainerIndexingPolicySpatialIndexArrayOutput) ToSqlContainerIndexingPolicySpatialIndexArrayOutput() SqlContainerIndexingPolicySpatialIndexArrayOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicySpatialIndexArrayOutput) ToSqlContainerIndexingPolicySpatialIndexArrayOutputWithContext(ctx context.Context) SqlContainerIndexingPolicySpatialIndexArrayOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicySpatialIndexArrayOutput) Index(i pulumi.IntInput) SqlContainerIndexingPolicySpatialIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlContainerIndexingPolicySpatialIndex {
+		return vs[0].([]SqlContainerIndexingPolicySpatialIndex)[vs[1].(int)]
+	}).(SqlContainerIndexingPolicySpatialIndexOutput)
 }
 
 type SqlContainerUniqueKey struct {
@@ -4800,6 +5037,8 @@ func init() {
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyCompositeIndexArrayOutput{})
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyCompositeIndexIndexOutput{})
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput{})
+	pulumi.RegisterOutputType(GremlinGraphIndexPolicySpatialIndexOutput{})
+	pulumi.RegisterOutputType(GremlinGraphIndexPolicySpatialIndexArrayOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyArrayOutput{})
 	pulumi.RegisterOutputType(MongoCollectionAutoscaleSettingsOutput{})
@@ -4824,6 +5063,8 @@ func init() {
 	pulumi.RegisterOutputType(SqlContainerIndexingPolicyExcludedPathArrayOutput{})
 	pulumi.RegisterOutputType(SqlContainerIndexingPolicyIncludedPathOutput{})
 	pulumi.RegisterOutputType(SqlContainerIndexingPolicyIncludedPathArrayOutput{})
+	pulumi.RegisterOutputType(SqlContainerIndexingPolicySpatialIndexOutput{})
+	pulumi.RegisterOutputType(SqlContainerIndexingPolicySpatialIndexArrayOutput{})
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyOutput{})
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyArrayOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseAutoscaleSettingsOutput{})

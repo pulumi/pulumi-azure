@@ -27,6 +27,7 @@ __all__ = [
     'DatasetSnowflakeSchemaColumn',
     'DatasetSqlServerTableSchemaColumn',
     'FactoryGithubConfiguration',
+    'FactoryGlobalParameter',
     'FactoryIdentity',
     'FactoryVstsConfiguration',
     'IntegrationRuntimeManagedCatalogInfo',
@@ -42,6 +43,7 @@ __all__ = [
     'LinkedServiceAzureFileStorageKeyVaultPassword',
     'LinkedServiceAzureSqlDatabaseKeyVaultConnectionString',
     'LinkedServiceAzureSqlDatabaseKeyVaultPassword',
+    'LinkedServiceOdataBasicAuthentication',
     'LinkedServiceSnowflakeKeyVaultPassword',
     'LinkedServiceSqlServerKeyVaultConnectionString',
     'LinkedServiceSqlServerKeyVaultPassword',
@@ -906,6 +908,46 @@ class FactoryGithubConfiguration(dict):
         Specifies the root folder within the repository. Set to `/` for the top level.
         """
         return pulumi.get(self, "root_folder")
+
+
+@pulumi.output_type
+class FactoryGlobalParameter(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 value: str):
+        """
+        :param str name: Specifies the global parameter name.
+        :param str type: Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
+        :param str value: Specifies the global parameter value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the global parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Specifies the global parameter value.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1890,6 +1932,35 @@ class LinkedServiceAzureSqlDatabaseKeyVaultPassword(dict):
         Specifies the secret name in Azure Key Vault that stores SQL Server password.
         """
         return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
+class LinkedServiceOdataBasicAuthentication(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        :param str password: The password associated with the username, which can be used to authenticate to the OData endpoint.
+        :param str username: The username which can be used to authenticate to the OData endpoint.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password associated with the username, which can be used to authenticate to the OData endpoint.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The username which can be used to authenticate to the OData endpoint.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type

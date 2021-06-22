@@ -70,8 +70,12 @@ type Service struct {
 	AdditionalLocations ServiceAdditionalLocationArrayOutput `pulumi:"additionalLocations"`
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates ServiceCertificateArrayOutput `pulumi:"certificates"`
+	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl pulumi.StringOutput `pulumi:"developerPortalUrl"`
+	// Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+	GatewayDisabled pulumi.BoolPtrOutput `pulumi:"gatewayDisabled"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl pulumi.StringOutput `pulumi:"gatewayRegionalUrl"`
 	// The URL of the Gateway for the API Management Service.
@@ -84,6 +88,8 @@ type Service struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The URL for the Management API associated with this API Management service.
 	ManagementApiUrl pulumi.StringOutput `pulumi:"managementApiUrl"`
+	// The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+	MinApiVersion pulumi.StringPtrOutput `pulumi:"minApiVersion"`
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Email address from which the notification will be sent.
@@ -123,6 +129,8 @@ type Service struct {
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType pulumi.StringPtrOutput `pulumi:"virtualNetworkType"`
+	// A list of availability zones.
+	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -170,8 +178,12 @@ type serviceState struct {
 	AdditionalLocations []ServiceAdditionalLocation `pulumi:"additionalLocations"`
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates []ServiceCertificate `pulumi:"certificates"`
+	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl *string `pulumi:"developerPortalUrl"`
+	// Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+	GatewayDisabled *bool `pulumi:"gatewayDisabled"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl *string `pulumi:"gatewayRegionalUrl"`
 	// The URL of the Gateway for the API Management Service.
@@ -184,6 +196,8 @@ type serviceState struct {
 	Location *string `pulumi:"location"`
 	// The URL for the Management API associated with this API Management service.
 	ManagementApiUrl *string `pulumi:"managementApiUrl"`
+	// The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+	MinApiVersion *string `pulumi:"minApiVersion"`
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Email address from which the notification will be sent.
@@ -223,6 +237,8 @@ type serviceState struct {
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
+	// A list of availability zones.
+	Zones []string `pulumi:"zones"`
 }
 
 type ServiceState struct {
@@ -230,8 +246,12 @@ type ServiceState struct {
 	AdditionalLocations ServiceAdditionalLocationArrayInput
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates ServiceCertificateArrayInput
+	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+	ClientCertificateEnabled pulumi.BoolPtrInput
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl pulumi.StringPtrInput
+	// Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+	GatewayDisabled pulumi.BoolPtrInput
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl pulumi.StringPtrInput
 	// The URL of the Gateway for the API Management Service.
@@ -244,6 +264,8 @@ type ServiceState struct {
 	Location pulumi.StringPtrInput
 	// The URL for the Management API associated with this API Management service.
 	ManagementApiUrl pulumi.StringPtrInput
+	// The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+	MinApiVersion pulumi.StringPtrInput
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Email address from which the notification will be sent.
@@ -283,6 +305,8 @@ type ServiceState struct {
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType pulumi.StringPtrInput
+	// A list of availability zones.
+	Zones pulumi.StringArrayInput
 }
 
 func (ServiceState) ElementType() reflect.Type {
@@ -294,12 +318,18 @@ type serviceArgs struct {
 	AdditionalLocations []ServiceAdditionalLocation `pulumi:"additionalLocations"`
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates []ServiceCertificate `pulumi:"certificates"`
+	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
+	// Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+	GatewayDisabled *bool `pulumi:"gatewayDisabled"`
 	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration *ServiceHostnameConfiguration `pulumi:"hostnameConfiguration"`
 	// An `identity` block is documented below.
 	Identity *ServiceIdentity `pulumi:"identity"`
 	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+	MinApiVersion *string `pulumi:"minApiVersion"`
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Email address from which the notification will be sent.
@@ -331,6 +361,8 @@ type serviceArgs struct {
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
+	// A list of availability zones.
+	Zones []string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Service resource.
@@ -339,12 +371,18 @@ type ServiceArgs struct {
 	AdditionalLocations ServiceAdditionalLocationArrayInput
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates ServiceCertificateArrayInput
+	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+	ClientCertificateEnabled pulumi.BoolPtrInput
+	// Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+	GatewayDisabled pulumi.BoolPtrInput
 	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration ServiceHostnameConfigurationPtrInput
 	// An `identity` block is documented below.
 	Identity ServiceIdentityPtrInput
 	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+	MinApiVersion pulumi.StringPtrInput
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Email address from which the notification will be sent.
@@ -376,6 +414,8 @@ type ServiceArgs struct {
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType pulumi.StringPtrInput
+	// A list of availability zones.
+	Zones pulumi.StringArrayInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {

@@ -29,6 +29,10 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
         /// </summary>
         public readonly string? IndexingMode;
+        /// <summary>
+        /// One or more `spatial_index` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SqlContainerIndexingPolicySpatialIndex> SpatialIndices;
 
         [OutputConstructor]
         private SqlContainerIndexingPolicy(
@@ -38,12 +42,15 @@ namespace Pulumi.Azure.CosmosDB.Outputs
 
             ImmutableArray<Outputs.SqlContainerIndexingPolicyIncludedPath> includedPaths,
 
-            string? indexingMode)
+            string? indexingMode,
+
+            ImmutableArray<Outputs.SqlContainerIndexingPolicySpatialIndex> spatialIndices)
         {
             CompositeIndices = compositeIndices;
             ExcludedPaths = excludedPaths;
             IncludedPaths = includedPaths;
             IndexingMode = indexingMode;
+            SpatialIndices = spatialIndices;
         }
     }
 }

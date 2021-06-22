@@ -94,6 +94,10 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// (Optional) An `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetJobIdentityResult> Identities;
+        /// <summary>
         /// The Job ID assigned by the Stream Analytics Job.
         /// </summary>
         public readonly string JobId;
@@ -130,6 +134,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
             string id,
 
+            ImmutableArray<Outputs.GetJobIdentityResult> identities,
+
             string jobId,
 
             string location,
@@ -150,6 +156,7 @@ namespace Pulumi.Azure.StreamAnalytics
             EventsOutOfOrderMaxDelayInSeconds = eventsOutOfOrderMaxDelayInSeconds;
             EventsOutOfOrderPolicy = eventsOutOfOrderPolicy;
             Id = id;
+            Identities = identities;
             JobId = jobId;
             Location = location;
             Name = name;

@@ -30,6 +30,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? EnableNodePublicIp;
         /// <summary>
+        /// A `kubelet_config` block as defined below.
+        /// </summary>
+        public readonly Outputs.KubernetesClusterDefaultNodePoolKubeletConfig? KubeletConfig;
+        /// <summary>
+        /// A `linux_os_config` block as defined below.
+        /// </summary>
+        public readonly Outputs.KubernetesClusterDefaultNodePoolLinuxOsConfig? LinuxOsConfig;
+        /// <summary>
         /// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         /// </summary>
         public readonly int? MaxCount;
@@ -106,6 +114,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool? enableNodePublicIp,
 
+            Outputs.KubernetesClusterDefaultNodePoolKubeletConfig? kubeletConfig,
+
+            Outputs.KubernetesClusterDefaultNodePoolLinuxOsConfig? linuxOsConfig,
+
             int? maxCount,
 
             int? maxPods,
@@ -146,6 +158,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
             EnableAutoScaling = enableAutoScaling;
             EnableHostEncryption = enableHostEncryption;
             EnableNodePublicIp = enableNodePublicIp;
+            KubeletConfig = kubeletConfig;
+            LinuxOsConfig = linuxOsConfig;
             MaxCount = maxCount;
             MaxPods = maxPods;
             MinCount = minCount;

@@ -91,6 +91,8 @@ type Workspace struct {
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
 	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
 	CustomerManagedKeyVersionlessId pulumi.StringPtrOutput `pulumi:"customerManagedKeyVersionlessId"`
+	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
+	DataExfiltrationProtectionEnabled pulumi.BoolPtrOutput `pulumi:"dataExfiltrationProtectionEnabled"`
 	// A `githubRepo` block as defined below.
 	GithubRepo WorkspaceGithubRepoPtrOutput `pulumi:"githubRepo"`
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
@@ -166,6 +168,8 @@ type workspaceState struct {
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
 	CustomerManagedKeyVersionlessId *string `pulumi:"customerManagedKeyVersionlessId"`
+	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
+	DataExfiltrationProtectionEnabled *bool `pulumi:"dataExfiltrationProtectionEnabled"`
 	// A `githubRepo` block as defined below.
 	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
@@ -201,6 +205,8 @@ type WorkspaceState struct {
 	ConnectivityEndpoints pulumi.StringMapInput
 	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
 	CustomerManagedKeyVersionlessId pulumi.StringPtrInput
+	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
+	DataExfiltrationProtectionEnabled pulumi.BoolPtrInput
 	// A `githubRepo` block as defined below.
 	GithubRepo WorkspaceGithubRepoPtrInput
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
@@ -238,6 +244,8 @@ type workspaceArgs struct {
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
 	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
 	CustomerManagedKeyVersionlessId *string `pulumi:"customerManagedKeyVersionlessId"`
+	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
+	DataExfiltrationProtectionEnabled *bool `pulumi:"dataExfiltrationProtectionEnabled"`
 	// A `githubRepo` block as defined below.
 	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -270,6 +278,8 @@ type WorkspaceArgs struct {
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
 	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
 	CustomerManagedKeyVersionlessId pulumi.StringPtrInput
+	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
+	DataExfiltrationProtectionEnabled pulumi.BoolPtrInput
 	// A `githubRepo` block as defined below.
 	GithubRepo WorkspaceGithubRepoPtrInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.

@@ -30,6 +30,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+        /// </summary>
+        [Input("zoneRedundancyEnabled")]
+        public Input<bool>? ZoneRedundancyEnabled { get; set; }
+
         public RegistryGeoreplicationGetArgs()
         {
         }

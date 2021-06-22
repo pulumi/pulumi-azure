@@ -5,11 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./computeCluster";
 export * from "./getWorkspace";
 export * from "./inferenceCluster";
 export * from "./workspace";
 
 // Import resources to register:
+import { ComputeCluster } from "./computeCluster";
 import { InferenceCluster } from "./inferenceCluster";
 import { Workspace } from "./workspace";
 
@@ -17,6 +19,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:machinelearning/computeCluster:ComputeCluster":
+                return new ComputeCluster(name, <any>undefined, { urn })
             case "azure:machinelearning/inferenceCluster:InferenceCluster":
                 return new InferenceCluster(name, <any>undefined, { urn })
             case "azure:machinelearning/workspace:Workspace":
@@ -26,5 +30,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "machinelearning/computeCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/inferenceCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/workspace", _module)

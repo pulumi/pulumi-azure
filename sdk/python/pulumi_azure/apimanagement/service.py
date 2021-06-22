@@ -21,9 +21,12 @@ class ServiceArgs:
                  sku_name: pulumi.Input[str],
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
+                 client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 gateway_disabled: Optional[pulumi.Input[bool]] = None,
                  hostname_configuration: Optional[pulumi.Input['ServiceHostnameConfigurationArgs']] = None,
                  identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 min_api_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input['ServicePolicyArgs']] = None,
@@ -34,7 +37,8 @@ class ServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_access: Optional[pulumi.Input['ServiceTenantAccessArgs']] = None,
                  virtual_network_configuration: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']] = None,
-                 virtual_network_type: Optional[pulumi.Input[str]] = None):
+                 virtual_network_type: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
@@ -43,9 +47,12 @@ class ServiceArgs:
         :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in master region? This is only supported when `additional_location` is set.
         :param pulumi.Input['ServiceHostnameConfigurationArgs'] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block is documented below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input['ServicePolicyArgs'] policy: A `policy` block as defined below.
@@ -58,6 +65,7 @@ class ServiceArgs:
         :param pulumi.Input['ServiceVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones.
         """
         pulumi.set(__self__, "publisher_email", publisher_email)
         pulumi.set(__self__, "publisher_name", publisher_name)
@@ -67,12 +75,18 @@ class ServiceArgs:
             pulumi.set(__self__, "additional_locations", additional_locations)
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
+        if client_certificate_enabled is not None:
+            pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+        if gateway_disabled is not None:
+            pulumi.set(__self__, "gateway_disabled", gateway_disabled)
         if hostname_configuration is not None:
             pulumi.set(__self__, "hostname_configuration", hostname_configuration)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if min_api_version is not None:
+            pulumi.set(__self__, "min_api_version", min_api_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notification_sender_email is not None:
@@ -95,6 +109,8 @@ class ServiceArgs:
             pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
         if virtual_network_type is not None:
             pulumi.set(__self__, "virtual_network_type", virtual_network_type)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="publisherEmail")
@@ -169,6 +185,30 @@ class ServiceArgs:
         pulumi.set(self, "certificates", value)
 
     @property
+    @pulumi.getter(name="clientCertificateEnabled")
+    def client_certificate_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        """
+        return pulumi.get(self, "client_certificate_enabled")
+
+    @client_certificate_enabled.setter
+    def client_certificate_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_certificate_enabled", value)
+
+    @property
+    @pulumi.getter(name="gatewayDisabled")
+    def gateway_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable the gateway in master region? This is only supported when `additional_location` is set.
+        """
+        return pulumi.get(self, "gateway_disabled")
+
+    @gateway_disabled.setter
+    def gateway_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "gateway_disabled", value)
+
+    @property
     @pulumi.getter(name="hostnameConfiguration")
     def hostname_configuration(self) -> Optional[pulumi.Input['ServiceHostnameConfigurationArgs']]:
         """
@@ -203,6 +243,18 @@ class ServiceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="minApiVersion")
+    def min_api_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+        """
+        return pulumi.get(self, "min_api_version")
+
+    @min_api_version.setter
+    def min_api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min_api_version", value)
 
     @property
     @pulumi.getter
@@ -337,19 +389,34 @@ class ServiceArgs:
     def virtual_network_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_type", value)
 
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of availability zones.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
 
 @pulumi.input_type
 class _ServiceState:
     def __init__(__self__, *,
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
+                 client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
                  developer_portal_url: Optional[pulumi.Input[str]] = None,
+                 gateway_disabled: Optional[pulumi.Input[bool]] = None,
                  gateway_regional_url: Optional[pulumi.Input[str]] = None,
                  gateway_url: Optional[pulumi.Input[str]] = None,
                  hostname_configuration: Optional[pulumi.Input['ServiceHostnameConfigurationArgs']] = None,
                  identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_api_url: Optional[pulumi.Input[str]] = None,
+                 min_api_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input['ServicePolicyArgs']] = None,
@@ -368,18 +435,22 @@ class _ServiceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_access: Optional[pulumi.Input['ServiceTenantAccessArgs']] = None,
                  virtual_network_configuration: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']] = None,
-                 virtual_network_type: Optional[pulumi.Input[str]] = None):
+                 virtual_network_type: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
+        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in master region? This is only supported when `additional_location` is set.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
         :param pulumi.Input['ServiceHostnameConfigurationArgs'] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block is documented below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] management_api_url: The URL for the Management API associated with this API Management service.
+        :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input['ServicePolicyArgs'] policy: A `policy` block as defined below.
@@ -400,13 +471,18 @@ class _ServiceState:
         :param pulumi.Input['ServiceVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones.
         """
         if additional_locations is not None:
             pulumi.set(__self__, "additional_locations", additional_locations)
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
+        if client_certificate_enabled is not None:
+            pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
         if developer_portal_url is not None:
             pulumi.set(__self__, "developer_portal_url", developer_portal_url)
+        if gateway_disabled is not None:
+            pulumi.set(__self__, "gateway_disabled", gateway_disabled)
         if gateway_regional_url is not None:
             pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
         if gateway_url is not None:
@@ -419,6 +495,8 @@ class _ServiceState:
             pulumi.set(__self__, "location", location)
         if management_api_url is not None:
             pulumi.set(__self__, "management_api_url", management_api_url)
+        if min_api_version is not None:
+            pulumi.set(__self__, "min_api_version", min_api_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notification_sender_email is not None:
@@ -457,6 +535,8 @@ class _ServiceState:
             pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
         if virtual_network_type is not None:
             pulumi.set(__self__, "virtual_network_type", virtual_network_type)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="additionalLocations")
@@ -483,6 +563,18 @@ class _ServiceState:
         pulumi.set(self, "certificates", value)
 
     @property
+    @pulumi.getter(name="clientCertificateEnabled")
+    def client_certificate_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        """
+        return pulumi.get(self, "client_certificate_enabled")
+
+    @client_certificate_enabled.setter
+    def client_certificate_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_certificate_enabled", value)
+
+    @property
     @pulumi.getter(name="developerPortalUrl")
     def developer_portal_url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -493,6 +585,18 @@ class _ServiceState:
     @developer_portal_url.setter
     def developer_portal_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "developer_portal_url", value)
+
+    @property
+    @pulumi.getter(name="gatewayDisabled")
+    def gateway_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable the gateway in master region? This is only supported when `additional_location` is set.
+        """
+        return pulumi.get(self, "gateway_disabled")
+
+    @gateway_disabled.setter
+    def gateway_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "gateway_disabled", value)
 
     @property
     @pulumi.getter(name="gatewayRegionalUrl")
@@ -565,6 +669,18 @@ class _ServiceState:
     @management_api_url.setter
     def management_api_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "management_api_url", value)
+
+    @property
+    @pulumi.getter(name="minApiVersion")
+    def min_api_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+        """
+        return pulumi.get(self, "min_api_version")
+
+    @min_api_version.setter
+    def min_api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min_api_version", value)
 
     @property
     @pulumi.getter
@@ -795,6 +911,18 @@ class _ServiceState:
     def virtual_network_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_type", value)
 
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of availability zones.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
 
 class Service(pulumi.CustomResource):
     @overload
@@ -803,9 +931,12 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
+                 client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 gateway_disabled: Optional[pulumi.Input[bool]] = None,
                  hostname_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 min_api_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[pulumi.InputType['ServicePolicyArgs']]] = None,
@@ -821,6 +952,7 @@ class Service(pulumi.CustomResource):
                  tenant_access: Optional[pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']]] = None,
                  virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']]] = None,
                  virtual_network_type: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages an API Management Service.
@@ -865,9 +997,12 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in master region? This is only supported when `additional_location` is set.
         :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block is documented below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input[pulumi.InputType['ServicePolicyArgs']] policy: A `policy` block as defined below.
@@ -884,6 +1019,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones.
         """
         ...
     @overload
@@ -947,9 +1083,12 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
+                 client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 gateway_disabled: Optional[pulumi.Input[bool]] = None,
                  hostname_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 min_api_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[pulumi.InputType['ServicePolicyArgs']]] = None,
@@ -965,6 +1104,7 @@ class Service(pulumi.CustomResource):
                  tenant_access: Optional[pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']]] = None,
                  virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']]] = None,
                  virtual_network_type: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -979,9 +1119,12 @@ class Service(pulumi.CustomResource):
 
             __props__.__dict__["additional_locations"] = additional_locations
             __props__.__dict__["certificates"] = certificates
+            __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
+            __props__.__dict__["gateway_disabled"] = gateway_disabled
             __props__.__dict__["hostname_configuration"] = hostname_configuration
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            __props__.__dict__["min_api_version"] = min_api_version
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_sender_email"] = notification_sender_email
             __props__.__dict__["policy"] = policy
@@ -1005,6 +1148,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["tenant_access"] = tenant_access
             __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
             __props__.__dict__["virtual_network_type"] = virtual_network_type
+            __props__.__dict__["zones"] = zones
             __props__.__dict__["developer_portal_url"] = None
             __props__.__dict__["gateway_regional_url"] = None
             __props__.__dict__["gateway_url"] = None
@@ -1025,13 +1169,16 @@ class Service(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
             certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
+            client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
             developer_portal_url: Optional[pulumi.Input[str]] = None,
+            gateway_disabled: Optional[pulumi.Input[bool]] = None,
             gateway_regional_url: Optional[pulumi.Input[str]] = None,
             gateway_url: Optional[pulumi.Input[str]] = None,
             hostname_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             management_api_url: Optional[pulumi.Input[str]] = None,
+            min_api_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notification_sender_email: Optional[pulumi.Input[str]] = None,
             policy: Optional[pulumi.Input[pulumi.InputType['ServicePolicyArgs']]] = None,
@@ -1050,7 +1197,8 @@ class Service(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tenant_access: Optional[pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']]] = None,
             virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']]] = None,
-            virtual_network_type: Optional[pulumi.Input[str]] = None) -> 'Service':
+            virtual_network_type: Optional[pulumi.Input[str]] = None,
+            zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1060,13 +1208,16 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
+        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in master region? This is only supported when `additional_location` is set.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
         :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block is documented below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] management_api_url: The URL for the Management API associated with this API Management service.
+        :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input[pulumi.InputType['ServicePolicyArgs']] policy: A `policy` block as defined below.
@@ -1087,6 +1238,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1094,13 +1246,16 @@ class Service(pulumi.CustomResource):
 
         __props__.__dict__["additional_locations"] = additional_locations
         __props__.__dict__["certificates"] = certificates
+        __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
         __props__.__dict__["developer_portal_url"] = developer_portal_url
+        __props__.__dict__["gateway_disabled"] = gateway_disabled
         __props__.__dict__["gateway_regional_url"] = gateway_regional_url
         __props__.__dict__["gateway_url"] = gateway_url
         __props__.__dict__["hostname_configuration"] = hostname_configuration
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["management_api_url"] = management_api_url
+        __props__.__dict__["min_api_version"] = min_api_version
         __props__.__dict__["name"] = name
         __props__.__dict__["notification_sender_email"] = notification_sender_email
         __props__.__dict__["policy"] = policy
@@ -1120,6 +1275,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["tenant_access"] = tenant_access
         __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
         __props__.__dict__["virtual_network_type"] = virtual_network_type
+        __props__.__dict__["zones"] = zones
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1139,12 +1295,28 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "certificates")
 
     @property
+    @pulumi.getter(name="clientCertificateEnabled")
+    def client_certificate_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        """
+        return pulumi.get(self, "client_certificate_enabled")
+
+    @property
     @pulumi.getter(name="developerPortalUrl")
     def developer_portal_url(self) -> pulumi.Output[str]:
         """
         The URL for the Developer Portal associated with this API Management service.
         """
         return pulumi.get(self, "developer_portal_url")
+
+    @property
+    @pulumi.getter(name="gatewayDisabled")
+    def gateway_disabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Disable the gateway in master region? This is only supported when `additional_location` is set.
+        """
+        return pulumi.get(self, "gateway_disabled")
 
     @property
     @pulumi.getter(name="gatewayRegionalUrl")
@@ -1193,6 +1365,14 @@ class Service(pulumi.CustomResource):
         The URL for the Management API associated with this API Management service.
         """
         return pulumi.get(self, "management_api_url")
+
+    @property
+    @pulumi.getter(name="minApiVersion")
+    def min_api_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+        """
+        return pulumi.get(self, "min_api_version")
 
     @property
     @pulumi.getter
@@ -1346,4 +1526,12 @@ class Service(pulumi.CustomResource):
         > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
         """
         return pulumi.get(self, "virtual_network_type")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of availability zones.
+        """
+        return pulumi.get(self, "zones")
 

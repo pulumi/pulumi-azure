@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Allows you to Manages a Synapse Role Assignment.
+ * Manages a Synapse Role Assignment.
  *
  * ## Example Usage
  *
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * const current = azure.core.getClientConfig({});
  * const exampleRoleAssignment = new azure.synapse.RoleAssignment("exampleRoleAssignment", {
  *     synapseWorkspaceId: exampleWorkspace.id,
- *     roleName: "Sql Admin",
+ *     roleName: "Synapse SQL Administrator",
  *     principalId: current.then(current => current.objectId),
  * }, {
  *     dependsOn: [exampleFirewallRule],
@@ -90,9 +90,13 @@ export class RoleAssignment extends pulumi.CustomResource {
      */
     public readonly roleName!: pulumi.Output<string>;
     /**
-     * The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
+     * The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
      */
-    public readonly synapseWorkspaceId!: pulumi.Output<string>;
+    public readonly synapseSparkPoolId!: pulumi.Output<string | undefined>;
+    /**
+     * The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+     */
+    public readonly synapseWorkspaceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RoleAssignment resource with the given unique name, arguments, and options.
@@ -109,6 +113,7 @@ export class RoleAssignment extends pulumi.CustomResource {
             const state = argsOrState as RoleAssignmentState | undefined;
             inputs["principalId"] = state ? state.principalId : undefined;
             inputs["roleName"] = state ? state.roleName : undefined;
+            inputs["synapseSparkPoolId"] = state ? state.synapseSparkPoolId : undefined;
             inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
         } else {
             const args = argsOrState as RoleAssignmentArgs | undefined;
@@ -118,11 +123,9 @@ export class RoleAssignment extends pulumi.CustomResource {
             if ((!args || args.roleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'synapseWorkspaceId'");
-            }
             inputs["principalId"] = args ? args.principalId : undefined;
             inputs["roleName"] = args ? args.roleName : undefined;
+            inputs["synapseSparkPoolId"] = args ? args.synapseSparkPoolId : undefined;
             inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
         }
         if (!opts.version) {
@@ -145,7 +148,11 @@ export interface RoleAssignmentState {
      */
     roleName?: pulumi.Input<string>;
     /**
-     * The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
+     * The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+     */
+    synapseSparkPoolId?: pulumi.Input<string>;
+    /**
+     * The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
      */
     synapseWorkspaceId?: pulumi.Input<string>;
 }
@@ -163,7 +170,11 @@ export interface RoleAssignmentArgs {
      */
     roleName: pulumi.Input<string>;
     /**
-     * The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
+     * The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
      */
-    synapseWorkspaceId: pulumi.Input<string>;
+    synapseSparkPoolId?: pulumi.Input<string>;
+    /**
+     * The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+     */
+    synapseWorkspaceId?: pulumi.Input<string>;
 }

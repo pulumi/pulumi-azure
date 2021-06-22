@@ -81,6 +81,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProductPolicy{}
 	case "azure:apimanagement/property:Property":
 		r = &Property{}
+	case "azure:apimanagement/redisCache:RedisCache":
+		r = &RedisCache{}
 	case "azure:apimanagement/service:Service":
 		r = &Service{}
 	case "azure:apimanagement/subscription:Subscription":
@@ -248,6 +250,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/property",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/redisCache",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

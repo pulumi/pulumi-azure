@@ -9,9 +9,105 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ComputeClusterIdentityArgs',
+    'ComputeClusterScaleSettingsArgs',
     'InferenceClusterSslArgs',
     'WorkspaceIdentityArgs',
 ]
+
+@pulumi.input_type
+class ComputeClusterIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class ComputeClusterScaleSettingsArgs:
+    def __init__(__self__, *,
+                 max_node_count: pulumi.Input[int],
+                 min_node_count: pulumi.Input[int],
+                 scale_down_nodes_after_idle_duration: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] max_node_count: Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[int] min_node_count: Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        pulumi.set(__self__, "max_node_count", max_node_count)
+        pulumi.set(__self__, "min_node_count", min_node_count)
+        pulumi.set(__self__, "scale_down_nodes_after_idle_duration", scale_down_nodes_after_idle_duration)
+
+    @property
+    @pulumi.getter(name="maxNodeCount")
+    def max_node_count(self) -> pulumi.Input[int]:
+        """
+        Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "max_node_count")
+
+    @max_node_count.setter
+    def max_node_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_node_count", value)
+
+    @property
+    @pulumi.getter(name="minNodeCount")
+    def min_node_count(self) -> pulumi.Input[int]:
+        """
+        Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "min_node_count")
+
+    @min_node_count.setter
+    def min_node_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min_node_count", value)
+
+    @property
+    @pulumi.getter(name="scaleDownNodesAfterIdleDuration")
+    def scale_down_nodes_after_idle_duration(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "scale_down_nodes_after_idle_duration")
+
+    @scale_down_nodes_after_idle_duration.setter
+    def scale_down_nodes_after_idle_duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scale_down_nodes_after_idle_duration", value)
+
 
 @pulumi.input_type
 class InferenceClusterSslArgs:

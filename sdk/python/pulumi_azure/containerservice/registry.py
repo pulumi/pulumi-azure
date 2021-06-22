@@ -30,7 +30,8 @@ class RegistryArgs:
                  sku: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None):
+                 trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None,
+                 zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Registry resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
@@ -49,6 +50,7 @@ class RegistryArgs:
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['RegistryTrustPolicyArgs'] trust_policy: A `trust_policy` block as documented below.
+        :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if admin_enabled is not None:
@@ -84,6 +86,8 @@ class RegistryArgs:
             pulumi.set(__self__, "tags", tags)
         if trust_policy is not None:
             pulumi.set(__self__, "trust_policy", trust_policy)
+        if zone_redundancy_enabled is not None:
+            pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -277,6 +281,18 @@ class RegistryArgs:
     def trust_policy(self, value: Optional[pulumi.Input['RegistryTrustPolicyArgs']]):
         pulumi.set(self, "trust_policy", value)
 
+    @property
+    @pulumi.getter(name="zoneRedundancyEnabled")
+    def zone_redundancy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_redundancy_enabled")
+
+    @zone_redundancy_enabled.setter
+    def zone_redundancy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundancy_enabled", value)
+
 
 @pulumi.input_type
 class _RegistryState:
@@ -299,7 +315,8 @@ class _RegistryState:
                  sku: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None):
+                 trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None,
+                 zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Registry resources.
         :param pulumi.Input[bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
@@ -321,6 +338,7 @@ class _RegistryState:
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['RegistryTrustPolicyArgs'] trust_policy: A `trust_policy` block as documented below.
+        :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         if admin_enabled is not None:
             pulumi.set(__self__, "admin_enabled", admin_enabled)
@@ -363,6 +381,8 @@ class _RegistryState:
             pulumi.set(__self__, "tags", tags)
         if trust_policy is not None:
             pulumi.set(__self__, "trust_policy", trust_policy)
+        if zone_redundancy_enabled is not None:
+            pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
 
     @property
     @pulumi.getter(name="adminEnabled")
@@ -592,6 +612,18 @@ class _RegistryState:
     def trust_policy(self, value: Optional[pulumi.Input['RegistryTrustPolicyArgs']]):
         pulumi.set(self, "trust_policy", value)
 
+    @property
+    @pulumi.getter(name="zoneRedundancyEnabled")
+    def zone_redundancy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_redundancy_enabled")
+
+    @zone_redundancy_enabled.setter
+    def zone_redundancy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundancy_enabled", value)
+
 
 class Registry(pulumi.CustomResource):
     @overload
@@ -614,6 +646,7 @@ class Registry(pulumi.CustomResource):
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trust_policy: Optional[pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']]] = None,
+                 zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages an Azure Container Registry.
@@ -688,6 +721,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']] trust_policy: A `trust_policy` block as documented below.
+        :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         ...
     @overload
@@ -781,6 +815,7 @@ class Registry(pulumi.CustomResource):
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trust_policy: Optional[pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']]] = None,
+                 zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -814,6 +849,7 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trust_policy"] = trust_policy
+            __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
             __props__.__dict__["admin_password"] = None
             __props__.__dict__["admin_username"] = None
             __props__.__dict__["login_server"] = None
@@ -845,7 +881,8 @@ class Registry(pulumi.CustomResource):
             sku: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            trust_policy: Optional[pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']]] = None) -> 'Registry':
+            trust_policy: Optional[pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']]] = None,
+            zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None) -> 'Registry':
         """
         Get an existing Registry resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -872,6 +909,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']] trust_policy: A `trust_policy` block as documented below.
+        :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -896,6 +934,7 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["trust_policy"] = trust_policy
+        __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
         return Registry(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1049,4 +1088,12 @@ class Registry(pulumi.CustomResource):
         A `trust_policy` block as documented below.
         """
         return pulumi.get(self, "trust_policy")
+
+    @property
+    @pulumi.getter(name="zoneRedundancyEnabled")
+    def zone_redundancy_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_redundancy_enabled")
 

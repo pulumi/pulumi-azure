@@ -18,6 +18,7 @@ class FactoryArgs:
                  resource_group_name: pulumi.Input[str],
                  customer_managed_key_id: Optional[pulumi.Input[str]] = None,
                  github_configuration: Optional[pulumi.Input['FactoryGithubConfigurationArgs']] = None,
+                 global_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]]] = None,
                  identity: Optional[pulumi.Input['FactoryIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,7 @@ class FactoryArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory.
         :param pulumi.Input[str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input['FactoryGithubConfigurationArgs'] github_configuration: A `github_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]] global_parameters: A list of `global_parameter` blocks as defined above.
         :param pulumi.Input['FactoryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -41,6 +43,8 @@ class FactoryArgs:
             pulumi.set(__self__, "customer_managed_key_id", customer_managed_key_id)
         if github_configuration is not None:
             pulumi.set(__self__, "github_configuration", github_configuration)
+        if global_parameters is not None:
+            pulumi.set(__self__, "global_parameters", global_parameters)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -89,6 +93,18 @@ class FactoryArgs:
     @github_configuration.setter
     def github_configuration(self, value: Optional[pulumi.Input['FactoryGithubConfigurationArgs']]):
         pulumi.set(self, "github_configuration", value)
+
+    @property
+    @pulumi.getter(name="globalParameters")
+    def global_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]]]:
+        """
+        A list of `global_parameter` blocks as defined above.
+        """
+        return pulumi.get(self, "global_parameters")
+
+    @global_parameters.setter
+    def global_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]]]):
+        pulumi.set(self, "global_parameters", value)
 
     @property
     @pulumi.getter
@@ -168,6 +184,7 @@ class _FactoryState:
     def __init__(__self__, *,
                  customer_managed_key_id: Optional[pulumi.Input[str]] = None,
                  github_configuration: Optional[pulumi.Input['FactoryGithubConfigurationArgs']] = None,
+                 global_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]]] = None,
                  identity: Optional[pulumi.Input['FactoryIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -179,6 +196,7 @@ class _FactoryState:
         Input properties used for looking up and filtering Factory resources.
         :param pulumi.Input[str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input['FactoryGithubConfigurationArgs'] github_configuration: A `github_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]] global_parameters: A list of `global_parameter` blocks as defined above.
         :param pulumi.Input['FactoryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -191,6 +209,8 @@ class _FactoryState:
             pulumi.set(__self__, "customer_managed_key_id", customer_managed_key_id)
         if github_configuration is not None:
             pulumi.set(__self__, "github_configuration", github_configuration)
+        if global_parameters is not None:
+            pulumi.set(__self__, "global_parameters", global_parameters)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -229,6 +249,18 @@ class _FactoryState:
     @github_configuration.setter
     def github_configuration(self, value: Optional[pulumi.Input['FactoryGithubConfigurationArgs']]):
         pulumi.set(self, "github_configuration", value)
+
+    @property
+    @pulumi.getter(name="globalParameters")
+    def global_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]]]:
+        """
+        A list of `global_parameter` blocks as defined above.
+        """
+        return pulumi.get(self, "global_parameters")
+
+    @global_parameters.setter
+    def global_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]]]):
+        pulumi.set(self, "global_parameters", value)
 
     @property
     @pulumi.getter
@@ -322,6 +354,7 @@ class Factory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_managed_key_id: Optional[pulumi.Input[str]] = None,
                  github_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryGithubConfigurationArgs']]] = None,
+                 global_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FactoryGlobalParameterArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -357,6 +390,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input[pulumi.InputType['FactoryGithubConfigurationArgs']] github_configuration: A `github_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FactoryGlobalParameterArgs']]]] global_parameters: A list of `global_parameter` blocks as defined above.
         :param pulumi.Input[pulumi.InputType['FactoryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -411,6 +445,7 @@ class Factory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_managed_key_id: Optional[pulumi.Input[str]] = None,
                  github_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryGithubConfigurationArgs']]] = None,
+                 global_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FactoryGlobalParameterArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -432,6 +467,7 @@ class Factory(pulumi.CustomResource):
 
             __props__.__dict__["customer_managed_key_id"] = customer_managed_key_id
             __props__.__dict__["github_configuration"] = github_configuration
+            __props__.__dict__["global_parameters"] = global_parameters
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -453,6 +489,7 @@ class Factory(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             customer_managed_key_id: Optional[pulumi.Input[str]] = None,
             github_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryGithubConfigurationArgs']]] = None,
+            global_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FactoryGlobalParameterArgs']]]]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -469,6 +506,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input[pulumi.InputType['FactoryGithubConfigurationArgs']] github_configuration: A `github_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FactoryGlobalParameterArgs']]]] global_parameters: A list of `global_parameter` blocks as defined above.
         :param pulumi.Input[pulumi.InputType['FactoryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -483,6 +521,7 @@ class Factory(pulumi.CustomResource):
 
         __props__.__dict__["customer_managed_key_id"] = customer_managed_key_id
         __props__.__dict__["github_configuration"] = github_configuration
+        __props__.__dict__["global_parameters"] = global_parameters
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -507,6 +546,14 @@ class Factory(pulumi.CustomResource):
         A `github_configuration` block as defined below.
         """
         return pulumi.get(self, "github_configuration")
+
+    @property
+    @pulumi.getter(name="globalParameters")
+    def global_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.FactoryGlobalParameter']]]:
+        """
+        A list of `global_parameter` blocks as defined above.
+        """
+        return pulumi.get(self, "global_parameters")
 
     @property
     @pulumi.getter
