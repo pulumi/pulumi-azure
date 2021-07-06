@@ -17,6 +17,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Allow or Deny access for this IP range. Defaults to Allow.
         /// </summary>
         public readonly string Action;
+        public readonly Outputs.GetFunctionAppSiteConfigScmIpRestrictionHeadersResult Headers;
         /// <summary>
         /// The IP Address used for this IP Restriction in CIDR notation.
         /// </summary>
@@ -42,6 +43,8 @@ namespace Pulumi.Azure.AppService.Outputs
         private GetFunctionAppSiteConfigScmIpRestrictionResult(
             string action,
 
+            Outputs.GetFunctionAppSiteConfigScmIpRestrictionHeadersResult headers,
+
             string ipAddress,
 
             string name,
@@ -53,6 +56,7 @@ namespace Pulumi.Azure.AppService.Outputs
             string virtualNetworkSubnetId)
         {
             Action = action;
+            Headers = headers;
             IpAddress = ipAddress;
             Name = name;
             Priority = priority;

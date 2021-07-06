@@ -256,6 +256,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/apiOperationTag",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/apiOperationTag:ApiOperationTag": "ApiOperationTag"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/apiPolicy",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
@@ -1400,6 +1408,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "core/portalTenantConfiguration",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/portalTenantConfiguration:PortalTenantConfiguration": "PortalTenantConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "core/resourceGroup",
   "fqn": "pulumi_azure.core",
   "classes": {
@@ -1408,10 +1424,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "core/resourceGroupPolicyAssignment",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment": "ResourceGroupPolicyAssignment"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "core/resourceGroupTemplateDeployment",
   "fqn": "pulumi_azure.core",
   "classes": {
    "azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment": "ResourceGroupTemplateDeployment"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "core/resourcePolicyAssignment",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/resourcePolicyAssignment:ResourcePolicyAssignment": "ResourcePolicyAssignment"
   }
  },
  {
@@ -1428,6 +1460,14 @@ _utilities.register(
   "fqn": "pulumi_azure.core",
   "classes": {
    "azure:core/subscription:Subscription": "Subscription"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "core/subscriptionPolicyAssignment",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment": "SubscriptionPolicyAssignment"
   }
  },
  {
@@ -1744,6 +1784,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/linkedCustomService",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/linkedCustomService:LinkedCustomService": "LinkedCustomService"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/linkedServiceAzureBlobStorage",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -1904,6 +1952,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/triggerBlobEvent",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/triggerBlobEvent:TriggerBlobEvent": "TriggerBlobEvent"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/triggerSchedule",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -1956,6 +2012,14 @@ _utilities.register(
   "fqn": "pulumi_azure.datalake",
   "classes": {
    "azure:datalake/storeVirtualNetworkRule:StoreVirtualNetworkRule": "StoreVirtualNetworkRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dataprotection/backupInstancePostgresql",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql": "BackupInstancePostgresql"
   }
  },
  {
@@ -2584,6 +2648,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "hpc/cacheBlobNfsTarget",
+  "fqn": "pulumi_azure.hpc",
+  "classes": {
+   "azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget": "CacheBlobNfsTarget"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "hpc/cacheBlobTarget",
   "fqn": "pulumi_azure.hpc",
   "classes": {
@@ -3208,6 +3280,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "management/groupPolicyAssignment",
+  "fqn": "pulumi_azure.management",
+  "classes": {
+   "azure:management/groupPolicyAssignment:GroupPolicyAssignment": "GroupPolicyAssignment"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "management/groupSubscriptionAssociation",
   "fqn": "pulumi_azure.management",
   "classes": {
@@ -3760,10 +3840,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/expressRouteCircuitConnection",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection": "ExpressRouteCircuitConnection"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/expressRouteCircuitPeering",
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering": "ExpressRouteCircuitPeering"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/expressRouteConnection",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/expressRouteConnection:ExpressRouteConnection": "ExpressRouteConnection"
   }
  },
  {
@@ -3860,6 +3956,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation": "NatGatewayPublicIpAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/natGatewayPublicIpPrefixAssociation",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation": "NatGatewayPublicIpPrefixAssociation"
   }
  },
  {

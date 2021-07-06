@@ -89,13 +89,15 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
      *
-     * @deprecated Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.
+     * @deprecated Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.
      */
     public readonly publicIpAddressIds!: pulumi.Output<string[]>;
     /**
-     * A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+     * / **Deprecated in favour of `azure.network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+     *
+     * @deprecated Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.
      */
-    public readonly publicIpPrefixIds!: pulumi.Output<string[] | undefined>;
+    public readonly publicIpPrefixIds!: pulumi.Output<string[]>;
     /**
      * Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -182,11 +184,13 @@ export interface NatGatewayState {
     /**
      * A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
      *
-     * @deprecated Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.
+     * @deprecated Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.
      */
     publicIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+     * / **Deprecated in favour of `azure.network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+     *
+     * @deprecated Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.
      */
     publicIpPrefixIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -230,11 +234,13 @@ export interface NatGatewayArgs {
     /**
      * A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
      *
-     * @deprecated Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.
+     * @deprecated Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.
      */
     publicIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+     * / **Deprecated in favour of `azure.network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+     *
+     * @deprecated Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.
      */
     publicIpPrefixIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

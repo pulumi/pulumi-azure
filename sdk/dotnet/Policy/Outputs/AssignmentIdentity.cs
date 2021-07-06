@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Policy.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
+        /// The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
         /// </summary>
         public readonly string? Type;
 

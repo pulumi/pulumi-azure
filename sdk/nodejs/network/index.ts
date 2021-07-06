@@ -11,7 +11,9 @@ export * from "./bgpConnection";
 export * from "./ddosProtectionPlan";
 export * from "./expressRouteCircuit";
 export * from "./expressRouteCircuitAuthorization";
+export * from "./expressRouteCircuitConnection";
 export * from "./expressRouteCircuitPeering";
+export * from "./expressRouteConnection";
 export * from "./expressRouteGateway";
 export * from "./expressRoutePort";
 export * from "./firewall";
@@ -49,6 +51,7 @@ export * from "./ipgroup";
 export * from "./localNetworkGateway";
 export * from "./natGateway";
 export * from "./natGatewayPublicIpAssociation";
+export * from "./natGatewayPublicIpPrefixAssociation";
 export * from "./networkConnectionMonitor";
 export * from "./networkInterface";
 export * from "./networkInterfaceApplicationGatewayBackendAddressPoolAssociation";
@@ -98,7 +101,9 @@ import { BgpConnection } from "./bgpConnection";
 import { DdosProtectionPlan } from "./ddosProtectionPlan";
 import { ExpressRouteCircuit } from "./expressRouteCircuit";
 import { ExpressRouteCircuitAuthorization } from "./expressRouteCircuitAuthorization";
+import { ExpressRouteCircuitConnection } from "./expressRouteCircuitConnection";
 import { ExpressRouteCircuitPeering } from "./expressRouteCircuitPeering";
+import { ExpressRouteConnection } from "./expressRouteConnection";
 import { ExpressRouteGateway } from "./expressRouteGateway";
 import { ExpressRoutePort } from "./expressRoutePort";
 import { Firewall } from "./firewall";
@@ -111,6 +116,7 @@ import { IPGroup } from "./ipgroup";
 import { LocalNetworkGateway } from "./localNetworkGateway";
 import { NatGateway } from "./natGateway";
 import { NatGatewayPublicIpAssociation } from "./natGatewayPublicIpAssociation";
+import { NatGatewayPublicIpPrefixAssociation } from "./natGatewayPublicIpPrefixAssociation";
 import { NetworkConnectionMonitor } from "./networkConnectionMonitor";
 import { NetworkInterface } from "./networkInterface";
 import { NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation } from "./networkInterfaceApplicationGatewayBackendAddressPoolAssociation";
@@ -169,8 +175,12 @@ const _module = {
                 return new ExpressRouteCircuit(name, <any>undefined, { urn })
             case "azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization":
                 return new ExpressRouteCircuitAuthorization(name, <any>undefined, { urn })
+            case "azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection":
+                return new ExpressRouteCircuitConnection(name, <any>undefined, { urn })
             case "azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering":
                 return new ExpressRouteCircuitPeering(name, <any>undefined, { urn })
+            case "azure:network/expressRouteConnection:ExpressRouteConnection":
+                return new ExpressRouteConnection(name, <any>undefined, { urn })
             case "azure:network/expressRouteGateway:ExpressRouteGateway":
                 return new ExpressRouteGateway(name, <any>undefined, { urn })
             case "azure:network/expressRoutePort:ExpressRoutePort":
@@ -195,6 +205,8 @@ const _module = {
                 return new NatGateway(name, <any>undefined, { urn })
             case "azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation":
                 return new NatGatewayPublicIpAssociation(name, <any>undefined, { urn })
+            case "azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation":
+                return new NatGatewayPublicIpPrefixAssociation(name, <any>undefined, { urn })
             case "azure:network/networkConnectionMonitor:NetworkConnectionMonitor":
                 return new NetworkConnectionMonitor(name, <any>undefined, { urn })
             case "azure:network/networkInterface:NetworkInterface":
@@ -288,7 +300,9 @@ pulumi.runtime.registerResourceModule("azure", "network/bgpConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/ddosProtectionPlan", _module)
 pulumi.runtime.registerResourceModule("azure", "network/expressRouteCircuit", _module)
 pulumi.runtime.registerResourceModule("azure", "network/expressRouteCircuitAuthorization", _module)
+pulumi.runtime.registerResourceModule("azure", "network/expressRouteCircuitConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/expressRouteCircuitPeering", _module)
+pulumi.runtime.registerResourceModule("azure", "network/expressRouteConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/expressRouteGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "network/expressRoutePort", _module)
 pulumi.runtime.registerResourceModule("azure", "network/firewall", _module)
@@ -301,6 +315,7 @@ pulumi.runtime.registerResourceModule("azure", "network/iPGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/localNetworkGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "network/natGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "network/natGatewayPublicIpAssociation", _module)
+pulumi.runtime.registerResourceModule("azure", "network/natGatewayPublicIpPrefixAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkConnectionMonitor", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkInterface", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation", _module)

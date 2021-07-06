@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+        /// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         /// </summary>
         [Output("licenseType")]
         public Output<string?> LicenseType { get; private set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> ProvisionVmAgent { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         /// </summary>
         [Output("proximityPlacementGroupId")]
         public Output<string?> ProximityPlacementGroupId { get; private set; } = null!;
@@ -505,7 +505,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+        /// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
@@ -577,7 +577,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? ProvisionVmAgent { get; set; }
 
         /// <summary>
-        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }
@@ -764,7 +764,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+        /// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
@@ -854,7 +854,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? ProvisionVmAgent { get; set; }
 
         /// <summary>
-        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }

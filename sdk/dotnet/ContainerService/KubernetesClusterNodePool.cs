@@ -52,10 +52,22 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> EvictionPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("fipsEnabled")]
+        public Output<bool?> FipsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `kubelet_config` block as defined below.
         /// </summary>
         [Output("kubeletConfig")]
         public Output<Outputs.KubernetesClusterNodePoolKubeletConfig?> KubeletConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of disk used by kubelet. Possible Values are `OS`.
+        /// </summary>
+        [Output("kubeletDiskType")]
+        public Output<string> KubeletDiskType { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
@@ -272,10 +284,22 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
+        /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("fipsEnabled")]
+        public Input<bool>? FipsEnabled { get; set; }
+
+        /// <summary>
         /// A `kubelet_config` block as defined below.
         /// </summary>
         [Input("kubeletConfig")]
         public Input<Inputs.KubernetesClusterNodePoolKubeletConfigArgs>? KubeletConfig { get; set; }
+
+        /// <summary>
+        /// The type of disk used by kubelet. Possible Values are `OS`.
+        /// </summary>
+        [Input("kubeletDiskType")]
+        public Input<string>? KubeletDiskType { get; set; }
 
         /// <summary>
         /// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
@@ -471,10 +495,22 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
+        /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("fipsEnabled")]
+        public Input<bool>? FipsEnabled { get; set; }
+
+        /// <summary>
         /// A `kubelet_config` block as defined below.
         /// </summary>
         [Input("kubeletConfig")]
         public Input<Inputs.KubernetesClusterNodePoolKubeletConfigGetArgs>? KubeletConfig { get; set; }
+
+        /// <summary>
+        /// The type of disk used by kubelet. Possible Values are `OS`.
+        /// </summary>
+        [Input("kubeletDiskType")]
+        public Input<string>? KubeletDiskType { get; set; }
 
         /// <summary>
         /// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.

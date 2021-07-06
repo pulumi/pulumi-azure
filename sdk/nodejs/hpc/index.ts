@@ -7,12 +7,14 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./cache";
 export * from "./cacheAccessPolicy";
+export * from "./cacheBlobNfsTarget";
 export * from "./cacheBlobTarget";
 export * from "./cacheNfsTarget";
 
 // Import resources to register:
 import { Cache } from "./cache";
 import { CacheAccessPolicy } from "./cacheAccessPolicy";
+import { CacheBlobNfsTarget } from "./cacheBlobNfsTarget";
 import { CacheBlobTarget } from "./cacheBlobTarget";
 import { CacheNfsTarget } from "./cacheNfsTarget";
 
@@ -24,6 +26,8 @@ const _module = {
                 return new Cache(name, <any>undefined, { urn })
             case "azure:hpc/cacheAccessPolicy:CacheAccessPolicy":
                 return new CacheAccessPolicy(name, <any>undefined, { urn })
+            case "azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget":
+                return new CacheBlobNfsTarget(name, <any>undefined, { urn })
             case "azure:hpc/cacheBlobTarget:CacheBlobTarget":
                 return new CacheBlobTarget(name, <any>undefined, { urn })
             case "azure:hpc/cacheNfsTarget:CacheNfsTarget":
@@ -35,5 +39,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "hpc/cache", _module)
 pulumi.runtime.registerResourceModule("azure", "hpc/cacheAccessPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "hpc/cacheBlobNfsTarget", _module)
 pulumi.runtime.registerResourceModule("azure", "hpc/cacheBlobTarget", _module)
 pulumi.runtime.registerResourceModule("azure", "hpc/cacheNfsTarget", _module)

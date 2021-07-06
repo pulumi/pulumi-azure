@@ -13,6 +13,8 @@ import (
 
 // Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
 //
+// !> **Note:** The `policy.Assignment` resource has been deprecated in favour of the `management.GroupPolicyAssignment`, `core.ResourcePolicyAssignment`, `core.ResourceGroupPolicyAssignment` and `core.SubscriptionPolicyAssignment` resources and will be removed in v3.0 of the Azure Provider.
+//
 // ## Example Usage
 //
 // ```go

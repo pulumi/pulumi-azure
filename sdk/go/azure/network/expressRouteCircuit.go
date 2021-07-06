@@ -64,22 +64,26 @@ import (
 type ExpressRouteCircuit struct {
 	pulumi.CustomResourceState
 
-	// Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+	// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
 	AllowClassicOperations pulumi.BoolPtrOutput `pulumi:"allowClassicOperations"`
-	// The bandwidth in Mbps of the circuit being created.
-	BandwidthInMbps pulumi.IntOutput `pulumi:"bandwidthInMbps"`
+	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
+	BandwidthInGbps pulumi.Float64PtrOutput `pulumi:"bandwidthInGbps"`
+	// The bandwidth in Mbps of the circuit being created on the Service Provider.
+	BandwidthInMbps pulumi.IntPtrOutput `pulumi:"bandwidthInMbps"`
+	// The ID of the Express Route Port this Express Route Circuit is based on.
+	ExpressRoutePortId pulumi.StringPtrOutput `pulumi:"expressRoutePortId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the peering location and **not** the Azure resource location.
-	PeeringLocation pulumi.StringOutput `pulumi:"peeringLocation"`
+	// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
+	PeeringLocation pulumi.StringPtrOutput `pulumi:"peeringLocation"`
 	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The string needed by the service provider to provision the ExpressRoute circuit.
 	ServiceKey pulumi.StringOutput `pulumi:"serviceKey"`
-	// The name of the ExpressRoute Service Provider.
-	ServiceProviderName pulumi.StringOutput `pulumi:"serviceProviderName"`
+	// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
+	ServiceProviderName pulumi.StringPtrOutput `pulumi:"serviceProviderName"`
 	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
 	ServiceProviderProvisioningState pulumi.StringOutput `pulumi:"serviceProviderProvisioningState"`
 	// A `sku` block for the ExpressRoute circuit as documented below.
@@ -95,17 +99,8 @@ func NewExpressRouteCircuit(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BandwidthInMbps == nil {
-		return nil, errors.New("invalid value for required argument 'BandwidthInMbps'")
-	}
-	if args.PeeringLocation == nil {
-		return nil, errors.New("invalid value for required argument 'PeeringLocation'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.ServiceProviderName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceProviderName'")
 	}
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
@@ -132,21 +127,25 @@ func GetExpressRouteCircuit(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressRouteCircuit resources.
 type expressRouteCircuitState struct {
-	// Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+	// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
 	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
-	// The bandwidth in Mbps of the circuit being created.
+	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
+	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
+	// The bandwidth in Mbps of the circuit being created on the Service Provider.
 	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
+	// The ID of the Express Route Port this Express Route Circuit is based on.
+	ExpressRoutePortId *string `pulumi:"expressRoutePortId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the peering location and **not** the Azure resource location.
+	// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
 	PeeringLocation *string `pulumi:"peeringLocation"`
 	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The string needed by the service provider to provision the ExpressRoute circuit.
 	ServiceKey *string `pulumi:"serviceKey"`
-	// The name of the ExpressRoute Service Provider.
+	// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
 	ServiceProviderName *string `pulumi:"serviceProviderName"`
 	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
 	ServiceProviderProvisioningState *string `pulumi:"serviceProviderProvisioningState"`
@@ -157,21 +156,25 @@ type expressRouteCircuitState struct {
 }
 
 type ExpressRouteCircuitState struct {
-	// Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+	// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
 	AllowClassicOperations pulumi.BoolPtrInput
-	// The bandwidth in Mbps of the circuit being created.
+	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
+	BandwidthInGbps pulumi.Float64PtrInput
+	// The bandwidth in Mbps of the circuit being created on the Service Provider.
 	BandwidthInMbps pulumi.IntPtrInput
+	// The ID of the Express Route Port this Express Route Circuit is based on.
+	ExpressRoutePortId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the peering location and **not** the Azure resource location.
+	// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
 	PeeringLocation pulumi.StringPtrInput
 	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The string needed by the service provider to provision the ExpressRoute circuit.
 	ServiceKey pulumi.StringPtrInput
-	// The name of the ExpressRoute Service Provider.
+	// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
 	ServiceProviderName pulumi.StringPtrInput
 	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
 	ServiceProviderProvisioningState pulumi.StringPtrInput
@@ -186,20 +189,24 @@ func (ExpressRouteCircuitState) ElementType() reflect.Type {
 }
 
 type expressRouteCircuitArgs struct {
-	// Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+	// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
 	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
-	// The bandwidth in Mbps of the circuit being created.
-	BandwidthInMbps int `pulumi:"bandwidthInMbps"`
+	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
+	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
+	// The bandwidth in Mbps of the circuit being created on the Service Provider.
+	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
+	// The ID of the Express Route Port this Express Route Circuit is based on.
+	ExpressRoutePortId *string `pulumi:"expressRoutePortId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the peering location and **not** the Azure resource location.
-	PeeringLocation string `pulumi:"peeringLocation"`
+	// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
+	PeeringLocation *string `pulumi:"peeringLocation"`
 	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the ExpressRoute Service Provider.
-	ServiceProviderName string `pulumi:"serviceProviderName"`
+	// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
+	ServiceProviderName *string `pulumi:"serviceProviderName"`
 	// A `sku` block for the ExpressRoute circuit as documented below.
 	Sku ExpressRouteCircuitSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
@@ -208,20 +215,24 @@ type expressRouteCircuitArgs struct {
 
 // The set of arguments for constructing a ExpressRouteCircuit resource.
 type ExpressRouteCircuitArgs struct {
-	// Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+	// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
 	AllowClassicOperations pulumi.BoolPtrInput
-	// The bandwidth in Mbps of the circuit being created.
-	BandwidthInMbps pulumi.IntInput
+	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
+	BandwidthInGbps pulumi.Float64PtrInput
+	// The bandwidth in Mbps of the circuit being created on the Service Provider.
+	BandwidthInMbps pulumi.IntPtrInput
+	// The ID of the Express Route Port this Express Route Circuit is based on.
+	ExpressRoutePortId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the peering location and **not** the Azure resource location.
-	PeeringLocation pulumi.StringInput
+	// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
+	PeeringLocation pulumi.StringPtrInput
 	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The name of the ExpressRoute Service Provider.
-	ServiceProviderName pulumi.StringInput
+	// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
+	ServiceProviderName pulumi.StringPtrInput
 	// A `sku` block for the ExpressRoute circuit as documented below.
 	Sku ExpressRouteCircuitSkuInput
 	// A mapping of tags to assign to the resource.

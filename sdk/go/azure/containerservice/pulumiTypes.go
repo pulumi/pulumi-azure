@@ -4298,8 +4298,12 @@ type KubernetesClusterDefaultNodePool struct {
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
 	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
+	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig *KubernetesClusterDefaultNodePoolKubeletConfig `pulumi:"kubeletConfig"`
+	// The type of disk used by kubelet. At this time the only possible value is `OS`.
+	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// A `linuxOsConfig` block as defined below.
 	LinuxOsConfig *KubernetesClusterDefaultNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
@@ -4358,8 +4362,12 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	EnableHostEncryption pulumi.BoolPtrInput `pulumi:"enableHostEncryption"`
 	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
+	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig KubernetesClusterDefaultNodePoolKubeletConfigPtrInput `pulumi:"kubeletConfig"`
+	// The type of disk used by kubelet. At this time the only possible value is `OS`.
+	KubeletDiskType pulumi.StringPtrInput `pulumi:"kubeletDiskType"`
 	// A `linuxOsConfig` block as defined below.
 	LinuxOsConfig KubernetesClusterDefaultNodePoolLinuxOsConfigPtrInput `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
@@ -4495,11 +4503,21 @@ func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.Bool
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
 
+// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // A `kubeletConfig` block as defined below.
 func (o KubernetesClusterDefaultNodePoolOutput) KubeletConfig() KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolKubeletConfig {
 		return v.KubeletConfig
 	}).(KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput)
+}
+
+// The type of disk used by kubelet. At this time the only possible value is `OS`.
+func (o KubernetesClusterDefaultNodePoolOutput) KubeletDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.KubeletDiskType }).(pulumi.StringPtrOutput)
 }
 
 // A `linuxOsConfig` block as defined below.
@@ -4657,6 +4675,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableNodePublicIp() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) FipsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FipsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A `kubeletConfig` block as defined below.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) KubeletConfig() KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolKubeletConfig {
@@ -4665,6 +4693,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) KubeletConfig() KubernetesClu
 		}
 		return v.KubeletConfig
 	}).(KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput)
+}
+
+// The type of disk used by kubelet. At this time the only possible value is `OS`.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) KubeletDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KubeletDiskType
+	}).(pulumi.StringPtrOutput)
 }
 
 // A `linuxOsConfig` block as defined below.
@@ -9419,6 +9457,8 @@ type KubernetesClusterWindowsProfile struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// The Admin Username for Windows VMs.
 	AdminUsername string `pulumi:"adminUsername"`
+	// Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
+	License *string `pulumi:"license"`
 }
 
 // KubernetesClusterWindowsProfileInput is an input type that accepts KubernetesClusterWindowsProfileArgs and KubernetesClusterWindowsProfileOutput values.
@@ -9437,6 +9477,8 @@ type KubernetesClusterWindowsProfileArgs struct {
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
 	// The Admin Username for Windows VMs.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	// Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
+	License pulumi.StringPtrInput `pulumi:"license"`
 }
 
 func (KubernetesClusterWindowsProfileArgs) ElementType() reflect.Type {
@@ -9526,6 +9568,11 @@ func (o KubernetesClusterWindowsProfileOutput) AdminUsername() pulumi.StringOutp
 	return o.ApplyT(func(v KubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
+// Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
+func (o KubernetesClusterWindowsProfileOutput) License() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterWindowsProfile) *string { return v.License }).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterWindowsProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterWindowsProfilePtrOutput) ElementType() reflect.Type {
@@ -9561,6 +9608,16 @@ func (o KubernetesClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringP
 			return nil
 		}
 		return &v.AdminUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
+func (o KubernetesClusterWindowsProfilePtrOutput) License() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterWindowsProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.License
 	}).(pulumi.StringPtrOutput)
 }
 

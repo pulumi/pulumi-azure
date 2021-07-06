@@ -21,6 +21,7 @@ export * from "./integrationRuntimeManaged";
 export * from "./integrationRuntimeRule";
 export * from "./integrationRuntimeSelfHosted";
 export * from "./integrationRuntimeSsis";
+export * from "./linkedCustomService";
 export * from "./linkedServiceAzureBlobStorage";
 export * from "./linkedServiceAzureDatabricks";
 export * from "./linkedServiceAzureFileStorage";
@@ -41,6 +42,7 @@ export * from "./linkedServiceSqlServer";
 export * from "./linkedServiceSynapse";
 export * from "./linkedServiceWeb";
 export * from "./pipeline";
+export * from "./triggerBlobEvent";
 export * from "./triggerSchedule";
 
 // Import resources to register:
@@ -59,6 +61,7 @@ import { IntegrationRuntimeManaged } from "./integrationRuntimeManaged";
 import { IntegrationRuntimeRule } from "./integrationRuntimeRule";
 import { IntegrationRuntimeSelfHosted } from "./integrationRuntimeSelfHosted";
 import { IntegrationRuntimeSsis } from "./integrationRuntimeSsis";
+import { LinkedCustomService } from "./linkedCustomService";
 import { LinkedServiceAzureBlobStorage } from "./linkedServiceAzureBlobStorage";
 import { LinkedServiceAzureDatabricks } from "./linkedServiceAzureDatabricks";
 import { LinkedServiceAzureFileStorage } from "./linkedServiceAzureFileStorage";
@@ -79,6 +82,7 @@ import { LinkedServiceSqlServer } from "./linkedServiceSqlServer";
 import { LinkedServiceSynapse } from "./linkedServiceSynapse";
 import { LinkedServiceWeb } from "./linkedServiceWeb";
 import { Pipeline } from "./pipeline";
+import { TriggerBlobEvent } from "./triggerBlobEvent";
 import { TriggerSchedule } from "./triggerSchedule";
 
 const _module = {
@@ -115,6 +119,8 @@ const _module = {
                 return new IntegrationRuntimeSelfHosted(name, <any>undefined, { urn })
             case "azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis":
                 return new IntegrationRuntimeSsis(name, <any>undefined, { urn })
+            case "azure:datafactory/linkedCustomService:LinkedCustomService":
+                return new LinkedCustomService(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage":
                 return new LinkedServiceAzureBlobStorage(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks":
@@ -155,6 +161,8 @@ const _module = {
                 return new LinkedServiceWeb(name, <any>undefined, { urn })
             case "azure:datafactory/pipeline:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
+            case "azure:datafactory/triggerBlobEvent:TriggerBlobEvent":
+                return new TriggerBlobEvent(name, <any>undefined, { urn })
             case "azure:datafactory/triggerSchedule:TriggerSchedule":
                 return new TriggerSchedule(name, <any>undefined, { urn })
             default:
@@ -177,6 +185,7 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeMa
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeRule", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeSelfHosted", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeSsis", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/linkedCustomService", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureBlobStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureDatabricks", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureFileStorage", _module)
@@ -197,4 +206,5 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSqlServ
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSynapse", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceWeb", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/pipeline", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/triggerBlobEvent", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/triggerSchedule", _module)

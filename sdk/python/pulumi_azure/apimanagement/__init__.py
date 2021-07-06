@@ -9,6 +9,7 @@ from .api import *
 from .api_diagnostic import *
 from .api_operation import *
 from .api_operation_policy import *
+from .api_operation_tag import *
 from .api_policy import *
 from .api_schema import *
 from .api_version_set import *

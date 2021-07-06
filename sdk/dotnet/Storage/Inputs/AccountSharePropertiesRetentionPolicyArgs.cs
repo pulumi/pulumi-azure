@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class AccountSharePropertiesRetentionPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        /// Specifies the number of days that the `azure.storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }

@@ -79,6 +79,7 @@ func TestAccAciVolumeMount(t *testing.T) {
 
 func TestAccAciMulti(t *testing.T) {
 	skipIfShort(t)
+	t.Skip("Skipping due to Azure Gateway Timeout issues")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "aci-multi"),
@@ -148,6 +149,7 @@ func TestAccBlob(t *testing.T) {
 }
 
 func TestAccHttp(t *testing.T) {
+	t.Skip("Skipping due to Azure Gateway Timeout issues")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "http"),

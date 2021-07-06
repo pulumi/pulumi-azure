@@ -409,7 +409,7 @@ class PolicyVMRetentionYearlyArgs:
                  weeks: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[int] count: The number of yearly backups to keep. Must be between `1` and `9999`
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] months: The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] months: The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -434,7 +434,7 @@ class PolicyVMRetentionYearlyArgs:
     @pulumi.getter
     def months(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+        The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
         """
         return pulumi.get(self, "months")
 

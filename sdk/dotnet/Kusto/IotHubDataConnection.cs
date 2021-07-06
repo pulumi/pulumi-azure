@@ -81,6 +81,9 @@ namespace Pulumi.Azure.Kusto
     ///                 "sequence-number",
     ///                 "to",
     ///             },
+    ///             TableName = "my-table",
+    ///             MappingRuleName = "my-table-mapping",
+    ///             DataFormat = "JSON",
     ///         });
     ///     }
     /// 
@@ -111,6 +114,12 @@ namespace Pulumi.Azure.Kusto
         public Output<string> ConsumerGroup { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+        /// </summary>
+        [Output("dataFormat")]
+        public Output<string?> DataFormat { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("databaseName")]
@@ -135,6 +144,12 @@ namespace Pulumi.Azure.Kusto
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        /// </summary>
+        [Output("mappingRuleName")]
+        public Output<string?> MappingRuleName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -151,6 +166,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("sharedAccessPolicyName")]
         public Output<string> SharedAccessPolicyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        /// </summary>
+        [Output("tableName")]
+        public Output<string?> TableName { get; private set; } = null!;
 
 
         /// <summary>
@@ -211,6 +232,12 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ConsumerGroup { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+        /// </summary>
+        [Input("dataFormat")]
+        public Input<string>? DataFormat { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseName", required: true)]
@@ -241,6 +268,12 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        /// </summary>
+        [Input("mappingRuleName")]
+        public Input<string>? MappingRuleName { get; set; }
+
+        /// <summary>
         /// The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -257,6 +290,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("sharedAccessPolicyName", required: true)]
         public Input<string> SharedAccessPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        /// </summary>
+        [Input("tableName")]
+        public Input<string>? TableName { get; set; }
 
         public IotHubDataConnectionArgs()
         {
@@ -276,6 +315,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("consumerGroup")]
         public Input<string>? ConsumerGroup { get; set; }
+
+        /// <summary>
+        /// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+        /// </summary>
+        [Input("dataFormat")]
+        public Input<string>? DataFormat { get; set; }
 
         /// <summary>
         /// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
@@ -308,6 +353,12 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        /// </summary>
+        [Input("mappingRuleName")]
+        public Input<string>? MappingRuleName { get; set; }
+
+        /// <summary>
         /// The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -324,6 +375,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("sharedAccessPolicyName")]
         public Input<string>? SharedAccessPolicyName { get; set; }
+
+        /// <summary>
+        /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        /// </summary>
+        [Input("tableName")]
+        public Input<string>? TableName { get; set; }
 
         public IotHubDataConnectionState()
         {

@@ -11,6 +11,7 @@ from . import outputs
 
 __all__ = [
     'ProviderFeatures',
+    'ProviderFeaturesCognitiveAccount',
     'ProviderFeaturesKeyVault',
     'ProviderFeaturesLogAnalyticsWorkspace',
     'ProviderFeaturesNetwork',
@@ -22,12 +23,15 @@ __all__ = [
 @pulumi.output_type
 class ProviderFeatures(dict):
     def __init__(__self__, *,
+                 cognitive_account: Optional['outputs.ProviderFeaturesCognitiveAccount'] = None,
                  key_vault: Optional['outputs.ProviderFeaturesKeyVault'] = None,
                  log_analytics_workspace: Optional['outputs.ProviderFeaturesLogAnalyticsWorkspace'] = None,
                  network: Optional['outputs.ProviderFeaturesNetwork'] = None,
                  template_deployment: Optional['outputs.ProviderFeaturesTemplateDeployment'] = None,
                  virtual_machine: Optional['outputs.ProviderFeaturesVirtualMachine'] = None,
                  virtual_machine_scale_set: Optional['outputs.ProviderFeaturesVirtualMachineScaleSet'] = None):
+        if cognitive_account is not None:
+            pulumi.set(__self__, "cognitive_account", cognitive_account)
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
         if log_analytics_workspace is not None:
@@ -40,6 +44,11 @@ class ProviderFeatures(dict):
             pulumi.set(__self__, "virtual_machine", virtual_machine)
         if virtual_machine_scale_set is not None:
             pulumi.set(__self__, "virtual_machine_scale_set", virtual_machine_scale_set)
+
+    @property
+    @pulumi.getter(name="cognitiveAccount")
+    def cognitive_account(self) -> Optional['outputs.ProviderFeaturesCognitiveAccount']:
+        return pulumi.get(self, "cognitive_account")
 
     @property
     @pulumi.getter(name="keyVault")
@@ -70,6 +79,19 @@ class ProviderFeatures(dict):
     @pulumi.getter(name="virtualMachineScaleSet")
     def virtual_machine_scale_set(self) -> Optional['outputs.ProviderFeaturesVirtualMachineScaleSet']:
         return pulumi.get(self, "virtual_machine_scale_set")
+
+
+@pulumi.output_type
+class ProviderFeaturesCognitiveAccount(dict):
+    def __init__(__self__, *,
+                 purge_soft_delete_on_destroy: Optional[bool] = None):
+        if purge_soft_delete_on_destroy is not None:
+            pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
+
+    @property
+    @pulumi.getter(name="purgeSoftDeleteOnDestroy")
+    def purge_soft_delete_on_destroy(self) -> Optional[bool]:
+        return pulumi.get(self, "purge_soft_delete_on_destroy")
 
 
 @pulumi.output_type

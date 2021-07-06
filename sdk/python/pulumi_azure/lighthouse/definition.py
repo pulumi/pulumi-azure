@@ -20,15 +20,17 @@ class DefinitionArgs:
                  scope: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input['DefinitionPlanArgs']] = None):
         """
         The set of arguments for constructing a Definition resource.
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]] authorizations: An authorization block as defined below.
-        :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant.
-        :param pulumi.Input[str] scope: The ID of the managed subscription.
+        :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: The ID of the managed subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of the Lighthouse Definition.
         :param pulumi.Input[str] lighthouse_definition_id: A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Lighthouse Definition.
+        :param pulumi.Input[str] name: The name of the Lighthouse Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input['DefinitionPlanArgs'] plan: A `plan` block as defined below.
         """
         pulumi.set(__self__, "authorizations", authorizations)
         pulumi.set(__self__, "managing_tenant_id", managing_tenant_id)
@@ -39,6 +41,8 @@ class DefinitionArgs:
             pulumi.set(__self__, "lighthouse_definition_id", lighthouse_definition_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
 
     @property
     @pulumi.getter
@@ -56,7 +60,7 @@ class DefinitionArgs:
     @pulumi.getter(name="managingTenantId")
     def managing_tenant_id(self) -> pulumi.Input[str]:
         """
-        The ID of the managing tenant.
+        The ID of the managing tenant. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managing_tenant_id")
 
@@ -68,7 +72,7 @@ class DefinitionArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
         """
-        The ID of the managed subscription.
+        The ID of the managed subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 
@@ -104,13 +108,25 @@ class DefinitionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Lighthouse Definition.
+        The name of the Lighthouse Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input['DefinitionPlanArgs']]:
+        """
+        A `plan` block as defined below.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input['DefinitionPlanArgs']]):
+        pulumi.set(self, "plan", value)
 
 
 @pulumi.input_type
@@ -121,15 +137,17 @@ class _DefinitionState:
                  lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
                  managing_tenant_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input['DefinitionPlanArgs']] = None,
                  scope: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Definition resources.
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]] authorizations: An authorization block as defined below.
         :param pulumi.Input[str] description: A description of the Lighthouse Definition.
         :param pulumi.Input[str] lighthouse_definition_id: A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant.
-        :param pulumi.Input[str] name: The name of the Lighthouse Definition.
-        :param pulumi.Input[str] scope: The ID of the managed subscription.
+        :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Lighthouse Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input['DefinitionPlanArgs'] plan: A `plan` block as defined below.
+        :param pulumi.Input[str] scope: The ID of the managed subscription. Changing this forces a new resource to be created.
         """
         if authorizations is not None:
             pulumi.set(__self__, "authorizations", authorizations)
@@ -141,6 +159,8 @@ class _DefinitionState:
             pulumi.set(__self__, "managing_tenant_id", managing_tenant_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
 
@@ -184,7 +204,7 @@ class _DefinitionState:
     @pulumi.getter(name="managingTenantId")
     def managing_tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the managing tenant.
+        The ID of the managing tenant. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managing_tenant_id")
 
@@ -196,7 +216,7 @@ class _DefinitionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Lighthouse Definition.
+        The name of the Lighthouse Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -206,9 +226,21 @@ class _DefinitionState:
 
     @property
     @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input['DefinitionPlanArgs']]:
+        """
+        A `plan` block as defined below.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input['DefinitionPlanArgs']]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the managed subscription.
+        The ID of the managed subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 
@@ -227,6 +259,7 @@ class Definition(pulumi.CustomResource):
                  lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
                  managing_tenant_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['DefinitionPlanArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -263,9 +296,10 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]] authorizations: An authorization block as defined below.
         :param pulumi.Input[str] description: A description of the Lighthouse Definition.
         :param pulumi.Input[str] lighthouse_definition_id: A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant.
-        :param pulumi.Input[str] name: The name of the Lighthouse Definition.
-        :param pulumi.Input[str] scope: The ID of the managed subscription.
+        :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Lighthouse Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['DefinitionPlanArgs']] plan: A `plan` block as defined below.
+        :param pulumi.Input[str] scope: The ID of the managed subscription. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -322,6 +356,7 @@ class Definition(pulumi.CustomResource):
                  lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
                  managing_tenant_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['DefinitionPlanArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -344,6 +379,7 @@ class Definition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'managing_tenant_id'")
             __props__.__dict__["managing_tenant_id"] = managing_tenant_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["plan"] = plan
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
@@ -362,6 +398,7 @@ class Definition(pulumi.CustomResource):
             lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
             managing_tenant_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            plan: Optional[pulumi.Input[pulumi.InputType['DefinitionPlanArgs']]] = None,
             scope: Optional[pulumi.Input[str]] = None) -> 'Definition':
         """
         Get an existing Definition resource's state with the given name, id, and optional extra
@@ -373,9 +410,10 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]] authorizations: An authorization block as defined below.
         :param pulumi.Input[str] description: A description of the Lighthouse Definition.
         :param pulumi.Input[str] lighthouse_definition_id: A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant.
-        :param pulumi.Input[str] name: The name of the Lighthouse Definition.
-        :param pulumi.Input[str] scope: The ID of the managed subscription.
+        :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Lighthouse Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['DefinitionPlanArgs']] plan: A `plan` block as defined below.
+        :param pulumi.Input[str] scope: The ID of the managed subscription. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -386,6 +424,7 @@ class Definition(pulumi.CustomResource):
         __props__.__dict__["lighthouse_definition_id"] = lighthouse_definition_id
         __props__.__dict__["managing_tenant_id"] = managing_tenant_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["plan"] = plan
         __props__.__dict__["scope"] = scope
         return Definition(resource_name, opts=opts, __props__=__props__)
 
@@ -417,7 +456,7 @@ class Definition(pulumi.CustomResource):
     @pulumi.getter(name="managingTenantId")
     def managing_tenant_id(self) -> pulumi.Output[str]:
         """
-        The ID of the managing tenant.
+        The ID of the managing tenant. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managing_tenant_id")
 
@@ -425,15 +464,23 @@ class Definition(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Lighthouse Definition.
+        The name of the Lighthouse Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
+    def plan(self) -> pulumi.Output[Optional['outputs.DefinitionPlan']]:
+        """
+        A `plan` block as defined below.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
     def scope(self) -> pulumi.Output[str]:
         """
-        The ID of the managed subscription.
+        The ID of the managed subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 

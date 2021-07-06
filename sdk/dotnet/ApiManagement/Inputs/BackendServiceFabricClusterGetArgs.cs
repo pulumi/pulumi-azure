@@ -13,10 +13,16 @@ namespace Pulumi.Azure.ApiManagement.Inputs
     public sealed class BackendServiceFabricClusterGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The client certificate resource id for the management endpoint.
+        /// </summary>
+        [Input("clientCertificateId")]
+        public Input<string>? ClientCertificateId { get; set; }
+
+        /// <summary>
         /// The client certificate thumbprint for the management endpoint.
         /// </summary>
-        [Input("clientCertificateThumbprint", required: true)]
-        public Input<string> ClientCertificateThumbprint { get; set; } = null!;
+        [Input("clientCertificateThumbprint")]
+        public Input<string>? ClientCertificateThumbprint { get; set; }
 
         [Input("managementEndpoints", required: true)]
         private InputList<string>? _managementEndpoints;

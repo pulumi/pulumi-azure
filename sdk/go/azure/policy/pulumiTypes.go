@@ -15,7 +15,7 @@ type AssignmentIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
 	TenantId *string `pulumi:"tenantId"`
-	// The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
+	// The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
 	Type *string `pulumi:"type"`
 }
 
@@ -35,7 +35,7 @@ type AssignmentIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
+	// The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -126,7 +126,7 @@ func (o AssignmentIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
+// The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
 func (o AssignmentIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -169,7 +169,7 @@ func (o AssignmentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
+// The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
 func (o AssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentIdentity) *string {
 		if v == nil {

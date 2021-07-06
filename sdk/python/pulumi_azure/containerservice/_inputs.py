@@ -1966,7 +1966,9 @@ class KubernetesClusterDefaultNodePoolArgs:
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 fips_enabled: Optional[pulumi.Input[bool]] = None,
                  kubelet_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs']] = None,
+                 kubelet_disk_type: Optional[pulumi.Input[str]] = None,
                  linux_os_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
@@ -1991,7 +1993,9 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below.
+        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. At this time the only possible value is `OS`.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -2018,8 +2022,12 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if fips_enabled is not None:
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if kubelet_config is not None:
             pulumi.set(__self__, "kubelet_config", kubelet_config)
+        if kubelet_disk_type is not None:
+            pulumi.set(__self__, "kubelet_disk_type", kubelet_disk_type)
         if linux_os_config is not None:
             pulumi.set(__self__, "linux_os_config", linux_os_config)
         if max_count is not None:
@@ -2128,6 +2136,18 @@ class KubernetesClusterDefaultNodePoolArgs:
         pulumi.set(self, "enable_node_public_ip", value)
 
     @property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "fips_enabled")
+
+    @fips_enabled.setter
+    def fips_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fips_enabled", value)
+
+    @property
     @pulumi.getter(name="kubeletConfig")
     def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs']]:
         """
@@ -2138,6 +2158,18 @@ class KubernetesClusterDefaultNodePoolArgs:
     @kubelet_config.setter
     def kubelet_config(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs']]):
         pulumi.set(self, "kubelet_config", value)
+
+    @property
+    @pulumi.getter(name="kubeletDiskType")
+    def kubelet_disk_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of disk used by kubelet. At this time the only possible value is `OS`.
+        """
+        return pulumi.get(self, "kubelet_disk_type")
+
+    @kubelet_disk_type.setter
+    def kubelet_disk_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kubelet_disk_type", value)
 
     @property
     @pulumi.getter(name="linuxOsConfig")
@@ -4653,14 +4685,18 @@ class KubernetesClusterServicePrincipalArgs:
 class KubernetesClusterWindowsProfileArgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[str],
-                 admin_password: Optional[pulumi.Input[str]] = None):
+                 admin_password: Optional[pulumi.Input[str]] = None,
+                 license: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] admin_username: The Admin Username for Windows VMs.
         :param pulumi.Input[str] admin_password: The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
+        :param pulumi.Input[str] license: Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
+        if license is not None:
+            pulumi.set(__self__, "license", license)
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -4685,6 +4721,18 @@ class KubernetesClusterWindowsProfileArgs:
     @admin_password.setter
     def admin_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_password", value)
+
+    @property
+    @pulumi.getter
+    def license(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
+        """
+        return pulumi.get(self, "license")
+
+    @license.setter
+    def license(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license", value)
 
 
 @pulumi.input_type

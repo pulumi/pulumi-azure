@@ -60,6 +60,9 @@ import * as utilities from "../utilities";
  *         "sequence-number",
  *         "to",
  *     ],
+ *     tableName: "my-table",
+ *     mappingRuleName: "my-table-mapping",
+ *     dataFormat: "JSON",
  * });
  * ```
  *
@@ -108,6 +111,10 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      */
     public readonly consumerGroup!: pulumi.Output<string>;
     /**
+     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+     */
+    public readonly dataFormat!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     public readonly databaseName!: pulumi.Output<string>;
@@ -124,6 +131,10 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     */
+    public readonly mappingRuleName!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -135,6 +146,10 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      * Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
      */
     public readonly sharedAccessPolicyName!: pulumi.Output<string>;
+    /**
+     * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     */
+    public readonly tableName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a IotHubDataConnection resource with the given unique name, arguments, and options.
@@ -151,13 +166,16 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             const state = argsOrState as IotHubDataConnectionState | undefined;
             inputs["clusterName"] = state ? state.clusterName : undefined;
             inputs["consumerGroup"] = state ? state.consumerGroup : undefined;
+            inputs["dataFormat"] = state ? state.dataFormat : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["eventSystemProperties"] = state ? state.eventSystemProperties : undefined;
             inputs["iothubId"] = state ? state.iothubId : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
+            inputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as IotHubDataConnectionArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -180,13 +198,16 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["consumerGroup"] = args ? args.consumerGroup : undefined;
+            inputs["dataFormat"] = args ? args.dataFormat : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
             inputs["iothubId"] = args ? args.iothubId : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
+            inputs["tableName"] = args ? args.tableName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -208,6 +229,10 @@ export interface IotHubDataConnectionState {
      */
     consumerGroup?: pulumi.Input<string>;
     /**
+     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+     */
+    dataFormat?: pulumi.Input<string>;
+    /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     databaseName?: pulumi.Input<string>;
@@ -224,6 +249,10 @@ export interface IotHubDataConnectionState {
      */
     location?: pulumi.Input<string>;
     /**
+     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     */
+    mappingRuleName?: pulumi.Input<string>;
+    /**
      * The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
@@ -235,6 +264,10 @@ export interface IotHubDataConnectionState {
      * Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
      */
     sharedAccessPolicyName?: pulumi.Input<string>;
+    /**
+     * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     */
+    tableName?: pulumi.Input<string>;
 }
 
 /**
@@ -249,6 +282,10 @@ export interface IotHubDataConnectionArgs {
      * Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     consumerGroup: pulumi.Input<string>;
+    /**
+     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+     */
+    dataFormat?: pulumi.Input<string>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
@@ -266,6 +303,10 @@ export interface IotHubDataConnectionArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     */
+    mappingRuleName?: pulumi.Input<string>;
+    /**
      * The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
@@ -277,4 +318,8 @@ export interface IotHubDataConnectionArgs {
      * Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
      */
     sharedAccessPolicyName: pulumi.Input<string>;
+    /**
+     * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     */
+    tableName?: pulumi.Input<string>;
 }

@@ -37,6 +37,7 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfo',
     'IntegrationRuntimeSsisCustomSetupScript',
     'IntegrationRuntimeSsisVnetIntegration',
+    'LinkedCustomServiceIntegrationRuntime',
     'LinkedServiceAzureDatabricksInstancePool',
     'LinkedServiceAzureDatabricksKeyVaultPassword',
     'LinkedServiceAzureDatabricksNewClusterConfig',
@@ -48,6 +49,7 @@ __all__ = [
     'LinkedServiceSqlServerKeyVaultConnectionString',
     'LinkedServiceSqlServerKeyVaultPassword',
     'LinkedServiceSynapseKeyVaultPassword',
+    'TriggerBlobEventPipeline',
     'GetFactoryGithubConfigurationResult',
     'GetFactoryIdentityResult',
     'GetFactoryVstsConfigurationResult',
@@ -1507,6 +1509,36 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
 
 
 @pulumi.output_type
+class LinkedCustomServiceIntegrationRuntime(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The integration runtime reference to associate with the Data Factory Linked Service.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the integration runtime.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The integration runtime reference to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the integration runtime.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class LinkedServiceAzureDatabricksInstancePool(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2153,6 +2185,36 @@ class LinkedServiceSynapseKeyVaultPassword(dict):
         Specifies the secret name in Azure Key Vault that stores Synapse password.
         """
         return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
+class TriggerBlobEventPipeline(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The Data Factory Pipeline name that the trigger will act on.
+        :param Mapping[str, str] parameters: The Data Factory Pipeline parameters that the trigger will act on.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Data Factory Pipeline name that the trigger will act on.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        The Data Factory Pipeline parameters that the trigger will act on.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type

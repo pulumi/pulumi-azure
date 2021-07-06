@@ -134,7 +134,197 @@ func (o DefinitionAuthorizationArrayOutput) Index(i pulumi.IntInput) DefinitionA
 	}).(DefinitionAuthorizationOutput)
 }
 
+type DefinitionPlan struct {
+	// The plan name of the marketplace offer.
+	Name string `pulumi:"name"`
+	// The product code of the plan.
+	Product string `pulumi:"product"`
+	// The publisher ID of the plan.
+	Publisher string `pulumi:"publisher"`
+	// The version of the plan.
+	Version string `pulumi:"version"`
+}
+
+// DefinitionPlanInput is an input type that accepts DefinitionPlanArgs and DefinitionPlanOutput values.
+// You can construct a concrete instance of `DefinitionPlanInput` via:
+//
+//          DefinitionPlanArgs{...}
+type DefinitionPlanInput interface {
+	pulumi.Input
+
+	ToDefinitionPlanOutput() DefinitionPlanOutput
+	ToDefinitionPlanOutputWithContext(context.Context) DefinitionPlanOutput
+}
+
+type DefinitionPlanArgs struct {
+	// The plan name of the marketplace offer.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The product code of the plan.
+	Product pulumi.StringInput `pulumi:"product"`
+	// The publisher ID of the plan.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// The version of the plan.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (DefinitionPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefinitionPlan)(nil)).Elem()
+}
+
+func (i DefinitionPlanArgs) ToDefinitionPlanOutput() DefinitionPlanOutput {
+	return i.ToDefinitionPlanOutputWithContext(context.Background())
+}
+
+func (i DefinitionPlanArgs) ToDefinitionPlanOutputWithContext(ctx context.Context) DefinitionPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPlanOutput)
+}
+
+func (i DefinitionPlanArgs) ToDefinitionPlanPtrOutput() DefinitionPlanPtrOutput {
+	return i.ToDefinitionPlanPtrOutputWithContext(context.Background())
+}
+
+func (i DefinitionPlanArgs) ToDefinitionPlanPtrOutputWithContext(ctx context.Context) DefinitionPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPlanOutput).ToDefinitionPlanPtrOutputWithContext(ctx)
+}
+
+// DefinitionPlanPtrInput is an input type that accepts DefinitionPlanArgs, DefinitionPlanPtr and DefinitionPlanPtrOutput values.
+// You can construct a concrete instance of `DefinitionPlanPtrInput` via:
+//
+//          DefinitionPlanArgs{...}
+//
+//  or:
+//
+//          nil
+type DefinitionPlanPtrInput interface {
+	pulumi.Input
+
+	ToDefinitionPlanPtrOutput() DefinitionPlanPtrOutput
+	ToDefinitionPlanPtrOutputWithContext(context.Context) DefinitionPlanPtrOutput
+}
+
+type definitionPlanPtrType DefinitionPlanArgs
+
+func DefinitionPlanPtr(v *DefinitionPlanArgs) DefinitionPlanPtrInput {
+	return (*definitionPlanPtrType)(v)
+}
+
+func (*definitionPlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefinitionPlan)(nil)).Elem()
+}
+
+func (i *definitionPlanPtrType) ToDefinitionPlanPtrOutput() DefinitionPlanPtrOutput {
+	return i.ToDefinitionPlanPtrOutputWithContext(context.Background())
+}
+
+func (i *definitionPlanPtrType) ToDefinitionPlanPtrOutputWithContext(ctx context.Context) DefinitionPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPlanPtrOutput)
+}
+
+type DefinitionPlanOutput struct{ *pulumi.OutputState }
+
+func (DefinitionPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefinitionPlan)(nil)).Elem()
+}
+
+func (o DefinitionPlanOutput) ToDefinitionPlanOutput() DefinitionPlanOutput {
+	return o
+}
+
+func (o DefinitionPlanOutput) ToDefinitionPlanOutputWithContext(ctx context.Context) DefinitionPlanOutput {
+	return o
+}
+
+func (o DefinitionPlanOutput) ToDefinitionPlanPtrOutput() DefinitionPlanPtrOutput {
+	return o.ToDefinitionPlanPtrOutputWithContext(context.Background())
+}
+
+func (o DefinitionPlanOutput) ToDefinitionPlanPtrOutputWithContext(ctx context.Context) DefinitionPlanPtrOutput {
+	return o.ApplyT(func(v DefinitionPlan) *DefinitionPlan {
+		return &v
+	}).(DefinitionPlanPtrOutput)
+}
+
+// The plan name of the marketplace offer.
+func (o DefinitionPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DefinitionPlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The product code of the plan.
+func (o DefinitionPlanOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v DefinitionPlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// The publisher ID of the plan.
+func (o DefinitionPlanOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v DefinitionPlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// The version of the plan.
+func (o DefinitionPlanOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v DefinitionPlan) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type DefinitionPlanPtrOutput struct{ *pulumi.OutputState }
+
+func (DefinitionPlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefinitionPlan)(nil)).Elem()
+}
+
+func (o DefinitionPlanPtrOutput) ToDefinitionPlanPtrOutput() DefinitionPlanPtrOutput {
+	return o
+}
+
+func (o DefinitionPlanPtrOutput) ToDefinitionPlanPtrOutputWithContext(ctx context.Context) DefinitionPlanPtrOutput {
+	return o
+}
+
+func (o DefinitionPlanPtrOutput) Elem() DefinitionPlanOutput {
+	return o.ApplyT(func(v *DefinitionPlan) DefinitionPlan { return *v }).(DefinitionPlanOutput)
+}
+
+// The plan name of the marketplace offer.
+func (o DefinitionPlanPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefinitionPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The product code of the plan.
+func (o DefinitionPlanPtrOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefinitionPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Product
+	}).(pulumi.StringPtrOutput)
+}
+
+// The publisher ID of the plan.
+func (o DefinitionPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefinitionPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the plan.
+func (o DefinitionPlanPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefinitionPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DefinitionAuthorizationOutput{})
 	pulumi.RegisterOutputType(DefinitionAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(DefinitionPlanOutput{})
+	pulumi.RegisterOutputType(DefinitionPlanPtrOutput{})
 }

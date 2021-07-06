@@ -146,6 +146,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Revision { get; private set; } = null!;
 
         /// <summary>
+        /// The description of the Api Revision of the API Management API.
+        /// </summary>
+        [Output("revisionDescription")]
+        public Output<string?> RevisionDescription { get; private set; } = null!;
+
+        /// <summary>
         /// Absolute URL of the backend service implementing this API.
         /// </summary>
         [Output("serviceUrl")]
@@ -156,6 +162,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Output("soapPassThrough")]
         public Output<bool?> SoapPassThrough { get; private set; } = null!;
+
+        /// <summary>
+        /// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
+        /// </summary>
+        [Output("sourceApiId")]
+        public Output<string?> SourceApiId { get; private set; } = null!;
 
         /// <summary>
         /// A `subscription_key_parameter_names` block as documented below.
@@ -174,6 +186,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the Api Version of the API Management API.
+        /// </summary>
+        [Output("versionDescription")]
+        public Output<string?> VersionDescription { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Version Set which this API is associated with.
@@ -242,8 +260,8 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The display name of the API.
         /// </summary>
-        [Input("displayName", required: true)]
-        public Input<string> DisplayName { get; set; } = null!;
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// A `import` block as documented below.
@@ -272,10 +290,10 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
+        [Input("path")]
+        public Input<string>? Path { get; set; }
 
-        [Input("protocols", required: true)]
+        [Input("protocols")]
         private InputList<string>? _protocols;
 
         /// <summary>
@@ -300,6 +318,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> Revision { get; set; } = null!;
 
         /// <summary>
+        /// The description of the Api Revision of the API Management API.
+        /// </summary>
+        [Input("revisionDescription")]
+        public Input<string>? RevisionDescription { get; set; }
+
+        /// <summary>
         /// Absolute URL of the backend service implementing this API.
         /// </summary>
         [Input("serviceUrl")]
@@ -310,6 +334,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("soapPassThrough")]
         public Input<bool>? SoapPassThrough { get; set; }
+
+        /// <summary>
+        /// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
+        /// </summary>
+        [Input("sourceApiId")]
+        public Input<string>? SourceApiId { get; set; }
 
         /// <summary>
         /// A `subscription_key_parameter_names` block as documented below.
@@ -328,6 +358,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
+
+        /// <summary>
+        /// The description of the Api Version of the API Management API.
+        /// </summary>
+        [Input("versionDescription")]
+        public Input<string>? VersionDescription { get; set; }
 
         /// <summary>
         /// The ID of the Version Set which this API is associated with.
@@ -427,6 +463,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Revision { get; set; }
 
         /// <summary>
+        /// The description of the Api Revision of the API Management API.
+        /// </summary>
+        [Input("revisionDescription")]
+        public Input<string>? RevisionDescription { get; set; }
+
+        /// <summary>
         /// Absolute URL of the backend service implementing this API.
         /// </summary>
         [Input("serviceUrl")]
@@ -437,6 +479,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("soapPassThrough")]
         public Input<bool>? SoapPassThrough { get; set; }
+
+        /// <summary>
+        /// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
+        /// </summary>
+        [Input("sourceApiId")]
+        public Input<string>? SourceApiId { get; set; }
 
         /// <summary>
         /// A `subscription_key_parameter_names` block as documented below.
@@ -455,6 +503,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
+
+        /// <summary>
+        /// The description of the Api Version of the API Management API.
+        /// </summary>
+        [Input("versionDescription")]
+        public Input<string>? VersionDescription { get; set; }
 
         /// <summary>
         /// The ID of the Version Set which this API is associated with.

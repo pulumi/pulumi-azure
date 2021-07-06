@@ -23,6 +23,8 @@ class TrafficManagerEndpointArgs:
                  endpoint_status: Optional[pulumi.Input[str]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_child_endpoints: Optional[pulumi.Input[int]] = None,
+                 minimum_required_child_endpoints_ipv4: Optional[pulumi.Input[int]] = None,
+                 minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerEndpointSubnetArgs']]]] = None,
@@ -51,7 +53,9 @@ class TrafficManagerEndpointArgs:
                of endpoints that must be ‘online’ in the child profile in order for the
                parent profile to direct traffic to any of the endpoints in that child
                profile. This argument only applies to Endpoints of type `nestedEndpoints`
-               and defaults to `1`.
+               and has to be larger than `0`.
+        :param pulumi.Input[int] minimum_required_child_endpoints_ipv4: This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        :param pulumi.Input[int] minimum_required_child_endpoints_ipv6: This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
         :param pulumi.Input[str] name: The name of the Traffic Manager endpoint. Changing this forces a
                new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
@@ -82,6 +86,10 @@ class TrafficManagerEndpointArgs:
             pulumi.set(__self__, "geo_mappings", geo_mappings)
         if min_child_endpoints is not None:
             pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
+        if minimum_required_child_endpoints_ipv4 is not None:
+            pulumi.set(__self__, "minimum_required_child_endpoints_ipv4", minimum_required_child_endpoints_ipv4)
+        if minimum_required_child_endpoints_ipv6 is not None:
+            pulumi.set(__self__, "minimum_required_child_endpoints_ipv6", minimum_required_child_endpoints_ipv6)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
@@ -196,13 +204,37 @@ class TrafficManagerEndpointArgs:
         of endpoints that must be ‘online’ in the child profile in order for the
         parent profile to direct traffic to any of the endpoints in that child
         profile. This argument only applies to Endpoints of type `nestedEndpoints`
-        and defaults to `1`.
+        and has to be larger than `0`.
         """
         return pulumi.get(self, "min_child_endpoints")
 
     @min_child_endpoints.setter
     def min_child_endpoints(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_child_endpoints", value)
+
+    @property
+    @pulumi.getter(name="minimumRequiredChildEndpointsIpv4")
+    def minimum_required_child_endpoints_ipv4(self) -> Optional[pulumi.Input[int]]:
+        """
+        This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        """
+        return pulumi.get(self, "minimum_required_child_endpoints_ipv4")
+
+    @minimum_required_child_endpoints_ipv4.setter
+    def minimum_required_child_endpoints_ipv4(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum_required_child_endpoints_ipv4", value)
+
+    @property
+    @pulumi.getter(name="minimumRequiredChildEndpointsIpv6")
+    def minimum_required_child_endpoints_ipv6(self) -> Optional[pulumi.Input[int]]:
+        """
+        This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        """
+        return pulumi.get(self, "minimum_required_child_endpoints_ipv6")
+
+    @minimum_required_child_endpoints_ipv6.setter
+    def minimum_required_child_endpoints_ipv6(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum_required_child_endpoints_ipv6", value)
 
     @property
     @pulumi.getter
@@ -296,6 +328,8 @@ class _TrafficManagerEndpointState:
                  endpoint_status: Optional[pulumi.Input[str]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_child_endpoints: Optional[pulumi.Input[int]] = None,
+                 minimum_required_child_endpoints_ipv4: Optional[pulumi.Input[int]] = None,
+                 minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -320,7 +354,9 @@ class _TrafficManagerEndpointState:
                of endpoints that must be ‘online’ in the child profile in order for the
                parent profile to direct traffic to any of the endpoints in that child
                profile. This argument only applies to Endpoints of type `nestedEndpoints`
-               and defaults to `1`.
+               and has to be larger than `0`.
+        :param pulumi.Input[int] minimum_required_child_endpoints_ipv4: This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        :param pulumi.Input[int] minimum_required_child_endpoints_ipv6: This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
         :param pulumi.Input[str] name: The name of the Traffic Manager endpoint. Changing this forces a
                new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
@@ -357,6 +393,10 @@ class _TrafficManagerEndpointState:
             pulumi.set(__self__, "geo_mappings", geo_mappings)
         if min_child_endpoints is not None:
             pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
+        if minimum_required_child_endpoints_ipv4 is not None:
+            pulumi.set(__self__, "minimum_required_child_endpoints_ipv4", minimum_required_child_endpoints_ipv4)
+        if minimum_required_child_endpoints_ipv6 is not None:
+            pulumi.set(__self__, "minimum_required_child_endpoints_ipv6", minimum_required_child_endpoints_ipv6)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
@@ -446,13 +486,37 @@ class _TrafficManagerEndpointState:
         of endpoints that must be ‘online’ in the child profile in order for the
         parent profile to direct traffic to any of the endpoints in that child
         profile. This argument only applies to Endpoints of type `nestedEndpoints`
-        and defaults to `1`.
+        and has to be larger than `0`.
         """
         return pulumi.get(self, "min_child_endpoints")
 
     @min_child_endpoints.setter
     def min_child_endpoints(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_child_endpoints", value)
+
+    @property
+    @pulumi.getter(name="minimumRequiredChildEndpointsIpv4")
+    def minimum_required_child_endpoints_ipv4(self) -> Optional[pulumi.Input[int]]:
+        """
+        This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        """
+        return pulumi.get(self, "minimum_required_child_endpoints_ipv4")
+
+    @minimum_required_child_endpoints_ipv4.setter
+    def minimum_required_child_endpoints_ipv4(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum_required_child_endpoints_ipv4", value)
+
+    @property
+    @pulumi.getter(name="minimumRequiredChildEndpointsIpv6")
+    def minimum_required_child_endpoints_ipv6(self) -> Optional[pulumi.Input[int]]:
+        """
+        This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        """
+        return pulumi.get(self, "minimum_required_child_endpoints_ipv6")
+
+    @minimum_required_child_endpoints_ipv6.setter
+    def minimum_required_child_endpoints_ipv6(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum_required_child_endpoints_ipv6", value)
 
     @property
     @pulumi.getter
@@ -587,6 +651,8 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
                  endpoint_status: Optional[pulumi.Input[str]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_child_endpoints: Optional[pulumi.Input[int]] = None,
+                 minimum_required_child_endpoints_ipv4: Optional[pulumi.Input[int]] = None,
+                 minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -661,7 +727,9 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
                of endpoints that must be ‘online’ in the child profile in order for the
                parent profile to direct traffic to any of the endpoints in that child
                profile. This argument only applies to Endpoints of type `nestedEndpoints`
-               and defaults to `1`.
+               and has to be larger than `0`.
+        :param pulumi.Input[int] minimum_required_child_endpoints_ipv4: This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        :param pulumi.Input[int] minimum_required_child_endpoints_ipv6: This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
         :param pulumi.Input[str] name: The name of the Traffic Manager endpoint. Changing this forces a
                new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
@@ -761,6 +829,8 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
                  endpoint_status: Optional[pulumi.Input[str]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_child_endpoints: Optional[pulumi.Input[int]] = None,
+                 minimum_required_child_endpoints_ipv4: Optional[pulumi.Input[int]] = None,
+                 minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -787,6 +857,8 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
             __props__.__dict__["endpoint_status"] = endpoint_status
             __props__.__dict__["geo_mappings"] = geo_mappings
             __props__.__dict__["min_child_endpoints"] = min_child_endpoints
+            __props__.__dict__["minimum_required_child_endpoints_ipv4"] = minimum_required_child_endpoints_ipv4
+            __props__.__dict__["minimum_required_child_endpoints_ipv6"] = minimum_required_child_endpoints_ipv6
             __props__.__dict__["name"] = name
             __props__.__dict__["priority"] = priority
             if profile_name is None and not opts.urn:
@@ -821,6 +893,8 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
             endpoint_status: Optional[pulumi.Input[str]] = None,
             geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             min_child_endpoints: Optional[pulumi.Input[int]] = None,
+            minimum_required_child_endpoints_ipv4: Optional[pulumi.Input[int]] = None,
+            minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             profile_name: Optional[pulumi.Input[str]] = None,
@@ -850,7 +924,9 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
                of endpoints that must be ‘online’ in the child profile in order for the
                parent profile to direct traffic to any of the endpoints in that child
                profile. This argument only applies to Endpoints of type `nestedEndpoints`
-               and defaults to `1`.
+               and has to be larger than `0`.
+        :param pulumi.Input[int] minimum_required_child_endpoints_ipv4: This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        :param pulumi.Input[int] minimum_required_child_endpoints_ipv6: This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
         :param pulumi.Input[str] name: The name of the Traffic Manager endpoint. Changing this forces a
                new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
@@ -885,6 +961,8 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
         __props__.__dict__["endpoint_status"] = endpoint_status
         __props__.__dict__["geo_mappings"] = geo_mappings
         __props__.__dict__["min_child_endpoints"] = min_child_endpoints
+        __props__.__dict__["minimum_required_child_endpoints_ipv4"] = minimum_required_child_endpoints_ipv4
+        __props__.__dict__["minimum_required_child_endpoints_ipv6"] = minimum_required_child_endpoints_ipv6
         __props__.__dict__["name"] = name
         __props__.__dict__["priority"] = priority
         __props__.__dict__["profile_name"] = profile_name
@@ -946,9 +1024,25 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
         of endpoints that must be ‘online’ in the child profile in order for the
         parent profile to direct traffic to any of the endpoints in that child
         profile. This argument only applies to Endpoints of type `nestedEndpoints`
-        and defaults to `1`.
+        and has to be larger than `0`.
         """
         return pulumi.get(self, "min_child_endpoints")
+
+    @property
+    @pulumi.getter(name="minimumRequiredChildEndpointsIpv4")
+    def minimum_required_child_endpoints_ipv4(self) -> pulumi.Output[Optional[int]]:
+        """
+        This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        """
+        return pulumi.get(self, "minimum_required_child_endpoints_ipv4")
+
+    @property
+    @pulumi.getter(name="minimumRequiredChildEndpointsIpv6")
+    def minimum_required_child_endpoints_ipv6(self) -> pulumi.Output[Optional[int]]:
+        """
+        This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        """
+        return pulumi.get(self, "minimum_required_child_endpoints_ipv6")
 
     @property
     @pulumi.getter

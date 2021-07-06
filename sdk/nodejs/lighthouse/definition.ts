@@ -78,15 +78,19 @@ export class Definition extends pulumi.CustomResource {
      */
     public readonly lighthouseDefinitionId!: pulumi.Output<string>;
     /**
-     * The ID of the managing tenant.
+     * The ID of the managing tenant. Changing this forces a new resource to be created.
      */
     public readonly managingTenantId!: pulumi.Output<string>;
     /**
-     * The name of the Lighthouse Definition.
+     * The name of the Lighthouse Definition. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the managed subscription.
+     * A `plan` block as defined below.
+     */
+    public readonly plan!: pulumi.Output<outputs.lighthouse.DefinitionPlan | undefined>;
+    /**
+     * The ID of the managed subscription. Changing this forces a new resource to be created.
      */
     public readonly scope!: pulumi.Output<string>;
 
@@ -108,6 +112,7 @@ export class Definition extends pulumi.CustomResource {
             inputs["lighthouseDefinitionId"] = state ? state.lighthouseDefinitionId : undefined;
             inputs["managingTenantId"] = state ? state.managingTenantId : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["plan"] = state ? state.plan : undefined;
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
@@ -125,6 +130,7 @@ export class Definition extends pulumi.CustomResource {
             inputs["lighthouseDefinitionId"] = args ? args.lighthouseDefinitionId : undefined;
             inputs["managingTenantId"] = args ? args.managingTenantId : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["plan"] = args ? args.plan : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
         if (!opts.version) {
@@ -151,15 +157,19 @@ export interface DefinitionState {
      */
     lighthouseDefinitionId?: pulumi.Input<string>;
     /**
-     * The ID of the managing tenant.
+     * The ID of the managing tenant. Changing this forces a new resource to be created.
      */
     managingTenantId?: pulumi.Input<string>;
     /**
-     * The name of the Lighthouse Definition.
+     * The name of the Lighthouse Definition. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the managed subscription.
+     * A `plan` block as defined below.
+     */
+    plan?: pulumi.Input<inputs.lighthouse.DefinitionPlan>;
+    /**
+     * The ID of the managed subscription. Changing this forces a new resource to be created.
      */
     scope?: pulumi.Input<string>;
 }
@@ -181,15 +191,19 @@ export interface DefinitionArgs {
      */
     lighthouseDefinitionId?: pulumi.Input<string>;
     /**
-     * The ID of the managing tenant.
+     * The ID of the managing tenant. Changing this forces a new resource to be created.
      */
     managingTenantId: pulumi.Input<string>;
     /**
-     * The name of the Lighthouse Definition.
+     * The name of the Lighthouse Definition. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the managed subscription.
+     * A `plan` block as defined below.
+     */
+    plan?: pulumi.Input<inputs.lighthouse.DefinitionPlan>;
+    /**
+     * The ID of the managed subscription. Changing this forces a new resource to be created.
      */
     scope: pulumi.Input<string>;
 }

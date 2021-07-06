@@ -76,19 +76,25 @@ namespace Pulumi.Azure.Lighthouse
         public Output<string> LighthouseDefinitionId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the managing tenant.
+        /// The ID of the managing tenant. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managingTenantId")]
         public Output<string> ManagingTenantId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Lighthouse Definition.
+        /// The name of the Lighthouse Definition. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the managed subscription.
+        /// A `plan` block as defined below.
+        /// </summary>
+        [Output("plan")]
+        public Output<Outputs.DefinitionPlan?> Plan { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the managed subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
@@ -164,19 +170,25 @@ namespace Pulumi.Azure.Lighthouse
         public Input<string>? LighthouseDefinitionId { get; set; }
 
         /// <summary>
-        /// The ID of the managing tenant.
+        /// The ID of the managing tenant. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managingTenantId", required: true)]
         public Input<string> ManagingTenantId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Lighthouse Definition.
+        /// The name of the Lighthouse Definition. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the managed subscription.
+        /// A `plan` block as defined below.
+        /// </summary>
+        [Input("plan")]
+        public Input<Inputs.DefinitionPlanArgs>? Plan { get; set; }
+
+        /// <summary>
+        /// The ID of the managed subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -213,19 +225,25 @@ namespace Pulumi.Azure.Lighthouse
         public Input<string>? LighthouseDefinitionId { get; set; }
 
         /// <summary>
-        /// The ID of the managing tenant.
+        /// The ID of the managing tenant. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managingTenantId")]
         public Input<string>? ManagingTenantId { get; set; }
 
         /// <summary>
-        /// The name of the Lighthouse Definition.
+        /// The name of the Lighthouse Definition. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the managed subscription.
+        /// A `plan` block as defined below.
+        /// </summary>
+        [Input("plan")]
+        public Input<Inputs.DefinitionPlanGetArgs>? Plan { get; set; }
+
+        /// <summary>
+        /// The ID of the managed subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }

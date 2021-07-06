@@ -2881,9 +2881,9 @@ func (o AccountRoutingPtrOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOutpu
 type AccountShareProperties struct {
 	// A `corsRule` block as defined below.
 	CorsRules []AccountSharePropertiesCorsRule `pulumi:"corsRules"`
-	// (Optional) A `retentionPolicy` block as defined below.
+	// A `retentionPolicy` block as defined below.
 	RetentionPolicy *AccountSharePropertiesRetentionPolicy `pulumi:"retentionPolicy"`
-	// (Optional) A `smb` block as defined below.
+	// A `smb` block as defined below.
 	Smb *AccountSharePropertiesSmb `pulumi:"smb"`
 }
 
@@ -2901,9 +2901,9 @@ type AccountSharePropertiesInput interface {
 type AccountSharePropertiesArgs struct {
 	// A `corsRule` block as defined below.
 	CorsRules AccountSharePropertiesCorsRuleArrayInput `pulumi:"corsRules"`
-	// (Optional) A `retentionPolicy` block as defined below.
+	// A `retentionPolicy` block as defined below.
 	RetentionPolicy AccountSharePropertiesRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
-	// (Optional) A `smb` block as defined below.
+	// A `smb` block as defined below.
 	Smb AccountSharePropertiesSmbPtrInput `pulumi:"smb"`
 }
 
@@ -2989,12 +2989,12 @@ func (o AccountSharePropertiesOutput) CorsRules() AccountSharePropertiesCorsRule
 	return o.ApplyT(func(v AccountShareProperties) []AccountSharePropertiesCorsRule { return v.CorsRules }).(AccountSharePropertiesCorsRuleArrayOutput)
 }
 
-// (Optional) A `retentionPolicy` block as defined below.
+// A `retentionPolicy` block as defined below.
 func (o AccountSharePropertiesOutput) RetentionPolicy() AccountSharePropertiesRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v AccountShareProperties) *AccountSharePropertiesRetentionPolicy { return v.RetentionPolicy }).(AccountSharePropertiesRetentionPolicyPtrOutput)
 }
 
-// (Optional) A `smb` block as defined below.
+// A `smb` block as defined below.
 func (o AccountSharePropertiesOutput) Smb() AccountSharePropertiesSmbPtrOutput {
 	return o.ApplyT(func(v AccountShareProperties) *AccountSharePropertiesSmb { return v.Smb }).(AccountSharePropertiesSmbPtrOutput)
 }
@@ -3027,7 +3027,7 @@ func (o AccountSharePropertiesPtrOutput) CorsRules() AccountSharePropertiesCorsR
 	}).(AccountSharePropertiesCorsRuleArrayOutput)
 }
 
-// (Optional) A `retentionPolicy` block as defined below.
+// A `retentionPolicy` block as defined below.
 func (o AccountSharePropertiesPtrOutput) RetentionPolicy() AccountSharePropertiesRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v *AccountShareProperties) *AccountSharePropertiesRetentionPolicy {
 		if v == nil {
@@ -3037,7 +3037,7 @@ func (o AccountSharePropertiesPtrOutput) RetentionPolicy() AccountSharePropertie
 	}).(AccountSharePropertiesRetentionPolicyPtrOutput)
 }
 
-// (Optional) A `smb` block as defined below.
+// A `smb` block as defined below.
 func (o AccountSharePropertiesPtrOutput) Smb() AccountSharePropertiesSmbPtrOutput {
 	return o.ApplyT(func(v *AccountShareProperties) *AccountSharePropertiesSmb {
 		if v == nil {
@@ -3184,7 +3184,7 @@ func (o AccountSharePropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) Acco
 }
 
 type AccountSharePropertiesRetentionPolicy struct {
-	// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+	// Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
 	Days *int `pulumi:"days"`
 }
 
@@ -3200,7 +3200,7 @@ type AccountSharePropertiesRetentionPolicyInput interface {
 }
 
 type AccountSharePropertiesRetentionPolicyArgs struct {
-	// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+	// Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 }
 
@@ -3281,7 +3281,7 @@ func (o AccountSharePropertiesRetentionPolicyOutput) ToAccountSharePropertiesRet
 	}).(AccountSharePropertiesRetentionPolicyPtrOutput)
 }
 
-// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+// Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
 func (o AccountSharePropertiesRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountSharePropertiesRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -3304,7 +3304,7 @@ func (o AccountSharePropertiesRetentionPolicyPtrOutput) Elem() AccountSharePrope
 	return o.ApplyT(func(v *AccountSharePropertiesRetentionPolicy) AccountSharePropertiesRetentionPolicy { return *v }).(AccountSharePropertiesRetentionPolicyOutput)
 }
 
-// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+// Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
 func (o AccountSharePropertiesRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountSharePropertiesRetentionPolicy) *int {
 		if v == nil {
@@ -3315,13 +3315,13 @@ func (o AccountSharePropertiesRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutp
 }
 
 type AccountSharePropertiesSmb struct {
-	// (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+	// A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
 	AuthenticationTypes []string `pulumi:"authenticationTypes"`
-	// (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+	// A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
 	ChannelEncryptionTypes []string `pulumi:"channelEncryptionTypes"`
-	// (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+	// A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
 	KerberosTicketEncryptionTypes []string `pulumi:"kerberosTicketEncryptionTypes"`
-	// (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+	// A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
 	Versions []string `pulumi:"versions"`
 }
 
@@ -3337,13 +3337,13 @@ type AccountSharePropertiesSmbInput interface {
 }
 
 type AccountSharePropertiesSmbArgs struct {
-	// (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+	// A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
 	AuthenticationTypes pulumi.StringArrayInput `pulumi:"authenticationTypes"`
-	// (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+	// A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
 	ChannelEncryptionTypes pulumi.StringArrayInput `pulumi:"channelEncryptionTypes"`
-	// (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+	// A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
 	KerberosTicketEncryptionTypes pulumi.StringArrayInput `pulumi:"kerberosTicketEncryptionTypes"`
-	// (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+	// A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
 	Versions pulumi.StringArrayInput `pulumi:"versions"`
 }
 
@@ -3424,22 +3424,22 @@ func (o AccountSharePropertiesSmbOutput) ToAccountSharePropertiesSmbPtrOutputWit
 	}).(AccountSharePropertiesSmbPtrOutput)
 }
 
-// (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+// A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
 func (o AccountSharePropertiesSmbOutput) AuthenticationTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountSharePropertiesSmb) []string { return v.AuthenticationTypes }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+// A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
 func (o AccountSharePropertiesSmbOutput) ChannelEncryptionTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountSharePropertiesSmb) []string { return v.ChannelEncryptionTypes }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+// A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
 func (o AccountSharePropertiesSmbOutput) KerberosTicketEncryptionTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountSharePropertiesSmb) []string { return v.KerberosTicketEncryptionTypes }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+// A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
 func (o AccountSharePropertiesSmbOutput) Versions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountSharePropertiesSmb) []string { return v.Versions }).(pulumi.StringArrayOutput)
 }
@@ -3462,7 +3462,7 @@ func (o AccountSharePropertiesSmbPtrOutput) Elem() AccountSharePropertiesSmbOutp
 	return o.ApplyT(func(v *AccountSharePropertiesSmb) AccountSharePropertiesSmb { return *v }).(AccountSharePropertiesSmbOutput)
 }
 
-// (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+// A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
 func (o AccountSharePropertiesSmbPtrOutput) AuthenticationTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSharePropertiesSmb) []string {
 		if v == nil {
@@ -3472,7 +3472,7 @@ func (o AccountSharePropertiesSmbPtrOutput) AuthenticationTypes() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+// A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
 func (o AccountSharePropertiesSmbPtrOutput) ChannelEncryptionTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSharePropertiesSmb) []string {
 		if v == nil {
@@ -3482,7 +3482,7 @@ func (o AccountSharePropertiesSmbPtrOutput) ChannelEncryptionTypes() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+// A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
 func (o AccountSharePropertiesSmbPtrOutput) KerberosTicketEncryptionTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSharePropertiesSmb) []string {
 		if v == nil {
@@ -3492,7 +3492,7 @@ func (o AccountSharePropertiesSmbPtrOutput) KerberosTicketEncryptionTypes() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+// A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
 func (o AccountSharePropertiesSmbPtrOutput) Versions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSharePropertiesSmb) []string {
 		if v == nil {

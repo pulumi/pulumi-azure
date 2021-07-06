@@ -25,6 +25,12 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         public Input<string> StagingStorageAccountId { get; set; } = null!;
 
         /// <summary>
+        /// The Disk Encryption Set that the Managed Disk will be associated with.
+        /// </summary>
+        [Input("targetDiskEncryptionSetId")]
+        public Input<string>? TargetDiskEncryptionSetId { get; set; }
+
+        /// <summary>
         /// What type should the disk be when a failover is done.
         /// </summary>
         [Input("targetDiskType", required: true)]

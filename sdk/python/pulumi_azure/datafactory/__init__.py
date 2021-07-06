@@ -21,6 +21,7 @@ from .integration_runtime_managed import *
 from .integration_runtime_rule import *
 from .integration_runtime_self_hosted import *
 from .integration_runtime_ssis import *
+from .linked_custom_service import *
 from .linked_service_azure_blob_storage import *
 from .linked_service_azure_databricks import *
 from .linked_service_azure_file_storage import *
@@ -41,6 +42,7 @@ from .linked_service_sql_server import *
 from .linked_service_synapse import *
 from .linked_service_web import *
 from .pipeline import *
+from .trigger_blob_event import *
 from .trigger_schedule import *
 from ._inputs import *
 from . import outputs

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<string>? _authenticationTypes;
 
         /// <summary>
-        /// (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+        /// A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
         /// </summary>
         public InputList<string> AuthenticationTypes
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<string>? _channelEncryptionTypes;
 
         /// <summary>
-        /// (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+        /// A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
         /// </summary>
         public InputList<string> ChannelEncryptionTypes
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<string>? _kerberosTicketEncryptionTypes;
 
         /// <summary>
-        /// (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+        /// A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
         /// </summary>
         public InputList<string> KerberosTicketEncryptionTypes
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<string>? _versions;
 
         /// <summary>
-        /// (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+        /// A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
         /// </summary>
         public InputList<string> Versions
         {

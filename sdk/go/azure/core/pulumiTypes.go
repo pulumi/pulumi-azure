@@ -328,6 +328,513 @@ func (o CustomProviderValidationArrayOutput) Index(i pulumi.IntInput) CustomProv
 	}).(CustomProviderValidationOutput)
 }
 
+type ResourceGroupPolicyAssignmentIdentity struct {
+	// The Principal ID of the Policy Assignment for this Resource Group.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID of the Policy Assignment for this Resource Group.
+	TenantId *string `pulumi:"tenantId"`
+	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+	Type *string `pulumi:"type"`
+}
+
+// ResourceGroupPolicyAssignmentIdentityInput is an input type that accepts ResourceGroupPolicyAssignmentIdentityArgs and ResourceGroupPolicyAssignmentIdentityOutput values.
+// You can construct a concrete instance of `ResourceGroupPolicyAssignmentIdentityInput` via:
+//
+//          ResourceGroupPolicyAssignmentIdentityArgs{...}
+type ResourceGroupPolicyAssignmentIdentityInput interface {
+	pulumi.Input
+
+	ToResourceGroupPolicyAssignmentIdentityOutput() ResourceGroupPolicyAssignmentIdentityOutput
+	ToResourceGroupPolicyAssignmentIdentityOutputWithContext(context.Context) ResourceGroupPolicyAssignmentIdentityOutput
+}
+
+type ResourceGroupPolicyAssignmentIdentityArgs struct {
+	// The Principal ID of the Policy Assignment for this Resource Group.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID of the Policy Assignment for this Resource Group.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourceGroupPolicyAssignmentIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupPolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (i ResourceGroupPolicyAssignmentIdentityArgs) ToResourceGroupPolicyAssignmentIdentityOutput() ResourceGroupPolicyAssignmentIdentityOutput {
+	return i.ToResourceGroupPolicyAssignmentIdentityOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupPolicyAssignmentIdentityArgs) ToResourceGroupPolicyAssignmentIdentityOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentIdentityOutput)
+}
+
+func (i ResourceGroupPolicyAssignmentIdentityArgs) ToResourceGroupPolicyAssignmentIdentityPtrOutput() ResourceGroupPolicyAssignmentIdentityPtrOutput {
+	return i.ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupPolicyAssignmentIdentityArgs) ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentIdentityOutput).ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(ctx)
+}
+
+// ResourceGroupPolicyAssignmentIdentityPtrInput is an input type that accepts ResourceGroupPolicyAssignmentIdentityArgs, ResourceGroupPolicyAssignmentIdentityPtr and ResourceGroupPolicyAssignmentIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceGroupPolicyAssignmentIdentityPtrInput` via:
+//
+//          ResourceGroupPolicyAssignmentIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceGroupPolicyAssignmentIdentityPtrInput interface {
+	pulumi.Input
+
+	ToResourceGroupPolicyAssignmentIdentityPtrOutput() ResourceGroupPolicyAssignmentIdentityPtrOutput
+	ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(context.Context) ResourceGroupPolicyAssignmentIdentityPtrOutput
+}
+
+type resourceGroupPolicyAssignmentIdentityPtrType ResourceGroupPolicyAssignmentIdentityArgs
+
+func ResourceGroupPolicyAssignmentIdentityPtr(v *ResourceGroupPolicyAssignmentIdentityArgs) ResourceGroupPolicyAssignmentIdentityPtrInput {
+	return (*resourceGroupPolicyAssignmentIdentityPtrType)(v)
+}
+
+func (*resourceGroupPolicyAssignmentIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGroupPolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (i *resourceGroupPolicyAssignmentIdentityPtrType) ToResourceGroupPolicyAssignmentIdentityPtrOutput() ResourceGroupPolicyAssignmentIdentityPtrOutput {
+	return i.ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceGroupPolicyAssignmentIdentityPtrType) ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentIdentityPtrOutput)
+}
+
+type ResourceGroupPolicyAssignmentIdentityOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupPolicyAssignmentIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupPolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (o ResourceGroupPolicyAssignmentIdentityOutput) ToResourceGroupPolicyAssignmentIdentityOutput() ResourceGroupPolicyAssignmentIdentityOutput {
+	return o
+}
+
+func (o ResourceGroupPolicyAssignmentIdentityOutput) ToResourceGroupPolicyAssignmentIdentityOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentIdentityOutput {
+	return o
+}
+
+func (o ResourceGroupPolicyAssignmentIdentityOutput) ToResourceGroupPolicyAssignmentIdentityPtrOutput() ResourceGroupPolicyAssignmentIdentityPtrOutput {
+	return o.ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGroupPolicyAssignmentIdentityOutput) ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentIdentityPtrOutput {
+	return o.ApplyT(func(v ResourceGroupPolicyAssignmentIdentity) *ResourceGroupPolicyAssignmentIdentity {
+		return &v
+	}).(ResourceGroupPolicyAssignmentIdentityPtrOutput)
+}
+
+// The Principal ID of the Policy Assignment for this Resource Group.
+func (o ResourceGroupPolicyAssignmentIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGroupPolicyAssignmentIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID of the Policy Assignment for this Resource Group.
+func (o ResourceGroupPolicyAssignmentIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGroupPolicyAssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+func (o ResourceGroupPolicyAssignmentIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGroupPolicyAssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResourceGroupPolicyAssignmentIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupPolicyAssignmentIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGroupPolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) ToResourceGroupPolicyAssignmentIdentityPtrOutput() ResourceGroupPolicyAssignmentIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) Elem() ResourceGroupPolicyAssignmentIdentityOutput {
+	return o.ApplyT(func(v *ResourceGroupPolicyAssignmentIdentity) ResourceGroupPolicyAssignmentIdentity { return *v }).(ResourceGroupPolicyAssignmentIdentityOutput)
+}
+
+// The Principal ID of the Policy Assignment for this Resource Group.
+func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupPolicyAssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID of the Policy Assignment for this Resource Group.
+func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupPolicyAssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupPolicyAssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourcePolicyAssignmentIdentity struct {
+	// The Principal ID of the Policy Assignment for this Resource.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID of the Policy Assignment for this Resource.
+	TenantId *string `pulumi:"tenantId"`
+	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+	Type *string `pulumi:"type"`
+}
+
+// ResourcePolicyAssignmentIdentityInput is an input type that accepts ResourcePolicyAssignmentIdentityArgs and ResourcePolicyAssignmentIdentityOutput values.
+// You can construct a concrete instance of `ResourcePolicyAssignmentIdentityInput` via:
+//
+//          ResourcePolicyAssignmentIdentityArgs{...}
+type ResourcePolicyAssignmentIdentityInput interface {
+	pulumi.Input
+
+	ToResourcePolicyAssignmentIdentityOutput() ResourcePolicyAssignmentIdentityOutput
+	ToResourcePolicyAssignmentIdentityOutputWithContext(context.Context) ResourcePolicyAssignmentIdentityOutput
+}
+
+type ResourcePolicyAssignmentIdentityArgs struct {
+	// The Principal ID of the Policy Assignment for this Resource.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID of the Policy Assignment for this Resource.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourcePolicyAssignmentIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (i ResourcePolicyAssignmentIdentityArgs) ToResourcePolicyAssignmentIdentityOutput() ResourcePolicyAssignmentIdentityOutput {
+	return i.ToResourcePolicyAssignmentIdentityOutputWithContext(context.Background())
+}
+
+func (i ResourcePolicyAssignmentIdentityArgs) ToResourcePolicyAssignmentIdentityOutputWithContext(ctx context.Context) ResourcePolicyAssignmentIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentIdentityOutput)
+}
+
+func (i ResourcePolicyAssignmentIdentityArgs) ToResourcePolicyAssignmentIdentityPtrOutput() ResourcePolicyAssignmentIdentityPtrOutput {
+	return i.ToResourcePolicyAssignmentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ResourcePolicyAssignmentIdentityArgs) ToResourcePolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) ResourcePolicyAssignmentIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentIdentityOutput).ToResourcePolicyAssignmentIdentityPtrOutputWithContext(ctx)
+}
+
+// ResourcePolicyAssignmentIdentityPtrInput is an input type that accepts ResourcePolicyAssignmentIdentityArgs, ResourcePolicyAssignmentIdentityPtr and ResourcePolicyAssignmentIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourcePolicyAssignmentIdentityPtrInput` via:
+//
+//          ResourcePolicyAssignmentIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourcePolicyAssignmentIdentityPtrInput interface {
+	pulumi.Input
+
+	ToResourcePolicyAssignmentIdentityPtrOutput() ResourcePolicyAssignmentIdentityPtrOutput
+	ToResourcePolicyAssignmentIdentityPtrOutputWithContext(context.Context) ResourcePolicyAssignmentIdentityPtrOutput
+}
+
+type resourcePolicyAssignmentIdentityPtrType ResourcePolicyAssignmentIdentityArgs
+
+func ResourcePolicyAssignmentIdentityPtr(v *ResourcePolicyAssignmentIdentityArgs) ResourcePolicyAssignmentIdentityPtrInput {
+	return (*resourcePolicyAssignmentIdentityPtrType)(v)
+}
+
+func (*resourcePolicyAssignmentIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourcePolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (i *resourcePolicyAssignmentIdentityPtrType) ToResourcePolicyAssignmentIdentityPtrOutput() ResourcePolicyAssignmentIdentityPtrOutput {
+	return i.ToResourcePolicyAssignmentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *resourcePolicyAssignmentIdentityPtrType) ToResourcePolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) ResourcePolicyAssignmentIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentIdentityPtrOutput)
+}
+
+type ResourcePolicyAssignmentIdentityOutput struct{ *pulumi.OutputState }
+
+func (ResourcePolicyAssignmentIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (o ResourcePolicyAssignmentIdentityOutput) ToResourcePolicyAssignmentIdentityOutput() ResourcePolicyAssignmentIdentityOutput {
+	return o
+}
+
+func (o ResourcePolicyAssignmentIdentityOutput) ToResourcePolicyAssignmentIdentityOutputWithContext(ctx context.Context) ResourcePolicyAssignmentIdentityOutput {
+	return o
+}
+
+func (o ResourcePolicyAssignmentIdentityOutput) ToResourcePolicyAssignmentIdentityPtrOutput() ResourcePolicyAssignmentIdentityPtrOutput {
+	return o.ToResourcePolicyAssignmentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ResourcePolicyAssignmentIdentityOutput) ToResourcePolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) ResourcePolicyAssignmentIdentityPtrOutput {
+	return o.ApplyT(func(v ResourcePolicyAssignmentIdentity) *ResourcePolicyAssignmentIdentity {
+		return &v
+	}).(ResourcePolicyAssignmentIdentityPtrOutput)
+}
+
+// The Principal ID of the Policy Assignment for this Resource.
+func (o ResourcePolicyAssignmentIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourcePolicyAssignmentIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID of the Policy Assignment for this Resource.
+func (o ResourcePolicyAssignmentIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourcePolicyAssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+func (o ResourcePolicyAssignmentIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourcePolicyAssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResourcePolicyAssignmentIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourcePolicyAssignmentIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourcePolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (o ResourcePolicyAssignmentIdentityPtrOutput) ToResourcePolicyAssignmentIdentityPtrOutput() ResourcePolicyAssignmentIdentityPtrOutput {
+	return o
+}
+
+func (o ResourcePolicyAssignmentIdentityPtrOutput) ToResourcePolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) ResourcePolicyAssignmentIdentityPtrOutput {
+	return o
+}
+
+func (o ResourcePolicyAssignmentIdentityPtrOutput) Elem() ResourcePolicyAssignmentIdentityOutput {
+	return o.ApplyT(func(v *ResourcePolicyAssignmentIdentity) ResourcePolicyAssignmentIdentity { return *v }).(ResourcePolicyAssignmentIdentityOutput)
+}
+
+// The Principal ID of the Policy Assignment for this Resource.
+func (o ResourcePolicyAssignmentIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourcePolicyAssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID of the Policy Assignment for this Resource.
+func (o ResourcePolicyAssignmentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourcePolicyAssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+func (o ResourcePolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourcePolicyAssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubscriptionPolicyAssignmentIdentity struct {
+	// The Principal ID of the Policy Assignment for this Subscription.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID of the Policy Assignment for this Subscription.
+	TenantId *string `pulumi:"tenantId"`
+	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+	Type *string `pulumi:"type"`
+}
+
+// SubscriptionPolicyAssignmentIdentityInput is an input type that accepts SubscriptionPolicyAssignmentIdentityArgs and SubscriptionPolicyAssignmentIdentityOutput values.
+// You can construct a concrete instance of `SubscriptionPolicyAssignmentIdentityInput` via:
+//
+//          SubscriptionPolicyAssignmentIdentityArgs{...}
+type SubscriptionPolicyAssignmentIdentityInput interface {
+	pulumi.Input
+
+	ToSubscriptionPolicyAssignmentIdentityOutput() SubscriptionPolicyAssignmentIdentityOutput
+	ToSubscriptionPolicyAssignmentIdentityOutputWithContext(context.Context) SubscriptionPolicyAssignmentIdentityOutput
+}
+
+type SubscriptionPolicyAssignmentIdentityArgs struct {
+	// The Principal ID of the Policy Assignment for this Subscription.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID of the Policy Assignment for this Subscription.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (SubscriptionPolicyAssignmentIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionPolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (i SubscriptionPolicyAssignmentIdentityArgs) ToSubscriptionPolicyAssignmentIdentityOutput() SubscriptionPolicyAssignmentIdentityOutput {
+	return i.ToSubscriptionPolicyAssignmentIdentityOutputWithContext(context.Background())
+}
+
+func (i SubscriptionPolicyAssignmentIdentityArgs) ToSubscriptionPolicyAssignmentIdentityOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentIdentityOutput)
+}
+
+func (i SubscriptionPolicyAssignmentIdentityArgs) ToSubscriptionPolicyAssignmentIdentityPtrOutput() SubscriptionPolicyAssignmentIdentityPtrOutput {
+	return i.ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i SubscriptionPolicyAssignmentIdentityArgs) ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentIdentityOutput).ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(ctx)
+}
+
+// SubscriptionPolicyAssignmentIdentityPtrInput is an input type that accepts SubscriptionPolicyAssignmentIdentityArgs, SubscriptionPolicyAssignmentIdentityPtr and SubscriptionPolicyAssignmentIdentityPtrOutput values.
+// You can construct a concrete instance of `SubscriptionPolicyAssignmentIdentityPtrInput` via:
+//
+//          SubscriptionPolicyAssignmentIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type SubscriptionPolicyAssignmentIdentityPtrInput interface {
+	pulumi.Input
+
+	ToSubscriptionPolicyAssignmentIdentityPtrOutput() SubscriptionPolicyAssignmentIdentityPtrOutput
+	ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(context.Context) SubscriptionPolicyAssignmentIdentityPtrOutput
+}
+
+type subscriptionPolicyAssignmentIdentityPtrType SubscriptionPolicyAssignmentIdentityArgs
+
+func SubscriptionPolicyAssignmentIdentityPtr(v *SubscriptionPolicyAssignmentIdentityArgs) SubscriptionPolicyAssignmentIdentityPtrInput {
+	return (*subscriptionPolicyAssignmentIdentityPtrType)(v)
+}
+
+func (*subscriptionPolicyAssignmentIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionPolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (i *subscriptionPolicyAssignmentIdentityPtrType) ToSubscriptionPolicyAssignmentIdentityPtrOutput() SubscriptionPolicyAssignmentIdentityPtrOutput {
+	return i.ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *subscriptionPolicyAssignmentIdentityPtrType) ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentIdentityPtrOutput)
+}
+
+type SubscriptionPolicyAssignmentIdentityOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionPolicyAssignmentIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionPolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (o SubscriptionPolicyAssignmentIdentityOutput) ToSubscriptionPolicyAssignmentIdentityOutput() SubscriptionPolicyAssignmentIdentityOutput {
+	return o
+}
+
+func (o SubscriptionPolicyAssignmentIdentityOutput) ToSubscriptionPolicyAssignmentIdentityOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentIdentityOutput {
+	return o
+}
+
+func (o SubscriptionPolicyAssignmentIdentityOutput) ToSubscriptionPolicyAssignmentIdentityPtrOutput() SubscriptionPolicyAssignmentIdentityPtrOutput {
+	return o.ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionPolicyAssignmentIdentityOutput) ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentIdentityPtrOutput {
+	return o.ApplyT(func(v SubscriptionPolicyAssignmentIdentity) *SubscriptionPolicyAssignmentIdentity {
+		return &v
+	}).(SubscriptionPolicyAssignmentIdentityPtrOutput)
+}
+
+// The Principal ID of the Policy Assignment for this Subscription.
+func (o SubscriptionPolicyAssignmentIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionPolicyAssignmentIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID of the Policy Assignment for this Subscription.
+func (o SubscriptionPolicyAssignmentIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionPolicyAssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+func (o SubscriptionPolicyAssignmentIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionPolicyAssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type SubscriptionPolicyAssignmentIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionPolicyAssignmentIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionPolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (o SubscriptionPolicyAssignmentIdentityPtrOutput) ToSubscriptionPolicyAssignmentIdentityPtrOutput() SubscriptionPolicyAssignmentIdentityPtrOutput {
+	return o
+}
+
+func (o SubscriptionPolicyAssignmentIdentityPtrOutput) ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentIdentityPtrOutput {
+	return o
+}
+
+func (o SubscriptionPolicyAssignmentIdentityPtrOutput) Elem() SubscriptionPolicyAssignmentIdentityOutput {
+	return o.ApplyT(func(v *SubscriptionPolicyAssignmentIdentity) SubscriptionPolicyAssignmentIdentity { return *v }).(SubscriptionPolicyAssignmentIdentityOutput)
+}
+
+// The Principal ID of the Policy Assignment for this Subscription.
+func (o SubscriptionPolicyAssignmentIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionPolicyAssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID of the Policy Assignment for this Subscription.
+func (o SubscriptionPolicyAssignmentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionPolicyAssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+func (o SubscriptionPolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionPolicyAssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetResourcesResource struct {
 	// The ID of this Resource.
 	Id string `pulumi:"id"`
@@ -637,6 +1144,12 @@ func init() {
 	pulumi.RegisterOutputType(CustomProviderResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(CustomProviderValidationOutput{})
 	pulumi.RegisterOutputType(CustomProviderValidationArrayOutput{})
+	pulumi.RegisterOutputType(ResourceGroupPolicyAssignmentIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceGroupPolicyAssignmentIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourcePolicyAssignmentIdentityOutput{})
+	pulumi.RegisterOutputType(ResourcePolicyAssignmentIdentityPtrOutput{})
+	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentIdentityOutput{})
+	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceArrayOutput{})
 	pulumi.RegisterOutputType(GetSubscriptionsSubscriptionOutput{})

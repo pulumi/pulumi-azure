@@ -15,6 +15,8 @@ type ReplicatedVMManagedDisk struct {
 	DiskId string `pulumi:"diskId"`
 	// Storage account that should be used for caching.
 	StagingStorageAccountId string `pulumi:"stagingStorageAccountId"`
+	// The Disk Encryption Set that the Managed Disk will be associated with.
+	TargetDiskEncryptionSetId *string `pulumi:"targetDiskEncryptionSetId"`
 	// What type should the disk be when a failover is done.
 	TargetDiskType string `pulumi:"targetDiskType"`
 	// What type should the disk be that holds the replication data.
@@ -39,6 +41,8 @@ type ReplicatedVMManagedDiskArgs struct {
 	DiskId pulumi.StringInput `pulumi:"diskId"`
 	// Storage account that should be used for caching.
 	StagingStorageAccountId pulumi.StringInput `pulumi:"stagingStorageAccountId"`
+	// The Disk Encryption Set that the Managed Disk will be associated with.
+	TargetDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"targetDiskEncryptionSetId"`
 	// What type should the disk be when a failover is done.
 	TargetDiskType pulumi.StringInput `pulumi:"targetDiskType"`
 	// What type should the disk be that holds the replication data.
@@ -106,6 +110,11 @@ func (o ReplicatedVMManagedDiskOutput) DiskId() pulumi.StringOutput {
 // Storage account that should be used for caching.
 func (o ReplicatedVMManagedDiskOutput) StagingStorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) string { return v.StagingStorageAccountId }).(pulumi.StringOutput)
+}
+
+// The Disk Encryption Set that the Managed Disk will be associated with.
+func (o ReplicatedVMManagedDiskOutput) TargetDiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMManagedDisk) *string { return v.TargetDiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
 // What type should the disk be when a failover is done.

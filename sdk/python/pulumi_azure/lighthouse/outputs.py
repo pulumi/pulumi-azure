@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'DefinitionAuthorization',
+    'DefinitionPlan',
 ]
 
 @pulumi.output_type
@@ -86,5 +87,56 @@ class DefinitionAuthorization(dict):
         The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
         """
         return pulumi.get(self, "principal_display_name")
+
+
+@pulumi.output_type
+class DefinitionPlan(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 product: str,
+                 publisher: str,
+                 version: str):
+        """
+        :param str name: The plan name of the marketplace offer.
+        :param str product: The product code of the plan.
+        :param str publisher: The publisher ID of the plan.
+        :param str version: The version of the plan.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The plan name of the marketplace offer.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> str:
+        """
+        The product code of the plan.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        The publisher ID of the plan.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of the plan.
+        """
+        return pulumi.get(self, "version")
 
 

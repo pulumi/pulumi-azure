@@ -118,10 +118,22 @@ namespace Pulumi.Azure.Network
         /// of endpoints that must be ‘online’ in the child profile in order for the
         /// parent profile to direct traffic to any of the endpoints in that child
         /// profile. This argument only applies to Endpoints of type `nestedEndpoints`
-        /// and defaults to `1`.
+        /// and has to be larger than `0`.
         /// </summary>
         [Output("minChildEndpoints")]
         public Output<int?> MinChildEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        /// </summary>
+        [Output("minimumRequiredChildEndpointsIpv4")]
+        public Output<int?> MinimumRequiredChildEndpointsIpv4 { get; private set; } = null!;
+
+        /// <summary>
+        /// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        /// </summary>
+        [Output("minimumRequiredChildEndpointsIpv6")]
+        public Output<int?> MinimumRequiredChildEndpointsIpv6 { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Traffic Manager endpoint. Changing this forces a
@@ -287,10 +299,22 @@ namespace Pulumi.Azure.Network
         /// of endpoints that must be ‘online’ in the child profile in order for the
         /// parent profile to direct traffic to any of the endpoints in that child
         /// profile. This argument only applies to Endpoints of type `nestedEndpoints`
-        /// and defaults to `1`.
+        /// and has to be larger than `0`.
         /// </summary>
         [Input("minChildEndpoints")]
         public Input<int>? MinChildEndpoints { get; set; }
+
+        /// <summary>
+        /// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        /// </summary>
+        [Input("minimumRequiredChildEndpointsIpv4")]
+        public Input<int>? MinimumRequiredChildEndpointsIpv4 { get; set; }
+
+        /// <summary>
+        /// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        /// </summary>
+        [Input("minimumRequiredChildEndpointsIpv6")]
+        public Input<int>? MinimumRequiredChildEndpointsIpv6 { get; set; }
 
         /// <summary>
         /// The name of the Traffic Manager endpoint. Changing this forces a
@@ -422,10 +446,22 @@ namespace Pulumi.Azure.Network
         /// of endpoints that must be ‘online’ in the child profile in order for the
         /// parent profile to direct traffic to any of the endpoints in that child
         /// profile. This argument only applies to Endpoints of type `nestedEndpoints`
-        /// and defaults to `1`.
+        /// and has to be larger than `0`.
         /// </summary>
         [Input("minChildEndpoints")]
         public Input<int>? MinChildEndpoints { get; set; }
+
+        /// <summary>
+        /// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        /// </summary>
+        [Input("minimumRequiredChildEndpointsIpv4")]
+        public Input<int>? MinimumRequiredChildEndpointsIpv4 { get; set; }
+
+        /// <summary>
+        /// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        /// </summary>
+        [Input("minimumRequiredChildEndpointsIpv6")]
+        public Input<int>? MinimumRequiredChildEndpointsIpv6 { get; set; }
 
         /// <summary>
         /// The name of the Traffic Manager endpoint. Changing this forces a

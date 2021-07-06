@@ -2002,16 +2002,24 @@ func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput) Index(i p
 type EventSubscriptionAdvancedFilter struct {
 	// Compares a value of an event using a single boolean value.
 	BoolEquals []EventSubscriptionAdvancedFilterBoolEqual `pulumi:"boolEquals"`
+	// Evaluates if a value of an event isn't NULL or undefined.
+	IsNotNulls []EventSubscriptionAdvancedFilterIsNotNull `pulumi:"isNotNulls"`
+	// Evaluates if a value of an event is NULL or undefined.
+	IsNullOrUndefineds []EventSubscriptionAdvancedFilterIsNullOrUndefined `pulumi:"isNullOrUndefineds"`
 	// Compares a value of an event using a single floating point number.
 	NumberGreaterThanOrEquals []EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual `pulumi:"numberGreaterThanOrEquals"`
 	// Compares a value of an event using a single floating point number.
 	NumberGreaterThans []EventSubscriptionAdvancedFilterNumberGreaterThan `pulumi:"numberGreaterThans"`
+	// Compares a value of an event using multiple floating point number ranges.
+	NumberInRanges []EventSubscriptionAdvancedFilterNumberInRange `pulumi:"numberInRanges"`
 	// Compares a value of an event using multiple floating point numbers.
 	NumberIns []EventSubscriptionAdvancedFilterNumberIn `pulumi:"numberIns"`
 	// Compares a value of an event using a single floating point number.
 	NumberLessThanOrEquals []EventSubscriptionAdvancedFilterNumberLessThanOrEqual `pulumi:"numberLessThanOrEquals"`
 	// Compares a value of an event using a single floating point number.
 	NumberLessThans []EventSubscriptionAdvancedFilterNumberLessThan `pulumi:"numberLessThans"`
+	// Compares a value of an event using multiple floating point number ranges.
+	NumberNotInRanges []EventSubscriptionAdvancedFilterNumberNotInRange `pulumi:"numberNotInRanges"`
 	// Compares a value of an event using multiple floating point numbers.
 	NumberNotIns []EventSubscriptionAdvancedFilterNumberNotIn `pulumi:"numberNotIns"`
 	// Compares a value of an event using multiple string values.
@@ -2022,6 +2030,12 @@ type EventSubscriptionAdvancedFilter struct {
 	StringEndsWiths []EventSubscriptionAdvancedFilterStringEndsWith `pulumi:"stringEndsWiths"`
 	// Compares a value of an event using multiple string values.
 	StringIns []EventSubscriptionAdvancedFilterStringIn `pulumi:"stringIns"`
+	// Compares a value of an event using multiple string values.
+	StringNotBeginsWiths []EventSubscriptionAdvancedFilterStringNotBeginsWith `pulumi:"stringNotBeginsWiths"`
+	// Compares a value of an event using multiple string values.
+	StringNotContains []EventSubscriptionAdvancedFilterStringNotContain `pulumi:"stringNotContains"`
+	// Compares a value of an event using multiple string values.
+	StringNotEndsWiths []EventSubscriptionAdvancedFilterStringNotEndsWith `pulumi:"stringNotEndsWiths"`
 	// Compares a value of an event using multiple string values.
 	StringNotIns []EventSubscriptionAdvancedFilterStringNotIn `pulumi:"stringNotIns"`
 }
@@ -2040,16 +2054,24 @@ type EventSubscriptionAdvancedFilterInput interface {
 type EventSubscriptionAdvancedFilterArgs struct {
 	// Compares a value of an event using a single boolean value.
 	BoolEquals EventSubscriptionAdvancedFilterBoolEqualArrayInput `pulumi:"boolEquals"`
+	// Evaluates if a value of an event isn't NULL or undefined.
+	IsNotNulls EventSubscriptionAdvancedFilterIsNotNullArrayInput `pulumi:"isNotNulls"`
+	// Evaluates if a value of an event is NULL or undefined.
+	IsNullOrUndefineds EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayInput `pulumi:"isNullOrUndefineds"`
 	// Compares a value of an event using a single floating point number.
 	NumberGreaterThanOrEquals EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput `pulumi:"numberGreaterThanOrEquals"`
 	// Compares a value of an event using a single floating point number.
 	NumberGreaterThans EventSubscriptionAdvancedFilterNumberGreaterThanArrayInput `pulumi:"numberGreaterThans"`
+	// Compares a value of an event using multiple floating point number ranges.
+	NumberInRanges EventSubscriptionAdvancedFilterNumberInRangeArrayInput `pulumi:"numberInRanges"`
 	// Compares a value of an event using multiple floating point numbers.
 	NumberIns EventSubscriptionAdvancedFilterNumberInArrayInput `pulumi:"numberIns"`
 	// Compares a value of an event using a single floating point number.
 	NumberLessThanOrEquals EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput `pulumi:"numberLessThanOrEquals"`
 	// Compares a value of an event using a single floating point number.
 	NumberLessThans EventSubscriptionAdvancedFilterNumberLessThanArrayInput `pulumi:"numberLessThans"`
+	// Compares a value of an event using multiple floating point number ranges.
+	NumberNotInRanges EventSubscriptionAdvancedFilterNumberNotInRangeArrayInput `pulumi:"numberNotInRanges"`
 	// Compares a value of an event using multiple floating point numbers.
 	NumberNotIns EventSubscriptionAdvancedFilterNumberNotInArrayInput `pulumi:"numberNotIns"`
 	// Compares a value of an event using multiple string values.
@@ -2060,6 +2082,12 @@ type EventSubscriptionAdvancedFilterArgs struct {
 	StringEndsWiths EventSubscriptionAdvancedFilterStringEndsWithArrayInput `pulumi:"stringEndsWiths"`
 	// Compares a value of an event using multiple string values.
 	StringIns EventSubscriptionAdvancedFilterStringInArrayInput `pulumi:"stringIns"`
+	// Compares a value of an event using multiple string values.
+	StringNotBeginsWiths EventSubscriptionAdvancedFilterStringNotBeginsWithArrayInput `pulumi:"stringNotBeginsWiths"`
+	// Compares a value of an event using multiple string values.
+	StringNotContains EventSubscriptionAdvancedFilterStringNotContainArrayInput `pulumi:"stringNotContains"`
+	// Compares a value of an event using multiple string values.
+	StringNotEndsWiths EventSubscriptionAdvancedFilterStringNotEndsWithArrayInput `pulumi:"stringNotEndsWiths"`
 	// Compares a value of an event using multiple string values.
 	StringNotIns EventSubscriptionAdvancedFilterStringNotInArrayInput `pulumi:"stringNotIns"`
 }
@@ -2148,6 +2176,20 @@ func (o EventSubscriptionAdvancedFilterOutput) BoolEquals() EventSubscriptionAdv
 	}).(EventSubscriptionAdvancedFilterBoolEqualArrayOutput)
 }
 
+// Evaluates if a value of an event isn't NULL or undefined.
+func (o EventSubscriptionAdvancedFilterOutput) IsNotNulls() EventSubscriptionAdvancedFilterIsNotNullArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterIsNotNull {
+		return v.IsNotNulls
+	}).(EventSubscriptionAdvancedFilterIsNotNullArrayOutput)
+}
+
+// Evaluates if a value of an event is NULL or undefined.
+func (o EventSubscriptionAdvancedFilterOutput) IsNullOrUndefineds() EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterIsNullOrUndefined {
+		return v.IsNullOrUndefineds
+	}).(EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput)
+}
+
 // Compares a value of an event using a single floating point number.
 func (o EventSubscriptionAdvancedFilterOutput) NumberGreaterThanOrEquals() EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
@@ -2160,6 +2202,13 @@ func (o EventSubscriptionAdvancedFilterOutput) NumberGreaterThans() EventSubscri
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterNumberGreaterThan {
 		return v.NumberGreaterThans
 	}).(EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput)
+}
+
+// Compares a value of an event using multiple floating point number ranges.
+func (o EventSubscriptionAdvancedFilterOutput) NumberInRanges() EventSubscriptionAdvancedFilterNumberInRangeArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterNumberInRange {
+		return v.NumberInRanges
+	}).(EventSubscriptionAdvancedFilterNumberInRangeArrayOutput)
 }
 
 // Compares a value of an event using multiple floating point numbers.
@@ -2179,6 +2228,13 @@ func (o EventSubscriptionAdvancedFilterOutput) NumberLessThans() EventSubscripti
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterNumberLessThan {
 		return v.NumberLessThans
 	}).(EventSubscriptionAdvancedFilterNumberLessThanArrayOutput)
+}
+
+// Compares a value of an event using multiple floating point number ranges.
+func (o EventSubscriptionAdvancedFilterOutput) NumberNotInRanges() EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterNumberNotInRange {
+		return v.NumberNotInRanges
+	}).(EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput)
 }
 
 // Compares a value of an event using multiple floating point numbers.
@@ -2212,6 +2268,27 @@ func (o EventSubscriptionAdvancedFilterOutput) StringEndsWiths() EventSubscripti
 // Compares a value of an event using multiple string values.
 func (o EventSubscriptionAdvancedFilterOutput) StringIns() EventSubscriptionAdvancedFilterStringInArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterStringIn { return v.StringIns }).(EventSubscriptionAdvancedFilterStringInArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o EventSubscriptionAdvancedFilterOutput) StringNotBeginsWiths() EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterStringNotBeginsWith {
+		return v.StringNotBeginsWiths
+	}).(EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o EventSubscriptionAdvancedFilterOutput) StringNotContains() EventSubscriptionAdvancedFilterStringNotContainArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterStringNotContain {
+		return v.StringNotContains
+	}).(EventSubscriptionAdvancedFilterStringNotContainArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o EventSubscriptionAdvancedFilterOutput) StringNotEndsWiths() EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterStringNotEndsWith {
+		return v.StringNotEndsWiths
+	}).(EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput)
 }
 
 // Compares a value of an event using multiple string values.
@@ -2249,6 +2326,26 @@ func (o EventSubscriptionAdvancedFilterPtrOutput) BoolEquals() EventSubscription
 	}).(EventSubscriptionAdvancedFilterBoolEqualArrayOutput)
 }
 
+// Evaluates if a value of an event isn't NULL or undefined.
+func (o EventSubscriptionAdvancedFilterPtrOutput) IsNotNulls() EventSubscriptionAdvancedFilterIsNotNullArrayOutput {
+	return o.ApplyT(func(v *EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterIsNotNull {
+		if v == nil {
+			return nil
+		}
+		return v.IsNotNulls
+	}).(EventSubscriptionAdvancedFilterIsNotNullArrayOutput)
+}
+
+// Evaluates if a value of an event is NULL or undefined.
+func (o EventSubscriptionAdvancedFilterPtrOutput) IsNullOrUndefineds() EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput {
+	return o.ApplyT(func(v *EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterIsNullOrUndefined {
+		if v == nil {
+			return nil
+		}
+		return v.IsNullOrUndefineds
+	}).(EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput)
+}
+
 // Compares a value of an event using a single floating point number.
 func (o EventSubscriptionAdvancedFilterPtrOutput) NumberGreaterThanOrEquals() EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput {
 	return o.ApplyT(func(v *EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
@@ -2267,6 +2364,16 @@ func (o EventSubscriptionAdvancedFilterPtrOutput) NumberGreaterThans() EventSubs
 		}
 		return v.NumberGreaterThans
 	}).(EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput)
+}
+
+// Compares a value of an event using multiple floating point number ranges.
+func (o EventSubscriptionAdvancedFilterPtrOutput) NumberInRanges() EventSubscriptionAdvancedFilterNumberInRangeArrayOutput {
+	return o.ApplyT(func(v *EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterNumberInRange {
+		if v == nil {
+			return nil
+		}
+		return v.NumberInRanges
+	}).(EventSubscriptionAdvancedFilterNumberInRangeArrayOutput)
 }
 
 // Compares a value of an event using multiple floating point numbers.
@@ -2297,6 +2404,16 @@ func (o EventSubscriptionAdvancedFilterPtrOutput) NumberLessThans() EventSubscri
 		}
 		return v.NumberLessThans
 	}).(EventSubscriptionAdvancedFilterNumberLessThanArrayOutput)
+}
+
+// Compares a value of an event using multiple floating point number ranges.
+func (o EventSubscriptionAdvancedFilterPtrOutput) NumberNotInRanges() EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput {
+	return o.ApplyT(func(v *EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterNumberNotInRange {
+		if v == nil {
+			return nil
+		}
+		return v.NumberNotInRanges
+	}).(EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput)
 }
 
 // Compares a value of an event using multiple floating point numbers.
@@ -2347,6 +2464,36 @@ func (o EventSubscriptionAdvancedFilterPtrOutput) StringIns() EventSubscriptionA
 		}
 		return v.StringIns
 	}).(EventSubscriptionAdvancedFilterStringInArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o EventSubscriptionAdvancedFilterPtrOutput) StringNotBeginsWiths() EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput {
+	return o.ApplyT(func(v *EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterStringNotBeginsWith {
+		if v == nil {
+			return nil
+		}
+		return v.StringNotBeginsWiths
+	}).(EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o EventSubscriptionAdvancedFilterPtrOutput) StringNotContains() EventSubscriptionAdvancedFilterStringNotContainArrayOutput {
+	return o.ApplyT(func(v *EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterStringNotContain {
+		if v == nil {
+			return nil
+		}
+		return v.StringNotContains
+	}).(EventSubscriptionAdvancedFilterStringNotContainArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o EventSubscriptionAdvancedFilterPtrOutput) StringNotEndsWiths() EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput {
+	return o.ApplyT(func(v *EventSubscriptionAdvancedFilter) []EventSubscriptionAdvancedFilterStringNotEndsWith {
+		if v == nil {
+			return nil
+		}
+		return v.StringNotEndsWiths
+	}).(EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput)
 }
 
 // Compares a value of an event using multiple string values.
@@ -2463,6 +2610,200 @@ func (o EventSubscriptionAdvancedFilterBoolEqualArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionAdvancedFilterBoolEqual {
 		return vs[0].([]EventSubscriptionAdvancedFilterBoolEqual)[vs[1].(int)]
 	}).(EventSubscriptionAdvancedFilterBoolEqualOutput)
+}
+
+type EventSubscriptionAdvancedFilterIsNotNull struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+}
+
+// EventSubscriptionAdvancedFilterIsNotNullInput is an input type that accepts EventSubscriptionAdvancedFilterIsNotNullArgs and EventSubscriptionAdvancedFilterIsNotNullOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterIsNotNullInput` via:
+//
+//          EventSubscriptionAdvancedFilterIsNotNullArgs{...}
+type EventSubscriptionAdvancedFilterIsNotNullInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterIsNotNullOutput() EventSubscriptionAdvancedFilterIsNotNullOutput
+	ToEventSubscriptionAdvancedFilterIsNotNullOutputWithContext(context.Context) EventSubscriptionAdvancedFilterIsNotNullOutput
+}
+
+type EventSubscriptionAdvancedFilterIsNotNullArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (EventSubscriptionAdvancedFilterIsNotNullArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterIsNotNull)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterIsNotNullArgs) ToEventSubscriptionAdvancedFilterIsNotNullOutput() EventSubscriptionAdvancedFilterIsNotNullOutput {
+	return i.ToEventSubscriptionAdvancedFilterIsNotNullOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterIsNotNullArgs) ToEventSubscriptionAdvancedFilterIsNotNullOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNotNullOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterIsNotNullOutput)
+}
+
+// EventSubscriptionAdvancedFilterIsNotNullArrayInput is an input type that accepts EventSubscriptionAdvancedFilterIsNotNullArray and EventSubscriptionAdvancedFilterIsNotNullArrayOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterIsNotNullArrayInput` via:
+//
+//          EventSubscriptionAdvancedFilterIsNotNullArray{ EventSubscriptionAdvancedFilterIsNotNullArgs{...} }
+type EventSubscriptionAdvancedFilterIsNotNullArrayInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterIsNotNullArrayOutput() EventSubscriptionAdvancedFilterIsNotNullArrayOutput
+	ToEventSubscriptionAdvancedFilterIsNotNullArrayOutputWithContext(context.Context) EventSubscriptionAdvancedFilterIsNotNullArrayOutput
+}
+
+type EventSubscriptionAdvancedFilterIsNotNullArray []EventSubscriptionAdvancedFilterIsNotNullInput
+
+func (EventSubscriptionAdvancedFilterIsNotNullArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterIsNotNull)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterIsNotNullArray) ToEventSubscriptionAdvancedFilterIsNotNullArrayOutput() EventSubscriptionAdvancedFilterIsNotNullArrayOutput {
+	return i.ToEventSubscriptionAdvancedFilterIsNotNullArrayOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterIsNotNullArray) ToEventSubscriptionAdvancedFilterIsNotNullArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNotNullArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterIsNotNullArrayOutput)
+}
+
+type EventSubscriptionAdvancedFilterIsNotNullOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterIsNotNullOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterIsNotNull)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterIsNotNullOutput) ToEventSubscriptionAdvancedFilterIsNotNullOutput() EventSubscriptionAdvancedFilterIsNotNullOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterIsNotNullOutput) ToEventSubscriptionAdvancedFilterIsNotNullOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNotNullOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o EventSubscriptionAdvancedFilterIsNotNullOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilterIsNotNull) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type EventSubscriptionAdvancedFilterIsNotNullArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterIsNotNullArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterIsNotNull)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterIsNotNullArrayOutput) ToEventSubscriptionAdvancedFilterIsNotNullArrayOutput() EventSubscriptionAdvancedFilterIsNotNullArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterIsNotNullArrayOutput) ToEventSubscriptionAdvancedFilterIsNotNullArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNotNullArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterIsNotNullArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterIsNotNullOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionAdvancedFilterIsNotNull {
+		return vs[0].([]EventSubscriptionAdvancedFilterIsNotNull)[vs[1].(int)]
+	}).(EventSubscriptionAdvancedFilterIsNotNullOutput)
+}
+
+type EventSubscriptionAdvancedFilterIsNullOrUndefined struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+}
+
+// EventSubscriptionAdvancedFilterIsNullOrUndefinedInput is an input type that accepts EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs and EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterIsNullOrUndefinedInput` via:
+//
+//          EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs{...}
+type EventSubscriptionAdvancedFilterIsNullOrUndefinedInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterIsNullOrUndefinedOutput() EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput
+	ToEventSubscriptionAdvancedFilterIsNullOrUndefinedOutputWithContext(context.Context) EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput
+}
+
+type EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterIsNullOrUndefined)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs) ToEventSubscriptionAdvancedFilterIsNullOrUndefinedOutput() EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput {
+	return i.ToEventSubscriptionAdvancedFilterIsNullOrUndefinedOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs) ToEventSubscriptionAdvancedFilterIsNullOrUndefinedOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput)
+}
+
+// EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayInput is an input type that accepts EventSubscriptionAdvancedFilterIsNullOrUndefinedArray and EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayInput` via:
+//
+//          EventSubscriptionAdvancedFilterIsNullOrUndefinedArray{ EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs{...} }
+type EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput() EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput
+	ToEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutputWithContext(context.Context) EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput
+}
+
+type EventSubscriptionAdvancedFilterIsNullOrUndefinedArray []EventSubscriptionAdvancedFilterIsNullOrUndefinedInput
+
+func (EventSubscriptionAdvancedFilterIsNullOrUndefinedArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterIsNullOrUndefined)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterIsNullOrUndefinedArray) ToEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput() EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput {
+	return i.ToEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterIsNullOrUndefinedArray) ToEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput)
+}
+
+type EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterIsNullOrUndefined)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ToEventSubscriptionAdvancedFilterIsNullOrUndefinedOutput() EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ToEventSubscriptionAdvancedFilterIsNullOrUndefinedOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilterIsNullOrUndefined) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterIsNullOrUndefined)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) ToEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput() EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) ToEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionAdvancedFilterIsNullOrUndefined {
+		return vs[0].([]EventSubscriptionAdvancedFilterIsNullOrUndefined)[vs[1].(int)]
+	}).(EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput)
 }
 
 type EventSubscriptionAdvancedFilterNumberGreaterThan struct {
@@ -2783,6 +3124,112 @@ func (o EventSubscriptionAdvancedFilterNumberInArrayOutput) Index(i pulumi.IntIn
 	}).(EventSubscriptionAdvancedFilterNumberInOutput)
 }
 
+type EventSubscriptionAdvancedFilterNumberInRange struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values [][]float64 `pulumi:"values"`
+}
+
+// EventSubscriptionAdvancedFilterNumberInRangeInput is an input type that accepts EventSubscriptionAdvancedFilterNumberInRangeArgs and EventSubscriptionAdvancedFilterNumberInRangeOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberInRangeInput` via:
+//
+//          EventSubscriptionAdvancedFilterNumberInRangeArgs{...}
+type EventSubscriptionAdvancedFilterNumberInRangeInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterNumberInRangeOutput() EventSubscriptionAdvancedFilterNumberInRangeOutput
+	ToEventSubscriptionAdvancedFilterNumberInRangeOutputWithContext(context.Context) EventSubscriptionAdvancedFilterNumberInRangeOutput
+}
+
+type EventSubscriptionAdvancedFilterNumberInRangeArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values pulumi.Float64ArrayArrayInput `pulumi:"values"`
+}
+
+func (EventSubscriptionAdvancedFilterNumberInRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterNumberInRange)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterNumberInRangeArgs) ToEventSubscriptionAdvancedFilterNumberInRangeOutput() EventSubscriptionAdvancedFilterNumberInRangeOutput {
+	return i.ToEventSubscriptionAdvancedFilterNumberInRangeOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterNumberInRangeArgs) ToEventSubscriptionAdvancedFilterNumberInRangeOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberInRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberInRangeOutput)
+}
+
+// EventSubscriptionAdvancedFilterNumberInRangeArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberInRangeArray and EventSubscriptionAdvancedFilterNumberInRangeArrayOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberInRangeArrayInput` via:
+//
+//          EventSubscriptionAdvancedFilterNumberInRangeArray{ EventSubscriptionAdvancedFilterNumberInRangeArgs{...} }
+type EventSubscriptionAdvancedFilterNumberInRangeArrayInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterNumberInRangeArrayOutput() EventSubscriptionAdvancedFilterNumberInRangeArrayOutput
+	ToEventSubscriptionAdvancedFilterNumberInRangeArrayOutputWithContext(context.Context) EventSubscriptionAdvancedFilterNumberInRangeArrayOutput
+}
+
+type EventSubscriptionAdvancedFilterNumberInRangeArray []EventSubscriptionAdvancedFilterNumberInRangeInput
+
+func (EventSubscriptionAdvancedFilterNumberInRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterNumberInRange)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterNumberInRangeArray) ToEventSubscriptionAdvancedFilterNumberInRangeArrayOutput() EventSubscriptionAdvancedFilterNumberInRangeArrayOutput {
+	return i.ToEventSubscriptionAdvancedFilterNumberInRangeArrayOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterNumberInRangeArray) ToEventSubscriptionAdvancedFilterNumberInRangeArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberInRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberInRangeArrayOutput)
+}
+
+type EventSubscriptionAdvancedFilterNumberInRangeOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterNumberInRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterNumberInRange)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) ToEventSubscriptionAdvancedFilterNumberInRangeOutput() EventSubscriptionAdvancedFilterNumberInRangeOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) ToEventSubscriptionAdvancedFilterNumberInRangeOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberInRangeOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberInRange) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies an array of values to compare to when using a multiple values operator.
+func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) Values() pulumi.Float64ArrayArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberInRange) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
+}
+
+type EventSubscriptionAdvancedFilterNumberInRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterNumberInRange)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) ToEventSubscriptionAdvancedFilterNumberInRangeArrayOutput() EventSubscriptionAdvancedFilterNumberInRangeArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) ToEventSubscriptionAdvancedFilterNumberInRangeArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberInRangeArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberInRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionAdvancedFilterNumberInRange {
+		return vs[0].([]EventSubscriptionAdvancedFilterNumberInRange)[vs[1].(int)]
+	}).(EventSubscriptionAdvancedFilterNumberInRangeOutput)
+}
+
 type EventSubscriptionAdvancedFilterNumberLessThan struct {
 	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key string `pulumi:"key"`
@@ -3099,6 +3546,112 @@ func (o EventSubscriptionAdvancedFilterNumberNotInArrayOutput) Index(i pulumi.In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionAdvancedFilterNumberNotIn {
 		return vs[0].([]EventSubscriptionAdvancedFilterNumberNotIn)[vs[1].(int)]
 	}).(EventSubscriptionAdvancedFilterNumberNotInOutput)
+}
+
+type EventSubscriptionAdvancedFilterNumberNotInRange struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values [][]float64 `pulumi:"values"`
+}
+
+// EventSubscriptionAdvancedFilterNumberNotInRangeInput is an input type that accepts EventSubscriptionAdvancedFilterNumberNotInRangeArgs and EventSubscriptionAdvancedFilterNumberNotInRangeOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberNotInRangeInput` via:
+//
+//          EventSubscriptionAdvancedFilterNumberNotInRangeArgs{...}
+type EventSubscriptionAdvancedFilterNumberNotInRangeInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterNumberNotInRangeOutput() EventSubscriptionAdvancedFilterNumberNotInRangeOutput
+	ToEventSubscriptionAdvancedFilterNumberNotInRangeOutputWithContext(context.Context) EventSubscriptionAdvancedFilterNumberNotInRangeOutput
+}
+
+type EventSubscriptionAdvancedFilterNumberNotInRangeArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values pulumi.Float64ArrayArrayInput `pulumi:"values"`
+}
+
+func (EventSubscriptionAdvancedFilterNumberNotInRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterNumberNotInRange)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterNumberNotInRangeArgs) ToEventSubscriptionAdvancedFilterNumberNotInRangeOutput() EventSubscriptionAdvancedFilterNumberNotInRangeOutput {
+	return i.ToEventSubscriptionAdvancedFilterNumberNotInRangeOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterNumberNotInRangeArgs) ToEventSubscriptionAdvancedFilterNumberNotInRangeOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberNotInRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberNotInRangeOutput)
+}
+
+// EventSubscriptionAdvancedFilterNumberNotInRangeArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberNotInRangeArray and EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberNotInRangeArrayInput` via:
+//
+//          EventSubscriptionAdvancedFilterNumberNotInRangeArray{ EventSubscriptionAdvancedFilterNumberNotInRangeArgs{...} }
+type EventSubscriptionAdvancedFilterNumberNotInRangeArrayInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput() EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput
+	ToEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutputWithContext(context.Context) EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput
+}
+
+type EventSubscriptionAdvancedFilterNumberNotInRangeArray []EventSubscriptionAdvancedFilterNumberNotInRangeInput
+
+func (EventSubscriptionAdvancedFilterNumberNotInRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterNumberNotInRange)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterNumberNotInRangeArray) ToEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput() EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput {
+	return i.ToEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterNumberNotInRangeArray) ToEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput)
+}
+
+type EventSubscriptionAdvancedFilterNumberNotInRangeOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterNumberNotInRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterNumberNotInRange)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) ToEventSubscriptionAdvancedFilterNumberNotInRangeOutput() EventSubscriptionAdvancedFilterNumberNotInRangeOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) ToEventSubscriptionAdvancedFilterNumberNotInRangeOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberNotInRangeOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberNotInRange) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies an array of values to compare to when using a multiple values operator.
+func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) Values() pulumi.Float64ArrayArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberNotInRange) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
+}
+
+type EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterNumberNotInRange)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) ToEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput() EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) ToEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberNotInRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionAdvancedFilterNumberNotInRange {
+		return vs[0].([]EventSubscriptionAdvancedFilterNumberNotInRange)[vs[1].(int)]
+	}).(EventSubscriptionAdvancedFilterNumberNotInRangeOutput)
 }
 
 type EventSubscriptionAdvancedFilterStringBeginsWith struct {
@@ -3523,6 +4076,324 @@ func (o EventSubscriptionAdvancedFilterStringInArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionAdvancedFilterStringIn {
 		return vs[0].([]EventSubscriptionAdvancedFilterStringIn)[vs[1].(int)]
 	}).(EventSubscriptionAdvancedFilterStringInOutput)
+}
+
+type EventSubscriptionAdvancedFilterStringNotBeginsWith struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values []string `pulumi:"values"`
+}
+
+// EventSubscriptionAdvancedFilterStringNotBeginsWithInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotBeginsWithArgs and EventSubscriptionAdvancedFilterStringNotBeginsWithOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotBeginsWithInput` via:
+//
+//          EventSubscriptionAdvancedFilterStringNotBeginsWithArgs{...}
+type EventSubscriptionAdvancedFilterStringNotBeginsWithInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterStringNotBeginsWithOutput() EventSubscriptionAdvancedFilterStringNotBeginsWithOutput
+	ToEventSubscriptionAdvancedFilterStringNotBeginsWithOutputWithContext(context.Context) EventSubscriptionAdvancedFilterStringNotBeginsWithOutput
+}
+
+type EventSubscriptionAdvancedFilterStringNotBeginsWithArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (EventSubscriptionAdvancedFilterStringNotBeginsWithArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterStringNotBeginsWith)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterStringNotBeginsWithArgs) ToEventSubscriptionAdvancedFilterStringNotBeginsWithOutput() EventSubscriptionAdvancedFilterStringNotBeginsWithOutput {
+	return i.ToEventSubscriptionAdvancedFilterStringNotBeginsWithOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterStringNotBeginsWithArgs) ToEventSubscriptionAdvancedFilterStringNotBeginsWithOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotBeginsWithOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotBeginsWithOutput)
+}
+
+// EventSubscriptionAdvancedFilterStringNotBeginsWithArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotBeginsWithArray and EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotBeginsWithArrayInput` via:
+//
+//          EventSubscriptionAdvancedFilterStringNotBeginsWithArray{ EventSubscriptionAdvancedFilterStringNotBeginsWithArgs{...} }
+type EventSubscriptionAdvancedFilterStringNotBeginsWithArrayInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput() EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput
+	ToEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutputWithContext(context.Context) EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput
+}
+
+type EventSubscriptionAdvancedFilterStringNotBeginsWithArray []EventSubscriptionAdvancedFilterStringNotBeginsWithInput
+
+func (EventSubscriptionAdvancedFilterStringNotBeginsWithArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterStringNotBeginsWith)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterStringNotBeginsWithArray) ToEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput() EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput {
+	return i.ToEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterStringNotBeginsWithArray) ToEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput)
+}
+
+type EventSubscriptionAdvancedFilterStringNotBeginsWithOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterStringNotBeginsWith)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ToEventSubscriptionAdvancedFilterStringNotBeginsWithOutput() EventSubscriptionAdvancedFilterStringNotBeginsWithOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ToEventSubscriptionAdvancedFilterStringNotBeginsWithOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotBeginsWithOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotBeginsWith) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies an array of values to compare to when using a multiple values operator.
+func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotBeginsWith) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterStringNotBeginsWith)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) ToEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput() EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) ToEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringNotBeginsWithOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionAdvancedFilterStringNotBeginsWith {
+		return vs[0].([]EventSubscriptionAdvancedFilterStringNotBeginsWith)[vs[1].(int)]
+	}).(EventSubscriptionAdvancedFilterStringNotBeginsWithOutput)
+}
+
+type EventSubscriptionAdvancedFilterStringNotContain struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values []string `pulumi:"values"`
+}
+
+// EventSubscriptionAdvancedFilterStringNotContainInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotContainArgs and EventSubscriptionAdvancedFilterStringNotContainOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotContainInput` via:
+//
+//          EventSubscriptionAdvancedFilterStringNotContainArgs{...}
+type EventSubscriptionAdvancedFilterStringNotContainInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterStringNotContainOutput() EventSubscriptionAdvancedFilterStringNotContainOutput
+	ToEventSubscriptionAdvancedFilterStringNotContainOutputWithContext(context.Context) EventSubscriptionAdvancedFilterStringNotContainOutput
+}
+
+type EventSubscriptionAdvancedFilterStringNotContainArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (EventSubscriptionAdvancedFilterStringNotContainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterStringNotContain)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterStringNotContainArgs) ToEventSubscriptionAdvancedFilterStringNotContainOutput() EventSubscriptionAdvancedFilterStringNotContainOutput {
+	return i.ToEventSubscriptionAdvancedFilterStringNotContainOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterStringNotContainArgs) ToEventSubscriptionAdvancedFilterStringNotContainOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotContainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotContainOutput)
+}
+
+// EventSubscriptionAdvancedFilterStringNotContainArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotContainArray and EventSubscriptionAdvancedFilterStringNotContainArrayOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotContainArrayInput` via:
+//
+//          EventSubscriptionAdvancedFilterStringNotContainArray{ EventSubscriptionAdvancedFilterStringNotContainArgs{...} }
+type EventSubscriptionAdvancedFilterStringNotContainArrayInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterStringNotContainArrayOutput() EventSubscriptionAdvancedFilterStringNotContainArrayOutput
+	ToEventSubscriptionAdvancedFilterStringNotContainArrayOutputWithContext(context.Context) EventSubscriptionAdvancedFilterStringNotContainArrayOutput
+}
+
+type EventSubscriptionAdvancedFilterStringNotContainArray []EventSubscriptionAdvancedFilterStringNotContainInput
+
+func (EventSubscriptionAdvancedFilterStringNotContainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterStringNotContain)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterStringNotContainArray) ToEventSubscriptionAdvancedFilterStringNotContainArrayOutput() EventSubscriptionAdvancedFilterStringNotContainArrayOutput {
+	return i.ToEventSubscriptionAdvancedFilterStringNotContainArrayOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterStringNotContainArray) ToEventSubscriptionAdvancedFilterStringNotContainArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotContainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotContainArrayOutput)
+}
+
+type EventSubscriptionAdvancedFilterStringNotContainOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterStringNotContainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterStringNotContain)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotContainOutput) ToEventSubscriptionAdvancedFilterStringNotContainOutput() EventSubscriptionAdvancedFilterStringNotContainOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotContainOutput) ToEventSubscriptionAdvancedFilterStringNotContainOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotContainOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o EventSubscriptionAdvancedFilterStringNotContainOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotContain) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies an array of values to compare to when using a multiple values operator.
+func (o EventSubscriptionAdvancedFilterStringNotContainOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotContain) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type EventSubscriptionAdvancedFilterStringNotContainArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterStringNotContainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterStringNotContain)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotContainArrayOutput) ToEventSubscriptionAdvancedFilterStringNotContainArrayOutput() EventSubscriptionAdvancedFilterStringNotContainArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotContainArrayOutput) ToEventSubscriptionAdvancedFilterStringNotContainArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotContainArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotContainArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringNotContainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionAdvancedFilterStringNotContain {
+		return vs[0].([]EventSubscriptionAdvancedFilterStringNotContain)[vs[1].(int)]
+	}).(EventSubscriptionAdvancedFilterStringNotContainOutput)
+}
+
+type EventSubscriptionAdvancedFilterStringNotEndsWith struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values []string `pulumi:"values"`
+}
+
+// EventSubscriptionAdvancedFilterStringNotEndsWithInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotEndsWithArgs and EventSubscriptionAdvancedFilterStringNotEndsWithOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotEndsWithInput` via:
+//
+//          EventSubscriptionAdvancedFilterStringNotEndsWithArgs{...}
+type EventSubscriptionAdvancedFilterStringNotEndsWithInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterStringNotEndsWithOutput() EventSubscriptionAdvancedFilterStringNotEndsWithOutput
+	ToEventSubscriptionAdvancedFilterStringNotEndsWithOutputWithContext(context.Context) EventSubscriptionAdvancedFilterStringNotEndsWithOutput
+}
+
+type EventSubscriptionAdvancedFilterStringNotEndsWithArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (EventSubscriptionAdvancedFilterStringNotEndsWithArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterStringNotEndsWith)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterStringNotEndsWithArgs) ToEventSubscriptionAdvancedFilterStringNotEndsWithOutput() EventSubscriptionAdvancedFilterStringNotEndsWithOutput {
+	return i.ToEventSubscriptionAdvancedFilterStringNotEndsWithOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterStringNotEndsWithArgs) ToEventSubscriptionAdvancedFilterStringNotEndsWithOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotEndsWithOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotEndsWithOutput)
+}
+
+// EventSubscriptionAdvancedFilterStringNotEndsWithArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotEndsWithArray and EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput values.
+// You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotEndsWithArrayInput` via:
+//
+//          EventSubscriptionAdvancedFilterStringNotEndsWithArray{ EventSubscriptionAdvancedFilterStringNotEndsWithArgs{...} }
+type EventSubscriptionAdvancedFilterStringNotEndsWithArrayInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput() EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput
+	ToEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutputWithContext(context.Context) EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput
+}
+
+type EventSubscriptionAdvancedFilterStringNotEndsWithArray []EventSubscriptionAdvancedFilterStringNotEndsWithInput
+
+func (EventSubscriptionAdvancedFilterStringNotEndsWithArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterStringNotEndsWith)(nil)).Elem()
+}
+
+func (i EventSubscriptionAdvancedFilterStringNotEndsWithArray) ToEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput() EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput {
+	return i.ToEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAdvancedFilterStringNotEndsWithArray) ToEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput)
+}
+
+type EventSubscriptionAdvancedFilterStringNotEndsWithOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterStringNotEndsWithOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAdvancedFilterStringNotEndsWith)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) ToEventSubscriptionAdvancedFilterStringNotEndsWithOutput() EventSubscriptionAdvancedFilterStringNotEndsWithOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) ToEventSubscriptionAdvancedFilterStringNotEndsWithOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotEndsWithOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotEndsWith) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies an array of values to compare to when using a multiple values operator.
+func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotEndsWith) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionAdvancedFilterStringNotEndsWith)(nil)).Elem()
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) ToEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput() EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) ToEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringNotEndsWithOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionAdvancedFilterStringNotEndsWith {
+		return vs[0].([]EventSubscriptionAdvancedFilterStringNotEndsWith)[vs[1].(int)]
+	}).(EventSubscriptionAdvancedFilterStringNotEndsWithOutput)
 }
 
 type EventSubscriptionAdvancedFilterStringNotIn struct {
@@ -5223,18 +6094,26 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterBoolEqualOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterBoolEqualArrayOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterIsNotNullOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterIsNotNullArrayOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberGreaterThanOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberInOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberInArrayOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberInRangeOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberInRangeArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberLessThanOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberLessThanArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberNotInOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberNotInArrayOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberNotInRangeOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringBeginsWithOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringContainOutput{})
@@ -5243,6 +6122,12 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringEndsWithArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringInOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringInArrayOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringNotBeginsWithOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringNotContainOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringNotContainArrayOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringNotEndsWithOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringNotInOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringNotInArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAzureFunctionEndpointOutput{})

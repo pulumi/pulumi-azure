@@ -4156,6 +4156,156 @@ func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) VnetId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type LinkedCustomServiceIntegrationRuntime struct {
+	// The integration runtime reference to associate with the Data Factory Linked Service.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the integration runtime.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// LinkedCustomServiceIntegrationRuntimeInput is an input type that accepts LinkedCustomServiceIntegrationRuntimeArgs and LinkedCustomServiceIntegrationRuntimeOutput values.
+// You can construct a concrete instance of `LinkedCustomServiceIntegrationRuntimeInput` via:
+//
+//          LinkedCustomServiceIntegrationRuntimeArgs{...}
+type LinkedCustomServiceIntegrationRuntimeInput interface {
+	pulumi.Input
+
+	ToLinkedCustomServiceIntegrationRuntimeOutput() LinkedCustomServiceIntegrationRuntimeOutput
+	ToLinkedCustomServiceIntegrationRuntimeOutputWithContext(context.Context) LinkedCustomServiceIntegrationRuntimeOutput
+}
+
+type LinkedCustomServiceIntegrationRuntimeArgs struct {
+	// The integration runtime reference to associate with the Data Factory Linked Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the integration runtime.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (LinkedCustomServiceIntegrationRuntimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedCustomServiceIntegrationRuntime)(nil)).Elem()
+}
+
+func (i LinkedCustomServiceIntegrationRuntimeArgs) ToLinkedCustomServiceIntegrationRuntimeOutput() LinkedCustomServiceIntegrationRuntimeOutput {
+	return i.ToLinkedCustomServiceIntegrationRuntimeOutputWithContext(context.Background())
+}
+
+func (i LinkedCustomServiceIntegrationRuntimeArgs) ToLinkedCustomServiceIntegrationRuntimeOutputWithContext(ctx context.Context) LinkedCustomServiceIntegrationRuntimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedCustomServiceIntegrationRuntimeOutput)
+}
+
+func (i LinkedCustomServiceIntegrationRuntimeArgs) ToLinkedCustomServiceIntegrationRuntimePtrOutput() LinkedCustomServiceIntegrationRuntimePtrOutput {
+	return i.ToLinkedCustomServiceIntegrationRuntimePtrOutputWithContext(context.Background())
+}
+
+func (i LinkedCustomServiceIntegrationRuntimeArgs) ToLinkedCustomServiceIntegrationRuntimePtrOutputWithContext(ctx context.Context) LinkedCustomServiceIntegrationRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedCustomServiceIntegrationRuntimeOutput).ToLinkedCustomServiceIntegrationRuntimePtrOutputWithContext(ctx)
+}
+
+// LinkedCustomServiceIntegrationRuntimePtrInput is an input type that accepts LinkedCustomServiceIntegrationRuntimeArgs, LinkedCustomServiceIntegrationRuntimePtr and LinkedCustomServiceIntegrationRuntimePtrOutput values.
+// You can construct a concrete instance of `LinkedCustomServiceIntegrationRuntimePtrInput` via:
+//
+//          LinkedCustomServiceIntegrationRuntimeArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedCustomServiceIntegrationRuntimePtrInput interface {
+	pulumi.Input
+
+	ToLinkedCustomServiceIntegrationRuntimePtrOutput() LinkedCustomServiceIntegrationRuntimePtrOutput
+	ToLinkedCustomServiceIntegrationRuntimePtrOutputWithContext(context.Context) LinkedCustomServiceIntegrationRuntimePtrOutput
+}
+
+type linkedCustomServiceIntegrationRuntimePtrType LinkedCustomServiceIntegrationRuntimeArgs
+
+func LinkedCustomServiceIntegrationRuntimePtr(v *LinkedCustomServiceIntegrationRuntimeArgs) LinkedCustomServiceIntegrationRuntimePtrInput {
+	return (*linkedCustomServiceIntegrationRuntimePtrType)(v)
+}
+
+func (*linkedCustomServiceIntegrationRuntimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedCustomServiceIntegrationRuntime)(nil)).Elem()
+}
+
+func (i *linkedCustomServiceIntegrationRuntimePtrType) ToLinkedCustomServiceIntegrationRuntimePtrOutput() LinkedCustomServiceIntegrationRuntimePtrOutput {
+	return i.ToLinkedCustomServiceIntegrationRuntimePtrOutputWithContext(context.Background())
+}
+
+func (i *linkedCustomServiceIntegrationRuntimePtrType) ToLinkedCustomServiceIntegrationRuntimePtrOutputWithContext(ctx context.Context) LinkedCustomServiceIntegrationRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedCustomServiceIntegrationRuntimePtrOutput)
+}
+
+type LinkedCustomServiceIntegrationRuntimeOutput struct{ *pulumi.OutputState }
+
+func (LinkedCustomServiceIntegrationRuntimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedCustomServiceIntegrationRuntime)(nil)).Elem()
+}
+
+func (o LinkedCustomServiceIntegrationRuntimeOutput) ToLinkedCustomServiceIntegrationRuntimeOutput() LinkedCustomServiceIntegrationRuntimeOutput {
+	return o
+}
+
+func (o LinkedCustomServiceIntegrationRuntimeOutput) ToLinkedCustomServiceIntegrationRuntimeOutputWithContext(ctx context.Context) LinkedCustomServiceIntegrationRuntimeOutput {
+	return o
+}
+
+func (o LinkedCustomServiceIntegrationRuntimeOutput) ToLinkedCustomServiceIntegrationRuntimePtrOutput() LinkedCustomServiceIntegrationRuntimePtrOutput {
+	return o.ToLinkedCustomServiceIntegrationRuntimePtrOutputWithContext(context.Background())
+}
+
+func (o LinkedCustomServiceIntegrationRuntimeOutput) ToLinkedCustomServiceIntegrationRuntimePtrOutputWithContext(ctx context.Context) LinkedCustomServiceIntegrationRuntimePtrOutput {
+	return o.ApplyT(func(v LinkedCustomServiceIntegrationRuntime) *LinkedCustomServiceIntegrationRuntime {
+		return &v
+	}).(LinkedCustomServiceIntegrationRuntimePtrOutput)
+}
+
+// The integration runtime reference to associate with the Data Factory Linked Service.
+func (o LinkedCustomServiceIntegrationRuntimeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedCustomServiceIntegrationRuntime) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the integration runtime.
+func (o LinkedCustomServiceIntegrationRuntimeOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LinkedCustomServiceIntegrationRuntime) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type LinkedCustomServiceIntegrationRuntimePtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedCustomServiceIntegrationRuntimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedCustomServiceIntegrationRuntime)(nil)).Elem()
+}
+
+func (o LinkedCustomServiceIntegrationRuntimePtrOutput) ToLinkedCustomServiceIntegrationRuntimePtrOutput() LinkedCustomServiceIntegrationRuntimePtrOutput {
+	return o
+}
+
+func (o LinkedCustomServiceIntegrationRuntimePtrOutput) ToLinkedCustomServiceIntegrationRuntimePtrOutputWithContext(ctx context.Context) LinkedCustomServiceIntegrationRuntimePtrOutput {
+	return o
+}
+
+func (o LinkedCustomServiceIntegrationRuntimePtrOutput) Elem() LinkedCustomServiceIntegrationRuntimeOutput {
+	return o.ApplyT(func(v *LinkedCustomServiceIntegrationRuntime) LinkedCustomServiceIntegrationRuntime { return *v }).(LinkedCustomServiceIntegrationRuntimeOutput)
+}
+
+// The integration runtime reference to associate with the Data Factory Linked Service.
+func (o LinkedCustomServiceIntegrationRuntimePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedCustomServiceIntegrationRuntime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the integration runtime.
+func (o LinkedCustomServiceIntegrationRuntimePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LinkedCustomServiceIntegrationRuntime) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
 type LinkedServiceAzureDatabricksInstancePool struct {
 	// Spark version of a the cluster.
 	ClusterVersion string `pulumi:"clusterVersion"`
@@ -6010,6 +6160,112 @@ func (o LinkedServiceSynapseKeyVaultPasswordPtrOutput) SecretName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type TriggerBlobEventPipeline struct {
+	// The Data Factory Pipeline name that the trigger will act on.
+	Name string `pulumi:"name"`
+	// The Data Factory Pipeline parameters that the trigger will act on.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// TriggerBlobEventPipelineInput is an input type that accepts TriggerBlobEventPipelineArgs and TriggerBlobEventPipelineOutput values.
+// You can construct a concrete instance of `TriggerBlobEventPipelineInput` via:
+//
+//          TriggerBlobEventPipelineArgs{...}
+type TriggerBlobEventPipelineInput interface {
+	pulumi.Input
+
+	ToTriggerBlobEventPipelineOutput() TriggerBlobEventPipelineOutput
+	ToTriggerBlobEventPipelineOutputWithContext(context.Context) TriggerBlobEventPipelineOutput
+}
+
+type TriggerBlobEventPipelineArgs struct {
+	// The Data Factory Pipeline name that the trigger will act on.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Data Factory Pipeline parameters that the trigger will act on.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (TriggerBlobEventPipelineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerBlobEventPipeline)(nil)).Elem()
+}
+
+func (i TriggerBlobEventPipelineArgs) ToTriggerBlobEventPipelineOutput() TriggerBlobEventPipelineOutput {
+	return i.ToTriggerBlobEventPipelineOutputWithContext(context.Background())
+}
+
+func (i TriggerBlobEventPipelineArgs) ToTriggerBlobEventPipelineOutputWithContext(ctx context.Context) TriggerBlobEventPipelineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerBlobEventPipelineOutput)
+}
+
+// TriggerBlobEventPipelineArrayInput is an input type that accepts TriggerBlobEventPipelineArray and TriggerBlobEventPipelineArrayOutput values.
+// You can construct a concrete instance of `TriggerBlobEventPipelineArrayInput` via:
+//
+//          TriggerBlobEventPipelineArray{ TriggerBlobEventPipelineArgs{...} }
+type TriggerBlobEventPipelineArrayInput interface {
+	pulumi.Input
+
+	ToTriggerBlobEventPipelineArrayOutput() TriggerBlobEventPipelineArrayOutput
+	ToTriggerBlobEventPipelineArrayOutputWithContext(context.Context) TriggerBlobEventPipelineArrayOutput
+}
+
+type TriggerBlobEventPipelineArray []TriggerBlobEventPipelineInput
+
+func (TriggerBlobEventPipelineArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerBlobEventPipeline)(nil)).Elem()
+}
+
+func (i TriggerBlobEventPipelineArray) ToTriggerBlobEventPipelineArrayOutput() TriggerBlobEventPipelineArrayOutput {
+	return i.ToTriggerBlobEventPipelineArrayOutputWithContext(context.Background())
+}
+
+func (i TriggerBlobEventPipelineArray) ToTriggerBlobEventPipelineArrayOutputWithContext(ctx context.Context) TriggerBlobEventPipelineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerBlobEventPipelineArrayOutput)
+}
+
+type TriggerBlobEventPipelineOutput struct{ *pulumi.OutputState }
+
+func (TriggerBlobEventPipelineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerBlobEventPipeline)(nil)).Elem()
+}
+
+func (o TriggerBlobEventPipelineOutput) ToTriggerBlobEventPipelineOutput() TriggerBlobEventPipelineOutput {
+	return o
+}
+
+func (o TriggerBlobEventPipelineOutput) ToTriggerBlobEventPipelineOutputWithContext(ctx context.Context) TriggerBlobEventPipelineOutput {
+	return o
+}
+
+// The Data Factory Pipeline name that the trigger will act on.
+func (o TriggerBlobEventPipelineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerBlobEventPipeline) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Data Factory Pipeline parameters that the trigger will act on.
+func (o TriggerBlobEventPipelineOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TriggerBlobEventPipeline) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type TriggerBlobEventPipelineArrayOutput struct{ *pulumi.OutputState }
+
+func (TriggerBlobEventPipelineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerBlobEventPipeline)(nil)).Elem()
+}
+
+func (o TriggerBlobEventPipelineArrayOutput) ToTriggerBlobEventPipelineArrayOutput() TriggerBlobEventPipelineArrayOutput {
+	return o
+}
+
+func (o TriggerBlobEventPipelineArrayOutput) ToTriggerBlobEventPipelineArrayOutputWithContext(ctx context.Context) TriggerBlobEventPipelineArrayOutput {
+	return o
+}
+
+func (o TriggerBlobEventPipelineArrayOutput) Index(i pulumi.IntInput) TriggerBlobEventPipelineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerBlobEventPipeline {
+		return vs[0].([]TriggerBlobEventPipeline)[vs[1].(int)]
+	}).(TriggerBlobEventPipelineOutput)
+}
+
 type GetFactoryGithubConfiguration struct {
 	// The VSTS account name.
 	AccountName string `pulumi:"accountName"`
@@ -6463,6 +6719,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisCustomSetupScriptPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisVnetIntegrationOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisVnetIntegrationPtrOutput{})
+	pulumi.RegisterOutputType(LinkedCustomServiceIntegrationRuntimeOutput{})
+	pulumi.RegisterOutputType(LinkedCustomServiceIntegrationRuntimePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksInstancePoolOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksInstancePoolPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksKeyVaultPasswordOutput{})
@@ -6485,6 +6743,8 @@ func init() {
 	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSynapseKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSynapseKeyVaultPasswordPtrOutput{})
+	pulumi.RegisterOutputType(TriggerBlobEventPipelineOutput{})
+	pulumi.RegisterOutputType(TriggerBlobEventPipelineArrayOutput{})
 	pulumi.RegisterOutputType(GetFactoryGithubConfigurationOutput{})
 	pulumi.RegisterOutputType(GetFactoryGithubConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetFactoryIdentityOutput{})

@@ -23,7 +23,7 @@ class AssignmentIdentityArgs:
         """
         :param pulumi.Input[str] principal_id: The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
         :param pulumi.Input[str] tenant_id: The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-        :param pulumi.Input[str] type: The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
+        :param pulumi.Input[str] type: The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
         """
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
@@ -60,7 +60,7 @@ class AssignmentIdentityArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
+        The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
         """
         return pulumi.get(self, "type")
 

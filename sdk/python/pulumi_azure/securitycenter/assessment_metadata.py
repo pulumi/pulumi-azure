@@ -15,6 +15,7 @@ class AssessmentMetadataArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  display_name: pulumi.Input[str],
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  implementation_effort: Optional[pulumi.Input[str]] = None,
                  remediation_description: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
@@ -24,6 +25,7 @@ class AssessmentMetadataArgs:
         The set of arguments for constructing a AssessmentMetadata resource.
         :param pulumi.Input[str] description: The description of the Security Center Assessment.
         :param pulumi.Input[str] display_name: The user-friendly display name of the Security Center Assessment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
         :param pulumi.Input[str] implementation_effort: The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
         :param pulumi.Input[str] remediation_description: The description which is used to mitigate the security issue.
         :param pulumi.Input[str] severity: The severity level of the Security Center Assessment. Possible values are `Low`, `Medium` and `High`. Defaults to `Medium`.
@@ -32,6 +34,8 @@ class AssessmentMetadataArgs:
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
         if implementation_effort is not None:
             pulumi.set(__self__, "implementation_effort", implementation_effort)
         if remediation_description is not None:
@@ -66,6 +70,18 @@ class AssessmentMetadataArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+        """
+        return pulumi.get(self, "categories")
+
+    @categories.setter
+    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "categories", value)
 
     @property
     @pulumi.getter(name="implementationEffort")
@@ -131,6 +147,7 @@ class AssessmentMetadataArgs:
 @pulumi.input_type
 class _AssessmentMetadataState:
     def __init__(__self__, *,
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[str]] = None,
@@ -141,6 +158,7 @@ class _AssessmentMetadataState:
                  user_impact: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AssessmentMetadata resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
         :param pulumi.Input[str] description: The description of the Security Center Assessment.
         :param pulumi.Input[str] display_name: The user-friendly display name of the Security Center Assessment.
         :param pulumi.Input[str] implementation_effort: The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
@@ -150,6 +168,8 @@ class _AssessmentMetadataState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threats: A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
         :param pulumi.Input[str] user_impact: The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
         """
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -166,6 +186,18 @@ class _AssessmentMetadataState:
             pulumi.set(__self__, "threats", threats)
         if user_impact is not None:
             pulumi.set(__self__, "user_impact", user_impact)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+        """
+        return pulumi.get(self, "categories")
+
+    @categories.setter
+    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "categories", value)
 
     @property
     @pulumi.getter
@@ -269,6 +301,7 @@ class AssessmentMetadata(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[str]] = None,
@@ -304,6 +337,7 @@ class AssessmentMetadata(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
         :param pulumi.Input[str] description: The description of the Security Center Assessment.
         :param pulumi.Input[str] display_name: The user-friendly display name of the Security Center Assessment.
         :param pulumi.Input[str] implementation_effort: The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
@@ -358,6 +392,7 @@ class AssessmentMetadata(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[str]] = None,
@@ -377,6 +412,7 @@ class AssessmentMetadata(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssessmentMetadataArgs.__new__(AssessmentMetadataArgs)
 
+            __props__.__dict__["categories"] = categories
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
@@ -399,6 +435,7 @@ class AssessmentMetadata(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             implementation_effort: Optional[pulumi.Input[str]] = None,
@@ -414,6 +451,7 @@ class AssessmentMetadata(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
         :param pulumi.Input[str] description: The description of the Security Center Assessment.
         :param pulumi.Input[str] display_name: The user-friendly display name of the Security Center Assessment.
         :param pulumi.Input[str] implementation_effort: The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
@@ -427,6 +465,7 @@ class AssessmentMetadata(pulumi.CustomResource):
 
         __props__ = _AssessmentMetadataState.__new__(_AssessmentMetadataState)
 
+        __props__.__dict__["categories"] = categories
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["implementation_effort"] = implementation_effort
@@ -436,6 +475,14 @@ class AssessmentMetadata(pulumi.CustomResource):
         __props__.__dict__["threats"] = threats
         __props__.__dict__["user_impact"] = user_impact
         return AssessmentMetadata(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+        """
+        return pulumi.get(self, "categories")
 
     @property
     @pulumi.getter

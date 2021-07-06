@@ -1541,37 +1541,30 @@ class BackendProxyArgs:
 @pulumi.input_type
 class BackendServiceFabricClusterArgs:
     def __init__(__self__, *,
-                 client_certificate_thumbprint: pulumi.Input[str],
                  management_endpoints: pulumi.Input[Sequence[pulumi.Input[str]]],
                  max_partition_resolution_retries: pulumi.Input[int],
+                 client_certificate_id: Optional[pulumi.Input[str]] = None,
+                 client_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
                  server_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_x509_names: Optional[pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]]] = None):
         """
-        :param pulumi.Input[str] client_certificate_thumbprint: The client certificate thumbprint for the management endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] management_endpoints: A list of cluster management endpoints.
         :param pulumi.Input[int] max_partition_resolution_retries: The maximum number of retries when attempting resolve the partition.
+        :param pulumi.Input[str] client_certificate_id: The client certificate resource id for the management endpoint.
+        :param pulumi.Input[str] client_certificate_thumbprint: The client certificate thumbprint for the management endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_certificate_thumbprints: A list of thumbprints of the server certificates of the Service Fabric cluster.
         :param pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]] server_x509_names: One or more `server_x509_name` blocks as documented below.
         """
-        pulumi.set(__self__, "client_certificate_thumbprint", client_certificate_thumbprint)
         pulumi.set(__self__, "management_endpoints", management_endpoints)
         pulumi.set(__self__, "max_partition_resolution_retries", max_partition_resolution_retries)
+        if client_certificate_id is not None:
+            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+        if client_certificate_thumbprint is not None:
+            pulumi.set(__self__, "client_certificate_thumbprint", client_certificate_thumbprint)
         if server_certificate_thumbprints is not None:
             pulumi.set(__self__, "server_certificate_thumbprints", server_certificate_thumbprints)
         if server_x509_names is not None:
             pulumi.set(__self__, "server_x509_names", server_x509_names)
-
-    @property
-    @pulumi.getter(name="clientCertificateThumbprint")
-    def client_certificate_thumbprint(self) -> pulumi.Input[str]:
-        """
-        The client certificate thumbprint for the management endpoint.
-        """
-        return pulumi.get(self, "client_certificate_thumbprint")
-
-    @client_certificate_thumbprint.setter
-    def client_certificate_thumbprint(self, value: pulumi.Input[str]):
-        pulumi.set(self, "client_certificate_thumbprint", value)
 
     @property
     @pulumi.getter(name="managementEndpoints")
@@ -1596,6 +1589,30 @@ class BackendServiceFabricClusterArgs:
     @max_partition_resolution_retries.setter
     def max_partition_resolution_retries(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_partition_resolution_retries", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateId")
+    def client_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client certificate resource id for the management endpoint.
+        """
+        return pulumi.get(self, "client_certificate_id")
+
+    @client_certificate_id.setter
+    def client_certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_id", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateThumbprint")
+    def client_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client certificate thumbprint for the management endpoint.
+        """
+        return pulumi.get(self, "client_certificate_thumbprint")
+
+    @client_certificate_thumbprint.setter
+    def client_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_thumbprint", value)
 
     @property
     @pulumi.getter(name="serverCertificateThumbprints")

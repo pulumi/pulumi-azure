@@ -108,8 +108,12 @@ type Endpoint struct {
 	// of endpoints that must be ‘online’ in the child profile in order for the
 	// parent profile to direct traffic to any of the endpoints in that child
 	// profile. This argument only applies to Endpoints of type `nestedEndpoints`
-	// and defaults to `1`.
+	// and has to be larger than `0`.
 	MinChildEndpoints pulumi.IntPtrOutput `pulumi:"minChildEndpoints"`
+	// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+	MinimumRequiredChildEndpointsIpv4 pulumi.IntPtrOutput `pulumi:"minimumRequiredChildEndpointsIpv4"`
+	// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+	MinimumRequiredChildEndpointsIpv6 pulumi.IntPtrOutput `pulumi:"minimumRequiredChildEndpointsIpv6"`
 	// The name of the Traffic Manager endpoint. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -200,8 +204,12 @@ type endpointState struct {
 	// of endpoints that must be ‘online’ in the child profile in order for the
 	// parent profile to direct traffic to any of the endpoints in that child
 	// profile. This argument only applies to Endpoints of type `nestedEndpoints`
-	// and defaults to `1`.
+	// and has to be larger than `0`.
 	MinChildEndpoints *int `pulumi:"minChildEndpoints"`
+	// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+	MinimumRequiredChildEndpointsIpv4 *int `pulumi:"minimumRequiredChildEndpointsIpv4"`
+	// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+	MinimumRequiredChildEndpointsIpv6 *int `pulumi:"minimumRequiredChildEndpointsIpv6"`
 	// The name of the Traffic Manager endpoint. Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
@@ -255,8 +263,12 @@ type EndpointState struct {
 	// of endpoints that must be ‘online’ in the child profile in order for the
 	// parent profile to direct traffic to any of the endpoints in that child
 	// profile. This argument only applies to Endpoints of type `nestedEndpoints`
-	// and defaults to `1`.
+	// and has to be larger than `0`.
 	MinChildEndpoints pulumi.IntPtrInput
+	// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+	MinimumRequiredChildEndpointsIpv4 pulumi.IntPtrInput
+	// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+	MinimumRequiredChildEndpointsIpv6 pulumi.IntPtrInput
 	// The name of the Traffic Manager endpoint. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
@@ -313,8 +325,12 @@ type endpointArgs struct {
 	// of endpoints that must be ‘online’ in the child profile in order for the
 	// parent profile to direct traffic to any of the endpoints in that child
 	// profile. This argument only applies to Endpoints of type `nestedEndpoints`
-	// and defaults to `1`.
+	// and has to be larger than `0`.
 	MinChildEndpoints *int `pulumi:"minChildEndpoints"`
+	// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+	MinimumRequiredChildEndpointsIpv4 *int `pulumi:"minimumRequiredChildEndpointsIpv4"`
+	// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+	MinimumRequiredChildEndpointsIpv6 *int `pulumi:"minimumRequiredChildEndpointsIpv6"`
 	// The name of the Traffic Manager endpoint. Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
@@ -368,8 +384,12 @@ type EndpointArgs struct {
 	// of endpoints that must be ‘online’ in the child profile in order for the
 	// parent profile to direct traffic to any of the endpoints in that child
 	// profile. This argument only applies to Endpoints of type `nestedEndpoints`
-	// and defaults to `1`.
+	// and has to be larger than `0`.
 	MinChildEndpoints pulumi.IntPtrInput
+	// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+	MinimumRequiredChildEndpointsIpv4 pulumi.IntPtrInput
+	// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+	MinimumRequiredChildEndpointsIpv6 pulumi.IntPtrInput
 	// The name of the Traffic Manager endpoint. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput

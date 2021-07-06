@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
  *
+ * !> **Note:** The `azure.policy.Assignment` resource has been deprecated in favour of the `azure.management.GroupPolicyAssignment`, `azure.core.ResourcePolicyAssignment`, `azure.core.ResourceGroupPolicyAssignment` and `azure.core.SubscriptionPolicyAssignment` resources and will be removed in v3.0 of the Azure Provider.
+ *
  * ## Example Usage
  *
  * ```typescript

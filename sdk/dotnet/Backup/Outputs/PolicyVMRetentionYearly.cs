@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Backup.Outputs
         /// </summary>
         public readonly int Count;
         /// <summary>
-        /// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+        /// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
         /// </summary>
         public readonly ImmutableArray<string> Months;
         /// <summary>

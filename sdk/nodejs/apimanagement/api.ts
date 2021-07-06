@@ -125,6 +125,10 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly revision!: pulumi.Output<string>;
     /**
+     * The description of the Api Revision of the API Management API.
+     */
+    public readonly revisionDescription!: pulumi.Output<string | undefined>;
+    /**
      * Absolute URL of the backend service implementing this API.
      */
     public readonly serviceUrl!: pulumi.Output<string>;
@@ -132,6 +136,10 @@ export class Api extends pulumi.CustomResource {
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
      */
     public readonly soapPassThrough!: pulumi.Output<boolean | undefined>;
+    /**
+     * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
+     */
+    public readonly sourceApiId!: pulumi.Output<string | undefined>;
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
@@ -144,6 +152,10 @@ export class Api extends pulumi.CustomResource {
      * The Version number of this API, if this API is versioned.
      */
     public readonly version!: pulumi.Output<string>;
+    /**
+     * The description of the Api Version of the API Management API.
+     */
+    public readonly versionDescription!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Version Set which this API is associated with.
      */
@@ -175,25 +187,19 @@ export class Api extends pulumi.CustomResource {
             inputs["protocols"] = state ? state.protocols : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["revision"] = state ? state.revision : undefined;
+            inputs["revisionDescription"] = state ? state.revisionDescription : undefined;
             inputs["serviceUrl"] = state ? state.serviceUrl : undefined;
             inputs["soapPassThrough"] = state ? state.soapPassThrough : undefined;
+            inputs["sourceApiId"] = state ? state.sourceApiId : undefined;
             inputs["subscriptionKeyParameterNames"] = state ? state.subscriptionKeyParameterNames : undefined;
             inputs["subscriptionRequired"] = state ? state.subscriptionRequired : undefined;
             inputs["version"] = state ? state.version : undefined;
+            inputs["versionDescription"] = state ? state.versionDescription : undefined;
             inputs["versionSetId"] = state ? state.versionSetId : undefined;
         } else {
             const args = argsOrState as ApiArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
-            }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'displayName'");
-            }
-            if ((!args || args.path === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'path'");
-            }
-            if ((!args || args.protocols === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'protocols'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -212,11 +218,14 @@ export class Api extends pulumi.CustomResource {
             inputs["protocols"] = args ? args.protocols : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["revision"] = args ? args.revision : undefined;
+            inputs["revisionDescription"] = args ? args.revisionDescription : undefined;
             inputs["serviceUrl"] = args ? args.serviceUrl : undefined;
             inputs["soapPassThrough"] = args ? args.soapPassThrough : undefined;
+            inputs["sourceApiId"] = args ? args.sourceApiId : undefined;
             inputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
             inputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
             inputs["version"] = args ? args.version : undefined;
+            inputs["versionDescription"] = args ? args.versionDescription : undefined;
             inputs["versionSetId"] = args ? args.versionSetId : undefined;
             inputs["isCurrent"] = undefined /*out*/;
             inputs["isOnline"] = undefined /*out*/;
@@ -285,6 +294,10 @@ export interface ApiState {
      */
     revision?: pulumi.Input<string>;
     /**
+     * The description of the Api Revision of the API Management API.
+     */
+    revisionDescription?: pulumi.Input<string>;
+    /**
      * Absolute URL of the backend service implementing this API.
      */
     serviceUrl?: pulumi.Input<string>;
@@ -292,6 +305,10 @@ export interface ApiState {
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
      */
     soapPassThrough?: pulumi.Input<boolean>;
+    /**
+     * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
+     */
+    sourceApiId?: pulumi.Input<string>;
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
@@ -304,6 +321,10 @@ export interface ApiState {
      * The Version number of this API, if this API is versioned.
      */
     version?: pulumi.Input<string>;
+    /**
+     * The description of the Api Version of the API Management API.
+     */
+    versionDescription?: pulumi.Input<string>;
     /**
      * The ID of the Version Set which this API is associated with.
      */
@@ -325,7 +346,7 @@ export interface ApiArgs {
     /**
      * The display name of the API.
      */
-    displayName: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * A `import` block as documented below.
      */
@@ -345,11 +366,11 @@ export interface ApiArgs {
     /**
      * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      */
-    path: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
      */
-    protocols: pulumi.Input<pulumi.Input<string>[]>;
+    protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
      */
@@ -359,6 +380,10 @@ export interface ApiArgs {
      */
     revision: pulumi.Input<string>;
     /**
+     * The description of the Api Revision of the API Management API.
+     */
+    revisionDescription?: pulumi.Input<string>;
+    /**
      * Absolute URL of the backend service implementing this API.
      */
     serviceUrl?: pulumi.Input<string>;
@@ -366,6 +391,10 @@ export interface ApiArgs {
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
      */
     soapPassThrough?: pulumi.Input<boolean>;
+    /**
+     * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
+     */
+    sourceApiId?: pulumi.Input<string>;
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
@@ -378,6 +407,10 @@ export interface ApiArgs {
      * The Version number of this API, if this API is versioned.
      */
     version?: pulumi.Input<string>;
+    /**
+     * The description of the Api Version of the API Management API.
+     */
+    versionDescription?: pulumi.Input<string>;
     /**
      * The ID of the Version Set which this API is associated with.
      */

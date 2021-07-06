@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountSharePropertiesRetentionPolicy
     {
         /// <summary>
-        /// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        /// Specifies the number of days that the `azure.storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
         /// </summary>
         public readonly int? Days;
 

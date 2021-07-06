@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Backup.Inputs
         private InputList<string>? _months;
 
         /// <summary>
-        /// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+        /// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
         /// </summary>
         public InputList<string> Months
         {

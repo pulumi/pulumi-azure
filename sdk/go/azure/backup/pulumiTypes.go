@@ -1420,7 +1420,7 @@ func (o PolicyVMRetentionWeeklyPtrOutput) Weekdays() pulumi.StringArrayOutput {
 type PolicyVMRetentionYearly struct {
 	// The number of yearly backups to keep. Must be between `1` and `9999`
 	Count int `pulumi:"count"`
-	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 	Months []string `pulumi:"months"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays []string `pulumi:"weekdays"`
@@ -1442,7 +1442,7 @@ type PolicyVMRetentionYearlyInput interface {
 type PolicyVMRetentionYearlyArgs struct {
 	// The number of yearly backups to keep. Must be between `1` and `9999`
 	Count pulumi.IntInput `pulumi:"count"`
-	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 	Months pulumi.StringArrayInput `pulumi:"months"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
@@ -1532,7 +1532,7 @@ func (o PolicyVMRetentionYearlyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyVMRetentionYearly) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 func (o PolicyVMRetentionYearlyOutput) Months() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyVMRetentionYearly) []string { return v.Months }).(pulumi.StringArrayOutput)
 }
@@ -1575,7 +1575,7 @@ func (o PolicyVMRetentionYearlyPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 func (o PolicyVMRetentionYearlyPtrOutput) Months() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyVMRetentionYearly) []string {
 		if v == nil {

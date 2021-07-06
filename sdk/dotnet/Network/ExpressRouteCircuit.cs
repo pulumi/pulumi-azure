@@ -60,16 +60,28 @@ namespace Pulumi.Azure.Network
     public partial class ExpressRouteCircuit : Pulumi.CustomResource
     {
         /// <summary>
-        /// Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+        /// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         /// </summary>
         [Output("allowClassicOperations")]
         public Output<bool?> AllowClassicOperations { get; private set; } = null!;
 
         /// <summary>
-        /// The bandwidth in Mbps of the circuit being created.
+        /// The bandwidth in Gbps of the circuit being created on the Express Route Port.
+        /// </summary>
+        [Output("bandwidthInGbps")]
+        public Output<double?> BandwidthInGbps { get; private set; } = null!;
+
+        /// <summary>
+        /// The bandwidth in Mbps of the circuit being created on the Service Provider.
         /// </summary>
         [Output("bandwidthInMbps")]
-        public Output<int> BandwidthInMbps { get; private set; } = null!;
+        public Output<int?> BandwidthInMbps { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Express Route Port this Express Route Circuit is based on.
+        /// </summary>
+        [Output("expressRoutePortId")]
+        public Output<string?> ExpressRoutePortId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -84,10 +96,10 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the peering location and **not** the Azure resource location.
+        /// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
         /// </summary>
         [Output("peeringLocation")]
-        public Output<string> PeeringLocation { get; private set; } = null!;
+        public Output<string?> PeeringLocation { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
@@ -102,10 +114,10 @@ namespace Pulumi.Azure.Network
         public Output<string> ServiceKey { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the ExpressRoute Service Provider.
+        /// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serviceProviderName")]
-        public Output<string> ServiceProviderName { get; private set; } = null!;
+        public Output<string?> ServiceProviderName { get; private set; } = null!;
 
         /// <summary>
         /// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
@@ -172,16 +184,28 @@ namespace Pulumi.Azure.Network
     public sealed class ExpressRouteCircuitArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+        /// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         /// </summary>
         [Input("allowClassicOperations")]
         public Input<bool>? AllowClassicOperations { get; set; }
 
         /// <summary>
-        /// The bandwidth in Mbps of the circuit being created.
+        /// The bandwidth in Gbps of the circuit being created on the Express Route Port.
         /// </summary>
-        [Input("bandwidthInMbps", required: true)]
-        public Input<int> BandwidthInMbps { get; set; } = null!;
+        [Input("bandwidthInGbps")]
+        public Input<double>? BandwidthInGbps { get; set; }
+
+        /// <summary>
+        /// The bandwidth in Mbps of the circuit being created on the Service Provider.
+        /// </summary>
+        [Input("bandwidthInMbps")]
+        public Input<int>? BandwidthInMbps { get; set; }
+
+        /// <summary>
+        /// The ID of the Express Route Port this Express Route Circuit is based on.
+        /// </summary>
+        [Input("expressRoutePortId")]
+        public Input<string>? ExpressRoutePortId { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -196,10 +220,10 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the peering location and **not** the Azure resource location.
+        /// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("peeringLocation", required: true)]
-        public Input<string> PeeringLocation { get; set; } = null!;
+        [Input("peeringLocation")]
+        public Input<string>? PeeringLocation { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
@@ -208,10 +232,10 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the ExpressRoute Service Provider.
+        /// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("serviceProviderName", required: true)]
-        public Input<string> ServiceProviderName { get; set; } = null!;
+        [Input("serviceProviderName")]
+        public Input<string>? ServiceProviderName { get; set; }
 
         /// <summary>
         /// A `sku` block for the ExpressRoute circuit as documented below.
@@ -239,16 +263,28 @@ namespace Pulumi.Azure.Network
     public sealed class ExpressRouteCircuitState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+        /// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         /// </summary>
         [Input("allowClassicOperations")]
         public Input<bool>? AllowClassicOperations { get; set; }
 
         /// <summary>
-        /// The bandwidth in Mbps of the circuit being created.
+        /// The bandwidth in Gbps of the circuit being created on the Express Route Port.
+        /// </summary>
+        [Input("bandwidthInGbps")]
+        public Input<double>? BandwidthInGbps { get; set; }
+
+        /// <summary>
+        /// The bandwidth in Mbps of the circuit being created on the Service Provider.
         /// </summary>
         [Input("bandwidthInMbps")]
         public Input<int>? BandwidthInMbps { get; set; }
+
+        /// <summary>
+        /// The ID of the Express Route Port this Express Route Circuit is based on.
+        /// </summary>
+        [Input("expressRoutePortId")]
+        public Input<string>? ExpressRoutePortId { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -263,7 +299,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the peering location and **not** the Azure resource location.
+        /// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
         /// </summary>
         [Input("peeringLocation")]
         public Input<string>? PeeringLocation { get; set; }
@@ -281,7 +317,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ServiceKey { get; set; }
 
         /// <summary>
-        /// The name of the ExpressRoute Service Provider.
+        /// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceProviderName")]
         public Input<string>? ServiceProviderName { get; set; }

@@ -13,6 +13,7 @@ namespace Pulumi.Azure.Outputs
     [OutputType]
     public sealed class ProviderFeatures
     {
+        public readonly Outputs.ProviderFeaturesCognitiveAccount? CognitiveAccount;
         public readonly Outputs.ProviderFeaturesKeyVault? KeyVault;
         public readonly Outputs.ProviderFeaturesLogAnalyticsWorkspace? LogAnalyticsWorkspace;
         public readonly Outputs.ProviderFeaturesNetwork? Network;
@@ -22,6 +23,8 @@ namespace Pulumi.Azure.Outputs
 
         [OutputConstructor]
         private ProviderFeatures(
+            Outputs.ProviderFeaturesCognitiveAccount? cognitiveAccount,
+
             Outputs.ProviderFeaturesKeyVault? keyVault,
 
             Outputs.ProviderFeaturesLogAnalyticsWorkspace? logAnalyticsWorkspace,
@@ -34,6 +37,7 @@ namespace Pulumi.Azure.Outputs
 
             Outputs.ProviderFeaturesVirtualMachineScaleSet? virtualMachineScaleSet)
         {
+            CognitiveAccount = cognitiveAccount;
             KeyVault = keyVault;
             LogAnalyticsWorkspace = logAnalyticsWorkspace;
             Network = network;
