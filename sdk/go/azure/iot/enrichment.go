@@ -83,9 +83,9 @@ import (
 // 			IothubName:        exampleIoTHub.Name,
 // 			Source:            pulumi.String("DeviceMessages"),
 // 			Condition:         pulumi.String("true"),
-// 			EndpointNames: pulumi.String(pulumi.String{
+// 			EndpointNames: pulumi.String{
 // 				exampleEndpointStorageContainer.Name,
-// 			}),
+// 			},
 // 			Enabled: pulumi.Bool(true),
 // 		})
 // 		if err != nil {

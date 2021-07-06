@@ -34,7 +34,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = random.NewRandomId(ctx, "workspace", &random.RandomIdArgs{
-// 			Keepers: pulumi.StringMap{
+// 			Keepers: pulumi.AnyMap{
 // 				"group_name": exampleResourceGroup.Name,
 // 			},
 // 			ByteLength: pulumi.Int(8),

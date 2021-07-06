@@ -13,6 +13,30 @@ namespace Pulumi.Azure.EventGrid
     {
         /// <summary>
         /// Use this data source to access information about an existing EventGrid Domain Topic
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.EventGrid.GetDomainTopic.InvokeAsync(new Azure.EventGrid.GetDomainTopicArgs
+        ///         {
+        ///             Name = "my-eventgrid-domain-topic",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDomainTopicResult> InvokeAsync(GetDomainTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicResult>("azure:eventgrid/getDomainTopic:getDomainTopic", args ?? new GetDomainTopicArgs(), options.WithVersion());

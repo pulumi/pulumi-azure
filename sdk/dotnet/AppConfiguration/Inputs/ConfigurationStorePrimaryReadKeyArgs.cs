@@ -9,4 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.AppConfiguration.Inputs
 {
+
+    public sealed class ConfigurationStorePrimaryReadKeyArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        /// </summary>
+        [Input("connectionString")]
+        public Input<string>? ConnectionString { get; set; }
+
+        /// <summary>
+        /// The ID of the Access Key.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The Secret of the Access Key.
+        /// </summary>
+        [Input("secret")]
+        public Input<string>? Secret { get; set; }
+
+        public ConfigurationStorePrimaryReadKeyArgs()
+        {
+        }
+    }
 }

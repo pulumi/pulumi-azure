@@ -113,7 +113,7 @@ import (
 // 			ScaleSettings: &machinelearning.ComputeClusterScaleSettingsArgs{
 // 				MinNodeCount:                pulumi.Int(0),
 // 				MaxNodeCount:                pulumi.Int(1),
-// 				NodeIdleTimeBeforeScaleDown: pulumi.String("PT30S"),
+// 				NodeIdleTimeBeforeScaleDown: "PT30S",
 // 			},
 // 			Identity: &machinelearning.ComputeClusterIdentityArgs{
 // 				Type: pulumi.String("SystemAssigned"),
