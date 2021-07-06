@@ -21,15 +21,22 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The Admin Username for Windows VMs.
         /// </summary>
         public readonly string AdminUsername;
+        /// <summary>
+        /// Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
+        /// </summary>
+        public readonly string? License;
 
         [OutputConstructor]
         private KubernetesClusterWindowsProfile(
             string? adminPassword,
 
-            string adminUsername)
+            string adminUsername,
+
+            string? license)
         {
             AdminPassword = adminPassword;
             AdminUsername = adminUsername;
+            License = license;
         }
     }
 }

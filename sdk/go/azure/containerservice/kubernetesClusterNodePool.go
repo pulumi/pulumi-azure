@@ -31,8 +31,12 @@ type KubernetesClusterNodePool struct {
 	EnableNodePublicIp pulumi.BoolPtrOutput `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
+	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrOutput `pulumi:"kubeletConfig"`
+	// The type of disk used by kubelet. Possible Values are `OS`.
+	KubeletDiskType pulumi.StringOutput `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringOutput `pulumi:"kubernetesClusterId"`
 	// A `linuxOsConfig` block as defined below.
@@ -124,8 +128,12 @@ type kubernetesClusterNodePoolState struct {
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig *KubernetesClusterNodePoolKubeletConfig `pulumi:"kubeletConfig"`
+	// The type of disk used by kubelet. Possible Values are `OS`.
+	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId *string `pulumi:"kubernetesClusterId"`
 	// A `linuxOsConfig` block as defined below.
@@ -183,8 +191,12 @@ type KubernetesClusterNodePoolState struct {
 	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+	FipsEnabled pulumi.BoolPtrInput
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrInput
+	// The type of disk used by kubelet. Possible Values are `OS`.
+	KubeletDiskType pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringPtrInput
 	// A `linuxOsConfig` block as defined below.
@@ -246,8 +258,12 @@ type kubernetesClusterNodePoolArgs struct {
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig *KubernetesClusterNodePoolKubeletConfig `pulumi:"kubeletConfig"`
+	// The type of disk used by kubelet. Possible Values are `OS`.
+	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId string `pulumi:"kubernetesClusterId"`
 	// A `linuxOsConfig` block as defined below.
@@ -306,8 +322,12 @@ type KubernetesClusterNodePoolArgs struct {
 	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+	FipsEnabled pulumi.BoolPtrInput
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrInput
+	// The type of disk used by kubelet. Possible Values are `OS`.
+	KubeletDiskType pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringInput
 	// A `linuxOsConfig` block as defined below.

@@ -13,10 +13,14 @@ from .get_subscription import *
 from .get_subscriptions import *
 from .get_template_spec_version import *
 from .get_user_assigned_identity import *
+from .portal_tenant_configuration import *
 from .resource_group import *
+from .resource_group_policy_assignment import *
 from .resource_group_template_deployment import *
+from .resource_policy_assignment import *
 from .resource_provider_registration import *
 from .subscription import *
+from .subscription_policy_assignment import *
 from .subscription_template_deployment import *
 from .template_deployment import *
 from .tenant_template_deployment import *

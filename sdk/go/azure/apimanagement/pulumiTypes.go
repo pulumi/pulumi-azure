@@ -3427,8 +3427,10 @@ func (o BackendProxyPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type BackendServiceFabricCluster struct {
+	// The client certificate resource id for the management endpoint.
+	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// The client certificate thumbprint for the management endpoint.
-	ClientCertificateThumbprint string `pulumi:"clientCertificateThumbprint"`
+	ClientCertificateThumbprint *string `pulumi:"clientCertificateThumbprint"`
 	// A list of cluster management endpoints.
 	ManagementEndpoints []string `pulumi:"managementEndpoints"`
 	// The maximum number of retries when attempting resolve the partition.
@@ -3451,8 +3453,10 @@ type BackendServiceFabricClusterInput interface {
 }
 
 type BackendServiceFabricClusterArgs struct {
+	// The client certificate resource id for the management endpoint.
+	ClientCertificateId pulumi.StringPtrInput `pulumi:"clientCertificateId"`
 	// The client certificate thumbprint for the management endpoint.
-	ClientCertificateThumbprint pulumi.StringInput `pulumi:"clientCertificateThumbprint"`
+	ClientCertificateThumbprint pulumi.StringPtrInput `pulumi:"clientCertificateThumbprint"`
 	// A list of cluster management endpoints.
 	ManagementEndpoints pulumi.StringArrayInput `pulumi:"managementEndpoints"`
 	// The maximum number of retries when attempting resolve the partition.
@@ -3540,9 +3544,14 @@ func (o BackendServiceFabricClusterOutput) ToBackendServiceFabricClusterPtrOutpu
 	}).(BackendServiceFabricClusterPtrOutput)
 }
 
+// The client certificate resource id for the management endpoint.
+func (o BackendServiceFabricClusterOutput) ClientCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackendServiceFabricCluster) *string { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
+}
+
 // The client certificate thumbprint for the management endpoint.
-func (o BackendServiceFabricClusterOutput) ClientCertificateThumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v BackendServiceFabricCluster) string { return v.ClientCertificateThumbprint }).(pulumi.StringOutput)
+func (o BackendServiceFabricClusterOutput) ClientCertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackendServiceFabricCluster) *string { return v.ClientCertificateThumbprint }).(pulumi.StringPtrOutput)
 }
 
 // A list of cluster management endpoints.
@@ -3585,13 +3594,23 @@ func (o BackendServiceFabricClusterPtrOutput) Elem() BackendServiceFabricCluster
 	return o.ApplyT(func(v *BackendServiceFabricCluster) BackendServiceFabricCluster { return *v }).(BackendServiceFabricClusterOutput)
 }
 
+// The client certificate resource id for the management endpoint.
+func (o BackendServiceFabricClusterPtrOutput) ClientCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendServiceFabricCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateId
+	}).(pulumi.StringPtrOutput)
+}
+
 // The client certificate thumbprint for the management endpoint.
 func (o BackendServiceFabricClusterPtrOutput) ClientCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceFabricCluster) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ClientCertificateThumbprint
+		return v.ClientCertificateThumbprint
 	}).(pulumi.StringPtrOutput)
 }
 

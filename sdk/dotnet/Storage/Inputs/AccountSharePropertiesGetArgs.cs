@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Storage.Inputs
         }
 
         /// <summary>
-        /// (Optional) A `retention_policy` block as defined below.
+        /// A `retention_policy` block as defined below.
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.AccountSharePropertiesRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
 
         /// <summary>
-        /// (Optional) A `smb` block as defined below.
+        /// A `smb` block as defined below.
         /// </summary>
         [Input("smb")]
         public Input<Inputs.AccountSharePropertiesSmbGetArgs>? Smb { get; set; }

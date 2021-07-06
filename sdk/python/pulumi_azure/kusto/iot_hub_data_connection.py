@@ -19,9 +19,12 @@ class IotHubDataConnectionArgs:
                  iothub_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  shared_access_policy_name: pulumi.Input[str],
+                 data_format: Optional[pulumi.Input[str]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 mapping_rule_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IotHubDataConnection resource.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
@@ -30,9 +33,12 @@ class IotHubDataConnectionArgs:
         :param pulumi.Input[str] iothub_id: Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shared_access_policy_name: Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data_format: Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "consumer_group", consumer_group)
@@ -40,12 +46,18 @@ class IotHubDataConnectionArgs:
         pulumi.set(__self__, "iothub_id", iothub_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+        if data_format is not None:
+            pulumi.set(__self__, "data_format", data_format)
         if event_system_properties is not None:
             pulumi.set(__self__, "event_system_properties", event_system_properties)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if mapping_rule_name is not None:
+            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -120,6 +132,18 @@ class IotHubDataConnectionArgs:
         pulumi.set(self, "shared_access_policy_name", value)
 
     @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+        """
+        return pulumi.get(self, "data_format")
+
+    @data_format.setter
+    def data_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_format", value)
+
+    @property
     @pulumi.getter(name="eventSystemProperties")
     def event_system_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -144,6 +168,18 @@ class IotHubDataConnectionArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="mappingRuleName")
+    def mapping_rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        """
+        return pulumi.get(self, "mapping_rule_name")
+
+    @mapping_rule_name.setter
+    def mapping_rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mapping_rule_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -155,35 +191,55 @@ class IotHubDataConnectionArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_name", value)
+
 
 @pulumi.input_type
 class _IotHubDataConnectionState:
     def __init__(__self__, *,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  consumer_group: Optional[pulumi.Input[str]] = None,
+                 data_format: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iothub_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shared_access_policy_name: Optional[pulumi.Input[str]] = None):
+                 shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IotHubDataConnection resources.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] consumer_group: Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data_format: Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
         :param pulumi.Input[str] iothub_id: Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shared_access_policy_name: Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         """
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if consumer_group is not None:
             pulumi.set(__self__, "consumer_group", consumer_group)
+        if data_format is not None:
+            pulumi.set(__self__, "data_format", data_format)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
         if event_system_properties is not None:
@@ -192,12 +248,16 @@ class _IotHubDataConnectionState:
             pulumi.set(__self__, "iothub_id", iothub_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if mapping_rule_name is not None:
+            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if shared_access_policy_name is not None:
             pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -222,6 +282,18 @@ class _IotHubDataConnectionState:
     @consumer_group.setter
     def consumer_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "consumer_group", value)
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+        """
+        return pulumi.get(self, "data_format")
+
+    @data_format.setter
+    def data_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_format", value)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -272,6 +344,18 @@ class _IotHubDataConnectionState:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="mappingRuleName")
+    def mapping_rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        """
+        return pulumi.get(self, "mapping_rule_name")
+
+    @mapping_rule_name.setter
+    def mapping_rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mapping_rule_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -307,6 +391,18 @@ class _IotHubDataConnectionState:
     def shared_access_policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "shared_access_policy_name", value)
 
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_name", value)
+
 
 class IotHubDataConnection(pulumi.CustomResource):
     @overload
@@ -315,13 +411,16 @@ class IotHubDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  consumer_group: Optional[pulumi.Input[str]] = None,
+                 data_format: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iothub_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Kusto (also known as Azure Data Explorer) IotHub Data Connection
@@ -373,7 +472,10 @@ class IotHubDataConnection(pulumi.CustomResource):
                 "message-id",
                 "sequence-number",
                 "to",
-            ])
+            ],
+            table_name="my-table",
+            mapping_rule_name="my-table-mapping",
+            data_format="JSON")
         ```
 
         ## Import
@@ -388,13 +490,16 @@ class IotHubDataConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] consumer_group: Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data_format: Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
         :param pulumi.Input[str] iothub_id: Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shared_access_policy_name: Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         """
         ...
     @overload
@@ -452,7 +557,10 @@ class IotHubDataConnection(pulumi.CustomResource):
                 "message-id",
                 "sequence-number",
                 "to",
-            ])
+            ],
+            table_name="my-table",
+            mapping_rule_name="my-table-mapping",
+            data_format="JSON")
         ```
 
         ## Import
@@ -480,13 +588,16 @@ class IotHubDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  consumer_group: Optional[pulumi.Input[str]] = None,
+                 data_format: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iothub_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -505,6 +616,7 @@ class IotHubDataConnection(pulumi.CustomResource):
             if consumer_group is None and not opts.urn:
                 raise TypeError("Missing required property 'consumer_group'")
             __props__.__dict__["consumer_group"] = consumer_group
+            __props__.__dict__["data_format"] = data_format
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
@@ -513,6 +625,7 @@ class IotHubDataConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'iothub_id'")
             __props__.__dict__["iothub_id"] = iothub_id
             __props__.__dict__["location"] = location
+            __props__.__dict__["mapping_rule_name"] = mapping_rule_name
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -520,6 +633,7 @@ class IotHubDataConnection(pulumi.CustomResource):
             if shared_access_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_access_policy_name'")
             __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
+            __props__.__dict__["table_name"] = table_name
         super(IotHubDataConnection, __self__).__init__(
             'azure:kusto/iotHubDataConnection:IotHubDataConnection',
             resource_name,
@@ -532,13 +646,16 @@ class IotHubDataConnection(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
             consumer_group: Optional[pulumi.Input[str]] = None,
+            data_format: Optional[pulumi.Input[str]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             iothub_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            mapping_rule_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            shared_access_policy_name: Optional[pulumi.Input[str]] = None) -> 'IotHubDataConnection':
+            shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+            table_name: Optional[pulumi.Input[str]] = None) -> 'IotHubDataConnection':
         """
         Get an existing IotHubDataConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -548,13 +665,16 @@ class IotHubDataConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] consumer_group: Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data_format: Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
         :param pulumi.Input[str] iothub_id: Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shared_access_policy_name: Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -562,13 +682,16 @@ class IotHubDataConnection(pulumi.CustomResource):
 
         __props__.__dict__["cluster_name"] = cluster_name
         __props__.__dict__["consumer_group"] = consumer_group
+        __props__.__dict__["data_format"] = data_format
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["event_system_properties"] = event_system_properties
         __props__.__dict__["iothub_id"] = iothub_id
         __props__.__dict__["location"] = location
+        __props__.__dict__["mapping_rule_name"] = mapping_rule_name
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
+        __props__.__dict__["table_name"] = table_name
         return IotHubDataConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -586,6 +709,14 @@ class IotHubDataConnection(pulumi.CustomResource):
         Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "consumer_group")
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+        """
+        return pulumi.get(self, "data_format")
 
     @property
     @pulumi.getter(name="databaseName")
@@ -620,6 +751,14 @@ class IotHubDataConnection(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="mappingRuleName")
+    def mapping_rule_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        """
+        return pulumi.get(self, "mapping_rule_name")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -642,4 +781,12 @@ class IotHubDataConnection(pulumi.CustomResource):
         Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "shared_access_policy_name")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        """
+        return pulumi.get(self, "table_name")
 

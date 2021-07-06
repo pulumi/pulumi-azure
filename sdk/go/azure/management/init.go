@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:management/group:Group":
 		r = &Group{}
+	case "azure:management/groupPolicyAssignment:GroupPolicyAssignment":
+		r = &GroupPolicyAssignment{}
 	case "azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation":
 		r = &GroupSubscriptionAssociation{}
 	case "azure:management/groupTemplateDeployment:GroupTemplateDeployment":
@@ -45,6 +47,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"management/group",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"management/groupPolicyAssignment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

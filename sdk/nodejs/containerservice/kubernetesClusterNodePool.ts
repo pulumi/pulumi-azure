@@ -63,9 +63,17 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
+     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     */
+    public readonly fipsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `kubeletConfig` block as defined below.
      */
     public readonly kubeletConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolKubeletConfig | undefined>;
+    /**
+     * The type of disk used by kubelet. Possible Values are `OS`.
+     */
+    public readonly kubeletDiskType!: pulumi.Output<string>;
     /**
      * The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
      */
@@ -173,7 +181,9 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["enableHostEncryption"] = state ? state.enableHostEncryption : undefined;
             inputs["enableNodePublicIp"] = state ? state.enableNodePublicIp : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
+            inputs["fipsEnabled"] = state ? state.fipsEnabled : undefined;
             inputs["kubeletConfig"] = state ? state.kubeletConfig : undefined;
+            inputs["kubeletDiskType"] = state ? state.kubeletDiskType : undefined;
             inputs["kubernetesClusterId"] = state ? state.kubernetesClusterId : undefined;
             inputs["linuxOsConfig"] = state ? state.linuxOsConfig : undefined;
             inputs["maxCount"] = state ? state.maxCount : undefined;
@@ -209,7 +219,9 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["enableHostEncryption"] = args ? args.enableHostEncryption : undefined;
             inputs["enableNodePublicIp"] = args ? args.enableNodePublicIp : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            inputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
             inputs["kubeletConfig"] = args ? args.kubeletConfig : undefined;
+            inputs["kubeletDiskType"] = args ? args.kubeletDiskType : undefined;
             inputs["kubernetesClusterId"] = args ? args.kubernetesClusterId : undefined;
             inputs["linuxOsConfig"] = args ? args.linuxOsConfig : undefined;
             inputs["maxCount"] = args ? args.maxCount : undefined;
@@ -265,9 +277,17 @@ export interface KubernetesClusterNodePoolState {
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
+     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     */
+    fipsEnabled?: pulumi.Input<boolean>;
+    /**
      * A `kubeletConfig` block as defined below.
      */
     kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolKubeletConfig>;
+    /**
+     * The type of disk used by kubelet. Possible Values are `OS`.
+     */
+    kubeletDiskType?: pulumi.Input<string>;
     /**
      * The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
      */
@@ -383,9 +403,17 @@ export interface KubernetesClusterNodePoolArgs {
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
+     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     */
+    fipsEnabled?: pulumi.Input<boolean>;
+    /**
      * A `kubeletConfig` block as defined below.
      */
     kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolKubeletConfig>;
+    /**
+     * The type of disk used by kubelet. Possible Values are `OS`.
+     */
+    kubeletDiskType?: pulumi.Input<string>;
     /**
      * The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
      */

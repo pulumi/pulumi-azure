@@ -18,6 +18,14 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterBoolEqual> BoolEquals;
         /// <summary>
+        /// Evaluates if a value of an event isn't NULL or undefined.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterIsNotNull> IsNotNulls;
+        /// <summary>
+        /// Evaluates if a value of an event is NULL or undefined.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterIsNullOrUndefined> IsNullOrUndefineds;
+        /// <summary>
         /// Compares a value of an event using a single floating point number.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual> NumberGreaterThanOrEquals;
@@ -25,6 +33,10 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// Compares a value of an event using a single floating point number.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberGreaterThan> NumberGreaterThans;
+        /// <summary>
+        /// Compares a value of an event using multiple floating point number ranges.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberInRange> NumberInRanges;
         /// <summary>
         /// Compares a value of an event using multiple floating point numbers.
         /// </summary>
@@ -37,6 +49,10 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// Compares a value of an event using a single floating point number.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberLessThan> NumberLessThans;
+        /// <summary>
+        /// Compares a value of an event using multiple floating point number ranges.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberNotInRange> NumberNotInRanges;
         /// <summary>
         /// Compares a value of an event using multiple floating point numbers.
         /// </summary>
@@ -60,21 +76,41 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// <summary>
         /// Compares a value of an event using multiple string values.
         /// </summary>
+        public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterStringNotBeginsWith> StringNotBeginsWiths;
+        /// <summary>
+        /// Compares a value of an event using multiple string values.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterStringNotContain> StringNotContains;
+        /// <summary>
+        /// Compares a value of an event using multiple string values.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterStringNotEndsWith> StringNotEndsWiths;
+        /// <summary>
+        /// Compares a value of an event using multiple string values.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterStringNotIn> StringNotIns;
 
         [OutputConstructor]
         private EventSubscriptionAdvancedFilter(
             ImmutableArray<Outputs.EventSubscriptionAdvancedFilterBoolEqual> boolEquals,
 
+            ImmutableArray<Outputs.EventSubscriptionAdvancedFilterIsNotNull> isNotNulls,
+
+            ImmutableArray<Outputs.EventSubscriptionAdvancedFilterIsNullOrUndefined> isNullOrUndefineds,
+
             ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual> numberGreaterThanOrEquals,
 
             ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberGreaterThan> numberGreaterThans,
+
+            ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberInRange> numberInRanges,
 
             ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberIn> numberIns,
 
             ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberLessThanOrEqual> numberLessThanOrEquals,
 
             ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberLessThan> numberLessThans,
+
+            ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberNotInRange> numberNotInRanges,
 
             ImmutableArray<Outputs.EventSubscriptionAdvancedFilterNumberNotIn> numberNotIns,
 
@@ -86,19 +122,32 @@ namespace Pulumi.Azure.EventGrid.Outputs
 
             ImmutableArray<Outputs.EventSubscriptionAdvancedFilterStringIn> stringIns,
 
+            ImmutableArray<Outputs.EventSubscriptionAdvancedFilterStringNotBeginsWith> stringNotBeginsWiths,
+
+            ImmutableArray<Outputs.EventSubscriptionAdvancedFilterStringNotContain> stringNotContains,
+
+            ImmutableArray<Outputs.EventSubscriptionAdvancedFilterStringNotEndsWith> stringNotEndsWiths,
+
             ImmutableArray<Outputs.EventSubscriptionAdvancedFilterStringNotIn> stringNotIns)
         {
             BoolEquals = boolEquals;
+            IsNotNulls = isNotNulls;
+            IsNullOrUndefineds = isNullOrUndefineds;
             NumberGreaterThanOrEquals = numberGreaterThanOrEquals;
             NumberGreaterThans = numberGreaterThans;
+            NumberInRanges = numberInRanges;
             NumberIns = numberIns;
             NumberLessThanOrEquals = numberLessThanOrEquals;
             NumberLessThans = numberLessThans;
+            NumberNotInRanges = numberNotInRanges;
             NumberNotIns = numberNotIns;
             StringBeginsWiths = stringBeginsWiths;
             StringContains = stringContains;
             StringEndsWiths = stringEndsWiths;
             StringIns = stringIns;
+            StringNotBeginsWiths = stringNotBeginsWiths;
+            StringNotContains = stringNotContains;
+            StringNotEndsWiths = stringNotEndsWiths;
             StringNotIns = stringNotIns;
         }
     }

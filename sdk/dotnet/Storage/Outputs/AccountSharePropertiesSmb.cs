@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountSharePropertiesSmb
     {
         /// <summary>
-        /// (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+        /// A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
         /// </summary>
         public readonly ImmutableArray<string> AuthenticationTypes;
         /// <summary>
-        /// (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+        /// A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
         /// </summary>
         public readonly ImmutableArray<string> ChannelEncryptionTypes;
         /// <summary>
-        /// (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+        /// A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
         /// </summary>
         public readonly ImmutableArray<string> KerberosTicketEncryptionTypes;
         /// <summary>
-        /// (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+        /// A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
         /// </summary>
         public readonly ImmutableArray<string> Versions;
 

@@ -10,38 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cognitive
 {
     /// <summary>
-    /// Manages a Cognitive Services Account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Cognitive.Account("exampleAccount", new Azure.Cognitive.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Kind = "Face",
-    ///             SkuName = "S0",
-    ///             Tags = 
-    ///             {
-    ///                 { "Acceptance", "Test" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Cognitive Service Accounts can be imported using the `resource id`, e.g.

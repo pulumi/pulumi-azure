@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApiOperation{}
 	case "azure:apimanagement/apiOperationPolicy:ApiOperationPolicy":
 		r = &ApiOperationPolicy{}
+	case "azure:apimanagement/apiOperationTag:ApiOperationTag":
+		r = &ApiOperationTag{}
 	case "azure:apimanagement/apiPolicy:ApiPolicy":
 		r = &ApiPolicy{}
 	case "azure:apimanagement/apiSchema:ApiSchema":
@@ -120,6 +122,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/apiOperationPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/apiOperationTag",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

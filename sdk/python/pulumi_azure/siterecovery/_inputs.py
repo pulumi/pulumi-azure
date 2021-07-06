@@ -20,19 +20,23 @@ class ReplicatedVMManagedDiskArgs:
                  staging_storage_account_id: pulumi.Input[str],
                  target_disk_type: pulumi.Input[str],
                  target_replica_disk_type: pulumi.Input[str],
-                 target_resource_group_id: pulumi.Input[str]):
+                 target_resource_group_id: pulumi.Input[str],
+                 target_disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] disk_id: Id of disk that should be replicated.
         :param pulumi.Input[str] staging_storage_account_id: Storage account that should be used for caching.
         :param pulumi.Input[str] target_disk_type: What type should the disk be when a failover is done.
         :param pulumi.Input[str] target_replica_disk_type: What type should the disk be that holds the replication data.
         :param pulumi.Input[str] target_resource_group_id: Resource group disk should belong to when a failover is done.
+        :param pulumi.Input[str] target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with.
         """
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
         pulumi.set(__self__, "target_disk_type", target_disk_type)
         pulumi.set(__self__, "target_replica_disk_type", target_replica_disk_type)
         pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+        if target_disk_encryption_set_id is not None:
+            pulumi.set(__self__, "target_disk_encryption_set_id", target_disk_encryption_set_id)
 
     @property
     @pulumi.getter(name="diskId")
@@ -93,6 +97,18 @@ class ReplicatedVMManagedDiskArgs:
     @target_resource_group_id.setter
     def target_resource_group_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_resource_group_id", value)
+
+    @property
+    @pulumi.getter(name="targetDiskEncryptionSetId")
+    def target_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Disk Encryption Set that the Managed Disk will be associated with.
+        """
+        return pulumi.get(self, "target_disk_encryption_set_id")
+
+    @target_disk_encryption_set_id.setter
+    def target_disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_disk_encryption_set_id", value)
 
 
 @pulumi.input_type

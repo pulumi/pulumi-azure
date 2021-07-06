@@ -97,7 +97,9 @@ __all__ = [
     'GetAppServiceSiteConfigResult',
     'GetAppServiceSiteConfigCorResult',
     'GetAppServiceSiteConfigIpRestrictionResult',
+    'GetAppServiceSiteConfigIpRestrictionHeadersResult',
     'GetAppServiceSiteConfigScmIpRestrictionResult',
+    'GetAppServiceSiteConfigScmIpRestrictionHeadersResult',
     'GetAppServiceSiteCredentialResult',
     'GetAppServiceSourceControlResult',
     'GetCertificateOrderCertificateResult',
@@ -107,7 +109,9 @@ __all__ = [
     'GetFunctionAppSiteConfigResult',
     'GetFunctionAppSiteConfigCorsResult',
     'GetFunctionAppSiteConfigIpRestrictionResult',
+    'GetFunctionAppSiteConfigIpRestrictionHeadersResult',
     'GetFunctionAppSiteConfigScmIpRestrictionResult',
+    'GetFunctionAppSiteConfigScmIpRestrictionHeadersResult',
     'GetFunctionAppSiteCredentialResult',
     'GetFunctionAppSourceControlResult',
 ]
@@ -7357,6 +7361,7 @@ class GetAppServiceSiteConfigCorResult(dict):
 class GetAppServiceSiteConfigIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
+                 headers: 'outputs.GetAppServiceSiteConfigIpRestrictionHeadersResult',
                  ip_address: str,
                  name: str,
                  priority: int,
@@ -7371,6 +7376,7 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "headers", headers)
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -7384,6 +7390,11 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
         Allow or Deny access for this IP range. Defaults to Allow.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> 'outputs.GetAppServiceSiteConfigIpRestrictionHeadersResult':
+        return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -7427,9 +7438,43 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
 
 
 @pulumi.output_type
+class GetAppServiceSiteConfigIpRestrictionHeadersResult(dict):
+    def __init__(__self__, *,
+                 x_azure_fdids: Sequence[str],
+                 x_fd_health_probes: Sequence[str],
+                 x_forwarded_fors: Sequence[str],
+                 x_forwarded_hosts: Sequence[str]):
+        pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        pulumi.set(__self__, "x_fd_health_probes", x_fd_health_probes)
+        pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Sequence[str]:
+        return pulumi.get(self, "x_azure_fdids")
+
+    @property
+    @pulumi.getter(name="xFdHealthProbes")
+    def x_fd_health_probes(self) -> Sequence[str]:
+        return pulumi.get(self, "x_fd_health_probes")
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Sequence[str]:
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Sequence[str]:
+        return pulumi.get(self, "x_forwarded_hosts")
+
+
+@pulumi.output_type
 class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
+                 headers: 'outputs.GetAppServiceSiteConfigScmIpRestrictionHeadersResult',
                  ip_address: str,
                  name: str,
                  priority: int,
@@ -7444,6 +7489,7 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "headers", headers)
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -7457,6 +7503,11 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
         Allow or Deny access for this IP range. Defaults to Allow.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> 'outputs.GetAppServiceSiteConfigScmIpRestrictionHeadersResult':
+        return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -7497,6 +7548,39 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
         The Virtual Network Subnet ID used for this IP Restriction.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
+
+
+@pulumi.output_type
+class GetAppServiceSiteConfigScmIpRestrictionHeadersResult(dict):
+    def __init__(__self__, *,
+                 x_azure_fdids: Sequence[str],
+                 x_fd_health_probes: Sequence[str],
+                 x_forwarded_fors: Sequence[str],
+                 x_forwarded_hosts: Sequence[str]):
+        pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        pulumi.set(__self__, "x_fd_health_probes", x_fd_health_probes)
+        pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Sequence[str]:
+        return pulumi.get(self, "x_azure_fdids")
+
+    @property
+    @pulumi.getter(name="xFdHealthProbes")
+    def x_fd_health_probes(self) -> Sequence[str]:
+        return pulumi.get(self, "x_fd_health_probes")
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Sequence[str]:
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Sequence[str]:
+        return pulumi.get(self, "x_forwarded_hosts")
 
 
 @pulumi.output_type
@@ -7939,6 +8023,7 @@ class GetFunctionAppSiteConfigCorsResult(dict):
 class GetFunctionAppSiteConfigIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
+                 headers: 'outputs.GetFunctionAppSiteConfigIpRestrictionHeadersResult',
                  ip_address: str,
                  name: str,
                  priority: int,
@@ -7953,6 +8038,7 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "headers", headers)
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -7966,6 +8052,11 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
         Allow or Deny access for this IP range. Defaults to Allow.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> 'outputs.GetFunctionAppSiteConfigIpRestrictionHeadersResult':
+        return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -8009,9 +8100,43 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
 
 
 @pulumi.output_type
+class GetFunctionAppSiteConfigIpRestrictionHeadersResult(dict):
+    def __init__(__self__, *,
+                 x_azure_fdids: Sequence[str],
+                 x_fd_health_probes: Sequence[str],
+                 x_forwarded_fors: Sequence[str],
+                 x_forwarded_hosts: Sequence[str]):
+        pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        pulumi.set(__self__, "x_fd_health_probes", x_fd_health_probes)
+        pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Sequence[str]:
+        return pulumi.get(self, "x_azure_fdids")
+
+    @property
+    @pulumi.getter(name="xFdHealthProbes")
+    def x_fd_health_probes(self) -> Sequence[str]:
+        return pulumi.get(self, "x_fd_health_probes")
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Sequence[str]:
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Sequence[str]:
+        return pulumi.get(self, "x_forwarded_hosts")
+
+
+@pulumi.output_type
 class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
+                 headers: 'outputs.GetFunctionAppSiteConfigScmIpRestrictionHeadersResult',
                  ip_address: str,
                  name: str,
                  priority: int,
@@ -8026,6 +8151,7 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "headers", headers)
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -8039,6 +8165,11 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
         Allow or Deny access for this IP range. Defaults to Allow.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> 'outputs.GetFunctionAppSiteConfigScmIpRestrictionHeadersResult':
+        return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -8079,6 +8210,39 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
         The Virtual Network Subnet ID used for this IP Restriction.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
+
+
+@pulumi.output_type
+class GetFunctionAppSiteConfigScmIpRestrictionHeadersResult(dict):
+    def __init__(__self__, *,
+                 x_azure_fdids: Sequence[str],
+                 x_fd_health_probes: Sequence[str],
+                 x_forwarded_fors: Sequence[str],
+                 x_forwarded_hosts: Sequence[str]):
+        pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        pulumi.set(__self__, "x_fd_health_probes", x_fd_health_probes)
+        pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Sequence[str]:
+        return pulumi.get(self, "x_azure_fdids")
+
+    @property
+    @pulumi.getter(name="xFdHealthProbes")
+    def x_fd_health_probes(self) -> Sequence[str]:
+        return pulumi.get(self, "x_fd_health_probes")
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Sequence[str]:
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Sequence[str]:
+        return pulumi.get(self, "x_forwarded_hosts")
 
 
 @pulumi.output_type

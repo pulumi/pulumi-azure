@@ -46,6 +46,8 @@ __all__ = [
     'ExpressRouteCircuitPeeringIpv6MicrosoftPeering',
     'ExpressRouteCircuitPeeringMicrosoftPeeringConfig',
     'ExpressRouteCircuitSku',
+    'ExpressRouteConnectionRouting',
+    'ExpressRouteConnectionRoutingPropagatedRouteTable',
     'ExpressRoutePortIdentity',
     'ExpressRoutePortLink1',
     'ExpressRoutePortLink2',
@@ -3238,6 +3240,104 @@ class ExpressRouteCircuitSku(dict):
         The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class ExpressRouteConnectionRouting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associatedRouteTableId":
+            suggest = "associated_route_table_id"
+        elif key == "propagatedRouteTable":
+            suggest = "propagated_route_table"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRouteConnectionRouting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRouteConnectionRouting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRouteConnectionRouting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 associated_route_table_id: Optional[str] = None,
+                 propagated_route_table: Optional['outputs.ExpressRouteConnectionRoutingPropagatedRouteTable'] = None):
+        """
+        :param str associated_route_table_id: The ID of the Virtual Hub Route Table associated with this Express Route Connection.
+        :param 'ExpressRouteConnectionRoutingPropagatedRouteTableArgs' propagated_route_table: A `propagated_route_table` block as defined below.
+        """
+        if associated_route_table_id is not None:
+            pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
+        if propagated_route_table is not None:
+            pulumi.set(__self__, "propagated_route_table", propagated_route_table)
+
+    @property
+    @pulumi.getter(name="associatedRouteTableId")
+    def associated_route_table_id(self) -> Optional[str]:
+        """
+        The ID of the Virtual Hub Route Table associated with this Express Route Connection.
+        """
+        return pulumi.get(self, "associated_route_table_id")
+
+    @property
+    @pulumi.getter(name="propagatedRouteTable")
+    def propagated_route_table(self) -> Optional['outputs.ExpressRouteConnectionRoutingPropagatedRouteTable']:
+        """
+        A `propagated_route_table` block as defined below.
+        """
+        return pulumi.get(self, "propagated_route_table")
+
+
+@pulumi.output_type
+class ExpressRouteConnectionRoutingPropagatedRouteTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routeTableIds":
+            suggest = "route_table_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRouteConnectionRoutingPropagatedRouteTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRouteConnectionRoutingPropagatedRouteTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRouteConnectionRoutingPropagatedRouteTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 labels: Optional[Sequence[str]] = None,
+                 route_table_ids: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] labels: The list of labels to logically group route tables.
+        :param Sequence[str] route_table_ids: A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
+        """
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if route_table_ids is not None:
+            pulumi.set(__self__, "route_table_ids", route_table_ids)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Sequence[str]]:
+        """
+        The list of labels to logically group route tables.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="routeTableIds")
+    def route_table_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
+        """
+        return pulumi.get(self, "route_table_ids")
 
 
 @pulumi.output_type

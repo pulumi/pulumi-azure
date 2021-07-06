@@ -59,6 +59,10 @@ export class AssessmentMetadata extends pulumi.CustomResource {
     }
 
     /**
+     * A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+     */
+    public readonly categories!: pulumi.Output<string[]>;
+    /**
      * The description of the Security Center Assessment.
      */
     public readonly description!: pulumi.Output<string>;
@@ -104,6 +108,7 @@ export class AssessmentMetadata extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssessmentMetadataState | undefined;
+            inputs["categories"] = state ? state.categories : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["implementationEffort"] = state ? state.implementationEffort : undefined;
@@ -120,6 +125,7 @@ export class AssessmentMetadata extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
+            inputs["categories"] = args ? args.categories : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["implementationEffort"] = args ? args.implementationEffort : undefined;
@@ -140,6 +146,10 @@ export class AssessmentMetadata extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AssessmentMetadata resources.
  */
 export interface AssessmentMetadataState {
+    /**
+     * A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+     */
+    categories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The description of the Security Center Assessment.
      */
@@ -178,6 +188,10 @@ export interface AssessmentMetadataState {
  * The set of arguments for constructing a AssessmentMetadata resource.
  */
 export interface AssessmentMetadataArgs {
+    /**
+     * A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+     */
+    categories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The description of the Security Center Assessment.
      */

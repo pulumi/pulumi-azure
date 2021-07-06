@@ -11,6 +11,7 @@ import (
 )
 
 type Features struct {
+	CognitiveAccount       *FeaturesCognitiveAccount       `pulumi:"cognitiveAccount"`
 	KeyVault               *FeaturesKeyVault               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  *FeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
 	Network                *FeaturesNetwork                `pulumi:"network"`
@@ -31,6 +32,7 @@ type FeaturesInput interface {
 }
 
 type FeaturesArgs struct {
+	CognitiveAccount       FeaturesCognitiveAccountPtrInput       `pulumi:"cognitiveAccount"`
 	KeyVault               FeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  FeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
 	Network                FeaturesNetworkPtrInput                `pulumi:"network"`
@@ -65,6 +67,10 @@ func (o FeaturesOutput) ToFeaturesOutputWithContext(ctx context.Context) Feature
 	return o
 }
 
+func (o FeaturesOutput) CognitiveAccount() FeaturesCognitiveAccountPtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesCognitiveAccount { return v.CognitiveAccount }).(FeaturesCognitiveAccountPtrOutput)
+}
+
 func (o FeaturesOutput) KeyVault() FeaturesKeyVaultPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesKeyVault { return v.KeyVault }).(FeaturesKeyVaultPtrOutput)
 }
@@ -87,6 +93,132 @@ func (o FeaturesOutput) VirtualMachine() FeaturesVirtualMachinePtrOutput {
 
 func (o FeaturesOutput) VirtualMachineScaleSet() FeaturesVirtualMachineScaleSetPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesVirtualMachineScaleSet { return v.VirtualMachineScaleSet }).(FeaturesVirtualMachineScaleSetPtrOutput)
+}
+
+type FeaturesCognitiveAccount struct {
+	PurgeSoftDeleteOnDestroy *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+}
+
+// FeaturesCognitiveAccountInput is an input type that accepts FeaturesCognitiveAccountArgs and FeaturesCognitiveAccountOutput values.
+// You can construct a concrete instance of `FeaturesCognitiveAccountInput` via:
+//
+//          FeaturesCognitiveAccountArgs{...}
+type FeaturesCognitiveAccountInput interface {
+	pulumi.Input
+
+	ToFeaturesCognitiveAccountOutput() FeaturesCognitiveAccountOutput
+	ToFeaturesCognitiveAccountOutputWithContext(context.Context) FeaturesCognitiveAccountOutput
+}
+
+type FeaturesCognitiveAccountArgs struct {
+	PurgeSoftDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+}
+
+func (FeaturesCognitiveAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCognitiveAccount)(nil)).Elem()
+}
+
+func (i FeaturesCognitiveAccountArgs) ToFeaturesCognitiveAccountOutput() FeaturesCognitiveAccountOutput {
+	return i.ToFeaturesCognitiveAccountOutputWithContext(context.Background())
+}
+
+func (i FeaturesCognitiveAccountArgs) ToFeaturesCognitiveAccountOutputWithContext(ctx context.Context) FeaturesCognitiveAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCognitiveAccountOutput)
+}
+
+func (i FeaturesCognitiveAccountArgs) ToFeaturesCognitiveAccountPtrOutput() FeaturesCognitiveAccountPtrOutput {
+	return i.ToFeaturesCognitiveAccountPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCognitiveAccountArgs) ToFeaturesCognitiveAccountPtrOutputWithContext(ctx context.Context) FeaturesCognitiveAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCognitiveAccountOutput).ToFeaturesCognitiveAccountPtrOutputWithContext(ctx)
+}
+
+// FeaturesCognitiveAccountPtrInput is an input type that accepts FeaturesCognitiveAccountArgs, FeaturesCognitiveAccountPtr and FeaturesCognitiveAccountPtrOutput values.
+// You can construct a concrete instance of `FeaturesCognitiveAccountPtrInput` via:
+//
+//          FeaturesCognitiveAccountArgs{...}
+//
+//  or:
+//
+//          nil
+type FeaturesCognitiveAccountPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCognitiveAccountPtrOutput() FeaturesCognitiveAccountPtrOutput
+	ToFeaturesCognitiveAccountPtrOutputWithContext(context.Context) FeaturesCognitiveAccountPtrOutput
+}
+
+type featuresCognitiveAccountPtrType FeaturesCognitiveAccountArgs
+
+func FeaturesCognitiveAccountPtr(v *FeaturesCognitiveAccountArgs) FeaturesCognitiveAccountPtrInput {
+	return (*featuresCognitiveAccountPtrType)(v)
+}
+
+func (*featuresCognitiveAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCognitiveAccount)(nil)).Elem()
+}
+
+func (i *featuresCognitiveAccountPtrType) ToFeaturesCognitiveAccountPtrOutput() FeaturesCognitiveAccountPtrOutput {
+	return i.ToFeaturesCognitiveAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCognitiveAccountPtrType) ToFeaturesCognitiveAccountPtrOutputWithContext(ctx context.Context) FeaturesCognitiveAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCognitiveAccountPtrOutput)
+}
+
+type FeaturesCognitiveAccountOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCognitiveAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCognitiveAccount)(nil)).Elem()
+}
+
+func (o FeaturesCognitiveAccountOutput) ToFeaturesCognitiveAccountOutput() FeaturesCognitiveAccountOutput {
+	return o
+}
+
+func (o FeaturesCognitiveAccountOutput) ToFeaturesCognitiveAccountOutputWithContext(ctx context.Context) FeaturesCognitiveAccountOutput {
+	return o
+}
+
+func (o FeaturesCognitiveAccountOutput) ToFeaturesCognitiveAccountPtrOutput() FeaturesCognitiveAccountPtrOutput {
+	return o.ToFeaturesCognitiveAccountPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCognitiveAccountOutput) ToFeaturesCognitiveAccountPtrOutputWithContext(ctx context.Context) FeaturesCognitiveAccountPtrOutput {
+	return o.ApplyT(func(v FeaturesCognitiveAccount) *FeaturesCognitiveAccount {
+		return &v
+	}).(FeaturesCognitiveAccountPtrOutput)
+}
+func (o FeaturesCognitiveAccountOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesCognitiveAccount) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesCognitiveAccountPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCognitiveAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCognitiveAccount)(nil)).Elem()
+}
+
+func (o FeaturesCognitiveAccountPtrOutput) ToFeaturesCognitiveAccountPtrOutput() FeaturesCognitiveAccountPtrOutput {
+	return o
+}
+
+func (o FeaturesCognitiveAccountPtrOutput) ToFeaturesCognitiveAccountPtrOutputWithContext(ctx context.Context) FeaturesCognitiveAccountPtrOutput {
+	return o
+}
+
+func (o FeaturesCognitiveAccountPtrOutput) Elem() FeaturesCognitiveAccountOutput {
+	return o.ApplyT(func(v *FeaturesCognitiveAccount) FeaturesCognitiveAccount { return *v }).(FeaturesCognitiveAccountOutput)
+}
+
+func (o FeaturesCognitiveAccountPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesCognitiveAccount) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeSoftDeleteOnDestroy
+	}).(pulumi.BoolPtrOutput)
 }
 
 type FeaturesKeyVault struct {
@@ -907,6 +1039,8 @@ func (o FeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequired() pul
 
 func init() {
 	pulumi.RegisterOutputType(FeaturesOutput{})
+	pulumi.RegisterOutputType(FeaturesCognitiveAccountOutput{})
+	pulumi.RegisterOutputType(FeaturesCognitiveAccountPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesKeyVaultOutput{})
 	pulumi.RegisterOutputType(FeaturesKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesLogAnalyticsWorkspaceOutput{})

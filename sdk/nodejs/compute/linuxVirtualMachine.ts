@@ -215,7 +215,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly provisionVmAgent!: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      */
     public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
     /**
@@ -492,7 +492,7 @@ export interface LinuxVirtualMachineState {
      */
     provisionVmAgent?: pulumi.Input<boolean>;
     /**
-     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      */
     proximityPlacementGroupId?: pulumi.Input<string>;
     /**
@@ -646,7 +646,7 @@ export interface LinuxVirtualMachineArgs {
      */
     provisionVmAgent?: pulumi.Input<boolean>;
     /**
-     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      */
     proximityPlacementGroupId?: pulumi.Input<string>;
     /**

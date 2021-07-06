@@ -81,6 +81,8 @@ type Account struct {
 	PoolAllocationMode pulumi.StringPtrOutput `pulumi:"poolAllocationMode"`
 	// The Batch account primary access key.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+	// Whether public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Batch account secondary access key.
@@ -135,6 +137,8 @@ type accountState struct {
 	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
 	// The Batch account primary access key.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
+	// Whether public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Batch account secondary access key.
@@ -158,6 +162,8 @@ type AccountState struct {
 	PoolAllocationMode pulumi.StringPtrInput
 	// The Batch account primary access key.
 	PrimaryAccessKey pulumi.StringPtrInput
+	// Whether public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Batch account secondary access key.
@@ -181,6 +187,8 @@ type accountArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
+	// Whether public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
@@ -199,6 +207,8 @@ type AccountArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode pulumi.StringPtrInput
+	// Whether public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.

@@ -1935,8 +1935,12 @@ class KubernetesClusterDefaultNodePool(dict):
             suggest = "enable_host_encryption"
         elif key == "enableNodePublicIp":
             suggest = "enable_node_public_ip"
+        elif key == "fipsEnabled":
+            suggest = "fips_enabled"
         elif key == "kubeletConfig":
             suggest = "kubelet_config"
+        elif key == "kubeletDiskType":
+            suggest = "kubelet_disk_type"
         elif key == "linuxOsConfig":
             suggest = "linux_os_config"
         elif key == "maxCount":
@@ -1986,7 +1990,9 @@ class KubernetesClusterDefaultNodePool(dict):
                  enable_auto_scaling: Optional[bool] = None,
                  enable_host_encryption: Optional[bool] = None,
                  enable_node_public_ip: Optional[bool] = None,
+                 fips_enabled: Optional[bool] = None,
                  kubelet_config: Optional['outputs.KubernetesClusterDefaultNodePoolKubeletConfig'] = None,
+                 kubelet_disk_type: Optional[str] = None,
                  linux_os_config: Optional['outputs.KubernetesClusterDefaultNodePoolLinuxOsConfig'] = None,
                  max_count: Optional[int] = None,
                  max_pods: Optional[int] = None,
@@ -2011,7 +2017,9 @@ class KubernetesClusterDefaultNodePool(dict):
         :param bool enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         :param bool enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
         :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+        :param bool fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param 'KubernetesClusterDefaultNodePoolKubeletConfigArgs' kubelet_config: A `kubelet_config` block as defined below.
+        :param str kubelet_disk_type: The type of disk used by kubelet. At this time the only possible value is `OS`.
         :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs' linux_os_config: A `linux_os_config` block as defined below.
         :param int max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param int max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -2038,8 +2046,12 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if fips_enabled is not None:
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if kubelet_config is not None:
             pulumi.set(__self__, "kubelet_config", kubelet_config)
+        if kubelet_disk_type is not None:
+            pulumi.set(__self__, "kubelet_disk_type", kubelet_disk_type)
         if linux_os_config is not None:
             pulumi.set(__self__, "linux_os_config", linux_os_config)
         if max_count is not None:
@@ -2124,12 +2136,28 @@ class KubernetesClusterDefaultNodePool(dict):
         return pulumi.get(self, "enable_node_public_ip")
 
     @property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> Optional[bool]:
+        """
+        Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "fips_enabled")
+
+    @property
     @pulumi.getter(name="kubeletConfig")
     def kubelet_config(self) -> Optional['outputs.KubernetesClusterDefaultNodePoolKubeletConfig']:
         """
         A `kubelet_config` block as defined below.
         """
         return pulumi.get(self, "kubelet_config")
+
+    @property
+    @pulumi.getter(name="kubeletDiskType")
+    def kubelet_disk_type(self) -> Optional[str]:
+        """
+        The type of disk used by kubelet. At this time the only possible value is `OS`.
+        """
+        return pulumi.get(self, "kubelet_disk_type")
 
     @property
     @pulumi.getter(name="linuxOsConfig")
@@ -4589,14 +4617,18 @@ class KubernetesClusterWindowsProfile(dict):
 
     def __init__(__self__, *,
                  admin_username: str,
-                 admin_password: Optional[str] = None):
+                 admin_password: Optional[str] = None,
+                 license: Optional[str] = None):
         """
         :param str admin_username: The Admin Username for Windows VMs.
         :param str admin_password: The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
+        :param str license: Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
+        if license is not None:
+            pulumi.set(__self__, "license", license)
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -4613,6 +4645,14 @@ class KubernetesClusterWindowsProfile(dict):
         The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
         """
         return pulumi.get(self, "admin_password")
+
+    @property
+    @pulumi.getter
+    def license(self) -> Optional[str]:
+        """
+        Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
+        """
+        return pulumi.get(self, "license")
 
 
 @pulumi.output_type

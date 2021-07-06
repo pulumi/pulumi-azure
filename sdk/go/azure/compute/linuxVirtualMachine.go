@@ -87,7 +87,7 @@ type LinuxVirtualMachine struct {
 	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent pulumi.BoolPtrOutput `pulumi:"provisionVmAgent"`
-	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// The Primary Public IP Address assigned to this Virtual Machine.
 	PublicIpAddress pulumi.StringOutput `pulumi:"publicIpAddress"`
@@ -211,7 +211,7 @@ type linuxVirtualMachineState struct {
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
-	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The Primary Public IP Address assigned to this Virtual Machine.
 	PublicIpAddress *string `pulumi:"publicIpAddress"`
@@ -292,7 +292,7 @@ type LinuxVirtualMachineState struct {
 	PrivateIpAddresses pulumi.StringArrayInput
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent pulumi.BoolPtrInput
-	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The Primary Public IP Address assigned to this Virtual Machine.
 	PublicIpAddress pulumi.StringPtrInput
@@ -373,7 +373,7 @@ type linuxVirtualMachineArgs struct {
 	Priority *string `pulumi:"priority"`
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
-	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -445,7 +445,7 @@ type LinuxVirtualMachineArgs struct {
 	Priority pulumi.StringPtrInput
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent pulumi.BoolPtrInput
-	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

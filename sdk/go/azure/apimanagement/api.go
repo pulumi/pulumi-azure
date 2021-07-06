@@ -100,16 +100,22 @@ type Api struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Revision which used for this API.
 	Revision pulumi.StringOutput `pulumi:"revision"`
+	// The description of the Api Revision of the API Management API.
+	RevisionDescription pulumi.StringPtrOutput `pulumi:"revisionDescription"`
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
 	SoapPassThrough pulumi.BoolPtrOutput `pulumi:"soapPassThrough"`
+	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
+	SourceApiId pulumi.StringPtrOutput `pulumi:"sourceApiId"`
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesOutput `pulumi:"subscriptionKeyParameterNames"`
 	// Should this API require a subscription key?
 	SubscriptionRequired pulumi.BoolPtrOutput `pulumi:"subscriptionRequired"`
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringOutput `pulumi:"version"`
+	// The description of the Api Version of the API Management API.
+	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 	// The ID of the Version Set which this API is associated with.
 	VersionSetId pulumi.StringOutput `pulumi:"versionSetId"`
 }
@@ -123,15 +129,6 @@ func NewApi(ctx *pulumi.Context,
 
 	if args.ApiManagementName == nil {
 		return nil, errors.New("invalid value for required argument 'ApiManagementName'")
-	}
-	if args.DisplayName == nil {
-		return nil, errors.New("invalid value for required argument 'DisplayName'")
-	}
-	if args.Path == nil {
-		return nil, errors.New("invalid value for required argument 'Path'")
-	}
-	if args.Protocols == nil {
-		return nil, errors.New("invalid value for required argument 'Protocols'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -187,16 +184,22 @@ type apiState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Revision which used for this API.
 	Revision *string `pulumi:"revision"`
+	// The description of the Api Revision of the API Management API.
+	RevisionDescription *string `pulumi:"revisionDescription"`
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
 	SoapPassThrough *bool `pulumi:"soapPassThrough"`
+	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
+	SourceApiId *string `pulumi:"sourceApiId"`
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames *ApiSubscriptionKeyParameterNames `pulumi:"subscriptionKeyParameterNames"`
 	// Should this API require a subscription key?
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// The Version number of this API, if this API is versioned.
 	Version *string `pulumi:"version"`
+	// The description of the Api Version of the API Management API.
+	VersionDescription *string `pulumi:"versionDescription"`
 	// The ID of the Version Set which this API is associated with.
 	VersionSetId *string `pulumi:"versionSetId"`
 }
@@ -228,16 +231,22 @@ type ApiState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The Revision which used for this API.
 	Revision pulumi.StringPtrInput
+	// The description of the Api Revision of the API Management API.
+	RevisionDescription pulumi.StringPtrInput
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringPtrInput
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
 	SoapPassThrough pulumi.BoolPtrInput
+	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
+	SourceApiId pulumi.StringPtrInput
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesPtrInput
 	// Should this API require a subscription key?
 	SubscriptionRequired pulumi.BoolPtrInput
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringPtrInput
+	// The description of the Api Version of the API Management API.
+	VersionDescription pulumi.StringPtrInput
 	// The ID of the Version Set which this API is associated with.
 	VersionSetId pulumi.StringPtrInput
 }
@@ -252,7 +261,7 @@ type apiArgs struct {
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description *string `pulumi:"description"`
 	// The display name of the API.
-	DisplayName string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
 	// A `import` block as documented below.
 	Import *ApiImport `pulumi:"import"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
@@ -262,23 +271,29 @@ type apiArgs struct {
 	// An `openidAuthentication` block as documented below.
 	OpenidAuthentication *ApiOpenidAuthentication `pulumi:"openidAuthentication"`
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
-	Path string `pulumi:"path"`
+	Path *string `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
 	Protocols []string `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Revision which used for this API.
 	Revision string `pulumi:"revision"`
+	// The description of the Api Revision of the API Management API.
+	RevisionDescription *string `pulumi:"revisionDescription"`
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
 	SoapPassThrough *bool `pulumi:"soapPassThrough"`
+	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
+	SourceApiId *string `pulumi:"sourceApiId"`
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames *ApiSubscriptionKeyParameterNames `pulumi:"subscriptionKeyParameterNames"`
 	// Should this API require a subscription key?
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// The Version number of this API, if this API is versioned.
 	Version *string `pulumi:"version"`
+	// The description of the Api Version of the API Management API.
+	VersionDescription *string `pulumi:"versionDescription"`
 	// The ID of the Version Set which this API is associated with.
 	VersionSetId *string `pulumi:"versionSetId"`
 }
@@ -290,7 +305,7 @@ type ApiArgs struct {
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description pulumi.StringPtrInput
 	// The display name of the API.
-	DisplayName pulumi.StringInput
+	DisplayName pulumi.StringPtrInput
 	// A `import` block as documented below.
 	Import ApiImportPtrInput
 	// The name of the API Management API. Changing this forces a new resource to be created.
@@ -300,23 +315,29 @@ type ApiArgs struct {
 	// An `openidAuthentication` block as documented below.
 	OpenidAuthentication ApiOpenidAuthenticationPtrInput
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
-	Path pulumi.StringInput
+	Path pulumi.StringPtrInput
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
 	Protocols pulumi.StringArrayInput
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The Revision which used for this API.
 	Revision pulumi.StringInput
+	// The description of the Api Revision of the API Management API.
+	RevisionDescription pulumi.StringPtrInput
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringPtrInput
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
 	SoapPassThrough pulumi.BoolPtrInput
+	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
+	SourceApiId pulumi.StringPtrInput
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesPtrInput
 	// Should this API require a subscription key?
 	SubscriptionRequired pulumi.BoolPtrInput
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringPtrInput
+	// The description of the Api Version of the API Management API.
+	VersionDescription pulumi.StringPtrInput
 	// The ID of the Version Set which this API is associated with.
 	VersionSetId pulumi.StringPtrInput
 }

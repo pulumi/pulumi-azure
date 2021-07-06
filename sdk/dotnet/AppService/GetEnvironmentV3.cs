@@ -78,9 +78,17 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The location where the App Service Environment exists.
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
         /// The name of the Cluster Setting.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Pricing tier for the front end instances.
+        /// </summary>
+        public readonly string PricingTier;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The ID of the v3 App Service Environment Subnet.
@@ -97,7 +105,11 @@ namespace Pulumi.Azure.AppService
 
             string id,
 
+            string location,
+
             string name,
+
+            string pricingTier,
 
             string resourceGroupName,
 
@@ -107,7 +119,9 @@ namespace Pulumi.Azure.AppService
         {
             ClusterSettings = clusterSettings;
             Id = id;
+            Location = location;
             Name = name;
+            PricingTier = pricingTier;
             ResourceGroupName = resourceGroupName;
             SubnetId = subnetId;
             Tags = tags;

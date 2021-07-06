@@ -47,6 +47,12 @@ namespace Pulumi.Azure.SecurityCenter
     public partial class AssessmentMetadata : Pulumi.CustomResource
     {
         /// <summary>
+        /// A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+        /// </summary>
+        [Output("categories")]
+        public Output<ImmutableArray<string>> Categories { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the Security Center Assessment.
         /// </summary>
         [Output("description")]
@@ -140,6 +146,18 @@ namespace Pulumi.Azure.SecurityCenter
 
     public sealed class AssessmentMetadataArgs : Pulumi.ResourceArgs
     {
+        [Input("categories")]
+        private InputList<string>? _categories;
+
+        /// <summary>
+        /// A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+        /// </summary>
+        public InputList<string> Categories
+        {
+            get => _categories ?? (_categories = new InputList<string>());
+            set => _categories = value;
+        }
+
         /// <summary>
         /// The description of the Security Center Assessment.
         /// </summary>
@@ -195,6 +213,18 @@ namespace Pulumi.Azure.SecurityCenter
 
     public sealed class AssessmentMetadataState : Pulumi.ResourceArgs
     {
+        [Input("categories")]
+        private InputList<string>? _categories;
+
+        /// <summary>
+        /// A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+        /// </summary>
+        public InputList<string> Categories
+        {
+            get => _categories ?? (_categories = new InputList<string>());
+            set => _categories = value;
+        }
+
         /// <summary>
         /// The description of the Security Center Assessment.
         /// </summary>

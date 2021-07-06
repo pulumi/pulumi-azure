@@ -23,16 +23,23 @@ __all__ = [
     'EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs',
     'EventSubscriptionAdvancedFilterArgs',
     'EventSubscriptionAdvancedFilterBoolEqualArgs',
+    'EventSubscriptionAdvancedFilterIsNotNullArgs',
+    'EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs',
     'EventSubscriptionAdvancedFilterNumberGreaterThanArgs',
     'EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs',
     'EventSubscriptionAdvancedFilterNumberInArgs',
+    'EventSubscriptionAdvancedFilterNumberInRangeArgs',
     'EventSubscriptionAdvancedFilterNumberLessThanArgs',
     'EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs',
     'EventSubscriptionAdvancedFilterNumberNotInArgs',
+    'EventSubscriptionAdvancedFilterNumberNotInRangeArgs',
     'EventSubscriptionAdvancedFilterStringBeginsWithArgs',
     'EventSubscriptionAdvancedFilterStringContainArgs',
     'EventSubscriptionAdvancedFilterStringEndsWithArgs',
     'EventSubscriptionAdvancedFilterStringInArgs',
+    'EventSubscriptionAdvancedFilterStringNotBeginsWithArgs',
+    'EventSubscriptionAdvancedFilterStringNotContainArgs',
+    'EventSubscriptionAdvancedFilterStringNotEndsWithArgs',
     'EventSubscriptionAdvancedFilterStringNotInArgs',
     'EventSubscriptionAzureFunctionEndpointArgs',
     'EventSubscriptionEventhubEndpointArgs',
@@ -808,43 +815,65 @@ class EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs:
 class EventSubscriptionAdvancedFilterArgs:
     def __init__(__self__, *,
                  bool_equals: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]]] = None,
+                 is_not_nulls: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]]] = None,
+                 is_null_or_undefineds: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]] = None,
                  number_greater_than_or_equals: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs']]]] = None,
                  number_greater_thans: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgs']]]] = None,
+                 number_in_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]]] = None,
                  number_ins: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInArgs']]]] = None,
                  number_less_than_or_equals: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs']]]] = None,
                  number_less_thans: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgs']]]] = None,
+                 number_not_in_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgs']]]] = None,
                  number_not_ins: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInArgs']]]] = None,
                  string_begins_withs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringBeginsWithArgs']]]] = None,
                  string_contains: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringContainArgs']]]] = None,
                  string_ends_withs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringEndsWithArgs']]]] = None,
                  string_ins: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringInArgs']]]] = None,
+                 string_not_begins_withs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs']]]] = None,
+                 string_not_contains: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]]] = None,
+                 string_not_ends_withs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]]] = None,
                  string_not_ins: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]] bool_equals: Compares a value of an event using a single boolean value.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]] is_not_nulls: Evaluates if a value of an event isn't NULL or undefined.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]] is_null_or_undefineds: Evaluates if a value of an event is NULL or undefined.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs']]] number_greater_than_or_equals: Compares a value of an event using a single floating point number.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgs']]] number_greater_thans: Compares a value of an event using a single floating point number.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]] number_in_ranges: Compares a value of an event using multiple floating point number ranges.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInArgs']]] number_ins: Compares a value of an event using multiple floating point numbers.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs']]] number_less_than_or_equals: Compares a value of an event using a single floating point number.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgs']]] number_less_thans: Compares a value of an event using a single floating point number.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgs']]] number_not_in_ranges: Compares a value of an event using multiple floating point number ranges.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInArgs']]] number_not_ins: Compares a value of an event using multiple floating point numbers.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringBeginsWithArgs']]] string_begins_withs: Compares a value of an event using multiple string values.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringContainArgs']]] string_contains: Compares a value of an event using multiple string values.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringEndsWithArgs']]] string_ends_withs: Compares a value of an event using multiple string values.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringInArgs']]] string_ins: Compares a value of an event using multiple string values.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs']]] string_not_begins_withs: Compares a value of an event using multiple string values.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]] string_not_contains: Compares a value of an event using multiple string values.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]] string_not_ends_withs: Compares a value of an event using multiple string values.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]] string_not_ins: Compares a value of an event using multiple string values.
         """
         if bool_equals is not None:
             pulumi.set(__self__, "bool_equals", bool_equals)
+        if is_not_nulls is not None:
+            pulumi.set(__self__, "is_not_nulls", is_not_nulls)
+        if is_null_or_undefineds is not None:
+            pulumi.set(__self__, "is_null_or_undefineds", is_null_or_undefineds)
         if number_greater_than_or_equals is not None:
             pulumi.set(__self__, "number_greater_than_or_equals", number_greater_than_or_equals)
         if number_greater_thans is not None:
             pulumi.set(__self__, "number_greater_thans", number_greater_thans)
+        if number_in_ranges is not None:
+            pulumi.set(__self__, "number_in_ranges", number_in_ranges)
         if number_ins is not None:
             pulumi.set(__self__, "number_ins", number_ins)
         if number_less_than_or_equals is not None:
             pulumi.set(__self__, "number_less_than_or_equals", number_less_than_or_equals)
         if number_less_thans is not None:
             pulumi.set(__self__, "number_less_thans", number_less_thans)
+        if number_not_in_ranges is not None:
+            pulumi.set(__self__, "number_not_in_ranges", number_not_in_ranges)
         if number_not_ins is not None:
             pulumi.set(__self__, "number_not_ins", number_not_ins)
         if string_begins_withs is not None:
@@ -855,6 +884,12 @@ class EventSubscriptionAdvancedFilterArgs:
             pulumi.set(__self__, "string_ends_withs", string_ends_withs)
         if string_ins is not None:
             pulumi.set(__self__, "string_ins", string_ins)
+        if string_not_begins_withs is not None:
+            pulumi.set(__self__, "string_not_begins_withs", string_not_begins_withs)
+        if string_not_contains is not None:
+            pulumi.set(__self__, "string_not_contains", string_not_contains)
+        if string_not_ends_withs is not None:
+            pulumi.set(__self__, "string_not_ends_withs", string_not_ends_withs)
         if string_not_ins is not None:
             pulumi.set(__self__, "string_not_ins", string_not_ins)
 
@@ -869,6 +904,30 @@ class EventSubscriptionAdvancedFilterArgs:
     @bool_equals.setter
     def bool_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]]]):
         pulumi.set(self, "bool_equals", value)
+
+    @property
+    @pulumi.getter(name="isNotNulls")
+    def is_not_nulls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]]]:
+        """
+        Evaluates if a value of an event isn't NULL or undefined.
+        """
+        return pulumi.get(self, "is_not_nulls")
+
+    @is_not_nulls.setter
+    def is_not_nulls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]]]):
+        pulumi.set(self, "is_not_nulls", value)
+
+    @property
+    @pulumi.getter(name="isNullOrUndefineds")
+    def is_null_or_undefineds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]]:
+        """
+        Evaluates if a value of an event is NULL or undefined.
+        """
+        return pulumi.get(self, "is_null_or_undefineds")
+
+    @is_null_or_undefineds.setter
+    def is_null_or_undefineds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]]):
+        pulumi.set(self, "is_null_or_undefineds", value)
 
     @property
     @pulumi.getter(name="numberGreaterThanOrEquals")
@@ -893,6 +952,18 @@ class EventSubscriptionAdvancedFilterArgs:
     @number_greater_thans.setter
     def number_greater_thans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgs']]]]):
         pulumi.set(self, "number_greater_thans", value)
+
+    @property
+    @pulumi.getter(name="numberInRanges")
+    def number_in_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]]]:
+        """
+        Compares a value of an event using multiple floating point number ranges.
+        """
+        return pulumi.get(self, "number_in_ranges")
+
+    @number_in_ranges.setter
+    def number_in_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]]]):
+        pulumi.set(self, "number_in_ranges", value)
 
     @property
     @pulumi.getter(name="numberIns")
@@ -929,6 +1000,18 @@ class EventSubscriptionAdvancedFilterArgs:
     @number_less_thans.setter
     def number_less_thans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgs']]]]):
         pulumi.set(self, "number_less_thans", value)
+
+    @property
+    @pulumi.getter(name="numberNotInRanges")
+    def number_not_in_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgs']]]]:
+        """
+        Compares a value of an event using multiple floating point number ranges.
+        """
+        return pulumi.get(self, "number_not_in_ranges")
+
+    @number_not_in_ranges.setter
+    def number_not_in_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgs']]]]):
+        pulumi.set(self, "number_not_in_ranges", value)
 
     @property
     @pulumi.getter(name="numberNotIns")
@@ -991,6 +1074,42 @@ class EventSubscriptionAdvancedFilterArgs:
         pulumi.set(self, "string_ins", value)
 
     @property
+    @pulumi.getter(name="stringNotBeginsWiths")
+    def string_not_begins_withs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs']]]]:
+        """
+        Compares a value of an event using multiple string values.
+        """
+        return pulumi.get(self, "string_not_begins_withs")
+
+    @string_not_begins_withs.setter
+    def string_not_begins_withs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs']]]]):
+        pulumi.set(self, "string_not_begins_withs", value)
+
+    @property
+    @pulumi.getter(name="stringNotContains")
+    def string_not_contains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]]]:
+        """
+        Compares a value of an event using multiple string values.
+        """
+        return pulumi.get(self, "string_not_contains")
+
+    @string_not_contains.setter
+    def string_not_contains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]]]):
+        pulumi.set(self, "string_not_contains", value)
+
+    @property
+    @pulumi.getter(name="stringNotEndsWiths")
+    def string_not_ends_withs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]]]:
+        """
+        Compares a value of an event using multiple string values.
+        """
+        return pulumi.get(self, "string_not_ends_withs")
+
+    @string_not_ends_withs.setter
+    def string_not_ends_withs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]]]):
+        pulumi.set(self, "string_not_ends_withs", value)
+
+    @property
     @pulumi.getter(name="stringNotIns")
     def string_not_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]]]:
         """
@@ -1038,6 +1157,50 @@ class EventSubscriptionAdvancedFilterBoolEqualArgs:
     @value.setter
     def value(self, value: pulumi.Input[bool]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EventSubscriptionAdvancedFilterIsNotNullArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
+class EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
 
 
 @pulumi.input_type
@@ -1152,6 +1315,43 @@ class EventSubscriptionAdvancedFilterNumberInArgs:
 
 
 @pulumi.input_type
+class EventSubscriptionAdvancedFilterNumberInRangeArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: Specifies an array of values to compare to when using a multiple values operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
 class EventSubscriptionAdvancedFilterNumberLessThanArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -1259,6 +1459,43 @@ class EventSubscriptionAdvancedFilterNumberNotInArgs:
 
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[float]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class EventSubscriptionAdvancedFilterNumberNotInRangeArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: Specifies an array of values to compare to when using a multiple values operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1375,6 +1612,117 @@ class EventSubscriptionAdvancedFilterStringEndsWithArgs:
 
 @pulumi.input_type
 class EventSubscriptionAdvancedFilterStringInArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class EventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class EventSubscriptionAdvancedFilterStringNotContainArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class EventSubscriptionAdvancedFilterStringNotEndsWithArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):

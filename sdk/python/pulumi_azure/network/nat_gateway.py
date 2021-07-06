@@ -29,7 +29,7 @@ class NatGatewayArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_address_ids: A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_prefix_ids: A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_prefix_ids: / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
@@ -42,10 +42,13 @@ class NatGatewayArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_ip_address_ids is not None:
-            warnings.warn("""Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_ip_address_ids is deprecated: Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""")
+            warnings.warn("""Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
+            pulumi.log.warn("""public_ip_address_ids is deprecated: Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""")
         if public_ip_address_ids is not None:
             pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
+        if public_ip_prefix_ids is not None:
+            warnings.warn("""Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
+            pulumi.log.warn("""public_ip_prefix_ids is deprecated: Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""")
         if public_ip_prefix_ids is not None:
             pulumi.set(__self__, "public_ip_prefix_ids", public_ip_prefix_ids)
         if sku_name is not None:
@@ -119,7 +122,7 @@ class NatGatewayArgs:
     @pulumi.getter(name="publicIpPrefixIds")
     def public_ip_prefix_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+        / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         """
         return pulumi.get(self, "public_ip_prefix_ids")
 
@@ -183,7 +186,7 @@ class _NatGatewayState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_address_ids: A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_prefix_ids: A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_prefix_ids: / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the NAT Gateway.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
@@ -197,10 +200,13 @@ class _NatGatewayState:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_ip_address_ids is not None:
-            warnings.warn("""Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_ip_address_ids is deprecated: Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""")
+            warnings.warn("""Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
+            pulumi.log.warn("""public_ip_address_ids is deprecated: Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""")
         if public_ip_address_ids is not None:
             pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
+        if public_ip_prefix_ids is not None:
+            warnings.warn("""Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
+            pulumi.log.warn("""public_ip_prefix_ids is deprecated: Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""")
         if public_ip_prefix_ids is not None:
             pulumi.set(__self__, "public_ip_prefix_ids", public_ip_prefix_ids)
         if resource_group_name is not None:
@@ -266,7 +272,7 @@ class _NatGatewayState:
     @pulumi.getter(name="publicIpPrefixIds")
     def public_ip_prefix_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+        / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         """
         return pulumi.get(self, "public_ip_prefix_ids")
 
@@ -395,7 +401,7 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_address_ids: A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_prefix_ids: A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_prefix_ids: / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
@@ -486,9 +492,12 @@ class NatGateway(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if public_ip_address_ids is not None and not opts.urn:
-                warnings.warn("""Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
-                pulumi.log.warn("""public_ip_address_ids is deprecated: Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""")
+                warnings.warn("""Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
+                pulumi.log.warn("""public_ip_address_ids is deprecated: Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""")
             __props__.__dict__["public_ip_address_ids"] = public_ip_address_ids
+            if public_ip_prefix_ids is not None and not opts.urn:
+                warnings.warn("""Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
+                pulumi.log.warn("""public_ip_prefix_ids is deprecated: Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.""")
             __props__.__dict__["public_ip_prefix_ids"] = public_ip_prefix_ids
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -528,7 +537,7 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_address_ids: A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_prefix_ids: A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_prefix_ids: / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the NAT Gateway.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
@@ -585,9 +594,9 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpPrefixIds")
-    def public_ip_prefix_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def public_ip_prefix_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+        / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         """
         return pulumi.get(self, "public_ip_prefix_ids")
 

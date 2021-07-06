@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IntegrationRuntimeSelfHosted{}
 	case "azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis":
 		r = &IntegrationRuntimeSsis{}
+	case "azure:datafactory/linkedCustomService:LinkedCustomService":
+		r = &LinkedCustomService{}
 	case "azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage":
 		r = &LinkedServiceAzureBlobStorage{}
 	case "azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks":
@@ -91,6 +93,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinkedServiceWeb{}
 	case "azure:datafactory/pipeline:Pipeline":
 		r = &Pipeline{}
+	case "azure:datafactory/triggerBlobEvent:TriggerBlobEvent":
+		r = &TriggerBlobEvent{}
 	case "azure:datafactory/triggerSchedule:TriggerSchedule":
 		r = &TriggerSchedule{}
 	default:
@@ -179,6 +183,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/integrationRuntimeSsis",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/linkedCustomService",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -279,6 +288,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/pipeline",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/triggerBlobEvent",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

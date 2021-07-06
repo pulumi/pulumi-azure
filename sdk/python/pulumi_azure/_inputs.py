@@ -10,6 +10,7 @@ from . import _utilities
 
 __all__ = [
     'ProviderFeaturesArgs',
+    'ProviderFeaturesCognitiveAccountArgs',
     'ProviderFeaturesKeyVaultArgs',
     'ProviderFeaturesLogAnalyticsWorkspaceArgs',
     'ProviderFeaturesNetworkArgs',
@@ -21,12 +22,15 @@ __all__ = [
 @pulumi.input_type
 class ProviderFeaturesArgs:
     def __init__(__self__, *,
+                 cognitive_account: Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArgs']] = None,
                  key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']] = None,
                  log_analytics_workspace: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']] = None,
                  network: Optional[pulumi.Input['ProviderFeaturesNetworkArgs']] = None,
                  template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
                  virtual_machine: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']] = None,
                  virtual_machine_scale_set: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']] = None):
+        if cognitive_account is not None:
+            pulumi.set(__self__, "cognitive_account", cognitive_account)
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
         if log_analytics_workspace is not None:
@@ -39,6 +43,15 @@ class ProviderFeaturesArgs:
             pulumi.set(__self__, "virtual_machine", virtual_machine)
         if virtual_machine_scale_set is not None:
             pulumi.set(__self__, "virtual_machine_scale_set", virtual_machine_scale_set)
+
+    @property
+    @pulumi.getter(name="cognitiveAccount")
+    def cognitive_account(self) -> Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArgs']]:
+        return pulumi.get(self, "cognitive_account")
+
+    @cognitive_account.setter
+    def cognitive_account(self, value: Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArgs']]):
+        pulumi.set(self, "cognitive_account", value)
 
     @property
     @pulumi.getter(name="keyVault")
@@ -93,6 +106,23 @@ class ProviderFeaturesArgs:
     @virtual_machine_scale_set.setter
     def virtual_machine_scale_set(self, value: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']]):
         pulumi.set(self, "virtual_machine_scale_set", value)
+
+
+@pulumi.input_type
+class ProviderFeaturesCognitiveAccountArgs:
+    def __init__(__self__, *,
+                 purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None):
+        if purge_soft_delete_on_destroy is not None:
+            pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
+
+    @property
+    @pulumi.getter(name="purgeSoftDeleteOnDestroy")
+    def purge_soft_delete_on_destroy(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "purge_soft_delete_on_destroy")
+
+    @purge_soft_delete_on_destroy.setter
+    def purge_soft_delete_on_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "purge_soft_delete_on_destroy", value)
 
 
 @pulumi.input_type

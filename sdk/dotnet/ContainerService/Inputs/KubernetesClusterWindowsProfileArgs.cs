@@ -24,6 +24,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("adminUsername", required: true)]
         public Input<string> AdminUsername { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
+        /// </summary>
+        [Input("license")]
+        public Input<string>? License { get; set; }
+
         public KubernetesClusterWindowsProfileArgs()
         {
         }

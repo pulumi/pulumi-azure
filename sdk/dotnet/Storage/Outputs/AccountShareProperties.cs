@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AccountSharePropertiesCorsRule> CorsRules;
         /// <summary>
-        /// (Optional) A `retention_policy` block as defined below.
+        /// A `retention_policy` block as defined below.
         /// </summary>
         public readonly Outputs.AccountSharePropertiesRetentionPolicy? RetentionPolicy;
         /// <summary>
-        /// (Optional) A `smb` block as defined below.
+        /// A `smb` block as defined below.
         /// </summary>
         public readonly Outputs.AccountSharePropertiesSmb? Smb;
 

@@ -56,8 +56,12 @@ type LookupEnvironmentV3Result struct {
 	ClusterSettings []GetEnvironmentV3ClusterSetting `pulumi:"clusterSettings"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The location where the App Service Environment exists.
+	Location string `pulumi:"location"`
 	// The name of the Cluster Setting.
-	Name              string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Pricing tier for the front end instances.
+	PricingTier       string `pulumi:"pricingTier"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the v3 App Service Environment Subnet.
 	SubnetId string `pulumi:"subnetId"`

@@ -30,9 +30,17 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? EnableNodePublicIp;
         /// <summary>
+        /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly bool? FipsEnabled;
+        /// <summary>
         /// A `kubelet_config` block as defined below.
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolKubeletConfig? KubeletConfig;
+        /// <summary>
+        /// The type of disk used by kubelet. At this time the only possible value is `OS`.
+        /// </summary>
+        public readonly string? KubeletDiskType;
         /// <summary>
         /// A `linux_os_config` block as defined below.
         /// </summary>
@@ -114,7 +122,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool? enableNodePublicIp,
 
+            bool? fipsEnabled,
+
             Outputs.KubernetesClusterDefaultNodePoolKubeletConfig? kubeletConfig,
+
+            string? kubeletDiskType,
 
             Outputs.KubernetesClusterDefaultNodePoolLinuxOsConfig? linuxOsConfig,
 
@@ -158,7 +170,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
             EnableAutoScaling = enableAutoScaling;
             EnableHostEncryption = enableHostEncryption;
             EnableNodePublicIp = enableNodePublicIp;
+            FipsEnabled = fipsEnabled;
             KubeletConfig = kubeletConfig;
+            KubeletDiskType = kubeletDiskType;
             LinuxOsConfig = linuxOsConfig;
             MaxCount = maxCount;
             MaxPods = maxPods;

@@ -23,14 +23,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:core/customProvider:CustomProvider":
 		r = &CustomProvider{}
+	case "azure:core/portalTenantConfiguration:PortalTenantConfiguration":
+		r = &PortalTenantConfiguration{}
 	case "azure:core/resourceGroup:ResourceGroup":
 		r = &ResourceGroup{}
+	case "azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment":
+		r = &ResourceGroupPolicyAssignment{}
 	case "azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment":
 		r = &ResourceGroupTemplateDeployment{}
+	case "azure:core/resourcePolicyAssignment:ResourcePolicyAssignment":
+		r = &ResourcePolicyAssignment{}
 	case "azure:core/resourceProviderRegistration:ResourceProviderRegistration":
 		r = &ResourceProviderRegistration{}
 	case "azure:core/subscription:Subscription":
 		r = &Subscription{}
+	case "azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment":
+		r = &SubscriptionPolicyAssignment{}
 	case "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment":
 		r = &SubscriptionTemplateDeployment{}
 	case "azure:core/templateDeployment:TemplateDeployment":
@@ -57,12 +65,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"core/portalTenantConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"core/resourceGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"core/resourceGroupPolicyAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"core/resourceGroupTemplateDeployment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"core/resourcePolicyAssignment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -73,6 +96,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"core/subscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"core/subscriptionPolicyAssignment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

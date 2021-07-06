@@ -15,64 +15,51 @@ __all__ = ['ExpressRouteCircuitArgs', 'ExpressRouteCircuit']
 @pulumi.input_type
 class ExpressRouteCircuitArgs:
     def __init__(__self__, *,
-                 bandwidth_in_mbps: pulumi.Input[int],
-                 peering_location: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 service_provider_name: pulumi.Input[str],
                  sku: pulumi.Input['ExpressRouteCircuitSkuArgs'],
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
+                 bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
+                 express_route_port_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 peering_location: Optional[pulumi.Input[str]] = None,
+                 service_provider_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ExpressRouteCircuit resource.
-        :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created.
-        :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider.
         :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: A `sku` block for the ExpressRoute circuit as documented below.
-        :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+        :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
+        :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
+        :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
+        :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "bandwidth_in_mbps", bandwidth_in_mbps)
-        pulumi.set(__self__, "peering_location", peering_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_provider_name", service_provider_name)
         pulumi.set(__self__, "sku", sku)
         if allow_classic_operations is not None:
             pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
+        if bandwidth_in_gbps is not None:
+            pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+        if bandwidth_in_mbps is not None:
+            pulumi.set(__self__, "bandwidth_in_mbps", bandwidth_in_mbps)
+        if express_route_port_id is not None:
+            pulumi.set(__self__, "express_route_port_id", express_route_port_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if peering_location is not None:
+            pulumi.set(__self__, "peering_location", peering_location)
+        if service_provider_name is not None:
+            pulumi.set(__self__, "service_provider_name", service_provider_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="bandwidthInMbps")
-    def bandwidth_in_mbps(self) -> pulumi.Input[int]:
-        """
-        The bandwidth in Mbps of the circuit being created.
-        """
-        return pulumi.get(self, "bandwidth_in_mbps")
-
-    @bandwidth_in_mbps.setter
-    def bandwidth_in_mbps(self, value: pulumi.Input[int]):
-        pulumi.set(self, "bandwidth_in_mbps", value)
-
-    @property
-    @pulumi.getter(name="peeringLocation")
-    def peering_location(self) -> pulumi.Input[str]:
-        """
-        The name of the peering location and **not** the Azure resource location.
-        """
-        return pulumi.get(self, "peering_location")
-
-    @peering_location.setter
-    def peering_location(self, value: pulumi.Input[str]):
-        pulumi.set(self, "peering_location", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -85,18 +72,6 @@ class ExpressRouteCircuitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="serviceProviderName")
-    def service_provider_name(self) -> pulumi.Input[str]:
-        """
-        The name of the ExpressRoute Service Provider.
-        """
-        return pulumi.get(self, "service_provider_name")
-
-    @service_provider_name.setter
-    def service_provider_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "service_provider_name", value)
 
     @property
     @pulumi.getter
@@ -114,7 +89,7 @@ class ExpressRouteCircuitArgs:
     @pulumi.getter(name="allowClassicOperations")
     def allow_classic_operations(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+        Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         """
         return pulumi.get(self, "allow_classic_operations")
 
@@ -123,116 +98,40 @@ class ExpressRouteCircuitArgs:
         pulumi.set(self, "allow_classic_operations", value)
 
     @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="bandwidthInGbps")
+    def bandwidth_in_gbps(self) -> Optional[pulumi.Input[float]]:
         """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        The bandwidth in Gbps of the circuit being created on the Express Route Port.
         """
-        return pulumi.get(self, "location")
+        return pulumi.get(self, "bandwidth_in_gbps")
 
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-
-@pulumi.input_type
-class _ExpressRouteCircuitState:
-    def __init__(__self__, *,
-                 allow_classic_operations: Optional[pulumi.Input[bool]] = None,
-                 bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 peering_location: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_key: Optional[pulumi.Input[str]] = None,
-                 service_provider_name: Optional[pulumi.Input[str]] = None,
-                 service_provider_provisioning_state: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        Input properties used for looking up and filtering ExpressRouteCircuit resources.
-        :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
-        :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] service_key: The string needed by the service provider to provision the ExpressRoute circuit.
-        :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider.
-        :param pulumi.Input[str] service_provider_provisioning_state: The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
-        :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: A `sku` block for the ExpressRoute circuit as documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        """
-        if allow_classic_operations is not None:
-            pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
-        if bandwidth_in_mbps is not None:
-            pulumi.set(__self__, "bandwidth_in_mbps", bandwidth_in_mbps)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if peering_location is not None:
-            pulumi.set(__self__, "peering_location", peering_location)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if service_key is not None:
-            pulumi.set(__self__, "service_key", service_key)
-        if service_provider_name is not None:
-            pulumi.set(__self__, "service_provider_name", service_provider_name)
-        if service_provider_provisioning_state is not None:
-            pulumi.set(__self__, "service_provider_provisioning_state", service_provider_provisioning_state)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="allowClassicOperations")
-    def allow_classic_operations(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
-        """
-        return pulumi.get(self, "allow_classic_operations")
-
-    @allow_classic_operations.setter
-    def allow_classic_operations(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_operations", value)
+    @bandwidth_in_gbps.setter
+    def bandwidth_in_gbps(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "bandwidth_in_gbps", value)
 
     @property
     @pulumi.getter(name="bandwidthInMbps")
     def bandwidth_in_mbps(self) -> Optional[pulumi.Input[int]]:
         """
-        The bandwidth in Mbps of the circuit being created.
+        The bandwidth in Mbps of the circuit being created on the Service Provider.
         """
         return pulumi.get(self, "bandwidth_in_mbps")
 
     @bandwidth_in_mbps.setter
     def bandwidth_in_mbps(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "bandwidth_in_mbps", value)
+
+    @property
+    @pulumi.getter(name="expressRoutePortId")
+    def express_route_port_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Express Route Port this Express Route Circuit is based on.
+        """
+        return pulumi.get(self, "express_route_port_id")
+
+    @express_route_port_id.setter
+    def express_route_port_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "express_route_port_id", value)
 
     @property
     @pulumi.getter
@@ -262,7 +161,175 @@ class _ExpressRouteCircuitState:
     @pulumi.getter(name="peeringLocation")
     def peering_location(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the peering location and **not** the Azure resource location.
+        The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "peering_location")
+
+    @peering_location.setter
+    def peering_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "peering_location", value)
+
+    @property
+    @pulumi.getter(name="serviceProviderName")
+    def service_provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "service_provider_name")
+
+    @service_provider_name.setter
+    def service_provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_provider_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _ExpressRouteCircuitState:
+    def __init__(__self__, *,
+                 allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
+                 bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
+                 express_route_port_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peering_location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_key: Optional[pulumi.Input[str]] = None,
+                 service_provider_name: Optional[pulumi.Input[str]] = None,
+                 service_provider_provisioning_state: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ExpressRouteCircuit resources.
+        :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
+        :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
+        :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
+        :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_key: The string needed by the service provider to provision the ExpressRoute circuit.
+        :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_provider_provisioning_state: The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+        :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: A `sku` block for the ExpressRoute circuit as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if allow_classic_operations is not None:
+            pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
+        if bandwidth_in_gbps is not None:
+            pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+        if bandwidth_in_mbps is not None:
+            pulumi.set(__self__, "bandwidth_in_mbps", bandwidth_in_mbps)
+        if express_route_port_id is not None:
+            pulumi.set(__self__, "express_route_port_id", express_route_port_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if peering_location is not None:
+            pulumi.set(__self__, "peering_location", peering_location)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if service_key is not None:
+            pulumi.set(__self__, "service_key", service_key)
+        if service_provider_name is not None:
+            pulumi.set(__self__, "service_provider_name", service_provider_name)
+        if service_provider_provisioning_state is not None:
+            pulumi.set(__self__, "service_provider_provisioning_state", service_provider_provisioning_state)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="allowClassicOperations")
+    def allow_classic_operations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_classic_operations")
+
+    @allow_classic_operations.setter
+    def allow_classic_operations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_classic_operations", value)
+
+    @property
+    @pulumi.getter(name="bandwidthInGbps")
+    def bandwidth_in_gbps(self) -> Optional[pulumi.Input[float]]:
+        """
+        The bandwidth in Gbps of the circuit being created on the Express Route Port.
+        """
+        return pulumi.get(self, "bandwidth_in_gbps")
+
+    @bandwidth_in_gbps.setter
+    def bandwidth_in_gbps(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "bandwidth_in_gbps", value)
+
+    @property
+    @pulumi.getter(name="bandwidthInMbps")
+    def bandwidth_in_mbps(self) -> Optional[pulumi.Input[int]]:
+        """
+        The bandwidth in Mbps of the circuit being created on the Service Provider.
+        """
+        return pulumi.get(self, "bandwidth_in_mbps")
+
+    @bandwidth_in_mbps.setter
+    def bandwidth_in_mbps(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "bandwidth_in_mbps", value)
+
+    @property
+    @pulumi.getter(name="expressRoutePortId")
+    def express_route_port_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Express Route Port this Express Route Circuit is based on.
+        """
+        return pulumi.get(self, "express_route_port_id")
+
+    @express_route_port_id.setter
+    def express_route_port_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "express_route_port_id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="peeringLocation")
+    def peering_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "peering_location")
 
@@ -298,7 +365,7 @@ class _ExpressRouteCircuitState:
     @pulumi.getter(name="serviceProviderName")
     def service_provider_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the ExpressRoute Service Provider.
+        The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_provider_name")
 
@@ -349,7 +416,9 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
+                 express_route_port_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_location: Optional[pulumi.Input[str]] = None,
@@ -393,13 +462,15 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
-        :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created.
+        :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
+        :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
+        :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
+        :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location.
+        :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider.
+        :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -458,7 +529,9 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
+                 express_route_port_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_location: Optional[pulumi.Input[str]] = None,
@@ -479,19 +552,15 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__ = ExpressRouteCircuitArgs.__new__(ExpressRouteCircuitArgs)
 
             __props__.__dict__["allow_classic_operations"] = allow_classic_operations
-            if bandwidth_in_mbps is None and not opts.urn:
-                raise TypeError("Missing required property 'bandwidth_in_mbps'")
+            __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
             __props__.__dict__["bandwidth_in_mbps"] = bandwidth_in_mbps
+            __props__.__dict__["express_route_port_id"] = express_route_port_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if peering_location is None and not opts.urn:
-                raise TypeError("Missing required property 'peering_location'")
             __props__.__dict__["peering_location"] = peering_location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if service_provider_name is None and not opts.urn:
-                raise TypeError("Missing required property 'service_provider_name'")
             __props__.__dict__["service_provider_name"] = service_provider_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
@@ -510,7 +579,9 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+            bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
             bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
+            express_route_port_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             peering_location: Optional[pulumi.Input[str]] = None,
@@ -527,14 +598,16 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
-        :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created.
+        :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
+        :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
+        :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
+        :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location.
+        :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_key: The string needed by the service provider to provision the ExpressRoute circuit.
-        :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider.
+        :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_provider_provisioning_state: The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -544,7 +617,9 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         __props__ = _ExpressRouteCircuitState.__new__(_ExpressRouteCircuitState)
 
         __props__.__dict__["allow_classic_operations"] = allow_classic_operations
+        __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
         __props__.__dict__["bandwidth_in_mbps"] = bandwidth_in_mbps
+        __props__.__dict__["express_route_port_id"] = express_route_port_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["peering_location"] = peering_location
@@ -560,17 +635,33 @@ class ExpressRouteCircuit(pulumi.CustomResource):
     @pulumi.getter(name="allowClassicOperations")
     def allow_classic_operations(self) -> pulumi.Output[Optional[bool]]:
         """
-        Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+        Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         """
         return pulumi.get(self, "allow_classic_operations")
 
     @property
-    @pulumi.getter(name="bandwidthInMbps")
-    def bandwidth_in_mbps(self) -> pulumi.Output[int]:
+    @pulumi.getter(name="bandwidthInGbps")
+    def bandwidth_in_gbps(self) -> pulumi.Output[Optional[float]]:
         """
-        The bandwidth in Mbps of the circuit being created.
+        The bandwidth in Gbps of the circuit being created on the Express Route Port.
+        """
+        return pulumi.get(self, "bandwidth_in_gbps")
+
+    @property
+    @pulumi.getter(name="bandwidthInMbps")
+    def bandwidth_in_mbps(self) -> pulumi.Output[Optional[int]]:
+        """
+        The bandwidth in Mbps of the circuit being created on the Service Provider.
         """
         return pulumi.get(self, "bandwidth_in_mbps")
+
+    @property
+    @pulumi.getter(name="expressRoutePortId")
+    def express_route_port_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Express Route Port this Express Route Circuit is based on.
+        """
+        return pulumi.get(self, "express_route_port_id")
 
     @property
     @pulumi.getter
@@ -590,9 +681,9 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peeringLocation")
-    def peering_location(self) -> pulumi.Output[str]:
+    def peering_location(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the peering location and **not** the Azure resource location.
+        The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "peering_location")
 
@@ -614,9 +705,9 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceProviderName")
-    def service_provider_name(self) -> pulumi.Output[str]:
+    def service_provider_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the ExpressRoute Service Provider.
+        The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_provider_name")
 

@@ -11,7 +11,9 @@ from .bgp_connection import *
 from .ddos_protection_plan import *
 from .express_route_circuit import *
 from .express_route_circuit_authorization import *
+from .express_route_circuit_connection import *
 from .express_route_circuit_peering import *
+from .express_route_connection import *
 from .express_route_gateway import *
 from .express_route_port import *
 from .firewall import *
@@ -49,6 +51,7 @@ from .ip_group import *
 from .local_network_gateway import *
 from .nat_gateway import *
 from .nat_gateway_public_ip_association import *
+from .nat_gateway_public_ip_prefix_association import *
 from .network_connection_monitor import *
 from .network_interface import *
 from .network_interface_application_gateway_backend_address_pool_association import *

@@ -24,6 +24,30 @@ namespace Pulumi.Azure.EventGrid.Inputs
             set => _boolEquals = value;
         }
 
+        [Input("isNotNulls")]
+        private InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterIsNotNullArgs>? _isNotNulls;
+
+        /// <summary>
+        /// Evaluates if a value of an event isn't NULL or undefined.
+        /// </summary>
+        public InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterIsNotNullArgs> IsNotNulls
+        {
+            get => _isNotNulls ?? (_isNotNulls = new InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterIsNotNullArgs>());
+            set => _isNotNulls = value;
+        }
+
+        [Input("isNullOrUndefineds")]
+        private InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArgs>? _isNullOrUndefineds;
+
+        /// <summary>
+        /// Evaluates if a value of an event is NULL or undefined.
+        /// </summary>
+        public InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArgs> IsNullOrUndefineds
+        {
+            get => _isNullOrUndefineds ?? (_isNullOrUndefineds = new InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArgs>());
+            set => _isNullOrUndefineds = value;
+        }
+
         [Input("numberGreaterThanOrEquals")]
         private InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs>? _numberGreaterThanOrEquals;
 
@@ -46,6 +70,18 @@ namespace Pulumi.Azure.EventGrid.Inputs
         {
             get => _numberGreaterThans ?? (_numberGreaterThans = new InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs>());
             set => _numberGreaterThans = value;
+        }
+
+        [Input("numberInRanges")]
+        private InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArgs>? _numberInRanges;
+
+        /// <summary>
+        /// Compares a value of an event using multiple floating point number ranges.
+        /// </summary>
+        public InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArgs> NumberInRanges
+        {
+            get => _numberInRanges ?? (_numberInRanges = new InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArgs>());
+            set => _numberInRanges = value;
         }
 
         [Input("numberIns")]
@@ -82,6 +118,18 @@ namespace Pulumi.Azure.EventGrid.Inputs
         {
             get => _numberLessThans ?? (_numberLessThans = new InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs>());
             set => _numberLessThans = value;
+        }
+
+        [Input("numberNotInRanges")]
+        private InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArgs>? _numberNotInRanges;
+
+        /// <summary>
+        /// Compares a value of an event using multiple floating point number ranges.
+        /// </summary>
+        public InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArgs> NumberNotInRanges
+        {
+            get => _numberNotInRanges ?? (_numberNotInRanges = new InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArgs>());
+            set => _numberNotInRanges = value;
         }
 
         [Input("numberNotIns")]
@@ -142,6 +190,42 @@ namespace Pulumi.Azure.EventGrid.Inputs
         {
             get => _stringIns ?? (_stringIns = new InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterStringInArgs>());
             set => _stringIns = value;
+        }
+
+        [Input("stringNotBeginsWiths")]
+        private InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArgs>? _stringNotBeginsWiths;
+
+        /// <summary>
+        /// Compares a value of an event using multiple string values.
+        /// </summary>
+        public InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArgs> StringNotBeginsWiths
+        {
+            get => _stringNotBeginsWiths ?? (_stringNotBeginsWiths = new InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArgs>());
+            set => _stringNotBeginsWiths = value;
+        }
+
+        [Input("stringNotContains")]
+        private InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterStringNotContainArgs>? _stringNotContains;
+
+        /// <summary>
+        /// Compares a value of an event using multiple string values.
+        /// </summary>
+        public InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterStringNotContainArgs> StringNotContains
+        {
+            get => _stringNotContains ?? (_stringNotContains = new InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterStringNotContainArgs>());
+            set => _stringNotContains = value;
+        }
+
+        [Input("stringNotEndsWiths")]
+        private InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArgs>? _stringNotEndsWiths;
+
+        /// <summary>
+        /// Compares a value of an event using multiple string values.
+        /// </summary>
+        public InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArgs> StringNotEndsWiths
+        {
+            get => _stringNotEndsWiths ?? (_stringNotEndsWiths = new InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArgs>());
+            set => _stringNotEndsWiths = value;
         }
 
         [Input("stringNotIns")]

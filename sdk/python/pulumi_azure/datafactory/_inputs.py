@@ -37,6 +37,7 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfoArgs',
     'IntegrationRuntimeSsisCustomSetupScriptArgs',
     'IntegrationRuntimeSsisVnetIntegrationArgs',
+    'LinkedCustomServiceIntegrationRuntimeArgs',
     'LinkedServiceAzureDatabricksInstancePoolArgs',
     'LinkedServiceAzureDatabricksKeyVaultPasswordArgs',
     'LinkedServiceAzureDatabricksNewClusterConfigArgs',
@@ -48,6 +49,7 @@ __all__ = [
     'LinkedServiceSqlServerKeyVaultConnectionStringArgs',
     'LinkedServiceSqlServerKeyVaultPasswordArgs',
     'LinkedServiceSynapseKeyVaultPasswordArgs',
+    'TriggerBlobEventPipelineArgs',
 ]
 
 @pulumi.input_type
@@ -1568,6 +1570,44 @@ class IntegrationRuntimeSsisVnetIntegrationArgs:
 
 
 @pulumi.input_type
+class LinkedCustomServiceIntegrationRuntimeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: The integration runtime reference to associate with the Data Factory Linked Service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the integration runtime.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The integration runtime reference to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of parameters to associate with the integration runtime.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class LinkedServiceAzureDatabricksInstancePoolArgs:
     def __init__(__self__, *,
                  cluster_version: pulumi.Input[str],
@@ -2132,5 +2172,43 @@ class LinkedServiceSynapseKeyVaultPasswordArgs:
     @secret_name.setter
     def secret_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_name", value)
+
+
+@pulumi.input_type
+class TriggerBlobEventPipelineArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: The Data Factory Pipeline name that the trigger will act on.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The Data Factory Pipeline parameters that the trigger will act on.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The Data Factory Pipeline name that the trigger will act on.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The Data Factory Pipeline parameters that the trigger will act on.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
 
 

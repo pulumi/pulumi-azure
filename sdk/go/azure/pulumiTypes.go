@@ -11,6 +11,7 @@ import (
 )
 
 type ProviderFeatures struct {
+	CognitiveAccount       *ProviderFeaturesCognitiveAccount       `pulumi:"cognitiveAccount"`
 	KeyVault               *ProviderFeaturesKeyVault               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  *ProviderFeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
 	Network                *ProviderFeaturesNetwork                `pulumi:"network"`
@@ -31,6 +32,7 @@ type ProviderFeaturesInput interface {
 }
 
 type ProviderFeaturesArgs struct {
+	CognitiveAccount       ProviderFeaturesCognitiveAccountPtrInput       `pulumi:"cognitiveAccount"`
 	KeyVault               ProviderFeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  ProviderFeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
 	Network                ProviderFeaturesNetworkPtrInput                `pulumi:"network"`
@@ -115,6 +117,10 @@ func (o ProviderFeaturesOutput) ToProviderFeaturesPtrOutputWithContext(ctx conte
 		return &v
 	}).(ProviderFeaturesPtrOutput)
 }
+func (o ProviderFeaturesOutput) CognitiveAccount() ProviderFeaturesCognitiveAccountPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesCognitiveAccount { return v.CognitiveAccount }).(ProviderFeaturesCognitiveAccountPtrOutput)
+}
+
 func (o ProviderFeaturesOutput) KeyVault() ProviderFeaturesKeyVaultPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesKeyVault { return v.KeyVault }).(ProviderFeaturesKeyVaultPtrOutput)
 }
@@ -155,6 +161,15 @@ func (o ProviderFeaturesPtrOutput) ToProviderFeaturesPtrOutputWithContext(ctx co
 
 func (o ProviderFeaturesPtrOutput) Elem() ProviderFeaturesOutput {
 	return o.ApplyT(func(v *ProviderFeatures) ProviderFeatures { return *v }).(ProviderFeaturesOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) CognitiveAccount() ProviderFeaturesCognitiveAccountPtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesCognitiveAccount {
+		if v == nil {
+			return nil
+		}
+		return v.CognitiveAccount
+	}).(ProviderFeaturesCognitiveAccountPtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) KeyVault() ProviderFeaturesKeyVaultPtrOutput {
@@ -209,6 +224,132 @@ func (o ProviderFeaturesPtrOutput) VirtualMachineScaleSet() ProviderFeaturesVirt
 		}
 		return v.VirtualMachineScaleSet
 	}).(ProviderFeaturesVirtualMachineScaleSetPtrOutput)
+}
+
+type ProviderFeaturesCognitiveAccount struct {
+	PurgeSoftDeleteOnDestroy *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+}
+
+// ProviderFeaturesCognitiveAccountInput is an input type that accepts ProviderFeaturesCognitiveAccountArgs and ProviderFeaturesCognitiveAccountOutput values.
+// You can construct a concrete instance of `ProviderFeaturesCognitiveAccountInput` via:
+//
+//          ProviderFeaturesCognitiveAccountArgs{...}
+type ProviderFeaturesCognitiveAccountInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesCognitiveAccountOutput() ProviderFeaturesCognitiveAccountOutput
+	ToProviderFeaturesCognitiveAccountOutputWithContext(context.Context) ProviderFeaturesCognitiveAccountOutput
+}
+
+type ProviderFeaturesCognitiveAccountArgs struct {
+	PurgeSoftDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+}
+
+func (ProviderFeaturesCognitiveAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesCognitiveAccount)(nil)).Elem()
+}
+
+func (i ProviderFeaturesCognitiveAccountArgs) ToProviderFeaturesCognitiveAccountOutput() ProviderFeaturesCognitiveAccountOutput {
+	return i.ToProviderFeaturesCognitiveAccountOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesCognitiveAccountArgs) ToProviderFeaturesCognitiveAccountOutputWithContext(ctx context.Context) ProviderFeaturesCognitiveAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesCognitiveAccountOutput)
+}
+
+func (i ProviderFeaturesCognitiveAccountArgs) ToProviderFeaturesCognitiveAccountPtrOutput() ProviderFeaturesCognitiveAccountPtrOutput {
+	return i.ToProviderFeaturesCognitiveAccountPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesCognitiveAccountArgs) ToProviderFeaturesCognitiveAccountPtrOutputWithContext(ctx context.Context) ProviderFeaturesCognitiveAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesCognitiveAccountOutput).ToProviderFeaturesCognitiveAccountPtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesCognitiveAccountPtrInput is an input type that accepts ProviderFeaturesCognitiveAccountArgs, ProviderFeaturesCognitiveAccountPtr and ProviderFeaturesCognitiveAccountPtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesCognitiveAccountPtrInput` via:
+//
+//          ProviderFeaturesCognitiveAccountArgs{...}
+//
+//  or:
+//
+//          nil
+type ProviderFeaturesCognitiveAccountPtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesCognitiveAccountPtrOutput() ProviderFeaturesCognitiveAccountPtrOutput
+	ToProviderFeaturesCognitiveAccountPtrOutputWithContext(context.Context) ProviderFeaturesCognitiveAccountPtrOutput
+}
+
+type providerFeaturesCognitiveAccountPtrType ProviderFeaturesCognitiveAccountArgs
+
+func ProviderFeaturesCognitiveAccountPtr(v *ProviderFeaturesCognitiveAccountArgs) ProviderFeaturesCognitiveAccountPtrInput {
+	return (*providerFeaturesCognitiveAccountPtrType)(v)
+}
+
+func (*providerFeaturesCognitiveAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesCognitiveAccount)(nil)).Elem()
+}
+
+func (i *providerFeaturesCognitiveAccountPtrType) ToProviderFeaturesCognitiveAccountPtrOutput() ProviderFeaturesCognitiveAccountPtrOutput {
+	return i.ToProviderFeaturesCognitiveAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesCognitiveAccountPtrType) ToProviderFeaturesCognitiveAccountPtrOutputWithContext(ctx context.Context) ProviderFeaturesCognitiveAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesCognitiveAccountPtrOutput)
+}
+
+type ProviderFeaturesCognitiveAccountOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesCognitiveAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesCognitiveAccount)(nil)).Elem()
+}
+
+func (o ProviderFeaturesCognitiveAccountOutput) ToProviderFeaturesCognitiveAccountOutput() ProviderFeaturesCognitiveAccountOutput {
+	return o
+}
+
+func (o ProviderFeaturesCognitiveAccountOutput) ToProviderFeaturesCognitiveAccountOutputWithContext(ctx context.Context) ProviderFeaturesCognitiveAccountOutput {
+	return o
+}
+
+func (o ProviderFeaturesCognitiveAccountOutput) ToProviderFeaturesCognitiveAccountPtrOutput() ProviderFeaturesCognitiveAccountPtrOutput {
+	return o.ToProviderFeaturesCognitiveAccountPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesCognitiveAccountOutput) ToProviderFeaturesCognitiveAccountPtrOutputWithContext(ctx context.Context) ProviderFeaturesCognitiveAccountPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesCognitiveAccount) *ProviderFeaturesCognitiveAccount {
+		return &v
+	}).(ProviderFeaturesCognitiveAccountPtrOutput)
+}
+func (o ProviderFeaturesCognitiveAccountOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesCognitiveAccount) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesCognitiveAccountPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesCognitiveAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesCognitiveAccount)(nil)).Elem()
+}
+
+func (o ProviderFeaturesCognitiveAccountPtrOutput) ToProviderFeaturesCognitiveAccountPtrOutput() ProviderFeaturesCognitiveAccountPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesCognitiveAccountPtrOutput) ToProviderFeaturesCognitiveAccountPtrOutputWithContext(ctx context.Context) ProviderFeaturesCognitiveAccountPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesCognitiveAccountPtrOutput) Elem() ProviderFeaturesCognitiveAccountOutput {
+	return o.ApplyT(func(v *ProviderFeaturesCognitiveAccount) ProviderFeaturesCognitiveAccount { return *v }).(ProviderFeaturesCognitiveAccountOutput)
+}
+
+func (o ProviderFeaturesCognitiveAccountPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesCognitiveAccount) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeSoftDeleteOnDestroy
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ProviderFeaturesKeyVault struct {
@@ -1030,6 +1171,8 @@ func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequir
 func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesCognitiveAccountOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesCognitiveAccountPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesLogAnalyticsWorkspaceOutput{})

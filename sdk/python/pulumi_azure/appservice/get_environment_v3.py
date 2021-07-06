@@ -20,16 +20,22 @@ class GetEnvironmentV3Result:
     """
     A collection of values returned by getEnvironmentV3.
     """
-    def __init__(__self__, cluster_settings=None, id=None, name=None, resource_group_name=None, subnet_id=None, tags=None):
+    def __init__(__self__, cluster_settings=None, id=None, location=None, name=None, pricing_tier=None, resource_group_name=None, subnet_id=None, tags=None):
         if cluster_settings and not isinstance(cluster_settings, list):
             raise TypeError("Expected argument 'cluster_settings' to be a list")
         pulumi.set(__self__, "cluster_settings", cluster_settings)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if pricing_tier and not isinstance(pricing_tier, str):
+            raise TypeError("Expected argument 'pricing_tier' to be a str")
+        pulumi.set(__self__, "pricing_tier", pricing_tier)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -58,11 +64,27 @@ class GetEnvironmentV3Result:
 
     @property
     @pulumi.getter
+    def location(self) -> str:
+        """
+        The location where the App Service Environment exists.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the Cluster Setting.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pricingTier")
+    def pricing_tier(self) -> str:
+        """
+        Pricing tier for the front end instances.
+        """
+        return pulumi.get(self, "pricing_tier")
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -94,7 +116,9 @@ class AwaitableGetEnvironmentV3Result(GetEnvironmentV3Result):
         return GetEnvironmentV3Result(
             cluster_settings=self.cluster_settings,
             id=self.id,
+            location=self.location,
             name=self.name,
+            pricing_tier=self.pricing_tier,
             resource_group_name=self.resource_group_name,
             subnet_id=self.subnet_id,
             tags=self.tags)
@@ -133,7 +157,9 @@ def get_environment_v3(name: Optional[str] = None,
     return AwaitableGetEnvironmentV3Result(
         cluster_settings=__ret__.cluster_settings,
         id=__ret__.id,
+        location=__ret__.location,
         name=__ret__.name,
+        pricing_tier=__ret__.pricing_tier,
         resource_group_name=__ret__.resource_group_name,
         subnet_id=__ret__.subnet_id,
         tags=__ret__.tags)

@@ -23,10 +23,10 @@ import (
 	"unicode"
 
 	"github.com/Azure/go-autorest/autorest/azure/cli"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/pulumi/pulumi-azure/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -231,7 +231,7 @@ func detectCloudShell() cloudShellProfile {
 //
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
-	p := shimv1.NewProvider(azurerm.Provider().(*schema.Provider))
+	p := shimv2.NewProvider(azurerm.Provider())
 
 	// Adjust the defaults if running in Azure Cloud Shell.
 	// Environment variables still take preference, e.g. USE_MSI=false disables the MSI endpoint.
@@ -284,7 +284,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		ExtraConfig: map[string]*tfbridge.ConfigInfo{
 			azureLocation: {
-				Schema: shimv1.NewSchema(&schema.Schema{
+				Schema: shimv2.NewSchema(&schema.Schema{
 					Type:     schema.TypeString,
 					Optional: true,
 				}),
@@ -357,6 +357,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_identity_provider_aadb2c":    {Tok: azureResource(azureAPIManagement, "IdentityProviderAadb2c")},
 			"azurerm_api_management_email_template":              {Tok: azureResource(azureAPIManagement, "EmailTemplate")},
 			"azurerm_api_management_redis_cache":                 {Tok: azureResource(azureAPIManagement, "RedisCache")},
+			"azurerm_api_management_api_operation_tag":           {Tok: azureResource(azureAPIManagement, "ApiOperationTag")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -600,11 +601,15 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_template_deployment":                {Tok: azureResource(azureCore, "TemplateDeployment")},
 			"azurerm_resource_group_template_deployment": {Tok: azureResource(azureCore, "ResourceGroupTemplateDeployment")},
+			"azurerm_resource_group_policy_assignment":   {Tok: azureResource(azureCore, "ResourceGroupPolicyAssignment")},
+			"azurerm_resource_policy_assignment":         {Tok: azureResource(azureCore, "ResourcePolicyAssignment")},
 			"azurerm_subscription_template_deployment":   {Tok: azureResource(azureCore, "SubscriptionTemplateDeployment")},
 			"azurerm_custom_provider":                    {Tok: azureResource(azureCore, "CustomProvider")},
 			"azurerm_resource_provider_registration":     {Tok: azureResource(azureCore, "ResourceProviderRegistration")},
 			"azurerm_subscription":                       {Tok: azureResource(azureCore, "Subscription")},
+			"azurerm_subscription_policy_assignment":     {Tok: azureResource(azureCore, "SubscriptionPolicyAssignment")},
 			"azurerm_tenant_template_deployment":         {Tok: azureResource(azureCore, "TenantTemplateDeployment")},
+			"azurerm_portal_tenant_configuration":        {Tok: azureResource(azureCore, "PortalTenantConfiguration")},
 
 			// CDN
 			"azurerm_cdn_endpoint": {Tok: azureResource(azureCDN, "Endpoint")},
@@ -789,6 +794,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_linked_service_azure_search":     {Tok: azureResource(azureDataFactory, "LinkedServiceAzureSearch")},
 			"azurerm_data_factory_linked_service_kusto":            {Tok: azureResource(azureDataFactory, "LinkedServiceKusto")},
 			"azurerm_data_factory_linked_service_odata":            {Tok: azureResource(azureDataFactory, "LinkedServiceOdata")},
+			"azurerm_data_factory_linked_custom_service":           {Tok: azureResource(azureDataFactory, "LinkedCustomService")},
+			"azurerm_data_factory_trigger_blob_event":              {Tok: azureResource(azureDataFactory, "TriggerBlobEvent")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":          {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -799,8 +806,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_lake_store_virtual_network_rule": {Tok: azureResource(azureDatalake, "StoreVirtualNetworkRule")},
 
 			// Data Protection
-			"azurerm_data_protection_backup_vault":             {Tok: azureResource(azureDataProtection, "BackupVault")},
-			"azurerm_data_protection_backup_policy_postgresql": {Tok: azureResource(azureDataProtection, "BackupPolicyPostgresql")},
+			"azurerm_data_protection_backup_vault":               {Tok: azureResource(azureDataProtection, "BackupVault")},
+			"azurerm_data_protection_backup_policy_postgresql":   {Tok: azureResource(azureDataProtection, "BackupPolicyPostgresql")},
+			"azurerm_data_protection_backup_instance_postgresql": {Tok: azureResource(azureDataProtection, "BackupInstancePostgresql")},
 
 			// DataShare
 			"azurerm_data_share_account": {Tok: azureResource(azureDataShare, "Account")},
@@ -1389,6 +1397,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_subnet_network_security_group_association": {Tok: azureResource(azureNetwork, "SubnetNetworkSecurityGroupAssociation")},
 			"azurerm_subnet_route_table_association":            {Tok: azureResource(azureNetwork, "SubnetRouteTableAssociation")},
 			"azurerm_express_route_circuit":                     {Tok: azureResource(azureNetwork, "ExpressRouteCircuit")},
+			"azurerm_express_route_circuit_connection":          {Tok: azureResource(azureNetwork, "ExpressRouteCircuitConnection")},
+			"azurerm_express_route_connection":                  {Tok: azureResource(azureNetwork, "ExpressRouteConnection")},
 			"azurerm_express_route_circuit_authorization": {Tok: azureResource(azureNetwork, "ExpressRouteCircuitAuthorization"),
 				Docs: &tfbridge.DocInfo{
 					Source: "express_route_circuit_authorization.html.markdown",
@@ -1401,6 +1411,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_express_route_gateway": {Tok: azureResource(azureNetwork, "ExpressRouteGateway")},
 			"azurerm_nat_gateway":           {Tok: azureResource(azureNetwork, "NatGateway")},
+			"azurerm_nat_gateway_public_ip_prefix_association": {
+				Tok: azureResource(azureNetwork, "NatGatewayPublicIpPrefixAssociation"),
+			},
 			"azurerm_nat_gateway_public_ip_association": {
 				Tok: azureResource(azureNetwork, "NatGatewayPublicIpAssociation"),
 			},
@@ -1712,10 +1725,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iotcentral_application": {Tok: azureResource(azureIotCentral, "Application")},
 
 			// HPC
-			"azurerm_hpc_cache":               {Tok: azureResource(azureHpc, "Cache")},
-			"azurerm_hpc_cache_blob_target":   {Tok: azureResource(azureHpc, "CacheBlobTarget")},
-			"azurerm_hpc_cache_nfs_target":    {Tok: azureResource(azureHpc, "CacheNfsTarget")},
-			"azurerm_hpc_cache_access_policy": {Tok: azureResource(azureHpc, "CacheAccessPolicy")},
+			"azurerm_hpc_cache":                 {Tok: azureResource(azureHpc, "Cache")},
+			"azurerm_hpc_cache_blob_target":     {Tok: azureResource(azureHpc, "CacheBlobTarget")},
+			"azurerm_hpc_cache_nfs_target":      {Tok: azureResource(azureHpc, "CacheNfsTarget")},
+			"azurerm_hpc_cache_blob_nfs_target": {Tok: azureResource(azureHpc, "CacheBlobNfsTarget")},
+			"azurerm_hpc_cache_access_policy":   {Tok: azureResource(azureHpc, "CacheAccessPolicy")},
 
 			// Mixed Reality
 			"azurerm_spatial_anchors_account": {Tok: azureResource(azureMixedReality, "SpatialAnchorsAccount")},
@@ -1840,6 +1854,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Management
 			"azurerm_management_group_template_deployment":      {Tok: azureResource(azureManagement, "GroupTemplateDeployment")},
 			"azurerm_management_group_subscription_association": {Tok: azureResource(azureManagement, "GroupSubscriptionAssociation")},
+			"azurerm_management_group_policy_assignment":        {Tok: azureResource(azureManagement, "GroupPolicyAssignment")},
 
 			// communication
 			"azurerm_communication_service": {Tok: azureResource(azureCommunication, "Service")},

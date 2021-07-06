@@ -163,7 +163,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.compute.WindowsVirtualMachineIdentity | undefined>;
     /**
-     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
@@ -215,7 +215,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly provisionVmAgent!: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      */
     public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
     /**
@@ -461,7 +461,7 @@ export interface WindowsVirtualMachineState {
      */
     identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineIdentity>;
     /**
-     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
     licenseType?: pulumi.Input<string>;
     /**
@@ -513,7 +513,7 @@ export interface WindowsVirtualMachineState {
      */
     provisionVmAgent?: pulumi.Input<boolean>;
     /**
-     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      */
     proximityPlacementGroupId?: pulumi.Input<string>;
     /**
@@ -635,7 +635,7 @@ export interface WindowsVirtualMachineArgs {
      */
     identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineIdentity>;
     /**
-     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
     licenseType?: pulumi.Input<string>;
     /**
@@ -679,7 +679,7 @@ export interface WindowsVirtualMachineArgs {
      */
     provisionVmAgent?: pulumi.Input<boolean>;
     /**
-     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      */
     proximityPlacementGroupId?: pulumi.Input<string>;
     /**

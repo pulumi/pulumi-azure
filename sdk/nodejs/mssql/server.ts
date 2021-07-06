@@ -123,7 +123,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     * Whether public network access is allowed for this server. Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -255,7 +255,7 @@ export interface ServerState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     * Whether public network access is allowed for this server. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -319,7 +319,7 @@ export interface ServerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     * Whether public network access is allowed for this server. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

@@ -68,13 +68,21 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     }
 
     /**
-     * Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+     * Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
      */
     public readonly allowClassicOperations!: pulumi.Output<boolean | undefined>;
     /**
-     * The bandwidth in Mbps of the circuit being created.
+     * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      */
-    public readonly bandwidthInMbps!: pulumi.Output<number>;
+    public readonly bandwidthInGbps!: pulumi.Output<number | undefined>;
+    /**
+     * The bandwidth in Mbps of the circuit being created on the Service Provider.
+     */
+    public readonly bandwidthInMbps!: pulumi.Output<number | undefined>;
+    /**
+     * The ID of the Express Route Port this Express Route Circuit is based on.
+     */
+    public readonly expressRoutePortId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -84,9 +92,9 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the peering location and **not** the Azure resource location.
+     * The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
      */
-    public readonly peeringLocation!: pulumi.Output<string>;
+    public readonly peeringLocation!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
@@ -96,9 +104,9 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceKey!: pulumi.Output<string>;
     /**
-     * The name of the ExpressRoute Service Provider.
+     * The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
      */
-    public readonly serviceProviderName!: pulumi.Output<string>;
+    public readonly serviceProviderName!: pulumi.Output<string | undefined>;
     /**
      * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
      */
@@ -126,7 +134,9 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ExpressRouteCircuitState | undefined;
             inputs["allowClassicOperations"] = state ? state.allowClassicOperations : undefined;
+            inputs["bandwidthInGbps"] = state ? state.bandwidthInGbps : undefined;
             inputs["bandwidthInMbps"] = state ? state.bandwidthInMbps : undefined;
+            inputs["expressRoutePortId"] = state ? state.expressRoutePortId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["peeringLocation"] = state ? state.peeringLocation : undefined;
@@ -138,23 +148,16 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ExpressRouteCircuitArgs | undefined;
-            if ((!args || args.bandwidthInMbps === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'bandwidthInMbps'");
-            }
-            if ((!args || args.peeringLocation === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'peeringLocation'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.serviceProviderName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serviceProviderName'");
             }
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
+            inputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
             inputs["bandwidthInMbps"] = args ? args.bandwidthInMbps : undefined;
+            inputs["expressRoutePortId"] = args ? args.expressRoutePortId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["peeringLocation"] = args ? args.peeringLocation : undefined;
@@ -177,13 +180,21 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
  */
 export interface ExpressRouteCircuitState {
     /**
-     * Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+     * Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
      */
     allowClassicOperations?: pulumi.Input<boolean>;
     /**
-     * The bandwidth in Mbps of the circuit being created.
+     * The bandwidth in Gbps of the circuit being created on the Express Route Port.
+     */
+    bandwidthInGbps?: pulumi.Input<number>;
+    /**
+     * The bandwidth in Mbps of the circuit being created on the Service Provider.
      */
     bandwidthInMbps?: pulumi.Input<number>;
+    /**
+     * The ID of the Express Route Port this Express Route Circuit is based on.
+     */
+    expressRoutePortId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -193,7 +204,7 @@ export interface ExpressRouteCircuitState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the peering location and **not** the Azure resource location.
+     * The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
      */
     peeringLocation?: pulumi.Input<string>;
     /**
@@ -205,7 +216,7 @@ export interface ExpressRouteCircuitState {
      */
     serviceKey?: pulumi.Input<string>;
     /**
-     * The name of the ExpressRoute Service Provider.
+     * The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
      */
     serviceProviderName?: pulumi.Input<string>;
     /**
@@ -227,13 +238,21 @@ export interface ExpressRouteCircuitState {
  */
 export interface ExpressRouteCircuitArgs {
     /**
-     * Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+     * Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
      */
     allowClassicOperations?: pulumi.Input<boolean>;
     /**
-     * The bandwidth in Mbps of the circuit being created.
+     * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      */
-    bandwidthInMbps: pulumi.Input<number>;
+    bandwidthInGbps?: pulumi.Input<number>;
+    /**
+     * The bandwidth in Mbps of the circuit being created on the Service Provider.
+     */
+    bandwidthInMbps?: pulumi.Input<number>;
+    /**
+     * The ID of the Express Route Port this Express Route Circuit is based on.
+     */
+    expressRoutePortId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -243,17 +262,17 @@ export interface ExpressRouteCircuitArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the peering location and **not** the Azure resource location.
+     * The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
      */
-    peeringLocation: pulumi.Input<string>;
+    peeringLocation?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the ExpressRoute Service Provider.
+     * The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
      */
-    serviceProviderName: pulumi.Input<string>;
+    serviceProviderName?: pulumi.Input<string>;
     /**
      * A `sku` block for the ExpressRoute circuit as documented below.
      */

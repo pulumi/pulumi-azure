@@ -93,6 +93,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
+     * Whether public network access is allowed for this server. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -128,6 +132,7 @@ export class Account extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["poolAllocationMode"] = state ? state.poolAllocationMode : undefined;
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
@@ -141,6 +146,7 @@ export class Account extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -184,6 +190,10 @@ export interface AccountState {
      */
     primaryAccessKey?: pulumi.Input<string>;
     /**
+     * Whether public network access is allowed for this server. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -221,6 +231,10 @@ export interface AccountArgs {
      * Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
      */
     poolAllocationMode?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for this server. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */

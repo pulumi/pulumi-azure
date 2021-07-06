@@ -1247,8 +1247,8 @@ class AccountShareProperties(dict):
                  smb: Optional['outputs.AccountSharePropertiesSmb'] = None):
         """
         :param Sequence['AccountSharePropertiesCorsRuleArgs'] cors_rules: A `cors_rule` block as defined below.
-        :param 'AccountSharePropertiesRetentionPolicyArgs' retention_policy: (Optional) A `retention_policy` block as defined below.
-        :param 'AccountSharePropertiesSmbArgs' smb: (Optional) A `smb` block as defined below.
+        :param 'AccountSharePropertiesRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
+        :param 'AccountSharePropertiesSmbArgs' smb: A `smb` block as defined below.
         """
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
@@ -1269,7 +1269,7 @@ class AccountShareProperties(dict):
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> Optional['outputs.AccountSharePropertiesRetentionPolicy']:
         """
-        (Optional) A `retention_policy` block as defined below.
+        A `retention_policy` block as defined below.
         """
         return pulumi.get(self, "retention_policy")
 
@@ -1277,7 +1277,7 @@ class AccountShareProperties(dict):
     @pulumi.getter
     def smb(self) -> Optional['outputs.AccountSharePropertiesSmb']:
         """
-        (Optional) A `smb` block as defined below.
+        A `smb` block as defined below.
         """
         return pulumi.get(self, "smb")
 
@@ -1376,7 +1376,7 @@ class AccountSharePropertiesRetentionPolicy(dict):
     def __init__(__self__, *,
                  days: Optional[int] = None):
         """
-        :param int days: Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        :param int days: Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
         """
         if days is not None:
             pulumi.set(__self__, "days", days)
@@ -1385,7 +1385,7 @@ class AccountSharePropertiesRetentionPolicy(dict):
     @pulumi.getter
     def days(self) -> Optional[int]:
         """
-        Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
         """
         return pulumi.get(self, "days")
 
@@ -1419,10 +1419,10 @@ class AccountSharePropertiesSmb(dict):
                  kerberos_ticket_encryption_types: Optional[Sequence[str]] = None,
                  versions: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] authentication_types: (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
-        :param Sequence[str] channel_encryption_types: (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
-        :param Sequence[str] kerberos_ticket_encryption_types: (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
-        :param Sequence[str] versions: (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+        :param Sequence[str] authentication_types: A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+        :param Sequence[str] channel_encryption_types: A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+        :param Sequence[str] kerberos_ticket_encryption_types: A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+        :param Sequence[str] versions: A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
         """
         if authentication_types is not None:
             pulumi.set(__self__, "authentication_types", authentication_types)
@@ -1437,7 +1437,7 @@ class AccountSharePropertiesSmb(dict):
     @pulumi.getter(name="authenticationTypes")
     def authentication_types(self) -> Optional[Sequence[str]]:
         """
-        (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+        A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
         """
         return pulumi.get(self, "authentication_types")
 
@@ -1445,7 +1445,7 @@ class AccountSharePropertiesSmb(dict):
     @pulumi.getter(name="channelEncryptionTypes")
     def channel_encryption_types(self) -> Optional[Sequence[str]]:
         """
-        (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+        A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
         """
         return pulumi.get(self, "channel_encryption_types")
 
@@ -1453,7 +1453,7 @@ class AccountSharePropertiesSmb(dict):
     @pulumi.getter(name="kerberosTicketEncryptionTypes")
     def kerberos_ticket_encryption_types(self) -> Optional[Sequence[str]]:
         """
-        (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+        A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
         """
         return pulumi.get(self, "kerberos_ticket_encryption_types")
 
@@ -1461,7 +1461,7 @@ class AccountSharePropertiesSmb(dict):
     @pulumi.getter
     def versions(self) -> Optional[Sequence[str]]:
         """
-        (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+        A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
         """
         return pulumi.get(self, "versions")
 

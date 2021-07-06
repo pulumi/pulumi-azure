@@ -15928,7 +15928,8 @@ func (o GetAppServiceSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetAppSe
 
 type GetAppServiceSiteConfigIpRestriction struct {
 	// Allow or Deny access for this IP range. Defaults to Allow.
-	Action string `pulumi:"action"`
+	Action  string                                      `pulumi:"action"`
+	Headers GetAppServiceSiteConfigIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress string `pulumi:"ipAddress"`
 	// The name of the App Service.
@@ -15954,7 +15955,8 @@ type GetAppServiceSiteConfigIpRestrictionInput interface {
 
 type GetAppServiceSiteConfigIpRestrictionArgs struct {
 	// Allow or Deny access for this IP range. Defaults to Allow.
-	Action pulumi.StringInput `pulumi:"action"`
+	Action  pulumi.StringInput                               `pulumi:"action"`
+	Headers GetAppServiceSiteConfigIpRestrictionHeadersInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of the App Service.
@@ -16023,6 +16025,12 @@ func (o GetAppServiceSiteConfigIpRestrictionOutput) Action() pulumi.StringOutput
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
+func (o GetAppServiceSiteConfigIpRestrictionOutput) Headers() GetAppServiceSiteConfigIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) GetAppServiceSiteConfigIpRestrictionHeaders {
+		return v.Headers
+	}).(GetAppServiceSiteConfigIpRestrictionHeadersOutput)
+}
+
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o GetAppServiceSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
@@ -16068,9 +16076,77 @@ func (o GetAppServiceSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput
 	}).(GetAppServiceSiteConfigIpRestrictionOutput)
 }
 
+type GetAppServiceSiteConfigIpRestrictionHeaders struct {
+	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
+	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// GetAppServiceSiteConfigIpRestrictionHeadersInput is an input type that accepts GetAppServiceSiteConfigIpRestrictionHeadersArgs and GetAppServiceSiteConfigIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `GetAppServiceSiteConfigIpRestrictionHeadersInput` via:
+//
+//          GetAppServiceSiteConfigIpRestrictionHeadersArgs{...}
+type GetAppServiceSiteConfigIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToGetAppServiceSiteConfigIpRestrictionHeadersOutput() GetAppServiceSiteConfigIpRestrictionHeadersOutput
+	ToGetAppServiceSiteConfigIpRestrictionHeadersOutputWithContext(context.Context) GetAppServiceSiteConfigIpRestrictionHeadersOutput
+}
+
+type GetAppServiceSiteConfigIpRestrictionHeadersArgs struct {
+	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
+	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (GetAppServiceSiteConfigIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppServiceSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i GetAppServiceSiteConfigIpRestrictionHeadersArgs) ToGetAppServiceSiteConfigIpRestrictionHeadersOutput() GetAppServiceSiteConfigIpRestrictionHeadersOutput {
+	return i.ToGetAppServiceSiteConfigIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i GetAppServiceSiteConfigIpRestrictionHeadersArgs) ToGetAppServiceSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) GetAppServiceSiteConfigIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppServiceSiteConfigIpRestrictionHeadersOutput)
+}
+
+type GetAppServiceSiteConfigIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (GetAppServiceSiteConfigIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppServiceSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o GetAppServiceSiteConfigIpRestrictionHeadersOutput) ToGetAppServiceSiteConfigIpRestrictionHeadersOutput() GetAppServiceSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o GetAppServiceSiteConfigIpRestrictionHeadersOutput) ToGetAppServiceSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) GetAppServiceSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o GetAppServiceSiteConfigIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAppServiceSiteConfigIpRestrictionHeadersOutput) XFdHealthProbes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestrictionHeaders) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAppServiceSiteConfigIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAppServiceSiteConfigIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
 type GetAppServiceSiteConfigScmIpRestriction struct {
 	// Allow or Deny access for this IP range. Defaults to Allow.
-	Action string `pulumi:"action"`
+	Action  string                                         `pulumi:"action"`
+	Headers GetAppServiceSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress string `pulumi:"ipAddress"`
 	// The name of the App Service.
@@ -16096,7 +16172,8 @@ type GetAppServiceSiteConfigScmIpRestrictionInput interface {
 
 type GetAppServiceSiteConfigScmIpRestrictionArgs struct {
 	// Allow or Deny access for this IP range. Defaults to Allow.
-	Action pulumi.StringInput `pulumi:"action"`
+	Action  pulumi.StringInput                                  `pulumi:"action"`
+	Headers GetAppServiceSiteConfigScmIpRestrictionHeadersInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of the App Service.
@@ -16165,6 +16242,12 @@ func (o GetAppServiceSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOut
 	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
+func (o GetAppServiceSiteConfigScmIpRestrictionOutput) Headers() GetAppServiceSiteConfigScmIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) GetAppServiceSiteConfigScmIpRestrictionHeaders {
+		return v.Headers
+	}).(GetAppServiceSiteConfigScmIpRestrictionHeadersOutput)
+}
+
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o GetAppServiceSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
@@ -16208,6 +16291,73 @@ func (o GetAppServiceSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppServiceSiteConfigScmIpRestriction {
 		return vs[0].([]GetAppServiceSiteConfigScmIpRestriction)[vs[1].(int)]
 	}).(GetAppServiceSiteConfigScmIpRestrictionOutput)
+}
+
+type GetAppServiceSiteConfigScmIpRestrictionHeaders struct {
+	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
+	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// GetAppServiceSiteConfigScmIpRestrictionHeadersInput is an input type that accepts GetAppServiceSiteConfigScmIpRestrictionHeadersArgs and GetAppServiceSiteConfigScmIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `GetAppServiceSiteConfigScmIpRestrictionHeadersInput` via:
+//
+//          GetAppServiceSiteConfigScmIpRestrictionHeadersArgs{...}
+type GetAppServiceSiteConfigScmIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToGetAppServiceSiteConfigScmIpRestrictionHeadersOutput() GetAppServiceSiteConfigScmIpRestrictionHeadersOutput
+	ToGetAppServiceSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Context) GetAppServiceSiteConfigScmIpRestrictionHeadersOutput
+}
+
+type GetAppServiceSiteConfigScmIpRestrictionHeadersArgs struct {
+	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
+	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (GetAppServiceSiteConfigScmIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppServiceSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i GetAppServiceSiteConfigScmIpRestrictionHeadersArgs) ToGetAppServiceSiteConfigScmIpRestrictionHeadersOutput() GetAppServiceSiteConfigScmIpRestrictionHeadersOutput {
+	return i.ToGetAppServiceSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i GetAppServiceSiteConfigScmIpRestrictionHeadersArgs) ToGetAppServiceSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) GetAppServiceSiteConfigScmIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppServiceSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+type GetAppServiceSiteConfigScmIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (GetAppServiceSiteConfigScmIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppServiceSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o GetAppServiceSiteConfigScmIpRestrictionHeadersOutput) ToGetAppServiceSiteConfigScmIpRestrictionHeadersOutput() GetAppServiceSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o GetAppServiceSiteConfigScmIpRestrictionHeadersOutput) ToGetAppServiceSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) GetAppServiceSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o GetAppServiceSiteConfigScmIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAppServiceSiteConfigScmIpRestrictionHeadersOutput) XFdHealthProbes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestrictionHeaders) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAppServiceSiteConfigScmIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAppServiceSiteConfigScmIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
 }
 
 type GetAppServiceSiteCredential struct {
@@ -17188,7 +17338,8 @@ func (o GetFunctionAppSiteConfigCorsOutput) SupportCredentials() pulumi.BoolPtrO
 
 type GetFunctionAppSiteConfigIpRestriction struct {
 	// Allow or Deny access for this IP range. Defaults to Allow.
-	Action string `pulumi:"action"`
+	Action  string                                       `pulumi:"action"`
+	Headers GetFunctionAppSiteConfigIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress string `pulumi:"ipAddress"`
 	// The name of the Function App resource.
@@ -17214,7 +17365,8 @@ type GetFunctionAppSiteConfigIpRestrictionInput interface {
 
 type GetFunctionAppSiteConfigIpRestrictionArgs struct {
 	// Allow or Deny access for this IP range. Defaults to Allow.
-	Action pulumi.StringInput `pulumi:"action"`
+	Action  pulumi.StringInput                                `pulumi:"action"`
+	Headers GetFunctionAppSiteConfigIpRestrictionHeadersInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of the Function App resource.
@@ -17283,6 +17435,12 @@ func (o GetFunctionAppSiteConfigIpRestrictionOutput) Action() pulumi.StringOutpu
 	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
+func (o GetFunctionAppSiteConfigIpRestrictionOutput) Headers() GetFunctionAppSiteConfigIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) GetFunctionAppSiteConfigIpRestrictionHeaders {
+		return v.Headers
+	}).(GetFunctionAppSiteConfigIpRestrictionHeadersOutput)
+}
+
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o GetFunctionAppSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
@@ -17328,9 +17486,77 @@ func (o GetFunctionAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInpu
 	}).(GetFunctionAppSiteConfigIpRestrictionOutput)
 }
 
+type GetFunctionAppSiteConfigIpRestrictionHeaders struct {
+	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
+	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// GetFunctionAppSiteConfigIpRestrictionHeadersInput is an input type that accepts GetFunctionAppSiteConfigIpRestrictionHeadersArgs and GetFunctionAppSiteConfigIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `GetFunctionAppSiteConfigIpRestrictionHeadersInput` via:
+//
+//          GetFunctionAppSiteConfigIpRestrictionHeadersArgs{...}
+type GetFunctionAppSiteConfigIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSiteConfigIpRestrictionHeadersOutput() GetFunctionAppSiteConfigIpRestrictionHeadersOutput
+	ToGetFunctionAppSiteConfigIpRestrictionHeadersOutputWithContext(context.Context) GetFunctionAppSiteConfigIpRestrictionHeadersOutput
+}
+
+type GetFunctionAppSiteConfigIpRestrictionHeadersArgs struct {
+	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
+	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (GetFunctionAppSiteConfigIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i GetFunctionAppSiteConfigIpRestrictionHeadersArgs) ToGetFunctionAppSiteConfigIpRestrictionHeadersOutput() GetFunctionAppSiteConfigIpRestrictionHeadersOutput {
+	return i.ToGetFunctionAppSiteConfigIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSiteConfigIpRestrictionHeadersArgs) ToGetFunctionAppSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSiteConfigIpRestrictionHeadersOutput)
+}
+
+type GetFunctionAppSiteConfigIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppSiteConfigIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o GetFunctionAppSiteConfigIpRestrictionHeadersOutput) ToGetFunctionAppSiteConfigIpRestrictionHeadersOutput() GetFunctionAppSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigIpRestrictionHeadersOutput) ToGetFunctionAppSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionAppSiteConfigIpRestrictionHeadersOutput) XFdHealthProbes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestrictionHeaders) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionAppSiteConfigIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionAppSiteConfigIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
 type GetFunctionAppSiteConfigScmIpRestriction struct {
 	// Allow or Deny access for this IP range. Defaults to Allow.
-	Action string `pulumi:"action"`
+	Action  string                                          `pulumi:"action"`
+	Headers GetFunctionAppSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress string `pulumi:"ipAddress"`
 	// The name of the Function App resource.
@@ -17356,7 +17582,8 @@ type GetFunctionAppSiteConfigScmIpRestrictionInput interface {
 
 type GetFunctionAppSiteConfigScmIpRestrictionArgs struct {
 	// Allow or Deny access for this IP range. Defaults to Allow.
-	Action pulumi.StringInput `pulumi:"action"`
+	Action  pulumi.StringInput                                   `pulumi:"action"`
+	Headers GetFunctionAppSiteConfigScmIpRestrictionHeadersInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of the Function App resource.
@@ -17425,6 +17652,12 @@ func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOu
 	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
+func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) Headers() GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) GetFunctionAppSiteConfigScmIpRestrictionHeaders {
+		return v.Headers
+	}).(GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput)
+}
+
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
@@ -17468,6 +17701,73 @@ func (o GetFunctionAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionAppSiteConfigScmIpRestriction {
 		return vs[0].([]GetFunctionAppSiteConfigScmIpRestriction)[vs[1].(int)]
 	}).(GetFunctionAppSiteConfigScmIpRestrictionOutput)
+}
+
+type GetFunctionAppSiteConfigScmIpRestrictionHeaders struct {
+	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
+	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// GetFunctionAppSiteConfigScmIpRestrictionHeadersInput is an input type that accepts GetFunctionAppSiteConfigScmIpRestrictionHeadersArgs and GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `GetFunctionAppSiteConfigScmIpRestrictionHeadersInput` via:
+//
+//          GetFunctionAppSiteConfigScmIpRestrictionHeadersArgs{...}
+type GetFunctionAppSiteConfigScmIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSiteConfigScmIpRestrictionHeadersOutput() GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput
+	ToGetFunctionAppSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Context) GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput
+}
+
+type GetFunctionAppSiteConfigScmIpRestrictionHeadersArgs struct {
+	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
+	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (GetFunctionAppSiteConfigScmIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i GetFunctionAppSiteConfigScmIpRestrictionHeadersArgs) ToGetFunctionAppSiteConfigScmIpRestrictionHeadersOutput() GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput {
+	return i.ToGetFunctionAppSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSiteConfigScmIpRestrictionHeadersArgs) ToGetFunctionAppSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+type GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput) ToGetFunctionAppSiteConfigScmIpRestrictionHeadersOutput() GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput) ToGetFunctionAppSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput) XFdHealthProbes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestrictionHeaders) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
 }
 
 type GetFunctionAppSiteCredential struct {
@@ -17883,8 +18183,10 @@ func init() {
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigCorArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(GetAppServiceSiteConfigIpRestrictionHeadersOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigScmIpRestrictionOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigScmIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(GetAppServiceSiteConfigScmIpRestrictionHeadersOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteCredentialOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSourceControlOutput{})
@@ -17902,8 +18204,10 @@ func init() {
 	pulumi.RegisterOutputType(GetFunctionAppSiteConfigCorsOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSiteConfigIpRestrictionHeadersOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppSiteConfigScmIpRestrictionOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppSiteConfigScmIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSiteConfigScmIpRestrictionHeadersOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppSiteCredentialOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppSourceControlOutput{})

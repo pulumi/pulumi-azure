@@ -5492,6 +5492,310 @@ func (o ExpressRouteCircuitSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ExpressRouteConnectionRouting struct {
+	// The ID of the Virtual Hub Route Table associated with this Express Route Connection.
+	AssociatedRouteTableId *string `pulumi:"associatedRouteTableId"`
+	// A `propagatedRouteTable` block as defined below.
+	PropagatedRouteTable *ExpressRouteConnectionRoutingPropagatedRouteTable `pulumi:"propagatedRouteTable"`
+}
+
+// ExpressRouteConnectionRoutingInput is an input type that accepts ExpressRouteConnectionRoutingArgs and ExpressRouteConnectionRoutingOutput values.
+// You can construct a concrete instance of `ExpressRouteConnectionRoutingInput` via:
+//
+//          ExpressRouteConnectionRoutingArgs{...}
+type ExpressRouteConnectionRoutingInput interface {
+	pulumi.Input
+
+	ToExpressRouteConnectionRoutingOutput() ExpressRouteConnectionRoutingOutput
+	ToExpressRouteConnectionRoutingOutputWithContext(context.Context) ExpressRouteConnectionRoutingOutput
+}
+
+type ExpressRouteConnectionRoutingArgs struct {
+	// The ID of the Virtual Hub Route Table associated with this Express Route Connection.
+	AssociatedRouteTableId pulumi.StringPtrInput `pulumi:"associatedRouteTableId"`
+	// A `propagatedRouteTable` block as defined below.
+	PropagatedRouteTable ExpressRouteConnectionRoutingPropagatedRouteTablePtrInput `pulumi:"propagatedRouteTable"`
+}
+
+func (ExpressRouteConnectionRoutingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteConnectionRouting)(nil)).Elem()
+}
+
+func (i ExpressRouteConnectionRoutingArgs) ToExpressRouteConnectionRoutingOutput() ExpressRouteConnectionRoutingOutput {
+	return i.ToExpressRouteConnectionRoutingOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteConnectionRoutingArgs) ToExpressRouteConnectionRoutingOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionRoutingOutput)
+}
+
+func (i ExpressRouteConnectionRoutingArgs) ToExpressRouteConnectionRoutingPtrOutput() ExpressRouteConnectionRoutingPtrOutput {
+	return i.ToExpressRouteConnectionRoutingPtrOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteConnectionRoutingArgs) ToExpressRouteConnectionRoutingPtrOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionRoutingOutput).ToExpressRouteConnectionRoutingPtrOutputWithContext(ctx)
+}
+
+// ExpressRouteConnectionRoutingPtrInput is an input type that accepts ExpressRouteConnectionRoutingArgs, ExpressRouteConnectionRoutingPtr and ExpressRouteConnectionRoutingPtrOutput values.
+// You can construct a concrete instance of `ExpressRouteConnectionRoutingPtrInput` via:
+//
+//          ExpressRouteConnectionRoutingArgs{...}
+//
+//  or:
+//
+//          nil
+type ExpressRouteConnectionRoutingPtrInput interface {
+	pulumi.Input
+
+	ToExpressRouteConnectionRoutingPtrOutput() ExpressRouteConnectionRoutingPtrOutput
+	ToExpressRouteConnectionRoutingPtrOutputWithContext(context.Context) ExpressRouteConnectionRoutingPtrOutput
+}
+
+type expressRouteConnectionRoutingPtrType ExpressRouteConnectionRoutingArgs
+
+func ExpressRouteConnectionRoutingPtr(v *ExpressRouteConnectionRoutingArgs) ExpressRouteConnectionRoutingPtrInput {
+	return (*expressRouteConnectionRoutingPtrType)(v)
+}
+
+func (*expressRouteConnectionRoutingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRouteConnectionRouting)(nil)).Elem()
+}
+
+func (i *expressRouteConnectionRoutingPtrType) ToExpressRouteConnectionRoutingPtrOutput() ExpressRouteConnectionRoutingPtrOutput {
+	return i.ToExpressRouteConnectionRoutingPtrOutputWithContext(context.Background())
+}
+
+func (i *expressRouteConnectionRoutingPtrType) ToExpressRouteConnectionRoutingPtrOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionRoutingPtrOutput)
+}
+
+type ExpressRouteConnectionRoutingOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteConnectionRoutingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteConnectionRouting)(nil)).Elem()
+}
+
+func (o ExpressRouteConnectionRoutingOutput) ToExpressRouteConnectionRoutingOutput() ExpressRouteConnectionRoutingOutput {
+	return o
+}
+
+func (o ExpressRouteConnectionRoutingOutput) ToExpressRouteConnectionRoutingOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingOutput {
+	return o
+}
+
+func (o ExpressRouteConnectionRoutingOutput) ToExpressRouteConnectionRoutingPtrOutput() ExpressRouteConnectionRoutingPtrOutput {
+	return o.ToExpressRouteConnectionRoutingPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressRouteConnectionRoutingOutput) ToExpressRouteConnectionRoutingPtrOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingPtrOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionRouting) *ExpressRouteConnectionRouting {
+		return &v
+	}).(ExpressRouteConnectionRoutingPtrOutput)
+}
+
+// The ID of the Virtual Hub Route Table associated with this Express Route Connection.
+func (o ExpressRouteConnectionRoutingOutput) AssociatedRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionRouting) *string { return v.AssociatedRouteTableId }).(pulumi.StringPtrOutput)
+}
+
+// A `propagatedRouteTable` block as defined below.
+func (o ExpressRouteConnectionRoutingOutput) PropagatedRouteTable() ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionRouting) *ExpressRouteConnectionRoutingPropagatedRouteTable {
+		return v.PropagatedRouteTable
+	}).(ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput)
+}
+
+type ExpressRouteConnectionRoutingPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteConnectionRoutingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRouteConnectionRouting)(nil)).Elem()
+}
+
+func (o ExpressRouteConnectionRoutingPtrOutput) ToExpressRouteConnectionRoutingPtrOutput() ExpressRouteConnectionRoutingPtrOutput {
+	return o
+}
+
+func (o ExpressRouteConnectionRoutingPtrOutput) ToExpressRouteConnectionRoutingPtrOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingPtrOutput {
+	return o
+}
+
+func (o ExpressRouteConnectionRoutingPtrOutput) Elem() ExpressRouteConnectionRoutingOutput {
+	return o.ApplyT(func(v *ExpressRouteConnectionRouting) ExpressRouteConnectionRouting { return *v }).(ExpressRouteConnectionRoutingOutput)
+}
+
+// The ID of the Virtual Hub Route Table associated with this Express Route Connection.
+func (o ExpressRouteConnectionRoutingPtrOutput) AssociatedRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteConnectionRouting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssociatedRouteTableId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `propagatedRouteTable` block as defined below.
+func (o ExpressRouteConnectionRoutingPtrOutput) PropagatedRouteTable() ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteConnectionRouting) *ExpressRouteConnectionRoutingPropagatedRouteTable {
+		if v == nil {
+			return nil
+		}
+		return v.PropagatedRouteTable
+	}).(ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput)
+}
+
+type ExpressRouteConnectionRoutingPropagatedRouteTable struct {
+	// The list of labels to logically group route tables.
+	Labels []string `pulumi:"labels"`
+	// A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
+	RouteTableIds []string `pulumi:"routeTableIds"`
+}
+
+// ExpressRouteConnectionRoutingPropagatedRouteTableInput is an input type that accepts ExpressRouteConnectionRoutingPropagatedRouteTableArgs and ExpressRouteConnectionRoutingPropagatedRouteTableOutput values.
+// You can construct a concrete instance of `ExpressRouteConnectionRoutingPropagatedRouteTableInput` via:
+//
+//          ExpressRouteConnectionRoutingPropagatedRouteTableArgs{...}
+type ExpressRouteConnectionRoutingPropagatedRouteTableInput interface {
+	pulumi.Input
+
+	ToExpressRouteConnectionRoutingPropagatedRouteTableOutput() ExpressRouteConnectionRoutingPropagatedRouteTableOutput
+	ToExpressRouteConnectionRoutingPropagatedRouteTableOutputWithContext(context.Context) ExpressRouteConnectionRoutingPropagatedRouteTableOutput
+}
+
+type ExpressRouteConnectionRoutingPropagatedRouteTableArgs struct {
+	// The list of labels to logically group route tables.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+	// A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
+	RouteTableIds pulumi.StringArrayInput `pulumi:"routeTableIds"`
+}
+
+func (ExpressRouteConnectionRoutingPropagatedRouteTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (i ExpressRouteConnectionRoutingPropagatedRouteTableArgs) ToExpressRouteConnectionRoutingPropagatedRouteTableOutput() ExpressRouteConnectionRoutingPropagatedRouteTableOutput {
+	return i.ToExpressRouteConnectionRoutingPropagatedRouteTableOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteConnectionRoutingPropagatedRouteTableArgs) ToExpressRouteConnectionRoutingPropagatedRouteTableOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingPropagatedRouteTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionRoutingPropagatedRouteTableOutput)
+}
+
+func (i ExpressRouteConnectionRoutingPropagatedRouteTableArgs) ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput() ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput {
+	return i.ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteConnectionRoutingPropagatedRouteTableArgs) ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionRoutingPropagatedRouteTableOutput).ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx)
+}
+
+// ExpressRouteConnectionRoutingPropagatedRouteTablePtrInput is an input type that accepts ExpressRouteConnectionRoutingPropagatedRouteTableArgs, ExpressRouteConnectionRoutingPropagatedRouteTablePtr and ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput values.
+// You can construct a concrete instance of `ExpressRouteConnectionRoutingPropagatedRouteTablePtrInput` via:
+//
+//          ExpressRouteConnectionRoutingPropagatedRouteTableArgs{...}
+//
+//  or:
+//
+//          nil
+type ExpressRouteConnectionRoutingPropagatedRouteTablePtrInput interface {
+	pulumi.Input
+
+	ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput() ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput
+	ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutputWithContext(context.Context) ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput
+}
+
+type expressRouteConnectionRoutingPropagatedRouteTablePtrType ExpressRouteConnectionRoutingPropagatedRouteTableArgs
+
+func ExpressRouteConnectionRoutingPropagatedRouteTablePtr(v *ExpressRouteConnectionRoutingPropagatedRouteTableArgs) ExpressRouteConnectionRoutingPropagatedRouteTablePtrInput {
+	return (*expressRouteConnectionRoutingPropagatedRouteTablePtrType)(v)
+}
+
+func (*expressRouteConnectionRoutingPropagatedRouteTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRouteConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (i *expressRouteConnectionRoutingPropagatedRouteTablePtrType) ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput() ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput {
+	return i.ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (i *expressRouteConnectionRoutingPropagatedRouteTablePtrType) ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput)
+}
+
+type ExpressRouteConnectionRoutingPropagatedRouteTableOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteConnectionRoutingPropagatedRouteTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (o ExpressRouteConnectionRoutingPropagatedRouteTableOutput) ToExpressRouteConnectionRoutingPropagatedRouteTableOutput() ExpressRouteConnectionRoutingPropagatedRouteTableOutput {
+	return o
+}
+
+func (o ExpressRouteConnectionRoutingPropagatedRouteTableOutput) ToExpressRouteConnectionRoutingPropagatedRouteTableOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingPropagatedRouteTableOutput {
+	return o
+}
+
+func (o ExpressRouteConnectionRoutingPropagatedRouteTableOutput) ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput() ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o.ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (o ExpressRouteConnectionRoutingPropagatedRouteTableOutput) ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionRoutingPropagatedRouteTable) *ExpressRouteConnectionRoutingPropagatedRouteTable {
+		return &v
+	}).(ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput)
+}
+
+// The list of labels to logically group route tables.
+func (o ExpressRouteConnectionRoutingPropagatedRouteTableOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionRoutingPropagatedRouteTable) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
+func (o ExpressRouteConnectionRoutingPropagatedRouteTableOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionRoutingPropagatedRouteTable) []string { return v.RouteTableIds }).(pulumi.StringArrayOutput)
+}
+
+type ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRouteConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (o ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput) ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput() ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o
+}
+
+func (o ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput) ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o
+}
+
+func (o ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput) Elem() ExpressRouteConnectionRoutingPropagatedRouteTableOutput {
+	return o.ApplyT(func(v *ExpressRouteConnectionRoutingPropagatedRouteTable) ExpressRouteConnectionRoutingPropagatedRouteTable {
+		return *v
+	}).(ExpressRouteConnectionRoutingPropagatedRouteTableOutput)
+}
+
+// The list of labels to logically group route tables.
+func (o ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressRouteConnectionRoutingPropagatedRouteTable) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
+func (o ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressRouteConnectionRoutingPropagatedRouteTable) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RouteTableIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type ExpressRoutePortIdentity struct {
 	// Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -22997,6 +23301,10 @@ func init() {
 	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitSkuOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitSkuPtrOutput{})
+	pulumi.RegisterOutputType(ExpressRouteConnectionRoutingOutput{})
+	pulumi.RegisterOutputType(ExpressRouteConnectionRoutingPtrOutput{})
+	pulumi.RegisterOutputType(ExpressRouteConnectionRoutingPropagatedRouteTableOutput{})
+	pulumi.RegisterOutputType(ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput{})
 	pulumi.RegisterOutputType(ExpressRoutePortIdentityOutput{})
 	pulumi.RegisterOutputType(ExpressRoutePortIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ExpressRoutePortLink1Output{})

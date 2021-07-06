@@ -5,12 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
 export interface ProviderFeatures {
+    cognitiveAccount?: outputs.ProviderFeaturesCognitiveAccount;
     keyVault?: outputs.ProviderFeaturesKeyVault;
     logAnalyticsWorkspace?: outputs.ProviderFeaturesLogAnalyticsWorkspace;
     network?: outputs.ProviderFeaturesNetwork;
     templateDeployment?: outputs.ProviderFeaturesTemplateDeployment;
     virtualMachine?: outputs.ProviderFeaturesVirtualMachine;
     virtualMachineScaleSet?: outputs.ProviderFeaturesVirtualMachineScaleSet;
+}
+
+export interface ProviderFeaturesCognitiveAccount {
+    purgeSoftDeleteOnDestroy?: boolean;
 }
 
 export interface ProviderFeaturesKeyVault {
@@ -505,6 +510,10 @@ export namespace apimanagement {
     }
 
     export interface BackendServiceFabricCluster {
+        /**
+         * The client certificate resource id for the management endpoint.
+         */
+        clientCertificateId: string;
         /**
          * The client certificate thumbprint for the management endpoint.
          */
@@ -3201,6 +3210,7 @@ export namespace appservice {
          * Allow or Deny access for this IP range. Defaults to Allow.
          */
         action: string;
+        headers: outputs.appservice.GetAppServiceSiteConfigIpRestrictionHeaders;
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -3223,11 +3233,19 @@ export namespace appservice {
         virtualNetworkSubnetId: string;
     }
 
+    export interface GetAppServiceSiteConfigIpRestrictionHeaders {
+        xAzureFdids: string[];
+        xFdHealthProbes: string[];
+        xForwardedFors: string[];
+        xForwardedHosts: string[];
+    }
+
     export interface GetAppServiceSiteConfigScmIpRestriction {
         /**
          * Allow or Deny access for this IP range. Defaults to Allow.
          */
         action: string;
+        headers: outputs.appservice.GetAppServiceSiteConfigScmIpRestrictionHeaders;
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -3248,6 +3266,13 @@ export namespace appservice {
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId: string;
+    }
+
+    export interface GetAppServiceSiteConfigScmIpRestrictionHeaders {
+        xAzureFdids: string[];
+        xFdHealthProbes: string[];
+        xForwardedFors: string[];
+        xForwardedHosts: string[];
     }
 
     export interface GetAppServiceSiteCredential {
@@ -3409,6 +3434,7 @@ export namespace appservice {
          * Allow or Deny access for this IP range. Defaults to Allow.
          */
         action: string;
+        headers: outputs.appservice.GetFunctionAppSiteConfigIpRestrictionHeaders;
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -3431,11 +3457,19 @@ export namespace appservice {
         virtualNetworkSubnetId: string;
     }
 
+    export interface GetFunctionAppSiteConfigIpRestrictionHeaders {
+        xAzureFdids: string[];
+        xFdHealthProbes: string[];
+        xForwardedFors: string[];
+        xForwardedHosts: string[];
+    }
+
     export interface GetFunctionAppSiteConfigScmIpRestriction {
         /**
          * Allow or Deny access for this IP range. Defaults to Allow.
          */
         action: string;
+        headers: outputs.appservice.GetFunctionAppSiteConfigScmIpRestrictionHeaders;
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -3456,6 +3490,13 @@ export namespace appservice {
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId: string;
+    }
+
+    export interface GetFunctionAppSiteConfigScmIpRestrictionHeaders {
+        xAzureFdids: string[];
+        xFdHealthProbes: string[];
+        xForwardedFors: string[];
+        xForwardedHosts: string[];
     }
 
     export interface GetFunctionAppSiteCredential {
@@ -4229,7 +4270,7 @@ export namespace backup {
          */
         count: number;
         /**
-         * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+         * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
          */
         months: string[];
         /**
@@ -7570,12 +7611,17 @@ export namespace compute {
 
 export namespace config {
     export interface Features {
+        cognitiveAccount?: outputs.config.FeaturesCognitiveAccount;
         keyVault?: outputs.config.FeaturesKeyVault;
         logAnalyticsWorkspace?: outputs.config.FeaturesLogAnalyticsWorkspace;
         network?: outputs.config.FeaturesNetwork;
         templateDeployment?: outputs.config.FeaturesTemplateDeployment;
         virtualMachine?: outputs.config.FeaturesVirtualMachine;
         virtualMachineScaleSet?: outputs.config.FeaturesVirtualMachineScaleSet;
+    }
+
+    export interface FeaturesCognitiveAccount {
+        purgeSoftDeleteOnDestroy?: boolean;
     }
 
     export interface FeaturesKeyVault {
@@ -8773,9 +8819,17 @@ export namespace containerservice {
          */
         enableNodePublicIp?: boolean;
         /**
+         * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+         */
+        fipsEnabled?: boolean;
+        /**
          * A `kubeletConfig` block as defined below.
          */
         kubeletConfig?: outputs.containerservice.KubernetesClusterDefaultNodePoolKubeletConfig;
+        /**
+         * The type of disk used by kubelet. At this time the only possible value is `OS`.
+         */
+        kubeletDiskType: string;
         /**
          * A `linuxOsConfig` block as defined below.
          */
@@ -9459,6 +9513,10 @@ export namespace containerservice {
          * The Admin Username for Windows VMs.
          */
         adminUsername: string;
+        /**
+         * Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
+         */
+        license?: string;
     }
 
     export interface RegistryEncryption {
@@ -9653,6 +9711,51 @@ export namespace core {
          * The subscription tenant ID.
          */
         tenantId: string;
+    }
+
+    export interface ResourceGroupPolicyAssignmentIdentity {
+        /**
+         * The Principal ID of the Policy Assignment for this Resource Group.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the Policy Assignment for this Resource Group.
+         */
+        tenantId: string;
+        /**
+         * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+         */
+        type?: string;
+    }
+
+    export interface ResourcePolicyAssignmentIdentity {
+        /**
+         * The Principal ID of the Policy Assignment for this Resource.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the Policy Assignment for this Resource.
+         */
+        tenantId: string;
+        /**
+         * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+         */
+        type?: string;
+    }
+
+    export interface SubscriptionPolicyAssignmentIdentity {
+        /**
+         * The Principal ID of the Policy Assignment for this Subscription.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the Policy Assignment for this Subscription.
+         */
+        tenantId: string;
+        /**
+         * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+         */
+        type?: string;
     }
 }
 
@@ -10809,6 +10912,17 @@ export namespace datafactory {
         vnetId: string;
     }
 
+    export interface LinkedCustomServiceIntegrationRuntime {
+        /**
+         * The integration runtime reference to associate with the Data Factory Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the integration runtime.
+         */
+        parameters?: {[key: string]: string};
+    }
+
     export interface LinkedServiceAzureDatabricksInstancePool {
         /**
          * Spark version of a the cluster.
@@ -10968,6 +11082,17 @@ export namespace datafactory {
          * Specifies the secret name in Azure Key Vault that stores Synapse password.
          */
         secretName: string;
+    }
+
+    export interface TriggerBlobEventPipeline {
+        /**
+         * The Data Factory Pipeline name that the trigger will act on.
+         */
+        name: string;
+        /**
+         * The Data Factory Pipeline parameters that the trigger will act on.
+         */
+        parameters?: {[key: string]: string};
     }
 }
 
@@ -11462,6 +11587,14 @@ export namespace eventgrid {
          */
         boolEquals?: outputs.eventgrid.EventSubscriptionAdvancedFilterBoolEqual[];
         /**
+         * Evaluates if a value of an event isn't NULL or undefined.
+         */
+        isNotNulls?: outputs.eventgrid.EventSubscriptionAdvancedFilterIsNotNull[];
+        /**
+         * Evaluates if a value of an event is NULL or undefined.
+         */
+        isNullOrUndefineds?: outputs.eventgrid.EventSubscriptionAdvancedFilterIsNullOrUndefined[];
+        /**
          * Compares a value of an event using a single floating point number.
          */
         numberGreaterThanOrEquals?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual[];
@@ -11469,6 +11602,10 @@ export namespace eventgrid {
          * Compares a value of an event using a single floating point number.
          */
         numberGreaterThans?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberGreaterThan[];
+        /**
+         * Compares a value of an event using multiple floating point number ranges.
+         */
+        numberInRanges?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberInRange[];
         /**
          * Compares a value of an event using multiple floating point numbers.
          */
@@ -11481,6 +11618,10 @@ export namespace eventgrid {
          * Compares a value of an event using a single floating point number.
          */
         numberLessThans?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberLessThan[];
+        /**
+         * Compares a value of an event using multiple floating point number ranges.
+         */
+        numberNotInRanges?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberNotInRange[];
         /**
          * Compares a value of an event using multiple floating point numbers.
          */
@@ -11504,6 +11645,18 @@ export namespace eventgrid {
         /**
          * Compares a value of an event using multiple string values.
          */
+        stringNotBeginsWiths?: outputs.eventgrid.EventSubscriptionAdvancedFilterStringNotBeginsWith[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringNotContains?: outputs.eventgrid.EventSubscriptionAdvancedFilterStringNotContain[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringNotEndsWiths?: outputs.eventgrid.EventSubscriptionAdvancedFilterStringNotEndsWith[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
         stringNotIns?: outputs.eventgrid.EventSubscriptionAdvancedFilterStringNotIn[];
     }
 
@@ -11516,6 +11669,20 @@ export namespace eventgrid {
          * Specifies a single value to compare to when using a single value operator.
          */
         value: boolean;
+    }
+
+    export interface EventSubscriptionAdvancedFilterIsNotNull {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+    }
+
+    export interface EventSubscriptionAdvancedFilterIsNullOrUndefined {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberGreaterThan {
@@ -11551,6 +11718,17 @@ export namespace eventgrid {
         values: number[];
     }
 
+    export interface EventSubscriptionAdvancedFilterNumberInRange {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: number[][];
+    }
+
     export interface EventSubscriptionAdvancedFilterNumberLessThan {
         /**
          * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -11582,6 +11760,17 @@ export namespace eventgrid {
          * Specifies an array of values to compare to when using a multiple values operator.
          */
         values: number[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberNotInRange {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: number[][];
     }
 
     export interface EventSubscriptionAdvancedFilterStringBeginsWith {
@@ -11618,6 +11807,39 @@ export namespace eventgrid {
     }
 
     export interface EventSubscriptionAdvancedFilterStringIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringNotBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringNotContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringNotEndsWith {
         /**
          * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
          */
@@ -11749,6 +11971,14 @@ export namespace eventgrid {
          */
         boolEquals?: outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterBoolEqual[];
         /**
+         * Evaluates if a value of an event isn't NULL or undefined.
+         */
+        isNotNulls?: outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterIsNotNull[];
+        /**
+         * Evaluates if a value of an event is NULL or undefined.
+         */
+        isNullOrUndefineds?: outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined[];
+        /**
          * Compares a value of an event using a single floating point number.
          */
         numberGreaterThanOrEquals?: outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual[];
@@ -11756,6 +11986,10 @@ export namespace eventgrid {
          * Compares a value of an event using a single floating point number.
          */
         numberGreaterThans?: outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan[];
+        /**
+         * Compares a value of an event using multiple floating point number ranges.
+         */
+        numberInRanges?: outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterNumberInRange[];
         /**
          * Compares a value of an event using multiple floating point numbers.
          */
@@ -11768,6 +12002,10 @@ export namespace eventgrid {
          * Compares a value of an event using a single floating point number.
          */
         numberLessThans?: outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterNumberLessThan[];
+        /**
+         * Compares a value of an event using multiple floating point number ranges.
+         */
+        numberNotInRanges?: outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange[];
         /**
          * Compares a value of an event using multiple floating point numbers.
          */
@@ -11791,6 +12029,18 @@ export namespace eventgrid {
         /**
          * Compares a value of an event using multiple string values.
          */
+        stringNotBeginsWiths?: outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringNotContains?: outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterStringNotContain[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringNotEndsWiths?: outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
         stringNotIns?: outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterStringNotIn[];
     }
 
@@ -11803,6 +12053,20 @@ export namespace eventgrid {
          * Specifies a single value to compare to when using a single value operator.
          */
         value: boolean;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterIsNotNull {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan {
@@ -11838,6 +12102,17 @@ export namespace eventgrid {
         values: number[];
     }
 
+    export interface SystemTopicEventSubscriptionAdvancedFilterNumberInRange {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: number[][];
+    }
+
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberLessThan {
         /**
          * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -11869,6 +12144,17 @@ export namespace eventgrid {
          * Specifies an array of values to compare to when using a multiple values operator.
          */
         values: number[];
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: number[][];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith {
@@ -11905,6 +12191,39 @@ export namespace eventgrid {
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterStringNotContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith {
         /**
          * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
          */
@@ -12285,6 +12604,14 @@ export namespace eventhub {
          */
         boolEquals?: outputs.eventhub.EventSubscriptionAdvancedFilterBoolEqual[];
         /**
+         * Evaluates if a value of an event isn't NULL or undefined.
+         */
+        isNotNulls?: outputs.eventhub.EventSubscriptionAdvancedFilterIsNotNull[];
+        /**
+         * Evaluates if a value of an event is NULL or undefined.
+         */
+        isNullOrUndefineds?: outputs.eventhub.EventSubscriptionAdvancedFilterIsNullOrUndefined[];
+        /**
          * Compares a value of an event using a single floating point number.
          */
         numberGreaterThanOrEquals?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual[];
@@ -12292,6 +12619,10 @@ export namespace eventhub {
          * Compares a value of an event using a single floating point number.
          */
         numberGreaterThans?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberGreaterThan[];
+        /**
+         * Compares a value of an event using multiple floating point number ranges.
+         */
+        numberInRanges?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberInRange[];
         /**
          * Compares a value of an event using multiple floating point numbers.
          */
@@ -12304,6 +12635,10 @@ export namespace eventhub {
          * Compares a value of an event using a single floating point number.
          */
         numberLessThans?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberLessThan[];
+        /**
+         * Compares a value of an event using multiple floating point number ranges.
+         */
+        numberNotInRanges?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberNotInRange[];
         /**
          * Compares a value of an event using multiple floating point numbers.
          */
@@ -12327,6 +12662,18 @@ export namespace eventhub {
         /**
          * Compares a value of an event using multiple string values.
          */
+        stringNotBeginsWiths?: outputs.eventhub.EventSubscriptionAdvancedFilterStringNotBeginsWith[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringNotContains?: outputs.eventhub.EventSubscriptionAdvancedFilterStringNotContain[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringNotEndsWiths?: outputs.eventhub.EventSubscriptionAdvancedFilterStringNotEndsWith[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
         stringNotIns?: outputs.eventhub.EventSubscriptionAdvancedFilterStringNotIn[];
     }
 
@@ -12339,6 +12686,20 @@ export namespace eventhub {
          * Specifies a single value to compare to when using a single value operator.
          */
         value: boolean;
+    }
+
+    export interface EventSubscriptionAdvancedFilterIsNotNull {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+    }
+
+    export interface EventSubscriptionAdvancedFilterIsNullOrUndefined {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberGreaterThan {
@@ -12374,6 +12735,17 @@ export namespace eventhub {
         values: number[];
     }
 
+    export interface EventSubscriptionAdvancedFilterNumberInRange {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: number[][];
+    }
+
     export interface EventSubscriptionAdvancedFilterNumberLessThan {
         /**
          * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -12405,6 +12777,17 @@ export namespace eventhub {
          * Specifies an array of values to compare to when using a multiple values operator.
          */
         values: number[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberNotInRange {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: number[][];
     }
 
     export interface EventSubscriptionAdvancedFilterStringBeginsWith {
@@ -12441,6 +12824,39 @@ export namespace eventhub {
     }
 
     export interface EventSubscriptionAdvancedFilterStringIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringNotBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringNotContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringNotEndsWith {
         /**
          * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
          */
@@ -16559,6 +16975,25 @@ export namespace lighthouse {
          */
         roleDefinitionId: string;
     }
+
+    export interface DefinitionPlan {
+        /**
+         * The plan name of the marketplace offer.
+         */
+        name: string;
+        /**
+         * The product code of the plan.
+         */
+        product: string;
+        /**
+         * The publisher ID of the plan.
+         */
+        publisher: string;
+        /**
+         * The version of the plan.
+         */
+        version: string;
+    }
 }
 
 export namespace loganalytics {
@@ -16706,6 +17141,23 @@ export namespace managedapplication {
          * Specifies a service principal identifier for the provider. This is the identity that the provider will use to call ARM to manage the managed application resources.
          */
         servicePrincipalId: string;
+    }
+}
+
+export namespace management {
+    export interface GroupPolicyAssignmentIdentity {
+        /**
+         * The Principal ID of the Policy Assignment for this Management Group.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the Policy Assignment for this Management Group.
+         */
+        tenantId: string;
+        /**
+         * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+         */
+        type?: string;
     }
 }
 
@@ -20253,6 +20705,28 @@ export namespace network {
         tier: string;
     }
 
+    export interface ExpressRouteConnectionRouting {
+        /**
+         * The ID of the Virtual Hub Route Table associated with this Express Route Connection.
+         */
+        associatedRouteTableId: string;
+        /**
+         * A `propagatedRouteTable` block as defined below.
+         */
+        propagatedRouteTable: outputs.network.ExpressRouteConnectionRoutingPropagatedRouteTable;
+    }
+
+    export interface ExpressRouteConnectionRoutingPropagatedRouteTable {
+        /**
+         * The list of labels to logically group route tables.
+         */
+        labels: string[];
+        /**
+         * A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
+         */
+        routeTableIds: string[];
+    }
+
     export interface ExpressRoutePortIdentity {
         /**
          * Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
@@ -22684,7 +23158,7 @@ export namespace policy {
          */
         tenantId: string;
         /**
-         * The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
+         * The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
          */
         type?: string;
     }
@@ -24014,6 +24488,10 @@ export namespace siterecovery {
          */
         stagingStorageAccountId: string;
         /**
+         * The Disk Encryption Set that the Managed Disk will be associated with.
+         */
+        targetDiskEncryptionSetId?: string;
+        /**
          * What type should the disk be when a failover is done.
          */
         targetDiskType: string;
@@ -24530,11 +25008,11 @@ export namespace storage {
          */
         corsRules?: outputs.storage.AccountSharePropertiesCorsRule[];
         /**
-         * (Optional) A `retentionPolicy` block as defined below.
+         * A `retentionPolicy` block as defined below.
          */
         retentionPolicy?: outputs.storage.AccountSharePropertiesRetentionPolicy;
         /**
-         * (Optional) A `smb` block as defined below.
+         * A `smb` block as defined below.
          */
         smb?: outputs.storage.AccountSharePropertiesSmb;
     }
@@ -24565,26 +25043,26 @@ export namespace storage {
 
     export interface AccountSharePropertiesRetentionPolicy {
         /**
-         * Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+         * Specifies the number of days that the `azure.storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
          */
         days?: number;
     }
 
     export interface AccountSharePropertiesSmb {
         /**
-         * (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+         * A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
          */
         authenticationTypes?: string[];
         /**
-         * (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+         * A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
          */
         channelEncryptionTypes?: string[];
         /**
-         * (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+         * A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
          */
         kerberosTicketEncryptionTypes?: string[];
         /**
-         * (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+         * A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
          */
         versions?: string[];
     }

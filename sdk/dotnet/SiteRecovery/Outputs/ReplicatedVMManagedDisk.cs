@@ -22,6 +22,10 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// </summary>
         public readonly string StagingStorageAccountId;
         /// <summary>
+        /// The Disk Encryption Set that the Managed Disk will be associated with.
+        /// </summary>
+        public readonly string? TargetDiskEncryptionSetId;
+        /// <summary>
         /// What type should the disk be when a failover is done.
         /// </summary>
         public readonly string TargetDiskType;
@@ -40,6 +44,8 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
 
             string stagingStorageAccountId,
 
+            string? targetDiskEncryptionSetId,
+
             string targetDiskType,
 
             string targetReplicaDiskType,
@@ -48,6 +54,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         {
             DiskId = diskId;
             StagingStorageAccountId = stagingStorageAccountId;
+            TargetDiskEncryptionSetId = targetDiskEncryptionSetId;
             TargetDiskType = targetDiskType;
             TargetReplicaDiskType = targetReplicaDiskType;
             TargetResourceGroupId = targetResourceGroupId;

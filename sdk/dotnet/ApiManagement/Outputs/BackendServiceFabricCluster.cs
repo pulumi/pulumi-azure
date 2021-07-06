@@ -14,9 +14,13 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class BackendServiceFabricCluster
     {
         /// <summary>
+        /// The client certificate resource id for the management endpoint.
+        /// </summary>
+        public readonly string? ClientCertificateId;
+        /// <summary>
         /// The client certificate thumbprint for the management endpoint.
         /// </summary>
-        public readonly string ClientCertificateThumbprint;
+        public readonly string? ClientCertificateThumbprint;
         /// <summary>
         /// A list of cluster management endpoints.
         /// </summary>
@@ -36,7 +40,9 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
         [OutputConstructor]
         private BackendServiceFabricCluster(
-            string clientCertificateThumbprint,
+            string? clientCertificateId,
+
+            string? clientCertificateThumbprint,
 
             ImmutableArray<string> managementEndpoints,
 
@@ -46,6 +52,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             ImmutableArray<Outputs.BackendServiceFabricClusterServerX509Name> serverX509Names)
         {
+            ClientCertificateId = clientCertificateId;
             ClientCertificateThumbprint = clientCertificateThumbprint;
             ManagementEndpoints = managementEndpoints;
             MaxPartitionResolutionRetries = maxPartitionResolutionRetries;

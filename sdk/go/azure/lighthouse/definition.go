@@ -69,11 +69,13 @@ type Definition struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
 	LighthouseDefinitionId pulumi.StringOutput `pulumi:"lighthouseDefinitionId"`
-	// The ID of the managing tenant.
+	// The ID of the managing tenant. Changing this forces a new resource to be created.
 	ManagingTenantId pulumi.StringOutput `pulumi:"managingTenantId"`
-	// The name of the Lighthouse Definition.
+	// The name of the Lighthouse Definition. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the managed subscription.
+	// A `plan` block as defined below.
+	Plan DefinitionPlanPtrOutput `pulumi:"plan"`
+	// The ID of the managed subscription. Changing this forces a new resource to be created.
 	Scope pulumi.StringOutput `pulumi:"scope"`
 }
 
@@ -121,11 +123,13 @@ type definitionState struct {
 	Description *string `pulumi:"description"`
 	// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
 	LighthouseDefinitionId *string `pulumi:"lighthouseDefinitionId"`
-	// The ID of the managing tenant.
+	// The ID of the managing tenant. Changing this forces a new resource to be created.
 	ManagingTenantId *string `pulumi:"managingTenantId"`
-	// The name of the Lighthouse Definition.
+	// The name of the Lighthouse Definition. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the managed subscription.
+	// A `plan` block as defined below.
+	Plan *DefinitionPlan `pulumi:"plan"`
+	// The ID of the managed subscription. Changing this forces a new resource to be created.
 	Scope *string `pulumi:"scope"`
 }
 
@@ -136,11 +140,13 @@ type DefinitionState struct {
 	Description pulumi.StringPtrInput
 	// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
 	LighthouseDefinitionId pulumi.StringPtrInput
-	// The ID of the managing tenant.
+	// The ID of the managing tenant. Changing this forces a new resource to be created.
 	ManagingTenantId pulumi.StringPtrInput
-	// The name of the Lighthouse Definition.
+	// The name of the Lighthouse Definition. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the managed subscription.
+	// A `plan` block as defined below.
+	Plan DefinitionPlanPtrInput
+	// The ID of the managed subscription. Changing this forces a new resource to be created.
 	Scope pulumi.StringPtrInput
 }
 
@@ -155,11 +161,13 @@ type definitionArgs struct {
 	Description *string `pulumi:"description"`
 	// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
 	LighthouseDefinitionId *string `pulumi:"lighthouseDefinitionId"`
-	// The ID of the managing tenant.
+	// The ID of the managing tenant. Changing this forces a new resource to be created.
 	ManagingTenantId string `pulumi:"managingTenantId"`
-	// The name of the Lighthouse Definition.
+	// The name of the Lighthouse Definition. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the managed subscription.
+	// A `plan` block as defined below.
+	Plan *DefinitionPlan `pulumi:"plan"`
+	// The ID of the managed subscription. Changing this forces a new resource to be created.
 	Scope string `pulumi:"scope"`
 }
 
@@ -171,11 +179,13 @@ type DefinitionArgs struct {
 	Description pulumi.StringPtrInput
 	// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
 	LighthouseDefinitionId pulumi.StringPtrInput
-	// The ID of the managing tenant.
+	// The ID of the managing tenant. Changing this forces a new resource to be created.
 	ManagingTenantId pulumi.StringInput
-	// The name of the Lighthouse Definition.
+	// The name of the Lighthouse Definition. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the managed subscription.
+	// A `plan` block as defined below.
+	Plan DefinitionPlanPtrInput
+	// The ID of the managed subscription. Changing this forces a new resource to be created.
 	Scope pulumi.StringInput
 }
 

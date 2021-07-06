@@ -1551,12 +1551,14 @@ class BackendServiceFabricCluster(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clientCertificateThumbprint":
-            suggest = "client_certificate_thumbprint"
-        elif key == "managementEndpoints":
+        if key == "managementEndpoints":
             suggest = "management_endpoints"
         elif key == "maxPartitionResolutionRetries":
             suggest = "max_partition_resolution_retries"
+        elif key == "clientCertificateId":
+            suggest = "client_certificate_id"
+        elif key == "clientCertificateThumbprint":
+            suggest = "client_certificate_thumbprint"
         elif key == "serverCertificateThumbprints":
             suggest = "server_certificate_thumbprints"
         elif key == "serverX509Names":
@@ -1574,33 +1576,30 @@ class BackendServiceFabricCluster(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_certificate_thumbprint: str,
                  management_endpoints: Sequence[str],
                  max_partition_resolution_retries: int,
+                 client_certificate_id: Optional[str] = None,
+                 client_certificate_thumbprint: Optional[str] = None,
                  server_certificate_thumbprints: Optional[Sequence[str]] = None,
                  server_x509_names: Optional[Sequence['outputs.BackendServiceFabricClusterServerX509Name']] = None):
         """
-        :param str client_certificate_thumbprint: The client certificate thumbprint for the management endpoint.
         :param Sequence[str] management_endpoints: A list of cluster management endpoints.
         :param int max_partition_resolution_retries: The maximum number of retries when attempting resolve the partition.
+        :param str client_certificate_id: The client certificate resource id for the management endpoint.
+        :param str client_certificate_thumbprint: The client certificate thumbprint for the management endpoint.
         :param Sequence[str] server_certificate_thumbprints: A list of thumbprints of the server certificates of the Service Fabric cluster.
         :param Sequence['BackendServiceFabricClusterServerX509NameArgs'] server_x509_names: One or more `server_x509_name` blocks as documented below.
         """
-        pulumi.set(__self__, "client_certificate_thumbprint", client_certificate_thumbprint)
         pulumi.set(__self__, "management_endpoints", management_endpoints)
         pulumi.set(__self__, "max_partition_resolution_retries", max_partition_resolution_retries)
+        if client_certificate_id is not None:
+            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+        if client_certificate_thumbprint is not None:
+            pulumi.set(__self__, "client_certificate_thumbprint", client_certificate_thumbprint)
         if server_certificate_thumbprints is not None:
             pulumi.set(__self__, "server_certificate_thumbprints", server_certificate_thumbprints)
         if server_x509_names is not None:
             pulumi.set(__self__, "server_x509_names", server_x509_names)
-
-    @property
-    @pulumi.getter(name="clientCertificateThumbprint")
-    def client_certificate_thumbprint(self) -> str:
-        """
-        The client certificate thumbprint for the management endpoint.
-        """
-        return pulumi.get(self, "client_certificate_thumbprint")
 
     @property
     @pulumi.getter(name="managementEndpoints")
@@ -1617,6 +1616,22 @@ class BackendServiceFabricCluster(dict):
         The maximum number of retries when attempting resolve the partition.
         """
         return pulumi.get(self, "max_partition_resolution_retries")
+
+    @property
+    @pulumi.getter(name="clientCertificateId")
+    def client_certificate_id(self) -> Optional[str]:
+        """
+        The client certificate resource id for the management endpoint.
+        """
+        return pulumi.get(self, "client_certificate_id")
+
+    @property
+    @pulumi.getter(name="clientCertificateThumbprint")
+    def client_certificate_thumbprint(self) -> Optional[str]:
+        """
+        The client certificate thumbprint for the management endpoint.
+        """
+        return pulumi.get(self, "client_certificate_thumbprint")
 
     @property
     @pulumi.getter(name="serverCertificateThumbprints")

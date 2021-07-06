@@ -43,10 +43,22 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? EnableNodePublicIp { get; set; }
 
         /// <summary>
+        /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("fipsEnabled")]
+        public Input<bool>? FipsEnabled { get; set; }
+
+        /// <summary>
         /// A `kubelet_config` block as defined below.
         /// </summary>
         [Input("kubeletConfig")]
         public Input<Inputs.KubernetesClusterDefaultNodePoolKubeletConfigArgs>? KubeletConfig { get; set; }
+
+        /// <summary>
+        /// The type of disk used by kubelet. At this time the only possible value is `OS`.
+        /// </summary>
+        [Input("kubeletDiskType")]
+        public Input<string>? KubeletDiskType { get; set; }
 
         /// <summary>
         /// A `linux_os_config` block as defined below.

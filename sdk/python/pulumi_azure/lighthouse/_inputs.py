@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'DefinitionAuthorizationArgs',
+    'DefinitionPlanArgs',
 ]
 
 @pulumi.input_type
@@ -79,5 +80,72 @@ class DefinitionAuthorizationArgs:
     @principal_display_name.setter
     def principal_display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_display_name", value)
+
+
+@pulumi.input_type
+class DefinitionPlanArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 product: pulumi.Input[str],
+                 publisher: pulumi.Input[str],
+                 version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The plan name of the marketplace offer.
+        :param pulumi.Input[str] product: The product code of the plan.
+        :param pulumi.Input[str] publisher: The publisher ID of the plan.
+        :param pulumi.Input[str] version: The version of the plan.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The plan name of the marketplace offer.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def product(self) -> pulumi.Input[str]:
+        """
+        The product code of the plan.
+        """
+        return pulumi.get(self, "product")
+
+    @product.setter
+    def product(self, value: pulumi.Input[str]):
+        pulumi.set(self, "product", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        The publisher ID of the plan.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        The version of the plan.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
 
 

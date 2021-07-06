@@ -62,9 +62,17 @@ export interface GetEnvironmentV3Result {
      */
     readonly id: string;
     /**
+     * The location where the App Service Environment exists.
+     */
+    readonly location: string;
+    /**
      * The name of the Cluster Setting.
      */
     readonly name: string;
+    /**
+     * Pricing tier for the front end instances.
+     */
+    readonly pricingTier: string;
     readonly resourceGroupName: string;
     /**
      * The ID of the v3 App Service Environment Subnet.

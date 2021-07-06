@@ -33,8 +33,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ExpressRouteCircuit{}
 	case "azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization":
 		r = &ExpressRouteCircuitAuthorization{}
+	case "azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection":
+		r = &ExpressRouteCircuitConnection{}
 	case "azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering":
 		r = &ExpressRouteCircuitPeering{}
+	case "azure:network/expressRouteConnection:ExpressRouteConnection":
+		r = &ExpressRouteConnection{}
 	case "azure:network/expressRouteGateway:ExpressRouteGateway":
 		r = &ExpressRouteGateway{}
 	case "azure:network/expressRoutePort:ExpressRoutePort":
@@ -59,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NatGateway{}
 	case "azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation":
 		r = &NatGatewayPublicIpAssociation{}
+	case "azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation":
+		r = &NatGatewayPublicIpPrefixAssociation{}
 	case "azure:network/networkConnectionMonitor:NetworkConnectionMonitor":
 		r = &NetworkConnectionMonitor{}
 	case "azure:network/networkInterface:NetworkInterface":
@@ -186,7 +192,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"network/expressRouteCircuitConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"network/expressRouteCircuitPeering",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/expressRouteConnection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -247,6 +263,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/natGatewayPublicIpAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/natGatewayPublicIpPrefixAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

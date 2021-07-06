@@ -45,6 +45,8 @@ __all__ = [
     'ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs',
     'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs',
     'ExpressRouteCircuitSkuArgs',
+    'ExpressRouteConnectionRoutingArgs',
+    'ExpressRouteConnectionRoutingPropagatedRouteTableArgs',
     'ExpressRoutePortIdentityArgs',
     'ExpressRoutePortLink1Args',
     'ExpressRoutePortLink2Args',
@@ -3276,6 +3278,84 @@ class ExpressRouteCircuitSkuArgs:
     @tier.setter
     def tier(self, value: pulumi.Input[str]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class ExpressRouteConnectionRoutingArgs:
+    def __init__(__self__, *,
+                 associated_route_table_id: Optional[pulumi.Input[str]] = None,
+                 propagated_route_table: Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']] = None):
+        """
+        :param pulumi.Input[str] associated_route_table_id: The ID of the Virtual Hub Route Table associated with this Express Route Connection.
+        :param pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs'] propagated_route_table: A `propagated_route_table` block as defined below.
+        """
+        if associated_route_table_id is not None:
+            pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
+        if propagated_route_table is not None:
+            pulumi.set(__self__, "propagated_route_table", propagated_route_table)
+
+    @property
+    @pulumi.getter(name="associatedRouteTableId")
+    def associated_route_table_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Virtual Hub Route Table associated with this Express Route Connection.
+        """
+        return pulumi.get(self, "associated_route_table_id")
+
+    @associated_route_table_id.setter
+    def associated_route_table_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "associated_route_table_id", value)
+
+    @property
+    @pulumi.getter(name="propagatedRouteTable")
+    def propagated_route_table(self) -> Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']]:
+        """
+        A `propagated_route_table` block as defined below.
+        """
+        return pulumi.get(self, "propagated_route_table")
+
+    @propagated_route_table.setter
+    def propagated_route_table(self, value: Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']]):
+        pulumi.set(self, "propagated_route_table", value)
+
+
+@pulumi.input_type
+class ExpressRouteConnectionRoutingPropagatedRouteTableArgs:
+    def __init__(__self__, *,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: The list of labels to logically group route tables.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
+        """
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if route_table_ids is not None:
+            pulumi.set(__self__, "route_table_ids", route_table_ids)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of labels to logically group route tables.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter(name="routeTableIds")
+    def route_table_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
+        """
+        return pulumi.get(self, "route_table_ids")
+
+    @route_table_ids.setter
+    def route_table_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "route_table_ids", value)
 
 
 @pulumi.input_type

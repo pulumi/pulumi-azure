@@ -281,7 +281,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> ProvisionVmAgent { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         /// </summary>
         [Output("proximityPlacementGroupId")]
         public Output<string?> ProximityPlacementGroupId { get; private set; } = null!;
@@ -561,7 +561,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? ProvisionVmAgent { get; set; }
 
         /// <summary>
-        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }
@@ -814,7 +814,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? ProvisionVmAgent { get; set; }
 
         /// <summary>
-        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }

@@ -103,7 +103,7 @@ type Server struct {
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -178,7 +178,7 @@ type serverState struct {
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name *string `pulumi:"name"`
-	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -213,7 +213,7 @@ type ServerState struct {
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name pulumi.StringPtrInput
-	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringPtrInput
@@ -250,7 +250,7 @@ type serverArgs struct {
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name *string `pulumi:"name"`
-	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -282,7 +282,7 @@ type ServerArgs struct {
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name pulumi.StringPtrInput
-	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringInput
