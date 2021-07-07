@@ -24,8 +24,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: name,
  * }));
  * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting", {
- *     targetResourceId: exampleKeyVault.apply(exampleKeyVault => exampleKeyVault.id),
- *     storageAccountId: exampleAccount.apply(exampleAccount => exampleAccount.id),
+ *     targetResourceId: exampleKeyVault.id,
+ *     storageAccountId: exampleAccount.id,
  *     logs: [{
  *         category: "AuditEvent",
  *         enabled: false,

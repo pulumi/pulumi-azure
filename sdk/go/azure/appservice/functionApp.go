@@ -103,7 +103,7 @@ import (
 // 		examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Kind:              pulumi.Any("FunctionApp"),
+// 			Kind:              pulumi.String("FunctionApp"),
 // 			Sku: &appservice.PlanSkuArgs{
 // 				Tier: pulumi.String("Dynamic"),
 // 				Size: pulumi.String("Y1"),
@@ -158,7 +158,7 @@ import (
 // 		examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Kind:              pulumi.Any("Linux"),
+// 			Kind:              pulumi.String("Linux"),
 // 			Reserved:          pulumi.Bool(true),
 // 			Sku: &appservice.PlanSkuArgs{
 // 				Tier: pulumi.String("Dynamic"),

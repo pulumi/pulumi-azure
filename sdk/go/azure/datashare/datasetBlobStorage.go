@@ -62,16 +62,16 @@ import (
 // 			return err
 // 		}
 // 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleStorage / accountAccount.Name,
+// 			StorageAccountName:  pulumi.String(exampleStorage / accountAccount.Name),
 // 			ContainerAccessType: pulumi.String("container"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			Scope:              exampleStorage / accountAccount.Id,
+// 			Scope:              pulumi.String(exampleStorage / accountAccount.Id),
 // 			RoleDefinitionName: pulumi.String("Storage Blob Data Reader"),
-// 			PrincipalId: exampleServicePrincipal.ApplyT(func(exampleServicePrincipal GetServicePrincipalResult) (string, error) {
+// 			PrincipalId: exampleServicePrincipal.ApplyT(func(exampleServicePrincipal azuread.LookupServicePrincipalResult) (string, error) {
 // 				return exampleServicePrincipal.ObjectId, nil
 // 			}).(pulumi.StringOutput),
 // 		})
@@ -82,8 +82,8 @@ import (
 // 			DataShareId:   exampleShare.ID(),
 // 			ContainerName: exampleContainer.Name,
 // 			StorageAccount: &datashare.DatasetBlobStorageStorageAccountArgs{
-// 				Name:              exampleStorage / accountAccount.Name,
-// 				ResourceGroupName: exampleStorage / accountAccount.ResourceGroupName,
+// 				Name:              pulumi.String(exampleStorage / accountAccount.Name),
+// 				ResourceGroupName: pulumi.String(exampleStorage / accountAccount.ResourceGroupName),
 // 				SubscriptionId:    pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			},
 // 			FilePath: pulumi.String("myfile.txt"),

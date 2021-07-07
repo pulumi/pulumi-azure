@@ -86,9 +86,9 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			IothubName:        exampleIoTHub.Name,
 // 			Condition:         pulumi.String("true"),
-// 			EndpointNames: pulumi.String{
+// 			EndpointNames: pulumi.String(pulumi.String{
 // 				exampleEndpointStorageContainer.Name,
-// 			},
+// 			}),
 // 			Enabled: pulumi.Bool(true),
 // 		})
 // 		if err != nil {

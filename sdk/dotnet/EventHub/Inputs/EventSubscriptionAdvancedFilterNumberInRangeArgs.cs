@@ -19,14 +19,14 @@ namespace Pulumi.Azure.EventHub.Inputs
         public Input<string> Key { get; set; } = null!;
 
         [Input("values", required: true)]
-        private InputList<ImmutableArray<Input<double>>>? _values;
+        private InputList<ImmutableArray<double>>? _values;
 
         /// <summary>
         /// Specifies an array of values to compare to when using a multiple values operator.
         /// </summary>
-        public InputList<ImmutableArray<Input<double>>> Values
+        public InputList<ImmutableArray<double>> Values
         {
-            get => _values ?? (_values = new InputList<ImmutableArray<Input<double>>>());
+            get => _values ?? (_values = new InputList<ImmutableArray<double>>());
             set => _values = value;
         }
 

@@ -191,18 +191,18 @@ import (
 // 						},
 // 					},
 // 					Recurrence: &monitoring.AutoscaleSettingProfileRecurrenceArgs{
-// 						Frequency: "Week",
+// 						Frequency: pulumi.String("Week"),
 // 						Timezone:  pulumi.String("Pacific Standard Time"),
 // 						Days: pulumi.StringArray{
 // 							pulumi.String("Saturday"),
 // 							pulumi.String("Sunday"),
 // 						},
-// 						Hours: pulumi.Int{
-// 							12,
-// 						},
-// 						Minutes: pulumi.Int{
-// 							0,
-// 						},
+// 						Hours: pulumi.Int(pulumi.Int{
+// 							pulumi.Float64(12),
+// 						}),
+// 						Minutes: pulumi.Int(pulumi.Int{
+// 							pulumi.Float64(0),
+// 						}),
 // 					},
 // 				},
 // 			},
