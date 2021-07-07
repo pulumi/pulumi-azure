@@ -46,10 +46,10 @@ import (
 // 			Contact: &databoxedge.OrderContactArgs{
 // 				CompanyName: pulumi.String("Contoso Corporation"),
 // 				Name:        pulumi.String("Bart"),
-// 				EmailLists: []string{
-// 					"bart@example.com",
+// 				EmailLists: pulumi.StringArray{
+// 					pulumi.String("bart@example.com"),
 // 				},
-// 				Phone: "(800) 867-5309",
+// 				Phone: pulumi.String("(800) 867-5309"),
 // 			},
 // 			ShipmentAddress: &databoxedge.OrderShipmentAddressArgs{
 // 				Addresses: pulumi.StringArray{

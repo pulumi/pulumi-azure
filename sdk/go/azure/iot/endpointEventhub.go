@@ -68,7 +68,7 @@ import (
 // 			Location:          exampleResourceGroup.Location,
 // 			Sku: &iot.IoTHubSkuArgs{
 // 				Name:     pulumi.String("B1"),
-// 				Tier:     "Basic",
+// 				Tier:     pulumi.String("Basic"),
 // 				Capacity: pulumi.Int(1),
 // 			},
 // 			Tags: pulumi.StringMap{

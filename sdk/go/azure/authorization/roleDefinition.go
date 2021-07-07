@@ -38,7 +38,7 @@ import (
 // 					Actions: pulumi.StringArray{
 // 						pulumi.String("*"),
 // 					},
-// 					NotActions: pulumi.StringArray{},
+// 					NotActions: []interface{}{},
 // 				},
 // 			},
 // 			AssignableScopes: pulumi.StringArray{

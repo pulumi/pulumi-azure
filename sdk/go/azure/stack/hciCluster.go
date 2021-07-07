@@ -28,7 +28,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "example-app"
-// 		exampleApplication, err := azuread.LookupApplication(ctx, &GetApplicationArgs{
+// 		exampleApplication, err := azuread.LookupApplication(ctx, &azuread.LookupApplicationArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
