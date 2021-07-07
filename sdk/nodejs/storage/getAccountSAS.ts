@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *         process: false,
  *     },
  * }));
- * export const sasUrlQueryString = exampleAccountSAS.sas;
+ * export const sasUrlQueryString = exampleAccountSAS.apply(exampleAccountSAS => exampleAccountSAS.sas);
  * ```
  */
 export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> {

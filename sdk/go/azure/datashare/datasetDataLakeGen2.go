@@ -63,15 +63,15 @@ import (
 // 			return err
 // 		}
 // 		exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
-// 			StorageAccountId: pulumi.String(exampleStorage / accountAccount.Id),
+// 			StorageAccountId: exampleStorage / accountAccount.Id,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			Scope:              pulumi.String(exampleStorage / accountAccount.Id),
+// 			Scope:              exampleStorage / accountAccount.Id,
 // 			RoleDefinitionName: pulumi.String("Storage Blob Data Reader"),
-// 			PrincipalId: exampleServicePrincipal.ApplyT(func(exampleServicePrincipal azuread.LookupServicePrincipalResult) (string, error) {
+// 			PrincipalId: exampleServicePrincipal.ApplyT(func(exampleServicePrincipal GetServicePrincipalResult) (string, error) {
 // 				return exampleServicePrincipal.ObjectId, nil
 // 			}).(pulumi.StringOutput),
 // 		})
@@ -80,7 +80,7 @@ import (
 // 		}
 // 		_, err = datashare.NewDatasetDataLakeGen2(ctx, "exampleDatasetDataLakeGen2", &datashare.DatasetDataLakeGen2Args{
 // 			ShareId:          exampleShare.ID(),
-// 			StorageAccountId: pulumi.String(exampleStorage / accountAccount.Id),
+// 			StorageAccountId: exampleStorage / accountAccount.Id,
 // 			FileSystemName:   exampleDataLakeGen2Filesystem.Name,
 // 			FilePath:         pulumi.String("myfile.txt"),
 // 		}, pulumi.DependsOn([]pulumi.Resource{

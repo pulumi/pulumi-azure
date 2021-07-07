@@ -13,6 +13,95 @@ import (
 
 // Manages a Resource Group Consumption Budget.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/consumption"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("eastus"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = monitoring.NewActionGroup(ctx, "test", &monitoring.ActionGroupArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ShortName:         pulumi.String("example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = consumption.NewBudgetResourceGroup(ctx, "exampleBudgetResourceGroup", &consumption.BudgetResourceGroupArgs{
+// 			ResourceGroupId: exampleResourceGroup.ID(),
+// 			Amount:          pulumi.Float64(1000),
+// 			TimeGrain:       pulumi.String("Monthly"),
+// 			TimePeriod: &consumption.BudgetResourceGroupTimePeriodArgs{
+// 				StartDate: pulumi.String("2022-06-01T00:00:00Z"),
+// 				EndDate:   pulumi.String("2022-07-01T00:00:00Z"),
+// 			},
+// 			Filter: &consumption.BudgetResourceGroupFilterArgs{
+// 				Dimensions: consumption.BudgetResourceGroupFilterDimensionArray{
+// 					&consumption.BudgetResourceGroupFilterDimensionArgs{
+// 						Name: pulumi.String("ResourceId"),
+// 						Values: pulumi.StringArray{
+// 							pulumi.Any(azurerm_monitor_action_group.Example.Id),
+// 						},
+// 					},
+// 				},
+// 				Tags: consumption.BudgetResourceGroupFilterTagArray{
+// 					&consumption.BudgetResourceGroupFilterTagArgs{
+// 						Name: pulumi.String("foo"),
+// 						Values: pulumi.StringArray{
+// 							pulumi.String("bar"),
+// 							pulumi.String("baz"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			Notifications: consumption.BudgetResourceGroupNotificationArray{
+// 				&consumption.BudgetResourceGroupNotificationArgs{
+// 					Enabled:   pulumi.Bool(true),
+// 					Threshold: pulumi.Int(90),
+// 					Operator:  pulumi.String("EqualTo"),
+// 					ContactEmails: pulumi.StringArray{
+// 						pulumi.String("foo@example.com"),
+// 						pulumi.String("bar@example.com"),
+// 					},
+// 					ContactGroups: pulumi.StringArray{
+// 						pulumi.Any(azurerm_monitor_action_group.Example.Id),
+// 					},
+// 					ContactRoles: pulumi.StringArray{
+// 						pulumi.String("Owner"),
+// 					},
+// 				},
+// 				&consumption.BudgetResourceGroupNotificationArgs{
+// 					Enabled:   pulumi.Bool(false),
+// 					Threshold: pulumi.Int(100),
+// 					Operator:  pulumi.String("GreaterThan"),
+// 					ContactEmails: pulumi.StringArray{
+// 						pulumi.String("foo@example.com"),
+// 						pulumi.String("bar@example.com"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Resource Group Consumption Budgets can be imported using the `resource id`, e.g.

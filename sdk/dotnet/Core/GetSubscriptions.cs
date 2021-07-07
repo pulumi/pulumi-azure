@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Core
         ///     {
         ///         var available = Output.Create(Azure.Core.GetSubscriptions.InvokeAsync());
         ///         this.AvailableSubscriptions = available.Apply(available =&gt; available.Subscriptions);
-        ///         this.FirstAvailableSubscriptionDisplayName = available.Apply(available =&gt; available.Subscriptions[0].DisplayName);
+        ///         this.FirstAvailableSubscriptionDisplayName = available.Apply(available =&gt; available.Subscriptions?[0]?.DisplayName);
         ///     }
         /// 
         ///     [Output("availableSubscriptions")]

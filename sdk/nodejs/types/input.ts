@@ -1328,6 +1328,7 @@ export namespace appplatform {
          */
         sampleRate?: pulumi.Input<number>;
     }
+
 }
 
 export namespace appservice {
@@ -3096,6 +3097,7 @@ export namespace appservice {
          */
         username?: pulumi.Input<string>;
     }
+
 }
 
 export namespace authorization {
@@ -3381,11 +3383,11 @@ export namespace batch {
         /**
          * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
          */
-        resourceFiles?: inputs.batch.GetPoolStartTaskResourceFile[];
+        resourceFiles: inputs.batch.GetPoolStartTaskResourceFile[];
         /**
          * A `userIdentity` block that describes the user identity under which the start task runs.
          */
-        userIdentities?: inputs.batch.GetPoolStartTaskUserIdentity[];
+        userIdentities: inputs.batch.GetPoolStartTaskUserIdentity[];
         /**
          * A flag that indicates if the Batch pool should wait for the start task to be completed.
          */
@@ -3396,49 +3398,49 @@ export namespace batch {
         /**
          * The storage container name in the auto storage account.
          */
-        autoStorageContainerName?: string;
+        autoStorageContainerName: string;
         /**
          * The blob prefix used when downloading blobs from an Azure Storage container.
          */
-        blobPrefix?: string;
+        blobPrefix: string;
         /**
          * The file permission mode attribute represented as a string in octal format (e.g. `"0644"`).
          */
-        fileMode?: string;
+        fileMode: string;
         /**
          * The location on the compute node to which to download the file, relative to the task's working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified.
          */
-        filePath?: string;
+        filePath: string;
         /**
          * The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access.
          */
-        httpUrl?: string;
+        httpUrl: string;
         /**
          * The URL of the blob container within Azure Blob Storage.
          */
-        storageContainerUrl?: string;
+        storageContainerUrl: string;
     }
 
     export interface GetPoolStartTaskUserIdentity {
         /**
          * A `autoUser` block that describes the user identity under which the start task runs.
          */
-        autoUsers?: inputs.batch.GetPoolStartTaskUserIdentityAutoUser[];
+        autoUsers: inputs.batch.GetPoolStartTaskUserIdentityAutoUser[];
         /**
          * The user name to log into the registry server.
          */
-        userName?: string;
+        userName: string;
     }
 
     export interface GetPoolStartTaskUserIdentityAutoUser {
         /**
          * The elevation level of the user identity under which the start task runs.
          */
-        elevationLevel?: string;
+        elevationLevel: string;
         /**
          * The scope of the user identity under which the start task runs.
          */
-        scope?: string;
+        scope: string;
     }
 
     export interface PoolAutoScale {
@@ -3672,6 +3674,7 @@ export namespace batch {
          */
         version?: pulumi.Input<string>;
     }
+
 }
 
 export namespace blueprint {
@@ -4325,6 +4328,7 @@ export namespace cdn {
          */
         name: pulumi.Input<string>;
     }
+
 }
 
 export namespace cognitive {
@@ -7779,6 +7783,7 @@ export namespace containerservice {
          */
         enabled?: pulumi.Input<boolean>;
     }
+
 }
 
 export namespace core {
@@ -9089,6 +9094,7 @@ export namespace datafactory {
          */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
+
 }
 
 export namespace dataprotection {
@@ -10935,6 +10941,7 @@ export namespace eventhub {
          */
         to?: pulumi.Input<string>;
     }
+
 }
 
 export namespace frontdoor {
@@ -15514,6 +15521,7 @@ export namespace media {
          */
         insightsType?: pulumi.Input<string>;
     }
+
 }
 
 export namespace mediaservices {
@@ -16615,6 +16623,7 @@ export namespace monitoring {
          */
         webhookPayload?: pulumi.Input<string>;
     }
+
 }
 
 export namespace mssql {
@@ -20833,6 +20842,7 @@ export namespace servicefabric {
          */
         memory: pulumi.Input<number>;
     }
+
 }
 
 export namespace signalr {
@@ -21815,6 +21825,7 @@ export namespace storage {
          */
         start: pulumi.Input<string>;
     }
+
 }
 
 export namespace streamanalytics {

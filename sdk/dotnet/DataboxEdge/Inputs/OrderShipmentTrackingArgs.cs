@@ -9,4 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.DataboxEdge.Inputs
 {
+
+    public sealed class OrderShipmentTrackingArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Name of the carrier used in the delivery.
+        /// </summary>
+        [Input("carrierName")]
+        public Input<string>? CarrierName { get; set; }
+
+        /// <summary>
+        /// Serial number of the device being tracked.
+        /// </summary>
+        [Input("serialNumber")]
+        public Input<string>? SerialNumber { get; set; }
+
+        /// <summary>
+        /// The ID of the tracking.
+        /// </summary>
+        [Input("trackingId")]
+        public Input<string>? TrackingId { get; set; }
+
+        /// <summary>
+        /// Tracking URL of the shipment.
+        /// </summary>
+        [Input("trackingUrl")]
+        public Input<string>? TrackingUrl { get; set; }
+
+        public OrderShipmentTrackingArgs()
+        {
+        }
+    }
 }

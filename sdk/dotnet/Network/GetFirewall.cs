@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network
         ///             Name = "firewall1",
         ///             ResourceGroupName = "firewall-RG",
         ///         }));
-        ///         this.FirewallPrivateIp = example.Apply(example =&gt; example.IpConfigurations[0].PrivateIpAddress);
+        ///         this.FirewallPrivateIp = example.Apply(example =&gt; example.IpConfigurations?[0]?.PrivateIpAddress);
         ///     }
         /// 
         ///     [Output("firewallPrivateIp")]

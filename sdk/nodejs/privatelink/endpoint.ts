@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *         primary: true,
  *         subnetId: service.id,
  *     }],
- *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations[0].id)],
+ *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?[0]?.id)],
  * });
  * const exampleEndpoint = new azure.privatelink.Endpoint("exampleEndpoint", {
  *     location: exampleResourceGroup.location,
