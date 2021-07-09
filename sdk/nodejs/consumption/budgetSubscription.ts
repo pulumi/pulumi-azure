@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const current = azure.core.getSubscription({});
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "eastus"});
- * const test = new azure.monitoring.ActionGroup("test", {
+ * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     shortName: "example",
  * });
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *                 "foo@example.com",
  *                 "bar@example.com",
  *             ],
- *             contactGroups: [azurerm_monitor_action_group.example.id],
+ *             contactGroups: [exampleActionGroup.id],
  *             contactRoles: ["Owner"],
  *         },
  *         {

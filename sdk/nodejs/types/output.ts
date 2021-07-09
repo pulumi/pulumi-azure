@@ -721,6 +721,25 @@ export namespace apimanagement {
         headersToLogs?: string[];
     }
 
+    export interface GatewayLocationData {
+        /**
+         * The city or locality where the resource is located.
+         */
+        city?: string;
+        /**
+         * The district, state, or province where the resource is located.
+         */
+        district?: string;
+        /**
+         * A canonical name for the geographic or physical location.
+         */
+        name: string;
+        /**
+         * The country or region where the resource is located.
+         */
+        region?: string;
+    }
+
     export interface GetApiSubscriptionKeyParameterName {
         /**
          * The name of the HTTP Header which should be used for the Subscription Key.
@@ -730,6 +749,22 @@ export namespace apimanagement {
          * The name of the QueryString parameter which should be used for the Subscription Key.
          */
         query: string;
+    }
+
+    export interface GetGatewayLocationData {
+        /**
+         * The city or locality where the resource is located.
+         */
+        city: string;
+        /**
+         * The district, state, or province where the resource is located.
+         */
+        district: string;
+        /**
+         * The name of the API Management Gateway.
+         */
+        name: string;
+        region: string;
     }
 
     export interface GetServiceAdditionalLocation {
@@ -10398,22 +10433,38 @@ export namespace databoxedge {
 
 export namespace databricks {
     export interface WorkspaceCustomParameters {
+        machineLearningWorkspaceId?: string;
         /**
-         * Are public IP Addresses not allowed?
+         * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          */
         noPublicIp?: boolean;
         /**
-         * The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+         * The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
          */
         privateSubnetName?: string;
         /**
-         * The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+         * The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
          */
         publicSubnetName?: string;
         /**
-         * The ID of a Virtual Network where this Databricks Cluster should be created.
+         * The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
+    }
+
+    export interface WorkspaceStorageAccountIdentity {
+        /**
+         * The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+         */
+        principalId: string;
+        /**
+         * The UUID of the tenant where the internal databricks storage account was created.
+         */
+        tenantId: string;
+        /**
+         * The type of the internal databricks storage account.
+         */
+        type: string;
     }
 }
 
@@ -10591,7 +10642,7 @@ export namespace datafactory {
         /**
          * The filename of the file on the web server.
          */
-        filename: string;
+        filename?: string;
         /**
          * The folder path to the file on the web server.
          */
@@ -17060,6 +17111,9 @@ export namespace machinelearning {
          * Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
          */
         minNodeCount: number;
+        /**
+         * Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
         scaleDownNodesAfterIdleDuration: string;
     }
 
@@ -23255,6 +23309,32 @@ export namespace policy {
          * A unique ID within this policy set definition for this policy definition reference.
          */
         referenceId: string;
+    }
+
+    export interface VirtualMachineConfigurationAssignmentConfiguration {
+        /**
+         * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+         */
+        name: string;
+        /**
+         * One or more `parameter` blocks which define what configuration parameters and values against.
+         */
+        parameters?: outputs.policy.VirtualMachineConfigurationAssignmentConfigurationParameter[];
+        /**
+         * The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+         */
+        version?: string;
+    }
+
+    export interface VirtualMachineConfigurationAssignmentConfigurationParameter {
+        /**
+         * The name of the configuration parameter to check.
+         */
+        name: string;
+        /**
+         * The value to check the configuration parameter with.
+         */
+        value: string;
     }
 }
 

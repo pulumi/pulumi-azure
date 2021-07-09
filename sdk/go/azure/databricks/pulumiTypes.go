@@ -11,13 +11,14 @@ import (
 )
 
 type WorkspaceCustomParameters struct {
-	// Are public IP Addresses not allowed?
+	MachineLearningWorkspaceId *string `pulumi:"machineLearningWorkspaceId"`
+	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	NoPublicIp *bool `pulumi:"noPublicIp"`
-	// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+	// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PrivateSubnetName *string `pulumi:"privateSubnetName"`
-	// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+	// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PublicSubnetName *string `pulumi:"publicSubnetName"`
-	// The ID of a Virtual Network where this Databricks Cluster should be created.
+	// The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 }
 
@@ -33,13 +34,14 @@ type WorkspaceCustomParametersInput interface {
 }
 
 type WorkspaceCustomParametersArgs struct {
-	// Are public IP Addresses not allowed?
+	MachineLearningWorkspaceId pulumi.StringPtrInput `pulumi:"machineLearningWorkspaceId"`
+	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	NoPublicIp pulumi.BoolPtrInput `pulumi:"noPublicIp"`
-	// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+	// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PrivateSubnetName pulumi.StringPtrInput `pulumi:"privateSubnetName"`
-	// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+	// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PublicSubnetName pulumi.StringPtrInput `pulumi:"publicSubnetName"`
-	// The ID of a Virtual Network where this Databricks Cluster should be created.
+	// The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
 }
 
@@ -119,23 +121,26 @@ func (o WorkspaceCustomParametersOutput) ToWorkspaceCustomParametersPtrOutputWit
 		return &v
 	}).(WorkspaceCustomParametersPtrOutput)
 }
+func (o WorkspaceCustomParametersOutput) MachineLearningWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.MachineLearningWorkspaceId }).(pulumi.StringPtrOutput)
+}
 
-// Are public IP Addresses not allowed?
+// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersOutput) NoPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *bool { return v.NoPublicIp }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersOutput) PrivateSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PrivateSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersOutput) PublicSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PublicSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// The ID of a Virtual Network where this Databricks Cluster should be created.
+// The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersOutput) VirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
@@ -158,7 +163,16 @@ func (o WorkspaceCustomParametersPtrOutput) Elem() WorkspaceCustomParametersOutp
 	return o.ApplyT(func(v *WorkspaceCustomParameters) WorkspaceCustomParameters { return *v }).(WorkspaceCustomParametersOutput)
 }
 
-// Are public IP Addresses not allowed?
+func (o WorkspaceCustomParametersPtrOutput) MachineLearningWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MachineLearningWorkspaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersPtrOutput) NoPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *bool {
 		if v == nil {
@@ -168,7 +182,7 @@ func (o WorkspaceCustomParametersPtrOutput) NoPublicIp() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersPtrOutput) PrivateSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
 		if v == nil {
@@ -178,7 +192,7 @@ func (o WorkspaceCustomParametersPtrOutput) PrivateSubnetName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersPtrOutput) PublicSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
 		if v == nil {
@@ -188,7 +202,7 @@ func (o WorkspaceCustomParametersPtrOutput) PublicSubnetName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of a Virtual Network where this Databricks Cluster should be created.
+// The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersPtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
 		if v == nil {
@@ -198,7 +212,124 @@ func (o WorkspaceCustomParametersPtrOutput) VirtualNetworkId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkspaceStorageAccountIdentity struct {
+	// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+	PrincipalId *string `pulumi:"principalId"`
+	// The UUID of the tenant where the internal databricks storage account was created.
+	TenantId *string `pulumi:"tenantId"`
+	// The type of the internal databricks storage account.
+	Type *string `pulumi:"type"`
+}
+
+// WorkspaceStorageAccountIdentityInput is an input type that accepts WorkspaceStorageAccountIdentityArgs and WorkspaceStorageAccountIdentityOutput values.
+// You can construct a concrete instance of `WorkspaceStorageAccountIdentityInput` via:
+//
+//          WorkspaceStorageAccountIdentityArgs{...}
+type WorkspaceStorageAccountIdentityInput interface {
+	pulumi.Input
+
+	ToWorkspaceStorageAccountIdentityOutput() WorkspaceStorageAccountIdentityOutput
+	ToWorkspaceStorageAccountIdentityOutputWithContext(context.Context) WorkspaceStorageAccountIdentityOutput
+}
+
+type WorkspaceStorageAccountIdentityArgs struct {
+	// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The UUID of the tenant where the internal databricks storage account was created.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The type of the internal databricks storage account.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (WorkspaceStorageAccountIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceStorageAccountIdentity)(nil)).Elem()
+}
+
+func (i WorkspaceStorageAccountIdentityArgs) ToWorkspaceStorageAccountIdentityOutput() WorkspaceStorageAccountIdentityOutput {
+	return i.ToWorkspaceStorageAccountIdentityOutputWithContext(context.Background())
+}
+
+func (i WorkspaceStorageAccountIdentityArgs) ToWorkspaceStorageAccountIdentityOutputWithContext(ctx context.Context) WorkspaceStorageAccountIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceStorageAccountIdentityOutput)
+}
+
+// WorkspaceStorageAccountIdentityArrayInput is an input type that accepts WorkspaceStorageAccountIdentityArray and WorkspaceStorageAccountIdentityArrayOutput values.
+// You can construct a concrete instance of `WorkspaceStorageAccountIdentityArrayInput` via:
+//
+//          WorkspaceStorageAccountIdentityArray{ WorkspaceStorageAccountIdentityArgs{...} }
+type WorkspaceStorageAccountIdentityArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceStorageAccountIdentityArrayOutput() WorkspaceStorageAccountIdentityArrayOutput
+	ToWorkspaceStorageAccountIdentityArrayOutputWithContext(context.Context) WorkspaceStorageAccountIdentityArrayOutput
+}
+
+type WorkspaceStorageAccountIdentityArray []WorkspaceStorageAccountIdentityInput
+
+func (WorkspaceStorageAccountIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceStorageAccountIdentity)(nil)).Elem()
+}
+
+func (i WorkspaceStorageAccountIdentityArray) ToWorkspaceStorageAccountIdentityArrayOutput() WorkspaceStorageAccountIdentityArrayOutput {
+	return i.ToWorkspaceStorageAccountIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceStorageAccountIdentityArray) ToWorkspaceStorageAccountIdentityArrayOutputWithContext(ctx context.Context) WorkspaceStorageAccountIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceStorageAccountIdentityArrayOutput)
+}
+
+type WorkspaceStorageAccountIdentityOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceStorageAccountIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceStorageAccountIdentity)(nil)).Elem()
+}
+
+func (o WorkspaceStorageAccountIdentityOutput) ToWorkspaceStorageAccountIdentityOutput() WorkspaceStorageAccountIdentityOutput {
+	return o
+}
+
+func (o WorkspaceStorageAccountIdentityOutput) ToWorkspaceStorageAccountIdentityOutputWithContext(ctx context.Context) WorkspaceStorageAccountIdentityOutput {
+	return o
+}
+
+// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+func (o WorkspaceStorageAccountIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceStorageAccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The UUID of the tenant where the internal databricks storage account was created.
+func (o WorkspaceStorageAccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceStorageAccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the internal databricks storage account.
+func (o WorkspaceStorageAccountIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceStorageAccountIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceStorageAccountIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceStorageAccountIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceStorageAccountIdentity)(nil)).Elem()
+}
+
+func (o WorkspaceStorageAccountIdentityArrayOutput) ToWorkspaceStorageAccountIdentityArrayOutput() WorkspaceStorageAccountIdentityArrayOutput {
+	return o
+}
+
+func (o WorkspaceStorageAccountIdentityArrayOutput) ToWorkspaceStorageAccountIdentityArrayOutputWithContext(ctx context.Context) WorkspaceStorageAccountIdentityArrayOutput {
+	return o
+}
+
+func (o WorkspaceStorageAccountIdentityArrayOutput) Index(i pulumi.IntInput) WorkspaceStorageAccountIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceStorageAccountIdentity {
+		return vs[0].([]WorkspaceStorageAccountIdentity)[vs[1].(int)]
+	}).(WorkspaceStorageAccountIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceCustomParametersOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityOutput{})
+	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityArrayOutput{})
 }

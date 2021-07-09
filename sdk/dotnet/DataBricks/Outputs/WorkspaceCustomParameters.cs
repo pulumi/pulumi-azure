@@ -13,25 +13,28 @@ namespace Pulumi.Azure.DataBricks.Outputs
     [OutputType]
     public sealed class WorkspaceCustomParameters
     {
+        public readonly string? MachineLearningWorkspaceId;
         /// <summary>
-        /// Are public IP Addresses not allowed?
+        /// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? NoPublicIp;
         /// <summary>
-        /// The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
+        /// The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PrivateSubnetName;
         /// <summary>
-        /// The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
+        /// The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PublicSubnetName;
         /// <summary>
-        /// The ID of a Virtual Network where this Databricks Cluster should be created.
+        /// The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? VirtualNetworkId;
 
         [OutputConstructor]
         private WorkspaceCustomParameters(
+            string? machineLearningWorkspaceId,
+
             bool? noPublicIp,
 
             string? privateSubnetName,
@@ -40,6 +43,7 @@ namespace Pulumi.Azure.DataBricks.Outputs
 
             string? virtualNetworkId)
         {
+            MachineLearningWorkspaceId = machineLearningWorkspaceId;
             NoPublicIp = noPublicIp;
             PrivateSubnetName = privateSubnetName;
             PublicSubnetName = publicSubnetName;

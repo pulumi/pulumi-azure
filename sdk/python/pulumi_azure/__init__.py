@@ -336,6 +336,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/gateway",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/gateway:Gateway": "Gateway"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/group",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
@@ -1660,6 +1668,14 @@ _utilities.register(
   "fqn": "pulumi_azure.databricks",
   "classes": {
    "azure:databricks/workspace:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "databricks/workspaceCustomerManagedKey",
+  "fqn": "pulumi_azure.databricks",
+  "classes": {
+   "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey": "WorkspaceCustomerManagedKey"
   }
  },
  {
@@ -4364,6 +4380,14 @@ _utilities.register(
   "fqn": "pulumi_azure.policy",
   "classes": {
    "azure:policy/remediation:Remediation": "Remediation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "policy/virtualMachineConfigurationAssignment",
+  "fqn": "pulumi_azure.policy",
+  "classes": {
+   "azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment": "VirtualMachineConfigurationAssignment"
   }
  },
  {

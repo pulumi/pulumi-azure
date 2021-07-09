@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:databricks/workspace:Workspace":
 		r = &Workspace{}
+	case "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey":
+		r = &WorkspaceCustomerManagedKey{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"databricks/workspace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"databricks/workspaceCustomerManagedKey",
 		&module{version},
 	)
 }

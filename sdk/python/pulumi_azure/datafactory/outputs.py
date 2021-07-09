@@ -564,16 +564,17 @@ class DatasetMysqlSchemaColumn(dict):
 class DatasetParquetAzureBlobStorageLocation(dict):
     def __init__(__self__, *,
                  container: str,
-                 filename: str,
-                 path: str):
+                 path: str,
+                 filename: Optional[str] = None):
         """
         :param str container: The container on the Azure Blob Storage Account hosting the file.
-        :param str filename: The filename of the file on the web server.
         :param str path: The folder path to the file on the web server.
+        :param str filename: The filename of the file on the web server.
         """
         pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "filename", filename)
         pulumi.set(__self__, "path", path)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
 
     @property
     @pulumi.getter
@@ -585,19 +586,19 @@ class DatasetParquetAzureBlobStorageLocation(dict):
 
     @property
     @pulumi.getter
-    def filename(self) -> str:
-        """
-        The filename of the file on the web server.
-        """
-        return pulumi.get(self, "filename")
-
-    @property
-    @pulumi.getter
     def path(self) -> str:
         """
         The folder path to the file on the web server.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[str]:
+        """
+        The filename of the file on the web server.
+        """
+        return pulumi.get(self, "filename")
 
 
 @pulumi.output_type

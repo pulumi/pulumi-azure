@@ -66,6 +66,14 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly customParameters!: pulumi.Output<outputs.databricks.WorkspaceCustomParameters>;
     /**
+     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     */
+    public readonly customerManagedKeyEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     */
+    public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -89,6 +97,10 @@ export class Workspace extends pulumi.CustomResource {
      * The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
      */
     public readonly sku!: pulumi.Output<string>;
+    /**
+     * A `storageAccountIdentity` block as documented below.
+     */
+    public /*out*/ readonly storageAccountIdentities!: pulumi.Output<outputs.databricks.WorkspaceStorageAccountIdentity[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -116,12 +128,15 @@ export class Workspace extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
             inputs["customParameters"] = state ? state.customParameters : undefined;
+            inputs["customerManagedKeyEnabled"] = state ? state.customerManagedKeyEnabled : undefined;
+            inputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managedResourceGroupId"] = state ? state.managedResourceGroupId : undefined;
             inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
+            inputs["storageAccountIdentities"] = state ? state.storageAccountIdentities : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["workspaceId"] = state ? state.workspaceId : undefined;
             inputs["workspaceUrl"] = state ? state.workspaceUrl : undefined;
@@ -134,6 +149,8 @@ export class Workspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["customParameters"] = args ? args.customParameters : undefined;
+            inputs["customerManagedKeyEnabled"] = args ? args.customerManagedKeyEnabled : undefined;
+            inputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -141,6 +158,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["managedResourceGroupId"] = undefined /*out*/;
+            inputs["storageAccountIdentities"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
             inputs["workspaceUrl"] = undefined /*out*/;
         }
@@ -159,6 +177,14 @@ export interface WorkspaceState {
      * A `customParameters` block as documented below.
      */
     customParameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParameters>;
+    /**
+     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     */
+    customerManagedKeyEnabled?: pulumi.Input<boolean>;
+    /**
+     * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     */
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
@@ -184,6 +210,10 @@ export interface WorkspaceState {
      */
     sku?: pulumi.Input<string>;
     /**
+     * A `storageAccountIdentity` block as documented below.
+     */
+    storageAccountIdentities?: pulumi.Input<pulumi.Input<inputs.databricks.WorkspaceStorageAccountIdentity>[]>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -205,6 +235,14 @@ export interface WorkspaceArgs {
      * A `customParameters` block as documented below.
      */
     customParameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParameters>;
+    /**
+     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     */
+    customerManagedKeyEnabled?: pulumi.Input<boolean>;
+    /**
+     * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     */
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */

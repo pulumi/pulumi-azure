@@ -19,8 +19,10 @@ from .certificate import *
 from .custom_domain import *
 from .diagnostic import *
 from .email_template import *
+from .gateway import *
 from .get_api import *
 from .get_api_version_set import *
+from .get_gateway import *
 from .get_group import *
 from .get_product import *
 from .get_service import *

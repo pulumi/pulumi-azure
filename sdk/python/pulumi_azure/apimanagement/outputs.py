@@ -45,6 +45,7 @@ __all__ = [
     'DiagnosticBackendResponse',
     'DiagnosticFrontendRequest',
     'DiagnosticFrontendResponse',
+    'GatewayLocationData',
     'LoggerApplicationInsights',
     'LoggerEventhub',
     'ServiceAdditionalLocation',
@@ -66,6 +67,7 @@ __all__ = [
     'ServiceTenantAccess',
     'ServiceVirtualNetworkConfiguration',
     'GetApiSubscriptionKeyParameterNameResult',
+    'GetGatewayLocationDataResult',
     'GetServiceAdditionalLocationResult',
     'GetServiceHostnameConfigurationResult',
     'GetServiceHostnameConfigurationDeveloperPortalResult',
@@ -2406,6 +2408,60 @@ class DiagnosticFrontendResponse(dict):
 
 
 @pulumi.output_type
+class GatewayLocationData(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 city: Optional[str] = None,
+                 district: Optional[str] = None,
+                 region: Optional[str] = None):
+        """
+        :param str name: A canonical name for the geographic or physical location.
+        :param str city: The city or locality where the resource is located.
+        :param str district: The district, state, or province where the resource is located.
+        :param str region: The country or region where the resource is located.
+        """
+        pulumi.set(__self__, "name", name)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if district is not None:
+            pulumi.set(__self__, "district", district)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A canonical name for the geographic or physical location.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def city(self) -> Optional[str]:
+        """
+        The city or locality where the resource is located.
+        """
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter
+    def district(self) -> Optional[str]:
+        """
+        The district, state, or province where the resource is located.
+        """
+        return pulumi.get(self, "district")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        The country or region where the resource is located.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
 class LoggerApplicationInsights(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3888,6 +3944,53 @@ class GetApiSubscriptionKeyParameterNameResult(dict):
         The name of the QueryString parameter which should be used for the Subscription Key.
         """
         return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class GetGatewayLocationDataResult(dict):
+    def __init__(__self__, *,
+                 city: str,
+                 district: str,
+                 name: str,
+                 region: str):
+        """
+        :param str city: The city or locality where the resource is located.
+        :param str district: The district, state, or province where the resource is located.
+        :param str name: The name of the API Management Gateway.
+        """
+        pulumi.set(__self__, "city", city)
+        pulumi.set(__self__, "district", district)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def city(self) -> str:
+        """
+        The city or locality where the resource is located.
+        """
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter
+    def district(self) -> str:
+        """
+        The district, state, or province where the resource is located.
+        """
+        return pulumi.get(self, "district")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the API Management Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type

@@ -23,8 +23,6 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-//
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/apimanagement"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -44,9 +42,6 @@ import (
 // 			PublisherName:     pulumi.String("My Company"),
 // 			PublisherEmail:    pulumi.String("company@exmaple.com"),
 // 			SkuName:           pulumi.String("Developer_1"),
-// 			Policy: &apimanagement.ServicePolicyArgs{
-// 				XmlContent: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v", "    <policies>\n", "      <inbound />\n", "      <backend />\n", "      <outbound />\n", "      <on-error />\n", "    </policies>\n")),
-// 			},
 // 		})
 // 		if err != nil {
 // 			return err

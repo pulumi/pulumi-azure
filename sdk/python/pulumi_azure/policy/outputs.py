@@ -7,11 +7,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'AssignmentIdentity',
     'PolicySetDefinitionPolicyDefinitionGroup',
     'PolicySetDefinitionPolicyDefinitionReference',
+    'VirtualMachineConfigurationAssignmentConfiguration',
+    'VirtualMachineConfigurationAssignmentConfigurationParameter',
     'GetPolicySetDefinitionPolicyDefinitionGroupResult',
     'GetPolicySetDefinitionPolicyDefinitionReferenceResult',
 ]
@@ -250,6 +253,77 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
         A unique ID within this policy set definition for this policy definition reference.
         """
         return pulumi.get(self, "reference_id")
+
+
+@pulumi.output_type
+class VirtualMachineConfigurationAssignmentConfiguration(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Sequence['outputs.VirtualMachineConfigurationAssignmentConfigurationParameter']] = None,
+                 version: Optional[str] = None):
+        """
+        :param str name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+        :param Sequence['VirtualMachineConfigurationAssignmentConfigurationParameterArgs'] parameters: One or more `parameter` blocks which define what configuration parameters and values against.
+        :param str version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.VirtualMachineConfigurationAssignmentConfigurationParameter']]:
+        """
+        One or more `parameter` blocks which define what configuration parameters and values against.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class VirtualMachineConfigurationAssignmentConfigurationParameter(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of the configuration parameter to check.
+        :param str value: The value to check the configuration parameter with.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the configuration parameter to check.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value to check the configuration parameter with.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

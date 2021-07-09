@@ -48,6 +48,8 @@ import (
 type AssessmentPolicy struct {
 	pulumi.CustomResourceState
 
+	// A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+	Categories pulumi.StringArrayOutput `pulumi:"categories"`
 	// The description of the Security Center Assessment.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The user-friendly display name of the Security Center Assessment.
@@ -101,6 +103,8 @@ func GetAssessmentPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AssessmentPolicy resources.
 type assessmentPolicyState struct {
+	// A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+	Categories []string `pulumi:"categories"`
 	// The description of the Security Center Assessment.
 	Description *string `pulumi:"description"`
 	// The user-friendly display name of the Security Center Assessment.
@@ -120,6 +124,8 @@ type assessmentPolicyState struct {
 }
 
 type AssessmentPolicyState struct {
+	// A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+	Categories pulumi.StringArrayInput
 	// The description of the Security Center Assessment.
 	Description pulumi.StringPtrInput
 	// The user-friendly display name of the Security Center Assessment.
@@ -143,6 +149,8 @@ func (AssessmentPolicyState) ElementType() reflect.Type {
 }
 
 type assessmentPolicyArgs struct {
+	// A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+	Categories []string `pulumi:"categories"`
 	// The description of the Security Center Assessment.
 	Description string `pulumi:"description"`
 	// The user-friendly display name of the Security Center Assessment.
@@ -161,6 +169,8 @@ type assessmentPolicyArgs struct {
 
 // The set of arguments for constructing a AssessmentPolicy resource.
 type AssessmentPolicyArgs struct {
+	// A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
+	Categories pulumi.StringArrayInput
 	// The description of the Security Center Assessment.
 	Description pulumi.StringInput
 	// The user-friendly display name of the Security Center Assessment.

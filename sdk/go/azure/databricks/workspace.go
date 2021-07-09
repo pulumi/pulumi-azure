@@ -60,6 +60,10 @@ type Workspace struct {
 
 	// A `customParameters` block as documented below.
 	CustomParameters WorkspaceCustomParametersOutput `pulumi:"customParameters"`
+	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+	CustomerManagedKeyEnabled pulumi.BoolPtrOutput `pulumi:"customerManagedKeyEnabled"`
+	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID of the Managed Resource Group created by the Databricks Workspace.
@@ -72,6 +76,8 @@ type Workspace struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
 	Sku pulumi.StringOutput `pulumi:"sku"`
+	// A `storageAccountIdentity` block as documented below.
+	StorageAccountIdentities WorkspaceStorageAccountIdentityArrayOutput `pulumi:"storageAccountIdentities"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The unique identifier of the databricks workspace in Databricks control plane.
@@ -117,6 +123,10 @@ func GetWorkspace(ctx *pulumi.Context,
 type workspaceState struct {
 	// A `customParameters` block as documented below.
 	CustomParameters *WorkspaceCustomParameters `pulumi:"customParameters"`
+	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
+	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The ID of the Managed Resource Group created by the Databricks Workspace.
@@ -129,6 +139,8 @@ type workspaceState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
 	Sku *string `pulumi:"sku"`
+	// A `storageAccountIdentity` block as documented below.
+	StorageAccountIdentities []WorkspaceStorageAccountIdentity `pulumi:"storageAccountIdentities"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The unique identifier of the databricks workspace in Databricks control plane.
@@ -140,6 +152,10 @@ type workspaceState struct {
 type WorkspaceState struct {
 	// A `customParameters` block as documented below.
 	CustomParameters WorkspaceCustomParametersPtrInput
+	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+	CustomerManagedKeyEnabled pulumi.BoolPtrInput
+	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The ID of the Managed Resource Group created by the Databricks Workspace.
@@ -152,6 +168,8 @@ type WorkspaceState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
 	Sku pulumi.StringPtrInput
+	// A `storageAccountIdentity` block as documented below.
+	StorageAccountIdentities WorkspaceStorageAccountIdentityArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The unique identifier of the databricks workspace in Databricks control plane.
@@ -167,6 +185,10 @@ func (WorkspaceState) ElementType() reflect.Type {
 type workspaceArgs struct {
 	// A `customParameters` block as documented below.
 	CustomParameters *WorkspaceCustomParameters `pulumi:"customParameters"`
+	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
+	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
@@ -185,6 +207,10 @@ type workspaceArgs struct {
 type WorkspaceArgs struct {
 	// A `customParameters` block as documented below.
 	CustomParameters WorkspaceCustomParametersPtrInput
+	// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+	CustomerManagedKeyEnabled pulumi.BoolPtrInput
+	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.

@@ -12,26 +12,29 @@ namespace Pulumi.Azure.DataBricks.Inputs
 
     public sealed class WorkspaceCustomParametersArgs : Pulumi.ResourceArgs
     {
+        [Input("machineLearningWorkspaceId")]
+        public Input<string>? MachineLearningWorkspaceId { get; set; }
+
         /// <summary>
-        /// Are public IP Addresses not allowed?
+        /// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("noPublicIp")]
         public Input<bool>? NoPublicIp { get; set; }
 
         /// <summary>
-        /// The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
+        /// The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateSubnetName")]
         public Input<string>? PrivateSubnetName { get; set; }
 
         /// <summary>
-        /// The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
+        /// The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicSubnetName")]
         public Input<string>? PublicSubnetName { get; set; }
 
         /// <summary>
-        /// The ID of a Virtual Network where this Databricks Cluster should be created.
+        /// The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }

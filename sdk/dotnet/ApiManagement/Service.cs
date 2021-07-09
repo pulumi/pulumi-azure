@@ -37,16 +37,6 @@ namespace Pulumi.Azure.ApiManagement
     ///             PublisherName = "My Company",
     ///             PublisherEmail = "company@exmaple.com",
     ///             SkuName = "Developer_1",
-    ///             Policy = new Azure.ApiManagement.Inputs.ServicePolicyArgs
-    ///             {
-    ///                 XmlContent = @"    &lt;policies&gt;
-    ///       &lt;inbound /&gt;
-    ///       &lt;backend /&gt;
-    ///       &lt;outbound /&gt;
-    ///       &lt;on-error /&gt;
-    ///     &lt;/policies&gt;
-    /// ",
-    ///             },
     ///         });
     ///     }
     /// 

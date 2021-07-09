@@ -59,6 +59,18 @@ namespace Pulumi.Azure.DataBricks
         public Output<Outputs.WorkspaceCustomParameters> CustomParameters { get; private set; } = null!;
 
         /// <summary>
+        /// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("customerManagedKeyEnabled")]
+        public Output<bool?> CustomerManagedKeyEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("infrastructureEncryptionEnabled")]
+        public Output<bool?> InfrastructureEncryptionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -93,6 +105,12 @@ namespace Pulumi.Azure.DataBricks
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// A `storage_account_identity` block as documented below.
+        /// </summary>
+        [Output("storageAccountIdentities")]
+        public Output<ImmutableArray<Outputs.WorkspaceStorageAccountIdentity>> StorageAccountIdentities { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -165,6 +183,18 @@ namespace Pulumi.Azure.DataBricks
         public Input<Inputs.WorkspaceCustomParametersArgs>? CustomParameters { get; set; }
 
         /// <summary>
+        /// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("customerManagedKeyEnabled")]
+        public Input<bool>? CustomerManagedKeyEnabled { get; set; }
+
+        /// <summary>
+        /// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("infrastructureEncryptionEnabled")]
+        public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -220,6 +250,18 @@ namespace Pulumi.Azure.DataBricks
         public Input<Inputs.WorkspaceCustomParametersGetArgs>? CustomParameters { get; set; }
 
         /// <summary>
+        /// Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("customerManagedKeyEnabled")]
+        public Input<bool>? CustomerManagedKeyEnabled { get; set; }
+
+        /// <summary>
+        /// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("infrastructureEncryptionEnabled")]
+        public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -254,6 +296,18 @@ namespace Pulumi.Azure.DataBricks
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        [Input("storageAccountIdentities")]
+        private InputList<Inputs.WorkspaceStorageAccountIdentityGetArgs>? _storageAccountIdentities;
+
+        /// <summary>
+        /// A `storage_account_identity` block as documented below.
+        /// </summary>
+        public InputList<Inputs.WorkspaceStorageAccountIdentityGetArgs> StorageAccountIdentities
+        {
+            get => _storageAccountIdentities ?? (_storageAccountIdentities = new InputList<Inputs.WorkspaceStorageAccountIdentityGetArgs>());
+            set => _storageAccountIdentities = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

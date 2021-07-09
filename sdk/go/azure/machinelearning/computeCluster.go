@@ -111,9 +111,9 @@ import (
 // 			MachineLearningWorkspaceId: exampleWorkspace.ID(),
 // 			SubnetResourceId:           exampleSubnet.ID(),
 // 			ScaleSettings: &machinelearning.ComputeClusterScaleSettingsArgs{
-// 				MinNodeCount:                pulumi.Int(0),
-// 				MaxNodeCount:                pulumi.Int(1),
-// 				NodeIdleTimeBeforeScaleDown: pulumi.String("PT30S"),
+// 				MinNodeCount:                    pulumi.Int(0),
+// 				MaxNodeCount:                    pulumi.Int(1),
+// 				ScaleDownNodesAfterIdleDuration: pulumi.String("PT30S"),
 // 			},
 // 			Identity: &machinelearning.ComputeClusterIdentityArgs{
 // 				Type: pulumi.String("SystemAssigned"),

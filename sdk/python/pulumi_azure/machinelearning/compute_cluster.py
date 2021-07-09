@@ -416,7 +416,7 @@ class ComputeCluster(pulumi.CustomResource):
             scale_settings=azure.machinelearning.ComputeClusterScaleSettingsArgs(
                 min_node_count=0,
                 max_node_count=1,
-                node_idle_time_before_scale_down="PT30S",
+                scale_down_nodes_after_idle_duration="PT30S",
             ),
             identity=azure.machinelearning.ComputeClusterIdentityArgs(
                 type="SystemAssigned",
@@ -507,7 +507,7 @@ class ComputeCluster(pulumi.CustomResource):
             scale_settings=azure.machinelearning.ComputeClusterScaleSettingsArgs(
                 min_node_count=0,
                 max_node_count=1,
-                node_idle_time_before_scale_down="PT30S",
+                scale_down_nodes_after_idle_duration="PT30S",
             ),
             identity=azure.machinelearning.ComputeClusterIdentityArgs(
                 type="SystemAssigned",

@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *     location: rg.location,
  *     clusterName: cluster.name,
  *     databaseName: database.name,
- *     eventhubId: azurerm_eventhub.evenhub.id,
+ *     eventhubId: eventhub.id,
  *     consumerGroup: consumerGroup.name,
  *     tableName: "my-table",
  *     mappingRuleName: "my-table-mapping",
@@ -108,7 +108,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
      */
     public readonly consumerGroup!: pulumi.Output<string>;
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
      */
     public readonly dataFormat!: pulumi.Output<string | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface EventhubDataConnectionState {
      */
     consumerGroup?: pulumi.Input<string>;
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
      */
     dataFormat?: pulumi.Input<string>;
     /**
@@ -277,7 +277,7 @@ export interface EventhubDataConnectionArgs {
      */
     consumerGroup: pulumi.Input<string>;
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
      */
     dataFormat?: pulumi.Input<string>;
     /**

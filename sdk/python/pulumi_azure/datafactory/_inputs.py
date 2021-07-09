@@ -642,16 +642,17 @@ class DatasetMysqlSchemaColumnArgs:
 class DatasetParquetAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
-                 filename: pulumi.Input[str],
-                 path: pulumi.Input[str]):
+                 path: pulumi.Input[str],
+                 filename: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] container: The container on the Azure Blob Storage Account hosting the file.
-        :param pulumi.Input[str] filename: The filename of the file on the web server.
         :param pulumi.Input[str] path: The folder path to the file on the web server.
+        :param pulumi.Input[str] filename: The filename of the file on the web server.
         """
         pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "filename", filename)
         pulumi.set(__self__, "path", path)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
 
     @property
     @pulumi.getter
@@ -667,18 +668,6 @@ class DatasetParquetAzureBlobStorageLocationArgs:
 
     @property
     @pulumi.getter
-    def filename(self) -> pulumi.Input[str]:
-        """
-        The filename of the file on the web server.
-        """
-        return pulumi.get(self, "filename")
-
-    @filename.setter
-    def filename(self, value: pulumi.Input[str]):
-        pulumi.set(self, "filename", value)
-
-    @property
-    @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
         The folder path to the file on the web server.
@@ -688,6 +677,18 @@ class DatasetParquetAzureBlobStorageLocationArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[pulumi.Input[str]]:
+        """
+        The filename of the file on the web server.
+        """
+        return pulumi.get(self, "filename")
+
+    @filename.setter
+    def filename(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filename", value)
 
 
 @pulumi.input_type

@@ -25,15 +25,6 @@ import * as utilities from "../utilities";
  *     publisherName: "My Company",
  *     publisherEmail: "company@exmaple.com",
  *     skuName: "Developer_1",
- *     policy: {
- *         xmlContent: `    <policies>
- *       <inbound />
- *       <backend />
- *       <outbound />
- *       <on-error />
- *     </policies>
- * `,
- *     },
  * });
  * ```
  *
