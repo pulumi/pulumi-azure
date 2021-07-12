@@ -31,7 +31,7 @@ namespace Pulumi.Azure.PrivateLink
         ///             Name = "example-private-endpoint",
         ///             ResourceGroupName = "example-rg",
         ///         }));
-        ///         this.PrivateEndpointStatus = example.Apply(example =&gt; example.PrivateServiceConnections[0].Status);
+        ///         this.PrivateEndpointStatus = example.Apply(example =&gt; example.PrivateServiceConnections?[0]?.Status);
         ///     }
         /// 
         ///     [Output("privateEndpointStatus")]

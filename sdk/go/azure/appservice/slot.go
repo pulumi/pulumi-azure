@@ -24,15 +24,15 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+// 	"github.com/pulumi/pulumi-random/sdk/v2/go/random"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-// 			Keepers: pulumi.Float64Map{
-// 				"azi_id": pulumi.Float64(1),
+// 			Keepers: pulumi.AnyMap{
+// 				"azi_id": pulumi.Any(1),
 // 			},
 // 			ByteLength: pulumi.Int(8),
 // 		})
@@ -111,15 +111,15 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+// 	"github.com/pulumi/pulumi-random/sdk/v2/go/random"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-// 			Keepers: pulumi.Float64Map{
-// 				"azi_id": pulumi.Float64(1),
+// 			Keepers: pulumi.AnyMap{
+// 				"azi_id": pulumi.Any(1),
 // 			},
 // 			ByteLength: pulumi.Int(8),
 // 		})

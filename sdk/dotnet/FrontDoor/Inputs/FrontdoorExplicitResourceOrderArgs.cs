@@ -9,4 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
+
+    public sealed class FrontdoorExplicitResourceOrderArgs : Pulumi.ResourceArgs
+    {
+        [Input("backendPoolHealthProbeIds")]
+        private InputList<string>? _backendPoolHealthProbeIds;
+        public InputList<string> BackendPoolHealthProbeIds
+        {
+            get => _backendPoolHealthProbeIds ?? (_backendPoolHealthProbeIds = new InputList<string>());
+            set => _backendPoolHealthProbeIds = value;
+        }
+
+        [Input("backendPoolIds")]
+        private InputList<string>? _backendPoolIds;
+        public InputList<string> BackendPoolIds
+        {
+            get => _backendPoolIds ?? (_backendPoolIds = new InputList<string>());
+            set => _backendPoolIds = value;
+        }
+
+        [Input("backendPoolLoadBalancingIds")]
+        private InputList<string>? _backendPoolLoadBalancingIds;
+        public InputList<string> BackendPoolLoadBalancingIds
+        {
+            get => _backendPoolLoadBalancingIds ?? (_backendPoolLoadBalancingIds = new InputList<string>());
+            set => _backendPoolLoadBalancingIds = value;
+        }
+
+        [Input("frontendEndpointIds")]
+        private InputList<string>? _frontendEndpointIds;
+        public InputList<string> FrontendEndpointIds
+        {
+            get => _frontendEndpointIds ?? (_frontendEndpointIds = new InputList<string>());
+            set => _frontendEndpointIds = value;
+        }
+
+        [Input("routingRuleIds")]
+        private InputList<string>? _routingRuleIds;
+        public InputList<string> RoutingRuleIds
+        {
+            get => _routingRuleIds ?? (_routingRuleIds = new InputList<string>());
+            set => _routingRuleIds = value;
+        }
+
+        public FrontdoorExplicitResourceOrderArgs()
+        {
+        }
+    }
 }

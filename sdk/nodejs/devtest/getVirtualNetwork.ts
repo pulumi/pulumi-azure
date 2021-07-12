@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     labName: "examplelab",
  *     resourceGroupName: "example-resource",
  * });
- * export const labSubnetName = example.then(example => example.allowedSubnets[0].labSubnetName);
+ * export const labSubnetName = example.then(example => example.allowedSubnets?[0]?.labSubnetName);
  * ```
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {

@@ -53,7 +53,7 @@ import (
 // 		}
 // 		_, err = batch.NewApplication(ctx, "exampleApplication", &batch.ApplicationArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AccountName:       pulumi.String(exampleBatch / accountAccount.Name),
+// 			AccountName:       exampleBatch / accountAccount.Name,
 // 		})
 // 		if err != nil {
 // 			return err

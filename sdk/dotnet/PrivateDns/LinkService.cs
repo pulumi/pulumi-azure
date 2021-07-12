@@ -82,7 +82,7 @@ namespace Pulumi.Azure.PrivateDns
     ///             },
     ///             LoadBalancerFrontendIpConfigurationIds = 
     ///             {
-    ///                 exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations[0].Id),
+    ///                 exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations?[0]?.Id),
     ///             },
     ///             NatIpConfigurations = 
     ///             {

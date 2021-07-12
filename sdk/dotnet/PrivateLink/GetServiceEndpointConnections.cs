@@ -31,7 +31,7 @@ namespace Pulumi.Azure.PrivateLink
         ///             ServiceId = azurerm_private_link_service.Example.Id,
         ///             ResourceGroupName = azurerm_resource_group.Example.Name,
         ///         }));
-        ///         this.PrivateEndpointStatus = example.Apply(example =&gt; example.PrivateEndpointConnections[0].Status);
+        ///         this.PrivateEndpointStatus = example.Apply(example =&gt; example.PrivateEndpointConnections?[0]?.Status);
         ///     }
         /// 
         ///     [Output("privateEndpointStatus")]
