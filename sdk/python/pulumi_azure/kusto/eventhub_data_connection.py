@@ -33,7 +33,7 @@ class EventhubDataConnectionArgs:
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] compression: Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -136,7 +136,7 @@ class EventhubDataConnectionArgs:
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
         """
         return pulumi.get(self, "data_format")
 
@@ -225,7 +225,7 @@ class _EventhubDataConnectionState:
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] compression: Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] consumer_group: Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -300,7 +300,7 @@ class _EventhubDataConnectionState:
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
         """
         return pulumi.get(self, "data_format")
 
@@ -464,7 +464,7 @@ class EventhubDataConnection(pulumi.CustomResource):
             location=rg.location,
             cluster_name=cluster.name,
             database_name=database.name,
-            eventhub_id=azurerm_eventhub["evenhub"]["id"],
+            eventhub_id=eventhub.id,
             consumer_group=consumer_group.name,
             table_name="my-table",
             mapping_rule_name="my-table-mapping",
@@ -485,7 +485,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] compression: Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] consumer_group: Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -542,7 +542,7 @@ class EventhubDataConnection(pulumi.CustomResource):
             location=rg.location,
             cluster_name=cluster.name,
             database_name=database.name,
-            eventhub_id=azurerm_eventhub["evenhub"]["id"],
+            eventhub_id=eventhub.id,
             consumer_group=consumer_group.name,
             table_name="my-table",
             mapping_rule_name="my-table-mapping",
@@ -651,7 +651,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] compression: Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] consumer_group: Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -707,7 +707,7 @@ class EventhubDataConnection(pulumi.CustomResource):
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
         """
         return pulumi.get(self, "data_format")
 

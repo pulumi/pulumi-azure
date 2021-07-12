@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *     scaleSettings: {
  *         minNodeCount: 0,
  *         maxNodeCount: 1,
- *         nodeIdleTimeBeforeScaleDown: "PT30S",
+ *         scaleDownNodesAfterIdleDuration: "PT30S",
  *     },
  *     identity: {
  *         type: "SystemAssigned",

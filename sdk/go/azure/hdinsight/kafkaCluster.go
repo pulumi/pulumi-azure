@@ -142,7 +142,8 @@ type KafkaCluster struct {
 	// A map of Tags which should be assigned to this HDInsight Kafka Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          pulumi.StringOutput    `pulumi:"tier"`
+	Tier pulumi.StringOutput `pulumi:"tier"`
+	// The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
 	TlsMinVersion pulumi.StringPtrOutput `pulumi:"tlsMinVersion"`
 }
 
@@ -228,7 +229,8 @@ type kafkaClusterState struct {
 	// A map of Tags which should be assigned to this HDInsight Kafka Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          *string `pulumi:"tier"`
+	Tier *string `pulumi:"tier"`
+	// The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
 	TlsMinVersion *string `pulumi:"tlsMinVersion"`
 }
 
@@ -268,7 +270,8 @@ type KafkaClusterState struct {
 	// A map of Tags which should be assigned to this HDInsight Kafka Cluster.
 	Tags pulumi.StringMapInput
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          pulumi.StringPtrInput
+	Tier pulumi.StringPtrInput
+	// The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
 	TlsMinVersion pulumi.StringPtrInput
 }
 
@@ -306,7 +309,8 @@ type kafkaClusterArgs struct {
 	// A map of Tags which should be assigned to this HDInsight Kafka Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          string  `pulumi:"tier"`
+	Tier string `pulumi:"tier"`
+	// The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
 	TlsMinVersion *string `pulumi:"tlsMinVersion"`
 }
 
@@ -341,7 +345,8 @@ type KafkaClusterArgs struct {
 	// A map of Tags which should be assigned to this HDInsight Kafka Cluster.
 	Tags pulumi.StringMapInput
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          pulumi.StringInput
+	Tier pulumi.StringInput
+	// The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
 	TlsMinVersion pulumi.StringPtrInput
 }
 

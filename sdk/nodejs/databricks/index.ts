@@ -7,9 +7,11 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getWorkspace";
 export * from "./workspace";
+export * from "./workspaceCustomerManagedKey";
 
 // Import resources to register:
 import { Workspace } from "./workspace";
+import { WorkspaceCustomerManagedKey } from "./workspaceCustomerManagedKey";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +19,12 @@ const _module = {
         switch (type) {
             case "azure:databricks/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
+            case "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey":
+                return new WorkspaceCustomerManagedKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "databricks/workspace", _module)
+pulumi.runtime.registerResourceModule("azure", "databricks/workspaceCustomerManagedKey", _module)

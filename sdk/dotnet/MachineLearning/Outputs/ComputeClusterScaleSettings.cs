@@ -21,6 +21,9 @@ namespace Pulumi.Azure.MachineLearning.Outputs
         /// Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         public readonly int MinNodeCount;
+        /// <summary>
+        /// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
         public readonly string ScaleDownNodesAfterIdleDuration;
 
         [OutputConstructor]

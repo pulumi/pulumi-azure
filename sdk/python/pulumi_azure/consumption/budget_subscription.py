@@ -272,7 +272,7 @@ class BudgetSubscription(pulumi.CustomResource):
 
         current = azure.core.get_subscription()
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        test = azure.monitoring.ActionGroup("test",
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
             short_name="example")
         example_budget_subscription = azure.consumption.BudgetSubscription("exampleBudgetSubscription",
@@ -305,7 +305,7 @@ class BudgetSubscription(pulumi.CustomResource):
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                    contact_groups=[azurerm_monitor_action_group["example"]["id"]],
+                    contact_groups=[example_action_group.id],
                     contact_roles=["Owner"],
                 ),
                 azure.consumption.BudgetSubscriptionNotificationArgs(
@@ -355,7 +355,7 @@ class BudgetSubscription(pulumi.CustomResource):
 
         current = azure.core.get_subscription()
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        test = azure.monitoring.ActionGroup("test",
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
             short_name="example")
         example_budget_subscription = azure.consumption.BudgetSubscription("exampleBudgetSubscription",
@@ -388,7 +388,7 @@ class BudgetSubscription(pulumi.CustomResource):
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                    contact_groups=[azurerm_monitor_action_group["example"]["id"]],
+                    contact_groups=[example_action_group.id],
                     contact_roles=["Owner"],
                 ),
                 azure.consumption.BudgetSubscriptionNotificationArgs(

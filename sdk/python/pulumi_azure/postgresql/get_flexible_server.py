@@ -28,6 +28,10 @@ class GetFlexibleServerResult:
         pulumi.set(__self__, "backup_retention_days", backup_retention_days)
         if cmk_enabled and not isinstance(cmk_enabled, str):
             raise TypeError("Expected argument 'cmk_enabled' to be a str")
+        if cmk_enabled is not None:
+            warnings.warn("""This attribute has been removed from the API and will be removed in version 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""cmk_enabled is deprecated: This attribute has been removed from the API and will be removed in version 3.0 of the provider.""")
+
         pulumi.set(__self__, "cmk_enabled", cmk_enabled)
         if delegated_subnet_id and not isinstance(delegated_subnet_id, str):
             raise TypeError("Expected argument 'delegated_subnet_id' to be a str")

@@ -94,7 +94,7 @@ namespace Pulumi.Azure.MachineLearning
     ///             {
     ///                 MinNodeCount = 0,
     ///                 MaxNodeCount = 1,
-    ///                 NodeIdleTimeBeforeScaleDown = "PT30S",
+    ///                 ScaleDownNodesAfterIdleDuration = "PT30S",
     ///             },
     ///             Identity = new Azure.MachineLearning.Inputs.ComputeClusterIdentityArgs
     ///             {

@@ -10,21 +10,25 @@ from .. import _utilities
 
 __all__ = [
     'WorkspaceCustomParametersArgs',
+    'WorkspaceStorageAccountIdentityArgs',
 ]
 
 @pulumi.input_type
 class WorkspaceCustomParametersArgs:
     def __init__(__self__, *,
+                 machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  no_public_ip: Optional[pulumi.Input[bool]] = None,
                  private_subnet_name: Optional[pulumi.Input[str]] = None,
                  public_subnet_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] no_public_ip: Are public IP Addresses not allowed?
-        :param pulumi.Input[str] private_subnet_name: The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
-        :param pulumi.Input[str] public_subnet_name: The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
-        :param pulumi.Input[str] virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created.
+        :param pulumi.Input[bool] no_public_ip: Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_subnet_name: The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_subnet_name: The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
         """
+        if machine_learning_workspace_id is not None:
+            pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
         if no_public_ip is not None:
             pulumi.set(__self__, "no_public_ip", no_public_ip)
         if private_subnet_name is not None:
@@ -35,10 +39,19 @@ class WorkspaceCustomParametersArgs:
             pulumi.set(__self__, "virtual_network_id", virtual_network_id)
 
     @property
+    @pulumi.getter(name="machineLearningWorkspaceId")
+    def machine_learning_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "machine_learning_workspace_id")
+
+    @machine_learning_workspace_id.setter
+    def machine_learning_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "machine_learning_workspace_id", value)
+
+    @property
     @pulumi.getter(name="noPublicIp")
     def no_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Are public IP Addresses not allowed?
+        Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "no_public_ip")
 
@@ -50,7 +63,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="privateSubnetName")
     def private_subnet_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
+        The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_subnet_name")
 
@@ -62,7 +75,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="publicSubnetName")
     def public_subnet_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
+        The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_subnet_name")
 
@@ -74,12 +87,67 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a Virtual Network where this Databricks Cluster should be created.
+        The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class WorkspaceStorageAccountIdentityArgs:
+    def __init__(__self__, *,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] principal_id: The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+        :param pulumi.Input[str] tenant_id: The UUID of the tenant where the internal databricks storage account was created.
+        :param pulumi.Input[str] type: The type of the internal databricks storage account.
+        """
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The UUID of the tenant where the internal databricks storage account was created.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the internal databricks storage account.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 

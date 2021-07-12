@@ -44,6 +44,7 @@ __all__ = [
     'DiagnosticBackendResponseArgs',
     'DiagnosticFrontendRequestArgs',
     'DiagnosticFrontendResponseArgs',
+    'GatewayLocationDataArgs',
     'LoggerApplicationInsightsArgs',
     'LoggerEventhubArgs',
     'ServiceAdditionalLocationArgs',
@@ -2315,6 +2316,76 @@ class DiagnosticFrontendResponseArgs:
     @headers_to_logs.setter
     def headers_to_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "headers_to_logs", value)
+
+
+@pulumi.input_type
+class GatewayLocationDataArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 city: Optional[pulumi.Input[str]] = None,
+                 district: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: A canonical name for the geographic or physical location.
+        :param pulumi.Input[str] city: The city or locality where the resource is located.
+        :param pulumi.Input[str] district: The district, state, or province where the resource is located.
+        :param pulumi.Input[str] region: The country or region where the resource is located.
+        """
+        pulumi.set(__self__, "name", name)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if district is not None:
+            pulumi.set(__self__, "district", district)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A canonical name for the geographic or physical location.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def city(self) -> Optional[pulumi.Input[str]]:
+        """
+        The city or locality where the resource is located.
+        """
+        return pulumi.get(self, "city")
+
+    @city.setter
+    def city(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "city", value)
+
+    @property
+    @pulumi.getter
+    def district(self) -> Optional[pulumi.Input[str]]:
+        """
+        The district, state, or province where the resource is located.
+        """
+        return pulumi.get(self, "district")
+
+    @district.setter
+    def district(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "district", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The country or region where the resource is located.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type

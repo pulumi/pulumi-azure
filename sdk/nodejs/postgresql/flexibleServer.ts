@@ -95,6 +95,8 @@ export class FlexibleServer extends pulumi.CustomResource {
     public readonly backupRetentionDays!: pulumi.Output<number>;
     /**
      * The status showing whether the data encryption is enabled with a customer-managed key.
+     *
+     * @deprecated This attribute has been removed from the API and will be removed in version 3.0 of the provider.
      */
     public /*out*/ readonly cmkEnabled!: pulumi.Output<string>;
     /**
@@ -150,7 +152,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11` and `12`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly version!: pulumi.Output<string>;
     /**
@@ -240,6 +242,8 @@ export interface FlexibleServerState {
     backupRetentionDays?: pulumi.Input<number>;
     /**
      * The status showing whether the data encryption is enabled with a customer-managed key.
+     *
+     * @deprecated This attribute has been removed from the API and will be removed in version 3.0 of the provider.
      */
     cmkEnabled?: pulumi.Input<string>;
     /**
@@ -295,7 +299,7 @@ export interface FlexibleServerState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11` and `12`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     version?: pulumi.Input<string>;
     /**
@@ -365,7 +369,7 @@ export interface FlexibleServerArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11` and `12`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     version?: pulumi.Input<string>;
     /**

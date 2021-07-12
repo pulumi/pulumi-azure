@@ -20,7 +20,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// <summary>
         /// The filename of the file on the web server.
         /// </summary>
-        public readonly string Filename;
+        public readonly string? Filename;
         /// <summary>
         /// The folder path to the file on the web server.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         private DatasetParquetAzureBlobStorageLocation(
             string container,
 
-            string filename,
+            string? filename,
 
             string path)
         {

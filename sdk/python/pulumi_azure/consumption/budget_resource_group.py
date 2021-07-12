@@ -271,7 +271,7 @@ class BudgetResourceGroup(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        test = azure.monitoring.ActionGroup("test",
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
             short_name="example")
         example_budget_resource_group = azure.consumption.BudgetResourceGroup("exampleBudgetResourceGroup",
@@ -285,7 +285,7 @@ class BudgetResourceGroup(pulumi.CustomResource):
             filter=azure.consumption.BudgetResourceGroupFilterArgs(
                 dimensions=[azure.consumption.BudgetResourceGroupFilterDimensionArgs(
                     name="ResourceId",
-                    values=[azurerm_monitor_action_group["example"]["id"]],
+                    values=[example_action_group.id],
                 )],
                 tags=[azure.consumption.BudgetResourceGroupFilterTagArgs(
                     name="foo",
@@ -304,7 +304,7 @@ class BudgetResourceGroup(pulumi.CustomResource):
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                    contact_groups=[azurerm_monitor_action_group["example"]["id"]],
+                    contact_groups=[example_action_group.id],
                     contact_roles=["Owner"],
                 ),
                 azure.consumption.BudgetResourceGroupNotificationArgs(
@@ -353,7 +353,7 @@ class BudgetResourceGroup(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        test = azure.monitoring.ActionGroup("test",
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
             short_name="example")
         example_budget_resource_group = azure.consumption.BudgetResourceGroup("exampleBudgetResourceGroup",
@@ -367,7 +367,7 @@ class BudgetResourceGroup(pulumi.CustomResource):
             filter=azure.consumption.BudgetResourceGroupFilterArgs(
                 dimensions=[azure.consumption.BudgetResourceGroupFilterDimensionArgs(
                     name="ResourceId",
-                    values=[azurerm_monitor_action_group["example"]["id"]],
+                    values=[example_action_group.id],
                 )],
                 tags=[azure.consumption.BudgetResourceGroupFilterTagArgs(
                     name="foo",
@@ -386,7 +386,7 @@ class BudgetResourceGroup(pulumi.CustomResource):
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                    contact_groups=[azurerm_monitor_action_group["example"]["id"]],
+                    contact_groups=[example_action_group.id],
                     contact_roles=["Owner"],
                 ),
                 azure.consumption.BudgetResourceGroupNotificationArgs(

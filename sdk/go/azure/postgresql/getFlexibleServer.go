@@ -57,6 +57,8 @@ type LookupFlexibleServerResult struct {
 	// The backup retention days for the PostgreSQL Flexible Server.
 	BackupRetentionDays int `pulumi:"backupRetentionDays"`
 	// The status showing whether the data encryption is enabled with a customer-managed key.
+	//
+	// Deprecated: This attribute has been removed from the API and will be removed in version 3.0 of the provider.
 	CmkEnabled string `pulumi:"cmkEnabled"`
 	// The ID of the virtual network subnet to create the PostgreSQL Flexible Server.
 	DelegatedSubnetId string `pulumi:"delegatedSubnetId"`

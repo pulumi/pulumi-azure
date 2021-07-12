@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Consumption
     ///         {
     ///             Location = "eastus",
     ///         });
-    ///         var test = new Azure.Monitoring.ActionGroup("test", new Azure.Monitoring.ActionGroupArgs
+    ///         var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new Azure.Monitoring.ActionGroupArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ShortName = "example",
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Consumption
     ///                         Name = "ResourceId",
     ///                         Values = 
     ///                         {
-    ///                             azurerm_monitor_action_group.Example.Id,
+    ///                             exampleActionGroup.Id,
     ///                         },
     ///                     },
     ///                 },
@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Consumption
     ///                     },
     ///                     ContactGroups = 
     ///                     {
-    ///                         azurerm_monitor_action_group.Example.Id,
+    ///                         exampleActionGroup.Id,
     ///                     },
     ///                     ContactRoles = 
     ///                     {

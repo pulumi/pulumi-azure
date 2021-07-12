@@ -102,6 +102,8 @@ type FlexibleServer struct {
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntOutput `pulumi:"backupRetentionDays"`
 	// The status showing whether the data encryption is enabled with a customer-managed key.
+	//
+	// Deprecated: This attribute has been removed from the API and will be removed in version 3.0 of the provider.
 	CmkEnabled pulumi.StringOutput `pulumi:"cmkEnabled"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
@@ -129,7 +131,7 @@ type FlexibleServer struct {
 	StorageMb pulumi.IntOutput `pulumi:"storageMb"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11` and `12`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Zone pulumi.StringOutput `pulumi:"zone"`
@@ -174,6 +176,8 @@ type flexibleServerState struct {
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The status showing whether the data encryption is enabled with a customer-managed key.
+	//
+	// Deprecated: This attribute has been removed from the API and will be removed in version 3.0 of the provider.
 	CmkEnabled *string `pulumi:"cmkEnabled"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	CreateMode *string `pulumi:"createMode"`
@@ -201,7 +205,7 @@ type flexibleServerState struct {
 	StorageMb *int `pulumi:"storageMb"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11` and `12`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version *string `pulumi:"version"`
 	// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Zone *string `pulumi:"zone"`
@@ -215,6 +219,8 @@ type FlexibleServerState struct {
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The status showing whether the data encryption is enabled with a customer-managed key.
+	//
+	// Deprecated: This attribute has been removed from the API and will be removed in version 3.0 of the provider.
 	CmkEnabled pulumi.StringPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	CreateMode pulumi.StringPtrInput
@@ -242,7 +248,7 @@ type FlexibleServerState struct {
 	StorageMb pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapInput
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11` and `12`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version pulumi.StringPtrInput
 	// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Zone pulumi.StringPtrInput
@@ -281,7 +287,7 @@ type flexibleServerArgs struct {
 	StorageMb *int `pulumi:"storageMb"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11` and `12`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version *string `pulumi:"version"`
 	// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Zone *string `pulumi:"zone"`
@@ -317,7 +323,7 @@ type FlexibleServerArgs struct {
 	StorageMb pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapInput
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11` and `12`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version pulumi.StringPtrInput
 	// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Zone pulumi.StringPtrInput

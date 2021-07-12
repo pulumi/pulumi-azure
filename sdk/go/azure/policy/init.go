@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PolicySetDefinition{}
 	case "azure:policy/remediation:Remediation":
 		r = &Remediation{}
+	case "azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment":
+		r = &VirtualMachineConfigurationAssignment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"policy/remediation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"policy/virtualMachineConfigurationAssignment",
 		&module{version},
 	)
 }

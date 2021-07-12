@@ -683,6 +683,25 @@ export namespace apimanagement {
         headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface GatewayLocationData {
+        /**
+         * The city or locality where the resource is located.
+         */
+        city?: pulumi.Input<string>;
+        /**
+         * The district, state, or province where the resource is located.
+         */
+        district?: pulumi.Input<string>;
+        /**
+         * A canonical name for the geographic or physical location.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The country or region where the resource is located.
+         */
+        region?: pulumi.Input<string>;
+    }
+
     export interface LoggerApplicationInsights {
         /**
          * The instrumentation key used to push data to Application Insights.
@@ -8459,22 +8478,38 @@ export namespace databoxedge {
 
 export namespace databricks {
     export interface WorkspaceCustomParameters {
+        machineLearningWorkspaceId?: pulumi.Input<string>;
         /**
-         * Are public IP Addresses not allowed?
+         * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          */
         noPublicIp?: pulumi.Input<boolean>;
         /**
-         * The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+         * The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
          */
         privateSubnetName?: pulumi.Input<string>;
         /**
-         * The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+         * The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
          */
         publicSubnetName?: pulumi.Input<string>;
         /**
-         * The ID of a Virtual Network where this Databricks Cluster should be created.
+         * The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: pulumi.Input<string>;
+    }
+
+    export interface WorkspaceStorageAccountIdentity {
+        /**
+         * The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The UUID of the tenant where the internal databricks storage account was created.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of the internal databricks storage account.
+         */
+        type?: pulumi.Input<string>;
     }
 }
 
@@ -8652,7 +8687,7 @@ export namespace datafactory {
         /**
          * The filename of the file on the web server.
          */
-        filename: pulumi.Input<string>;
+        filename?: pulumi.Input<string>;
         /**
          * The folder path to the file on the web server.
          */
@@ -14684,6 +14719,9 @@ export namespace machinelearning {
          * Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
          */
         minNodeCount: pulumi.Input<number>;
+        /**
+         * Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
         scaleDownNodesAfterIdleDuration: pulumi.Input<string>;
     }
 
@@ -19886,6 +19924,32 @@ export namespace policy {
          * A unique ID within this policy set definition for this policy definition reference.
          */
         referenceId?: pulumi.Input<string>;
+    }
+
+    export interface VirtualMachineConfigurationAssignmentConfiguration {
+        /**
+         * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * One or more `parameter` blocks which define what configuration parameters and values against.
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.policy.VirtualMachineConfigurationAssignmentConfigurationParameter>[]>;
+        /**
+         * The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+         */
+        version?: pulumi.Input<string>;
+    }
+
+    export interface VirtualMachineConfigurationAssignmentConfigurationParameter {
+        /**
+         * The name of the configuration parameter to check.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value to check the configuration parameter with.
+         */
+        value: pulumi.Input<string>;
     }
 }
 

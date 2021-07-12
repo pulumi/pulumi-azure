@@ -973,16 +973,7 @@ class Service(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             publisher_name="My Company",
             publisher_email="company@exmaple.com",
-            sku_name="Developer_1",
-            policy=azure.apimanagement.ServicePolicyArgs(
-                xml_content=\"\"\"    <policies>
-              <inbound />
-              <backend />
-              <outbound />
-              <on-error />
-            </policies>
-        \"\"\",
-            ))
+            sku_name="Developer_1")
         ```
 
         ## Import
@@ -1046,16 +1037,7 @@ class Service(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             publisher_name="My Company",
             publisher_email="company@exmaple.com",
-            sku_name="Developer_1",
-            policy=azure.apimanagement.ServicePolicyArgs(
-                xml_content=\"\"\"    <policies>
-              <inbound />
-              <backend />
-              <outbound />
-              <on-error />
-            </policies>
-        \"\"\",
-            ))
+            sku_name="Developer_1")
         ```
 
         ## Import

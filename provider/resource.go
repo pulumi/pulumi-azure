@@ -358,6 +358,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_email_template":              {Tok: azureResource(azureAPIManagement, "EmailTemplate")},
 			"azurerm_api_management_redis_cache":                 {Tok: azureResource(azureAPIManagement, "RedisCache")},
 			"azurerm_api_management_api_operation_tag":           {Tok: azureResource(azureAPIManagement, "ApiOperationTag")},
+			"azurerm_api_management_gateway":                     {Tok: azureResource(azureAPIManagement, "Gateway")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -716,6 +717,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
+			"azurerm_databricks_workspace_customer_managed_key": {
+				Tok: azureResource(azureDataBricks, "WorkspaceCustomerManagedKey"),
+			},
 
 			//Databox
 			"azurerm_databox_edge_device": {Tok: azureResource(azureDataboxEdge, "Device")},
@@ -1198,6 +1202,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_policy_definition":     {Tok: azureResource(azurePolicy, "Definition")},
 			"azurerm_policy_set_definition": {Tok: azureResource(azurePolicy, "PolicySetDefinition")},
 			"azurerm_policy_remediation":    {Tok: azureResource(azurePolicy, "Remediation")},
+			"azurerm_policy_virtual_machine_configuration_assignment": {
+				Tok: azureResource(azurePolicy, "VirtualMachineConfigurationAssignment"),
+			},
 
 			// Private Dns
 			"azurerm_private_dns_a_record":     {Tok: azureResource(azurePrivateDNS, "ARecord")},
@@ -1877,6 +1884,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_product":         {Tok: azureDataSource(azureAPIManagement, "getProduct")},
 			"azurerm_api_management_user":            {Tok: azureDataSource(azureAPIManagement, "getUser")},
 			"azurerm_api_management_api_version_set": {Tok: azureDataSource(azureAPIManagement, "getApiVersionSet")},
+			"azurerm_api_management_gateway":         {Tok: azureDataSource(azureAPIManagement, "getGateway")},
 			"azurerm_app_service": {
 				Tok: azureDataSource(azureAppService, "getAppService"),
 				Fields: map[string]*tfbridge.SchemaInfo{

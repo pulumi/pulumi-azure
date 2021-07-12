@@ -24,6 +24,9 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         [Input("minNodeCount", required: true)]
         public Input<int> MinNodeCount { get; set; } = null!;
 
+        /// <summary>
+        /// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
         [Input("scaleDownNodesAfterIdleDuration", required: true)]
         public Input<string> ScaleDownNodesAfterIdleDuration { get; set; } = null!;
 

@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Storage
         public Output<string?> AccountKind { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
+        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("accountReplicationType")]
         public Output<string> AccountReplicationType { get; private set; } = null!;
@@ -504,7 +504,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountKind { get; set; }
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
+        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("accountReplicationType", required: true)]
         public Input<string> AccountReplicationType { get; set; } = null!;
@@ -653,7 +653,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountKind { get; set; }
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
+        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("accountReplicationType")]
         public Input<string>? AccountReplicationType { get; set; }

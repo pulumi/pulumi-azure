@@ -63,6 +63,8 @@ export interface GetFlexibleServerResult {
     readonly backupRetentionDays: number;
     /**
      * The status showing whether the data encryption is enabled with a customer-managed key.
+     *
+     * @deprecated This attribute has been removed from the API and will be removed in version 3.0 of the provider.
      */
     readonly cmkEnabled: string;
     /**

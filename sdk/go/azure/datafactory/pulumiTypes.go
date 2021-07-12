@@ -1551,7 +1551,7 @@ type DatasetParquetAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
 	// The filename of the file on the web server.
-	Filename string `pulumi:"filename"`
+	Filename *string `pulumi:"filename"`
 	// The folder path to the file on the web server.
 	Path string `pulumi:"path"`
 }
@@ -1571,7 +1571,7 @@ type DatasetParquetAzureBlobStorageLocationArgs struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
 	// The filename of the file on the web server.
-	Filename pulumi.StringInput `pulumi:"filename"`
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
 	// The folder path to the file on the web server.
 	Path pulumi.StringInput `pulumi:"path"`
 }
@@ -1659,8 +1659,8 @@ func (o DatasetParquetAzureBlobStorageLocationOutput) Container() pulumi.StringO
 }
 
 // The filename of the file on the web server.
-func (o DatasetParquetAzureBlobStorageLocationOutput) Filename() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) string { return v.Filename }).(pulumi.StringOutput)
+func (o DatasetParquetAzureBlobStorageLocationOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
 
 // The folder path to the file on the web server.
@@ -1702,7 +1702,7 @@ func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Filename() pulumi.Strin
 		if v == nil {
 			return nil
 		}
-		return &v.Filename
+		return v.Filename
 	}).(pulumi.StringPtrOutput)
 }
 

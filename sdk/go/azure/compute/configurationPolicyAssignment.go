@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **NOTE:** This resource has been deprecated in favour of the `policy.VirtualMachineConfigurationAssignment` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, information on migrating can be found in this guide.
+//
 // Applies a Configuration Policy to a Virtual Machine.
 //
 // ## Example Usage
