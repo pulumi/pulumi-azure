@@ -466,12 +466,12 @@ export interface InputOutputsArgs {
     /**
      * Input bindings.
      */
-    inputs?: InputBindingSettings[];
+    inputs?: pulumi.Input<InputBindingSettings[]>;
 
     /**
      * Output bindings.
      */
-    outputs?: OutputBindingSettings[];
+    outputs?: pulumi.Input<OutputBindingSettings[]>;
 }
 
 /**
@@ -544,7 +544,6 @@ export interface ArchiveFunctionAppArgs extends FunctionAppArgsBase {
 function createFunctionAppParts(name: string,
                                 args: ArchiveFunctionAppArgs,
                                 opts: pulumi.CustomResourceOptions = {}) {
-
     if (!args.archive) {
         throw new Error("Deployment [archive] must be provided.");
     }
@@ -819,14 +818,16 @@ function combineAppSettings(settings: pulumi.Input<{[key: string]: string}>[]): 
 }
 
 function combineBindingSettings(trigger: BindingSettings<BindingDefinition>,
-                                inputs?: InputBindingSettings[],
-                                outputs?: OutputBindingSettings[]) {
-    const all = [trigger, ...inputs || [], ...outputs || []];
+                                inputs?: pulumi.Input<InputBindingSettings[]>,
+                                outputs?: pulumi.Input<OutputBindingSettings[]>) {
+    return pulumi.all([inputs, outputs]).apply(([i, o]) => {
+        const all = [trigger, ...i || [], ...o || []];
 
-    const bindings = pulumi.all(all.map(bs => bs.binding));
-    const appSettings = combineAppSettings(all.map(bs => bs.settings));
+        const bindings = pulumi.all(all.map(bs => bs.binding));
+        const appSettings = combineAppSettings(all.map(bs => bs.settings));
 
-    return { bindings, appSettings };
+        return { bindings, appSettings };
+    });
 }
 
 /**

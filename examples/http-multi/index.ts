@@ -9,6 +9,21 @@ const http = [1, 2, 3].map(i =>
     }),
 );
 
+// Define another HTTP function that defines a custom http output binding
+http.push(new azure.appservice.HttpFunction(`F4`, {
+    callback: async (context, request) => {
+        context.bindings.myResponse = { status: 200, body: `Hi from F4` };
+    },
+    outputs: [{
+        binding: {
+            type: "http",
+            direction: "out",
+            name: "myResponse",
+        },
+        settings: {},
+    }],
+}));
+
 // Define a timer function which will trigger every minute to keep other Function from being disposed on idle
 const warmer = new azure.appservice.TimerFunction("Warmer", {
     schedule: { second: 0 },
@@ -20,7 +35,7 @@ const warmer = new azure.appservice.TimerFunction("Warmer", {
 // Create a Function App containing multiple functions
 const app = new azure.appservice.MultiCallbackFunctionApp("http-multi", {
     resourceGroupName: resourceGroup.name,
-    functions: [ ...http, warmer],
+    functions: [...http, warmer],
 });
 
 export const urls = http.map(f => app.endpoint.apply(ep => `${ep}${f.name}`));
