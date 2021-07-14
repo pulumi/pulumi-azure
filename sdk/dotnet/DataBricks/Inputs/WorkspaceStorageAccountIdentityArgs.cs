@@ -9,4 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.DataBricks.Inputs
 {
+
+    public sealed class WorkspaceStorageAccountIdentityArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+        /// </summary>
+        [Input("principalId")]
+        public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
+        /// The UUID of the tenant where the internal databricks storage account was created.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        /// <summary>
+        /// The type of the internal databricks storage account.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        public WorkspaceStorageAccountIdentityArgs()
+        {
+        }
+    }
 }

@@ -88,7 +88,7 @@ import (
 // 			OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
 // 				Name:            pulumi.String(fmt.Sprintf("%v%v%v", "myosdisk-", "%", "d")),
 // 				Caching:         pulumi.String("ReadWrite"),
-// 				ManagedDiskType: pulumi.String("Standard_LRS"),
+// 				ManagedDiskType: "Standard_LRS",
 // 			},
 // 			AdminUsername:                 pulumi.String("testadmin"),
 // 			AdminPassword:                 pulumi.String("Password1234!"),

@@ -10,10 +10,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AccountNetworkRulesArgs', 'AccountNetworkRules']
+__all__ = ['AccountNetworkRulesInitArgs', 'AccountNetworkRules']
 
 @pulumi.input_type
-class AccountNetworkRulesArgs:
+class AccountNetworkRulesInitArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -326,7 +326,7 @@ class AccountNetworkRules(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountNetworkRulesArgs,
+                 args: AccountNetworkRulesInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages network rules inside of a Azure Storage Account.
@@ -379,12 +379,12 @@ class AccountNetworkRules(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountNetworkRulesArgs args: The arguments to use to populate this resource's properties.
+        :param AccountNetworkRulesInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountNetworkRulesArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountNetworkRulesInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -410,7 +410,7 @@ class AccountNetworkRules(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountNetworkRulesArgs.__new__(AccountNetworkRulesArgs)
+            __props__ = AccountNetworkRulesInitArgs.__new__(AccountNetworkRulesInitArgs)
 
             __props__.__dict__["bypasses"] = bypasses
             if default_action is None and not opts.urn:

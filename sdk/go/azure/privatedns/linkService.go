@@ -90,9 +90,9 @@ import (
 // 				pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			},
 // 			LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
-// 				pulumi.String(exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (string, error) {
+// 				exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (string, error) {
 // 					return frontendIpConfigurations[0].Id, nil
-// 				}).(pulumi.StringOutput)),
+// 				}).(pulumi.StringOutput),
 // 			},
 // 			NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
 // 				&privatedns.LinkServiceNatIpConfigurationArgs{

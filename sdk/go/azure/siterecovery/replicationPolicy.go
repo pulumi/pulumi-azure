@@ -44,8 +44,8 @@ import (
 // 		_, err = siterecovery.NewReplicationPolicy(ctx, "policy", &siterecovery.ReplicationPolicyArgs{
 // 			ResourceGroupName:                               secondary.Name,
 // 			RecoveryVaultName:                               vault.Name,
-// 			RecoveryPointRetentionInMinutes:                 pulumi.Int(24 * 60),
-// 			ApplicationConsistentSnapshotFrequencyInMinutes: pulumi.Int(4 * 60),
+// 			RecoveryPointRetentionInMinutes:                 24 * 60,
+// 			ApplicationConsistentSnapshotFrequencyInMinutes: 4 * 60,
 // 		})
 // 		if err != nil {
 // 			return err

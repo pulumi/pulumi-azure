@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * const exampleLinkedServiceAzureTableStorage = new azure.datafactory.LinkedServiceAzureTableStorage("exampleLinkedServiceAzureTableStorage", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryName: exampleFactory.name,
- *     connectionString: exampleAccount.primaryConnectionString,
+ *     connectionString: exampleAccount.apply(exampleAccount => exampleAccount.primaryConnectionString),
  * });
  * ```
  *

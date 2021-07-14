@@ -9,4 +9,49 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
+
+    public sealed class SpringCloudServiceRequiredNetworkTrafficRuleArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+        /// </summary>
+        [Input("direction")]
+        public Input<string>? Direction { get; set; }
+
+        [Input("fqdns")]
+        private InputList<string>? _fqdns;
+
+        /// <summary>
+        /// The FQDN list of required traffic.
+        /// </summary>
+        public InputList<string> Fqdns
+        {
+            get => _fqdns ?? (_fqdns = new InputList<string>());
+            set => _fqdns = value;
+        }
+
+        [Input("ipAddresses")]
+        private InputList<string>? _ipAddresses;
+        public InputList<string> IpAddresses
+        {
+            get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
+            set => _ipAddresses = value;
+        }
+
+        /// <summary>
+        /// The port of required traffic.
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// The protocol of required traffic.
+        /// </summary>
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
+
+        public SpringCloudServiceRequiredNetworkTrafficRuleArgs()
+        {
+        }
+    }
 }

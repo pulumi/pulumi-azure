@@ -9,4 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Search.Inputs
 {
+
+    public sealed class ServiceQueryKeyArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The value of this Query Key.
+        /// </summary>
+        [Input("key")]
+        public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public ServiceQueryKeyArgs()
+        {
+        }
+    }
 }

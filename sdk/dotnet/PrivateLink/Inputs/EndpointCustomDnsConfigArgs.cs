@@ -9,4 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.PrivateLink.Inputs
 {
+
+    public sealed class EndpointCustomDnsConfigArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The fully qualified domain name to the `private_dns_zone`.
+        /// </summary>
+        [Input("fqdn")]
+        public Input<string>? Fqdn { get; set; }
+
+        [Input("ipAddresses")]
+        private InputList<string>? _ipAddresses;
+
+        /// <summary>
+        /// A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+        /// </summary>
+        public InputList<string> IpAddresses
+        {
+            get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
+            set => _ipAddresses = value;
+        }
+
+        public EndpointCustomDnsConfigArgs()
+        {
+        }
+    }
 }

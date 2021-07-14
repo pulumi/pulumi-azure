@@ -9,4 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Avs.Inputs
 {
+
+    public sealed class PrivateCloudCircuitArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The ID of the ExpressRoute Circuit.
+        /// </summary>
+        [Input("expressRouteId")]
+        public Input<string>? ExpressRouteId { get; set; }
+
+        /// <summary>
+        /// The ID of the ExpressRoute Circuit private peering.
+        /// </summary>
+        [Input("expressRoutePrivatePeeringId")]
+        public Input<string>? ExpressRoutePrivatePeeringId { get; set; }
+
+        /// <summary>
+        /// The CIDR of the primary subnet.
+        /// </summary>
+        [Input("primarySubnetCidr")]
+        public Input<string>? PrimarySubnetCidr { get; set; }
+
+        /// <summary>
+        /// The CIDR of the secondary subnet.
+        /// </summary>
+        [Input("secondarySubnetCidr")]
+        public Input<string>? SecondarySubnetCidr { get; set; }
+
+        public PrivateCloudCircuitArgs()
+        {
+        }
+    }
 }

@@ -93,7 +93,7 @@ namespace Pulumi.Azure.PrivateLink
     ///             },
     ///             LoadBalancerFrontendIpConfigurationIds = 
     ///             {
-    ///                 exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations[0].Id),
+    ///                 exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations?[0]?.Id),
     ///             },
     ///         });
     ///         var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new Azure.PrivateLink.EndpointArgs

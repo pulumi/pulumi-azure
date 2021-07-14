@@ -59,9 +59,9 @@ import (
 // 			Endpoint:                  pulumi.String("messages/events"),
 // 			EventhubConsumerGroupName: pulumi.String(fmt.Sprintf("%v%v", "$", "Default")),
 // 			IothubNamespace:           exampleIoTHub.Name,
-// 			SharedAccessPolicyKey: pulumi.String(exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
+// 			SharedAccessPolicyKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
 // 				return sharedAccessPolicies[0].PrimaryKey, nil
-// 			}).(pulumi.StringOutput)),
+// 			}).(pulumi.StringOutput),
 // 			SharedAccessPolicyName: pulumi.String("iothubowner"),
 // 			Serialization: &streamanalytics.StreamInputIotHubSerializationArgs{
 // 				Type:     pulumi.String("Json"),

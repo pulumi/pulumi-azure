@@ -12,6 +12,39 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management API Policy
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleApi = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
+    ///         {
+    ///             ApiName = "my-api",
+    ///             ApiManagementName = "example-apim",
+    ///             ResourceGroupName = "search-service",
+    ///         }));
+    ///         var exampleApiPolicy = new Azure.ApiManagement.ApiPolicy("exampleApiPolicy", new Azure.ApiManagement.ApiPolicyArgs
+    ///         {
+    ///             ApiName = exampleApi.Apply(exampleApi =&gt; exampleApi.Name),
+    ///             ApiManagementName = exampleApi.Apply(exampleApi =&gt; exampleApi.ApiManagementName),
+    ///             ResourceGroupName = exampleApi.Apply(exampleApi =&gt; exampleApi.ResourceGroupName),
+    ///             XmlContent = @"&lt;policies&gt;
+    ///   &lt;inbound&gt;
+    ///     &lt;find-and-replace from=""xyz"" to=""abc"" /&gt;
+    ///   &lt;/inbound&gt;
+    /// &lt;/policies&gt;
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management API Policy can be imported using the `resource id`, e.g.

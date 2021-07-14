@@ -70,7 +70,7 @@ import (
 // 		_, err = appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Kind:              pulumi.String("FunctionApp"),
+// 			Kind:              pulumi.Any("FunctionApp"),
 // 			Sku: &appservice.PlanSkuArgs{
 // 				Tier: pulumi.String("Dynamic"),
 // 				Size: pulumi.String("Y1"),
@@ -105,7 +105,7 @@ import (
 // 		_, err = appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Kind:              pulumi.String("Linux"),
+// 			Kind:              pulumi.Any("Linux"),
 // 			Reserved:          pulumi.Bool(true),
 // 			Sku: &appservice.PlanSkuArgs{
 // 				Tier: pulumi.String("Standard"),
@@ -141,7 +141,7 @@ import (
 // 		_, err = appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Kind:              pulumi.String("xenon"),
+// 			Kind:              pulumi.Any("xenon"),
 // 			IsXenon:           pulumi.Bool(true),
 // 			Sku: &appservice.PlanSkuArgs{
 // 				Tier: pulumi.String("PremiumContainer"),
@@ -230,7 +230,7 @@ type planState struct {
 	AppServiceEnvironmentId *string `pulumi:"appServiceEnvironmentId"`
 	IsXenon                 *bool   `pulumi:"isXenon"`
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
-	Kind *string `pulumi:"kind"`
+	Kind interface{} `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
@@ -256,7 +256,7 @@ type PlanState struct {
 	AppServiceEnvironmentId pulumi.StringPtrInput
 	IsXenon                 pulumi.BoolPtrInput
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
-	Kind pulumi.StringPtrInput
+	Kind pulumi.Input
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.

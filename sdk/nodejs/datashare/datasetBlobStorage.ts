@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
  *     scope: exampleStorage / accountAccount.id,
  *     roleDefinitionName: "Storage Blob Data Reader",
- *     principalId: exampleServicePrincipal.objectId,
+ *     principalId: exampleServicePrincipal.apply(exampleServicePrincipal => exampleServicePrincipal.objectId),
  * });
  * const exampleDatasetBlobStorage = new azure.datashare.DatasetBlobStorage("exampleDatasetBlobStorage", {
  *     dataShareId: exampleShare.id,

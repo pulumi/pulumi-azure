@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     contentLanguage: "en-US",
  *     contentType: "application/json",
  * }));
- * export const sasUrlQueryString = example.sas;
+ * export const sasUrlQueryString = example.apply(example => example.sas);
  * ```
  */
 export function getAccountBlobContainerSAS(args: GetAccountBlobContainerSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountBlobContainerSASResult> {

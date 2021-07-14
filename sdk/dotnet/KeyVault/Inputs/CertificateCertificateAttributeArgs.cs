@@ -9,4 +9,47 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.KeyVault.Inputs
 {
+
+    public sealed class CertificateCertificateAttributeArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The create time of the Key Vault Certificate.
+        /// </summary>
+        [Input("created")]
+        public Input<string>? Created { get; set; }
+
+        /// <summary>
+        /// whether the Key Vault Certificate is enabled.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The expires time of the Key Vault Certificate.
+        /// </summary>
+        [Input("expires")]
+        public Input<string>? Expires { get; set; }
+
+        /// <summary>
+        /// The not before valid time of the Key Vault Certificate.
+        /// </summary>
+        [Input("notBefore")]
+        public Input<string>? NotBefore { get; set; }
+
+        /// <summary>
+        /// The deletion recovery level of the Key Vault Certificate.
+        /// </summary>
+        [Input("recoveryLevel")]
+        public Input<string>? RecoveryLevel { get; set; }
+
+        /// <summary>
+        /// The recent update time of the Key Vault Certificate.
+        /// </summary>
+        [Input("updated")]
+        public Input<string>? Updated { get; set; }
+
+        public CertificateCertificateAttributeArgs()
+        {
+        }
+    }
 }

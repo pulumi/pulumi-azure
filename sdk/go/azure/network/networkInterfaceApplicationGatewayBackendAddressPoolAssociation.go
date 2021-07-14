@@ -150,9 +150,9 @@ import (
 // 		_, err = network.NewNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(ctx, "exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", &network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs{
 // 			NetworkInterfaceId:  exampleNetworkInterface.ID(),
 // 			IpConfigurationName: pulumi.String("testconfiguration1"),
-// 			BackendAddressPoolId: pulumi.String(network.BackendAddressPools.ApplyT(func(backendAddressPools []network.ApplicationGatewayBackendAddressPool) (string, error) {
+// 			BackendAddressPoolId: network.BackendAddressPools.ApplyT(func(backendAddressPools []network.ApplicationGatewayBackendAddressPool) (string, error) {
 // 				return backendAddressPools[0].Id, nil
-// 			}).(pulumi.StringOutput)),
+// 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
 // 			return err

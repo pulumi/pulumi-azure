@@ -71,7 +71,7 @@ import (
 // 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 // 			Scope:              exampleStore.ID(),
 // 			RoleDefinitionName: pulumi.String("Owner"),
-// 			PrincipalId: exampleServicePrincipal.ApplyT(func(exampleServicePrincipal azuread.LookupServicePrincipalResult) (string, error) {
+// 			PrincipalId: exampleServicePrincipal.ApplyT(func(exampleServicePrincipal GetServicePrincipalResult) (string, error) {
 // 				return exampleServicePrincipal.ObjectId, nil
 // 			}).(pulumi.StringOutput),
 // 		})

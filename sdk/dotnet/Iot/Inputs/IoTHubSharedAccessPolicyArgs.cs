@@ -9,4 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Iot.Inputs
 {
+
+    public sealed class IoTHubSharedAccessPolicyArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The name of the shared access policy.
+        /// </summary>
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
+
+        /// <summary>
+        /// The permissions assigned to the shared access policy.
+        /// </summary>
+        [Input("permissions")]
+        public Input<string>? Permissions { get; set; }
+
+        /// <summary>
+        /// The primary key.
+        /// </summary>
+        [Input("primaryKey")]
+        public Input<string>? PrimaryKey { get; set; }
+
+        /// <summary>
+        /// The secondary key.
+        /// </summary>
+        [Input("secondaryKey")]
+        public Input<string>? SecondaryKey { get; set; }
+
+        public IoTHubSharedAccessPolicyArgs()
+        {
+        }
+    }
 }

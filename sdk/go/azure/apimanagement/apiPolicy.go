@@ -13,6 +13,42 @@ import (
 
 // Manages an API Management API Policy
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+// 			ApiName:           "my-api",
+// 			ApiManagementName: "example-apim",
+// 			ResourceGroupName: "search-service",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apimanagement.NewApiPolicy(ctx, "exampleApiPolicy", &apimanagement.ApiPolicyArgs{
+// 			ApiName:           pulumi.String(exampleApi.Name),
+// 			ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
+// 			ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
+// 			XmlContent:        pulumi.String(fmt.Sprintf("%v%v%v%v%v", "<policies>\n", "  <inbound>\n", "    <find-and-replace from=\"xyz\" to=\"abc\" />\n", "  </inbound>\n", "</policies>\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // API Management API Policy can be imported using the `resource id`, e.g.

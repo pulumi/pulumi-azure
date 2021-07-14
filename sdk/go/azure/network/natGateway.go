@@ -37,9 +37,9 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			AllocationMethod:  pulumi.String("Static"),
 // 			Sku:               pulumi.String("Standard"),
-// 			Zones: pulumi.String(pulumi.String{
-// 				pulumi.String("1"),
-// 			}),
+// 			Zones: pulumi.String{
+// 				"1",
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -48,9 +48,9 @@ import (
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			PrefixLength:      pulumi.Int(30),
-// 			Zones: pulumi.String(pulumi.String{
-// 				pulumi.String("1"),
-// 			}),
+// 			Zones: pulumi.String{
+// 				"1",
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

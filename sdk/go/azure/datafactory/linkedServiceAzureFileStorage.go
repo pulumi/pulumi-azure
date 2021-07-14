@@ -43,7 +43,7 @@ import (
 // 		_, err = datafactory.NewLinkedServiceAzureFileStorage(ctx, "exampleLinkedServiceAzureFileStorage", &datafactory.LinkedServiceAzureFileStorageArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			DataFactoryName:   exampleFactory.Name,
-// 			ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.LookupAccountResult) (string, error) {
+// 			ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
 // 				return exampleAccount.PrimaryConnectionString, nil
 // 			}).(pulumi.StringOutput),
 // 		})

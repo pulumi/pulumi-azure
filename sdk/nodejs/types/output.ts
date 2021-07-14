@@ -4,47 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
-export interface ProviderFeatures {
-    cognitiveAccount?: outputs.ProviderFeaturesCognitiveAccount;
-    keyVault?: outputs.ProviderFeaturesKeyVault;
-    logAnalyticsWorkspace?: outputs.ProviderFeaturesLogAnalyticsWorkspace;
-    network?: outputs.ProviderFeaturesNetwork;
-    templateDeployment?: outputs.ProviderFeaturesTemplateDeployment;
-    virtualMachine?: outputs.ProviderFeaturesVirtualMachine;
-    virtualMachineScaleSet?: outputs.ProviderFeaturesVirtualMachineScaleSet;
-}
-
-export interface ProviderFeaturesCognitiveAccount {
-    purgeSoftDeleteOnDestroy?: boolean;
-}
-
-export interface ProviderFeaturesKeyVault {
-    purgeSoftDeleteOnDestroy?: boolean;
-    recoverSoftDeletedKeyVaults?: boolean;
-}
-
-export interface ProviderFeaturesLogAnalyticsWorkspace {
-    permanentlyDeleteOnDestroy?: boolean;
-}
-
-export interface ProviderFeaturesNetwork {
-    relaxedLocking?: boolean;
-}
-
-export interface ProviderFeaturesTemplateDeployment {
-    deleteNestedItemsDuringDeletion?: boolean;
-}
-
-export interface ProviderFeaturesVirtualMachine {
-    deleteOsDiskOnDeletion?: boolean;
-    gracefulShutdown?: boolean;
-    skipShutdownAndForceDelete?: boolean;
-}
-
-export interface ProviderFeaturesVirtualMachineScaleSet {
-    forceDelete?: boolean;
-    rollInstancesWhenRequired?: boolean;
-}
 export namespace advisor {
     export interface GetRecommendationsRecommendation {
         /**
@@ -84,6 +43,7 @@ export namespace advisor {
          */
         updatedTime: string;
     }
+
 }
 
 export namespace analysisservices {
@@ -101,6 +61,7 @@ export namespace analysisservices {
          */
         rangeStart: string;
     }
+
 }
 
 export namespace apimanagement {
@@ -1411,6 +1372,7 @@ export namespace appconfiguration {
          */
         secret: string;
     }
+
 }
 
 export namespace appplatform {
@@ -4068,6 +4030,7 @@ export namespace authorization {
          */
         notDataActions?: string[];
     }
+
 }
 
 export namespace automation {
@@ -4115,6 +4078,7 @@ export namespace automation {
          */
         occurrence: number;
     }
+
 }
 
 export namespace avs {
@@ -4185,6 +4149,7 @@ export namespace avs {
          */
         size: number;
     }
+
 }
 
 export namespace backup {
@@ -4317,6 +4282,7 @@ export namespace backup {
          */
         weeks: string[];
     }
+
 }
 
 export namespace batch {
@@ -4784,6 +4750,7 @@ export namespace batch {
          */
         version?: string;
     }
+
 }
 
 export namespace blueprint {
@@ -4796,6 +4763,7 @@ export namespace blueprint {
          */
         type: string;
     }
+
 }
 
 export namespace bot {
@@ -4837,6 +4805,7 @@ export namespace bot {
          */
         v3Allowed?: boolean;
     }
+
 }
 
 export namespace cdn {
@@ -5437,6 +5406,7 @@ export namespace cdn {
          */
         name: string;
     }
+
 }
 
 export namespace cognitive {
@@ -5454,6 +5424,7 @@ export namespace cognitive {
          */
         virtualNetworkSubnetIds?: string[];
     }
+
 }
 
 export namespace compute {
@@ -7642,6 +7613,7 @@ export namespace compute {
         certificateUrl?: string;
         protocol: string;
     }
+
 }
 
 export namespace config {
@@ -7686,6 +7658,7 @@ export namespace config {
         forceDelete?: boolean;
         rollInstancesWhenRequired: boolean;
     }
+
 }
 
 export namespace consumption {
@@ -7936,6 +7909,7 @@ export namespace consumption {
          */
         startDate: string;
     }
+
 }
 
 export namespace containerservice {
@@ -9650,6 +9624,7 @@ export namespace containerservice {
          */
         enabled?: boolean;
     }
+
 }
 
 export namespace core {
@@ -9792,6 +9767,7 @@ export namespace core {
          */
         type?: string;
     }
+
 }
 
 export namespace cosmosdb {
@@ -10266,6 +10242,7 @@ export namespace costmanagement {
          */
         type: string;
     }
+
 }
 
 export namespace databoxedge {
@@ -10429,6 +10406,7 @@ export namespace databoxedge {
          */
         lastUpdate: string;
     }
+
 }
 
 export namespace databricks {
@@ -10466,6 +10444,7 @@ export namespace databricks {
          */
         type: string;
     }
+
 }
 
 export namespace datafactory {
@@ -11145,6 +11124,7 @@ export namespace datafactory {
          */
         parameters?: {[key: string]: string};
     }
+
 }
 
 export namespace dataprotection {
@@ -11204,6 +11184,7 @@ export namespace dataprotection {
          */
         type?: string;
     }
+
 }
 
 export namespace datashare {
@@ -11296,6 +11277,7 @@ export namespace datashare {
          */
         startTime: string;
     }
+
 }
 
 export namespace desktopvirtualization {
@@ -11310,6 +11292,7 @@ export namespace desktopvirtualization {
          */
         token: string;
     }
+
 }
 
 export namespace devtest {
@@ -11482,6 +11465,7 @@ export namespace devtest {
          */
         protocol: string;
     }
+
 }
 
 export namespace dns {
@@ -11576,6 +11560,7 @@ export namespace dns {
          */
         ttl?: number;
     }
+
 }
 
 export namespace eventgrid {
@@ -12438,6 +12423,7 @@ export namespace eventgrid {
          */
         topic?: string;
     }
+
 }
 
 export namespace eventhub {
@@ -13071,6 +13057,7 @@ export namespace eventhub {
          */
         to?: string;
     }
+
 }
 
 export namespace frontdoor {
@@ -13490,6 +13477,7 @@ export namespace frontdoor {
          */
         redirectType: string;
     }
+
 }
 
 export namespace hdinsight {
@@ -15603,6 +15591,7 @@ export namespace hdinsight {
          */
         storageContainerId: string;
     }
+
 }
 
 export namespace healthcare {
@@ -15682,6 +15671,7 @@ export namespace healthcare {
          */
         maxAgeInSeconds?: number;
     }
+
 }
 
 export namespace hpc {
@@ -15871,6 +15861,7 @@ export namespace hpc {
          */
         targetPath?: string;
     }
+
 }
 
 export namespace hsm {
@@ -15884,6 +15875,7 @@ export namespace hsm {
          */
         subnetId: string;
     }
+
 }
 
 export namespace iot {
@@ -16215,6 +16207,7 @@ export namespace iot {
          */
         type: string;
     }
+
 }
 
 export namespace keyvault {
@@ -16870,6 +16863,7 @@ export namespace kusto {
          */
         subnetId: string;
     }
+
 }
 
 export namespace lb {
@@ -17005,6 +16999,7 @@ export namespace lb {
          */
         name: string;
     }
+
 }
 
 export namespace lighthouse {
@@ -17045,6 +17040,7 @@ export namespace lighthouse {
          */
         version: string;
     }
+
 }
 
 export namespace loganalytics {
@@ -17062,6 +17058,7 @@ export namespace loganalytics {
          */
         type: string;
     }
+
 }
 
 export namespace logicapps {
@@ -17090,6 +17087,7 @@ export namespace logicapps {
          */
         onTheseDays?: string[];
     }
+
 }
 
 export namespace machinelearning {
@@ -17160,6 +17158,7 @@ export namespace machinelearning {
          */
         type: string;
     }
+
 }
 
 export namespace managedapplication {
@@ -17196,6 +17195,7 @@ export namespace managedapplication {
          */
         servicePrincipalId: string;
     }
+
 }
 
 export namespace management {
@@ -17213,6 +17213,7 @@ export namespace management {
          */
         type?: string;
     }
+
 }
 
 export namespace mariadb {
@@ -17257,6 +17258,7 @@ export namespace mariadb {
          */
         storageMb?: number;
     }
+
 }
 
 export namespace media {
@@ -17969,6 +17971,7 @@ export namespace media {
          */
         insightsType?: string;
     }
+
 }
 
 export namespace mediaservices {
@@ -18008,6 +18011,7 @@ export namespace mediaservices {
          */
         isPrimary?: boolean;
     }
+
 }
 
 export namespace monitoring {
@@ -19336,6 +19340,7 @@ export namespace monitoring {
          */
         webhookPayload?: string;
     }
+
 }
 
 export namespace mssql {
@@ -19679,6 +19684,7 @@ export namespace mssql {
          */
         luns: number[];
     }
+
 }
 
 export namespace mysql {
@@ -19797,6 +19803,7 @@ export namespace mysql {
          */
         storageEndpoint?: string;
     }
+
 }
 
 export namespace netapp {
@@ -19913,6 +19920,7 @@ export namespace netapp {
          */
         unixReadWrite?: boolean;
     }
+
 }
 
 export namespace network {
@@ -23181,6 +23189,7 @@ export namespace notificationhub {
          */
         apiKey: string;
     }
+
 }
 
 export namespace operationalinsights {
@@ -23199,6 +23208,7 @@ export namespace operationalinsights {
          */
         publisher: string;
     }
+
 }
 
 export namespace policy {
@@ -23336,6 +23346,7 @@ export namespace policy {
          */
         value: string;
     }
+
 }
 
 export namespace postgresql {
@@ -23437,6 +23448,7 @@ export namespace postgresql {
          */
         storageEndpoint?: string;
     }
+
 }
 
 export namespace privatedns {
@@ -23542,6 +23554,7 @@ export namespace privatedns {
          */
         ttl?: number;
     }
+
 }
 
 export namespace privatelink {
@@ -23721,6 +23734,7 @@ export namespace privatelink {
          */
         subnetId: string;
     }
+
 }
 
 export namespace purview {
@@ -23738,6 +23752,7 @@ export namespace purview {
          */
         type: string;
     }
+
 }
 
 export namespace recoveryservices {
@@ -23749,6 +23764,7 @@ export namespace recoveryservices {
          */
         type: string;
     }
+
 }
 
 export namespace redis {
@@ -23882,6 +23898,7 @@ export namespace redis {
          */
         rdbStorageConnectionString: string;
     }
+
 }
 
 export namespace role {
@@ -23910,6 +23927,7 @@ export namespace role {
         notActions: string[];
         notDataActions?: string[];
     }
+
 }
 
 export namespace search {
@@ -23964,6 +23982,7 @@ export namespace search {
          */
         name: string;
     }
+
 }
 
 export namespace securitycenter {
@@ -24037,6 +24056,7 @@ export namespace securitycenter {
          */
         propertyType: string;
     }
+
 }
 
 export namespace sentinel {
@@ -24126,6 +24146,7 @@ export namespace sentinel {
          */
         productFilter: string;
     }
+
 }
 
 export namespace servicebus {
@@ -24178,6 +24199,7 @@ export namespace servicebus {
          */
         to?: string;
     }
+
 }
 
 export namespace servicefabric {
@@ -24505,6 +24527,7 @@ export namespace servicefabric {
          */
         memory: number;
     }
+
 }
 
 export namespace signalr {
@@ -24555,6 +24578,7 @@ export namespace signalr {
          */
         urlTemplate: string;
     }
+
 }
 
 export namespace siterecovery {
@@ -24603,6 +24627,7 @@ export namespace siterecovery {
          */
         targetSubnetName?: string;
     }
+
 }
 
 export namespace sql {
@@ -24777,6 +24802,7 @@ export namespace sql {
          */
         type: string;
     }
+
 }
 
 export namespace storage {
@@ -25801,6 +25827,7 @@ export namespace streamanalytics {
          */
         type: string;
     }
+
 }
 
 export namespace synapse {
@@ -25934,6 +25961,7 @@ export namespace synapse {
          */
         type: string;
     }
+
 }
 
 export namespace trafficmanager {
@@ -26019,6 +26047,7 @@ export namespace trafficmanager {
          */
         value: string;
     }
+
 }
 
 export namespace waf {
@@ -26153,4 +26182,5 @@ export namespace waf {
          */
         requestBodyCheck?: boolean;
     }
+
 }

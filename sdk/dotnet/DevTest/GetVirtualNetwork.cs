@@ -32,7 +32,7 @@ namespace Pulumi.Azure.DevTest
         ///             LabName = "examplelab",
         ///             ResourceGroupName = "example-resource",
         ///         }));
-        ///         this.LabSubnetName = example.Apply(example =&gt; example.AllowedSubnets[0].LabSubnetName);
+        ///         this.LabSubnetName = example.Apply(example =&gt; example.AllowedSubnets?[0]?.LabSubnetName);
         ///     }
         /// 
         ///     [Output("labSubnetName")]

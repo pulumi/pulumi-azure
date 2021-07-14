@@ -7,6 +7,30 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management API Policy
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleApi = azure.apimanagement.getApi({
+ *     apiName: "my-api",
+ *     apiManagementName: "example-apim",
+ *     resourceGroupName: "search-service",
+ * });
+ * const exampleApiPolicy = new azure.apimanagement.ApiPolicy("exampleApiPolicy", {
+ *     apiName: exampleApi.then(exampleApi => exampleApi.name),
+ *     apiManagementName: exampleApi.then(exampleApi => exampleApi.apiManagementName),
+ *     resourceGroupName: exampleApi.then(exampleApi => exampleApi.resourceGroupName),
+ *     xmlContent: `<policies>
+ *   <inbound>
+ *     <find-and-replace from="xyz" to="abc" />
+ *   </inbound>
+ * </policies>
+ * `,
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management API Policy can be imported using the `resource id`, e.g.

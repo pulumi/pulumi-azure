@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
  *     scope: exampleStore.id,
  *     roleDefinitionName: "Owner",
- *     principalId: exampleServicePrincipal.objectId,
+ *     principalId: exampleServicePrincipal.apply(exampleServicePrincipal => exampleServicePrincipal.objectId),
  * });
  * const exampleDatasetDataLakeGen1 = new azure.datashare.DatasetDataLakeGen1("exampleDatasetDataLakeGen1", {
  *     dataShareId: exampleShare.id,
