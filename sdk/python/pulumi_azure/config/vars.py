@@ -9,124 +9,145 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
-__all__ = [
-    'auxiliary_tenant_ids',
-    'client_certificate_password',
-    'client_certificate_path',
-    'client_id',
-    'client_secret',
-    'disable_correlation_request_id',
-    'disable_terraform_partner_id',
-    'environment',
-    'features',
-    'location',
-    'metadata_host',
-    'metadata_url',
-    'msi_endpoint',
-    'partner_id',
-    'skip_credentials_validation',
-    'skip_provider_registration',
-    'storage_use_azuread',
-    'subscription_id',
-    'tenant_id',
-    'use_msi',
-]
+import types
 
 __config__ = pulumi.Config('azure')
 
-auxiliary_tenant_ids = __config__.get('auxiliaryTenantIds')
 
-client_certificate_password = __config__.get('clientCertificatePassword')
-"""
-The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-Certificate
-"""
+class _ExportableConfig(types.ModuleType):
+    @property
+    def auxiliary_tenant_ids(self) -> Optional[str]:
+        return __config__.get('auxiliaryTenantIds')
 
-client_certificate_path = __config__.get('clientCertificatePath')
-"""
-The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-Principal using a Client Certificate.
-"""
+    @property
+    def client_certificate_password(self) -> Optional[str]:
+        """
+        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
+        Certificate
+        """
+        return __config__.get('clientCertificatePassword')
 
-client_id = __config__.get('clientId')
-"""
-The Client ID which should be used.
-"""
+    @property
+    def client_certificate_path(self) -> Optional[str]:
+        """
+        The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
+        Principal using a Client Certificate.
+        """
+        return __config__.get('clientCertificatePath')
 
-client_secret = __config__.get('clientSecret')
-"""
-The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
-"""
+    @property
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID which should be used.
+        """
+        return __config__.get('clientId')
 
-disable_correlation_request_id = __config__.get('disableCorrelationRequestId')
-"""
-This will disable the x-ms-correlation-request-id header.
-"""
+    @property
+    def client_secret(self) -> Optional[str]:
+        """
+        The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+        """
+        return __config__.get('clientSecret')
 
-disable_terraform_partner_id = __config__.get('disableTerraformPartnerId')
-"""
-This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
-"""
+    @property
+    def disable_correlation_request_id(self) -> Optional[str]:
+        """
+        This will disable the x-ms-correlation-request-id header.
+        """
+        return __config__.get('disableCorrelationRequestId')
 
-environment = __config__.get('environment') or (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
-"""
-The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-public.
-"""
+    @property
+    def disable_terraform_partner_id(self) -> Optional[str]:
+        """
+        This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
+        """
+        return __config__.get('disableTerraformPartnerId')
 
-features = __config__.get('features')
+    @property
+    def environment(self) -> str:
+        """
+        The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
+        public.
+        """
+        return __config__.get('environment') or (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
 
-location = __config__.get('location') or _utilities.get_env('ARM_LOCATION')
+    @property
+    def features(self) -> Optional[str]:
+        return __config__.get('features')
 
-metadata_host = __config__.get('metadataHost') or _utilities.get_env('ARM_METADATA_HOSTNAME')
-"""
-The Hostname which should be used for the Azure Metadata Service.
-"""
+    @property
+    def location(self) -> Optional[str]:
+        return __config__.get('location') or _utilities.get_env('ARM_LOCATION')
 
-metadata_url = __config__.get('metadataUrl') or _utilities.get_env('ARM_METADATA_URL')
-"""
-Deprecated - replaced by `metadata_host`.
-"""
+    @property
+    def metadata_host(self) -> str:
+        """
+        The Hostname which should be used for the Azure Metadata Service.
+        """
+        return __config__.get('metadataHost') or _utilities.get_env('ARM_METADATA_HOSTNAME')
 
-msi_endpoint = __config__.get('msiEndpoint')
-"""
-The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-automatically.
-"""
+    @property
+    def metadata_url(self) -> Optional[str]:
+        """
+        Deprecated - replaced by `metadata_host`.
+        """
+        return __config__.get('metadataUrl') or _utilities.get_env('ARM_METADATA_URL')
 
-partner_id = __config__.get('partnerId')
-"""
-A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
-"""
+    @property
+    def msi_endpoint(self) -> Optional[str]:
+        """
+        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
+        automatically.
+        """
+        return __config__.get('msiEndpoint')
 
-skip_credentials_validation = __config__.get('skipCredentialsValidation')
-"""
-[DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
-"""
+    @property
+    def partner_id(self) -> Optional[str]:
+        """
+        A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+        """
+        return __config__.get('partnerId')
 
-skip_provider_registration = __config__.get('skipProviderRegistration') or (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
-"""
-Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
-registered?
-"""
+    @property
+    def skip_credentials_validation(self) -> Optional[str]:
+        """
+        [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+        """
+        return __config__.get('skipCredentialsValidation')
 
-storage_use_azuread = __config__.get('storageUseAzuread') or (_utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
-"""
-Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
-"""
+    @property
+    def skip_provider_registration(self) -> Optional[str]:
+        """
+        Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
+        registered?
+        """
+        return __config__.get('skipProviderRegistration') or (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
 
-subscription_id = __config__.get('subscriptionId') or (_utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
-"""
-The Subscription ID which should be used.
-"""
+    @property
+    def storage_use_azuread(self) -> Optional[str]:
+        """
+        Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+        """
+        return __config__.get('storageUseAzuread') or (_utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
 
-tenant_id = __config__.get('tenantId')
-"""
-The Tenant ID which should be used.
-"""
+    @property
+    def subscription_id(self) -> Optional[str]:
+        """
+        The Subscription ID which should be used.
+        """
+        return __config__.get('subscriptionId') or (_utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
 
-use_msi = __config__.get('useMsi')
-"""
-Allowed Managed Service Identity be used for Authentication.
-"""
+    @property
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID which should be used.
+        """
+        return __config__.get('tenantId')
+
+    @property
+    def use_msi(self) -> Optional[str]:
+        """
+        Allowed Managed Service Identity be used for Authentication.
+        """
+        return __config__.get('useMsi')
 
