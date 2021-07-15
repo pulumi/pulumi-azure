@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     autoApprovalSubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
  *     visibilitySubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
- *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations[0].id)],
+ *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?[0]?.id)],
  *     natIpConfigurations: [
  *         {
  *             name: "primary",

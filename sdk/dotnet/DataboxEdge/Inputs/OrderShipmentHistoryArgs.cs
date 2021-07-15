@@ -9,4 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.DataboxEdge.Inputs
 {
+
+    public sealed class OrderShipmentHistoryArgs : Pulumi.ResourceArgs
+    {
+        [Input("additionalDetails")]
+        private InputMap<string>? _additionalDetails;
+
+        /// <summary>
+        /// Dictionary to hold generic information which is not stored by the already existing properties.
+        /// </summary>
+        public InputMap<string> AdditionalDetails
+        {
+            get => _additionalDetails ?? (_additionalDetails = new InputMap<string>());
+            set => _additionalDetails = value;
+        }
+
+        /// <summary>
+        /// Comments related to this status change.
+        /// </summary>
+        [Input("comments")]
+        public Input<string>? Comments { get; set; }
+
+        /// <summary>
+        /// Time of status update.
+        /// </summary>
+        [Input("lastUpdate")]
+        public Input<string>? LastUpdate { get; set; }
+
+        public OrderShipmentHistoryArgs()
+        {
+        }
+    }
 }

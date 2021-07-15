@@ -9,4 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
+
+    public sealed class MongoCollectionSystemIndexArgs : Pulumi.ResourceArgs
+    {
+        [Input("keys")]
+        private InputList<string>? _keys;
+
+        /// <summary>
+        /// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+        /// </summary>
+        public InputList<string> Keys
+        {
+            get => _keys ?? (_keys = new InputList<string>());
+            set => _keys = value;
+        }
+
+        /// <summary>
+        /// Is the index unique or not? Defaults to `false`.
+        /// </summary>
+        [Input("unique")]
+        public Input<bool>? Unique { get; set; }
+
+        public MongoCollectionSystemIndexArgs()
+        {
+        }
+    }
 }

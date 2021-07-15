@@ -9,4 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Synapse.Inputs
 {
+
+    public sealed class WorkspaceIdentityArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+        /// </summary>
+        [Input("principalId")]
+        public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
+        /// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        /// <summary>
+        /// The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        public WorkspaceIdentityArgs()
+        {
+        }
+    }
 }

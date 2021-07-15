@@ -9,4 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.AppService.Inputs
 {
+
+    public sealed class CertificateOrderCertificateArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The name of the App Service Certificate.
+        /// </summary>
+        [Input("certificateName")]
+        public Input<string>? CertificateName { get; set; }
+
+        /// <summary>
+        /// Key Vault resource Id.
+        /// </summary>
+        [Input("keyVaultId")]
+        public Input<string>? KeyVaultId { get; set; }
+
+        /// <summary>
+        /// Key Vault secret name.
+        /// </summary>
+        [Input("keyVaultSecretName")]
+        public Input<string>? KeyVaultSecretName { get; set; }
+
+        /// <summary>
+        /// Status of the Key Vault secret.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        public CertificateOrderCertificateArgs()
+        {
+        }
+    }
 }

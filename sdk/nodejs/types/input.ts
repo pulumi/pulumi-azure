@@ -1069,6 +1069,7 @@ export namespace apimanagement {
          */
         subnetId: pulumi.Input<string>;
     }
+
 }
 
 export namespace appconfiguration {
@@ -1347,6 +1348,7 @@ export namespace appplatform {
          */
         sampleRate?: pulumi.Input<number>;
     }
+
 }
 
 export namespace appservice {
@@ -3115,6 +3117,7 @@ export namespace appservice {
          */
         username?: pulumi.Input<string>;
     }
+
 }
 
 export namespace authorization {
@@ -3691,6 +3694,7 @@ export namespace batch {
          */
         version?: pulumi.Input<string>;
     }
+
 }
 
 export namespace blueprint {
@@ -4344,6 +4348,7 @@ export namespace cdn {
          */
         name: pulumi.Input<string>;
     }
+
 }
 
 export namespace cognitive {
@@ -7798,6 +7803,7 @@ export namespace containerservice {
          */
         enabled?: pulumi.Input<boolean>;
     }
+
 }
 
 export namespace core {
@@ -9124,6 +9130,7 @@ export namespace datafactory {
          */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
+
 }
 
 export namespace dataprotection {
@@ -10970,6 +10977,7 @@ export namespace eventhub {
          */
         to?: pulumi.Input<string>;
     }
+
 }
 
 export namespace frontdoor {
@@ -15552,6 +15560,7 @@ export namespace media {
          */
         insightsType?: pulumi.Input<string>;
     }
+
 }
 
 export namespace mediaservices {
@@ -16653,6 +16662,7 @@ export namespace monitoring {
          */
         webhookPayload?: pulumi.Input<string>;
     }
+
 }
 
 export namespace mssql {
@@ -20897,6 +20907,7 @@ export namespace servicefabric {
          */
         memory: pulumi.Input<number>;
     }
+
 }
 
 export namespace signalr {
@@ -21879,6 +21890,7 @@ export namespace storage {
          */
         start: pulumi.Input<string>;
     }
+
 }
 
 export namespace streamanalytics {

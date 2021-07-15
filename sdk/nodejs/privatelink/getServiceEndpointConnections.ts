@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     serviceId: azurerm_private_link_service.example.id,
  *     resourceGroupName: azurerm_resource_group.example.name,
  * });
- * export const privateEndpointStatus = example.then(example => example.privateEndpointConnections[0].status);
+ * export const privateEndpointStatus = example.then(example => example.privateEndpointConnections?[0]?.status);
  * ```
  */
 export function getServiceEndpointConnections(args: GetServiceEndpointConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointConnectionsResult> {

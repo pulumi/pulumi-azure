@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     name: "firewall1",
  *     resourceGroupName: "firewall-RG",
  * });
- * export const firewallPrivateIp = example.then(example => example.ipConfigurations[0].privateIpAddress);
+ * export const firewallPrivateIp = example.then(example => example.ipConfigurations?[0]?.privateIpAddress);
  * ```
  */
 export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {

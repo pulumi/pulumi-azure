@@ -35,10 +35,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = monitoring.NewDiagnosticSetting(ctx, "exampleDiagnosticSetting", &monitoring.DiagnosticSettingArgs{
-// 			TargetResourceId: exampleKeyVault.ApplyT(func(exampleKeyVault keyvault.LookupKeyVaultResult) (string, error) {
+// 			TargetResourceId: exampleKeyVault.ApplyT(func(exampleKeyVault keyvault.GetKeyVaultResult) (string, error) {
 // 				return exampleKeyVault.Id, nil
 // 			}).(pulumi.StringOutput),
-// 			StorageAccountId: exampleAccount.ApplyT(func(exampleAccount storage.LookupAccountResult) (string, error) {
+// 			StorageAccountId: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
 // 				return exampleAccount.Id, nil
 // 			}).(pulumi.StringOutput),
 // 			Logs: monitoring.DiagnosticSettingLogArray{
