@@ -36,7 +36,7 @@ def readme():
 
 setup(name='pulumi_azure',
       version='${VERSION}',
-      description="A Pulumi package for creating and managing Microsoft Azure cloud resources.",
+      description="A Pulumi package based on the azurerm Terraform Provider for creating and managing Microsoft Azure cloud resources. Consider using the Pulumi Azure Native package for full coverage of Azure resources.",
       long_description=readme(),
       long_description_content_type='text/markdown',
       cmdclass={
