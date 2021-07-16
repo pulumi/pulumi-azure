@@ -11,8 +11,9 @@ import (
 )
 
 type CachePatchSchedule struct {
-	DayOfWeek    string `pulumi:"dayOfWeek"`
-	StartHourUtc *int   `pulumi:"startHourUtc"`
+	DayOfWeek         string  `pulumi:"dayOfWeek"`
+	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
+	StartHourUtc      *int    `pulumi:"startHourUtc"`
 }
 
 // CachePatchScheduleInput is an input type that accepts CachePatchScheduleArgs and CachePatchScheduleOutput values.
@@ -27,8 +28,9 @@ type CachePatchScheduleInput interface {
 }
 
 type CachePatchScheduleArgs struct {
-	DayOfWeek    pulumi.StringInput `pulumi:"dayOfWeek"`
-	StartHourUtc pulumi.IntPtrInput `pulumi:"startHourUtc"`
+	DayOfWeek         pulumi.StringInput    `pulumi:"dayOfWeek"`
+	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
+	StartHourUtc      pulumi.IntPtrInput    `pulumi:"startHourUtc"`
 }
 
 func (CachePatchScheduleArgs) ElementType() reflect.Type {
@@ -84,6 +86,10 @@ func (o CachePatchScheduleOutput) ToCachePatchScheduleOutputWithContext(ctx cont
 
 func (o CachePatchScheduleOutput) DayOfWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePatchSchedule) string { return v.DayOfWeek }).(pulumi.StringOutput)
+}
+
+func (o CachePatchScheduleOutput) MaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CachePatchSchedule) *string { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 func (o CachePatchScheduleOutput) StartHourUtc() pulumi.IntPtrOutput {

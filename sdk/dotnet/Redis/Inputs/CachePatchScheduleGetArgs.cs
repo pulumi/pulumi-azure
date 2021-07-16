@@ -15,6 +15,9 @@ namespace Pulumi.Azure.Redis.Inputs
         [Input("dayOfWeek", required: true)]
         public Input<string> DayOfWeek { get; set; } = null!;
 
+        [Input("maintenanceWindow")]
+        public Input<string>? MaintenanceWindow { get; set; }
+
         [Input("startHourUtc")]
         public Input<int>? StartHourUtc { get; set; }
 

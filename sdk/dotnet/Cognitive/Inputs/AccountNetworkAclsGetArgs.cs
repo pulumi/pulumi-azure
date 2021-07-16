@@ -30,12 +30,21 @@ namespace Pulumi.Azure.Cognitive.Inputs
             set => _ipRules = value;
         }
 
-        [Input("virtualNetworkSubnetIds")]
-        private InputList<string>? _virtualNetworkSubnetIds;
+        [Input("virtualNetworkRules")]
+        private InputList<Inputs.AccountNetworkAclsVirtualNetworkRuleGetArgs>? _virtualNetworkRules;
 
         /// <summary>
-        /// One or more Subnet ID's which should be able to access this Cognitive Account.
+        /// A `virtual_network_rules` block as defined below.
         /// </summary>
+        public InputList<Inputs.AccountNetworkAclsVirtualNetworkRuleGetArgs> VirtualNetworkRules
+        {
+            get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.AccountNetworkAclsVirtualNetworkRuleGetArgs>());
+            set => _virtualNetworkRules = value;
+        }
+
+        [Input("virtualNetworkSubnetIds")]
+        private InputList<string>? _virtualNetworkSubnetIds;
+        [Obsolete(@"Deprecated in favour of `virtual_network_rules`")]
         public InputList<string> VirtualNetworkSubnetIds
         {
             get => _virtualNetworkSubnetIds ?? (_virtualNetworkSubnetIds = new InputList<string>());

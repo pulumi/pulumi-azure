@@ -64,6 +64,8 @@ type Factory struct {
 	Identity FactoryIdentityOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Is Managed Virtual Network enabled?
+	ManagedVirtualNetworkEnabled pulumi.BoolPtrOutput `pulumi:"managedVirtualNetworkEnabled"`
 	// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Is the Data Factory visible to the public network? Defaults to `true`.
@@ -118,6 +120,8 @@ type factoryState struct {
 	Identity *FactoryIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Is Managed Virtual Network enabled?
+	ManagedVirtualNetworkEnabled *bool `pulumi:"managedVirtualNetworkEnabled"`
 	// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// Is the Data Factory visible to the public network? Defaults to `true`.
@@ -141,6 +145,8 @@ type FactoryState struct {
 	Identity FactoryIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Is Managed Virtual Network enabled?
+	ManagedVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// Is the Data Factory visible to the public network? Defaults to `true`.
@@ -168,6 +174,8 @@ type factoryArgs struct {
 	Identity *FactoryIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Is Managed Virtual Network enabled?
+	ManagedVirtualNetworkEnabled *bool `pulumi:"managedVirtualNetworkEnabled"`
 	// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// Is the Data Factory visible to the public network? Defaults to `true`.
@@ -192,6 +200,8 @@ type FactoryArgs struct {
 	Identity FactoryIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Is Managed Virtual Network enabled?
+	ManagedVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// Is the Data Factory visible to the public network? Defaults to `true`.

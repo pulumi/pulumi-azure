@@ -7,5 +7,8 @@ import typing
 # Export this package's modules as members:
 from .assignment_dedicated_host import *
 from .assignment_virtual_machine import *
+from .assignment_virtual_machine_scale_set import *
 from .configuration import *
 from .get_configuration import *
+from ._inputs import *
+from . import outputs

@@ -10,9 +10,21 @@ from .. import _utilities
 
 __all__ = [
     'ApiDiagnosticBackendRequestArgs',
+    'ApiDiagnosticBackendRequestDataMaskingArgs',
+    'ApiDiagnosticBackendRequestDataMaskingHeaderArgs',
+    'ApiDiagnosticBackendRequestDataMaskingQueryParamArgs',
     'ApiDiagnosticBackendResponseArgs',
+    'ApiDiagnosticBackendResponseDataMaskingArgs',
+    'ApiDiagnosticBackendResponseDataMaskingHeaderArgs',
+    'ApiDiagnosticBackendResponseDataMaskingQueryParamArgs',
     'ApiDiagnosticFrontendRequestArgs',
+    'ApiDiagnosticFrontendRequestDataMaskingArgs',
+    'ApiDiagnosticFrontendRequestDataMaskingHeaderArgs',
+    'ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs',
     'ApiDiagnosticFrontendResponseArgs',
+    'ApiDiagnosticFrontendResponseDataMaskingArgs',
+    'ApiDiagnosticFrontendResponseDataMaskingHeaderArgs',
+    'ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs',
     'ApiImportArgs',
     'ApiImportWsdlSelectorArgs',
     'ApiOauth2AuthorizationArgs',
@@ -41,12 +53,25 @@ __all__ = [
     'CustomDomainProxyArgs',
     'CustomDomainScmArgs',
     'DiagnosticBackendRequestArgs',
+    'DiagnosticBackendRequestDataMaskingArgs',
+    'DiagnosticBackendRequestDataMaskingHeaderArgs',
+    'DiagnosticBackendRequestDataMaskingQueryParamArgs',
     'DiagnosticBackendResponseArgs',
+    'DiagnosticBackendResponseDataMaskingArgs',
+    'DiagnosticBackendResponseDataMaskingHeaderArgs',
+    'DiagnosticBackendResponseDataMaskingQueryParamArgs',
     'DiagnosticFrontendRequestArgs',
+    'DiagnosticFrontendRequestDataMaskingArgs',
+    'DiagnosticFrontendRequestDataMaskingHeaderArgs',
+    'DiagnosticFrontendRequestDataMaskingQueryParamArgs',
     'DiagnosticFrontendResponseArgs',
+    'DiagnosticFrontendResponseDataMaskingArgs',
+    'DiagnosticFrontendResponseDataMaskingHeaderArgs',
+    'DiagnosticFrontendResponseDataMaskingQueryParamArgs',
     'GatewayLocationDataArgs',
     'LoggerApplicationInsightsArgs',
     'LoggerEventhubArgs',
+    'NamedValueValueFromKeyVaultArgs',
     'ServiceAdditionalLocationArgs',
     'ServiceAdditionalLocationVirtualNetworkConfigurationArgs',
     'ServiceCertificateArgs',
@@ -71,13 +96,17 @@ __all__ = [
 class ApiDiagnosticBackendRequestArgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
+                 data_masking: Optional[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
+        :param pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArgs'] data_masking: A `data_masking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -94,6 +123,18 @@ class ApiDiagnosticBackendRequestArgs:
         pulumi.set(self, "body_bytes", value)
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArgs']]:
+        """
+        A `data_masking` block as defined below.
+        """
+        return pulumi.get(self, "data_masking")
+
+    @data_masking.setter
+    def data_masking(self, value: Optional[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArgs']]):
+        pulumi.set(self, "data_masking", value)
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -104,19 +145,136 @@ class ApiDiagnosticBackendRequestArgs:
     @headers_to_logs.setter
     def headers_to_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "headers_to_logs", value)
+
+
+@pulumi.input_type
+class ApiDiagnosticBackendRequestDataMaskingArgs:
+    def __init__(__self__, *,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArgs']]] headers: A `headers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs']]] query_params: A `query_params` block as defined below.
+        """
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArgs']]]]:
+        """
+        A `headers` block as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs']]]]:
+        """
+        A `query_params` block as defined below.
+        """
+        return pulumi.get(self, "query_params")
+
+    @query_params.setter
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs']]]]):
+        pulumi.set(self, "query_params", value)
+
+
+@pulumi.input_type
+class ApiDiagnosticBackendRequestDataMaskingHeaderArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param pulumi.Input[str] value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ApiDiagnosticBackendRequestDataMaskingQueryParamArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param pulumi.Input[str] value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
 class ApiDiagnosticBackendResponseArgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
+                 data_masking: Optional[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
+        :param pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArgs'] data_masking: A `data_masking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -133,6 +291,18 @@ class ApiDiagnosticBackendResponseArgs:
         pulumi.set(self, "body_bytes", value)
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArgs']]:
+        """
+        A `data_masking` block as defined below.
+        """
+        return pulumi.get(self, "data_masking")
+
+    @data_masking.setter
+    def data_masking(self, value: Optional[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArgs']]):
+        pulumi.set(self, "data_masking", value)
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -143,19 +313,136 @@ class ApiDiagnosticBackendResponseArgs:
     @headers_to_logs.setter
     def headers_to_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "headers_to_logs", value)
+
+
+@pulumi.input_type
+class ApiDiagnosticBackendResponseDataMaskingArgs:
+    def __init__(__self__, *,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArgs']]] headers: A `headers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs']]] query_params: A `query_params` block as defined below.
+        """
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArgs']]]]:
+        """
+        A `headers` block as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs']]]]:
+        """
+        A `query_params` block as defined below.
+        """
+        return pulumi.get(self, "query_params")
+
+    @query_params.setter
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs']]]]):
+        pulumi.set(self, "query_params", value)
+
+
+@pulumi.input_type
+class ApiDiagnosticBackendResponseDataMaskingHeaderArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param pulumi.Input[str] value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ApiDiagnosticBackendResponseDataMaskingQueryParamArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param pulumi.Input[str] value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
 class ApiDiagnosticFrontendRequestArgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
+                 data_masking: Optional[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
+        :param pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArgs'] data_masking: A `data_masking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -170,6 +457,18 @@ class ApiDiagnosticFrontendRequestArgs:
     @body_bytes.setter
     def body_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "body_bytes", value)
+
+    @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArgs']]:
+        """
+        A `data_masking` block as defined below.
+        """
+        return pulumi.get(self, "data_masking")
+
+    @data_masking.setter
+    def data_masking(self, value: Optional[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArgs']]):
+        pulumi.set(self, "data_masking", value)
 
     @property
     @pulumi.getter(name="headersToLogs")
@@ -185,16 +484,133 @@ class ApiDiagnosticFrontendRequestArgs:
 
 
 @pulumi.input_type
+class ApiDiagnosticFrontendRequestDataMaskingArgs:
+    def __init__(__self__, *,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs']]] headers: A `headers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs']]] query_params: A `query_params` block as defined below.
+        """
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs']]]]:
+        """
+        A `headers` block as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs']]]]:
+        """
+        A `query_params` block as defined below.
+        """
+        return pulumi.get(self, "query_params")
+
+    @query_params.setter
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs']]]]):
+        pulumi.set(self, "query_params", value)
+
+
+@pulumi.input_type
+class ApiDiagnosticFrontendRequestDataMaskingHeaderArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param pulumi.Input[str] value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param pulumi.Input[str] value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class ApiDiagnosticFrontendResponseArgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
+                 data_masking: Optional[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
+        :param pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArgs'] data_masking: A `data_masking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -211,6 +627,18 @@ class ApiDiagnosticFrontendResponseArgs:
         pulumi.set(self, "body_bytes", value)
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArgs']]:
+        """
+        A `data_masking` block as defined below.
+        """
+        return pulumi.get(self, "data_masking")
+
+    @data_masking.setter
+    def data_masking(self, value: Optional[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArgs']]):
+        pulumi.set(self, "data_masking", value)
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -221,6 +649,119 @@ class ApiDiagnosticFrontendResponseArgs:
     @headers_to_logs.setter
     def headers_to_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "headers_to_logs", value)
+
+
+@pulumi.input_type
+class ApiDiagnosticFrontendResponseDataMaskingArgs:
+    def __init__(__self__, *,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs']]] headers: A `headers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs']]] query_params: A `query_params` block as defined below.
+        """
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs']]]]:
+        """
+        A `headers` block as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs']]]]:
+        """
+        A `query_params` block as defined below.
+        """
+        return pulumi.get(self, "query_params")
+
+    @query_params.setter
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs']]]]):
+        pulumi.set(self, "query_params", value)
+
+
+@pulumi.input_type
+class ApiDiagnosticFrontendResponseDataMaskingHeaderArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param pulumi.Input[str] value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param pulumi.Input[str] value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -2166,6 +2707,7 @@ class CustomDomainScmArgs:
 class DiagnosticBackendRequestArgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
+                 data_masking: Optional[pulumi.Input['DiagnosticBackendRequestDataMaskingArgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
@@ -2173,6 +2715,8 @@ class DiagnosticBackendRequestArgs:
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -2189,6 +2733,15 @@ class DiagnosticBackendRequestArgs:
         pulumi.set(self, "body_bytes", value)
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional[pulumi.Input['DiagnosticBackendRequestDataMaskingArgs']]:
+        return pulumi.get(self, "data_masking")
+
+    @data_masking.setter
+    def data_masking(self, value: Optional[pulumi.Input['DiagnosticBackendRequestDataMaskingArgs']]):
+        pulumi.set(self, "data_masking", value)
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -2199,12 +2752,96 @@ class DiagnosticBackendRequestArgs:
     @headers_to_logs.setter
     def headers_to_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "headers_to_logs", value)
+
+
+@pulumi.input_type
+class DiagnosticBackendRequestDataMaskingArgs:
+    def __init__(__self__, *,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArgs']]]] = None):
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArgs']]]]:
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArgs']]]]:
+        return pulumi.get(self, "query_params")
+
+    @query_params.setter
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArgs']]]]):
+        pulumi.set(self, "query_params", value)
+
+
+@pulumi.input_type
+class DiagnosticBackendRequestDataMaskingHeaderArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DiagnosticBackendRequestDataMaskingQueryParamArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
 class DiagnosticBackendResponseArgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
+                 data_masking: Optional[pulumi.Input['DiagnosticBackendResponseDataMaskingArgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
@@ -2212,6 +2849,8 @@ class DiagnosticBackendResponseArgs:
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -2228,6 +2867,15 @@ class DiagnosticBackendResponseArgs:
         pulumi.set(self, "body_bytes", value)
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional[pulumi.Input['DiagnosticBackendResponseDataMaskingArgs']]:
+        return pulumi.get(self, "data_masking")
+
+    @data_masking.setter
+    def data_masking(self, value: Optional[pulumi.Input['DiagnosticBackendResponseDataMaskingArgs']]):
+        pulumi.set(self, "data_masking", value)
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -2238,12 +2886,96 @@ class DiagnosticBackendResponseArgs:
     @headers_to_logs.setter
     def headers_to_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "headers_to_logs", value)
+
+
+@pulumi.input_type
+class DiagnosticBackendResponseDataMaskingArgs:
+    def __init__(__self__, *,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArgs']]]] = None):
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArgs']]]]:
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArgs']]]]:
+        return pulumi.get(self, "query_params")
+
+    @query_params.setter
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArgs']]]]):
+        pulumi.set(self, "query_params", value)
+
+
+@pulumi.input_type
+class DiagnosticBackendResponseDataMaskingHeaderArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DiagnosticBackendResponseDataMaskingQueryParamArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
 class DiagnosticFrontendRequestArgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
+                 data_masking: Optional[pulumi.Input['DiagnosticFrontendRequestDataMaskingArgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
@@ -2251,6 +2983,8 @@ class DiagnosticFrontendRequestArgs:
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -2265,6 +2999,15 @@ class DiagnosticFrontendRequestArgs:
     @body_bytes.setter
     def body_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "body_bytes", value)
+
+    @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional[pulumi.Input['DiagnosticFrontendRequestDataMaskingArgs']]:
+        return pulumi.get(self, "data_masking")
+
+    @data_masking.setter
+    def data_masking(self, value: Optional[pulumi.Input['DiagnosticFrontendRequestDataMaskingArgs']]):
+        pulumi.set(self, "data_masking", value)
 
     @property
     @pulumi.getter(name="headersToLogs")
@@ -2280,9 +3023,93 @@ class DiagnosticFrontendRequestArgs:
 
 
 @pulumi.input_type
+class DiagnosticFrontendRequestDataMaskingArgs:
+    def __init__(__self__, *,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArgs']]]] = None):
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArgs']]]]:
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArgs']]]]:
+        return pulumi.get(self, "query_params")
+
+    @query_params.setter
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArgs']]]]):
+        pulumi.set(self, "query_params", value)
+
+
+@pulumi.input_type
+class DiagnosticFrontendRequestDataMaskingHeaderArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DiagnosticFrontendRequestDataMaskingQueryParamArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class DiagnosticFrontendResponseArgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
+                 data_masking: Optional[pulumi.Input['DiagnosticFrontendResponseDataMaskingArgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
@@ -2290,6 +3117,8 @@ class DiagnosticFrontendResponseArgs:
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -2306,6 +3135,15 @@ class DiagnosticFrontendResponseArgs:
         pulumi.set(self, "body_bytes", value)
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional[pulumi.Input['DiagnosticFrontendResponseDataMaskingArgs']]:
+        return pulumi.get(self, "data_masking")
+
+    @data_masking.setter
+    def data_masking(self, value: Optional[pulumi.Input['DiagnosticFrontendResponseDataMaskingArgs']]):
+        pulumi.set(self, "data_masking", value)
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -2316,6 +3154,89 @@ class DiagnosticFrontendResponseArgs:
     @headers_to_logs.setter
     def headers_to_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "headers_to_logs", value)
+
+
+@pulumi.input_type
+class DiagnosticFrontendResponseDataMaskingArgs:
+    def __init__(__self__, *,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArgs']]]] = None):
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArgs']]]]:
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArgs']]]]:
+        return pulumi.get(self, "query_params")
+
+    @query_params.setter
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArgs']]]]):
+        pulumi.set(self, "query_params", value)
+
+
+@pulumi.input_type
+class DiagnosticFrontendResponseDataMaskingHeaderArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DiagnosticFrontendResponseDataMaskingQueryParamArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -2445,6 +3366,43 @@ class LoggerEventhubArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NamedValueValueFromKeyVaultArgs:
+    def __init__(__self__, *,
+                 identity_client_id: pulumi.Input[str],
+                 secret_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] identity_client_id: The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+        :param pulumi.Input[str] secret_id: The resource ID of the Key Vault Secret.
+        """
+        pulumi.set(__self__, "identity_client_id", identity_client_id)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> pulumi.Input[str]:
+        """
+        The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Key Vault Secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_id", value)
 
 
 @pulumi.input_type

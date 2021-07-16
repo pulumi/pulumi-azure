@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ConfigurationArgs', 'Configuration']
 
@@ -16,25 +18,37 @@ class ConfigurationArgs:
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
+                 window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None):
         """
         The set of arguments for constructing a Configuration resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scope: The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of properties to assign to the resource.
+        :param pulumi.Input[str] scope: The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. The key could not contain upper case letter.
+        :param pulumi.Input[str] visibility: The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        :param pulumi.Input['ConfigurationWindowArgs'] window: A `window` block as defined below.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+        if window is not None:
+            pulumi.set(__self__, "window", window)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -74,9 +88,21 @@ class ConfigurationArgs:
 
     @property
     @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of properties to assign to the resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
-        The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+        The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
         """
         return pulumi.get(self, "scope")
 
@@ -96,33 +122,69 @@ class ConfigurationArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        """
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "visibility", value)
+
+    @property
+    @pulumi.getter
+    def window(self) -> Optional[pulumi.Input['ConfigurationWindowArgs']]:
+        """
+        A `window` block as defined below.
+        """
+        return pulumi.get(self, "window")
+
+    @window.setter
+    def window(self, value: Optional[pulumi.Input['ConfigurationWindowArgs']]):
+        pulumi.set(self, "window", value)
+
 
 @pulumi.input_type
 class _ConfigurationState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
+                 window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None):
         """
         Input properties used for looking up and filtering Configuration resources.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of properties to assign to the resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scope: The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+        :param pulumi.Input[str] scope: The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. The key could not contain upper case letter.
+        :param pulumi.Input[str] visibility: The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        :param pulumi.Input['ConfigurationWindowArgs'] window: A `window` block as defined below.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+        if window is not None:
+            pulumi.set(__self__, "window", window)
 
     @property
     @pulumi.getter
@@ -149,6 +211,18 @@ class _ConfigurationState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of properties to assign to the resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -164,7 +238,7 @@ class _ConfigurationState:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
-        The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+        The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
         """
         return pulumi.get(self, "scope")
 
@@ -184,6 +258,30 @@ class _ConfigurationState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        """
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "visibility", value)
+
+    @property
+    @pulumi.getter
+    def window(self) -> Optional[pulumi.Input['ConfigurationWindowArgs']]:
+        """
+        A `window` block as defined below.
+        """
+        return pulumi.get(self, "window")
+
+    @window.setter
+    def window(self, value: Optional[pulumi.Input['ConfigurationWindowArgs']]):
+        pulumi.set(self, "window", value)
+
 
 class Configuration(pulumi.CustomResource):
     @overload
@@ -192,9 +290,12 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
+                 window: Optional[pulumi.Input[pulumi.InputType['ConfigurationWindowArgs']]] = None,
                  __props__=None):
         """
         Manages a maintenance configuration.
@@ -227,9 +328,12 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of properties to assign to the resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scope: The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+        :param pulumi.Input[str] scope: The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. The key could not contain upper case letter.
+        :param pulumi.Input[str] visibility: The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        :param pulumi.Input[pulumi.InputType['ConfigurationWindowArgs']] window: A `window` block as defined below.
         """
         ...
     @overload
@@ -281,9 +385,12 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
+                 window: Optional[pulumi.Input[pulumi.InputType['ConfigurationWindowArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -298,11 +405,14 @@ class Configuration(pulumi.CustomResource):
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["visibility"] = visibility
+            __props__.__dict__["window"] = window
         super(Configuration, __self__).__init__(
             'azure:maintenance/configuration:Configuration',
             resource_name,
@@ -315,9 +425,12 @@ class Configuration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             scope: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Configuration':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            visibility: Optional[pulumi.Input[str]] = None,
+            window: Optional[pulumi.Input[pulumi.InputType['ConfigurationWindowArgs']]] = None) -> 'Configuration':
         """
         Get an existing Configuration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -327,9 +440,12 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of properties to assign to the resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scope: The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+        :param pulumi.Input[str] scope: The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. The key could not contain upper case letter.
+        :param pulumi.Input[str] visibility: The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        :param pulumi.Input[pulumi.InputType['ConfigurationWindowArgs']] window: A `window` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -337,9 +453,12 @@ class Configuration(pulumi.CustomResource):
 
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["properties"] = properties
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["scope"] = scope
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["visibility"] = visibility
+        __props__.__dict__["window"] = window
         return Configuration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -359,6 +478,14 @@ class Configuration(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of properties to assign to the resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
@@ -370,7 +497,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional[str]]:
         """
-        The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+        The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
         """
         return pulumi.get(self, "scope")
 
@@ -381,4 +508,20 @@ class Configuration(pulumi.CustomResource):
         A mapping of tags to assign to the resource. The key could not contain upper case letter.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> pulumi.Output[Optional[str]]:
+        """
+        The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        """
+        return pulumi.get(self, "visibility")
+
+    @property
+    @pulumi.getter
+    def window(self) -> pulumi.Output[Optional['outputs.ConfigurationWindow']]:
+        """
+        A `window` block as defined below.
+        """
+        return pulumi.get(self, "window")
 

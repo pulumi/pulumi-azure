@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApiOperationTag{}
 	case "azure:apimanagement/apiPolicy:ApiPolicy":
 		r = &ApiPolicy{}
+	case "azure:apimanagement/apiRelease:ApiRelease":
+		r = &ApiRelease{}
 	case "azure:apimanagement/apiSchema:ApiSchema":
 		r = &ApiSchema{}
 	case "azure:apimanagement/apiVersionSet:ApiVersionSet":
@@ -134,6 +136,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/apiPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/apiRelease",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -33,15 +33,24 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
+ * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+ * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", {
+ *     privateDnsZoneName: exampleZone.name,
+ *     virtualNetworkId: exampleVirtualNetwork.id,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
  * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("exampleFlexibleServer", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     version: "12",
  *     delegatedSubnetId: exampleSubnet.id,
+ *     privateDnsZoneId: exampleZone.id,
  *     administratorLogin: "psqladminun",
  *     administratorPassword: "H@Sh1CoR3!",
  *     storageMb: 32768,
  *     skuName: "GP_Standard_D4s_v3",
+ * }, {
+ *     dependsOn: [exampleZoneVirtualNetworkLink],
  * });
  * ```
  *
@@ -128,6 +137,10 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly pointInTimeRestoreTimeInUtc!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+     */
+    public readonly privateDnsZoneId!: pulumi.Output<string>;
+    /**
      * Is public network access enabled?
      */
     public /*out*/ readonly publicNetworkAccessEnabled!: pulumi.Output<boolean>;
@@ -184,6 +197,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["pointInTimeRestoreTimeInUtc"] = state ? state.pointInTimeRestoreTimeInUtc : undefined;
+            inputs["privateDnsZoneId"] = state ? state.privateDnsZoneId : undefined;
             inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
@@ -206,6 +220,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["pointInTimeRestoreTimeInUtc"] = args ? args.pointInTimeRestoreTimeInUtc : undefined;
+            inputs["privateDnsZoneId"] = args ? args.privateDnsZoneId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["sourceServerId"] = args ? args.sourceServerId : undefined;
@@ -274,6 +289,10 @@ export interface FlexibleServerState {
      * The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
+    /**
+     * The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+     */
+    privateDnsZoneId?: pulumi.Input<string>;
     /**
      * Is public network access enabled?
      */
@@ -348,6 +367,10 @@ export interface FlexibleServerArgs {
      * The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
+    /**
+     * The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+     */
+    privateDnsZoneId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */

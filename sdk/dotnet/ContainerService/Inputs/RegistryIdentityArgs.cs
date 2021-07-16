@@ -24,8 +24,17 @@ namespace Pulumi.Azure.ContainerService.Inputs
             set => _identityIds = value;
         }
 
+        /// <summary>
+        /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
+        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
 
         /// <summary>
         /// The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.

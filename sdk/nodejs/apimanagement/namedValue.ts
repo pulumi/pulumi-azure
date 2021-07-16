@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -92,7 +93,11 @@ export class NamedValue extends pulumi.CustomResource {
     /**
      * The value of this API Management Named Value.
      */
-    public readonly value!: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string | undefined>;
+    /**
+     * A `valueFromKeyVault` block as defined below.
+     */
+    public readonly valueFromKeyVault!: pulumi.Output<outputs.apimanagement.NamedValueValueFromKeyVault | undefined>;
 
     /**
      * Create a NamedValue resource with the given unique name, arguments, and options.
@@ -114,6 +119,7 @@ export class NamedValue extends pulumi.CustomResource {
             inputs["secret"] = state ? state.secret : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["value"] = state ? state.value : undefined;
+            inputs["valueFromKeyVault"] = state ? state.valueFromKeyVault : undefined;
         } else {
             const args = argsOrState as NamedValueArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -125,9 +131,6 @@ export class NamedValue extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'value'");
-            }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -135,6 +138,7 @@ export class NamedValue extends pulumi.CustomResource {
             inputs["secret"] = args ? args.secret : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
+            inputs["valueFromKeyVault"] = args ? args.valueFromKeyVault : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -175,6 +179,10 @@ export interface NamedValueState {
      * The value of this API Management Named Value.
      */
     value?: pulumi.Input<string>;
+    /**
+     * A `valueFromKeyVault` block as defined below.
+     */
+    valueFromKeyVault?: pulumi.Input<inputs.apimanagement.NamedValueValueFromKeyVault>;
 }
 
 /**
@@ -208,5 +216,9 @@ export interface NamedValueArgs {
     /**
      * The value of this API Management Named Value.
      */
-    value: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+    /**
+     * A `valueFromKeyVault` block as defined below.
+     */
+    valueFromKeyVault?: pulumi.Input<inputs.apimanagement.NamedValueValueFromKeyVault>;
 }

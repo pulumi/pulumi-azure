@@ -179,6 +179,7 @@ class _NetworkWatcherFlowLogState:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  network_security_group_id: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -204,6 +205,8 @@ class _NetworkWatcherFlowLogState:
             pulumi.set(__self__, "enabled", enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if network_security_group_id is not None:
             pulumi.set(__self__, "network_security_group_id", network_security_group_id)
         if network_watcher_name is not None:
@@ -244,6 +247,15 @@ class _NetworkWatcherFlowLogState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="networkSecurityGroupId")
@@ -544,6 +556,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["traffic_analytics"] = traffic_analytics
             __props__.__dict__["version"] = version
+            __props__.__dict__["name"] = None
         super(NetworkWatcherFlowLog, __self__).__init__(
             'azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog',
             resource_name,
@@ -556,6 +569,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
             network_security_group_id: Optional[pulumi.Input[str]] = None,
             network_watcher_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -588,6 +602,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
         __props__.__dict__["network_security_group_id"] = network_security_group_id
         __props__.__dict__["network_watcher_name"] = network_watcher_name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -613,6 +628,11 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkSecurityGroupId")

@@ -22,8 +22,9 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IpRules;
         /// <summary>
-        /// One or more Subnet ID's which should be able to access this Cognitive Account.
+        /// A `virtual_network_rules` block as defined below.
         /// </summary>
+        public readonly ImmutableArray<Outputs.AccountNetworkAclsVirtualNetworkRule> VirtualNetworkRules;
         public readonly ImmutableArray<string> VirtualNetworkSubnetIds;
 
         [OutputConstructor]
@@ -32,10 +33,13 @@ namespace Pulumi.Azure.Cognitive.Outputs
 
             ImmutableArray<string> ipRules,
 
+            ImmutableArray<Outputs.AccountNetworkAclsVirtualNetworkRule> virtualNetworkRules,
+
             ImmutableArray<string> virtualNetworkSubnetIds)
         {
             DefaultAction = defaultAction;
             IpRules = ipRules;
+            VirtualNetworkRules = virtualNetworkRules;
             VirtualNetworkSubnetIds = virtualNetworkSubnetIds;
         }
     }

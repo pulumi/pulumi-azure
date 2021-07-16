@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['NamedValueArgs', 'NamedValue']
 
@@ -16,30 +18,35 @@ class NamedValueArgs:
                  api_management_name: pulumi.Input[str],
                  display_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 value: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 value_from_key_vault: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']] = None):
         """
         The set of arguments for constructing a NamedValue resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this API Management Named Value.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] value: The value of this API Management Named Value.
         :param pulumi.Input[str] name: The name of the API Management Named Value. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] secret: Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to be applied to the API Management Named Value.
+        :param pulumi.Input[str] value: The value of this API Management Named Value.
+        :param pulumi.Input['NamedValueValueFromKeyVaultArgs'] value_from_key_vault: A `value_from_key_vault` block as defined below.
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "value", value)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_from_key_vault is not None:
+            pulumi.set(__self__, "value_from_key_vault", value_from_key_vault)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -79,18 +86,6 @@ class NamedValueArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value of this API Management Named Value.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the API Management Named Value. Changing this forces a new resource to be created.
@@ -125,6 +120,30 @@ class NamedValueArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of this API Management Named Value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueFromKeyVault")
+    def value_from_key_vault(self) -> Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']]:
+        """
+        A `value_from_key_vault` block as defined below.
+        """
+        return pulumi.get(self, "value_from_key_vault")
+
+    @value_from_key_vault.setter
+    def value_from_key_vault(self, value: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']]):
+        pulumi.set(self, "value_from_key_vault", value)
+
 
 @pulumi.input_type
 class _NamedValueState:
@@ -135,7 +154,8 @@ class _NamedValueState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
+                 value: Optional[pulumi.Input[str]] = None,
+                 value_from_key_vault: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']] = None):
         """
         Input properties used for looking up and filtering NamedValue resources.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
@@ -145,6 +165,7 @@ class _NamedValueState:
         :param pulumi.Input[bool] secret: Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to be applied to the API Management Named Value.
         :param pulumi.Input[str] value: The value of this API Management Named Value.
+        :param pulumi.Input['NamedValueValueFromKeyVaultArgs'] value_from_key_vault: A `value_from_key_vault` block as defined below.
         """
         if api_management_name is not None:
             pulumi.set(__self__, "api_management_name", api_management_name)
@@ -160,6 +181,8 @@ class _NamedValueState:
             pulumi.set(__self__, "tags", tags)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_from_key_vault is not None:
+            pulumi.set(__self__, "value_from_key_vault", value_from_key_vault)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -245,6 +268,18 @@ class _NamedValueState:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+    @property
+    @pulumi.getter(name="valueFromKeyVault")
+    def value_from_key_vault(self) -> Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']]:
+        """
+        A `value_from_key_vault` block as defined below.
+        """
+        return pulumi.get(self, "value_from_key_vault")
+
+    @value_from_key_vault.setter
+    def value_from_key_vault(self, value: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']]):
+        pulumi.set(self, "value_from_key_vault", value)
+
 
 class NamedValue(pulumi.CustomResource):
     @overload
@@ -258,6 +293,7 @@ class NamedValue(pulumi.CustomResource):
                  secret: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
+                 value_from_key_vault: Optional[pulumi.Input[pulumi.InputType['NamedValueValueFromKeyVaultArgs']]] = None,
                  __props__=None):
         """
         Manages an API Management Named Value.
@@ -299,6 +335,7 @@ class NamedValue(pulumi.CustomResource):
         :param pulumi.Input[bool] secret: Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to be applied to the API Management Named Value.
         :param pulumi.Input[str] value: The value of this API Management Named Value.
+        :param pulumi.Input[pulumi.InputType['NamedValueValueFromKeyVaultArgs']] value_from_key_vault: A `value_from_key_vault` block as defined below.
         """
         ...
     @overload
@@ -359,6 +396,7 @@ class NamedValue(pulumi.CustomResource):
                  secret: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
+                 value_from_key_vault: Optional[pulumi.Input[pulumi.InputType['NamedValueValueFromKeyVaultArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -383,9 +421,8 @@ class NamedValue(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["secret"] = secret
             __props__.__dict__["tags"] = tags
-            if value is None and not opts.urn:
-                raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = value
+            __props__.__dict__["value_from_key_vault"] = value_from_key_vault
         super(NamedValue, __self__).__init__(
             'azure:apimanagement/namedValue:NamedValue',
             resource_name,
@@ -402,7 +439,8 @@ class NamedValue(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secret: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            value: Optional[pulumi.Input[str]] = None) -> 'NamedValue':
+            value: Optional[pulumi.Input[str]] = None,
+            value_from_key_vault: Optional[pulumi.Input[pulumi.InputType['NamedValueValueFromKeyVaultArgs']]] = None) -> 'NamedValue':
         """
         Get an existing NamedValue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -417,6 +455,7 @@ class NamedValue(pulumi.CustomResource):
         :param pulumi.Input[bool] secret: Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to be applied to the API Management Named Value.
         :param pulumi.Input[str] value: The value of this API Management Named Value.
+        :param pulumi.Input[pulumi.InputType['NamedValueValueFromKeyVaultArgs']] value_from_key_vault: A `value_from_key_vault` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -429,6 +468,7 @@ class NamedValue(pulumi.CustomResource):
         __props__.__dict__["secret"] = secret
         __props__.__dict__["tags"] = tags
         __props__.__dict__["value"] = value
+        __props__.__dict__["value_from_key_vault"] = value_from_key_vault
         return NamedValue(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -481,9 +521,17 @@ class NamedValue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Output[str]:
+    def value(self) -> pulumi.Output[Optional[str]]:
         """
         The value of this API Management Named Value.
         """
         return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFromKeyVault")
+    def value_from_key_vault(self) -> pulumi.Output[Optional['outputs.NamedValueValueFromKeyVault']]:
+        """
+        A `value_from_key_vault` block as defined below.
+        """
+        return pulumi.get(self, "value_from_key_vault")
 

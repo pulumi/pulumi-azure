@@ -25,16 +25,34 @@ type Account struct {
 	CustomSubdomainName pulumi.StringPtrOutput `pulumi:"customSubdomainName"`
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+	// List of FQDNs allowed for the Cognitive Account.
+	Fqdns pulumi.StringArrayOutput `pulumi:"fqdns"`
+	// An `identity` block is documented below.
+	Identity AccountIdentityPtrOutput `pulumi:"identity"`
+	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	Kind pulumi.StringOutput `pulumi:"kind"`
+	// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorAadClientId pulumi.StringPtrOutput `pulumi:"metricsAdvisorAadClientId"`
+	// The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorAadTenantId pulumi.StringPtrOutput `pulumi:"metricsAdvisorAadTenantId"`
+	// The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorSuperUserName pulumi.StringPtrOutput `pulumi:"metricsAdvisorSuperUserName"`
+	// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorWebsiteName pulumi.StringPtrOutput `pulumi:"metricsAdvisorWebsiteName"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls AccountNetworkAclsPtrOutput `pulumi:"networkAcls"`
+	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+	OutboundNetworkAccessRestrited pulumi.BoolPtrOutput `pulumi:"outboundNetworkAccessRestrited"`
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
 	QnaRuntimeEndpoint pulumi.StringPtrOutput `pulumi:"qnaRuntimeEndpoint"`
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
@@ -43,6 +61,8 @@ type Account struct {
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
+	// An `identity` block is documented below.
+	Storages AccountStorageArrayOutput `pulumi:"storages"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -89,16 +109,34 @@ type accountState struct {
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint *string `pulumi:"endpoint"`
-	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+	// List of FQDNs allowed for the Cognitive Account.
+	Fqdns []string `pulumi:"fqdns"`
+	// An `identity` block is documented below.
+	Identity *AccountIdentity `pulumi:"identity"`
+	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
+	// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorAadClientId *string `pulumi:"metricsAdvisorAadClientId"`
+	// The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorAadTenantId *string `pulumi:"metricsAdvisorAadTenantId"`
+	// The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorSuperUserName *string `pulumi:"metricsAdvisorSuperUserName"`
+	// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorWebsiteName *string `pulumi:"metricsAdvisorWebsiteName"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls *AccountNetworkAcls `pulumi:"networkAcls"`
+	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+	OutboundNetworkAccessRestrited *bool `pulumi:"outboundNetworkAccessRestrited"`
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
+	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
 	QnaRuntimeEndpoint *string `pulumi:"qnaRuntimeEndpoint"`
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
@@ -107,6 +145,8 @@ type accountState struct {
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName *string `pulumi:"skuName"`
+	// An `identity` block is documented below.
+	Storages []AccountStorage `pulumi:"storages"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -116,16 +156,34 @@ type AccountState struct {
 	CustomSubdomainName pulumi.StringPtrInput
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint pulumi.StringPtrInput
-	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+	// List of FQDNs allowed for the Cognitive Account.
+	Fqdns pulumi.StringArrayInput
+	// An `identity` block is documented below.
+	Identity AccountIdentityPtrInput
+	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
+	// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorAadClientId pulumi.StringPtrInput
+	// The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorAadTenantId pulumi.StringPtrInput
+	// The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorSuperUserName pulumi.StringPtrInput
+	// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorWebsiteName pulumi.StringPtrInput
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below.
 	NetworkAcls AccountNetworkAclsPtrInput
+	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+	OutboundNetworkAccessRestrited pulumi.BoolPtrInput
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey pulumi.StringPtrInput
+	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
 	QnaRuntimeEndpoint pulumi.StringPtrInput
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
@@ -134,6 +192,8 @@ type AccountState struct {
 	SecondaryAccessKey pulumi.StringPtrInput
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName pulumi.StringPtrInput
+	// An `identity` block is documented below.
+	Storages AccountStorageArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -145,20 +205,40 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
-	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+	// List of FQDNs allowed for the Cognitive Account.
+	Fqdns []string `pulumi:"fqdns"`
+	// An `identity` block is documented below.
+	Identity *AccountIdentity `pulumi:"identity"`
+	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	Kind string `pulumi:"kind"`
+	// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorAadClientId *string `pulumi:"metricsAdvisorAadClientId"`
+	// The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorAadTenantId *string `pulumi:"metricsAdvisorAadTenantId"`
+	// The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorSuperUserName *string `pulumi:"metricsAdvisorSuperUserName"`
+	// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorWebsiteName *string `pulumi:"metricsAdvisorWebsiteName"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls *AccountNetworkAcls `pulumi:"networkAcls"`
+	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+	OutboundNetworkAccessRestrited *bool `pulumi:"outboundNetworkAccessRestrited"`
+	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
 	QnaRuntimeEndpoint *string `pulumi:"qnaRuntimeEndpoint"`
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName string `pulumi:"skuName"`
+	// An `identity` block is documented below.
+	Storages []AccountStorage `pulumi:"storages"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -167,20 +247,40 @@ type accountArgs struct {
 type AccountArgs struct {
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
-	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+	// List of FQDNs allowed for the Cognitive Account.
+	Fqdns pulumi.StringArrayInput
+	// An `identity` block is documented below.
+	Identity AccountIdentityPtrInput
+	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	Kind pulumi.StringInput
+	// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorAadClientId pulumi.StringPtrInput
+	// The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorAadTenantId pulumi.StringPtrInput
+	// The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorSuperUserName pulumi.StringPtrInput
+	// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+	MetricsAdvisorWebsiteName pulumi.StringPtrInput
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below.
 	NetworkAcls AccountNetworkAclsPtrInput
+	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+	OutboundNetworkAccessRestrited pulumi.BoolPtrInput
+	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
 	QnaRuntimeEndpoint pulumi.StringPtrInput
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName pulumi.StringInput
+	// An `identity` block is documented below.
+	Storages AccountStorageArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

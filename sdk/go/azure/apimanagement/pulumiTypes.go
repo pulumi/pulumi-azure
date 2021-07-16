@@ -13,6 +13,8 @@ import (
 type ApiDiagnosticBackendRequest struct {
 	// Number of payload bytes to log (up to 8192).
 	BodyBytes *int `pulumi:"bodyBytes"`
+	// A `dataMasking` block as defined below.
+	DataMasking *ApiDiagnosticBackendRequestDataMasking `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs []string `pulumi:"headersToLogs"`
 }
@@ -31,6 +33,8 @@ type ApiDiagnosticBackendRequestInput interface {
 type ApiDiagnosticBackendRequestArgs struct {
 	// Number of payload bytes to log (up to 8192).
 	BodyBytes pulumi.IntPtrInput `pulumi:"bodyBytes"`
+	// A `dataMasking` block as defined below.
+	DataMasking ApiDiagnosticBackendRequestDataMaskingPtrInput `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs pulumi.StringArrayInput `pulumi:"headersToLogs"`
 }
@@ -117,6 +121,11 @@ func (o ApiDiagnosticBackendRequestOutput) BodyBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApiDiagnosticBackendRequest) *int { return v.BodyBytes }).(pulumi.IntPtrOutput)
 }
 
+// A `dataMasking` block as defined below.
+func (o ApiDiagnosticBackendRequestOutput) DataMasking() ApiDiagnosticBackendRequestDataMaskingPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendRequest) *ApiDiagnosticBackendRequestDataMasking { return v.DataMasking }).(ApiDiagnosticBackendRequestDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o ApiDiagnosticBackendRequestOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiDiagnosticBackendRequest) []string { return v.HeadersToLogs }).(pulumi.StringArrayOutput)
@@ -150,6 +159,16 @@ func (o ApiDiagnosticBackendRequestPtrOutput) BodyBytes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// A `dataMasking` block as defined below.
+func (o ApiDiagnosticBackendRequestPtrOutput) DataMasking() ApiDiagnosticBackendRequestDataMaskingPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendRequest) *ApiDiagnosticBackendRequestDataMasking {
+		if v == nil {
+			return nil
+		}
+		return v.DataMasking
+	}).(ApiDiagnosticBackendRequestDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o ApiDiagnosticBackendRequestPtrOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiDiagnosticBackendRequest) []string {
@@ -160,9 +179,377 @@ func (o ApiDiagnosticBackendRequestPtrOutput) HeadersToLogs() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+type ApiDiagnosticBackendRequestDataMasking struct {
+	// A `headers` block as defined below.
+	Headers []ApiDiagnosticBackendRequestDataMaskingHeader `pulumi:"headers"`
+	// A `queryParams` block as defined below.
+	QueryParams []ApiDiagnosticBackendRequestDataMaskingQueryParam `pulumi:"queryParams"`
+}
+
+// ApiDiagnosticBackendRequestDataMaskingInput is an input type that accepts ApiDiagnosticBackendRequestDataMaskingArgs and ApiDiagnosticBackendRequestDataMaskingOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendRequestDataMaskingInput` via:
+//
+//          ApiDiagnosticBackendRequestDataMaskingArgs{...}
+type ApiDiagnosticBackendRequestDataMaskingInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendRequestDataMaskingOutput() ApiDiagnosticBackendRequestDataMaskingOutput
+	ToApiDiagnosticBackendRequestDataMaskingOutputWithContext(context.Context) ApiDiagnosticBackendRequestDataMaskingOutput
+}
+
+type ApiDiagnosticBackendRequestDataMaskingArgs struct {
+	// A `headers` block as defined below.
+	Headers ApiDiagnosticBackendRequestDataMaskingHeaderArrayInput `pulumi:"headers"`
+	// A `queryParams` block as defined below.
+	QueryParams ApiDiagnosticBackendRequestDataMaskingQueryParamArrayInput `pulumi:"queryParams"`
+}
+
+func (ApiDiagnosticBackendRequestDataMaskingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendRequestDataMasking)(nil)).Elem()
+}
+
+func (i ApiDiagnosticBackendRequestDataMaskingArgs) ToApiDiagnosticBackendRequestDataMaskingOutput() ApiDiagnosticBackendRequestDataMaskingOutput {
+	return i.ToApiDiagnosticBackendRequestDataMaskingOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendRequestDataMaskingArgs) ToApiDiagnosticBackendRequestDataMaskingOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingOutput)
+}
+
+func (i ApiDiagnosticBackendRequestDataMaskingArgs) ToApiDiagnosticBackendRequestDataMaskingPtrOutput() ApiDiagnosticBackendRequestDataMaskingPtrOutput {
+	return i.ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendRequestDataMaskingArgs) ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingOutput).ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx)
+}
+
+// ApiDiagnosticBackendRequestDataMaskingPtrInput is an input type that accepts ApiDiagnosticBackendRequestDataMaskingArgs, ApiDiagnosticBackendRequestDataMaskingPtr and ApiDiagnosticBackendRequestDataMaskingPtrOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendRequestDataMaskingPtrInput` via:
+//
+//          ApiDiagnosticBackendRequestDataMaskingArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiDiagnosticBackendRequestDataMaskingPtrInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendRequestDataMaskingPtrOutput() ApiDiagnosticBackendRequestDataMaskingPtrOutput
+	ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(context.Context) ApiDiagnosticBackendRequestDataMaskingPtrOutput
+}
+
+type apiDiagnosticBackendRequestDataMaskingPtrType ApiDiagnosticBackendRequestDataMaskingArgs
+
+func ApiDiagnosticBackendRequestDataMaskingPtr(v *ApiDiagnosticBackendRequestDataMaskingArgs) ApiDiagnosticBackendRequestDataMaskingPtrInput {
+	return (*apiDiagnosticBackendRequestDataMaskingPtrType)(v)
+}
+
+func (*apiDiagnosticBackendRequestDataMaskingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticBackendRequestDataMasking)(nil)).Elem()
+}
+
+func (i *apiDiagnosticBackendRequestDataMaskingPtrType) ToApiDiagnosticBackendRequestDataMaskingPtrOutput() ApiDiagnosticBackendRequestDataMaskingPtrOutput {
+	return i.ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i *apiDiagnosticBackendRequestDataMaskingPtrType) ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingPtrOutput)
+}
+
+type ApiDiagnosticBackendRequestDataMaskingOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendRequestDataMaskingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendRequestDataMasking)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingOutput) ToApiDiagnosticBackendRequestDataMaskingOutput() ApiDiagnosticBackendRequestDataMaskingOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingOutput) ToApiDiagnosticBackendRequestDataMaskingOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingOutput) ToApiDiagnosticBackendRequestDataMaskingPtrOutput() ApiDiagnosticBackendRequestDataMaskingPtrOutput {
+	return o.ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingOutput) ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendRequestDataMasking) *ApiDiagnosticBackendRequestDataMasking {
+		return &v
+	}).(ApiDiagnosticBackendRequestDataMaskingPtrOutput)
+}
+
+// A `headers` block as defined below.
+func (o ApiDiagnosticBackendRequestDataMaskingOutput) Headers() ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendRequestDataMasking) []ApiDiagnosticBackendRequestDataMaskingHeader {
+		return v.Headers
+	}).(ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput)
+}
+
+// A `queryParams` block as defined below.
+func (o ApiDiagnosticBackendRequestDataMaskingOutput) QueryParams() ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendRequestDataMasking) []ApiDiagnosticBackendRequestDataMaskingQueryParam {
+		return v.QueryParams
+	}).(ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput)
+}
+
+type ApiDiagnosticBackendRequestDataMaskingPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendRequestDataMaskingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticBackendRequestDataMasking)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingPtrOutput) ToApiDiagnosticBackendRequestDataMaskingPtrOutput() ApiDiagnosticBackendRequestDataMaskingPtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingPtrOutput) ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingPtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingPtrOutput) Elem() ApiDiagnosticBackendRequestDataMaskingOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendRequestDataMasking) ApiDiagnosticBackendRequestDataMasking { return *v }).(ApiDiagnosticBackendRequestDataMaskingOutput)
+}
+
+// A `headers` block as defined below.
+func (o ApiDiagnosticBackendRequestDataMaskingPtrOutput) Headers() ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendRequestDataMasking) []ApiDiagnosticBackendRequestDataMaskingHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput)
+}
+
+// A `queryParams` block as defined below.
+func (o ApiDiagnosticBackendRequestDataMaskingPtrOutput) QueryParams() ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendRequestDataMasking) []ApiDiagnosticBackendRequestDataMaskingQueryParam {
+		if v == nil {
+			return nil
+		}
+		return v.QueryParams
+	}).(ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput)
+}
+
+type ApiDiagnosticBackendRequestDataMaskingHeader struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode string `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value string `pulumi:"value"`
+}
+
+// ApiDiagnosticBackendRequestDataMaskingHeaderInput is an input type that accepts ApiDiagnosticBackendRequestDataMaskingHeaderArgs and ApiDiagnosticBackendRequestDataMaskingHeaderOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendRequestDataMaskingHeaderInput` via:
+//
+//          ApiDiagnosticBackendRequestDataMaskingHeaderArgs{...}
+type ApiDiagnosticBackendRequestDataMaskingHeaderInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendRequestDataMaskingHeaderOutput() ApiDiagnosticBackendRequestDataMaskingHeaderOutput
+	ToApiDiagnosticBackendRequestDataMaskingHeaderOutputWithContext(context.Context) ApiDiagnosticBackendRequestDataMaskingHeaderOutput
+}
+
+type ApiDiagnosticBackendRequestDataMaskingHeaderArgs struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApiDiagnosticBackendRequestDataMaskingHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (i ApiDiagnosticBackendRequestDataMaskingHeaderArgs) ToApiDiagnosticBackendRequestDataMaskingHeaderOutput() ApiDiagnosticBackendRequestDataMaskingHeaderOutput {
+	return i.ToApiDiagnosticBackendRequestDataMaskingHeaderOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendRequestDataMaskingHeaderArgs) ToApiDiagnosticBackendRequestDataMaskingHeaderOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingHeaderOutput)
+}
+
+// ApiDiagnosticBackendRequestDataMaskingHeaderArrayInput is an input type that accepts ApiDiagnosticBackendRequestDataMaskingHeaderArray and ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendRequestDataMaskingHeaderArrayInput` via:
+//
+//          ApiDiagnosticBackendRequestDataMaskingHeaderArray{ ApiDiagnosticBackendRequestDataMaskingHeaderArgs{...} }
+type ApiDiagnosticBackendRequestDataMaskingHeaderArrayInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput() ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput
+	ToApiDiagnosticBackendRequestDataMaskingHeaderArrayOutputWithContext(context.Context) ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput
+}
+
+type ApiDiagnosticBackendRequestDataMaskingHeaderArray []ApiDiagnosticBackendRequestDataMaskingHeaderInput
+
+func (ApiDiagnosticBackendRequestDataMaskingHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticBackendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (i ApiDiagnosticBackendRequestDataMaskingHeaderArray) ToApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput() ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput {
+	return i.ToApiDiagnosticBackendRequestDataMaskingHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendRequestDataMaskingHeaderArray) ToApiDiagnosticBackendRequestDataMaskingHeaderArrayOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput)
+}
+
+type ApiDiagnosticBackendRequestDataMaskingHeaderOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendRequestDataMaskingHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingHeaderOutput) ToApiDiagnosticBackendRequestDataMaskingHeaderOutput() ApiDiagnosticBackendRequestDataMaskingHeaderOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingHeaderOutput) ToApiDiagnosticBackendRequestDataMaskingHeaderOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingHeaderOutput {
+	return o
+}
+
+// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+func (o ApiDiagnosticBackendRequestDataMaskingHeaderOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendRequestDataMaskingHeader) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The name of the header or the uery parameter to mask.
+func (o ApiDiagnosticBackendRequestDataMaskingHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendRequestDataMaskingHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticBackendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput) ToApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput() ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput) ToApiDiagnosticBackendRequestDataMaskingHeaderArrayOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticBackendRequestDataMaskingHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiDiagnosticBackendRequestDataMaskingHeader {
+		return vs[0].([]ApiDiagnosticBackendRequestDataMaskingHeader)[vs[1].(int)]
+	}).(ApiDiagnosticBackendRequestDataMaskingHeaderOutput)
+}
+
+type ApiDiagnosticBackendRequestDataMaskingQueryParam struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode string `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value string `pulumi:"value"`
+}
+
+// ApiDiagnosticBackendRequestDataMaskingQueryParamInput is an input type that accepts ApiDiagnosticBackendRequestDataMaskingQueryParamArgs and ApiDiagnosticBackendRequestDataMaskingQueryParamOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendRequestDataMaskingQueryParamInput` via:
+//
+//          ApiDiagnosticBackendRequestDataMaskingQueryParamArgs{...}
+type ApiDiagnosticBackendRequestDataMaskingQueryParamInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendRequestDataMaskingQueryParamOutput() ApiDiagnosticBackendRequestDataMaskingQueryParamOutput
+	ToApiDiagnosticBackendRequestDataMaskingQueryParamOutputWithContext(context.Context) ApiDiagnosticBackendRequestDataMaskingQueryParamOutput
+}
+
+type ApiDiagnosticBackendRequestDataMaskingQueryParamArgs struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApiDiagnosticBackendRequestDataMaskingQueryParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i ApiDiagnosticBackendRequestDataMaskingQueryParamArgs) ToApiDiagnosticBackendRequestDataMaskingQueryParamOutput() ApiDiagnosticBackendRequestDataMaskingQueryParamOutput {
+	return i.ToApiDiagnosticBackendRequestDataMaskingQueryParamOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendRequestDataMaskingQueryParamArgs) ToApiDiagnosticBackendRequestDataMaskingQueryParamOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingQueryParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingQueryParamOutput)
+}
+
+// ApiDiagnosticBackendRequestDataMaskingQueryParamArrayInput is an input type that accepts ApiDiagnosticBackendRequestDataMaskingQueryParamArray and ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendRequestDataMaskingQueryParamArrayInput` via:
+//
+//          ApiDiagnosticBackendRequestDataMaskingQueryParamArray{ ApiDiagnosticBackendRequestDataMaskingQueryParamArgs{...} }
+type ApiDiagnosticBackendRequestDataMaskingQueryParamArrayInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput() ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput
+	ToApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutputWithContext(context.Context) ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput
+}
+
+type ApiDiagnosticBackendRequestDataMaskingQueryParamArray []ApiDiagnosticBackendRequestDataMaskingQueryParamInput
+
+func (ApiDiagnosticBackendRequestDataMaskingQueryParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticBackendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i ApiDiagnosticBackendRequestDataMaskingQueryParamArray) ToApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput() ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
+	return i.ToApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendRequestDataMaskingQueryParamArray) ToApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput)
+}
+
+type ApiDiagnosticBackendRequestDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendRequestDataMaskingQueryParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingQueryParamOutput) ToApiDiagnosticBackendRequestDataMaskingQueryParamOutput() ApiDiagnosticBackendRequestDataMaskingQueryParamOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingQueryParamOutput) ToApiDiagnosticBackendRequestDataMaskingQueryParamOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingQueryParamOutput {
+	return o
+}
+
+// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+func (o ApiDiagnosticBackendRequestDataMaskingQueryParamOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendRequestDataMaskingQueryParam) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The name of the header or the uery parameter to mask.
+func (o ApiDiagnosticBackendRequestDataMaskingQueryParamOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendRequestDataMaskingQueryParam) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticBackendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput) ToApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput() ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput) ToApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticBackendRequestDataMaskingQueryParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiDiagnosticBackendRequestDataMaskingQueryParam {
+		return vs[0].([]ApiDiagnosticBackendRequestDataMaskingQueryParam)[vs[1].(int)]
+	}).(ApiDiagnosticBackendRequestDataMaskingQueryParamOutput)
+}
+
 type ApiDiagnosticBackendResponse struct {
 	// Number of payload bytes to log (up to 8192).
 	BodyBytes *int `pulumi:"bodyBytes"`
+	// A `dataMasking` block as defined below.
+	DataMasking *ApiDiagnosticBackendResponseDataMasking `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs []string `pulumi:"headersToLogs"`
 }
@@ -181,6 +568,8 @@ type ApiDiagnosticBackendResponseInput interface {
 type ApiDiagnosticBackendResponseArgs struct {
 	// Number of payload bytes to log (up to 8192).
 	BodyBytes pulumi.IntPtrInput `pulumi:"bodyBytes"`
+	// A `dataMasking` block as defined below.
+	DataMasking ApiDiagnosticBackendResponseDataMaskingPtrInput `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs pulumi.StringArrayInput `pulumi:"headersToLogs"`
 }
@@ -267,6 +656,11 @@ func (o ApiDiagnosticBackendResponseOutput) BodyBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApiDiagnosticBackendResponse) *int { return v.BodyBytes }).(pulumi.IntPtrOutput)
 }
 
+// A `dataMasking` block as defined below.
+func (o ApiDiagnosticBackendResponseOutput) DataMasking() ApiDiagnosticBackendResponseDataMaskingPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendResponse) *ApiDiagnosticBackendResponseDataMasking { return v.DataMasking }).(ApiDiagnosticBackendResponseDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o ApiDiagnosticBackendResponseOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiDiagnosticBackendResponse) []string { return v.HeadersToLogs }).(pulumi.StringArrayOutput)
@@ -300,6 +694,16 @@ func (o ApiDiagnosticBackendResponsePtrOutput) BodyBytes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// A `dataMasking` block as defined below.
+func (o ApiDiagnosticBackendResponsePtrOutput) DataMasking() ApiDiagnosticBackendResponseDataMaskingPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendResponse) *ApiDiagnosticBackendResponseDataMasking {
+		if v == nil {
+			return nil
+		}
+		return v.DataMasking
+	}).(ApiDiagnosticBackendResponseDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o ApiDiagnosticBackendResponsePtrOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiDiagnosticBackendResponse) []string {
@@ -310,9 +714,377 @@ func (o ApiDiagnosticBackendResponsePtrOutput) HeadersToLogs() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+type ApiDiagnosticBackendResponseDataMasking struct {
+	// A `headers` block as defined below.
+	Headers []ApiDiagnosticBackendResponseDataMaskingHeader `pulumi:"headers"`
+	// A `queryParams` block as defined below.
+	QueryParams []ApiDiagnosticBackendResponseDataMaskingQueryParam `pulumi:"queryParams"`
+}
+
+// ApiDiagnosticBackendResponseDataMaskingInput is an input type that accepts ApiDiagnosticBackendResponseDataMaskingArgs and ApiDiagnosticBackendResponseDataMaskingOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendResponseDataMaskingInput` via:
+//
+//          ApiDiagnosticBackendResponseDataMaskingArgs{...}
+type ApiDiagnosticBackendResponseDataMaskingInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendResponseDataMaskingOutput() ApiDiagnosticBackendResponseDataMaskingOutput
+	ToApiDiagnosticBackendResponseDataMaskingOutputWithContext(context.Context) ApiDiagnosticBackendResponseDataMaskingOutput
+}
+
+type ApiDiagnosticBackendResponseDataMaskingArgs struct {
+	// A `headers` block as defined below.
+	Headers ApiDiagnosticBackendResponseDataMaskingHeaderArrayInput `pulumi:"headers"`
+	// A `queryParams` block as defined below.
+	QueryParams ApiDiagnosticBackendResponseDataMaskingQueryParamArrayInput `pulumi:"queryParams"`
+}
+
+func (ApiDiagnosticBackendResponseDataMaskingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendResponseDataMasking)(nil)).Elem()
+}
+
+func (i ApiDiagnosticBackendResponseDataMaskingArgs) ToApiDiagnosticBackendResponseDataMaskingOutput() ApiDiagnosticBackendResponseDataMaskingOutput {
+	return i.ToApiDiagnosticBackendResponseDataMaskingOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendResponseDataMaskingArgs) ToApiDiagnosticBackendResponseDataMaskingOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingOutput)
+}
+
+func (i ApiDiagnosticBackendResponseDataMaskingArgs) ToApiDiagnosticBackendResponseDataMaskingPtrOutput() ApiDiagnosticBackendResponseDataMaskingPtrOutput {
+	return i.ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendResponseDataMaskingArgs) ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingOutput).ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx)
+}
+
+// ApiDiagnosticBackendResponseDataMaskingPtrInput is an input type that accepts ApiDiagnosticBackendResponseDataMaskingArgs, ApiDiagnosticBackendResponseDataMaskingPtr and ApiDiagnosticBackendResponseDataMaskingPtrOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendResponseDataMaskingPtrInput` via:
+//
+//          ApiDiagnosticBackendResponseDataMaskingArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiDiagnosticBackendResponseDataMaskingPtrInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendResponseDataMaskingPtrOutput() ApiDiagnosticBackendResponseDataMaskingPtrOutput
+	ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(context.Context) ApiDiagnosticBackendResponseDataMaskingPtrOutput
+}
+
+type apiDiagnosticBackendResponseDataMaskingPtrType ApiDiagnosticBackendResponseDataMaskingArgs
+
+func ApiDiagnosticBackendResponseDataMaskingPtr(v *ApiDiagnosticBackendResponseDataMaskingArgs) ApiDiagnosticBackendResponseDataMaskingPtrInput {
+	return (*apiDiagnosticBackendResponseDataMaskingPtrType)(v)
+}
+
+func (*apiDiagnosticBackendResponseDataMaskingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticBackendResponseDataMasking)(nil)).Elem()
+}
+
+func (i *apiDiagnosticBackendResponseDataMaskingPtrType) ToApiDiagnosticBackendResponseDataMaskingPtrOutput() ApiDiagnosticBackendResponseDataMaskingPtrOutput {
+	return i.ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i *apiDiagnosticBackendResponseDataMaskingPtrType) ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingPtrOutput)
+}
+
+type ApiDiagnosticBackendResponseDataMaskingOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendResponseDataMaskingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendResponseDataMasking)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingOutput) ToApiDiagnosticBackendResponseDataMaskingOutput() ApiDiagnosticBackendResponseDataMaskingOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingOutput) ToApiDiagnosticBackendResponseDataMaskingOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingOutput) ToApiDiagnosticBackendResponseDataMaskingPtrOutput() ApiDiagnosticBackendResponseDataMaskingPtrOutput {
+	return o.ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingOutput) ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendResponseDataMasking) *ApiDiagnosticBackendResponseDataMasking {
+		return &v
+	}).(ApiDiagnosticBackendResponseDataMaskingPtrOutput)
+}
+
+// A `headers` block as defined below.
+func (o ApiDiagnosticBackendResponseDataMaskingOutput) Headers() ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendResponseDataMasking) []ApiDiagnosticBackendResponseDataMaskingHeader {
+		return v.Headers
+	}).(ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput)
+}
+
+// A `queryParams` block as defined below.
+func (o ApiDiagnosticBackendResponseDataMaskingOutput) QueryParams() ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendResponseDataMasking) []ApiDiagnosticBackendResponseDataMaskingQueryParam {
+		return v.QueryParams
+	}).(ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput)
+}
+
+type ApiDiagnosticBackendResponseDataMaskingPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendResponseDataMaskingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticBackendResponseDataMasking)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingPtrOutput) ToApiDiagnosticBackendResponseDataMaskingPtrOutput() ApiDiagnosticBackendResponseDataMaskingPtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingPtrOutput) ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingPtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingPtrOutput) Elem() ApiDiagnosticBackendResponseDataMaskingOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendResponseDataMasking) ApiDiagnosticBackendResponseDataMasking { return *v }).(ApiDiagnosticBackendResponseDataMaskingOutput)
+}
+
+// A `headers` block as defined below.
+func (o ApiDiagnosticBackendResponseDataMaskingPtrOutput) Headers() ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendResponseDataMasking) []ApiDiagnosticBackendResponseDataMaskingHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput)
+}
+
+// A `queryParams` block as defined below.
+func (o ApiDiagnosticBackendResponseDataMaskingPtrOutput) QueryParams() ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendResponseDataMasking) []ApiDiagnosticBackendResponseDataMaskingQueryParam {
+		if v == nil {
+			return nil
+		}
+		return v.QueryParams
+	}).(ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput)
+}
+
+type ApiDiagnosticBackendResponseDataMaskingHeader struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode string `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value string `pulumi:"value"`
+}
+
+// ApiDiagnosticBackendResponseDataMaskingHeaderInput is an input type that accepts ApiDiagnosticBackendResponseDataMaskingHeaderArgs and ApiDiagnosticBackendResponseDataMaskingHeaderOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendResponseDataMaskingHeaderInput` via:
+//
+//          ApiDiagnosticBackendResponseDataMaskingHeaderArgs{...}
+type ApiDiagnosticBackendResponseDataMaskingHeaderInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendResponseDataMaskingHeaderOutput() ApiDiagnosticBackendResponseDataMaskingHeaderOutput
+	ToApiDiagnosticBackendResponseDataMaskingHeaderOutputWithContext(context.Context) ApiDiagnosticBackendResponseDataMaskingHeaderOutput
+}
+
+type ApiDiagnosticBackendResponseDataMaskingHeaderArgs struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApiDiagnosticBackendResponseDataMaskingHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (i ApiDiagnosticBackendResponseDataMaskingHeaderArgs) ToApiDiagnosticBackendResponseDataMaskingHeaderOutput() ApiDiagnosticBackendResponseDataMaskingHeaderOutput {
+	return i.ToApiDiagnosticBackendResponseDataMaskingHeaderOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendResponseDataMaskingHeaderArgs) ToApiDiagnosticBackendResponseDataMaskingHeaderOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingHeaderOutput)
+}
+
+// ApiDiagnosticBackendResponseDataMaskingHeaderArrayInput is an input type that accepts ApiDiagnosticBackendResponseDataMaskingHeaderArray and ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendResponseDataMaskingHeaderArrayInput` via:
+//
+//          ApiDiagnosticBackendResponseDataMaskingHeaderArray{ ApiDiagnosticBackendResponseDataMaskingHeaderArgs{...} }
+type ApiDiagnosticBackendResponseDataMaskingHeaderArrayInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput() ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput
+	ToApiDiagnosticBackendResponseDataMaskingHeaderArrayOutputWithContext(context.Context) ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput
+}
+
+type ApiDiagnosticBackendResponseDataMaskingHeaderArray []ApiDiagnosticBackendResponseDataMaskingHeaderInput
+
+func (ApiDiagnosticBackendResponseDataMaskingHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticBackendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (i ApiDiagnosticBackendResponseDataMaskingHeaderArray) ToApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput() ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput {
+	return i.ToApiDiagnosticBackendResponseDataMaskingHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendResponseDataMaskingHeaderArray) ToApiDiagnosticBackendResponseDataMaskingHeaderArrayOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput)
+}
+
+type ApiDiagnosticBackendResponseDataMaskingHeaderOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendResponseDataMaskingHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingHeaderOutput) ToApiDiagnosticBackendResponseDataMaskingHeaderOutput() ApiDiagnosticBackendResponseDataMaskingHeaderOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingHeaderOutput) ToApiDiagnosticBackendResponseDataMaskingHeaderOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingHeaderOutput {
+	return o
+}
+
+// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+func (o ApiDiagnosticBackendResponseDataMaskingHeaderOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendResponseDataMaskingHeader) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The name of the header or the uery parameter to mask.
+func (o ApiDiagnosticBackendResponseDataMaskingHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendResponseDataMaskingHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticBackendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput) ToApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput() ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput) ToApiDiagnosticBackendResponseDataMaskingHeaderArrayOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticBackendResponseDataMaskingHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiDiagnosticBackendResponseDataMaskingHeader {
+		return vs[0].([]ApiDiagnosticBackendResponseDataMaskingHeader)[vs[1].(int)]
+	}).(ApiDiagnosticBackendResponseDataMaskingHeaderOutput)
+}
+
+type ApiDiagnosticBackendResponseDataMaskingQueryParam struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode string `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value string `pulumi:"value"`
+}
+
+// ApiDiagnosticBackendResponseDataMaskingQueryParamInput is an input type that accepts ApiDiagnosticBackendResponseDataMaskingQueryParamArgs and ApiDiagnosticBackendResponseDataMaskingQueryParamOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendResponseDataMaskingQueryParamInput` via:
+//
+//          ApiDiagnosticBackendResponseDataMaskingQueryParamArgs{...}
+type ApiDiagnosticBackendResponseDataMaskingQueryParamInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendResponseDataMaskingQueryParamOutput() ApiDiagnosticBackendResponseDataMaskingQueryParamOutput
+	ToApiDiagnosticBackendResponseDataMaskingQueryParamOutputWithContext(context.Context) ApiDiagnosticBackendResponseDataMaskingQueryParamOutput
+}
+
+type ApiDiagnosticBackendResponseDataMaskingQueryParamArgs struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApiDiagnosticBackendResponseDataMaskingQueryParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i ApiDiagnosticBackendResponseDataMaskingQueryParamArgs) ToApiDiagnosticBackendResponseDataMaskingQueryParamOutput() ApiDiagnosticBackendResponseDataMaskingQueryParamOutput {
+	return i.ToApiDiagnosticBackendResponseDataMaskingQueryParamOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendResponseDataMaskingQueryParamArgs) ToApiDiagnosticBackendResponseDataMaskingQueryParamOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingQueryParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingQueryParamOutput)
+}
+
+// ApiDiagnosticBackendResponseDataMaskingQueryParamArrayInput is an input type that accepts ApiDiagnosticBackendResponseDataMaskingQueryParamArray and ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendResponseDataMaskingQueryParamArrayInput` via:
+//
+//          ApiDiagnosticBackendResponseDataMaskingQueryParamArray{ ApiDiagnosticBackendResponseDataMaskingQueryParamArgs{...} }
+type ApiDiagnosticBackendResponseDataMaskingQueryParamArrayInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput() ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput
+	ToApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutputWithContext(context.Context) ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput
+}
+
+type ApiDiagnosticBackendResponseDataMaskingQueryParamArray []ApiDiagnosticBackendResponseDataMaskingQueryParamInput
+
+func (ApiDiagnosticBackendResponseDataMaskingQueryParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticBackendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i ApiDiagnosticBackendResponseDataMaskingQueryParamArray) ToApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput() ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
+	return i.ToApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendResponseDataMaskingQueryParamArray) ToApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput)
+}
+
+type ApiDiagnosticBackendResponseDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendResponseDataMaskingQueryParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingQueryParamOutput) ToApiDiagnosticBackendResponseDataMaskingQueryParamOutput() ApiDiagnosticBackendResponseDataMaskingQueryParamOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingQueryParamOutput) ToApiDiagnosticBackendResponseDataMaskingQueryParamOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingQueryParamOutput {
+	return o
+}
+
+// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+func (o ApiDiagnosticBackendResponseDataMaskingQueryParamOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendResponseDataMaskingQueryParam) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The name of the header or the uery parameter to mask.
+func (o ApiDiagnosticBackendResponseDataMaskingQueryParamOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendResponseDataMaskingQueryParam) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticBackendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput) ToApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput() ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput) ToApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticBackendResponseDataMaskingQueryParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiDiagnosticBackendResponseDataMaskingQueryParam {
+		return vs[0].([]ApiDiagnosticBackendResponseDataMaskingQueryParam)[vs[1].(int)]
+	}).(ApiDiagnosticBackendResponseDataMaskingQueryParamOutput)
+}
+
 type ApiDiagnosticFrontendRequest struct {
 	// Number of payload bytes to log (up to 8192).
 	BodyBytes *int `pulumi:"bodyBytes"`
+	// A `dataMasking` block as defined below.
+	DataMasking *ApiDiagnosticFrontendRequestDataMasking `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs []string `pulumi:"headersToLogs"`
 }
@@ -331,6 +1103,8 @@ type ApiDiagnosticFrontendRequestInput interface {
 type ApiDiagnosticFrontendRequestArgs struct {
 	// Number of payload bytes to log (up to 8192).
 	BodyBytes pulumi.IntPtrInput `pulumi:"bodyBytes"`
+	// A `dataMasking` block as defined below.
+	DataMasking ApiDiagnosticFrontendRequestDataMaskingPtrInput `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs pulumi.StringArrayInput `pulumi:"headersToLogs"`
 }
@@ -417,6 +1191,11 @@ func (o ApiDiagnosticFrontendRequestOutput) BodyBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApiDiagnosticFrontendRequest) *int { return v.BodyBytes }).(pulumi.IntPtrOutput)
 }
 
+// A `dataMasking` block as defined below.
+func (o ApiDiagnosticFrontendRequestOutput) DataMasking() ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendRequest) *ApiDiagnosticFrontendRequestDataMasking { return v.DataMasking }).(ApiDiagnosticFrontendRequestDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o ApiDiagnosticFrontendRequestOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiDiagnosticFrontendRequest) []string { return v.HeadersToLogs }).(pulumi.StringArrayOutput)
@@ -450,6 +1229,16 @@ func (o ApiDiagnosticFrontendRequestPtrOutput) BodyBytes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// A `dataMasking` block as defined below.
+func (o ApiDiagnosticFrontendRequestPtrOutput) DataMasking() ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendRequest) *ApiDiagnosticFrontendRequestDataMasking {
+		if v == nil {
+			return nil
+		}
+		return v.DataMasking
+	}).(ApiDiagnosticFrontendRequestDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o ApiDiagnosticFrontendRequestPtrOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiDiagnosticFrontendRequest) []string {
@@ -460,9 +1249,377 @@ func (o ApiDiagnosticFrontendRequestPtrOutput) HeadersToLogs() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+type ApiDiagnosticFrontendRequestDataMasking struct {
+	// A `headers` block as defined below.
+	Headers []ApiDiagnosticFrontendRequestDataMaskingHeader `pulumi:"headers"`
+	// A `queryParams` block as defined below.
+	QueryParams []ApiDiagnosticFrontendRequestDataMaskingQueryParam `pulumi:"queryParams"`
+}
+
+// ApiDiagnosticFrontendRequestDataMaskingInput is an input type that accepts ApiDiagnosticFrontendRequestDataMaskingArgs and ApiDiagnosticFrontendRequestDataMaskingOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendRequestDataMaskingInput` via:
+//
+//          ApiDiagnosticFrontendRequestDataMaskingArgs{...}
+type ApiDiagnosticFrontendRequestDataMaskingInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendRequestDataMaskingOutput() ApiDiagnosticFrontendRequestDataMaskingOutput
+	ToApiDiagnosticFrontendRequestDataMaskingOutputWithContext(context.Context) ApiDiagnosticFrontendRequestDataMaskingOutput
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingArgs struct {
+	// A `headers` block as defined below.
+	Headers ApiDiagnosticFrontendRequestDataMaskingHeaderArrayInput `pulumi:"headers"`
+	// A `queryParams` block as defined below.
+	QueryParams ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayInput `pulumi:"queryParams"`
+}
+
+func (ApiDiagnosticFrontendRequestDataMaskingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendRequestDataMasking)(nil)).Elem()
+}
+
+func (i ApiDiagnosticFrontendRequestDataMaskingArgs) ToApiDiagnosticFrontendRequestDataMaskingOutput() ApiDiagnosticFrontendRequestDataMaskingOutput {
+	return i.ToApiDiagnosticFrontendRequestDataMaskingOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendRequestDataMaskingArgs) ToApiDiagnosticFrontendRequestDataMaskingOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingOutput)
+}
+
+func (i ApiDiagnosticFrontendRequestDataMaskingArgs) ToApiDiagnosticFrontendRequestDataMaskingPtrOutput() ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
+	return i.ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendRequestDataMaskingArgs) ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingOutput).ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx)
+}
+
+// ApiDiagnosticFrontendRequestDataMaskingPtrInput is an input type that accepts ApiDiagnosticFrontendRequestDataMaskingArgs, ApiDiagnosticFrontendRequestDataMaskingPtr and ApiDiagnosticFrontendRequestDataMaskingPtrOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendRequestDataMaskingPtrInput` via:
+//
+//          ApiDiagnosticFrontendRequestDataMaskingArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiDiagnosticFrontendRequestDataMaskingPtrInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendRequestDataMaskingPtrOutput() ApiDiagnosticFrontendRequestDataMaskingPtrOutput
+	ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(context.Context) ApiDiagnosticFrontendRequestDataMaskingPtrOutput
+}
+
+type apiDiagnosticFrontendRequestDataMaskingPtrType ApiDiagnosticFrontendRequestDataMaskingArgs
+
+func ApiDiagnosticFrontendRequestDataMaskingPtr(v *ApiDiagnosticFrontendRequestDataMaskingArgs) ApiDiagnosticFrontendRequestDataMaskingPtrInput {
+	return (*apiDiagnosticFrontendRequestDataMaskingPtrType)(v)
+}
+
+func (*apiDiagnosticFrontendRequestDataMaskingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticFrontendRequestDataMasking)(nil)).Elem()
+}
+
+func (i *apiDiagnosticFrontendRequestDataMaskingPtrType) ToApiDiagnosticFrontendRequestDataMaskingPtrOutput() ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
+	return i.ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i *apiDiagnosticFrontendRequestDataMaskingPtrType) ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingPtrOutput)
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendRequestDataMaskingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendRequestDataMasking)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingOutput) ToApiDiagnosticFrontendRequestDataMaskingOutput() ApiDiagnosticFrontendRequestDataMaskingOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingOutput) ToApiDiagnosticFrontendRequestDataMaskingOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingOutput) ToApiDiagnosticFrontendRequestDataMaskingPtrOutput() ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
+	return o.ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingOutput) ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendRequestDataMasking) *ApiDiagnosticFrontendRequestDataMasking {
+		return &v
+	}).(ApiDiagnosticFrontendRequestDataMaskingPtrOutput)
+}
+
+// A `headers` block as defined below.
+func (o ApiDiagnosticFrontendRequestDataMaskingOutput) Headers() ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendRequestDataMasking) []ApiDiagnosticFrontendRequestDataMaskingHeader {
+		return v.Headers
+	}).(ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput)
+}
+
+// A `queryParams` block as defined below.
+func (o ApiDiagnosticFrontendRequestDataMaskingOutput) QueryParams() ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendRequestDataMasking) []ApiDiagnosticFrontendRequestDataMaskingQueryParam {
+		return v.QueryParams
+	}).(ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput)
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendRequestDataMaskingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticFrontendRequestDataMasking)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingPtrOutput) ToApiDiagnosticFrontendRequestDataMaskingPtrOutput() ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingPtrOutput) ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingPtrOutput) Elem() ApiDiagnosticFrontendRequestDataMaskingOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendRequestDataMasking) ApiDiagnosticFrontendRequestDataMasking { return *v }).(ApiDiagnosticFrontendRequestDataMaskingOutput)
+}
+
+// A `headers` block as defined below.
+func (o ApiDiagnosticFrontendRequestDataMaskingPtrOutput) Headers() ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendRequestDataMasking) []ApiDiagnosticFrontendRequestDataMaskingHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput)
+}
+
+// A `queryParams` block as defined below.
+func (o ApiDiagnosticFrontendRequestDataMaskingPtrOutput) QueryParams() ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendRequestDataMasking) []ApiDiagnosticFrontendRequestDataMaskingQueryParam {
+		if v == nil {
+			return nil
+		}
+		return v.QueryParams
+	}).(ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput)
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingHeader struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode string `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value string `pulumi:"value"`
+}
+
+// ApiDiagnosticFrontendRequestDataMaskingHeaderInput is an input type that accepts ApiDiagnosticFrontendRequestDataMaskingHeaderArgs and ApiDiagnosticFrontendRequestDataMaskingHeaderOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendRequestDataMaskingHeaderInput` via:
+//
+//          ApiDiagnosticFrontendRequestDataMaskingHeaderArgs{...}
+type ApiDiagnosticFrontendRequestDataMaskingHeaderInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendRequestDataMaskingHeaderOutput() ApiDiagnosticFrontendRequestDataMaskingHeaderOutput
+	ToApiDiagnosticFrontendRequestDataMaskingHeaderOutputWithContext(context.Context) ApiDiagnosticFrontendRequestDataMaskingHeaderOutput
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingHeaderArgs struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApiDiagnosticFrontendRequestDataMaskingHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (i ApiDiagnosticFrontendRequestDataMaskingHeaderArgs) ToApiDiagnosticFrontendRequestDataMaskingHeaderOutput() ApiDiagnosticFrontendRequestDataMaskingHeaderOutput {
+	return i.ToApiDiagnosticFrontendRequestDataMaskingHeaderOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendRequestDataMaskingHeaderArgs) ToApiDiagnosticFrontendRequestDataMaskingHeaderOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingHeaderOutput)
+}
+
+// ApiDiagnosticFrontendRequestDataMaskingHeaderArrayInput is an input type that accepts ApiDiagnosticFrontendRequestDataMaskingHeaderArray and ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendRequestDataMaskingHeaderArrayInput` via:
+//
+//          ApiDiagnosticFrontendRequestDataMaskingHeaderArray{ ApiDiagnosticFrontendRequestDataMaskingHeaderArgs{...} }
+type ApiDiagnosticFrontendRequestDataMaskingHeaderArrayInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput() ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput
+	ToApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutputWithContext(context.Context) ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingHeaderArray []ApiDiagnosticFrontendRequestDataMaskingHeaderInput
+
+func (ApiDiagnosticFrontendRequestDataMaskingHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticFrontendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (i ApiDiagnosticFrontendRequestDataMaskingHeaderArray) ToApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput() ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
+	return i.ToApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendRequestDataMaskingHeaderArray) ToApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput)
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingHeaderOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendRequestDataMaskingHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingHeaderOutput) ToApiDiagnosticFrontendRequestDataMaskingHeaderOutput() ApiDiagnosticFrontendRequestDataMaskingHeaderOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingHeaderOutput) ToApiDiagnosticFrontendRequestDataMaskingHeaderOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingHeaderOutput {
+	return o
+}
+
+// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+func (o ApiDiagnosticFrontendRequestDataMaskingHeaderOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendRequestDataMaskingHeader) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The name of the header or the uery parameter to mask.
+func (o ApiDiagnosticFrontendRequestDataMaskingHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendRequestDataMaskingHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticFrontendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput) ToApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput() ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput) ToApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticFrontendRequestDataMaskingHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiDiagnosticFrontendRequestDataMaskingHeader {
+		return vs[0].([]ApiDiagnosticFrontendRequestDataMaskingHeader)[vs[1].(int)]
+	}).(ApiDiagnosticFrontendRequestDataMaskingHeaderOutput)
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingQueryParam struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode string `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value string `pulumi:"value"`
+}
+
+// ApiDiagnosticFrontendRequestDataMaskingQueryParamInput is an input type that accepts ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs and ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendRequestDataMaskingQueryParamInput` via:
+//
+//          ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs{...}
+type ApiDiagnosticFrontendRequestDataMaskingQueryParamInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendRequestDataMaskingQueryParamOutput() ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput
+	ToApiDiagnosticFrontendRequestDataMaskingQueryParamOutputWithContext(context.Context) ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs) ToApiDiagnosticFrontendRequestDataMaskingQueryParamOutput() ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput {
+	return i.ToApiDiagnosticFrontendRequestDataMaskingQueryParamOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs) ToApiDiagnosticFrontendRequestDataMaskingQueryParamOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput)
+}
+
+// ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayInput is an input type that accepts ApiDiagnosticFrontendRequestDataMaskingQueryParamArray and ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayInput` via:
+//
+//          ApiDiagnosticFrontendRequestDataMaskingQueryParamArray{ ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs{...} }
+type ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput() ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput
+	ToApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutputWithContext(context.Context) ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingQueryParamArray []ApiDiagnosticFrontendRequestDataMaskingQueryParamInput
+
+func (ApiDiagnosticFrontendRequestDataMaskingQueryParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticFrontendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i ApiDiagnosticFrontendRequestDataMaskingQueryParamArray) ToApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput() ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
+	return i.ToApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendRequestDataMaskingQueryParamArray) ToApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput)
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput) ToApiDiagnosticFrontendRequestDataMaskingQueryParamOutput() ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput) ToApiDiagnosticFrontendRequestDataMaskingQueryParamOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput {
+	return o
+}
+
+// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendRequestDataMaskingQueryParam) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The name of the header or the uery parameter to mask.
+func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendRequestDataMaskingQueryParam) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticFrontendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) ToApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput() ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) ToApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiDiagnosticFrontendRequestDataMaskingQueryParam {
+		return vs[0].([]ApiDiagnosticFrontendRequestDataMaskingQueryParam)[vs[1].(int)]
+	}).(ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput)
+}
+
 type ApiDiagnosticFrontendResponse struct {
 	// Number of payload bytes to log (up to 8192).
 	BodyBytes *int `pulumi:"bodyBytes"`
+	// A `dataMasking` block as defined below.
+	DataMasking *ApiDiagnosticFrontendResponseDataMasking `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs []string `pulumi:"headersToLogs"`
 }
@@ -481,6 +1638,8 @@ type ApiDiagnosticFrontendResponseInput interface {
 type ApiDiagnosticFrontendResponseArgs struct {
 	// Number of payload bytes to log (up to 8192).
 	BodyBytes pulumi.IntPtrInput `pulumi:"bodyBytes"`
+	// A `dataMasking` block as defined below.
+	DataMasking ApiDiagnosticFrontendResponseDataMaskingPtrInput `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs pulumi.StringArrayInput `pulumi:"headersToLogs"`
 }
@@ -567,6 +1726,11 @@ func (o ApiDiagnosticFrontendResponseOutput) BodyBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApiDiagnosticFrontendResponse) *int { return v.BodyBytes }).(pulumi.IntPtrOutput)
 }
 
+// A `dataMasking` block as defined below.
+func (o ApiDiagnosticFrontendResponseOutput) DataMasking() ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendResponse) *ApiDiagnosticFrontendResponseDataMasking { return v.DataMasking }).(ApiDiagnosticFrontendResponseDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o ApiDiagnosticFrontendResponseOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiDiagnosticFrontendResponse) []string { return v.HeadersToLogs }).(pulumi.StringArrayOutput)
@@ -600,6 +1764,16 @@ func (o ApiDiagnosticFrontendResponsePtrOutput) BodyBytes() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// A `dataMasking` block as defined below.
+func (o ApiDiagnosticFrontendResponsePtrOutput) DataMasking() ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendResponse) *ApiDiagnosticFrontendResponseDataMasking {
+		if v == nil {
+			return nil
+		}
+		return v.DataMasking
+	}).(ApiDiagnosticFrontendResponseDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o ApiDiagnosticFrontendResponsePtrOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiDiagnosticFrontendResponse) []string {
@@ -608,6 +1782,372 @@ func (o ApiDiagnosticFrontendResponsePtrOutput) HeadersToLogs() pulumi.StringArr
 		}
 		return v.HeadersToLogs
 	}).(pulumi.StringArrayOutput)
+}
+
+type ApiDiagnosticFrontendResponseDataMasking struct {
+	// A `headers` block as defined below.
+	Headers []ApiDiagnosticFrontendResponseDataMaskingHeader `pulumi:"headers"`
+	// A `queryParams` block as defined below.
+	QueryParams []ApiDiagnosticFrontendResponseDataMaskingQueryParam `pulumi:"queryParams"`
+}
+
+// ApiDiagnosticFrontendResponseDataMaskingInput is an input type that accepts ApiDiagnosticFrontendResponseDataMaskingArgs and ApiDiagnosticFrontendResponseDataMaskingOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendResponseDataMaskingInput` via:
+//
+//          ApiDiagnosticFrontendResponseDataMaskingArgs{...}
+type ApiDiagnosticFrontendResponseDataMaskingInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendResponseDataMaskingOutput() ApiDiagnosticFrontendResponseDataMaskingOutput
+	ToApiDiagnosticFrontendResponseDataMaskingOutputWithContext(context.Context) ApiDiagnosticFrontendResponseDataMaskingOutput
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingArgs struct {
+	// A `headers` block as defined below.
+	Headers ApiDiagnosticFrontendResponseDataMaskingHeaderArrayInput `pulumi:"headers"`
+	// A `queryParams` block as defined below.
+	QueryParams ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayInput `pulumi:"queryParams"`
+}
+
+func (ApiDiagnosticFrontendResponseDataMaskingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendResponseDataMasking)(nil)).Elem()
+}
+
+func (i ApiDiagnosticFrontendResponseDataMaskingArgs) ToApiDiagnosticFrontendResponseDataMaskingOutput() ApiDiagnosticFrontendResponseDataMaskingOutput {
+	return i.ToApiDiagnosticFrontendResponseDataMaskingOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendResponseDataMaskingArgs) ToApiDiagnosticFrontendResponseDataMaskingOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingOutput)
+}
+
+func (i ApiDiagnosticFrontendResponseDataMaskingArgs) ToApiDiagnosticFrontendResponseDataMaskingPtrOutput() ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
+	return i.ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendResponseDataMaskingArgs) ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingOutput).ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx)
+}
+
+// ApiDiagnosticFrontendResponseDataMaskingPtrInput is an input type that accepts ApiDiagnosticFrontendResponseDataMaskingArgs, ApiDiagnosticFrontendResponseDataMaskingPtr and ApiDiagnosticFrontendResponseDataMaskingPtrOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendResponseDataMaskingPtrInput` via:
+//
+//          ApiDiagnosticFrontendResponseDataMaskingArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiDiagnosticFrontendResponseDataMaskingPtrInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendResponseDataMaskingPtrOutput() ApiDiagnosticFrontendResponseDataMaskingPtrOutput
+	ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(context.Context) ApiDiagnosticFrontendResponseDataMaskingPtrOutput
+}
+
+type apiDiagnosticFrontendResponseDataMaskingPtrType ApiDiagnosticFrontendResponseDataMaskingArgs
+
+func ApiDiagnosticFrontendResponseDataMaskingPtr(v *ApiDiagnosticFrontendResponseDataMaskingArgs) ApiDiagnosticFrontendResponseDataMaskingPtrInput {
+	return (*apiDiagnosticFrontendResponseDataMaskingPtrType)(v)
+}
+
+func (*apiDiagnosticFrontendResponseDataMaskingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticFrontendResponseDataMasking)(nil)).Elem()
+}
+
+func (i *apiDiagnosticFrontendResponseDataMaskingPtrType) ToApiDiagnosticFrontendResponseDataMaskingPtrOutput() ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
+	return i.ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i *apiDiagnosticFrontendResponseDataMaskingPtrType) ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingPtrOutput)
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendResponseDataMaskingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendResponseDataMasking)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingOutput) ToApiDiagnosticFrontendResponseDataMaskingOutput() ApiDiagnosticFrontendResponseDataMaskingOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingOutput) ToApiDiagnosticFrontendResponseDataMaskingOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingOutput) ToApiDiagnosticFrontendResponseDataMaskingPtrOutput() ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
+	return o.ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingOutput) ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendResponseDataMasking) *ApiDiagnosticFrontendResponseDataMasking {
+		return &v
+	}).(ApiDiagnosticFrontendResponseDataMaskingPtrOutput)
+}
+
+// A `headers` block as defined below.
+func (o ApiDiagnosticFrontendResponseDataMaskingOutput) Headers() ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendResponseDataMasking) []ApiDiagnosticFrontendResponseDataMaskingHeader {
+		return v.Headers
+	}).(ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput)
+}
+
+// A `queryParams` block as defined below.
+func (o ApiDiagnosticFrontendResponseDataMaskingOutput) QueryParams() ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendResponseDataMasking) []ApiDiagnosticFrontendResponseDataMaskingQueryParam {
+		return v.QueryParams
+	}).(ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput)
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendResponseDataMaskingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticFrontendResponseDataMasking)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingPtrOutput) ToApiDiagnosticFrontendResponseDataMaskingPtrOutput() ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingPtrOutput) ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingPtrOutput) Elem() ApiDiagnosticFrontendResponseDataMaskingOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendResponseDataMasking) ApiDiagnosticFrontendResponseDataMasking { return *v }).(ApiDiagnosticFrontendResponseDataMaskingOutput)
+}
+
+// A `headers` block as defined below.
+func (o ApiDiagnosticFrontendResponseDataMaskingPtrOutput) Headers() ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendResponseDataMasking) []ApiDiagnosticFrontendResponseDataMaskingHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput)
+}
+
+// A `queryParams` block as defined below.
+func (o ApiDiagnosticFrontendResponseDataMaskingPtrOutput) QueryParams() ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendResponseDataMasking) []ApiDiagnosticFrontendResponseDataMaskingQueryParam {
+		if v == nil {
+			return nil
+		}
+		return v.QueryParams
+	}).(ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput)
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingHeader struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode string `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value string `pulumi:"value"`
+}
+
+// ApiDiagnosticFrontendResponseDataMaskingHeaderInput is an input type that accepts ApiDiagnosticFrontendResponseDataMaskingHeaderArgs and ApiDiagnosticFrontendResponseDataMaskingHeaderOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendResponseDataMaskingHeaderInput` via:
+//
+//          ApiDiagnosticFrontendResponseDataMaskingHeaderArgs{...}
+type ApiDiagnosticFrontendResponseDataMaskingHeaderInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendResponseDataMaskingHeaderOutput() ApiDiagnosticFrontendResponseDataMaskingHeaderOutput
+	ToApiDiagnosticFrontendResponseDataMaskingHeaderOutputWithContext(context.Context) ApiDiagnosticFrontendResponseDataMaskingHeaderOutput
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingHeaderArgs struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApiDiagnosticFrontendResponseDataMaskingHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (i ApiDiagnosticFrontendResponseDataMaskingHeaderArgs) ToApiDiagnosticFrontendResponseDataMaskingHeaderOutput() ApiDiagnosticFrontendResponseDataMaskingHeaderOutput {
+	return i.ToApiDiagnosticFrontendResponseDataMaskingHeaderOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendResponseDataMaskingHeaderArgs) ToApiDiagnosticFrontendResponseDataMaskingHeaderOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingHeaderOutput)
+}
+
+// ApiDiagnosticFrontendResponseDataMaskingHeaderArrayInput is an input type that accepts ApiDiagnosticFrontendResponseDataMaskingHeaderArray and ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendResponseDataMaskingHeaderArrayInput` via:
+//
+//          ApiDiagnosticFrontendResponseDataMaskingHeaderArray{ ApiDiagnosticFrontendResponseDataMaskingHeaderArgs{...} }
+type ApiDiagnosticFrontendResponseDataMaskingHeaderArrayInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput() ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput
+	ToApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutputWithContext(context.Context) ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingHeaderArray []ApiDiagnosticFrontendResponseDataMaskingHeaderInput
+
+func (ApiDiagnosticFrontendResponseDataMaskingHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticFrontendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (i ApiDiagnosticFrontendResponseDataMaskingHeaderArray) ToApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput() ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
+	return i.ToApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendResponseDataMaskingHeaderArray) ToApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput)
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingHeaderOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendResponseDataMaskingHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingHeaderOutput) ToApiDiagnosticFrontendResponseDataMaskingHeaderOutput() ApiDiagnosticFrontendResponseDataMaskingHeaderOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingHeaderOutput) ToApiDiagnosticFrontendResponseDataMaskingHeaderOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingHeaderOutput {
+	return o
+}
+
+// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+func (o ApiDiagnosticFrontendResponseDataMaskingHeaderOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendResponseDataMaskingHeader) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The name of the header or the uery parameter to mask.
+func (o ApiDiagnosticFrontendResponseDataMaskingHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendResponseDataMaskingHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticFrontendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput) ToApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput() ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput) ToApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticFrontendResponseDataMaskingHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiDiagnosticFrontendResponseDataMaskingHeader {
+		return vs[0].([]ApiDiagnosticFrontendResponseDataMaskingHeader)[vs[1].(int)]
+	}).(ApiDiagnosticFrontendResponseDataMaskingHeaderOutput)
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingQueryParam struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode string `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value string `pulumi:"value"`
+}
+
+// ApiDiagnosticFrontendResponseDataMaskingQueryParamInput is an input type that accepts ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs and ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendResponseDataMaskingQueryParamInput` via:
+//
+//          ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs{...}
+type ApiDiagnosticFrontendResponseDataMaskingQueryParamInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendResponseDataMaskingQueryParamOutput() ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput
+	ToApiDiagnosticFrontendResponseDataMaskingQueryParamOutputWithContext(context.Context) ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs struct {
+	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// The name of the header or the uery parameter to mask.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs) ToApiDiagnosticFrontendResponseDataMaskingQueryParamOutput() ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput {
+	return i.ToApiDiagnosticFrontendResponseDataMaskingQueryParamOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs) ToApiDiagnosticFrontendResponseDataMaskingQueryParamOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput)
+}
+
+// ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayInput is an input type that accepts ApiDiagnosticFrontendResponseDataMaskingQueryParamArray and ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayInput` via:
+//
+//          ApiDiagnosticFrontendResponseDataMaskingQueryParamArray{ ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs{...} }
+type ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput() ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput
+	ToApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutputWithContext(context.Context) ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingQueryParamArray []ApiDiagnosticFrontendResponseDataMaskingQueryParamInput
+
+func (ApiDiagnosticFrontendResponseDataMaskingQueryParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticFrontendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i ApiDiagnosticFrontendResponseDataMaskingQueryParamArray) ToApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput() ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
+	return i.ToApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendResponseDataMaskingQueryParamArray) ToApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput)
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput) ToApiDiagnosticFrontendResponseDataMaskingQueryParamOutput() ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput) ToApiDiagnosticFrontendResponseDataMaskingQueryParamOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput {
+	return o
+}
+
+// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendResponseDataMaskingQueryParam) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The name of the header or the uery parameter to mask.
+func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendResponseDataMaskingQueryParam) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiDiagnosticFrontendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) ToApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput() ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) ToApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiDiagnosticFrontendResponseDataMaskingQueryParam {
+		return vs[0].([]ApiDiagnosticFrontendResponseDataMaskingQueryParam)[vs[1].(int)]
+	}).(ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput)
 }
 
 type ApiImport struct {
@@ -4586,7 +6126,8 @@ func (o CustomDomainScmArrayOutput) Index(i pulumi.IntInput) CustomDomainScmOutp
 
 type DiagnosticBackendRequest struct {
 	// Number of payload bytes to log (up to 8192).
-	BodyBytes *int `pulumi:"bodyBytes"`
+	BodyBytes   *int                                 `pulumi:"bodyBytes"`
+	DataMasking *DiagnosticBackendRequestDataMasking `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs []string `pulumi:"headersToLogs"`
 }
@@ -4604,7 +6145,8 @@ type DiagnosticBackendRequestInput interface {
 
 type DiagnosticBackendRequestArgs struct {
 	// Number of payload bytes to log (up to 8192).
-	BodyBytes pulumi.IntPtrInput `pulumi:"bodyBytes"`
+	BodyBytes   pulumi.IntPtrInput                          `pulumi:"bodyBytes"`
+	DataMasking DiagnosticBackendRequestDataMaskingPtrInput `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs pulumi.StringArrayInput `pulumi:"headersToLogs"`
 }
@@ -4691,6 +6233,10 @@ func (o DiagnosticBackendRequestOutput) BodyBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DiagnosticBackendRequest) *int { return v.BodyBytes }).(pulumi.IntPtrOutput)
 }
 
+func (o DiagnosticBackendRequestOutput) DataMasking() DiagnosticBackendRequestDataMaskingPtrOutput {
+	return o.ApplyT(func(v DiagnosticBackendRequest) *DiagnosticBackendRequestDataMasking { return v.DataMasking }).(DiagnosticBackendRequestDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o DiagnosticBackendRequestOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DiagnosticBackendRequest) []string { return v.HeadersToLogs }).(pulumi.StringArrayOutput)
@@ -4724,6 +6270,15 @@ func (o DiagnosticBackendRequestPtrOutput) BodyBytes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+func (o DiagnosticBackendRequestPtrOutput) DataMasking() DiagnosticBackendRequestDataMaskingPtrOutput {
+	return o.ApplyT(func(v *DiagnosticBackendRequest) *DiagnosticBackendRequestDataMasking {
+		if v == nil {
+			return nil
+		}
+		return v.DataMasking
+	}).(DiagnosticBackendRequestDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o DiagnosticBackendRequestPtrOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DiagnosticBackendRequest) []string {
@@ -4734,9 +6289,355 @@ func (o DiagnosticBackendRequestPtrOutput) HeadersToLogs() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+type DiagnosticBackendRequestDataMasking struct {
+	Headers     []DiagnosticBackendRequestDataMaskingHeader     `pulumi:"headers"`
+	QueryParams []DiagnosticBackendRequestDataMaskingQueryParam `pulumi:"queryParams"`
+}
+
+// DiagnosticBackendRequestDataMaskingInput is an input type that accepts DiagnosticBackendRequestDataMaskingArgs and DiagnosticBackendRequestDataMaskingOutput values.
+// You can construct a concrete instance of `DiagnosticBackendRequestDataMaskingInput` via:
+//
+//          DiagnosticBackendRequestDataMaskingArgs{...}
+type DiagnosticBackendRequestDataMaskingInput interface {
+	pulumi.Input
+
+	ToDiagnosticBackendRequestDataMaskingOutput() DiagnosticBackendRequestDataMaskingOutput
+	ToDiagnosticBackendRequestDataMaskingOutputWithContext(context.Context) DiagnosticBackendRequestDataMaskingOutput
+}
+
+type DiagnosticBackendRequestDataMaskingArgs struct {
+	Headers     DiagnosticBackendRequestDataMaskingHeaderArrayInput     `pulumi:"headers"`
+	QueryParams DiagnosticBackendRequestDataMaskingQueryParamArrayInput `pulumi:"queryParams"`
+}
+
+func (DiagnosticBackendRequestDataMaskingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticBackendRequestDataMasking)(nil)).Elem()
+}
+
+func (i DiagnosticBackendRequestDataMaskingArgs) ToDiagnosticBackendRequestDataMaskingOutput() DiagnosticBackendRequestDataMaskingOutput {
+	return i.ToDiagnosticBackendRequestDataMaskingOutputWithContext(context.Background())
+}
+
+func (i DiagnosticBackendRequestDataMaskingArgs) ToDiagnosticBackendRequestDataMaskingOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingOutput)
+}
+
+func (i DiagnosticBackendRequestDataMaskingArgs) ToDiagnosticBackendRequestDataMaskingPtrOutput() DiagnosticBackendRequestDataMaskingPtrOutput {
+	return i.ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i DiagnosticBackendRequestDataMaskingArgs) ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingOutput).ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx)
+}
+
+// DiagnosticBackendRequestDataMaskingPtrInput is an input type that accepts DiagnosticBackendRequestDataMaskingArgs, DiagnosticBackendRequestDataMaskingPtr and DiagnosticBackendRequestDataMaskingPtrOutput values.
+// You can construct a concrete instance of `DiagnosticBackendRequestDataMaskingPtrInput` via:
+//
+//          DiagnosticBackendRequestDataMaskingArgs{...}
+//
+//  or:
+//
+//          nil
+type DiagnosticBackendRequestDataMaskingPtrInput interface {
+	pulumi.Input
+
+	ToDiagnosticBackendRequestDataMaskingPtrOutput() DiagnosticBackendRequestDataMaskingPtrOutput
+	ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(context.Context) DiagnosticBackendRequestDataMaskingPtrOutput
+}
+
+type diagnosticBackendRequestDataMaskingPtrType DiagnosticBackendRequestDataMaskingArgs
+
+func DiagnosticBackendRequestDataMaskingPtr(v *DiagnosticBackendRequestDataMaskingArgs) DiagnosticBackendRequestDataMaskingPtrInput {
+	return (*diagnosticBackendRequestDataMaskingPtrType)(v)
+}
+
+func (*diagnosticBackendRequestDataMaskingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticBackendRequestDataMasking)(nil)).Elem()
+}
+
+func (i *diagnosticBackendRequestDataMaskingPtrType) ToDiagnosticBackendRequestDataMaskingPtrOutput() DiagnosticBackendRequestDataMaskingPtrOutput {
+	return i.ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i *diagnosticBackendRequestDataMaskingPtrType) ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingPtrOutput)
+}
+
+type DiagnosticBackendRequestDataMaskingOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticBackendRequestDataMaskingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticBackendRequestDataMasking)(nil)).Elem()
+}
+
+func (o DiagnosticBackendRequestDataMaskingOutput) ToDiagnosticBackendRequestDataMaskingOutput() DiagnosticBackendRequestDataMaskingOutput {
+	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingOutput) ToDiagnosticBackendRequestDataMaskingOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingOutput {
+	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingOutput) ToDiagnosticBackendRequestDataMaskingPtrOutput() DiagnosticBackendRequestDataMaskingPtrOutput {
+	return o.ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (o DiagnosticBackendRequestDataMaskingOutput) ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingPtrOutput {
+	return o.ApplyT(func(v DiagnosticBackendRequestDataMasking) *DiagnosticBackendRequestDataMasking {
+		return &v
+	}).(DiagnosticBackendRequestDataMaskingPtrOutput)
+}
+func (o DiagnosticBackendRequestDataMaskingOutput) Headers() DiagnosticBackendRequestDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v DiagnosticBackendRequestDataMasking) []DiagnosticBackendRequestDataMaskingHeader {
+		return v.Headers
+	}).(DiagnosticBackendRequestDataMaskingHeaderArrayOutput)
+}
+
+func (o DiagnosticBackendRequestDataMaskingOutput) QueryParams() DiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v DiagnosticBackendRequestDataMasking) []DiagnosticBackendRequestDataMaskingQueryParam {
+		return v.QueryParams
+	}).(DiagnosticBackendRequestDataMaskingQueryParamArrayOutput)
+}
+
+type DiagnosticBackendRequestDataMaskingPtrOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticBackendRequestDataMaskingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticBackendRequestDataMasking)(nil)).Elem()
+}
+
+func (o DiagnosticBackendRequestDataMaskingPtrOutput) ToDiagnosticBackendRequestDataMaskingPtrOutput() DiagnosticBackendRequestDataMaskingPtrOutput {
+	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingPtrOutput) ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingPtrOutput {
+	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingPtrOutput) Elem() DiagnosticBackendRequestDataMaskingOutput {
+	return o.ApplyT(func(v *DiagnosticBackendRequestDataMasking) DiagnosticBackendRequestDataMasking { return *v }).(DiagnosticBackendRequestDataMaskingOutput)
+}
+
+func (o DiagnosticBackendRequestDataMaskingPtrOutput) Headers() DiagnosticBackendRequestDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v *DiagnosticBackendRequestDataMasking) []DiagnosticBackendRequestDataMaskingHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(DiagnosticBackendRequestDataMaskingHeaderArrayOutput)
+}
+
+func (o DiagnosticBackendRequestDataMaskingPtrOutput) QueryParams() DiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v *DiagnosticBackendRequestDataMasking) []DiagnosticBackendRequestDataMaskingQueryParam {
+		if v == nil {
+			return nil
+		}
+		return v.QueryParams
+	}).(DiagnosticBackendRequestDataMaskingQueryParamArrayOutput)
+}
+
+type DiagnosticBackendRequestDataMaskingHeader struct {
+	Mode  string `pulumi:"mode"`
+	Value string `pulumi:"value"`
+}
+
+// DiagnosticBackendRequestDataMaskingHeaderInput is an input type that accepts DiagnosticBackendRequestDataMaskingHeaderArgs and DiagnosticBackendRequestDataMaskingHeaderOutput values.
+// You can construct a concrete instance of `DiagnosticBackendRequestDataMaskingHeaderInput` via:
+//
+//          DiagnosticBackendRequestDataMaskingHeaderArgs{...}
+type DiagnosticBackendRequestDataMaskingHeaderInput interface {
+	pulumi.Input
+
+	ToDiagnosticBackendRequestDataMaskingHeaderOutput() DiagnosticBackendRequestDataMaskingHeaderOutput
+	ToDiagnosticBackendRequestDataMaskingHeaderOutputWithContext(context.Context) DiagnosticBackendRequestDataMaskingHeaderOutput
+}
+
+type DiagnosticBackendRequestDataMaskingHeaderArgs struct {
+	Mode  pulumi.StringInput `pulumi:"mode"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DiagnosticBackendRequestDataMaskingHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticBackendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (i DiagnosticBackendRequestDataMaskingHeaderArgs) ToDiagnosticBackendRequestDataMaskingHeaderOutput() DiagnosticBackendRequestDataMaskingHeaderOutput {
+	return i.ToDiagnosticBackendRequestDataMaskingHeaderOutputWithContext(context.Background())
+}
+
+func (i DiagnosticBackendRequestDataMaskingHeaderArgs) ToDiagnosticBackendRequestDataMaskingHeaderOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingHeaderOutput)
+}
+
+// DiagnosticBackendRequestDataMaskingHeaderArrayInput is an input type that accepts DiagnosticBackendRequestDataMaskingHeaderArray and DiagnosticBackendRequestDataMaskingHeaderArrayOutput values.
+// You can construct a concrete instance of `DiagnosticBackendRequestDataMaskingHeaderArrayInput` via:
+//
+//          DiagnosticBackendRequestDataMaskingHeaderArray{ DiagnosticBackendRequestDataMaskingHeaderArgs{...} }
+type DiagnosticBackendRequestDataMaskingHeaderArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticBackendRequestDataMaskingHeaderArrayOutput() DiagnosticBackendRequestDataMaskingHeaderArrayOutput
+	ToDiagnosticBackendRequestDataMaskingHeaderArrayOutputWithContext(context.Context) DiagnosticBackendRequestDataMaskingHeaderArrayOutput
+}
+
+type DiagnosticBackendRequestDataMaskingHeaderArray []DiagnosticBackendRequestDataMaskingHeaderInput
+
+func (DiagnosticBackendRequestDataMaskingHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticBackendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (i DiagnosticBackendRequestDataMaskingHeaderArray) ToDiagnosticBackendRequestDataMaskingHeaderArrayOutput() DiagnosticBackendRequestDataMaskingHeaderArrayOutput {
+	return i.ToDiagnosticBackendRequestDataMaskingHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i DiagnosticBackendRequestDataMaskingHeaderArray) ToDiagnosticBackendRequestDataMaskingHeaderArrayOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingHeaderArrayOutput)
+}
+
+type DiagnosticBackendRequestDataMaskingHeaderOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticBackendRequestDataMaskingHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticBackendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (o DiagnosticBackendRequestDataMaskingHeaderOutput) ToDiagnosticBackendRequestDataMaskingHeaderOutput() DiagnosticBackendRequestDataMaskingHeaderOutput {
+	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingHeaderOutput) ToDiagnosticBackendRequestDataMaskingHeaderOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingHeaderOutput {
+	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingHeaderOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticBackendRequestDataMaskingHeader) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o DiagnosticBackendRequestDataMaskingHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticBackendRequestDataMaskingHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DiagnosticBackendRequestDataMaskingHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticBackendRequestDataMaskingHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticBackendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (o DiagnosticBackendRequestDataMaskingHeaderArrayOutput) ToDiagnosticBackendRequestDataMaskingHeaderArrayOutput() DiagnosticBackendRequestDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingHeaderArrayOutput) ToDiagnosticBackendRequestDataMaskingHeaderArrayOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) DiagnosticBackendRequestDataMaskingHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticBackendRequestDataMaskingHeader {
+		return vs[0].([]DiagnosticBackendRequestDataMaskingHeader)[vs[1].(int)]
+	}).(DiagnosticBackendRequestDataMaskingHeaderOutput)
+}
+
+type DiagnosticBackendRequestDataMaskingQueryParam struct {
+	Mode  string `pulumi:"mode"`
+	Value string `pulumi:"value"`
+}
+
+// DiagnosticBackendRequestDataMaskingQueryParamInput is an input type that accepts DiagnosticBackendRequestDataMaskingQueryParamArgs and DiagnosticBackendRequestDataMaskingQueryParamOutput values.
+// You can construct a concrete instance of `DiagnosticBackendRequestDataMaskingQueryParamInput` via:
+//
+//          DiagnosticBackendRequestDataMaskingQueryParamArgs{...}
+type DiagnosticBackendRequestDataMaskingQueryParamInput interface {
+	pulumi.Input
+
+	ToDiagnosticBackendRequestDataMaskingQueryParamOutput() DiagnosticBackendRequestDataMaskingQueryParamOutput
+	ToDiagnosticBackendRequestDataMaskingQueryParamOutputWithContext(context.Context) DiagnosticBackendRequestDataMaskingQueryParamOutput
+}
+
+type DiagnosticBackendRequestDataMaskingQueryParamArgs struct {
+	Mode  pulumi.StringInput `pulumi:"mode"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DiagnosticBackendRequestDataMaskingQueryParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticBackendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i DiagnosticBackendRequestDataMaskingQueryParamArgs) ToDiagnosticBackendRequestDataMaskingQueryParamOutput() DiagnosticBackendRequestDataMaskingQueryParamOutput {
+	return i.ToDiagnosticBackendRequestDataMaskingQueryParamOutputWithContext(context.Background())
+}
+
+func (i DiagnosticBackendRequestDataMaskingQueryParamArgs) ToDiagnosticBackendRequestDataMaskingQueryParamOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingQueryParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingQueryParamOutput)
+}
+
+// DiagnosticBackendRequestDataMaskingQueryParamArrayInput is an input type that accepts DiagnosticBackendRequestDataMaskingQueryParamArray and DiagnosticBackendRequestDataMaskingQueryParamArrayOutput values.
+// You can construct a concrete instance of `DiagnosticBackendRequestDataMaskingQueryParamArrayInput` via:
+//
+//          DiagnosticBackendRequestDataMaskingQueryParamArray{ DiagnosticBackendRequestDataMaskingQueryParamArgs{...} }
+type DiagnosticBackendRequestDataMaskingQueryParamArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticBackendRequestDataMaskingQueryParamArrayOutput() DiagnosticBackendRequestDataMaskingQueryParamArrayOutput
+	ToDiagnosticBackendRequestDataMaskingQueryParamArrayOutputWithContext(context.Context) DiagnosticBackendRequestDataMaskingQueryParamArrayOutput
+}
+
+type DiagnosticBackendRequestDataMaskingQueryParamArray []DiagnosticBackendRequestDataMaskingQueryParamInput
+
+func (DiagnosticBackendRequestDataMaskingQueryParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticBackendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i DiagnosticBackendRequestDataMaskingQueryParamArray) ToDiagnosticBackendRequestDataMaskingQueryParamArrayOutput() DiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
+	return i.ToDiagnosticBackendRequestDataMaskingQueryParamArrayOutputWithContext(context.Background())
+}
+
+func (i DiagnosticBackendRequestDataMaskingQueryParamArray) ToDiagnosticBackendRequestDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingQueryParamArrayOutput)
+}
+
+type DiagnosticBackendRequestDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticBackendRequestDataMaskingQueryParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticBackendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o DiagnosticBackendRequestDataMaskingQueryParamOutput) ToDiagnosticBackendRequestDataMaskingQueryParamOutput() DiagnosticBackendRequestDataMaskingQueryParamOutput {
+	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingQueryParamOutput) ToDiagnosticBackendRequestDataMaskingQueryParamOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingQueryParamOutput {
+	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingQueryParamOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticBackendRequestDataMaskingQueryParam) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o DiagnosticBackendRequestDataMaskingQueryParamOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticBackendRequestDataMaskingQueryParam) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DiagnosticBackendRequestDataMaskingQueryParamArrayOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticBackendRequestDataMaskingQueryParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticBackendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o DiagnosticBackendRequestDataMaskingQueryParamArrayOutput) ToDiagnosticBackendRequestDataMaskingQueryParamArrayOutput() DiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingQueryParamArrayOutput) ToDiagnosticBackendRequestDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) DiagnosticBackendRequestDataMaskingQueryParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticBackendRequestDataMaskingQueryParam {
+		return vs[0].([]DiagnosticBackendRequestDataMaskingQueryParam)[vs[1].(int)]
+	}).(DiagnosticBackendRequestDataMaskingQueryParamOutput)
+}
+
 type DiagnosticBackendResponse struct {
 	// Number of payload bytes to log (up to 8192).
-	BodyBytes *int `pulumi:"bodyBytes"`
+	BodyBytes   *int                                  `pulumi:"bodyBytes"`
+	DataMasking *DiagnosticBackendResponseDataMasking `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs []string `pulumi:"headersToLogs"`
 }
@@ -4754,7 +6655,8 @@ type DiagnosticBackendResponseInput interface {
 
 type DiagnosticBackendResponseArgs struct {
 	// Number of payload bytes to log (up to 8192).
-	BodyBytes pulumi.IntPtrInput `pulumi:"bodyBytes"`
+	BodyBytes   pulumi.IntPtrInput                           `pulumi:"bodyBytes"`
+	DataMasking DiagnosticBackendResponseDataMaskingPtrInput `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs pulumi.StringArrayInput `pulumi:"headersToLogs"`
 }
@@ -4841,6 +6743,10 @@ func (o DiagnosticBackendResponseOutput) BodyBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DiagnosticBackendResponse) *int { return v.BodyBytes }).(pulumi.IntPtrOutput)
 }
 
+func (o DiagnosticBackendResponseOutput) DataMasking() DiagnosticBackendResponseDataMaskingPtrOutput {
+	return o.ApplyT(func(v DiagnosticBackendResponse) *DiagnosticBackendResponseDataMasking { return v.DataMasking }).(DiagnosticBackendResponseDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o DiagnosticBackendResponseOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DiagnosticBackendResponse) []string { return v.HeadersToLogs }).(pulumi.StringArrayOutput)
@@ -4874,6 +6780,15 @@ func (o DiagnosticBackendResponsePtrOutput) BodyBytes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+func (o DiagnosticBackendResponsePtrOutput) DataMasking() DiagnosticBackendResponseDataMaskingPtrOutput {
+	return o.ApplyT(func(v *DiagnosticBackendResponse) *DiagnosticBackendResponseDataMasking {
+		if v == nil {
+			return nil
+		}
+		return v.DataMasking
+	}).(DiagnosticBackendResponseDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o DiagnosticBackendResponsePtrOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DiagnosticBackendResponse) []string {
@@ -4884,9 +6799,355 @@ func (o DiagnosticBackendResponsePtrOutput) HeadersToLogs() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
+type DiagnosticBackendResponseDataMasking struct {
+	Headers     []DiagnosticBackendResponseDataMaskingHeader     `pulumi:"headers"`
+	QueryParams []DiagnosticBackendResponseDataMaskingQueryParam `pulumi:"queryParams"`
+}
+
+// DiagnosticBackendResponseDataMaskingInput is an input type that accepts DiagnosticBackendResponseDataMaskingArgs and DiagnosticBackendResponseDataMaskingOutput values.
+// You can construct a concrete instance of `DiagnosticBackendResponseDataMaskingInput` via:
+//
+//          DiagnosticBackendResponseDataMaskingArgs{...}
+type DiagnosticBackendResponseDataMaskingInput interface {
+	pulumi.Input
+
+	ToDiagnosticBackendResponseDataMaskingOutput() DiagnosticBackendResponseDataMaskingOutput
+	ToDiagnosticBackendResponseDataMaskingOutputWithContext(context.Context) DiagnosticBackendResponseDataMaskingOutput
+}
+
+type DiagnosticBackendResponseDataMaskingArgs struct {
+	Headers     DiagnosticBackendResponseDataMaskingHeaderArrayInput     `pulumi:"headers"`
+	QueryParams DiagnosticBackendResponseDataMaskingQueryParamArrayInput `pulumi:"queryParams"`
+}
+
+func (DiagnosticBackendResponseDataMaskingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticBackendResponseDataMasking)(nil)).Elem()
+}
+
+func (i DiagnosticBackendResponseDataMaskingArgs) ToDiagnosticBackendResponseDataMaskingOutput() DiagnosticBackendResponseDataMaskingOutput {
+	return i.ToDiagnosticBackendResponseDataMaskingOutputWithContext(context.Background())
+}
+
+func (i DiagnosticBackendResponseDataMaskingArgs) ToDiagnosticBackendResponseDataMaskingOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingOutput)
+}
+
+func (i DiagnosticBackendResponseDataMaskingArgs) ToDiagnosticBackendResponseDataMaskingPtrOutput() DiagnosticBackendResponseDataMaskingPtrOutput {
+	return i.ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i DiagnosticBackendResponseDataMaskingArgs) ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingOutput).ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx)
+}
+
+// DiagnosticBackendResponseDataMaskingPtrInput is an input type that accepts DiagnosticBackendResponseDataMaskingArgs, DiagnosticBackendResponseDataMaskingPtr and DiagnosticBackendResponseDataMaskingPtrOutput values.
+// You can construct a concrete instance of `DiagnosticBackendResponseDataMaskingPtrInput` via:
+//
+//          DiagnosticBackendResponseDataMaskingArgs{...}
+//
+//  or:
+//
+//          nil
+type DiagnosticBackendResponseDataMaskingPtrInput interface {
+	pulumi.Input
+
+	ToDiagnosticBackendResponseDataMaskingPtrOutput() DiagnosticBackendResponseDataMaskingPtrOutput
+	ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(context.Context) DiagnosticBackendResponseDataMaskingPtrOutput
+}
+
+type diagnosticBackendResponseDataMaskingPtrType DiagnosticBackendResponseDataMaskingArgs
+
+func DiagnosticBackendResponseDataMaskingPtr(v *DiagnosticBackendResponseDataMaskingArgs) DiagnosticBackendResponseDataMaskingPtrInput {
+	return (*diagnosticBackendResponseDataMaskingPtrType)(v)
+}
+
+func (*diagnosticBackendResponseDataMaskingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticBackendResponseDataMasking)(nil)).Elem()
+}
+
+func (i *diagnosticBackendResponseDataMaskingPtrType) ToDiagnosticBackendResponseDataMaskingPtrOutput() DiagnosticBackendResponseDataMaskingPtrOutput {
+	return i.ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i *diagnosticBackendResponseDataMaskingPtrType) ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingPtrOutput)
+}
+
+type DiagnosticBackendResponseDataMaskingOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticBackendResponseDataMaskingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticBackendResponseDataMasking)(nil)).Elem()
+}
+
+func (o DiagnosticBackendResponseDataMaskingOutput) ToDiagnosticBackendResponseDataMaskingOutput() DiagnosticBackendResponseDataMaskingOutput {
+	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingOutput) ToDiagnosticBackendResponseDataMaskingOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingOutput {
+	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingOutput) ToDiagnosticBackendResponseDataMaskingPtrOutput() DiagnosticBackendResponseDataMaskingPtrOutput {
+	return o.ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (o DiagnosticBackendResponseDataMaskingOutput) ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingPtrOutput {
+	return o.ApplyT(func(v DiagnosticBackendResponseDataMasking) *DiagnosticBackendResponseDataMasking {
+		return &v
+	}).(DiagnosticBackendResponseDataMaskingPtrOutput)
+}
+func (o DiagnosticBackendResponseDataMaskingOutput) Headers() DiagnosticBackendResponseDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v DiagnosticBackendResponseDataMasking) []DiagnosticBackendResponseDataMaskingHeader {
+		return v.Headers
+	}).(DiagnosticBackendResponseDataMaskingHeaderArrayOutput)
+}
+
+func (o DiagnosticBackendResponseDataMaskingOutput) QueryParams() DiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v DiagnosticBackendResponseDataMasking) []DiagnosticBackendResponseDataMaskingQueryParam {
+		return v.QueryParams
+	}).(DiagnosticBackendResponseDataMaskingQueryParamArrayOutput)
+}
+
+type DiagnosticBackendResponseDataMaskingPtrOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticBackendResponseDataMaskingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticBackendResponseDataMasking)(nil)).Elem()
+}
+
+func (o DiagnosticBackendResponseDataMaskingPtrOutput) ToDiagnosticBackendResponseDataMaskingPtrOutput() DiagnosticBackendResponseDataMaskingPtrOutput {
+	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingPtrOutput) ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingPtrOutput {
+	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingPtrOutput) Elem() DiagnosticBackendResponseDataMaskingOutput {
+	return o.ApplyT(func(v *DiagnosticBackendResponseDataMasking) DiagnosticBackendResponseDataMasking { return *v }).(DiagnosticBackendResponseDataMaskingOutput)
+}
+
+func (o DiagnosticBackendResponseDataMaskingPtrOutput) Headers() DiagnosticBackendResponseDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v *DiagnosticBackendResponseDataMasking) []DiagnosticBackendResponseDataMaskingHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(DiagnosticBackendResponseDataMaskingHeaderArrayOutput)
+}
+
+func (o DiagnosticBackendResponseDataMaskingPtrOutput) QueryParams() DiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v *DiagnosticBackendResponseDataMasking) []DiagnosticBackendResponseDataMaskingQueryParam {
+		if v == nil {
+			return nil
+		}
+		return v.QueryParams
+	}).(DiagnosticBackendResponseDataMaskingQueryParamArrayOutput)
+}
+
+type DiagnosticBackendResponseDataMaskingHeader struct {
+	Mode  string `pulumi:"mode"`
+	Value string `pulumi:"value"`
+}
+
+// DiagnosticBackendResponseDataMaskingHeaderInput is an input type that accepts DiagnosticBackendResponseDataMaskingHeaderArgs and DiagnosticBackendResponseDataMaskingHeaderOutput values.
+// You can construct a concrete instance of `DiagnosticBackendResponseDataMaskingHeaderInput` via:
+//
+//          DiagnosticBackendResponseDataMaskingHeaderArgs{...}
+type DiagnosticBackendResponseDataMaskingHeaderInput interface {
+	pulumi.Input
+
+	ToDiagnosticBackendResponseDataMaskingHeaderOutput() DiagnosticBackendResponseDataMaskingHeaderOutput
+	ToDiagnosticBackendResponseDataMaskingHeaderOutputWithContext(context.Context) DiagnosticBackendResponseDataMaskingHeaderOutput
+}
+
+type DiagnosticBackendResponseDataMaskingHeaderArgs struct {
+	Mode  pulumi.StringInput `pulumi:"mode"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DiagnosticBackendResponseDataMaskingHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticBackendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (i DiagnosticBackendResponseDataMaskingHeaderArgs) ToDiagnosticBackendResponseDataMaskingHeaderOutput() DiagnosticBackendResponseDataMaskingHeaderOutput {
+	return i.ToDiagnosticBackendResponseDataMaskingHeaderOutputWithContext(context.Background())
+}
+
+func (i DiagnosticBackendResponseDataMaskingHeaderArgs) ToDiagnosticBackendResponseDataMaskingHeaderOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingHeaderOutput)
+}
+
+// DiagnosticBackendResponseDataMaskingHeaderArrayInput is an input type that accepts DiagnosticBackendResponseDataMaskingHeaderArray and DiagnosticBackendResponseDataMaskingHeaderArrayOutput values.
+// You can construct a concrete instance of `DiagnosticBackendResponseDataMaskingHeaderArrayInput` via:
+//
+//          DiagnosticBackendResponseDataMaskingHeaderArray{ DiagnosticBackendResponseDataMaskingHeaderArgs{...} }
+type DiagnosticBackendResponseDataMaskingHeaderArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticBackendResponseDataMaskingHeaderArrayOutput() DiagnosticBackendResponseDataMaskingHeaderArrayOutput
+	ToDiagnosticBackendResponseDataMaskingHeaderArrayOutputWithContext(context.Context) DiagnosticBackendResponseDataMaskingHeaderArrayOutput
+}
+
+type DiagnosticBackendResponseDataMaskingHeaderArray []DiagnosticBackendResponseDataMaskingHeaderInput
+
+func (DiagnosticBackendResponseDataMaskingHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticBackendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (i DiagnosticBackendResponseDataMaskingHeaderArray) ToDiagnosticBackendResponseDataMaskingHeaderArrayOutput() DiagnosticBackendResponseDataMaskingHeaderArrayOutput {
+	return i.ToDiagnosticBackendResponseDataMaskingHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i DiagnosticBackendResponseDataMaskingHeaderArray) ToDiagnosticBackendResponseDataMaskingHeaderArrayOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingHeaderArrayOutput)
+}
+
+type DiagnosticBackendResponseDataMaskingHeaderOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticBackendResponseDataMaskingHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticBackendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (o DiagnosticBackendResponseDataMaskingHeaderOutput) ToDiagnosticBackendResponseDataMaskingHeaderOutput() DiagnosticBackendResponseDataMaskingHeaderOutput {
+	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingHeaderOutput) ToDiagnosticBackendResponseDataMaskingHeaderOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingHeaderOutput {
+	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingHeaderOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticBackendResponseDataMaskingHeader) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o DiagnosticBackendResponseDataMaskingHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticBackendResponseDataMaskingHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DiagnosticBackendResponseDataMaskingHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticBackendResponseDataMaskingHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticBackendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (o DiagnosticBackendResponseDataMaskingHeaderArrayOutput) ToDiagnosticBackendResponseDataMaskingHeaderArrayOutput() DiagnosticBackendResponseDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingHeaderArrayOutput) ToDiagnosticBackendResponseDataMaskingHeaderArrayOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) DiagnosticBackendResponseDataMaskingHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticBackendResponseDataMaskingHeader {
+		return vs[0].([]DiagnosticBackendResponseDataMaskingHeader)[vs[1].(int)]
+	}).(DiagnosticBackendResponseDataMaskingHeaderOutput)
+}
+
+type DiagnosticBackendResponseDataMaskingQueryParam struct {
+	Mode  string `pulumi:"mode"`
+	Value string `pulumi:"value"`
+}
+
+// DiagnosticBackendResponseDataMaskingQueryParamInput is an input type that accepts DiagnosticBackendResponseDataMaskingQueryParamArgs and DiagnosticBackendResponseDataMaskingQueryParamOutput values.
+// You can construct a concrete instance of `DiagnosticBackendResponseDataMaskingQueryParamInput` via:
+//
+//          DiagnosticBackendResponseDataMaskingQueryParamArgs{...}
+type DiagnosticBackendResponseDataMaskingQueryParamInput interface {
+	pulumi.Input
+
+	ToDiagnosticBackendResponseDataMaskingQueryParamOutput() DiagnosticBackendResponseDataMaskingQueryParamOutput
+	ToDiagnosticBackendResponseDataMaskingQueryParamOutputWithContext(context.Context) DiagnosticBackendResponseDataMaskingQueryParamOutput
+}
+
+type DiagnosticBackendResponseDataMaskingQueryParamArgs struct {
+	Mode  pulumi.StringInput `pulumi:"mode"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DiagnosticBackendResponseDataMaskingQueryParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticBackendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i DiagnosticBackendResponseDataMaskingQueryParamArgs) ToDiagnosticBackendResponseDataMaskingQueryParamOutput() DiagnosticBackendResponseDataMaskingQueryParamOutput {
+	return i.ToDiagnosticBackendResponseDataMaskingQueryParamOutputWithContext(context.Background())
+}
+
+func (i DiagnosticBackendResponseDataMaskingQueryParamArgs) ToDiagnosticBackendResponseDataMaskingQueryParamOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingQueryParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingQueryParamOutput)
+}
+
+// DiagnosticBackendResponseDataMaskingQueryParamArrayInput is an input type that accepts DiagnosticBackendResponseDataMaskingQueryParamArray and DiagnosticBackendResponseDataMaskingQueryParamArrayOutput values.
+// You can construct a concrete instance of `DiagnosticBackendResponseDataMaskingQueryParamArrayInput` via:
+//
+//          DiagnosticBackendResponseDataMaskingQueryParamArray{ DiagnosticBackendResponseDataMaskingQueryParamArgs{...} }
+type DiagnosticBackendResponseDataMaskingQueryParamArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticBackendResponseDataMaskingQueryParamArrayOutput() DiagnosticBackendResponseDataMaskingQueryParamArrayOutput
+	ToDiagnosticBackendResponseDataMaskingQueryParamArrayOutputWithContext(context.Context) DiagnosticBackendResponseDataMaskingQueryParamArrayOutput
+}
+
+type DiagnosticBackendResponseDataMaskingQueryParamArray []DiagnosticBackendResponseDataMaskingQueryParamInput
+
+func (DiagnosticBackendResponseDataMaskingQueryParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticBackendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i DiagnosticBackendResponseDataMaskingQueryParamArray) ToDiagnosticBackendResponseDataMaskingQueryParamArrayOutput() DiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
+	return i.ToDiagnosticBackendResponseDataMaskingQueryParamArrayOutputWithContext(context.Background())
+}
+
+func (i DiagnosticBackendResponseDataMaskingQueryParamArray) ToDiagnosticBackendResponseDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingQueryParamArrayOutput)
+}
+
+type DiagnosticBackendResponseDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticBackendResponseDataMaskingQueryParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticBackendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o DiagnosticBackendResponseDataMaskingQueryParamOutput) ToDiagnosticBackendResponseDataMaskingQueryParamOutput() DiagnosticBackendResponseDataMaskingQueryParamOutput {
+	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingQueryParamOutput) ToDiagnosticBackendResponseDataMaskingQueryParamOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingQueryParamOutput {
+	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingQueryParamOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticBackendResponseDataMaskingQueryParam) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o DiagnosticBackendResponseDataMaskingQueryParamOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticBackendResponseDataMaskingQueryParam) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DiagnosticBackendResponseDataMaskingQueryParamArrayOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticBackendResponseDataMaskingQueryParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticBackendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o DiagnosticBackendResponseDataMaskingQueryParamArrayOutput) ToDiagnosticBackendResponseDataMaskingQueryParamArrayOutput() DiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingQueryParamArrayOutput) ToDiagnosticBackendResponseDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) DiagnosticBackendResponseDataMaskingQueryParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticBackendResponseDataMaskingQueryParam {
+		return vs[0].([]DiagnosticBackendResponseDataMaskingQueryParam)[vs[1].(int)]
+	}).(DiagnosticBackendResponseDataMaskingQueryParamOutput)
+}
+
 type DiagnosticFrontendRequest struct {
 	// Number of payload bytes to log (up to 8192).
-	BodyBytes *int `pulumi:"bodyBytes"`
+	BodyBytes   *int                                  `pulumi:"bodyBytes"`
+	DataMasking *DiagnosticFrontendRequestDataMasking `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs []string `pulumi:"headersToLogs"`
 }
@@ -4904,7 +7165,8 @@ type DiagnosticFrontendRequestInput interface {
 
 type DiagnosticFrontendRequestArgs struct {
 	// Number of payload bytes to log (up to 8192).
-	BodyBytes pulumi.IntPtrInput `pulumi:"bodyBytes"`
+	BodyBytes   pulumi.IntPtrInput                           `pulumi:"bodyBytes"`
+	DataMasking DiagnosticFrontendRequestDataMaskingPtrInput `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs pulumi.StringArrayInput `pulumi:"headersToLogs"`
 }
@@ -4991,6 +7253,10 @@ func (o DiagnosticFrontendRequestOutput) BodyBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DiagnosticFrontendRequest) *int { return v.BodyBytes }).(pulumi.IntPtrOutput)
 }
 
+func (o DiagnosticFrontendRequestOutput) DataMasking() DiagnosticFrontendRequestDataMaskingPtrOutput {
+	return o.ApplyT(func(v DiagnosticFrontendRequest) *DiagnosticFrontendRequestDataMasking { return v.DataMasking }).(DiagnosticFrontendRequestDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o DiagnosticFrontendRequestOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DiagnosticFrontendRequest) []string { return v.HeadersToLogs }).(pulumi.StringArrayOutput)
@@ -5024,6 +7290,15 @@ func (o DiagnosticFrontendRequestPtrOutput) BodyBytes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+func (o DiagnosticFrontendRequestPtrOutput) DataMasking() DiagnosticFrontendRequestDataMaskingPtrOutput {
+	return o.ApplyT(func(v *DiagnosticFrontendRequest) *DiagnosticFrontendRequestDataMasking {
+		if v == nil {
+			return nil
+		}
+		return v.DataMasking
+	}).(DiagnosticFrontendRequestDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o DiagnosticFrontendRequestPtrOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DiagnosticFrontendRequest) []string {
@@ -5034,9 +7309,355 @@ func (o DiagnosticFrontendRequestPtrOutput) HeadersToLogs() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
+type DiagnosticFrontendRequestDataMasking struct {
+	Headers     []DiagnosticFrontendRequestDataMaskingHeader     `pulumi:"headers"`
+	QueryParams []DiagnosticFrontendRequestDataMaskingQueryParam `pulumi:"queryParams"`
+}
+
+// DiagnosticFrontendRequestDataMaskingInput is an input type that accepts DiagnosticFrontendRequestDataMaskingArgs and DiagnosticFrontendRequestDataMaskingOutput values.
+// You can construct a concrete instance of `DiagnosticFrontendRequestDataMaskingInput` via:
+//
+//          DiagnosticFrontendRequestDataMaskingArgs{...}
+type DiagnosticFrontendRequestDataMaskingInput interface {
+	pulumi.Input
+
+	ToDiagnosticFrontendRequestDataMaskingOutput() DiagnosticFrontendRequestDataMaskingOutput
+	ToDiagnosticFrontendRequestDataMaskingOutputWithContext(context.Context) DiagnosticFrontendRequestDataMaskingOutput
+}
+
+type DiagnosticFrontendRequestDataMaskingArgs struct {
+	Headers     DiagnosticFrontendRequestDataMaskingHeaderArrayInput     `pulumi:"headers"`
+	QueryParams DiagnosticFrontendRequestDataMaskingQueryParamArrayInput `pulumi:"queryParams"`
+}
+
+func (DiagnosticFrontendRequestDataMaskingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticFrontendRequestDataMasking)(nil)).Elem()
+}
+
+func (i DiagnosticFrontendRequestDataMaskingArgs) ToDiagnosticFrontendRequestDataMaskingOutput() DiagnosticFrontendRequestDataMaskingOutput {
+	return i.ToDiagnosticFrontendRequestDataMaskingOutputWithContext(context.Background())
+}
+
+func (i DiagnosticFrontendRequestDataMaskingArgs) ToDiagnosticFrontendRequestDataMaskingOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingOutput)
+}
+
+func (i DiagnosticFrontendRequestDataMaskingArgs) ToDiagnosticFrontendRequestDataMaskingPtrOutput() DiagnosticFrontendRequestDataMaskingPtrOutput {
+	return i.ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i DiagnosticFrontendRequestDataMaskingArgs) ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingOutput).ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx)
+}
+
+// DiagnosticFrontendRequestDataMaskingPtrInput is an input type that accepts DiagnosticFrontendRequestDataMaskingArgs, DiagnosticFrontendRequestDataMaskingPtr and DiagnosticFrontendRequestDataMaskingPtrOutput values.
+// You can construct a concrete instance of `DiagnosticFrontendRequestDataMaskingPtrInput` via:
+//
+//          DiagnosticFrontendRequestDataMaskingArgs{...}
+//
+//  or:
+//
+//          nil
+type DiagnosticFrontendRequestDataMaskingPtrInput interface {
+	pulumi.Input
+
+	ToDiagnosticFrontendRequestDataMaskingPtrOutput() DiagnosticFrontendRequestDataMaskingPtrOutput
+	ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(context.Context) DiagnosticFrontendRequestDataMaskingPtrOutput
+}
+
+type diagnosticFrontendRequestDataMaskingPtrType DiagnosticFrontendRequestDataMaskingArgs
+
+func DiagnosticFrontendRequestDataMaskingPtr(v *DiagnosticFrontendRequestDataMaskingArgs) DiagnosticFrontendRequestDataMaskingPtrInput {
+	return (*diagnosticFrontendRequestDataMaskingPtrType)(v)
+}
+
+func (*diagnosticFrontendRequestDataMaskingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticFrontendRequestDataMasking)(nil)).Elem()
+}
+
+func (i *diagnosticFrontendRequestDataMaskingPtrType) ToDiagnosticFrontendRequestDataMaskingPtrOutput() DiagnosticFrontendRequestDataMaskingPtrOutput {
+	return i.ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i *diagnosticFrontendRequestDataMaskingPtrType) ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingPtrOutput)
+}
+
+type DiagnosticFrontendRequestDataMaskingOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticFrontendRequestDataMaskingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticFrontendRequestDataMasking)(nil)).Elem()
+}
+
+func (o DiagnosticFrontendRequestDataMaskingOutput) ToDiagnosticFrontendRequestDataMaskingOutput() DiagnosticFrontendRequestDataMaskingOutput {
+	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingOutput) ToDiagnosticFrontendRequestDataMaskingOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingOutput {
+	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingOutput) ToDiagnosticFrontendRequestDataMaskingPtrOutput() DiagnosticFrontendRequestDataMaskingPtrOutput {
+	return o.ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (o DiagnosticFrontendRequestDataMaskingOutput) ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingPtrOutput {
+	return o.ApplyT(func(v DiagnosticFrontendRequestDataMasking) *DiagnosticFrontendRequestDataMasking {
+		return &v
+	}).(DiagnosticFrontendRequestDataMaskingPtrOutput)
+}
+func (o DiagnosticFrontendRequestDataMaskingOutput) Headers() DiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v DiagnosticFrontendRequestDataMasking) []DiagnosticFrontendRequestDataMaskingHeader {
+		return v.Headers
+	}).(DiagnosticFrontendRequestDataMaskingHeaderArrayOutput)
+}
+
+func (o DiagnosticFrontendRequestDataMaskingOutput) QueryParams() DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v DiagnosticFrontendRequestDataMasking) []DiagnosticFrontendRequestDataMaskingQueryParam {
+		return v.QueryParams
+	}).(DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput)
+}
+
+type DiagnosticFrontendRequestDataMaskingPtrOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticFrontendRequestDataMaskingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticFrontendRequestDataMasking)(nil)).Elem()
+}
+
+func (o DiagnosticFrontendRequestDataMaskingPtrOutput) ToDiagnosticFrontendRequestDataMaskingPtrOutput() DiagnosticFrontendRequestDataMaskingPtrOutput {
+	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingPtrOutput) ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingPtrOutput {
+	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingPtrOutput) Elem() DiagnosticFrontendRequestDataMaskingOutput {
+	return o.ApplyT(func(v *DiagnosticFrontendRequestDataMasking) DiagnosticFrontendRequestDataMasking { return *v }).(DiagnosticFrontendRequestDataMaskingOutput)
+}
+
+func (o DiagnosticFrontendRequestDataMaskingPtrOutput) Headers() DiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v *DiagnosticFrontendRequestDataMasking) []DiagnosticFrontendRequestDataMaskingHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(DiagnosticFrontendRequestDataMaskingHeaderArrayOutput)
+}
+
+func (o DiagnosticFrontendRequestDataMaskingPtrOutput) QueryParams() DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v *DiagnosticFrontendRequestDataMasking) []DiagnosticFrontendRequestDataMaskingQueryParam {
+		if v == nil {
+			return nil
+		}
+		return v.QueryParams
+	}).(DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput)
+}
+
+type DiagnosticFrontendRequestDataMaskingHeader struct {
+	Mode  string `pulumi:"mode"`
+	Value string `pulumi:"value"`
+}
+
+// DiagnosticFrontendRequestDataMaskingHeaderInput is an input type that accepts DiagnosticFrontendRequestDataMaskingHeaderArgs and DiagnosticFrontendRequestDataMaskingHeaderOutput values.
+// You can construct a concrete instance of `DiagnosticFrontendRequestDataMaskingHeaderInput` via:
+//
+//          DiagnosticFrontendRequestDataMaskingHeaderArgs{...}
+type DiagnosticFrontendRequestDataMaskingHeaderInput interface {
+	pulumi.Input
+
+	ToDiagnosticFrontendRequestDataMaskingHeaderOutput() DiagnosticFrontendRequestDataMaskingHeaderOutput
+	ToDiagnosticFrontendRequestDataMaskingHeaderOutputWithContext(context.Context) DiagnosticFrontendRequestDataMaskingHeaderOutput
+}
+
+type DiagnosticFrontendRequestDataMaskingHeaderArgs struct {
+	Mode  pulumi.StringInput `pulumi:"mode"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DiagnosticFrontendRequestDataMaskingHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticFrontendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (i DiagnosticFrontendRequestDataMaskingHeaderArgs) ToDiagnosticFrontendRequestDataMaskingHeaderOutput() DiagnosticFrontendRequestDataMaskingHeaderOutput {
+	return i.ToDiagnosticFrontendRequestDataMaskingHeaderOutputWithContext(context.Background())
+}
+
+func (i DiagnosticFrontendRequestDataMaskingHeaderArgs) ToDiagnosticFrontendRequestDataMaskingHeaderOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingHeaderOutput)
+}
+
+// DiagnosticFrontendRequestDataMaskingHeaderArrayInput is an input type that accepts DiagnosticFrontendRequestDataMaskingHeaderArray and DiagnosticFrontendRequestDataMaskingHeaderArrayOutput values.
+// You can construct a concrete instance of `DiagnosticFrontendRequestDataMaskingHeaderArrayInput` via:
+//
+//          DiagnosticFrontendRequestDataMaskingHeaderArray{ DiagnosticFrontendRequestDataMaskingHeaderArgs{...} }
+type DiagnosticFrontendRequestDataMaskingHeaderArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticFrontendRequestDataMaskingHeaderArrayOutput() DiagnosticFrontendRequestDataMaskingHeaderArrayOutput
+	ToDiagnosticFrontendRequestDataMaskingHeaderArrayOutputWithContext(context.Context) DiagnosticFrontendRequestDataMaskingHeaderArrayOutput
+}
+
+type DiagnosticFrontendRequestDataMaskingHeaderArray []DiagnosticFrontendRequestDataMaskingHeaderInput
+
+func (DiagnosticFrontendRequestDataMaskingHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticFrontendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (i DiagnosticFrontendRequestDataMaskingHeaderArray) ToDiagnosticFrontendRequestDataMaskingHeaderArrayOutput() DiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
+	return i.ToDiagnosticFrontendRequestDataMaskingHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i DiagnosticFrontendRequestDataMaskingHeaderArray) ToDiagnosticFrontendRequestDataMaskingHeaderArrayOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingHeaderArrayOutput)
+}
+
+type DiagnosticFrontendRequestDataMaskingHeaderOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticFrontendRequestDataMaskingHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticFrontendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (o DiagnosticFrontendRequestDataMaskingHeaderOutput) ToDiagnosticFrontendRequestDataMaskingHeaderOutput() DiagnosticFrontendRequestDataMaskingHeaderOutput {
+	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingHeaderOutput) ToDiagnosticFrontendRequestDataMaskingHeaderOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingHeaderOutput {
+	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingHeaderOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticFrontendRequestDataMaskingHeader) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o DiagnosticFrontendRequestDataMaskingHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticFrontendRequestDataMaskingHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DiagnosticFrontendRequestDataMaskingHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticFrontendRequestDataMaskingHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticFrontendRequestDataMaskingHeader)(nil)).Elem()
+}
+
+func (o DiagnosticFrontendRequestDataMaskingHeaderArrayOutput) ToDiagnosticFrontendRequestDataMaskingHeaderArrayOutput() DiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingHeaderArrayOutput) ToDiagnosticFrontendRequestDataMaskingHeaderArrayOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) DiagnosticFrontendRequestDataMaskingHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticFrontendRequestDataMaskingHeader {
+		return vs[0].([]DiagnosticFrontendRequestDataMaskingHeader)[vs[1].(int)]
+	}).(DiagnosticFrontendRequestDataMaskingHeaderOutput)
+}
+
+type DiagnosticFrontendRequestDataMaskingQueryParam struct {
+	Mode  string `pulumi:"mode"`
+	Value string `pulumi:"value"`
+}
+
+// DiagnosticFrontendRequestDataMaskingQueryParamInput is an input type that accepts DiagnosticFrontendRequestDataMaskingQueryParamArgs and DiagnosticFrontendRequestDataMaskingQueryParamOutput values.
+// You can construct a concrete instance of `DiagnosticFrontendRequestDataMaskingQueryParamInput` via:
+//
+//          DiagnosticFrontendRequestDataMaskingQueryParamArgs{...}
+type DiagnosticFrontendRequestDataMaskingQueryParamInput interface {
+	pulumi.Input
+
+	ToDiagnosticFrontendRequestDataMaskingQueryParamOutput() DiagnosticFrontendRequestDataMaskingQueryParamOutput
+	ToDiagnosticFrontendRequestDataMaskingQueryParamOutputWithContext(context.Context) DiagnosticFrontendRequestDataMaskingQueryParamOutput
+}
+
+type DiagnosticFrontendRequestDataMaskingQueryParamArgs struct {
+	Mode  pulumi.StringInput `pulumi:"mode"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DiagnosticFrontendRequestDataMaskingQueryParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticFrontendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i DiagnosticFrontendRequestDataMaskingQueryParamArgs) ToDiagnosticFrontendRequestDataMaskingQueryParamOutput() DiagnosticFrontendRequestDataMaskingQueryParamOutput {
+	return i.ToDiagnosticFrontendRequestDataMaskingQueryParamOutputWithContext(context.Background())
+}
+
+func (i DiagnosticFrontendRequestDataMaskingQueryParamArgs) ToDiagnosticFrontendRequestDataMaskingQueryParamOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingQueryParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingQueryParamOutput)
+}
+
+// DiagnosticFrontendRequestDataMaskingQueryParamArrayInput is an input type that accepts DiagnosticFrontendRequestDataMaskingQueryParamArray and DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput values.
+// You can construct a concrete instance of `DiagnosticFrontendRequestDataMaskingQueryParamArrayInput` via:
+//
+//          DiagnosticFrontendRequestDataMaskingQueryParamArray{ DiagnosticFrontendRequestDataMaskingQueryParamArgs{...} }
+type DiagnosticFrontendRequestDataMaskingQueryParamArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput() DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput
+	ToDiagnosticFrontendRequestDataMaskingQueryParamArrayOutputWithContext(context.Context) DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput
+}
+
+type DiagnosticFrontendRequestDataMaskingQueryParamArray []DiagnosticFrontendRequestDataMaskingQueryParamInput
+
+func (DiagnosticFrontendRequestDataMaskingQueryParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticFrontendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i DiagnosticFrontendRequestDataMaskingQueryParamArray) ToDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput() DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
+	return i.ToDiagnosticFrontendRequestDataMaskingQueryParamArrayOutputWithContext(context.Background())
+}
+
+func (i DiagnosticFrontendRequestDataMaskingQueryParamArray) ToDiagnosticFrontendRequestDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput)
+}
+
+type DiagnosticFrontendRequestDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticFrontendRequestDataMaskingQueryParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticFrontendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o DiagnosticFrontendRequestDataMaskingQueryParamOutput) ToDiagnosticFrontendRequestDataMaskingQueryParamOutput() DiagnosticFrontendRequestDataMaskingQueryParamOutput {
+	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingQueryParamOutput) ToDiagnosticFrontendRequestDataMaskingQueryParamOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingQueryParamOutput {
+	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingQueryParamOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticFrontendRequestDataMaskingQueryParam) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o DiagnosticFrontendRequestDataMaskingQueryParamOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticFrontendRequestDataMaskingQueryParam) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticFrontendRequestDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) ToDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput() DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) ToDiagnosticFrontendRequestDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) DiagnosticFrontendRequestDataMaskingQueryParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticFrontendRequestDataMaskingQueryParam {
+		return vs[0].([]DiagnosticFrontendRequestDataMaskingQueryParam)[vs[1].(int)]
+	}).(DiagnosticFrontendRequestDataMaskingQueryParamOutput)
+}
+
 type DiagnosticFrontendResponse struct {
 	// Number of payload bytes to log (up to 8192).
-	BodyBytes *int `pulumi:"bodyBytes"`
+	BodyBytes   *int                                   `pulumi:"bodyBytes"`
+	DataMasking *DiagnosticFrontendResponseDataMasking `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs []string `pulumi:"headersToLogs"`
 }
@@ -5054,7 +7675,8 @@ type DiagnosticFrontendResponseInput interface {
 
 type DiagnosticFrontendResponseArgs struct {
 	// Number of payload bytes to log (up to 8192).
-	BodyBytes pulumi.IntPtrInput `pulumi:"bodyBytes"`
+	BodyBytes   pulumi.IntPtrInput                            `pulumi:"bodyBytes"`
+	DataMasking DiagnosticFrontendResponseDataMaskingPtrInput `pulumi:"dataMasking"`
 	// Specifies a list of headers to log.
 	HeadersToLogs pulumi.StringArrayInput `pulumi:"headersToLogs"`
 }
@@ -5141,6 +7763,10 @@ func (o DiagnosticFrontendResponseOutput) BodyBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DiagnosticFrontendResponse) *int { return v.BodyBytes }).(pulumi.IntPtrOutput)
 }
 
+func (o DiagnosticFrontendResponseOutput) DataMasking() DiagnosticFrontendResponseDataMaskingPtrOutput {
+	return o.ApplyT(func(v DiagnosticFrontendResponse) *DiagnosticFrontendResponseDataMasking { return v.DataMasking }).(DiagnosticFrontendResponseDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o DiagnosticFrontendResponseOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DiagnosticFrontendResponse) []string { return v.HeadersToLogs }).(pulumi.StringArrayOutput)
@@ -5174,6 +7800,15 @@ func (o DiagnosticFrontendResponsePtrOutput) BodyBytes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+func (o DiagnosticFrontendResponsePtrOutput) DataMasking() DiagnosticFrontendResponseDataMaskingPtrOutput {
+	return o.ApplyT(func(v *DiagnosticFrontendResponse) *DiagnosticFrontendResponseDataMasking {
+		if v == nil {
+			return nil
+		}
+		return v.DataMasking
+	}).(DiagnosticFrontendResponseDataMaskingPtrOutput)
+}
+
 // Specifies a list of headers to log.
 func (o DiagnosticFrontendResponsePtrOutput) HeadersToLogs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DiagnosticFrontendResponse) []string {
@@ -5182,6 +7817,351 @@ func (o DiagnosticFrontendResponsePtrOutput) HeadersToLogs() pulumi.StringArrayO
 		}
 		return v.HeadersToLogs
 	}).(pulumi.StringArrayOutput)
+}
+
+type DiagnosticFrontendResponseDataMasking struct {
+	Headers     []DiagnosticFrontendResponseDataMaskingHeader     `pulumi:"headers"`
+	QueryParams []DiagnosticFrontendResponseDataMaskingQueryParam `pulumi:"queryParams"`
+}
+
+// DiagnosticFrontendResponseDataMaskingInput is an input type that accepts DiagnosticFrontendResponseDataMaskingArgs and DiagnosticFrontendResponseDataMaskingOutput values.
+// You can construct a concrete instance of `DiagnosticFrontendResponseDataMaskingInput` via:
+//
+//          DiagnosticFrontendResponseDataMaskingArgs{...}
+type DiagnosticFrontendResponseDataMaskingInput interface {
+	pulumi.Input
+
+	ToDiagnosticFrontendResponseDataMaskingOutput() DiagnosticFrontendResponseDataMaskingOutput
+	ToDiagnosticFrontendResponseDataMaskingOutputWithContext(context.Context) DiagnosticFrontendResponseDataMaskingOutput
+}
+
+type DiagnosticFrontendResponseDataMaskingArgs struct {
+	Headers     DiagnosticFrontendResponseDataMaskingHeaderArrayInput     `pulumi:"headers"`
+	QueryParams DiagnosticFrontendResponseDataMaskingQueryParamArrayInput `pulumi:"queryParams"`
+}
+
+func (DiagnosticFrontendResponseDataMaskingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticFrontendResponseDataMasking)(nil)).Elem()
+}
+
+func (i DiagnosticFrontendResponseDataMaskingArgs) ToDiagnosticFrontendResponseDataMaskingOutput() DiagnosticFrontendResponseDataMaskingOutput {
+	return i.ToDiagnosticFrontendResponseDataMaskingOutputWithContext(context.Background())
+}
+
+func (i DiagnosticFrontendResponseDataMaskingArgs) ToDiagnosticFrontendResponseDataMaskingOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingOutput)
+}
+
+func (i DiagnosticFrontendResponseDataMaskingArgs) ToDiagnosticFrontendResponseDataMaskingPtrOutput() DiagnosticFrontendResponseDataMaskingPtrOutput {
+	return i.ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i DiagnosticFrontendResponseDataMaskingArgs) ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingOutput).ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx)
+}
+
+// DiagnosticFrontendResponseDataMaskingPtrInput is an input type that accepts DiagnosticFrontendResponseDataMaskingArgs, DiagnosticFrontendResponseDataMaskingPtr and DiagnosticFrontendResponseDataMaskingPtrOutput values.
+// You can construct a concrete instance of `DiagnosticFrontendResponseDataMaskingPtrInput` via:
+//
+//          DiagnosticFrontendResponseDataMaskingArgs{...}
+//
+//  or:
+//
+//          nil
+type DiagnosticFrontendResponseDataMaskingPtrInput interface {
+	pulumi.Input
+
+	ToDiagnosticFrontendResponseDataMaskingPtrOutput() DiagnosticFrontendResponseDataMaskingPtrOutput
+	ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(context.Context) DiagnosticFrontendResponseDataMaskingPtrOutput
+}
+
+type diagnosticFrontendResponseDataMaskingPtrType DiagnosticFrontendResponseDataMaskingArgs
+
+func DiagnosticFrontendResponseDataMaskingPtr(v *DiagnosticFrontendResponseDataMaskingArgs) DiagnosticFrontendResponseDataMaskingPtrInput {
+	return (*diagnosticFrontendResponseDataMaskingPtrType)(v)
+}
+
+func (*diagnosticFrontendResponseDataMaskingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticFrontendResponseDataMasking)(nil)).Elem()
+}
+
+func (i *diagnosticFrontendResponseDataMaskingPtrType) ToDiagnosticFrontendResponseDataMaskingPtrOutput() DiagnosticFrontendResponseDataMaskingPtrOutput {
+	return i.ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (i *diagnosticFrontendResponseDataMaskingPtrType) ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingPtrOutput)
+}
+
+type DiagnosticFrontendResponseDataMaskingOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticFrontendResponseDataMaskingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticFrontendResponseDataMasking)(nil)).Elem()
+}
+
+func (o DiagnosticFrontendResponseDataMaskingOutput) ToDiagnosticFrontendResponseDataMaskingOutput() DiagnosticFrontendResponseDataMaskingOutput {
+	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingOutput) ToDiagnosticFrontendResponseDataMaskingOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingOutput {
+	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingOutput) ToDiagnosticFrontendResponseDataMaskingPtrOutput() DiagnosticFrontendResponseDataMaskingPtrOutput {
+	return o.ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(context.Background())
+}
+
+func (o DiagnosticFrontendResponseDataMaskingOutput) ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingPtrOutput {
+	return o.ApplyT(func(v DiagnosticFrontendResponseDataMasking) *DiagnosticFrontendResponseDataMasking {
+		return &v
+	}).(DiagnosticFrontendResponseDataMaskingPtrOutput)
+}
+func (o DiagnosticFrontendResponseDataMaskingOutput) Headers() DiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v DiagnosticFrontendResponseDataMasking) []DiagnosticFrontendResponseDataMaskingHeader {
+		return v.Headers
+	}).(DiagnosticFrontendResponseDataMaskingHeaderArrayOutput)
+}
+
+func (o DiagnosticFrontendResponseDataMaskingOutput) QueryParams() DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v DiagnosticFrontendResponseDataMasking) []DiagnosticFrontendResponseDataMaskingQueryParam {
+		return v.QueryParams
+	}).(DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput)
+}
+
+type DiagnosticFrontendResponseDataMaskingPtrOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticFrontendResponseDataMaskingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticFrontendResponseDataMasking)(nil)).Elem()
+}
+
+func (o DiagnosticFrontendResponseDataMaskingPtrOutput) ToDiagnosticFrontendResponseDataMaskingPtrOutput() DiagnosticFrontendResponseDataMaskingPtrOutput {
+	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingPtrOutput) ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingPtrOutput {
+	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingPtrOutput) Elem() DiagnosticFrontendResponseDataMaskingOutput {
+	return o.ApplyT(func(v *DiagnosticFrontendResponseDataMasking) DiagnosticFrontendResponseDataMasking { return *v }).(DiagnosticFrontendResponseDataMaskingOutput)
+}
+
+func (o DiagnosticFrontendResponseDataMaskingPtrOutput) Headers() DiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
+	return o.ApplyT(func(v *DiagnosticFrontendResponseDataMasking) []DiagnosticFrontendResponseDataMaskingHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(DiagnosticFrontendResponseDataMaskingHeaderArrayOutput)
+}
+
+func (o DiagnosticFrontendResponseDataMaskingPtrOutput) QueryParams() DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
+	return o.ApplyT(func(v *DiagnosticFrontendResponseDataMasking) []DiagnosticFrontendResponseDataMaskingQueryParam {
+		if v == nil {
+			return nil
+		}
+		return v.QueryParams
+	}).(DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput)
+}
+
+type DiagnosticFrontendResponseDataMaskingHeader struct {
+	Mode  string `pulumi:"mode"`
+	Value string `pulumi:"value"`
+}
+
+// DiagnosticFrontendResponseDataMaskingHeaderInput is an input type that accepts DiagnosticFrontendResponseDataMaskingHeaderArgs and DiagnosticFrontendResponseDataMaskingHeaderOutput values.
+// You can construct a concrete instance of `DiagnosticFrontendResponseDataMaskingHeaderInput` via:
+//
+//          DiagnosticFrontendResponseDataMaskingHeaderArgs{...}
+type DiagnosticFrontendResponseDataMaskingHeaderInput interface {
+	pulumi.Input
+
+	ToDiagnosticFrontendResponseDataMaskingHeaderOutput() DiagnosticFrontendResponseDataMaskingHeaderOutput
+	ToDiagnosticFrontendResponseDataMaskingHeaderOutputWithContext(context.Context) DiagnosticFrontendResponseDataMaskingHeaderOutput
+}
+
+type DiagnosticFrontendResponseDataMaskingHeaderArgs struct {
+	Mode  pulumi.StringInput `pulumi:"mode"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DiagnosticFrontendResponseDataMaskingHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticFrontendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (i DiagnosticFrontendResponseDataMaskingHeaderArgs) ToDiagnosticFrontendResponseDataMaskingHeaderOutput() DiagnosticFrontendResponseDataMaskingHeaderOutput {
+	return i.ToDiagnosticFrontendResponseDataMaskingHeaderOutputWithContext(context.Background())
+}
+
+func (i DiagnosticFrontendResponseDataMaskingHeaderArgs) ToDiagnosticFrontendResponseDataMaskingHeaderOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingHeaderOutput)
+}
+
+// DiagnosticFrontendResponseDataMaskingHeaderArrayInput is an input type that accepts DiagnosticFrontendResponseDataMaskingHeaderArray and DiagnosticFrontendResponseDataMaskingHeaderArrayOutput values.
+// You can construct a concrete instance of `DiagnosticFrontendResponseDataMaskingHeaderArrayInput` via:
+//
+//          DiagnosticFrontendResponseDataMaskingHeaderArray{ DiagnosticFrontendResponseDataMaskingHeaderArgs{...} }
+type DiagnosticFrontendResponseDataMaskingHeaderArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticFrontendResponseDataMaskingHeaderArrayOutput() DiagnosticFrontendResponseDataMaskingHeaderArrayOutput
+	ToDiagnosticFrontendResponseDataMaskingHeaderArrayOutputWithContext(context.Context) DiagnosticFrontendResponseDataMaskingHeaderArrayOutput
+}
+
+type DiagnosticFrontendResponseDataMaskingHeaderArray []DiagnosticFrontendResponseDataMaskingHeaderInput
+
+func (DiagnosticFrontendResponseDataMaskingHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticFrontendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (i DiagnosticFrontendResponseDataMaskingHeaderArray) ToDiagnosticFrontendResponseDataMaskingHeaderArrayOutput() DiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
+	return i.ToDiagnosticFrontendResponseDataMaskingHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i DiagnosticFrontendResponseDataMaskingHeaderArray) ToDiagnosticFrontendResponseDataMaskingHeaderArrayOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingHeaderArrayOutput)
+}
+
+type DiagnosticFrontendResponseDataMaskingHeaderOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticFrontendResponseDataMaskingHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticFrontendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (o DiagnosticFrontendResponseDataMaskingHeaderOutput) ToDiagnosticFrontendResponseDataMaskingHeaderOutput() DiagnosticFrontendResponseDataMaskingHeaderOutput {
+	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingHeaderOutput) ToDiagnosticFrontendResponseDataMaskingHeaderOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingHeaderOutput {
+	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingHeaderOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticFrontendResponseDataMaskingHeader) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o DiagnosticFrontendResponseDataMaskingHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticFrontendResponseDataMaskingHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DiagnosticFrontendResponseDataMaskingHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticFrontendResponseDataMaskingHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticFrontendResponseDataMaskingHeader)(nil)).Elem()
+}
+
+func (o DiagnosticFrontendResponseDataMaskingHeaderArrayOutput) ToDiagnosticFrontendResponseDataMaskingHeaderArrayOutput() DiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingHeaderArrayOutput) ToDiagnosticFrontendResponseDataMaskingHeaderArrayOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
+	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) DiagnosticFrontendResponseDataMaskingHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticFrontendResponseDataMaskingHeader {
+		return vs[0].([]DiagnosticFrontendResponseDataMaskingHeader)[vs[1].(int)]
+	}).(DiagnosticFrontendResponseDataMaskingHeaderOutput)
+}
+
+type DiagnosticFrontendResponseDataMaskingQueryParam struct {
+	Mode  string `pulumi:"mode"`
+	Value string `pulumi:"value"`
+}
+
+// DiagnosticFrontendResponseDataMaskingQueryParamInput is an input type that accepts DiagnosticFrontendResponseDataMaskingQueryParamArgs and DiagnosticFrontendResponseDataMaskingQueryParamOutput values.
+// You can construct a concrete instance of `DiagnosticFrontendResponseDataMaskingQueryParamInput` via:
+//
+//          DiagnosticFrontendResponseDataMaskingQueryParamArgs{...}
+type DiagnosticFrontendResponseDataMaskingQueryParamInput interface {
+	pulumi.Input
+
+	ToDiagnosticFrontendResponseDataMaskingQueryParamOutput() DiagnosticFrontendResponseDataMaskingQueryParamOutput
+	ToDiagnosticFrontendResponseDataMaskingQueryParamOutputWithContext(context.Context) DiagnosticFrontendResponseDataMaskingQueryParamOutput
+}
+
+type DiagnosticFrontendResponseDataMaskingQueryParamArgs struct {
+	Mode  pulumi.StringInput `pulumi:"mode"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DiagnosticFrontendResponseDataMaskingQueryParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticFrontendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i DiagnosticFrontendResponseDataMaskingQueryParamArgs) ToDiagnosticFrontendResponseDataMaskingQueryParamOutput() DiagnosticFrontendResponseDataMaskingQueryParamOutput {
+	return i.ToDiagnosticFrontendResponseDataMaskingQueryParamOutputWithContext(context.Background())
+}
+
+func (i DiagnosticFrontendResponseDataMaskingQueryParamArgs) ToDiagnosticFrontendResponseDataMaskingQueryParamOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingQueryParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingQueryParamOutput)
+}
+
+// DiagnosticFrontendResponseDataMaskingQueryParamArrayInput is an input type that accepts DiagnosticFrontendResponseDataMaskingQueryParamArray and DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput values.
+// You can construct a concrete instance of `DiagnosticFrontendResponseDataMaskingQueryParamArrayInput` via:
+//
+//          DiagnosticFrontendResponseDataMaskingQueryParamArray{ DiagnosticFrontendResponseDataMaskingQueryParamArgs{...} }
+type DiagnosticFrontendResponseDataMaskingQueryParamArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput() DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput
+	ToDiagnosticFrontendResponseDataMaskingQueryParamArrayOutputWithContext(context.Context) DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput
+}
+
+type DiagnosticFrontendResponseDataMaskingQueryParamArray []DiagnosticFrontendResponseDataMaskingQueryParamInput
+
+func (DiagnosticFrontendResponseDataMaskingQueryParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticFrontendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (i DiagnosticFrontendResponseDataMaskingQueryParamArray) ToDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput() DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
+	return i.ToDiagnosticFrontendResponseDataMaskingQueryParamArrayOutputWithContext(context.Background())
+}
+
+func (i DiagnosticFrontendResponseDataMaskingQueryParamArray) ToDiagnosticFrontendResponseDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput)
+}
+
+type DiagnosticFrontendResponseDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticFrontendResponseDataMaskingQueryParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticFrontendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o DiagnosticFrontendResponseDataMaskingQueryParamOutput) ToDiagnosticFrontendResponseDataMaskingQueryParamOutput() DiagnosticFrontendResponseDataMaskingQueryParamOutput {
+	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingQueryParamOutput) ToDiagnosticFrontendResponseDataMaskingQueryParamOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingQueryParamOutput {
+	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingQueryParamOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticFrontendResponseDataMaskingQueryParam) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o DiagnosticFrontendResponseDataMaskingQueryParamOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticFrontendResponseDataMaskingQueryParam) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticFrontendResponseDataMaskingQueryParam)(nil)).Elem()
+}
+
+func (o DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) ToDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput() DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) ToDiagnosticFrontendResponseDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
+	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) DiagnosticFrontendResponseDataMaskingQueryParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticFrontendResponseDataMaskingQueryParam {
+		return vs[0].([]DiagnosticFrontendResponseDataMaskingQueryParam)[vs[1].(int)]
+	}).(DiagnosticFrontendResponseDataMaskingQueryParamOutput)
 }
 
 type GatewayLocationData struct {
@@ -5650,6 +8630,156 @@ func (o LoggerEventhubPtrOutput) Name() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type NamedValueValueFromKeyVault struct {
+	// The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+	IdentityClientId string `pulumi:"identityClientId"`
+	// The resource ID of the Key Vault Secret.
+	SecretId string `pulumi:"secretId"`
+}
+
+// NamedValueValueFromKeyVaultInput is an input type that accepts NamedValueValueFromKeyVaultArgs and NamedValueValueFromKeyVaultOutput values.
+// You can construct a concrete instance of `NamedValueValueFromKeyVaultInput` via:
+//
+//          NamedValueValueFromKeyVaultArgs{...}
+type NamedValueValueFromKeyVaultInput interface {
+	pulumi.Input
+
+	ToNamedValueValueFromKeyVaultOutput() NamedValueValueFromKeyVaultOutput
+	ToNamedValueValueFromKeyVaultOutputWithContext(context.Context) NamedValueValueFromKeyVaultOutput
+}
+
+type NamedValueValueFromKeyVaultArgs struct {
+	// The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+	IdentityClientId pulumi.StringInput `pulumi:"identityClientId"`
+	// The resource ID of the Key Vault Secret.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+}
+
+func (NamedValueValueFromKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedValueValueFromKeyVault)(nil)).Elem()
+}
+
+func (i NamedValueValueFromKeyVaultArgs) ToNamedValueValueFromKeyVaultOutput() NamedValueValueFromKeyVaultOutput {
+	return i.ToNamedValueValueFromKeyVaultOutputWithContext(context.Background())
+}
+
+func (i NamedValueValueFromKeyVaultArgs) ToNamedValueValueFromKeyVaultOutputWithContext(ctx context.Context) NamedValueValueFromKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamedValueValueFromKeyVaultOutput)
+}
+
+func (i NamedValueValueFromKeyVaultArgs) ToNamedValueValueFromKeyVaultPtrOutput() NamedValueValueFromKeyVaultPtrOutput {
+	return i.ToNamedValueValueFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i NamedValueValueFromKeyVaultArgs) ToNamedValueValueFromKeyVaultPtrOutputWithContext(ctx context.Context) NamedValueValueFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamedValueValueFromKeyVaultOutput).ToNamedValueValueFromKeyVaultPtrOutputWithContext(ctx)
+}
+
+// NamedValueValueFromKeyVaultPtrInput is an input type that accepts NamedValueValueFromKeyVaultArgs, NamedValueValueFromKeyVaultPtr and NamedValueValueFromKeyVaultPtrOutput values.
+// You can construct a concrete instance of `NamedValueValueFromKeyVaultPtrInput` via:
+//
+//          NamedValueValueFromKeyVaultArgs{...}
+//
+//  or:
+//
+//          nil
+type NamedValueValueFromKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToNamedValueValueFromKeyVaultPtrOutput() NamedValueValueFromKeyVaultPtrOutput
+	ToNamedValueValueFromKeyVaultPtrOutputWithContext(context.Context) NamedValueValueFromKeyVaultPtrOutput
+}
+
+type namedValueValueFromKeyVaultPtrType NamedValueValueFromKeyVaultArgs
+
+func NamedValueValueFromKeyVaultPtr(v *NamedValueValueFromKeyVaultArgs) NamedValueValueFromKeyVaultPtrInput {
+	return (*namedValueValueFromKeyVaultPtrType)(v)
+}
+
+func (*namedValueValueFromKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamedValueValueFromKeyVault)(nil)).Elem()
+}
+
+func (i *namedValueValueFromKeyVaultPtrType) ToNamedValueValueFromKeyVaultPtrOutput() NamedValueValueFromKeyVaultPtrOutput {
+	return i.ToNamedValueValueFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *namedValueValueFromKeyVaultPtrType) ToNamedValueValueFromKeyVaultPtrOutputWithContext(ctx context.Context) NamedValueValueFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamedValueValueFromKeyVaultPtrOutput)
+}
+
+type NamedValueValueFromKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (NamedValueValueFromKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedValueValueFromKeyVault)(nil)).Elem()
+}
+
+func (o NamedValueValueFromKeyVaultOutput) ToNamedValueValueFromKeyVaultOutput() NamedValueValueFromKeyVaultOutput {
+	return o
+}
+
+func (o NamedValueValueFromKeyVaultOutput) ToNamedValueValueFromKeyVaultOutputWithContext(ctx context.Context) NamedValueValueFromKeyVaultOutput {
+	return o
+}
+
+func (o NamedValueValueFromKeyVaultOutput) ToNamedValueValueFromKeyVaultPtrOutput() NamedValueValueFromKeyVaultPtrOutput {
+	return o.ToNamedValueValueFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o NamedValueValueFromKeyVaultOutput) ToNamedValueValueFromKeyVaultPtrOutputWithContext(ctx context.Context) NamedValueValueFromKeyVaultPtrOutput {
+	return o.ApplyT(func(v NamedValueValueFromKeyVault) *NamedValueValueFromKeyVault {
+		return &v
+	}).(NamedValueValueFromKeyVaultPtrOutput)
+}
+
+// The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+func (o NamedValueValueFromKeyVaultOutput) IdentityClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v NamedValueValueFromKeyVault) string { return v.IdentityClientId }).(pulumi.StringOutput)
+}
+
+// The resource ID of the Key Vault Secret.
+func (o NamedValueValueFromKeyVaultOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v NamedValueValueFromKeyVault) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+type NamedValueValueFromKeyVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (NamedValueValueFromKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamedValueValueFromKeyVault)(nil)).Elem()
+}
+
+func (o NamedValueValueFromKeyVaultPtrOutput) ToNamedValueValueFromKeyVaultPtrOutput() NamedValueValueFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o NamedValueValueFromKeyVaultPtrOutput) ToNamedValueValueFromKeyVaultPtrOutputWithContext(ctx context.Context) NamedValueValueFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o NamedValueValueFromKeyVaultPtrOutput) Elem() NamedValueValueFromKeyVaultOutput {
+	return o.ApplyT(func(v *NamedValueValueFromKeyVault) NamedValueValueFromKeyVault { return *v }).(NamedValueValueFromKeyVaultOutput)
+}
+
+// The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+func (o NamedValueValueFromKeyVaultPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamedValueValueFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Key Vault Secret.
+func (o NamedValueValueFromKeyVaultPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamedValueValueFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9791,12 +12921,36 @@ func (o GetServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetServiceIdenti
 func init() {
 	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestOutput{})
 	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestPtrOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestDataMaskingOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestDataMaskingPtrOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestDataMaskingHeaderOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestDataMaskingQueryParamOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput{})
 	pulumi.RegisterOutputType(ApiDiagnosticBackendResponseOutput{})
 	pulumi.RegisterOutputType(ApiDiagnosticBackendResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendResponseDataMaskingOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendResponseDataMaskingPtrOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendResponseDataMaskingHeaderOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendResponseDataMaskingQueryParamOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput{})
 	pulumi.RegisterOutputType(ApiDiagnosticFrontendRequestOutput{})
 	pulumi.RegisterOutputType(ApiDiagnosticFrontendRequestPtrOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendRequestDataMaskingOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendRequestDataMaskingPtrOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendRequestDataMaskingHeaderOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput{})
 	pulumi.RegisterOutputType(ApiDiagnosticFrontendResponseOutput{})
 	pulumi.RegisterOutputType(ApiDiagnosticFrontendResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendResponseDataMaskingOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendResponseDataMaskingPtrOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendResponseDataMaskingHeaderOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput{})
 	pulumi.RegisterOutputType(ApiImportOutput{})
 	pulumi.RegisterOutputType(ApiImportPtrOutput{})
 	pulumi.RegisterOutputType(ApiImportWsdlSelectorOutput{})
@@ -9853,18 +13007,44 @@ func init() {
 	pulumi.RegisterOutputType(CustomDomainScmArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticBackendRequestOutput{})
 	pulumi.RegisterOutputType(DiagnosticBackendRequestPtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticBackendRequestDataMaskingOutput{})
+	pulumi.RegisterOutputType(DiagnosticBackendRequestDataMaskingPtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticBackendRequestDataMaskingHeaderOutput{})
+	pulumi.RegisterOutputType(DiagnosticBackendRequestDataMaskingHeaderArrayOutput{})
+	pulumi.RegisterOutputType(DiagnosticBackendRequestDataMaskingQueryParamOutput{})
+	pulumi.RegisterOutputType(DiagnosticBackendRequestDataMaskingQueryParamArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticBackendResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticBackendResponsePtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticBackendResponseDataMaskingOutput{})
+	pulumi.RegisterOutputType(DiagnosticBackendResponseDataMaskingPtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticBackendResponseDataMaskingHeaderOutput{})
+	pulumi.RegisterOutputType(DiagnosticBackendResponseDataMaskingHeaderArrayOutput{})
+	pulumi.RegisterOutputType(DiagnosticBackendResponseDataMaskingQueryParamOutput{})
+	pulumi.RegisterOutputType(DiagnosticBackendResponseDataMaskingQueryParamArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticFrontendRequestOutput{})
 	pulumi.RegisterOutputType(DiagnosticFrontendRequestPtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticFrontendRequestDataMaskingOutput{})
+	pulumi.RegisterOutputType(DiagnosticFrontendRequestDataMaskingPtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticFrontendRequestDataMaskingHeaderOutput{})
+	pulumi.RegisterOutputType(DiagnosticFrontendRequestDataMaskingHeaderArrayOutput{})
+	pulumi.RegisterOutputType(DiagnosticFrontendRequestDataMaskingQueryParamOutput{})
+	pulumi.RegisterOutputType(DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticFrontendResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticFrontendResponsePtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticFrontendResponseDataMaskingOutput{})
+	pulumi.RegisterOutputType(DiagnosticFrontendResponseDataMaskingPtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticFrontendResponseDataMaskingHeaderOutput{})
+	pulumi.RegisterOutputType(DiagnosticFrontendResponseDataMaskingHeaderArrayOutput{})
+	pulumi.RegisterOutputType(DiagnosticFrontendResponseDataMaskingQueryParamOutput{})
+	pulumi.RegisterOutputType(DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput{})
 	pulumi.RegisterOutputType(GatewayLocationDataOutput{})
 	pulumi.RegisterOutputType(GatewayLocationDataPtrOutput{})
 	pulumi.RegisterOutputType(LoggerApplicationInsightsOutput{})
 	pulumi.RegisterOutputType(LoggerApplicationInsightsPtrOutput{})
 	pulumi.RegisterOutputType(LoggerEventhubOutput{})
 	pulumi.RegisterOutputType(LoggerEventhubPtrOutput{})
+	pulumi.RegisterOutputType(NamedValueValueFromKeyVaultOutput{})
+	pulumi.RegisterOutputType(NamedValueValueFromKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAdditionalLocationOutput{})
 	pulumi.RegisterOutputType(ServiceAdditionalLocationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAdditionalLocationVirtualNetworkConfigurationOutput{})

@@ -23,6 +23,8 @@ class CachePatchSchedule(dict):
         suggest = None
         if key == "dayOfWeek":
             suggest = "day_of_week"
+        elif key == "maintenanceWindow":
+            suggest = "maintenance_window"
         elif key == "startHourUtc":
             suggest = "start_hour_utc"
 
@@ -39,8 +41,11 @@ class CachePatchSchedule(dict):
 
     def __init__(__self__, *,
                  day_of_week: str,
+                 maintenance_window: Optional[str] = None,
                  start_hour_utc: Optional[int] = None):
         pulumi.set(__self__, "day_of_week", day_of_week)
+        if maintenance_window is not None:
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if start_hour_utc is not None:
             pulumi.set(__self__, "start_hour_utc", start_hour_utc)
 
@@ -48,6 +53,11 @@ class CachePatchSchedule(dict):
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> str:
         return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional[str]:
+        return pulumi.get(self, "maintenance_window")
 
     @property
     @pulumi.getter(name="startHourUtc")

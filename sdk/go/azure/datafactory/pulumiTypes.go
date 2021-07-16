@@ -10,6 +10,156 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CustomDatasetLinkedService struct {
+	// The name of the Data Factory Linked Service.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// CustomDatasetLinkedServiceInput is an input type that accepts CustomDatasetLinkedServiceArgs and CustomDatasetLinkedServiceOutput values.
+// You can construct a concrete instance of `CustomDatasetLinkedServiceInput` via:
+//
+//          CustomDatasetLinkedServiceArgs{...}
+type CustomDatasetLinkedServiceInput interface {
+	pulumi.Input
+
+	ToCustomDatasetLinkedServiceOutput() CustomDatasetLinkedServiceOutput
+	ToCustomDatasetLinkedServiceOutputWithContext(context.Context) CustomDatasetLinkedServiceOutput
+}
+
+type CustomDatasetLinkedServiceArgs struct {
+	// The name of the Data Factory Linked Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (CustomDatasetLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDatasetLinkedService)(nil)).Elem()
+}
+
+func (i CustomDatasetLinkedServiceArgs) ToCustomDatasetLinkedServiceOutput() CustomDatasetLinkedServiceOutput {
+	return i.ToCustomDatasetLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i CustomDatasetLinkedServiceArgs) ToCustomDatasetLinkedServiceOutputWithContext(ctx context.Context) CustomDatasetLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetLinkedServiceOutput)
+}
+
+func (i CustomDatasetLinkedServiceArgs) ToCustomDatasetLinkedServicePtrOutput() CustomDatasetLinkedServicePtrOutput {
+	return i.ToCustomDatasetLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i CustomDatasetLinkedServiceArgs) ToCustomDatasetLinkedServicePtrOutputWithContext(ctx context.Context) CustomDatasetLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetLinkedServiceOutput).ToCustomDatasetLinkedServicePtrOutputWithContext(ctx)
+}
+
+// CustomDatasetLinkedServicePtrInput is an input type that accepts CustomDatasetLinkedServiceArgs, CustomDatasetLinkedServicePtr and CustomDatasetLinkedServicePtrOutput values.
+// You can construct a concrete instance of `CustomDatasetLinkedServicePtrInput` via:
+//
+//          CustomDatasetLinkedServiceArgs{...}
+//
+//  or:
+//
+//          nil
+type CustomDatasetLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToCustomDatasetLinkedServicePtrOutput() CustomDatasetLinkedServicePtrOutput
+	ToCustomDatasetLinkedServicePtrOutputWithContext(context.Context) CustomDatasetLinkedServicePtrOutput
+}
+
+type customDatasetLinkedServicePtrType CustomDatasetLinkedServiceArgs
+
+func CustomDatasetLinkedServicePtr(v *CustomDatasetLinkedServiceArgs) CustomDatasetLinkedServicePtrInput {
+	return (*customDatasetLinkedServicePtrType)(v)
+}
+
+func (*customDatasetLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomDatasetLinkedService)(nil)).Elem()
+}
+
+func (i *customDatasetLinkedServicePtrType) ToCustomDatasetLinkedServicePtrOutput() CustomDatasetLinkedServicePtrOutput {
+	return i.ToCustomDatasetLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *customDatasetLinkedServicePtrType) ToCustomDatasetLinkedServicePtrOutputWithContext(ctx context.Context) CustomDatasetLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetLinkedServicePtrOutput)
+}
+
+type CustomDatasetLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (CustomDatasetLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDatasetLinkedService)(nil)).Elem()
+}
+
+func (o CustomDatasetLinkedServiceOutput) ToCustomDatasetLinkedServiceOutput() CustomDatasetLinkedServiceOutput {
+	return o
+}
+
+func (o CustomDatasetLinkedServiceOutput) ToCustomDatasetLinkedServiceOutputWithContext(ctx context.Context) CustomDatasetLinkedServiceOutput {
+	return o
+}
+
+func (o CustomDatasetLinkedServiceOutput) ToCustomDatasetLinkedServicePtrOutput() CustomDatasetLinkedServicePtrOutput {
+	return o.ToCustomDatasetLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o CustomDatasetLinkedServiceOutput) ToCustomDatasetLinkedServicePtrOutputWithContext(ctx context.Context) CustomDatasetLinkedServicePtrOutput {
+	return o.ApplyT(func(v CustomDatasetLinkedService) *CustomDatasetLinkedService {
+		return &v
+	}).(CustomDatasetLinkedServicePtrOutput)
+}
+
+// The name of the Data Factory Linked Service.
+func (o CustomDatasetLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDatasetLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o CustomDatasetLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CustomDatasetLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type CustomDatasetLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (CustomDatasetLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomDatasetLinkedService)(nil)).Elem()
+}
+
+func (o CustomDatasetLinkedServicePtrOutput) ToCustomDatasetLinkedServicePtrOutput() CustomDatasetLinkedServicePtrOutput {
+	return o
+}
+
+func (o CustomDatasetLinkedServicePtrOutput) ToCustomDatasetLinkedServicePtrOutputWithContext(ctx context.Context) CustomDatasetLinkedServicePtrOutput {
+	return o
+}
+
+func (o CustomDatasetLinkedServicePtrOutput) Elem() CustomDatasetLinkedServiceOutput {
+	return o.ApplyT(func(v *CustomDatasetLinkedService) CustomDatasetLinkedService { return *v }).(CustomDatasetLinkedServiceOutput)
+}
+
+// The name of the Data Factory Linked Service.
+func (o CustomDatasetLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDatasetLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o CustomDatasetLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CustomDatasetLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
 type DatasetAzureBlobSchemaColumn struct {
 	// The description of the column.
 	Description *string `pulumi:"description"`
@@ -123,6 +273,644 @@ func (o DatasetAzureBlobSchemaColumnArrayOutput) Index(i pulumi.IntInput) Datase
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetAzureBlobSchemaColumn {
 		return vs[0].([]DatasetAzureBlobSchemaColumn)[vs[1].(int)]
 	}).(DatasetAzureBlobSchemaColumnOutput)
+}
+
+type DatasetBinaryAzureBlobStorageLocation struct {
+	// The container on the Azure Blob Storage Account hosting the file.
+	Container string `pulumi:"container"`
+	// The filename of the file on the web server.
+	Filename string `pulumi:"filename"`
+	// The folder path to the file on the web server.
+	Path string `pulumi:"path"`
+}
+
+// DatasetBinaryAzureBlobStorageLocationInput is an input type that accepts DatasetBinaryAzureBlobStorageLocationArgs and DatasetBinaryAzureBlobStorageLocationOutput values.
+// You can construct a concrete instance of `DatasetBinaryAzureBlobStorageLocationInput` via:
+//
+//          DatasetBinaryAzureBlobStorageLocationArgs{...}
+type DatasetBinaryAzureBlobStorageLocationInput interface {
+	pulumi.Input
+
+	ToDatasetBinaryAzureBlobStorageLocationOutput() DatasetBinaryAzureBlobStorageLocationOutput
+	ToDatasetBinaryAzureBlobStorageLocationOutputWithContext(context.Context) DatasetBinaryAzureBlobStorageLocationOutput
+}
+
+type DatasetBinaryAzureBlobStorageLocationArgs struct {
+	// The container on the Azure Blob Storage Account hosting the file.
+	Container pulumi.StringInput `pulumi:"container"`
+	// The filename of the file on the web server.
+	Filename pulumi.StringInput `pulumi:"filename"`
+	// The folder path to the file on the web server.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (DatasetBinaryAzureBlobStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetBinaryAzureBlobStorageLocation)(nil)).Elem()
+}
+
+func (i DatasetBinaryAzureBlobStorageLocationArgs) ToDatasetBinaryAzureBlobStorageLocationOutput() DatasetBinaryAzureBlobStorageLocationOutput {
+	return i.ToDatasetBinaryAzureBlobStorageLocationOutputWithContext(context.Background())
+}
+
+func (i DatasetBinaryAzureBlobStorageLocationArgs) ToDatasetBinaryAzureBlobStorageLocationOutputWithContext(ctx context.Context) DatasetBinaryAzureBlobStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryAzureBlobStorageLocationOutput)
+}
+
+func (i DatasetBinaryAzureBlobStorageLocationArgs) ToDatasetBinaryAzureBlobStorageLocationPtrOutput() DatasetBinaryAzureBlobStorageLocationPtrOutput {
+	return i.ToDatasetBinaryAzureBlobStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetBinaryAzureBlobStorageLocationArgs) ToDatasetBinaryAzureBlobStorageLocationPtrOutputWithContext(ctx context.Context) DatasetBinaryAzureBlobStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryAzureBlobStorageLocationOutput).ToDatasetBinaryAzureBlobStorageLocationPtrOutputWithContext(ctx)
+}
+
+// DatasetBinaryAzureBlobStorageLocationPtrInput is an input type that accepts DatasetBinaryAzureBlobStorageLocationArgs, DatasetBinaryAzureBlobStorageLocationPtr and DatasetBinaryAzureBlobStorageLocationPtrOutput values.
+// You can construct a concrete instance of `DatasetBinaryAzureBlobStorageLocationPtrInput` via:
+//
+//          DatasetBinaryAzureBlobStorageLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetBinaryAzureBlobStorageLocationPtrInput interface {
+	pulumi.Input
+
+	ToDatasetBinaryAzureBlobStorageLocationPtrOutput() DatasetBinaryAzureBlobStorageLocationPtrOutput
+	ToDatasetBinaryAzureBlobStorageLocationPtrOutputWithContext(context.Context) DatasetBinaryAzureBlobStorageLocationPtrOutput
+}
+
+type datasetBinaryAzureBlobStorageLocationPtrType DatasetBinaryAzureBlobStorageLocationArgs
+
+func DatasetBinaryAzureBlobStorageLocationPtr(v *DatasetBinaryAzureBlobStorageLocationArgs) DatasetBinaryAzureBlobStorageLocationPtrInput {
+	return (*datasetBinaryAzureBlobStorageLocationPtrType)(v)
+}
+
+func (*datasetBinaryAzureBlobStorageLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetBinaryAzureBlobStorageLocation)(nil)).Elem()
+}
+
+func (i *datasetBinaryAzureBlobStorageLocationPtrType) ToDatasetBinaryAzureBlobStorageLocationPtrOutput() DatasetBinaryAzureBlobStorageLocationPtrOutput {
+	return i.ToDatasetBinaryAzureBlobStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetBinaryAzureBlobStorageLocationPtrType) ToDatasetBinaryAzureBlobStorageLocationPtrOutputWithContext(ctx context.Context) DatasetBinaryAzureBlobStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryAzureBlobStorageLocationPtrOutput)
+}
+
+type DatasetBinaryAzureBlobStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (DatasetBinaryAzureBlobStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetBinaryAzureBlobStorageLocation)(nil)).Elem()
+}
+
+func (o DatasetBinaryAzureBlobStorageLocationOutput) ToDatasetBinaryAzureBlobStorageLocationOutput() DatasetBinaryAzureBlobStorageLocationOutput {
+	return o
+}
+
+func (o DatasetBinaryAzureBlobStorageLocationOutput) ToDatasetBinaryAzureBlobStorageLocationOutputWithContext(ctx context.Context) DatasetBinaryAzureBlobStorageLocationOutput {
+	return o
+}
+
+func (o DatasetBinaryAzureBlobStorageLocationOutput) ToDatasetBinaryAzureBlobStorageLocationPtrOutput() DatasetBinaryAzureBlobStorageLocationPtrOutput {
+	return o.ToDatasetBinaryAzureBlobStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetBinaryAzureBlobStorageLocationOutput) ToDatasetBinaryAzureBlobStorageLocationPtrOutputWithContext(ctx context.Context) DatasetBinaryAzureBlobStorageLocationPtrOutput {
+	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) *DatasetBinaryAzureBlobStorageLocation {
+		return &v
+	}).(DatasetBinaryAzureBlobStorageLocationPtrOutput)
+}
+
+// The container on the Azure Blob Storage Account hosting the file.
+func (o DatasetBinaryAzureBlobStorageLocationOutput) Container() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
+}
+
+// The filename of the file on the web server.
+func (o DatasetBinaryAzureBlobStorageLocationOutput) Filename() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) string { return v.Filename }).(pulumi.StringOutput)
+}
+
+// The folder path to the file on the web server.
+func (o DatasetBinaryAzureBlobStorageLocationOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type DatasetBinaryAzureBlobStorageLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetBinaryAzureBlobStorageLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetBinaryAzureBlobStorageLocation)(nil)).Elem()
+}
+
+func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) ToDatasetBinaryAzureBlobStorageLocationPtrOutput() DatasetBinaryAzureBlobStorageLocationPtrOutput {
+	return o
+}
+
+func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) ToDatasetBinaryAzureBlobStorageLocationPtrOutputWithContext(ctx context.Context) DatasetBinaryAzureBlobStorageLocationPtrOutput {
+	return o
+}
+
+func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) Elem() DatasetBinaryAzureBlobStorageLocationOutput {
+	return o.ApplyT(func(v *DatasetBinaryAzureBlobStorageLocation) DatasetBinaryAzureBlobStorageLocation { return *v }).(DatasetBinaryAzureBlobStorageLocationOutput)
+}
+
+// The container on the Azure Blob Storage Account hosting the file.
+func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) Container() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryAzureBlobStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Container
+	}).(pulumi.StringPtrOutput)
+}
+
+// The filename of the file on the web server.
+func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryAzureBlobStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// The folder path to the file on the web server.
+func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryAzureBlobStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetBinaryCompression struct {
+	// The level of compression. Possible values are `Fastest` and `Optimal`.
+	Level *string `pulumi:"level"`
+	// The type of compression used during transport.
+	Type string `pulumi:"type"`
+}
+
+// DatasetBinaryCompressionInput is an input type that accepts DatasetBinaryCompressionArgs and DatasetBinaryCompressionOutput values.
+// You can construct a concrete instance of `DatasetBinaryCompressionInput` via:
+//
+//          DatasetBinaryCompressionArgs{...}
+type DatasetBinaryCompressionInput interface {
+	pulumi.Input
+
+	ToDatasetBinaryCompressionOutput() DatasetBinaryCompressionOutput
+	ToDatasetBinaryCompressionOutputWithContext(context.Context) DatasetBinaryCompressionOutput
+}
+
+type DatasetBinaryCompressionArgs struct {
+	// The level of compression. Possible values are `Fastest` and `Optimal`.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// The type of compression used during transport.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DatasetBinaryCompressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetBinaryCompression)(nil)).Elem()
+}
+
+func (i DatasetBinaryCompressionArgs) ToDatasetBinaryCompressionOutput() DatasetBinaryCompressionOutput {
+	return i.ToDatasetBinaryCompressionOutputWithContext(context.Background())
+}
+
+func (i DatasetBinaryCompressionArgs) ToDatasetBinaryCompressionOutputWithContext(ctx context.Context) DatasetBinaryCompressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryCompressionOutput)
+}
+
+func (i DatasetBinaryCompressionArgs) ToDatasetBinaryCompressionPtrOutput() DatasetBinaryCompressionPtrOutput {
+	return i.ToDatasetBinaryCompressionPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetBinaryCompressionArgs) ToDatasetBinaryCompressionPtrOutputWithContext(ctx context.Context) DatasetBinaryCompressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryCompressionOutput).ToDatasetBinaryCompressionPtrOutputWithContext(ctx)
+}
+
+// DatasetBinaryCompressionPtrInput is an input type that accepts DatasetBinaryCompressionArgs, DatasetBinaryCompressionPtr and DatasetBinaryCompressionPtrOutput values.
+// You can construct a concrete instance of `DatasetBinaryCompressionPtrInput` via:
+//
+//          DatasetBinaryCompressionArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetBinaryCompressionPtrInput interface {
+	pulumi.Input
+
+	ToDatasetBinaryCompressionPtrOutput() DatasetBinaryCompressionPtrOutput
+	ToDatasetBinaryCompressionPtrOutputWithContext(context.Context) DatasetBinaryCompressionPtrOutput
+}
+
+type datasetBinaryCompressionPtrType DatasetBinaryCompressionArgs
+
+func DatasetBinaryCompressionPtr(v *DatasetBinaryCompressionArgs) DatasetBinaryCompressionPtrInput {
+	return (*datasetBinaryCompressionPtrType)(v)
+}
+
+func (*datasetBinaryCompressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetBinaryCompression)(nil)).Elem()
+}
+
+func (i *datasetBinaryCompressionPtrType) ToDatasetBinaryCompressionPtrOutput() DatasetBinaryCompressionPtrOutput {
+	return i.ToDatasetBinaryCompressionPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetBinaryCompressionPtrType) ToDatasetBinaryCompressionPtrOutputWithContext(ctx context.Context) DatasetBinaryCompressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryCompressionPtrOutput)
+}
+
+type DatasetBinaryCompressionOutput struct{ *pulumi.OutputState }
+
+func (DatasetBinaryCompressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetBinaryCompression)(nil)).Elem()
+}
+
+func (o DatasetBinaryCompressionOutput) ToDatasetBinaryCompressionOutput() DatasetBinaryCompressionOutput {
+	return o
+}
+
+func (o DatasetBinaryCompressionOutput) ToDatasetBinaryCompressionOutputWithContext(ctx context.Context) DatasetBinaryCompressionOutput {
+	return o
+}
+
+func (o DatasetBinaryCompressionOutput) ToDatasetBinaryCompressionPtrOutput() DatasetBinaryCompressionPtrOutput {
+	return o.ToDatasetBinaryCompressionPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetBinaryCompressionOutput) ToDatasetBinaryCompressionPtrOutputWithContext(ctx context.Context) DatasetBinaryCompressionPtrOutput {
+	return o.ApplyT(func(v DatasetBinaryCompression) *DatasetBinaryCompression {
+		return &v
+	}).(DatasetBinaryCompressionPtrOutput)
+}
+
+// The level of compression. Possible values are `Fastest` and `Optimal`.
+func (o DatasetBinaryCompressionOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetBinaryCompression) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// The type of compression used during transport.
+func (o DatasetBinaryCompressionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetBinaryCompression) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DatasetBinaryCompressionPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetBinaryCompressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetBinaryCompression)(nil)).Elem()
+}
+
+func (o DatasetBinaryCompressionPtrOutput) ToDatasetBinaryCompressionPtrOutput() DatasetBinaryCompressionPtrOutput {
+	return o
+}
+
+func (o DatasetBinaryCompressionPtrOutput) ToDatasetBinaryCompressionPtrOutputWithContext(ctx context.Context) DatasetBinaryCompressionPtrOutput {
+	return o
+}
+
+func (o DatasetBinaryCompressionPtrOutput) Elem() DatasetBinaryCompressionOutput {
+	return o.ApplyT(func(v *DatasetBinaryCompression) DatasetBinaryCompression { return *v }).(DatasetBinaryCompressionOutput)
+}
+
+// The level of compression. Possible values are `Fastest` and `Optimal`.
+func (o DatasetBinaryCompressionPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryCompression) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of compression used during transport.
+func (o DatasetBinaryCompressionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryCompression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetBinaryHttpServerLocation struct {
+	// The filename of the file on the web server.
+	Filename string `pulumi:"filename"`
+	// The folder path to the file on the web server.
+	Path string `pulumi:"path"`
+	// The base URL to the web server hosting the file.
+	RelativeUrl string `pulumi:"relativeUrl"`
+}
+
+// DatasetBinaryHttpServerLocationInput is an input type that accepts DatasetBinaryHttpServerLocationArgs and DatasetBinaryHttpServerLocationOutput values.
+// You can construct a concrete instance of `DatasetBinaryHttpServerLocationInput` via:
+//
+//          DatasetBinaryHttpServerLocationArgs{...}
+type DatasetBinaryHttpServerLocationInput interface {
+	pulumi.Input
+
+	ToDatasetBinaryHttpServerLocationOutput() DatasetBinaryHttpServerLocationOutput
+	ToDatasetBinaryHttpServerLocationOutputWithContext(context.Context) DatasetBinaryHttpServerLocationOutput
+}
+
+type DatasetBinaryHttpServerLocationArgs struct {
+	// The filename of the file on the web server.
+	Filename pulumi.StringInput `pulumi:"filename"`
+	// The folder path to the file on the web server.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The base URL to the web server hosting the file.
+	RelativeUrl pulumi.StringInput `pulumi:"relativeUrl"`
+}
+
+func (DatasetBinaryHttpServerLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetBinaryHttpServerLocation)(nil)).Elem()
+}
+
+func (i DatasetBinaryHttpServerLocationArgs) ToDatasetBinaryHttpServerLocationOutput() DatasetBinaryHttpServerLocationOutput {
+	return i.ToDatasetBinaryHttpServerLocationOutputWithContext(context.Background())
+}
+
+func (i DatasetBinaryHttpServerLocationArgs) ToDatasetBinaryHttpServerLocationOutputWithContext(ctx context.Context) DatasetBinaryHttpServerLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryHttpServerLocationOutput)
+}
+
+func (i DatasetBinaryHttpServerLocationArgs) ToDatasetBinaryHttpServerLocationPtrOutput() DatasetBinaryHttpServerLocationPtrOutput {
+	return i.ToDatasetBinaryHttpServerLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetBinaryHttpServerLocationArgs) ToDatasetBinaryHttpServerLocationPtrOutputWithContext(ctx context.Context) DatasetBinaryHttpServerLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryHttpServerLocationOutput).ToDatasetBinaryHttpServerLocationPtrOutputWithContext(ctx)
+}
+
+// DatasetBinaryHttpServerLocationPtrInput is an input type that accepts DatasetBinaryHttpServerLocationArgs, DatasetBinaryHttpServerLocationPtr and DatasetBinaryHttpServerLocationPtrOutput values.
+// You can construct a concrete instance of `DatasetBinaryHttpServerLocationPtrInput` via:
+//
+//          DatasetBinaryHttpServerLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetBinaryHttpServerLocationPtrInput interface {
+	pulumi.Input
+
+	ToDatasetBinaryHttpServerLocationPtrOutput() DatasetBinaryHttpServerLocationPtrOutput
+	ToDatasetBinaryHttpServerLocationPtrOutputWithContext(context.Context) DatasetBinaryHttpServerLocationPtrOutput
+}
+
+type datasetBinaryHttpServerLocationPtrType DatasetBinaryHttpServerLocationArgs
+
+func DatasetBinaryHttpServerLocationPtr(v *DatasetBinaryHttpServerLocationArgs) DatasetBinaryHttpServerLocationPtrInput {
+	return (*datasetBinaryHttpServerLocationPtrType)(v)
+}
+
+func (*datasetBinaryHttpServerLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetBinaryHttpServerLocation)(nil)).Elem()
+}
+
+func (i *datasetBinaryHttpServerLocationPtrType) ToDatasetBinaryHttpServerLocationPtrOutput() DatasetBinaryHttpServerLocationPtrOutput {
+	return i.ToDatasetBinaryHttpServerLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetBinaryHttpServerLocationPtrType) ToDatasetBinaryHttpServerLocationPtrOutputWithContext(ctx context.Context) DatasetBinaryHttpServerLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryHttpServerLocationPtrOutput)
+}
+
+type DatasetBinaryHttpServerLocationOutput struct{ *pulumi.OutputState }
+
+func (DatasetBinaryHttpServerLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetBinaryHttpServerLocation)(nil)).Elem()
+}
+
+func (o DatasetBinaryHttpServerLocationOutput) ToDatasetBinaryHttpServerLocationOutput() DatasetBinaryHttpServerLocationOutput {
+	return o
+}
+
+func (o DatasetBinaryHttpServerLocationOutput) ToDatasetBinaryHttpServerLocationOutputWithContext(ctx context.Context) DatasetBinaryHttpServerLocationOutput {
+	return o
+}
+
+func (o DatasetBinaryHttpServerLocationOutput) ToDatasetBinaryHttpServerLocationPtrOutput() DatasetBinaryHttpServerLocationPtrOutput {
+	return o.ToDatasetBinaryHttpServerLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetBinaryHttpServerLocationOutput) ToDatasetBinaryHttpServerLocationPtrOutputWithContext(ctx context.Context) DatasetBinaryHttpServerLocationPtrOutput {
+	return o.ApplyT(func(v DatasetBinaryHttpServerLocation) *DatasetBinaryHttpServerLocation {
+		return &v
+	}).(DatasetBinaryHttpServerLocationPtrOutput)
+}
+
+// The filename of the file on the web server.
+func (o DatasetBinaryHttpServerLocationOutput) Filename() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetBinaryHttpServerLocation) string { return v.Filename }).(pulumi.StringOutput)
+}
+
+// The folder path to the file on the web server.
+func (o DatasetBinaryHttpServerLocationOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetBinaryHttpServerLocation) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The base URL to the web server hosting the file.
+func (o DatasetBinaryHttpServerLocationOutput) RelativeUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetBinaryHttpServerLocation) string { return v.RelativeUrl }).(pulumi.StringOutput)
+}
+
+type DatasetBinaryHttpServerLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetBinaryHttpServerLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetBinaryHttpServerLocation)(nil)).Elem()
+}
+
+func (o DatasetBinaryHttpServerLocationPtrOutput) ToDatasetBinaryHttpServerLocationPtrOutput() DatasetBinaryHttpServerLocationPtrOutput {
+	return o
+}
+
+func (o DatasetBinaryHttpServerLocationPtrOutput) ToDatasetBinaryHttpServerLocationPtrOutputWithContext(ctx context.Context) DatasetBinaryHttpServerLocationPtrOutput {
+	return o
+}
+
+func (o DatasetBinaryHttpServerLocationPtrOutput) Elem() DatasetBinaryHttpServerLocationOutput {
+	return o.ApplyT(func(v *DatasetBinaryHttpServerLocation) DatasetBinaryHttpServerLocation { return *v }).(DatasetBinaryHttpServerLocationOutput)
+}
+
+// The filename of the file on the web server.
+func (o DatasetBinaryHttpServerLocationPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryHttpServerLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// The folder path to the file on the web server.
+func (o DatasetBinaryHttpServerLocationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryHttpServerLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The base URL to the web server hosting the file.
+func (o DatasetBinaryHttpServerLocationPtrOutput) RelativeUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryHttpServerLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RelativeUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetBinarySftpServerLocation struct {
+	// The filename of the file on the SFTP server.
+	Filename string `pulumi:"filename"`
+	// The folder path to the file on the SFTP server.
+	Path string `pulumi:"path"`
+}
+
+// DatasetBinarySftpServerLocationInput is an input type that accepts DatasetBinarySftpServerLocationArgs and DatasetBinarySftpServerLocationOutput values.
+// You can construct a concrete instance of `DatasetBinarySftpServerLocationInput` via:
+//
+//          DatasetBinarySftpServerLocationArgs{...}
+type DatasetBinarySftpServerLocationInput interface {
+	pulumi.Input
+
+	ToDatasetBinarySftpServerLocationOutput() DatasetBinarySftpServerLocationOutput
+	ToDatasetBinarySftpServerLocationOutputWithContext(context.Context) DatasetBinarySftpServerLocationOutput
+}
+
+type DatasetBinarySftpServerLocationArgs struct {
+	// The filename of the file on the SFTP server.
+	Filename pulumi.StringInput `pulumi:"filename"`
+	// The folder path to the file on the SFTP server.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (DatasetBinarySftpServerLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetBinarySftpServerLocation)(nil)).Elem()
+}
+
+func (i DatasetBinarySftpServerLocationArgs) ToDatasetBinarySftpServerLocationOutput() DatasetBinarySftpServerLocationOutput {
+	return i.ToDatasetBinarySftpServerLocationOutputWithContext(context.Background())
+}
+
+func (i DatasetBinarySftpServerLocationArgs) ToDatasetBinarySftpServerLocationOutputWithContext(ctx context.Context) DatasetBinarySftpServerLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinarySftpServerLocationOutput)
+}
+
+func (i DatasetBinarySftpServerLocationArgs) ToDatasetBinarySftpServerLocationPtrOutput() DatasetBinarySftpServerLocationPtrOutput {
+	return i.ToDatasetBinarySftpServerLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetBinarySftpServerLocationArgs) ToDatasetBinarySftpServerLocationPtrOutputWithContext(ctx context.Context) DatasetBinarySftpServerLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinarySftpServerLocationOutput).ToDatasetBinarySftpServerLocationPtrOutputWithContext(ctx)
+}
+
+// DatasetBinarySftpServerLocationPtrInput is an input type that accepts DatasetBinarySftpServerLocationArgs, DatasetBinarySftpServerLocationPtr and DatasetBinarySftpServerLocationPtrOutput values.
+// You can construct a concrete instance of `DatasetBinarySftpServerLocationPtrInput` via:
+//
+//          DatasetBinarySftpServerLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetBinarySftpServerLocationPtrInput interface {
+	pulumi.Input
+
+	ToDatasetBinarySftpServerLocationPtrOutput() DatasetBinarySftpServerLocationPtrOutput
+	ToDatasetBinarySftpServerLocationPtrOutputWithContext(context.Context) DatasetBinarySftpServerLocationPtrOutput
+}
+
+type datasetBinarySftpServerLocationPtrType DatasetBinarySftpServerLocationArgs
+
+func DatasetBinarySftpServerLocationPtr(v *DatasetBinarySftpServerLocationArgs) DatasetBinarySftpServerLocationPtrInput {
+	return (*datasetBinarySftpServerLocationPtrType)(v)
+}
+
+func (*datasetBinarySftpServerLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetBinarySftpServerLocation)(nil)).Elem()
+}
+
+func (i *datasetBinarySftpServerLocationPtrType) ToDatasetBinarySftpServerLocationPtrOutput() DatasetBinarySftpServerLocationPtrOutput {
+	return i.ToDatasetBinarySftpServerLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetBinarySftpServerLocationPtrType) ToDatasetBinarySftpServerLocationPtrOutputWithContext(ctx context.Context) DatasetBinarySftpServerLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinarySftpServerLocationPtrOutput)
+}
+
+type DatasetBinarySftpServerLocationOutput struct{ *pulumi.OutputState }
+
+func (DatasetBinarySftpServerLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetBinarySftpServerLocation)(nil)).Elem()
+}
+
+func (o DatasetBinarySftpServerLocationOutput) ToDatasetBinarySftpServerLocationOutput() DatasetBinarySftpServerLocationOutput {
+	return o
+}
+
+func (o DatasetBinarySftpServerLocationOutput) ToDatasetBinarySftpServerLocationOutputWithContext(ctx context.Context) DatasetBinarySftpServerLocationOutput {
+	return o
+}
+
+func (o DatasetBinarySftpServerLocationOutput) ToDatasetBinarySftpServerLocationPtrOutput() DatasetBinarySftpServerLocationPtrOutput {
+	return o.ToDatasetBinarySftpServerLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetBinarySftpServerLocationOutput) ToDatasetBinarySftpServerLocationPtrOutputWithContext(ctx context.Context) DatasetBinarySftpServerLocationPtrOutput {
+	return o.ApplyT(func(v DatasetBinarySftpServerLocation) *DatasetBinarySftpServerLocation {
+		return &v
+	}).(DatasetBinarySftpServerLocationPtrOutput)
+}
+
+// The filename of the file on the SFTP server.
+func (o DatasetBinarySftpServerLocationOutput) Filename() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetBinarySftpServerLocation) string { return v.Filename }).(pulumi.StringOutput)
+}
+
+// The folder path to the file on the SFTP server.
+func (o DatasetBinarySftpServerLocationOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetBinarySftpServerLocation) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type DatasetBinarySftpServerLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetBinarySftpServerLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetBinarySftpServerLocation)(nil)).Elem()
+}
+
+func (o DatasetBinarySftpServerLocationPtrOutput) ToDatasetBinarySftpServerLocationPtrOutput() DatasetBinarySftpServerLocationPtrOutput {
+	return o
+}
+
+func (o DatasetBinarySftpServerLocationPtrOutput) ToDatasetBinarySftpServerLocationPtrOutputWithContext(ctx context.Context) DatasetBinarySftpServerLocationPtrOutput {
+	return o
+}
+
+func (o DatasetBinarySftpServerLocationPtrOutput) Elem() DatasetBinarySftpServerLocationOutput {
+	return o.ApplyT(func(v *DatasetBinarySftpServerLocation) DatasetBinarySftpServerLocation { return *v }).(DatasetBinarySftpServerLocationOutput)
+}
+
+// The filename of the file on the SFTP server.
+func (o DatasetBinarySftpServerLocationPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBinarySftpServerLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// The folder path to the file on the SFTP server.
+func (o DatasetBinarySftpServerLocationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBinarySftpServerLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
 }
 
 type DatasetCosmosDBApiSchemaColumn struct {
@@ -6663,8 +7451,18 @@ func (o GetFactoryVstsConfigurationArrayOutput) Index(i pulumi.IntInput) GetFact
 }
 
 func init() {
+	pulumi.RegisterOutputType(CustomDatasetLinkedServiceOutput{})
+	pulumi.RegisterOutputType(CustomDatasetLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobSchemaColumnArrayOutput{})
+	pulumi.RegisterOutputType(DatasetBinaryAzureBlobStorageLocationOutput{})
+	pulumi.RegisterOutputType(DatasetBinaryAzureBlobStorageLocationPtrOutput{})
+	pulumi.RegisterOutputType(DatasetBinaryCompressionOutput{})
+	pulumi.RegisterOutputType(DatasetBinaryCompressionPtrOutput{})
+	pulumi.RegisterOutputType(DatasetBinaryHttpServerLocationOutput{})
+	pulumi.RegisterOutputType(DatasetBinaryHttpServerLocationPtrOutput{})
+	pulumi.RegisterOutputType(DatasetBinarySftpServerLocationOutput{})
+	pulumi.RegisterOutputType(DatasetBinarySftpServerLocationPtrOutput{})
 	pulumi.RegisterOutputType(DatasetCosmosDBApiSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetCosmosDBApiSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetDelimitedTextAzureBlobFsLocationOutput{})

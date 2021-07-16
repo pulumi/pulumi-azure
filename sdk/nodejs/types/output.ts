@@ -71,9 +71,46 @@ export namespace apimanagement {
          */
         bodyBytes?: number;
         /**
+         * A `dataMasking` block as defined below.
+         */
+        dataMasking?: outputs.apimanagement.ApiDiagnosticBackendRequestDataMasking;
+        /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: string[];
+    }
+
+    export interface ApiDiagnosticBackendRequestDataMasking {
+        /**
+         * A `headers` block as defined below.
+         */
+        headers?: outputs.apimanagement.ApiDiagnosticBackendRequestDataMaskingHeader[];
+        /**
+         * A `queryParams` block as defined below.
+         */
+        queryParams?: outputs.apimanagement.ApiDiagnosticBackendRequestDataMaskingQueryParam[];
+    }
+
+    export interface ApiDiagnosticBackendRequestDataMaskingHeader {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: string;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: string;
+    }
+
+    export interface ApiDiagnosticBackendRequestDataMaskingQueryParam {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: string;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: string;
     }
 
     export interface ApiDiagnosticBackendResponse {
@@ -82,9 +119,46 @@ export namespace apimanagement {
          */
         bodyBytes?: number;
         /**
+         * A `dataMasking` block as defined below.
+         */
+        dataMasking?: outputs.apimanagement.ApiDiagnosticBackendResponseDataMasking;
+        /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: string[];
+    }
+
+    export interface ApiDiagnosticBackendResponseDataMasking {
+        /**
+         * A `headers` block as defined below.
+         */
+        headers?: outputs.apimanagement.ApiDiagnosticBackendResponseDataMaskingHeader[];
+        /**
+         * A `queryParams` block as defined below.
+         */
+        queryParams?: outputs.apimanagement.ApiDiagnosticBackendResponseDataMaskingQueryParam[];
+    }
+
+    export interface ApiDiagnosticBackendResponseDataMaskingHeader {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: string;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: string;
+    }
+
+    export interface ApiDiagnosticBackendResponseDataMaskingQueryParam {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: string;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: string;
     }
 
     export interface ApiDiagnosticFrontendRequest {
@@ -93,9 +167,46 @@ export namespace apimanagement {
          */
         bodyBytes?: number;
         /**
+         * A `dataMasking` block as defined below.
+         */
+        dataMasking?: outputs.apimanagement.ApiDiagnosticFrontendRequestDataMasking;
+        /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: string[];
+    }
+
+    export interface ApiDiagnosticFrontendRequestDataMasking {
+        /**
+         * A `headers` block as defined below.
+         */
+        headers?: outputs.apimanagement.ApiDiagnosticFrontendRequestDataMaskingHeader[];
+        /**
+         * A `queryParams` block as defined below.
+         */
+        queryParams?: outputs.apimanagement.ApiDiagnosticFrontendRequestDataMaskingQueryParam[];
+    }
+
+    export interface ApiDiagnosticFrontendRequestDataMaskingHeader {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: string;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: string;
+    }
+
+    export interface ApiDiagnosticFrontendRequestDataMaskingQueryParam {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: string;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: string;
     }
 
     export interface ApiDiagnosticFrontendResponse {
@@ -104,9 +215,46 @@ export namespace apimanagement {
          */
         bodyBytes?: number;
         /**
+         * A `dataMasking` block as defined below.
+         */
+        dataMasking?: outputs.apimanagement.ApiDiagnosticFrontendResponseDataMasking;
+        /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: string[];
+    }
+
+    export interface ApiDiagnosticFrontendResponseDataMasking {
+        /**
+         * A `headers` block as defined below.
+         */
+        headers?: outputs.apimanagement.ApiDiagnosticFrontendResponseDataMaskingHeader[];
+        /**
+         * A `queryParams` block as defined below.
+         */
+        queryParams?: outputs.apimanagement.ApiDiagnosticFrontendResponseDataMaskingQueryParam[];
+    }
+
+    export interface ApiDiagnosticFrontendResponseDataMaskingHeader {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: string;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: string;
+    }
+
+    export interface ApiDiagnosticFrontendResponseDataMaskingQueryParam {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: string;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: string;
     }
 
     export interface ApiImport {
@@ -643,10 +791,26 @@ export namespace apimanagement {
          * Number of payload bytes to log (up to 8192).
          */
         bodyBytes?: number;
+        dataMasking?: outputs.apimanagement.DiagnosticBackendRequestDataMasking;
         /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: string[];
+    }
+
+    export interface DiagnosticBackendRequestDataMasking {
+        headers?: outputs.apimanagement.DiagnosticBackendRequestDataMaskingHeader[];
+        queryParams?: outputs.apimanagement.DiagnosticBackendRequestDataMaskingQueryParam[];
+    }
+
+    export interface DiagnosticBackendRequestDataMaskingHeader {
+        mode: string;
+        value: string;
+    }
+
+    export interface DiagnosticBackendRequestDataMaskingQueryParam {
+        mode: string;
+        value: string;
     }
 
     export interface DiagnosticBackendResponse {
@@ -654,10 +818,26 @@ export namespace apimanagement {
          * Number of payload bytes to log (up to 8192).
          */
         bodyBytes?: number;
+        dataMasking?: outputs.apimanagement.DiagnosticBackendResponseDataMasking;
         /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: string[];
+    }
+
+    export interface DiagnosticBackendResponseDataMasking {
+        headers?: outputs.apimanagement.DiagnosticBackendResponseDataMaskingHeader[];
+        queryParams?: outputs.apimanagement.DiagnosticBackendResponseDataMaskingQueryParam[];
+    }
+
+    export interface DiagnosticBackendResponseDataMaskingHeader {
+        mode: string;
+        value: string;
+    }
+
+    export interface DiagnosticBackendResponseDataMaskingQueryParam {
+        mode: string;
+        value: string;
     }
 
     export interface DiagnosticFrontendRequest {
@@ -665,10 +845,26 @@ export namespace apimanagement {
          * Number of payload bytes to log (up to 8192).
          */
         bodyBytes?: number;
+        dataMasking?: outputs.apimanagement.DiagnosticFrontendRequestDataMasking;
         /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: string[];
+    }
+
+    export interface DiagnosticFrontendRequestDataMasking {
+        headers?: outputs.apimanagement.DiagnosticFrontendRequestDataMaskingHeader[];
+        queryParams?: outputs.apimanagement.DiagnosticFrontendRequestDataMaskingQueryParam[];
+    }
+
+    export interface DiagnosticFrontendRequestDataMaskingHeader {
+        mode: string;
+        value: string;
+    }
+
+    export interface DiagnosticFrontendRequestDataMaskingQueryParam {
+        mode: string;
+        value: string;
     }
 
     export interface DiagnosticFrontendResponse {
@@ -676,10 +872,26 @@ export namespace apimanagement {
          * Number of payload bytes to log (up to 8192).
          */
         bodyBytes?: number;
+        dataMasking?: outputs.apimanagement.DiagnosticFrontendResponseDataMasking;
         /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: string[];
+    }
+
+    export interface DiagnosticFrontendResponseDataMasking {
+        headers?: outputs.apimanagement.DiagnosticFrontendResponseDataMaskingHeader[];
+        queryParams?: outputs.apimanagement.DiagnosticFrontendResponseDataMaskingQueryParam[];
+    }
+
+    export interface DiagnosticFrontendResponseDataMaskingHeader {
+        mode: string;
+        value: string;
+    }
+
+    export interface DiagnosticFrontendResponseDataMaskingQueryParam {
+        mode: string;
+        value: string;
     }
 
     export interface GatewayLocationData {
@@ -884,6 +1096,17 @@ export namespace apimanagement {
          * The name of an EventHub.
          */
         name: string;
+    }
+
+    export interface NamedValueValueFromKeyVault {
+        /**
+         * The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+         */
+        identityClientId: string;
+        /**
+         * The resource ID of the Key Vault Secret.
+         */
+        secretId: string;
     }
 
     export interface ServiceAdditionalLocation {
@@ -1235,6 +1458,7 @@ export namespace apimanagement {
          */
         subnetId: string;
     }
+
 }
 
 export namespace appconfiguration {
@@ -5410,6 +5634,19 @@ export namespace cdn {
 }
 
 export namespace cognitive {
+    export interface AccountIdentity {
+        /**
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type?: string;
+    }
+
     export interface AccountNetworkAcls {
         /**
          * The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
@@ -5420,9 +5657,35 @@ export namespace cognitive {
          */
         ipRules?: string[];
         /**
-         * One or more Subnet ID's which should be able to access this Cognitive Account.
+         * A `virtualNetworkRules` block as defined below.
          */
-        virtualNetworkSubnetIds?: string[];
+        virtualNetworkRules: outputs.cognitive.AccountNetworkAclsVirtualNetworkRule[];
+        /**
+         * @deprecated Deprecated in favour of `virtual_network_rules`
+         */
+        virtualNetworkSubnetIds: string[];
+    }
+
+    export interface AccountNetworkAclsVirtualNetworkRule {
+        /**
+         * Whether ignore missing vnet service endpoint or not. Default to `false`.
+         */
+        ignoreMissingVnetServiceEndpoint?: boolean;
+        /**
+         * The ID of the subnet which should be able to access this Cognitive Account.
+         */
+        subnetId: string;
+    }
+
+    export interface AccountStorage {
+        /**
+         * The client ID of the managed identity associated with the storage resource.
+         */
+        identityClientId?: string;
+        /**
+         * Full resource id of a Microsoft.Storage resource.
+         */
+        storageAccountId: string;
     }
 
 }
@@ -9563,7 +9826,14 @@ export namespace containerservice {
          * A list of User Managed Identity ID's which should be assigned to the Container Registry.
          */
         identityIds?: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+         */
         principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+         */
+        tenantId: string;
         /**
          * The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
@@ -10448,6 +10718,17 @@ export namespace databricks {
 }
 
 export namespace datafactory {
+    export interface CustomDatasetLinkedService {
+        /**
+         * The name of the Data Factory Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
     export interface DatasetAzureBlobSchemaColumn {
         /**
          * The description of the column.
@@ -10461,6 +10742,58 @@ export namespace datafactory {
          * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
          */
         type?: string;
+    }
+
+    export interface DatasetBinaryAzureBlobStorageLocation {
+        /**
+         * The container on the Azure Blob Storage Account hosting the file.
+         */
+        container: string;
+        /**
+         * The filename of the file on the web server.
+         */
+        filename: string;
+        /**
+         * The folder path to the file on the web server.
+         */
+        path: string;
+    }
+
+    export interface DatasetBinaryCompression {
+        /**
+         * The level of compression. Possible values are `Fastest` and `Optimal`.
+         */
+        level?: string;
+        /**
+         * The type of compression used during transport.
+         */
+        type: string;
+    }
+
+    export interface DatasetBinaryHttpServerLocation {
+        /**
+         * The filename of the file on the web server.
+         */
+        filename: string;
+        /**
+         * The folder path to the file on the web server.
+         */
+        path: string;
+        /**
+         * The base URL to the web server hosting the file.
+         */
+        relativeUrl: string;
+    }
+
+    export interface DatasetBinarySftpServerLocation {
+        /**
+         * The filename of the file on the SFTP server.
+         */
+        filename: string;
+        /**
+         * The folder path to the file on the SFTP server.
+         */
+        path: string;
     }
 
     export interface DatasetCosmosDBApiSchemaColumn {
@@ -11124,10 +11457,35 @@ export namespace datafactory {
          */
         parameters?: {[key: string]: string};
     }
-
 }
 
 export namespace dataprotection {
+    export interface BackupPolicyDiskRetentionRule {
+        /**
+         * A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+         */
+        criteria: outputs.dataprotection.BackupPolicyDiskRetentionRuleCriteria;
+        /**
+         * Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
+         */
+        duration: string;
+        /**
+         * The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
+         */
+        name: string;
+        /**
+         * Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
+         */
+        priority: number;
+    }
+
+    export interface BackupPolicyDiskRetentionRuleCriteria {
+        /**
+         * Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+         */
+        absoluteCriteria?: string;
+    }
+
     export interface BackupPolicyPostgresqlRetentionRule {
         /**
          * A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
@@ -17161,6 +17519,52 @@ export namespace machinelearning {
 
 }
 
+export namespace maintenance {
+    export interface ConfigurationWindow {
+        /**
+         * The duration of the maintenance window in HH:mm format.
+         */
+        duration?: string;
+        /**
+         * Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format.
+         */
+        expirationDateTime?: string;
+        /**
+         * The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules.
+         */
+        recurEvery?: string;
+        /**
+         * Effective start date of the maintenance window in YYYY-MM-DD hh:mm format.
+         */
+        startDateTime: string;
+        /**
+         * The time zone for the maintenance window. A list of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
+         */
+        timeZone: string;
+    }
+
+    export interface GetConfigurationWindow {
+        /**
+         * The duration of the maintenance window.
+         */
+        duration: string;
+        /**
+         * Effective expiration date of the maintenance window.
+         */
+        expirationDateTime: string;
+        recurEvery: string;
+        /**
+         * Effective start date of the maintenance window.
+         */
+        startDateTime: string;
+        /**
+         * The time zone for the maintenance window.
+         */
+        timeZone: string;
+    }
+
+}
+
 export namespace managedapplication {
     export interface ApplicationPlan {
         /**
@@ -21440,6 +21844,21 @@ export namespace network {
         remoteAddressCidrs: string[];
     }
 
+    export interface GetLocalNetworkGatewayBgpSetting {
+        /**
+         * The BGP speaker's ASN.
+         */
+        asn: number;
+        /**
+         * The BGP peering address and BGP identifier of this BGP speaker.
+         */
+        bgpPeeringAddress: string;
+        /**
+         * The weight added to routes learned from this BGP speaker.
+         */
+        peerWeight: number;
+    }
+
     export interface GetNetworkInterfaceIpConfiguration {
         /**
          * A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
@@ -23770,6 +24189,7 @@ export namespace recoveryservices {
 export namespace redis {
     export interface CachePatchSchedule {
         dayOfWeek: string;
+        maintenanceWindow?: string;
         startHourUtc?: number;
     }
 

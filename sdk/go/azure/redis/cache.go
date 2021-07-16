@@ -73,6 +73,8 @@ import (
 //
 // > **Note:** The Patch Window lasts for `5` hours from the `startHourUtc`.
 //
+// * `maintenanceWindow` - (Optional) The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
+//
 // ## Relevant Links
 //
 //  - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)

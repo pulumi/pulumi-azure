@@ -59,6 +59,10 @@ export class CustomerManagedKey extends pulumi.CustomResource {
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
     public readonly storageAccountId!: pulumi.Output<string>;
+    /**
+     * The ID of a user assigned identity.
+     */
+    public readonly userAssignedIdentityId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomerManagedKey resource with the given unique name, arguments, and options.
@@ -77,6 +81,7 @@ export class CustomerManagedKey extends pulumi.CustomResource {
             inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             inputs["keyVersion"] = state ? state.keyVersion : undefined;
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            inputs["userAssignedIdentityId"] = state ? state.userAssignedIdentityId : undefined;
         } else {
             const args = argsOrState as CustomerManagedKeyArgs | undefined;
             if ((!args || args.keyName === undefined) && !opts.urn) {
@@ -92,6 +97,7 @@ export class CustomerManagedKey extends pulumi.CustomResource {
             inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["keyVersion"] = args ? args.keyVersion : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            inputs["userAssignedIdentityId"] = args ? args.userAssignedIdentityId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -120,6 +126,10 @@ export interface CustomerManagedKeyState {
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
     storageAccountId?: pulumi.Input<string>;
+    /**
+     * The ID of a user assigned identity.
+     */
+    userAssignedIdentityId?: pulumi.Input<string>;
 }
 
 /**
@@ -142,4 +152,8 @@ export interface CustomerManagedKeyArgs {
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
     storageAccountId: pulumi.Input<string>;
+    /**
+     * The ID of a user assigned identity.
+     */
+    userAssignedIdentityId?: pulumi.Input<string>;
 }

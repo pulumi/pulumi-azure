@@ -756,6 +756,8 @@ class Cache(pulumi.CustomResource):
 
         > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
 
+        * `maintenance_window` - (Optional) The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
+
         ## Relevant Links
 
          - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
@@ -841,6 +843,8 @@ class Cache(pulumi.CustomResource):
         * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
 
         > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
+
+        * `maintenance_window` - (Optional) The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
 
         ## Relevant Links
 

@@ -9,10 +9,102 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'BackupPolicyDiskRetentionRuleArgs',
+    'BackupPolicyDiskRetentionRuleCriteriaArgs',
     'BackupPolicyPostgresqlRetentionRuleArgs',
     'BackupPolicyPostgresqlRetentionRuleCriteriaArgs',
     'BackupVaultIdentityArgs',
 ]
+
+@pulumi.input_type
+class BackupPolicyDiskRetentionRuleArgs:
+    def __init__(__self__, *,
+                 criteria: pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArgs'],
+                 duration: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 priority: pulumi.Input[int]):
+        """
+        :param pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArgs'] criteria: A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+        :param pulumi.Input[str] duration: Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
+        :param pulumi.Input[str] name: The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
+        :param pulumi.Input[int] priority: Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
+        """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArgs']:
+        """
+        A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArgs']):
+        pulumi.set(self, "criteria", value)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[str]:
+        """
+        Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+
+@pulumi.input_type
+class BackupPolicyDiskRetentionRuleCriteriaArgs:
+    def __init__(__self__, *,
+                 absolute_criteria: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] absolute_criteria: Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+        """
+        if absolute_criteria is not None:
+            pulumi.set(__self__, "absolute_criteria", absolute_criteria)
+
+    @property
+    @pulumi.getter(name="absoluteCriteria")
+    def absolute_criteria(self) -> Optional[pulumi.Input[str]]:
+        """
+        Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "absolute_criteria")
+
+    @absolute_criteria.setter
+    def absolute_criteria(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "absolute_criteria", value)
+
 
 @pulumi.input_type
 class BackupPolicyPostgresqlRetentionRuleArgs:

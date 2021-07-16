@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:datafactory/customDataset:CustomDataset":
+		r = &CustomDataset{}
 	case "azure:datafactory/datasetAzureBlob:DatasetAzureBlob":
 		r = &DatasetAzureBlob{}
+	case "azure:datafactory/datasetBinary:DatasetBinary":
+		r = &DatasetBinary{}
 	case "azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi":
 		r = &DatasetCosmosDBApi{}
 	case "azure:datafactory/datasetDelimitedText:DatasetDelimitedText":
@@ -112,7 +116,17 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"azure",
+		"datafactory/customDataset",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"datafactory/datasetAzureBlob",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/datasetBinary",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

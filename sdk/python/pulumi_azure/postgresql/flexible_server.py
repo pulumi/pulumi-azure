@@ -25,6 +25,7 @@ class FlexibleServerArgs:
                  maintenance_window: Optional[pulumi.Input['FlexibleServerMaintenanceWindowArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
+                 private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  source_server_id: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
@@ -43,6 +44,7 @@ class FlexibleServerArgs:
         :param pulumi.Input['FlexibleServerMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] private_dns_zone_id: The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
@@ -69,6 +71,8 @@ class FlexibleServerArgs:
             pulumi.set(__self__, "name", name)
         if point_in_time_restore_time_in_utc is not None:
             pulumi.set(__self__, "point_in_time_restore_time_in_utc", point_in_time_restore_time_in_utc)
+        if private_dns_zone_id is not None:
+            pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if source_server_id is not None:
@@ -203,6 +207,18 @@ class FlexibleServerArgs:
         pulumi.set(self, "point_in_time_restore_time_in_utc", value)
 
     @property
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        """
+        return pulumi.get(self, "private_dns_zone_id")
+
+    @private_dns_zone_id.setter
+    def private_dns_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_dns_zone_id", value)
+
+    @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -289,6 +305,7 @@ class _FlexibleServerState:
                  maintenance_window: Optional[pulumi.Input['FlexibleServerMaintenanceWindowArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
+                 private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -310,6 +327,7 @@ class _FlexibleServerState:
         :param pulumi.Input['FlexibleServerMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] private_dns_zone_id: The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
@@ -344,6 +362,8 @@ class _FlexibleServerState:
             pulumi.set(__self__, "name", name)
         if point_in_time_restore_time_in_utc is not None:
             pulumi.set(__self__, "point_in_time_restore_time_in_utc", point_in_time_restore_time_in_utc)
+        if private_dns_zone_id is not None:
+            pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
@@ -494,6 +514,18 @@ class _FlexibleServerState:
         pulumi.set(self, "point_in_time_restore_time_in_utc", value)
 
     @property
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        """
+        return pulumi.get(self, "private_dns_zone_id")
+
+    @private_dns_zone_id.setter
+    def private_dns_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_dns_zone_id", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -604,6 +636,7 @@ class FlexibleServer(pulumi.CustomResource):
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
+                 private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  source_server_id: Optional[pulumi.Input[str]] = None,
@@ -638,15 +671,22 @@ class FlexibleServer(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
             )])
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
+            private_dns_zone_name=example_zone.name,
+            virtual_network_id=example_virtual_network.id,
+            resource_group_name=example_resource_group.name)
         example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             version="12",
             delegated_subnet_id=example_subnet.id,
+            private_dns_zone_id=example_zone.id,
             administrator_login="psqladminun",
             administrator_password="H@Sh1CoR3!",
             storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
+            sku_name="GP_Standard_D4s_v3",
+            opts=pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
         ```
 
         ## Import
@@ -668,6 +708,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] private_dns_zone_id: The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
         :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -708,15 +749,22 @@ class FlexibleServer(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
             )])
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
+            private_dns_zone_name=example_zone.name,
+            virtual_network_id=example_virtual_network.id,
+            resource_group_name=example_resource_group.name)
         example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             version="12",
             delegated_subnet_id=example_subnet.id,
+            private_dns_zone_id=example_zone.id,
             administrator_login="psqladminun",
             administrator_password="H@Sh1CoR3!",
             storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
+            sku_name="GP_Standard_D4s_v3",
+            opts=pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
         ```
 
         ## Import
@@ -751,6 +799,7 @@ class FlexibleServer(pulumi.CustomResource):
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
+                 private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  source_server_id: Optional[pulumi.Input[str]] = None,
@@ -779,6 +828,7 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["name"] = name
             __props__.__dict__["point_in_time_restore_time_in_utc"] = point_in_time_restore_time_in_utc
+            __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -812,6 +862,7 @@ class FlexibleServer(pulumi.CustomResource):
             maintenance_window: Optional[pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
+            private_dns_zone_id: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
@@ -838,6 +889,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] private_dns_zone_id: The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
@@ -862,6 +914,7 @@ class FlexibleServer(pulumi.CustomResource):
         __props__.__dict__["maintenance_window"] = maintenance_window
         __props__.__dict__["name"] = name
         __props__.__dict__["point_in_time_restore_time_in_utc"] = point_in_time_restore_time_in_utc
+        __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
@@ -959,6 +1012,14 @@ class FlexibleServer(pulumi.CustomResource):
         The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         """
         return pulumi.get(self, "point_in_time_restore_time_in_utc")
+
+    @property
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        """
+        return pulumi.get(self, "private_dns_zone_id")
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")

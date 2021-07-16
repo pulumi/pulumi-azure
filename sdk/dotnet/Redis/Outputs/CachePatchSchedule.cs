@@ -14,15 +14,19 @@ namespace Pulumi.Azure.Redis.Outputs
     public sealed class CachePatchSchedule
     {
         public readonly string DayOfWeek;
+        public readonly string? MaintenanceWindow;
         public readonly int? StartHourUtc;
 
         [OutputConstructor]
         private CachePatchSchedule(
             string dayOfWeek,
 
+            string? maintenanceWindow,
+
             int? startHourUtc)
         {
             DayOfWeek = dayOfWeek;
+            MaintenanceWindow = maintenanceWindow;
             StartHourUtc = startHourUtc;
         }
     }

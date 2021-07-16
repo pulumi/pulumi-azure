@@ -72,9 +72,46 @@ export namespace apimanagement {
          */
         bodyBytes?: pulumi.Input<number>;
         /**
+         * A `dataMasking` block as defined below.
+         */
+        dataMasking?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendRequestDataMasking>;
+        /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiDiagnosticBackendRequestDataMasking {
+        /**
+         * A `headers` block as defined below.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendRequestDataMaskingHeader>[]>;
+        /**
+         * A `queryParams` block as defined below.
+         */
+        queryParams?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendRequestDataMaskingQueryParam>[]>;
+    }
+
+    export interface ApiDiagnosticBackendRequestDataMaskingHeader {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: pulumi.Input<string>;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ApiDiagnosticBackendRequestDataMaskingQueryParam {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: pulumi.Input<string>;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface ApiDiagnosticBackendResponse {
@@ -83,9 +120,46 @@ export namespace apimanagement {
          */
         bodyBytes?: pulumi.Input<number>;
         /**
+         * A `dataMasking` block as defined below.
+         */
+        dataMasking?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendResponseDataMasking>;
+        /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiDiagnosticBackendResponseDataMasking {
+        /**
+         * A `headers` block as defined below.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendResponseDataMaskingHeader>[]>;
+        /**
+         * A `queryParams` block as defined below.
+         */
+        queryParams?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendResponseDataMaskingQueryParam>[]>;
+    }
+
+    export interface ApiDiagnosticBackendResponseDataMaskingHeader {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: pulumi.Input<string>;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ApiDiagnosticBackendResponseDataMaskingQueryParam {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: pulumi.Input<string>;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface ApiDiagnosticFrontendRequest {
@@ -94,9 +168,46 @@ export namespace apimanagement {
          */
         bodyBytes?: pulumi.Input<number>;
         /**
+         * A `dataMasking` block as defined below.
+         */
+        dataMasking?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendRequestDataMasking>;
+        /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiDiagnosticFrontendRequestDataMasking {
+        /**
+         * A `headers` block as defined below.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendRequestDataMaskingHeader>[]>;
+        /**
+         * A `queryParams` block as defined below.
+         */
+        queryParams?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendRequestDataMaskingQueryParam>[]>;
+    }
+
+    export interface ApiDiagnosticFrontendRequestDataMaskingHeader {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: pulumi.Input<string>;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ApiDiagnosticFrontendRequestDataMaskingQueryParam {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: pulumi.Input<string>;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface ApiDiagnosticFrontendResponse {
@@ -105,9 +216,46 @@ export namespace apimanagement {
          */
         bodyBytes?: pulumi.Input<number>;
         /**
+         * A `dataMasking` block as defined below.
+         */
+        dataMasking?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendResponseDataMasking>;
+        /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiDiagnosticFrontendResponseDataMasking {
+        /**
+         * A `headers` block as defined below.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendResponseDataMaskingHeader>[]>;
+        /**
+         * A `queryParams` block as defined below.
+         */
+        queryParams?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendResponseDataMaskingQueryParam>[]>;
+    }
+
+    export interface ApiDiagnosticFrontendResponseDataMaskingHeader {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: pulumi.Input<string>;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ApiDiagnosticFrontendResponseDataMaskingQueryParam {
+        /**
+         * The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
+         */
+        mode: pulumi.Input<string>;
+        /**
+         * The name of the header or the uery parameter to mask.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface ApiImport {
@@ -644,10 +792,26 @@ export namespace apimanagement {
          * Number of payload bytes to log (up to 8192).
          */
         bodyBytes?: pulumi.Input<number>;
+        dataMasking?: pulumi.Input<inputs.apimanagement.DiagnosticBackendRequestDataMasking>;
         /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DiagnosticBackendRequestDataMasking {
+        headers?: pulumi.Input<pulumi.Input<inputs.apimanagement.DiagnosticBackendRequestDataMaskingHeader>[]>;
+        queryParams?: pulumi.Input<pulumi.Input<inputs.apimanagement.DiagnosticBackendRequestDataMaskingQueryParam>[]>;
+    }
+
+    export interface DiagnosticBackendRequestDataMaskingHeader {
+        mode: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface DiagnosticBackendRequestDataMaskingQueryParam {
+        mode: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface DiagnosticBackendResponse {
@@ -655,10 +819,26 @@ export namespace apimanagement {
          * Number of payload bytes to log (up to 8192).
          */
         bodyBytes?: pulumi.Input<number>;
+        dataMasking?: pulumi.Input<inputs.apimanagement.DiagnosticBackendResponseDataMasking>;
         /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DiagnosticBackendResponseDataMasking {
+        headers?: pulumi.Input<pulumi.Input<inputs.apimanagement.DiagnosticBackendResponseDataMaskingHeader>[]>;
+        queryParams?: pulumi.Input<pulumi.Input<inputs.apimanagement.DiagnosticBackendResponseDataMaskingQueryParam>[]>;
+    }
+
+    export interface DiagnosticBackendResponseDataMaskingHeader {
+        mode: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface DiagnosticBackendResponseDataMaskingQueryParam {
+        mode: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface DiagnosticFrontendRequest {
@@ -666,10 +846,26 @@ export namespace apimanagement {
          * Number of payload bytes to log (up to 8192).
          */
         bodyBytes?: pulumi.Input<number>;
+        dataMasking?: pulumi.Input<inputs.apimanagement.DiagnosticFrontendRequestDataMasking>;
         /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DiagnosticFrontendRequestDataMasking {
+        headers?: pulumi.Input<pulumi.Input<inputs.apimanagement.DiagnosticFrontendRequestDataMaskingHeader>[]>;
+        queryParams?: pulumi.Input<pulumi.Input<inputs.apimanagement.DiagnosticFrontendRequestDataMaskingQueryParam>[]>;
+    }
+
+    export interface DiagnosticFrontendRequestDataMaskingHeader {
+        mode: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface DiagnosticFrontendRequestDataMaskingQueryParam {
+        mode: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface DiagnosticFrontendResponse {
@@ -677,10 +873,26 @@ export namespace apimanagement {
          * Number of payload bytes to log (up to 8192).
          */
         bodyBytes?: pulumi.Input<number>;
+        dataMasking?: pulumi.Input<inputs.apimanagement.DiagnosticFrontendResponseDataMasking>;
         /**
          * Specifies a list of headers to log.
          */
         headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DiagnosticFrontendResponseDataMasking {
+        headers?: pulumi.Input<pulumi.Input<inputs.apimanagement.DiagnosticFrontendResponseDataMaskingHeader>[]>;
+        queryParams?: pulumi.Input<pulumi.Input<inputs.apimanagement.DiagnosticFrontendResponseDataMaskingQueryParam>[]>;
+    }
+
+    export interface DiagnosticFrontendResponseDataMaskingHeader {
+        mode: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface DiagnosticFrontendResponseDataMaskingQueryParam {
+        mode: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface GatewayLocationData {
@@ -718,6 +930,17 @@ export namespace apimanagement {
          * The name of an EventHub.
          */
         name: pulumi.Input<string>;
+    }
+
+    export interface NamedValueValueFromKeyVault {
+        /**
+         * The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+         */
+        identityClientId: pulumi.Input<string>;
+        /**
+         * The resource ID of the Key Vault Secret.
+         */
+        secretId: pulumi.Input<string>;
     }
 
     export interface ServiceAdditionalLocation {
@@ -1069,7 +1292,6 @@ export namespace apimanagement {
          */
         subnetId: pulumi.Input<string>;
     }
-
 }
 
 export namespace appconfiguration {
@@ -4352,6 +4574,19 @@ export namespace cdn {
 }
 
 export namespace cognitive {
+    export interface AccountIdentity {
+        /**
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type?: pulumi.Input<string>;
+    }
+
     export interface AccountNetworkAcls {
         /**
          * The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
@@ -4362,9 +4597,35 @@ export namespace cognitive {
          */
         ipRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * One or more Subnet ID's which should be able to access this Cognitive Account.
+         * A `virtualNetworkRules` block as defined below.
+         */
+        virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.cognitive.AccountNetworkAclsVirtualNetworkRule>[]>;
+        /**
+         * @deprecated Deprecated in favour of `virtual_network_rules`
          */
         virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AccountNetworkAclsVirtualNetworkRule {
+        /**
+         * Whether ignore missing vnet service endpoint or not. Default to `false`.
+         */
+        ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
+        /**
+         * The ID of the subnet which should be able to access this Cognitive Account.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+
+    export interface AccountStorage {
+        /**
+         * The client ID of the managed identity associated with the storage resource.
+         */
+        identityClientId?: pulumi.Input<string>;
+        /**
+         * Full resource id of a Microsoft.Storage resource.
+         */
+        storageAccountId: pulumi.Input<string>;
     }
 }
 
@@ -7742,7 +8003,14 @@ export namespace containerservice {
          * A list of User Managed Identity ID's which should be assigned to the Container Registry.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+         */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+         */
+        tenantId?: pulumi.Input<string>;
         /**
          * The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
@@ -8520,6 +8788,17 @@ export namespace databricks {
 }
 
 export namespace datafactory {
+    export interface CustomDatasetLinkedService {
+        /**
+         * The name of the Data Factory Linked Service.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
     export interface DatasetAzureBlobSchemaColumn {
         /**
          * The description of the column.
@@ -8533,6 +8812,58 @@ export namespace datafactory {
          * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface DatasetBinaryAzureBlobStorageLocation {
+        /**
+         * The container on the Azure Blob Storage Account hosting the file.
+         */
+        container: pulumi.Input<string>;
+        /**
+         * The filename of the file on the web server.
+         */
+        filename: pulumi.Input<string>;
+        /**
+         * The folder path to the file on the web server.
+         */
+        path: pulumi.Input<string>;
+    }
+
+    export interface DatasetBinaryCompression {
+        /**
+         * The level of compression. Possible values are `Fastest` and `Optimal`.
+         */
+        level?: pulumi.Input<string>;
+        /**
+         * The type of compression used during transport.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface DatasetBinaryHttpServerLocation {
+        /**
+         * The filename of the file on the web server.
+         */
+        filename: pulumi.Input<string>;
+        /**
+         * The folder path to the file on the web server.
+         */
+        path: pulumi.Input<string>;
+        /**
+         * The base URL to the web server hosting the file.
+         */
+        relativeUrl: pulumi.Input<string>;
+    }
+
+    export interface DatasetBinarySftpServerLocation {
+        /**
+         * The filename of the file on the SFTP server.
+         */
+        filename: pulumi.Input<string>;
+        /**
+         * The folder path to the file on the SFTP server.
+         */
+        path: pulumi.Input<string>;
     }
 
     export interface DatasetCosmosDBApiSchemaColumn {
@@ -9134,6 +9465,32 @@ export namespace datafactory {
 }
 
 export namespace dataprotection {
+    export interface BackupPolicyDiskRetentionRule {
+        /**
+         * A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+         */
+        criteria: pulumi.Input<inputs.dataprotection.BackupPolicyDiskRetentionRuleCriteria>;
+        /**
+         * Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
+         */
+        duration: pulumi.Input<string>;
+        /**
+         * The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
+         */
+        priority: pulumi.Input<number>;
+    }
+
+    export interface BackupPolicyDiskRetentionRuleCriteria {
+        /**
+         * Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+         */
+        absoluteCriteria?: pulumi.Input<string>;
+    }
+
     export interface BackupPolicyPostgresqlRetentionRule {
         /**
          * A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
@@ -14772,6 +15129,32 @@ export namespace machinelearning {
     }
 }
 
+export namespace maintenance {
+    export interface ConfigurationWindow {
+        /**
+         * The duration of the maintenance window in HH:mm format.
+         */
+        duration?: pulumi.Input<string>;
+        /**
+         * Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format.
+         */
+        expirationDateTime?: pulumi.Input<string>;
+        /**
+         * The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules.
+         */
+        recurEvery?: pulumi.Input<string>;
+        /**
+         * Effective start date of the maintenance window in YYYY-MM-DD hh:mm format.
+         */
+        startDateTime: pulumi.Input<string>;
+        /**
+         * The time zone for the maintenance window. A list of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
+         */
+        timeZone: pulumi.Input<string>;
+    }
+
+}
+
 export namespace managedapplication {
     export interface ApplicationPlan {
         /**
@@ -20287,6 +20670,7 @@ export namespace recoveryservices {
 export namespace redis {
     export interface CachePatchSchedule {
         dayOfWeek: pulumi.Input<string>;
+        maintenanceWindow?: pulumi.Input<string>;
         startHourUtc?: pulumi.Input<number>;
     }
 

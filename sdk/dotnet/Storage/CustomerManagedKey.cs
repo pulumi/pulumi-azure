@@ -47,6 +47,12 @@ namespace Pulumi.Azure.Storage
         [Output("storageAccountId")]
         public Output<string> StorageAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of a user assigned identity.
+        /// </summary>
+        [Output("userAssignedIdentityId")]
+        public Output<string?> UserAssignedIdentityId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CustomerManagedKey resource with the given unique name, arguments, and options.
@@ -117,6 +123,12 @@ namespace Pulumi.Azure.Storage
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of a user assigned identity.
+        /// </summary>
+        [Input("userAssignedIdentityId")]
+        public Input<string>? UserAssignedIdentityId { get; set; }
+
         public CustomerManagedKeyArgs()
         {
         }
@@ -147,6 +159,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// The ID of a user assigned identity.
+        /// </summary>
+        [Input("userAssignedIdentityId")]
+        public Input<string>? UserAssignedIdentityId { get; set; }
 
         public CustomerManagedKeyState()
         {

@@ -67,6 +67,10 @@ export class Embedded extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+     */
+    public readonly mode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the PowerBI Embedded. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class Embedded extends pulumi.CustomResource {
             const state = argsOrState as EmbeddedState | undefined;
             inputs["administrators"] = state ? state.administrators : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["mode"] = state ? state.mode : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
@@ -115,6 +120,7 @@ export class Embedded extends pulumi.CustomResource {
             }
             inputs["administrators"] = args ? args.administrators : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["mode"] = args ? args.mode : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
@@ -139,6 +145,10 @@ export interface EmbeddedState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+     */
+    mode?: pulumi.Input<string>;
     /**
      * The name of the PowerBI Embedded. Changing this forces a new resource to be created.
      */
@@ -169,6 +179,10 @@ export interface EmbeddedArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+     */
+    mode?: pulumi.Input<string>;
     /**
      * The name of the PowerBI Embedded. Changing this forces a new resource to be created.
      */

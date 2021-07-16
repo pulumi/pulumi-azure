@@ -63,16 +63,33 @@ namespace Pulumi.Azure.PostgreSql
     ///                 },
     ///             },
     ///         });
+    ///         var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new Azure.PrivateDns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", new Azure.PrivateDns.ZoneVirtualNetworkLinkArgs
+    ///         {
+    ///             PrivateDnsZoneName = exampleZone.Name,
+    ///             VirtualNetworkId = exampleVirtualNetwork.Id,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
     ///         var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new Azure.PostgreSql.FlexibleServerArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
     ///             Version = "12",
     ///             DelegatedSubnetId = exampleSubnet.Id,
+    ///             PrivateDnsZoneId = exampleZone.Id,
     ///             AdministratorLogin = "psqladminun",
     ///             AdministratorPassword = "H@Sh1CoR3!",
     ///             StorageMb = 32768,
     ///             SkuName = "GP_Standard_D4s_v3",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleZoneVirtualNetworkLink,
+    ///             },
     ///         });
     ///     }
     /// 
@@ -155,6 +172,12 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         [Output("pointInTimeRestoreTimeInUtc")]
         public Output<string?> PointInTimeRestoreTimeInUtc { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// </summary>
+        [Output("privateDnsZoneId")]
+        public Output<string> PrivateDnsZoneId { get; private set; } = null!;
 
         /// <summary>
         /// Is public network access enabled?
@@ -305,6 +328,12 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? PointInTimeRestoreTimeInUtc { get; set; }
 
         /// <summary>
+        /// The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// </summary>
+        [Input("privateDnsZoneId")]
+        public Input<string>? PrivateDnsZoneId { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -424,6 +453,12 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         [Input("pointInTimeRestoreTimeInUtc")]
         public Input<string>? PointInTimeRestoreTimeInUtc { get; set; }
+
+        /// <summary>
+        /// The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// </summary>
+        [Input("privateDnsZoneId")]
+        public Input<string>? PrivateDnsZoneId { get; set; }
 
         /// <summary>
         /// Is public network access enabled?

@@ -34,16 +34,58 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        /// List of FQDNs allowed for the Cognitive Account.
+        /// </summary>
+        [Output("fqdns")]
+        public Output<ImmutableArray<string>> Fqdns { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block is documented below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+        /// </summary>
+        [Output("localAuthEnabled")]
+        public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("metricsAdvisorAadClientId")]
+        public Output<string?> MetricsAdvisorAadClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("metricsAdvisorAadTenantId")]
+        public Output<string?> MetricsAdvisorAadTenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("metricsAdvisorSuperUserName")]
+        public Output<string?> MetricsAdvisorSuperUserName { get; private set; } = null!;
+
+        /// <summary>
+        /// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("metricsAdvisorWebsiteName")]
+        public Output<string?> MetricsAdvisorWebsiteName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
@@ -58,10 +100,22 @@ namespace Pulumi.Azure.Cognitive
         public Output<Outputs.AccountNetworkAcls?> NetworkAcls { get; private set; } = null!;
 
         /// <summary>
+        /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+        /// </summary>
+        [Output("outboundNetworkAccessRestrited")]
+        public Output<bool?> OutboundNetworkAccessRestrited { get; private set; } = null!;
+
+        /// <summary>
         /// A primary access key which can be used to connect to the Cognitive Service Account.
         /// </summary>
         [Output("primaryAccessKey")]
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -86,6 +140,12 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block is documented below.
+        /// </summary>
+        [Output("storages")]
+        public Output<ImmutableArray<Outputs.AccountStorage>> Storages { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -145,17 +205,65 @@ namespace Pulumi.Azure.Cognitive
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }
 
+        [Input("fqdns")]
+        private InputList<string>? _fqdns;
+
         /// <summary>
-        /// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        /// List of FQDNs allowed for the Cognitive Account.
+        /// </summary>
+        public InputList<string> Fqdns
+        {
+            get => _fqdns ?? (_fqdns = new InputList<string>());
+            set => _fqdns = value;
+        }
+
+        /// <summary>
+        /// An `identity` block is documented below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
+
+        /// <summary>
+        /// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("metricsAdvisorAadClientId")]
+        public Input<string>? MetricsAdvisorAadClientId { get; set; }
+
+        /// <summary>
+        /// The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("metricsAdvisorAadTenantId")]
+        public Input<string>? MetricsAdvisorAadTenantId { get; set; }
+
+        /// <summary>
+        /// The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("metricsAdvisorSuperUserName")]
+        public Input<string>? MetricsAdvisorSuperUserName { get; set; }
+
+        /// <summary>
+        /// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("metricsAdvisorWebsiteName")]
+        public Input<string>? MetricsAdvisorWebsiteName { get; set; }
 
         /// <summary>
         /// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
@@ -168,6 +276,18 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.AccountNetworkAclsArgs>? NetworkAcls { get; set; }
+
+        /// <summary>
+        /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+        /// </summary>
+        [Input("outboundNetworkAccessRestrited")]
+        public Input<bool>? OutboundNetworkAccessRestrited { get; set; }
+
+        /// <summary>
+        /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -186,6 +306,18 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
+
+        [Input("storages")]
+        private InputList<Inputs.AccountStorageArgs>? _storages;
+
+        /// <summary>
+        /// An `identity` block is documented below.
+        /// </summary>
+        public InputList<Inputs.AccountStorageArgs> Storages
+        {
+            get => _storages ?? (_storages = new InputList<Inputs.AccountStorageArgs>());
+            set => _storages = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -218,17 +350,65 @@ namespace Pulumi.Azure.Cognitive
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
+        [Input("fqdns")]
+        private InputList<string>? _fqdns;
+
         /// <summary>
-        /// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        /// List of FQDNs allowed for the Cognitive Account.
+        /// </summary>
+        public InputList<string> Fqdns
+        {
+            get => _fqdns ?? (_fqdns = new InputList<string>());
+            set => _fqdns = value;
+        }
+
+        /// <summary>
+        /// An `identity` block is documented below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
+
+        /// <summary>
+        /// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("metricsAdvisorAadClientId")]
+        public Input<string>? MetricsAdvisorAadClientId { get; set; }
+
+        /// <summary>
+        /// The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("metricsAdvisorAadTenantId")]
+        public Input<string>? MetricsAdvisorAadTenantId { get; set; }
+
+        /// <summary>
+        /// The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("metricsAdvisorSuperUserName")]
+        public Input<string>? MetricsAdvisorSuperUserName { get; set; }
+
+        /// <summary>
+        /// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("metricsAdvisorWebsiteName")]
+        public Input<string>? MetricsAdvisorWebsiteName { get; set; }
 
         /// <summary>
         /// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
@@ -243,10 +423,22 @@ namespace Pulumi.Azure.Cognitive
         public Input<Inputs.AccountNetworkAclsGetArgs>? NetworkAcls { get; set; }
 
         /// <summary>
+        /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+        /// </summary>
+        [Input("outboundNetworkAccessRestrited")]
+        public Input<bool>? OutboundNetworkAccessRestrited { get; set; }
+
+        /// <summary>
         /// A primary access key which can be used to connect to the Cognitive Service Account.
         /// </summary>
         [Input("primaryAccessKey")]
         public Input<string>? PrimaryAccessKey { get; set; }
+
+        /// <summary>
+        /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -271,6 +463,18 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
+
+        [Input("storages")]
+        private InputList<Inputs.AccountStorageGetArgs>? _storages;
+
+        /// <summary>
+        /// An `identity` block is documented below.
+        /// </summary>
+        public InputList<Inputs.AccountStorageGetArgs> Storages
+        {
+            get => _storages ?? (_storages = new InputList<Inputs.AccountStorageGetArgs>());
+            set => _storages = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

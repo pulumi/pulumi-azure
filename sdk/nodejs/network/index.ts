@@ -29,6 +29,7 @@ export * from "./getFirewall";
 export * from "./getFirewallPolicy";
 export * from "./getGatewayConnection";
 export * from "./getIpGroup";
+export * from "./getLocalNetworkGateway";
 export * from "./getNatGateway";
 export * from "./getNetworkDdosProtectionPlan";
 export * from "./getNetworkInterface";

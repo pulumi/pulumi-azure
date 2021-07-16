@@ -100,6 +100,9 @@ namespace Pulumi.Azure.Network
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
         /// </summary>
@@ -278,6 +281,9 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.

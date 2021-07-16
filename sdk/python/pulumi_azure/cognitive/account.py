@@ -19,21 +19,41 @@ class AccountArgs:
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
                  custom_subdomain_name: Optional[pulumi.Input[str]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_aad_client_id: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_aad_tenant_id: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_super_user_name: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_website_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input['AccountNetworkAclsArgs']] = None,
+                 outbound_network_access_restrited: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
+                 storages: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
-        :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
+        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block is documented below.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_aad_client_id: The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_aad_tenant_id: The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_super_user_name: The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_website_name: The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[bool] outbound_network_access_restrited: Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]] storages: An `identity` block is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "kind", kind)
@@ -41,14 +61,34 @@ class AccountArgs:
         pulumi.set(__self__, "sku_name", sku_name)
         if custom_subdomain_name is not None:
             pulumi.set(__self__, "custom_subdomain_name", custom_subdomain_name)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if local_auth_enabled is not None:
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if metrics_advisor_aad_client_id is not None:
+            pulumi.set(__self__, "metrics_advisor_aad_client_id", metrics_advisor_aad_client_id)
+        if metrics_advisor_aad_tenant_id is not None:
+            pulumi.set(__self__, "metrics_advisor_aad_tenant_id", metrics_advisor_aad_tenant_id)
+        if metrics_advisor_super_user_name is not None:
+            pulumi.set(__self__, "metrics_advisor_super_user_name", metrics_advisor_super_user_name)
+        if metrics_advisor_website_name is not None:
+            pulumi.set(__self__, "metrics_advisor_website_name", metrics_advisor_website_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
+        if outbound_network_access_restrited is not None:
+            pulumi.set(__self__, "outbound_network_access_restrited", outbound_network_access_restrited)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if qna_runtime_endpoint is not None:
             pulumi.set(__self__, "qna_runtime_endpoint", qna_runtime_endpoint)
+        if storages is not None:
+            pulumi.set(__self__, "storages", storages)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -56,7 +96,7 @@ class AccountArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kind")
 
@@ -102,6 +142,42 @@ class AccountArgs:
 
     @property
     @pulumi.getter
+    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of FQDNs allowed for the Cognitive Account.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @fqdns.setter
+    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "fqdns", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+        """
+        An `identity` block is documented below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_auth_enabled")
+
+    @local_auth_enabled.setter
+    def local_auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_auth_enabled", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -111,6 +187,54 @@ class AccountArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="metricsAdvisorAadClientId")
+    def metrics_advisor_aad_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "metrics_advisor_aad_client_id")
+
+    @metrics_advisor_aad_client_id.setter
+    def metrics_advisor_aad_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metrics_advisor_aad_client_id", value)
+
+    @property
+    @pulumi.getter(name="metricsAdvisorAadTenantId")
+    def metrics_advisor_aad_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "metrics_advisor_aad_tenant_id")
+
+    @metrics_advisor_aad_tenant_id.setter
+    def metrics_advisor_aad_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metrics_advisor_aad_tenant_id", value)
+
+    @property
+    @pulumi.getter(name="metricsAdvisorSuperUserName")
+    def metrics_advisor_super_user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "metrics_advisor_super_user_name")
+
+    @metrics_advisor_super_user_name.setter
+    def metrics_advisor_super_user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metrics_advisor_super_user_name", value)
+
+    @property
+    @pulumi.getter(name="metricsAdvisorWebsiteName")
+    def metrics_advisor_website_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "metrics_advisor_website_name")
+
+    @metrics_advisor_website_name.setter
+    def metrics_advisor_website_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metrics_advisor_website_name", value)
 
     @property
     @pulumi.getter
@@ -137,6 +261,30 @@ class AccountArgs:
         pulumi.set(self, "network_acls", value)
 
     @property
+    @pulumi.getter(name="outboundNetworkAccessRestrited")
+    def outbound_network_access_restrited(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+        """
+        return pulumi.get(self, "outbound_network_access_restrited")
+
+    @outbound_network_access_restrited.setter
+    def outbound_network_access_restrited(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "outbound_network_access_restrited", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="qnaRuntimeEndpoint")
     def qna_runtime_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -147,6 +295,18 @@ class AccountArgs:
     @qna_runtime_endpoint.setter
     def qna_runtime_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "qna_runtime_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def storages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]]:
+        """
+        An `identity` block is documented below.
+        """
+        return pulumi.get(self, "storages")
+
+    @storages.setter
+    def storages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]]):
+        pulumi.set(self, "storages", value)
 
     @property
     @pulumi.getter
@@ -166,45 +326,83 @@ class _AccountState:
     def __init__(__self__, *,
                  custom_subdomain_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_aad_client_id: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_aad_tenant_id: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_super_user_name: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_website_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input['AccountNetworkAclsArgs']] = None,
+                 outbound_network_access_restrited: Optional[pulumi.Input[bool]] = None,
                  primary_access_key: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_access_key: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 storages: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the Cognitive Service Account.
-        :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
+        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block is documented below.
+        :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_aad_client_id: The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_aad_tenant_id: The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_super_user_name: The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_website_name: The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[bool] outbound_network_access_restrited: Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
         :param pulumi.Input[str] primary_access_key: A primary access key which can be used to connect to the Cognitive Service Account.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary access key which can be used to connect to the Cognitive Service Account.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]] storages: An `identity` block is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if custom_subdomain_name is not None:
             pulumi.set(__self__, "custom_subdomain_name", custom_subdomain_name)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if local_auth_enabled is not None:
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if metrics_advisor_aad_client_id is not None:
+            pulumi.set(__self__, "metrics_advisor_aad_client_id", metrics_advisor_aad_client_id)
+        if metrics_advisor_aad_tenant_id is not None:
+            pulumi.set(__self__, "metrics_advisor_aad_tenant_id", metrics_advisor_aad_tenant_id)
+        if metrics_advisor_super_user_name is not None:
+            pulumi.set(__self__, "metrics_advisor_super_user_name", metrics_advisor_super_user_name)
+        if metrics_advisor_website_name is not None:
+            pulumi.set(__self__, "metrics_advisor_website_name", metrics_advisor_website_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
+        if outbound_network_access_restrited is not None:
+            pulumi.set(__self__, "outbound_network_access_restrited", outbound_network_access_restrited)
         if primary_access_key is not None:
             pulumi.set(__self__, "primary_access_key", primary_access_key)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if qna_runtime_endpoint is not None:
             pulumi.set(__self__, "qna_runtime_endpoint", qna_runtime_endpoint)
         if resource_group_name is not None:
@@ -213,6 +411,8 @@ class _AccountState:
             pulumi.set(__self__, "secondary_access_key", secondary_access_key)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
+        if storages is not None:
+            pulumi.set(__self__, "storages", storages)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -242,15 +442,51 @@ class _AccountState:
 
     @property
     @pulumi.getter
+    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of FQDNs allowed for the Cognitive Account.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @fqdns.setter
+    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "fqdns", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+        """
+        An `identity` block is documented below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
     def kind(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_auth_enabled")
+
+    @local_auth_enabled.setter
+    def local_auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_auth_enabled", value)
 
     @property
     @pulumi.getter
@@ -263,6 +499,54 @@ class _AccountState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="metricsAdvisorAadClientId")
+    def metrics_advisor_aad_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "metrics_advisor_aad_client_id")
+
+    @metrics_advisor_aad_client_id.setter
+    def metrics_advisor_aad_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metrics_advisor_aad_client_id", value)
+
+    @property
+    @pulumi.getter(name="metricsAdvisorAadTenantId")
+    def metrics_advisor_aad_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "metrics_advisor_aad_tenant_id")
+
+    @metrics_advisor_aad_tenant_id.setter
+    def metrics_advisor_aad_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metrics_advisor_aad_tenant_id", value)
+
+    @property
+    @pulumi.getter(name="metricsAdvisorSuperUserName")
+    def metrics_advisor_super_user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "metrics_advisor_super_user_name")
+
+    @metrics_advisor_super_user_name.setter
+    def metrics_advisor_super_user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metrics_advisor_super_user_name", value)
+
+    @property
+    @pulumi.getter(name="metricsAdvisorWebsiteName")
+    def metrics_advisor_website_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "metrics_advisor_website_name")
+
+    @metrics_advisor_website_name.setter
+    def metrics_advisor_website_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metrics_advisor_website_name", value)
 
     @property
     @pulumi.getter
@@ -289,6 +573,18 @@ class _AccountState:
         pulumi.set(self, "network_acls", value)
 
     @property
+    @pulumi.getter(name="outboundNetworkAccessRestrited")
+    def outbound_network_access_restrited(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+        """
+        return pulumi.get(self, "outbound_network_access_restrited")
+
+    @outbound_network_access_restrited.setter
+    def outbound_network_access_restrited(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "outbound_network_access_restrited", value)
+
+    @property
     @pulumi.getter(name="primaryAccessKey")
     def primary_access_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -299,6 +595,18 @@ class _AccountState:
     @primary_access_key.setter
     def primary_access_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "primary_access_key", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="qnaRuntimeEndpoint")
@@ -350,6 +658,18 @@ class _AccountState:
 
     @property
     @pulumi.getter
+    def storages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]]:
+        """
+        An `identity` block is documented below.
+        """
+        return pulumi.get(self, "storages")
+
+    @storages.setter
+    def storages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]]):
+        pulumi.set(self, "storages", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
@@ -367,13 +687,23 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_subdomain_name: Optional[pulumi.Input[str]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_aad_client_id: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_aad_tenant_id: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_super_user_name: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_website_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[pulumi.InputType['AccountNetworkAclsArgs']]] = None,
+                 outbound_network_access_restrited: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -388,13 +718,23 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block is documented below.
+        :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_aad_client_id: The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_aad_tenant_id: The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_super_user_name: The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_website_name: The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[bool] outbound_network_access_restrited: Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageArgs']]]] storages: An `identity` block is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -428,13 +768,23 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_subdomain_name: Optional[pulumi.Input[str]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_aad_client_id: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_aad_tenant_id: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_super_user_name: Optional[pulumi.Input[str]] = None,
+                 metrics_advisor_website_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[pulumi.InputType['AccountNetworkAclsArgs']]] = None,
+                 outbound_network_access_restrited: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -449,12 +799,21 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["custom_subdomain_name"] = custom_subdomain_name
+            __props__.__dict__["fqdns"] = fqdns
+            __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
+            __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
+            __props__.__dict__["metrics_advisor_aad_client_id"] = metrics_advisor_aad_client_id
+            __props__.__dict__["metrics_advisor_aad_tenant_id"] = metrics_advisor_aad_tenant_id
+            __props__.__dict__["metrics_advisor_super_user_name"] = metrics_advisor_super_user_name
+            __props__.__dict__["metrics_advisor_website_name"] = metrics_advisor_website_name
             __props__.__dict__["name"] = name
             __props__.__dict__["network_acls"] = network_acls
+            __props__.__dict__["outbound_network_access_restrited"] = outbound_network_access_restrited
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["qna_runtime_endpoint"] = qna_runtime_endpoint
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -462,6 +821,7 @@ class Account(pulumi.CustomResource):
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["storages"] = storages
             __props__.__dict__["tags"] = tags
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["primary_access_key"] = None
@@ -478,15 +838,25 @@ class Account(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_subdomain_name: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
+            fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
+            local_auth_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            metrics_advisor_aad_client_id: Optional[pulumi.Input[str]] = None,
+            metrics_advisor_aad_tenant_id: Optional[pulumi.Input[str]] = None,
+            metrics_advisor_super_user_name: Optional[pulumi.Input[str]] = None,
+            metrics_advisor_website_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_acls: Optional[pulumi.Input[pulumi.InputType['AccountNetworkAclsArgs']]] = None,
+            outbound_network_access_restrited: Optional[pulumi.Input[bool]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_access_key: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
+            storages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
@@ -497,15 +867,25 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the Cognitive Service Account.
-        :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block is documented below.
+        :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_aad_client_id: The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_aad_tenant_id: The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_super_user_name: The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metrics_advisor_website_name: The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[bool] outbound_network_access_restrited: Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
         :param pulumi.Input[str] primary_access_key: A primary access key which can be used to connect to the Cognitive Service Account.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary access key which can be used to connect to the Cognitive Service Account.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageArgs']]]] storages: An `identity` block is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -514,15 +894,25 @@ class Account(pulumi.CustomResource):
 
         __props__.__dict__["custom_subdomain_name"] = custom_subdomain_name
         __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["fqdns"] = fqdns
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["kind"] = kind
+        __props__.__dict__["local_auth_enabled"] = local_auth_enabled
         __props__.__dict__["location"] = location
+        __props__.__dict__["metrics_advisor_aad_client_id"] = metrics_advisor_aad_client_id
+        __props__.__dict__["metrics_advisor_aad_tenant_id"] = metrics_advisor_aad_tenant_id
+        __props__.__dict__["metrics_advisor_super_user_name"] = metrics_advisor_super_user_name
+        __props__.__dict__["metrics_advisor_website_name"] = metrics_advisor_website_name
         __props__.__dict__["name"] = name
         __props__.__dict__["network_acls"] = network_acls
+        __props__.__dict__["outbound_network_access_restrited"] = outbound_network_access_restrited
         __props__.__dict__["primary_access_key"] = primary_access_key
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["qna_runtime_endpoint"] = qna_runtime_endpoint
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secondary_access_key"] = secondary_access_key
         __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["storages"] = storages
         __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
@@ -544,11 +934,35 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def fqdns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of FQDNs allowed for the Cognitive Account.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.AccountIdentity']]:
+        """
+        An `identity` block is documented below.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
-        Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_auth_enabled")
 
     @property
     @pulumi.getter
@@ -557,6 +971,38 @@ class Account(pulumi.CustomResource):
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="metricsAdvisorAadClientId")
+    def metrics_advisor_aad_client_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "metrics_advisor_aad_client_id")
+
+    @property
+    @pulumi.getter(name="metricsAdvisorAadTenantId")
+    def metrics_advisor_aad_tenant_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "metrics_advisor_aad_tenant_id")
+
+    @property
+    @pulumi.getter(name="metricsAdvisorSuperUserName")
+    def metrics_advisor_super_user_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "metrics_advisor_super_user_name")
+
+    @property
+    @pulumi.getter(name="metricsAdvisorWebsiteName")
+    def metrics_advisor_website_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "metrics_advisor_website_name")
 
     @property
     @pulumi.getter
@@ -575,12 +1021,28 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "network_acls")
 
     @property
+    @pulumi.getter(name="outboundNetworkAccessRestrited")
+    def outbound_network_access_restrited(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+        """
+        return pulumi.get(self, "outbound_network_access_restrited")
+
+    @property
     @pulumi.getter(name="primaryAccessKey")
     def primary_access_key(self) -> pulumi.Output[str]:
         """
         A primary access key which can be used to connect to the Cognitive Service Account.
         """
         return pulumi.get(self, "primary_access_key")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="qnaRuntimeEndpoint")
@@ -613,6 +1075,14 @@ class Account(pulumi.CustomResource):
         Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
         """
         return pulumi.get(self, "sku_name")
+
+    @property
+    @pulumi.getter
+    def storages(self) -> pulumi.Output[Optional[Sequence['outputs.AccountStorage']]]:
+        """
+        An `identity` block is documented below.
+        """
+        return pulumi.get(self, "storages")
 
     @property
     @pulumi.getter

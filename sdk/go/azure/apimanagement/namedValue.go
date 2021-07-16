@@ -79,7 +79,9 @@ type NamedValue struct {
 	// A list of tags to be applied to the API Management Named Value.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// The value of this API Management Named Value.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Value pulumi.StringPtrOutput `pulumi:"value"`
+	// A `valueFromKeyVault` block as defined below.
+	ValueFromKeyVault NamedValueValueFromKeyVaultPtrOutput `pulumi:"valueFromKeyVault"`
 }
 
 // NewNamedValue registers a new resource with the given unique name, arguments, and options.
@@ -97,9 +99,6 @@ func NewNamedValue(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.Value == nil {
-		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource NamedValue
 	err := ctx.RegisterResource("azure:apimanagement/namedValue:NamedValue", name, args, &resource, opts...)
@@ -137,6 +136,8 @@ type namedValueState struct {
 	Tags []string `pulumi:"tags"`
 	// The value of this API Management Named Value.
 	Value *string `pulumi:"value"`
+	// A `valueFromKeyVault` block as defined below.
+	ValueFromKeyVault *NamedValueValueFromKeyVault `pulumi:"valueFromKeyVault"`
 }
 
 type NamedValueState struct {
@@ -154,6 +155,8 @@ type NamedValueState struct {
 	Tags pulumi.StringArrayInput
 	// The value of this API Management Named Value.
 	Value pulumi.StringPtrInput
+	// A `valueFromKeyVault` block as defined below.
+	ValueFromKeyVault NamedValueValueFromKeyVaultPtrInput
 }
 
 func (NamedValueState) ElementType() reflect.Type {
@@ -174,7 +177,9 @@ type namedValueArgs struct {
 	// A list of tags to be applied to the API Management Named Value.
 	Tags []string `pulumi:"tags"`
 	// The value of this API Management Named Value.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
+	// A `valueFromKeyVault` block as defined below.
+	ValueFromKeyVault *NamedValueValueFromKeyVault `pulumi:"valueFromKeyVault"`
 }
 
 // The set of arguments for constructing a NamedValue resource.
@@ -192,7 +197,9 @@ type NamedValueArgs struct {
 	// A list of tags to be applied to the API Management Named Value.
 	Tags pulumi.StringArrayInput
 	// The value of this API Management Named Value.
-	Value pulumi.StringInput
+	Value pulumi.StringPtrInput
+	// A `valueFromKeyVault` block as defined below.
+	ValueFromKeyVault NamedValueValueFromKeyVaultPtrInput
 }
 
 func (NamedValueArgs) ElementType() reflect.Type {

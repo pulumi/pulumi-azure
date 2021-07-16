@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetConfigurationResult',
@@ -19,7 +20,7 @@ class GetConfigurationResult:
     """
     A collection of values returned by getConfiguration.
     """
-    def __init__(__self__, id=None, location=None, name=None, resource_group_name=None, scope=None, tags=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, resource_group_name=None, scope=None, tags=None, visibility=None, windows=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -29,6 +30,9 @@ class GetConfigurationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -38,6 +42,12 @@ class GetConfigurationResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if visibility and not isinstance(visibility, str):
+            raise TypeError("Expected argument 'visibility' to be a str")
+        pulumi.set(__self__, "visibility", visibility)
+        if windows and not isinstance(windows, list):
+            raise TypeError("Expected argument 'windows' to be a list")
+        pulumi.set(__self__, "windows", windows)
 
     @property
     @pulumi.getter
@@ -61,6 +71,14 @@ class GetConfigurationResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def properties(self) -> Mapping[str, str]:
+        """
+        The properties assigned to the resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -81,6 +99,22 @@ class GetConfigurationResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter
+    def visibility(self) -> str:
+        """
+        The visibility of the Maintenance Configuration.
+        """
+        return pulumi.get(self, "visibility")
+
+    @property
+    @pulumi.getter
+    def windows(self) -> Sequence['outputs.GetConfigurationWindowResult']:
+        """
+        A `window` block as defined below.
+        """
+        return pulumi.get(self, "windows")
+
 
 class AwaitableGetConfigurationResult(GetConfigurationResult):
     # pylint: disable=using-constant-test
@@ -91,9 +125,12 @@ class AwaitableGetConfigurationResult(GetConfigurationResult):
             id=self.id,
             location=self.location,
             name=self.name,
+            properties=self.properties,
             resource_group_name=self.resource_group_name,
             scope=self.scope,
-            tags=self.tags)
+            tags=self.tags,
+            visibility=self.visibility,
+            windows=self.windows)
 
 
 def get_configuration(name: Optional[str] = None,
@@ -130,6 +167,9 @@ def get_configuration(name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
+        properties=__ret__.properties,
         resource_group_name=__ret__.resource_group_name,
         scope=__ret__.scope,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        visibility=__ret__.visibility,
+        windows=__ret__.windows)

@@ -100,6 +100,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      * The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
      */
     public readonly location!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
      */
@@ -148,6 +149,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             const state = argsOrState as NetworkWatcherFlowLogState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["name"] = state ? state.name : undefined;
             inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
             inputs["networkWatcherName"] = state ? state.networkWatcherName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -186,6 +188,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trafficAnalytics"] = args ? args.trafficAnalytics : undefined;
             inputs["version"] = args ? args.version : undefined;
+            inputs["name"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -206,6 +209,7 @@ export interface NetworkWatcherFlowLogState {
      * The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
      */
     location?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
      */
