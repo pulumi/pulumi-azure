@@ -4,7 +4,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Pulumi Corp.</Authors>
     <Company>Pulumi Corp.</Company>
-    <Description>A Pulumi package for creating and managing Microsoft Azure cloud resources.</Description>
+    <Description>A Pulumi package based on the azurerm Terraform Provider for creating and managing Microsoft Azure cloud resources. Consider using the Pulumi Azure Native package for full coverage of Azure resources.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://pulumi.io</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pulumi/pulumi-azure</RepositoryUrl>

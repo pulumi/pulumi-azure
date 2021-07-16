@@ -240,7 +240,7 @@ func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "azurerm",
-		Description: "A Pulumi package for creating and managing Microsoft Azure cloud resources.",
+		Description: "A Pulumi package based on the azurerm Terraform Provider for creating and managing Microsoft Azure cloud resources. Consider using the Pulumi Azure Native package for full coverage of Azure resources.",
 		Keywords:    []string{"pulumi", "azure"},
 		Homepage:    "https://pulumi.io",
 		License:     "Apache-2.0",
