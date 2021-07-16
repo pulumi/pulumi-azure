@@ -22,6 +22,7 @@ import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/postgresql"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/privatedns"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -67,16 +68,33 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
+// 			PrivateDnsZoneName: exampleZone.Name,
+// 			VirtualNetworkId:   exampleVirtualNetwork.ID(),
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
 // 			ResourceGroupName:     exampleResourceGroup.Name,
 // 			Location:              exampleResourceGroup.Location,
 // 			Version:               pulumi.String("12"),
 // 			DelegatedSubnetId:     exampleSubnet.ID(),
+// 			PrivateDnsZoneId:      exampleZone.ID(),
 // 			AdministratorLogin:    pulumi.String("psqladminun"),
 // 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
 // 			StorageMb:             pulumi.Int(32768),
 // 			SkuName:               pulumi.String("GP_Standard_D4s_v3"),
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleZoneVirtualNetworkLink,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -119,6 +137,8 @@ type FlexibleServer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrOutput `pulumi:"pointInTimeRestoreTimeInUtc"`
+	// The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -193,6 +213,8 @@ type flexibleServerState struct {
 	Name *string `pulumi:"name"`
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
+	// The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -236,6 +258,8 @@ type FlexibleServerState struct {
 	Name pulumi.StringPtrInput
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
+	// The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+	PrivateDnsZoneId pulumi.StringPtrInput
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -277,6 +301,8 @@ type flexibleServerArgs struct {
 	Name *string `pulumi:"name"`
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
+	// The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
@@ -313,6 +339,8 @@ type FlexibleServerArgs struct {
 	Name pulumi.StringPtrInput
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
+	// The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+	PrivateDnsZoneId pulumi.StringPtrInput
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).

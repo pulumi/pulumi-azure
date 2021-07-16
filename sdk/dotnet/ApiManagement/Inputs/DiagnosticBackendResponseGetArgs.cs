@@ -18,6 +18,9 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("bodyBytes")]
         public Input<int>? BodyBytes { get; set; }
 
+        [Input("dataMasking")]
+        public Input<Inputs.DiagnosticBackendResponseDataMaskingGetArgs>? DataMasking { get; set; }
+
         [Input("headersToLogs")]
         private InputList<string>? _headersToLogs;
 

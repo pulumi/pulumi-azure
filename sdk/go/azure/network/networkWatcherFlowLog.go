@@ -107,6 +107,7 @@ type NetworkWatcherFlowLog struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
 	Location pulumi.StringOutput `pulumi:"location"`
+	Name     pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId pulumi.StringOutput `pulumi:"networkSecurityGroupId"`
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
@@ -176,6 +177,7 @@ type networkWatcherFlowLogState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
 	Location *string `pulumi:"location"`
+	Name     *string `pulumi:"name"`
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
@@ -199,6 +201,7 @@ type NetworkWatcherFlowLogState struct {
 	Enabled pulumi.BoolPtrInput
 	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
 	Location pulumi.StringPtrInput
+	Name     pulumi.StringPtrInput
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId pulumi.StringPtrInput
 	// The name of the Network Watcher. Changing this forces a new resource to be created.

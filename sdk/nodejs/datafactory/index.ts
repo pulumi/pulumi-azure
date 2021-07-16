@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./customDataset";
 export * from "./datasetAzureBlob";
+export * from "./datasetBinary";
 export * from "./datasetCosmosDBApi";
 export * from "./datasetDelimitedText";
 export * from "./datasetHttp";
@@ -46,7 +48,9 @@ export * from "./triggerBlobEvent";
 export * from "./triggerSchedule";
 
 // Import resources to register:
+import { CustomDataset } from "./customDataset";
 import { DatasetAzureBlob } from "./datasetAzureBlob";
+import { DatasetBinary } from "./datasetBinary";
 import { DatasetCosmosDBApi } from "./datasetCosmosDBApi";
 import { DatasetDelimitedText } from "./datasetDelimitedText";
 import { DatasetHttp } from "./datasetHttp";
@@ -89,8 +93,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:datafactory/customDataset:CustomDataset":
+                return new CustomDataset(name, <any>undefined, { urn })
             case "azure:datafactory/datasetAzureBlob:DatasetAzureBlob":
                 return new DatasetAzureBlob(name, <any>undefined, { urn })
+            case "azure:datafactory/datasetBinary:DatasetBinary":
+                return new DatasetBinary(name, <any>undefined, { urn })
             case "azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi":
                 return new DatasetCosmosDBApi(name, <any>undefined, { urn })
             case "azure:datafactory/datasetDelimitedText:DatasetDelimitedText":
@@ -170,7 +178,9 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "datafactory/customDataset", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetAzureBlob", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/datasetBinary", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetCosmosDBApi", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetDelimitedText", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetHttp", _module)

@@ -17,6 +17,7 @@ class EmbeddedArgs:
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -25,6 +26,7 @@ class EmbeddedArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mode: Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the PowerBI Embedded. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -33,6 +35,8 @@ class EmbeddedArgs:
         pulumi.set(__self__, "sku_name", sku_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -88,6 +92,18 @@ class EmbeddedArgs:
 
     @property
     @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the PowerBI Embedded. Changing this forces a new resource to be created.
@@ -116,6 +132,7 @@ class _EmbeddedState:
     def __init__(__self__, *,
                  administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -124,6 +141,7 @@ class _EmbeddedState:
         Input properties used for looking up and filtering Embedded resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mode: Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the PowerBI Embedded. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
@@ -133,6 +151,8 @@ class _EmbeddedState:
             pulumi.set(__self__, "administrators", administrators)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
@@ -165,6 +185,18 @@ class _EmbeddedState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
 
     @property
     @pulumi.getter
@@ -222,6 +254,7 @@ class Embedded(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -256,6 +289,7 @@ class Embedded(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mode: Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the PowerBI Embedded. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
@@ -309,6 +343,7 @@ class Embedded(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -329,6 +364,7 @@ class Embedded(pulumi.CustomResource):
                 raise TypeError("Missing required property 'administrators'")
             __props__.__dict__["administrators"] = administrators
             __props__.__dict__["location"] = location
+            __props__.__dict__["mode"] = mode
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -349,6 +385,7 @@ class Embedded(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
@@ -362,6 +399,7 @@ class Embedded(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mode: Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the PowerBI Embedded. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
@@ -373,6 +411,7 @@ class Embedded(pulumi.CustomResource):
 
         __props__.__dict__["administrators"] = administrators
         __props__.__dict__["location"] = location
+        __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
@@ -394,6 +433,14 @@ class Embedded(pulumi.CustomResource):
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter

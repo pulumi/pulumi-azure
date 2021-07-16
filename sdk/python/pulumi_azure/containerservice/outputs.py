@@ -4783,6 +4783,8 @@ class RegistryIdentity(dict):
             suggest = "identity_ids"
         elif key == "principalId":
             suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RegistryIdentity. Access the value via the '{suggest}' property getter instead.")
@@ -4798,16 +4800,21 @@ class RegistryIdentity(dict):
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
-                 principal_id: Optional[str] = None):
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
         """
         :param str type: The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Container Registry.
+        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
             pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -4828,7 +4835,18 @@ class RegistryIdentity(dict):
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+        """
         return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

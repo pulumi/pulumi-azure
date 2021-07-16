@@ -78,6 +78,10 @@ export class Factory extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Is Managed Virtual Network enabled?
+     */
+    public readonly managedVirtualNetworkEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
@@ -116,6 +120,7 @@ export class Factory extends pulumi.CustomResource {
             inputs["globalParameters"] = state ? state.globalParameters : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["managedVirtualNetworkEnabled"] = state ? state.managedVirtualNetworkEnabled : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["publicNetworkEnabled"] = state ? state.publicNetworkEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -131,6 +136,7 @@ export class Factory extends pulumi.CustomResource {
             inputs["globalParameters"] = args ? args.globalParameters : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedVirtualNetworkEnabled"] = args ? args.managedVirtualNetworkEnabled : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["publicNetworkEnabled"] = args ? args.publicNetworkEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -168,6 +174,10 @@ export interface FactoryState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Is Managed Virtual Network enabled?
+     */
+    managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
@@ -214,6 +224,10 @@ export interface FactoryArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Is Managed Virtual Network enabled?
+     */
+    managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */

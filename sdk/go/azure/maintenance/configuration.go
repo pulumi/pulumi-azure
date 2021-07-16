@@ -62,12 +62,18 @@ type Configuration struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A mapping of properties to assign to the resource.
+	Properties pulumi.StringMapOutput `pulumi:"properties"`
 	// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+	// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+	Visibility pulumi.StringPtrOutput `pulumi:"visibility"`
+	// A `window` block as defined below.
+	Window ConfigurationWindowPtrOutput `pulumi:"window"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -106,12 +112,18 @@ type configurationState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A mapping of properties to assign to the resource.
+	Properties map[string]string `pulumi:"properties"`
 	// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+	// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
 	Scope *string `pulumi:"scope"`
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags map[string]string `pulumi:"tags"`
+	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+	Visibility *string `pulumi:"visibility"`
+	// A `window` block as defined below.
+	Window *ConfigurationWindow `pulumi:"window"`
 }
 
 type ConfigurationState struct {
@@ -119,12 +131,18 @@ type ConfigurationState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A mapping of properties to assign to the resource.
+	Properties pulumi.StringMapInput
 	// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+	// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
 	Scope pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags pulumi.StringMapInput
+	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+	Visibility pulumi.StringPtrInput
+	// A `window` block as defined below.
+	Window ConfigurationWindowPtrInput
 }
 
 func (ConfigurationState) ElementType() reflect.Type {
@@ -136,12 +154,18 @@ type configurationArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A mapping of properties to assign to the resource.
+	Properties map[string]string `pulumi:"properties"`
 	// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+	// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
 	Scope *string `pulumi:"scope"`
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags map[string]string `pulumi:"tags"`
+	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+	Visibility *string `pulumi:"visibility"`
+	// A `window` block as defined below.
+	Window *ConfigurationWindow `pulumi:"window"`
 }
 
 // The set of arguments for constructing a Configuration resource.
@@ -150,12 +174,18 @@ type ConfigurationArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A mapping of properties to assign to the resource.
+	Properties pulumi.StringMapInput
 	// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+	// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
 	Scope pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags pulumi.StringMapInput
+	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+	Visibility pulumi.StringPtrInput
+	// A `window` block as defined below.
+	Window ConfigurationWindowPtrInput
 }
 
 func (ConfigurationArgs) ElementType() reflect.Type {

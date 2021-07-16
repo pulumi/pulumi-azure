@@ -8,6 +8,7 @@ import typing
 from .firewall_rule import *
 from .get_workspace import *
 from .managed_private_endpoint import *
+from .private_link_hub import *
 from .role_assignment import *
 from .spark_pool import *
 from .sql_pool import *

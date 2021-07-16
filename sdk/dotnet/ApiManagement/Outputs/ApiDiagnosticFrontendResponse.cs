@@ -18,6 +18,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly int? BodyBytes;
         /// <summary>
+        /// A `data_masking` block as defined below.
+        /// </summary>
+        public readonly Outputs.ApiDiagnosticFrontendResponseDataMasking? DataMasking;
+        /// <summary>
         /// Specifies a list of headers to log.
         /// </summary>
         public readonly ImmutableArray<string> HeadersToLogs;
@@ -26,9 +30,12 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         private ApiDiagnosticFrontendResponse(
             int? bodyBytes,
 
+            Outputs.ApiDiagnosticFrontendResponseDataMasking? dataMasking,
+
             ImmutableArray<string> headersToLogs)
         {
             BodyBytes = bodyBytes;
+            DataMasking = dataMasking;
             HeadersToLogs = headersToLogs;
         }
     }

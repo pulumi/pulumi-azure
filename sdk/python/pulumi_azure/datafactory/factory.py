@@ -21,6 +21,7 @@ class FactoryArgs:
                  global_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]]] = None,
                  identity: Optional[pulumi.Input['FactoryIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,6 +34,7 @@ class FactoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]] global_parameters: A list of `global_parameter` blocks as defined above.
         :param pulumi.Input['FactoryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Managed Virtual Network enabled?
         :param pulumi.Input[str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[bool] public_network_enabled: Is the Data Factory visible to the public network? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -49,6 +51,8 @@ class FactoryArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_virtual_network_enabled is not None:
+            pulumi.set(__self__, "managed_virtual_network_enabled", managed_virtual_network_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_network_enabled is not None:
@@ -131,6 +135,18 @@ class FactoryArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="managedVirtualNetworkEnabled")
+    def managed_virtual_network_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Managed Virtual Network enabled?
+        """
+        return pulumi.get(self, "managed_virtual_network_enabled")
+
+    @managed_virtual_network_enabled.setter
+    def managed_virtual_network_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "managed_virtual_network_enabled", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -187,6 +203,7 @@ class _FactoryState:
                  global_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]]] = None,
                  identity: Optional[pulumi.Input['FactoryIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -199,6 +216,7 @@ class _FactoryState:
         :param pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]] global_parameters: A list of `global_parameter` blocks as defined above.
         :param pulumi.Input['FactoryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Managed Virtual Network enabled?
         :param pulumi.Input[str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[bool] public_network_enabled: Is the Data Factory visible to the public network? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory.
@@ -215,6 +233,8 @@ class _FactoryState:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_virtual_network_enabled is not None:
+            pulumi.set(__self__, "managed_virtual_network_enabled", managed_virtual_network_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_network_enabled is not None:
@@ -287,6 +307,18 @@ class _FactoryState:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="managedVirtualNetworkEnabled")
+    def managed_virtual_network_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Managed Virtual Network enabled?
+        """
+        return pulumi.get(self, "managed_virtual_network_enabled")
+
+    @managed_virtual_network_enabled.setter
+    def managed_virtual_network_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "managed_virtual_network_enabled", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -357,6 +389,7 @@ class Factory(pulumi.CustomResource):
                  global_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FactoryGlobalParameterArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -393,6 +426,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FactoryGlobalParameterArgs']]]] global_parameters: A list of `global_parameter` blocks as defined above.
         :param pulumi.Input[pulumi.InputType['FactoryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Managed Virtual Network enabled?
         :param pulumi.Input[str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[bool] public_network_enabled: Is the Data Factory visible to the public network? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory.
@@ -448,6 +482,7 @@ class Factory(pulumi.CustomResource):
                  global_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FactoryGlobalParameterArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -470,6 +505,7 @@ class Factory(pulumi.CustomResource):
             __props__.__dict__["global_parameters"] = global_parameters
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_virtual_network_enabled"] = managed_virtual_network_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_enabled"] = public_network_enabled
             if resource_group_name is None and not opts.urn:
@@ -492,6 +528,7 @@ class Factory(pulumi.CustomResource):
             global_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FactoryGlobalParameterArgs']]]]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_network_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -509,6 +546,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FactoryGlobalParameterArgs']]]] global_parameters: A list of `global_parameter` blocks as defined above.
         :param pulumi.Input[pulumi.InputType['FactoryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Managed Virtual Network enabled?
         :param pulumi.Input[str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[bool] public_network_enabled: Is the Data Factory visible to the public network? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory.
@@ -524,6 +562,7 @@ class Factory(pulumi.CustomResource):
         __props__.__dict__["global_parameters"] = global_parameters
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
+        __props__.__dict__["managed_virtual_network_enabled"] = managed_virtual_network_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["public_network_enabled"] = public_network_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -570,6 +609,14 @@ class Factory(pulumi.CustomResource):
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedVirtualNetworkEnabled")
+    def managed_virtual_network_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is Managed Virtual Network enabled?
+        """
+        return pulumi.get(self, "managed_virtual_network_enabled")
 
     @property
     @pulumi.getter

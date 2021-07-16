@@ -149,6 +149,7 @@ __all__ = [
     'GetFirewallVirtualHubResult',
     'GetGatewayConnectionIpsecPolicyResult',
     'GetGatewayConnectionTrafficSelectorPolicyResult',
+    'GetLocalNetworkGatewayBgpSettingResult',
     'GetNetworkInterfaceIpConfigurationResult',
     'GetNetworkSecurityGroupSecurityRuleResult',
     'GetPublicIPsPublicIpResult',
@@ -10339,6 +10340,46 @@ class GetGatewayConnectionTrafficSelectorPolicyResult(dict):
         List of remote CIDRs.
         """
         return pulumi.get(self, "remote_address_cidrs")
+
+
+@pulumi.output_type
+class GetLocalNetworkGatewayBgpSettingResult(dict):
+    def __init__(__self__, *,
+                 asn: int,
+                 bgp_peering_address: str,
+                 peer_weight: int):
+        """
+        :param int asn: The BGP speaker's ASN.
+        :param str bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
+        :param int peer_weight: The weight added to routes learned from this BGP speaker.
+        """
+        pulumi.set(__self__, "asn", asn)
+        pulumi.set(__self__, "bgp_peering_address", bgp_peering_address)
+        pulumi.set(__self__, "peer_weight", peer_weight)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> int:
+        """
+        The BGP speaker's ASN.
+        """
+        return pulumi.get(self, "asn")
+
+    @property
+    @pulumi.getter(name="bgpPeeringAddress")
+    def bgp_peering_address(self) -> str:
+        """
+        The BGP peering address and BGP identifier of this BGP speaker.
+        """
+        return pulumi.get(self, "bgp_peering_address")
+
+    @property
+    @pulumi.getter(name="peerWeight")
+    def peer_weight(self) -> int:
+        """
+        The weight added to routes learned from this BGP speaker.
+        """
+        return pulumi.get(self, "peer_weight")
 
 
 @pulumi.output_type

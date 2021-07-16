@@ -9908,7 +9908,10 @@ func (o RegistryGeoreplicationArrayOutput) Index(i pulumi.IntInput) RegistryGeor
 type RegistryIdentity struct {
 	// A list of User Managed Identity ID's which should be assigned to the Container Registry.
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string  `pulumi:"principalId"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+	TenantId *string `pulumi:"tenantId"`
 	// The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
@@ -9927,7 +9930,10 @@ type RegistryIdentityInput interface {
 type RegistryIdentityArgs struct {
 	// A list of User Managed Identity ID's which should be assigned to the Container Registry.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -10014,8 +10020,14 @@ func (o RegistryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RegistryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
 func (o RegistryIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistryIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+func (o RegistryIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 // The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
@@ -10051,12 +10063,23 @@ func (o RegistryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
 func (o RegistryIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+func (o RegistryIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 

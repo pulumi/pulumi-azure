@@ -78,6 +78,10 @@ namespace Pulumi.Azure.Maintenance
         /// </summary>
         public readonly string Location;
         public readonly string Name;
+        /// <summary>
+        /// The properties assigned to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Properties;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The scope of the Maintenance Configuration.
@@ -87,6 +91,14 @@ namespace Pulumi.Azure.Maintenance
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// The visibility of the Maintenance Configuration.
+        /// </summary>
+        public readonly string Visibility;
+        /// <summary>
+        /// A `window` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetConfigurationWindowResult> Windows;
 
         [OutputConstructor]
         private GetConfigurationResult(
@@ -96,18 +108,27 @@ namespace Pulumi.Azure.Maintenance
 
             string name,
 
+            ImmutableDictionary<string, string> properties,
+
             string resourceGroupName,
 
             string scope,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            string visibility,
+
+            ImmutableArray<Outputs.GetConfigurationWindowResult> windows)
         {
             Id = id;
             Location = location;
             Name = name;
+            Properties = properties;
             ResourceGroupName = resourceGroupName;
             Scope = scope;
             Tags = tags;
+            Visibility = visibility;
+            Windows = windows;
         }
     }
 }

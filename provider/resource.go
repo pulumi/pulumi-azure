@@ -359,6 +359,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_redis_cache":                 {Tok: azureResource(azureAPIManagement, "RedisCache")},
 			"azurerm_api_management_api_operation_tag":           {Tok: azureResource(azureAPIManagement, "ApiOperationTag")},
 			"azurerm_api_management_gateway":                     {Tok: azureResource(azureAPIManagement, "Gateway")},
+			"azurerm_api_management_api_release":                 {Tok: azureResource(azureAPIManagement, "ApiRelease")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -800,6 +801,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_linked_service_odata":            {Tok: azureResource(azureDataFactory, "LinkedServiceOdata")},
 			"azurerm_data_factory_linked_custom_service":           {Tok: azureResource(azureDataFactory, "LinkedCustomService")},
 			"azurerm_data_factory_trigger_blob_event":              {Tok: azureResource(azureDataFactory, "TriggerBlobEvent")},
+			"azurerm_data_factory_custom_dataset":                  {Tok: azureResource(azureDataFactory, "CustomDataset")},
+			"azurerm_data_factory_dataset_binary":                  {Tok: azureResource(azureDataFactory, "DatasetBinary")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":          {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -813,6 +816,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_protection_backup_vault":               {Tok: azureResource(azureDataProtection, "BackupVault")},
 			"azurerm_data_protection_backup_policy_postgresql":   {Tok: azureResource(azureDataProtection, "BackupPolicyPostgresql")},
 			"azurerm_data_protection_backup_instance_postgresql": {Tok: azureResource(azureDataProtection, "BackupInstancePostgresql")},
+			"azurerm_data_protection_backup_policy_disk":         {Tok: azureResource(azureDataProtection, "BackupPolicyDisk")},
 
 			// DataShare
 			"azurerm_data_share_account": {Tok: azureResource(azureDataShare, "Account")},
@@ -1195,6 +1199,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_postgresql_flexible_server": {Tok: azureResource(azurePostgresql, "FlexibleServer")},
 			"azurerm_postgresql_flexible_server_firewall_rule": {
 				Tok: azureResource(azurePostgresql, "FlexibleServerFirewallRule"),
+			},
+			"azurerm_postgresql_flexible_server_configuration": {
+				Tok: azureResource(azurePostgresql, "FlexibleServerConfiguration"),
 			},
 
 			// Policy
@@ -1761,6 +1768,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_maintenance_assignment_virtual_machine": {
 				Tok: azureResource(azureMaintenance, "AssignmentVirtualMachine"),
 			},
+			"azurerm_maintenance_assignment_virtual_machine_scale_set": {
+				Tok: azureResource(azureMaintenance, "AssignmentVirtualMachineScaleSet"),
+			},
 
 			// Servicebus
 			"azurerm_servicebus_namespace_network_rule_set": {
@@ -1819,6 +1829,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_synapse_sql_pool":                 {Tok: azureResource(azureSynapse, "SqlPool")},
 			"azurerm_synapse_role_assignment":          {Tok: azureResource(azureSynapse, "RoleAssignment")},
 			"azurerm_synapse_managed_private_endpoint": {Tok: azureResource(azureSynapse, "ManagedPrivateEndpoint")},
+			"azurerm_synapse_private_link_hub":         {Tok: azureResource(azureSynapse, "PrivateLinkHub")},
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},
@@ -2100,6 +2111,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_ip_group":                    {Tok: azureDataSource(azureNetwork, "getIpGroup")},
 			"azurerm_traffic_manager_profile":     {Tok: azureDataSource(azureNetwork, "getTrafficManagerProfile")},
 			"azurerm_application_gateway":         {Tok: azureDataSource(azureNetwork, "getApplicationGateway")},
+			"azurerm_local_network_gateway":       {Tok: azureDataSource(azureNetwork, "getLocalNetworkGateway")},
 			"azurerm_signalr_service":             {Tok: azureDataSource(azureSignalr, "getService")},
 			"azurerm_storage_container":           {Tok: azureDataSource(azureStorage, "getStorageContainer")},
 			"azurerm_storage_sync":                {Tok: azureDataSource(azureStorage, "getSync")},

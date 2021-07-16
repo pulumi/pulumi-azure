@@ -65,13 +65,19 @@ namespace Pulumi.Azure.Maintenance
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A mapping of properties to assign to the resource.
+        /// </summary>
+        [Output("properties")]
+        public Output<ImmutableDictionary<string, string>?> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+        /// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
         /// </summary>
         [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
@@ -81,6 +87,18 @@ namespace Pulumi.Azure.Maintenance
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        /// </summary>
+        [Output("visibility")]
+        public Output<string?> Visibility { get; private set; } = null!;
+
+        /// <summary>
+        /// A `window` block as defined below.
+        /// </summary>
+        [Output("window")]
+        public Output<Outputs.ConfigurationWindow?> Window { get; private set; } = null!;
 
 
         /// <summary>
@@ -140,6 +158,18 @@ namespace Pulumi.Azure.Maintenance
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("properties")]
+        private InputMap<string>? _properties;
+
+        /// <summary>
+        /// A mapping of properties to assign to the resource.
+        /// </summary>
+        public InputMap<string> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<string>());
+            set => _properties = value;
+        }
+
         /// <summary>
         /// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
         /// </summary>
@@ -147,7 +177,7 @@ namespace Pulumi.Azure.Maintenance
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+        /// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -163,6 +193,18 @@ namespace Pulumi.Azure.Maintenance
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        /// </summary>
+        [Input("visibility")]
+        public Input<string>? Visibility { get; set; }
+
+        /// <summary>
+        /// A `window` block as defined below.
+        /// </summary>
+        [Input("window")]
+        public Input<Inputs.ConfigurationWindowArgs>? Window { get; set; }
 
         public ConfigurationArgs()
         {
@@ -183,6 +225,18 @@ namespace Pulumi.Azure.Maintenance
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("properties")]
+        private InputMap<string>? _properties;
+
+        /// <summary>
+        /// A mapping of properties to assign to the resource.
+        /// </summary>
+        public InputMap<string> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<string>());
+            set => _properties = value;
+        }
+
         /// <summary>
         /// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
         /// </summary>
@@ -190,7 +244,7 @@ namespace Pulumi.Azure.Maintenance
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+        /// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -206,6 +260,18 @@ namespace Pulumi.Azure.Maintenance
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        /// </summary>
+        [Input("visibility")]
+        public Input<string>? Visibility { get; set; }
+
+        /// <summary>
+        /// A `window` block as defined below.
+        /// </summary>
+        [Input("window")]
+        public Input<Inputs.ConfigurationWindowGetArgs>? Window { get; set; }
 
         public ConfigurationState()
         {

@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AssignmentDedicatedHost{}
 	case "azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine":
 		r = &AssignmentVirtualMachine{}
+	case "azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet":
+		r = &AssignmentVirtualMachineScaleSet{}
 	case "azure:maintenance/configuration:Configuration":
 		r = &Configuration{}
 	default:
@@ -48,6 +50,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"maintenance/assignmentVirtualMachine",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"maintenance/assignmentVirtualMachineScaleSet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

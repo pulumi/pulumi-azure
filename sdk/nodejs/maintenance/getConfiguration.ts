@@ -62,6 +62,10 @@ export interface GetConfigurationResult {
      */
     readonly location: string;
     readonly name: string;
+    /**
+     * The properties assigned to the resource.
+     */
+    readonly properties: {[key: string]: string};
     readonly resourceGroupName: string;
     /**
      * The scope of the Maintenance Configuration.
@@ -71,4 +75,12 @@ export interface GetConfigurationResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The visibility of the Maintenance Configuration.
+     */
+    readonly visibility: string;
+    /**
+     * A `window` block as defined below.
+     */
+    readonly windows: outputs.maintenance.GetConfigurationWindow[];
 }

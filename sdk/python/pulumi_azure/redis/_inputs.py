@@ -18,8 +18,11 @@ __all__ = [
 class CachePatchScheduleArgs:
     def __init__(__self__, *,
                  day_of_week: pulumi.Input[str],
+                 maintenance_window: Optional[pulumi.Input[str]] = None,
                  start_hour_utc: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "day_of_week", day_of_week)
+        if maintenance_window is not None:
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if start_hour_utc is not None:
             pulumi.set(__self__, "start_hour_utc", start_hour_utc)
 
@@ -31,6 +34,15 @@ class CachePatchScheduleArgs:
     @day_of_week.setter
     def day_of_week(self, value: pulumi.Input[str]):
         pulumi.set(self, "day_of_week", value)
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "maintenance_window")
+
+    @maintenance_window.setter
+    def maintenance_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_window", value)
 
     @property
     @pulumi.getter(name="startHourUtc")

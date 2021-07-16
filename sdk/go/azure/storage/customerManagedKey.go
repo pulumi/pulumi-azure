@@ -31,6 +31,8 @@ type CustomerManagedKey struct {
 	KeyVersion pulumi.StringPtrOutput `pulumi:"keyVersion"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId pulumi.StringPtrOutput `pulumi:"userAssignedIdentityId"`
 }
 
 // NewCustomerManagedKey registers a new resource with the given unique name, arguments, and options.
@@ -79,6 +81,8 @@ type customerManagedKeyState struct {
 	KeyVersion *string `pulumi:"keyVersion"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
 type CustomerManagedKeyState struct {
@@ -90,6 +94,8 @@ type CustomerManagedKeyState struct {
 	KeyVersion pulumi.StringPtrInput
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId pulumi.StringPtrInput
 }
 
 func (CustomerManagedKeyState) ElementType() reflect.Type {
@@ -105,6 +111,8 @@ type customerManagedKeyArgs struct {
 	KeyVersion *string `pulumi:"keyVersion"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
 // The set of arguments for constructing a CustomerManagedKey resource.
@@ -117,6 +125,8 @@ type CustomerManagedKeyArgs struct {
 	KeyVersion pulumi.StringPtrInput
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId pulumi.StringPtrInput
 }
 
 func (CustomerManagedKeyArgs) ElementType() reflect.Type {

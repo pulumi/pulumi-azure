@@ -97,7 +97,13 @@ namespace Pulumi.Azure.ApiManagement
         /// The value of this API Management Named Value.
         /// </summary>
         [Output("value")]
-        public Output<string> Value { get; private set; } = null!;
+        public Output<string?> Value { get; private set; } = null!;
+
+        /// <summary>
+        /// A `value_from_key_vault` block as defined below.
+        /// </summary>
+        [Output("valueFromKeyVault")]
+        public Output<Outputs.NamedValueValueFromKeyVault?> ValueFromKeyVault { get; private set; } = null!;
 
 
         /// <summary>
@@ -190,8 +196,14 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The value of this API Management Named Value.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        [Input("value")]
+        public Input<string>? Value { get; set; }
+
+        /// <summary>
+        /// A `value_from_key_vault` block as defined below.
+        /// </summary>
+        [Input("valueFromKeyVault")]
+        public Input<Inputs.NamedValueValueFromKeyVaultArgs>? ValueFromKeyVault { get; set; }
 
         public NamedValueArgs()
         {
@@ -247,6 +259,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
+
+        /// <summary>
+        /// A `value_from_key_vault` block as defined below.
+        /// </summary>
+        [Input("valueFromKeyVault")]
+        public Input<Inputs.NamedValueValueFromKeyVaultGetArgs>? ValueFromKeyVault { get; set; }
 
         public NamedValueState()
         {

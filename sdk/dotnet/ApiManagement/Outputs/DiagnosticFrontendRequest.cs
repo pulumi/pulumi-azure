@@ -17,6 +17,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// Number of payload bytes to log (up to 8192).
         /// </summary>
         public readonly int? BodyBytes;
+        public readonly Outputs.DiagnosticFrontendRequestDataMasking? DataMasking;
         /// <summary>
         /// Specifies a list of headers to log.
         /// </summary>
@@ -26,9 +27,12 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         private DiagnosticFrontendRequest(
             int? bodyBytes,
 
+            Outputs.DiagnosticFrontendRequestDataMasking? dataMasking,
+
             ImmutableArray<string> headersToLogs)
         {
             BodyBytes = bodyBytes;
+            DataMasking = dataMasking;
             HeadersToLogs = headersToLogs;
         }
     }

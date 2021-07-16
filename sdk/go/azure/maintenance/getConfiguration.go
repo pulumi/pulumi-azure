@@ -55,11 +55,17 @@ type LookupConfigurationResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the resource exists.
-	Location          string `pulumi:"location"`
-	Name              string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Location string `pulumi:"location"`
+	Name     string `pulumi:"name"`
+	// The properties assigned to the resource.
+	Properties        map[string]string `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	// The scope of the Maintenance Configuration.
 	Scope string `pulumi:"scope"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The visibility of the Maintenance Configuration.
+	Visibility string `pulumi:"visibility"`
+	// A `window` block as defined below.
+	Windows []GetConfigurationWindow `pulumi:"windows"`
 }

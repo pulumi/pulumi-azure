@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -69,17 +70,29 @@ export class Configuration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A mapping of properties to assign to the resource.
+     */
+    public readonly properties!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+     * The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
      */
     public readonly scope!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource. The key could not contain upper case letter.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+     */
+    public readonly visibility!: pulumi.Output<string | undefined>;
+    /**
+     * A `window` block as defined below.
+     */
+    public readonly window!: pulumi.Output<outputs.maintenance.ConfigurationWindow | undefined>;
 
     /**
      * Create a Configuration resource with the given unique name, arguments, and options.
@@ -96,9 +109,12 @@ export class Configuration extends pulumi.CustomResource {
             const state = argsOrState as ConfigurationState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["properties"] = state ? state.properties : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["scope"] = state ? state.scope : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["visibility"] = state ? state.visibility : undefined;
+            inputs["window"] = state ? state.window : undefined;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -106,9 +122,12 @@ export class Configuration extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["visibility"] = args ? args.visibility : undefined;
+            inputs["window"] = args ? args.window : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -130,17 +149,29 @@ export interface ConfigurationState {
      */
     name?: pulumi.Input<string>;
     /**
+     * A mapping of properties to assign to the resource.
+     */
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+     * The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
      */
     scope?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. The key could not contain upper case letter.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+     */
+    visibility?: pulumi.Input<string>;
+    /**
+     * A `window` block as defined below.
+     */
+    window?: pulumi.Input<inputs.maintenance.ConfigurationWindow>;
 }
 
 /**
@@ -156,15 +187,27 @@ export interface ConfigurationArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * A mapping of properties to assign to the resource.
+     */
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
+     * The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
      */
     scope?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. The key could not contain upper case letter.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+     */
+    visibility?: pulumi.Input<string>;
+    /**
+     * A `window` block as defined below.
+     */
+    window?: pulumi.Input<inputs.maintenance.ConfigurationWindow>;
 }

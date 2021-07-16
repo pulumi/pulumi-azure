@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FirewallRule{}
 	case "azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint":
 		r = &ManagedPrivateEndpoint{}
+	case "azure:synapse/privateLinkHub:PrivateLinkHub":
+		r = &PrivateLinkHub{}
 	case "azure:synapse/roleAssignment:RoleAssignment":
 		r = &RoleAssignment{}
 	case "azure:synapse/sparkPool:SparkPool":
@@ -54,6 +56,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"synapse/managedPrivateEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"synapse/privateLinkHub",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

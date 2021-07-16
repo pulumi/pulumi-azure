@@ -7,12 +7,14 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./assignmentDedicatedHost";
 export * from "./assignmentVirtualMachine";
+export * from "./assignmentVirtualMachineScaleSet";
 export * from "./configuration";
 export * from "./getConfiguration";
 
 // Import resources to register:
 import { AssignmentDedicatedHost } from "./assignmentDedicatedHost";
 import { AssignmentVirtualMachine } from "./assignmentVirtualMachine";
+import { AssignmentVirtualMachineScaleSet } from "./assignmentVirtualMachineScaleSet";
 import { Configuration } from "./configuration";
 
 const _module = {
@@ -23,6 +25,8 @@ const _module = {
                 return new AssignmentDedicatedHost(name, <any>undefined, { urn })
             case "azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine":
                 return new AssignmentVirtualMachine(name, <any>undefined, { urn })
+            case "azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet":
+                return new AssignmentVirtualMachineScaleSet(name, <any>undefined, { urn })
             case "azure:maintenance/configuration:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
             default:
@@ -32,4 +36,5 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "maintenance/assignmentDedicatedHost", _module)
 pulumi.runtime.registerResourceModule("azure", "maintenance/assignmentVirtualMachine", _module)
+pulumi.runtime.registerResourceModule("azure", "maintenance/assignmentVirtualMachineScaleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "maintenance/configuration", _module)

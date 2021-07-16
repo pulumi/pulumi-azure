@@ -10,10 +10,99 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'BackupPolicyDiskRetentionRule',
+    'BackupPolicyDiskRetentionRuleCriteria',
     'BackupPolicyPostgresqlRetentionRule',
     'BackupPolicyPostgresqlRetentionRuleCriteria',
     'BackupVaultIdentity',
 ]
+
+@pulumi.output_type
+class BackupPolicyDiskRetentionRule(dict):
+    def __init__(__self__, *,
+                 criteria: 'outputs.BackupPolicyDiskRetentionRuleCriteria',
+                 duration: str,
+                 name: str,
+                 priority: int):
+        """
+        :param 'BackupPolicyDiskRetentionRuleCriteriaArgs' criteria: A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+        :param str duration: Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
+        :param str name: The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
+        :param int priority: Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
+        """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> 'outputs.BackupPolicyDiskRetentionRuleCriteria':
+        """
+        A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "criteria")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        """
+        Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "priority")
+
+
+@pulumi.output_type
+class BackupPolicyDiskRetentionRuleCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "absoluteCriteria":
+            suggest = "absolute_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPolicyDiskRetentionRuleCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPolicyDiskRetentionRuleCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPolicyDiskRetentionRuleCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 absolute_criteria: Optional[str] = None):
+        """
+        :param str absolute_criteria: Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+        """
+        if absolute_criteria is not None:
+            pulumi.set(__self__, "absolute_criteria", absolute_criteria)
+
+    @property
+    @pulumi.getter(name="absoluteCriteria")
+    def absolute_criteria(self) -> Optional[str]:
+        """
+        Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "absolute_criteria")
+
 
 @pulumi.output_type
 class BackupPolicyPostgresqlRetentionRule(dict):

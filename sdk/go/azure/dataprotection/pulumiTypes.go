@@ -10,6 +10,182 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type BackupPolicyDiskRetentionRule struct {
+	// A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+	Criteria BackupPolicyDiskRetentionRuleCriteria `pulumi:"criteria"`
+	// Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
+	Duration string `pulumi:"duration"`
+	// The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
+	Name string `pulumi:"name"`
+	// Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
+	Priority int `pulumi:"priority"`
+}
+
+// BackupPolicyDiskRetentionRuleInput is an input type that accepts BackupPolicyDiskRetentionRuleArgs and BackupPolicyDiskRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyDiskRetentionRuleInput` via:
+//
+//          BackupPolicyDiskRetentionRuleArgs{...}
+type BackupPolicyDiskRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyDiskRetentionRuleOutput() BackupPolicyDiskRetentionRuleOutput
+	ToBackupPolicyDiskRetentionRuleOutputWithContext(context.Context) BackupPolicyDiskRetentionRuleOutput
+}
+
+type BackupPolicyDiskRetentionRuleArgs struct {
+	// A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+	Criteria BackupPolicyDiskRetentionRuleCriteriaInput `pulumi:"criteria"`
+	// Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (BackupPolicyDiskRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyDiskRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyDiskRetentionRuleArgs) ToBackupPolicyDiskRetentionRuleOutput() BackupPolicyDiskRetentionRuleOutput {
+	return i.ToBackupPolicyDiskRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyDiskRetentionRuleArgs) ToBackupPolicyDiskRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyDiskRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDiskRetentionRuleOutput)
+}
+
+// BackupPolicyDiskRetentionRuleArrayInput is an input type that accepts BackupPolicyDiskRetentionRuleArray and BackupPolicyDiskRetentionRuleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyDiskRetentionRuleArrayInput` via:
+//
+//          BackupPolicyDiskRetentionRuleArray{ BackupPolicyDiskRetentionRuleArgs{...} }
+type BackupPolicyDiskRetentionRuleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyDiskRetentionRuleArrayOutput() BackupPolicyDiskRetentionRuleArrayOutput
+	ToBackupPolicyDiskRetentionRuleArrayOutputWithContext(context.Context) BackupPolicyDiskRetentionRuleArrayOutput
+}
+
+type BackupPolicyDiskRetentionRuleArray []BackupPolicyDiskRetentionRuleInput
+
+func (BackupPolicyDiskRetentionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyDiskRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyDiskRetentionRuleArray) ToBackupPolicyDiskRetentionRuleArrayOutput() BackupPolicyDiskRetentionRuleArrayOutput {
+	return i.ToBackupPolicyDiskRetentionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyDiskRetentionRuleArray) ToBackupPolicyDiskRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyDiskRetentionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDiskRetentionRuleArrayOutput)
+}
+
+type BackupPolicyDiskRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyDiskRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyDiskRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyDiskRetentionRuleOutput) ToBackupPolicyDiskRetentionRuleOutput() BackupPolicyDiskRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyDiskRetentionRuleOutput) ToBackupPolicyDiskRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyDiskRetentionRuleOutput {
+	return o
+}
+
+// A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+func (o BackupPolicyDiskRetentionRuleOutput) Criteria() BackupPolicyDiskRetentionRuleCriteriaOutput {
+	return o.ApplyT(func(v BackupPolicyDiskRetentionRule) BackupPolicyDiskRetentionRuleCriteria { return v.Criteria }).(BackupPolicyDiskRetentionRuleCriteriaOutput)
+}
+
+// Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
+func (o BackupPolicyDiskRetentionRuleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyDiskRetentionRule) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
+func (o BackupPolicyDiskRetentionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyDiskRetentionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
+func (o BackupPolicyDiskRetentionRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupPolicyDiskRetentionRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type BackupPolicyDiskRetentionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyDiskRetentionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyDiskRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyDiskRetentionRuleArrayOutput) ToBackupPolicyDiskRetentionRuleArrayOutput() BackupPolicyDiskRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyDiskRetentionRuleArrayOutput) ToBackupPolicyDiskRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyDiskRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyDiskRetentionRuleArrayOutput) Index(i pulumi.IntInput) BackupPolicyDiskRetentionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyDiskRetentionRule {
+		return vs[0].([]BackupPolicyDiskRetentionRule)[vs[1].(int)]
+	}).(BackupPolicyDiskRetentionRuleOutput)
+}
+
+type BackupPolicyDiskRetentionRuleCriteria struct {
+	// Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+	AbsoluteCriteria *string `pulumi:"absoluteCriteria"`
+}
+
+// BackupPolicyDiskRetentionRuleCriteriaInput is an input type that accepts BackupPolicyDiskRetentionRuleCriteriaArgs and BackupPolicyDiskRetentionRuleCriteriaOutput values.
+// You can construct a concrete instance of `BackupPolicyDiskRetentionRuleCriteriaInput` via:
+//
+//          BackupPolicyDiskRetentionRuleCriteriaArgs{...}
+type BackupPolicyDiskRetentionRuleCriteriaInput interface {
+	pulumi.Input
+
+	ToBackupPolicyDiskRetentionRuleCriteriaOutput() BackupPolicyDiskRetentionRuleCriteriaOutput
+	ToBackupPolicyDiskRetentionRuleCriteriaOutputWithContext(context.Context) BackupPolicyDiskRetentionRuleCriteriaOutput
+}
+
+type BackupPolicyDiskRetentionRuleCriteriaArgs struct {
+	// Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+	AbsoluteCriteria pulumi.StringPtrInput `pulumi:"absoluteCriteria"`
+}
+
+func (BackupPolicyDiskRetentionRuleCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyDiskRetentionRuleCriteria)(nil)).Elem()
+}
+
+func (i BackupPolicyDiskRetentionRuleCriteriaArgs) ToBackupPolicyDiskRetentionRuleCriteriaOutput() BackupPolicyDiskRetentionRuleCriteriaOutput {
+	return i.ToBackupPolicyDiskRetentionRuleCriteriaOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyDiskRetentionRuleCriteriaArgs) ToBackupPolicyDiskRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyDiskRetentionRuleCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDiskRetentionRuleCriteriaOutput)
+}
+
+type BackupPolicyDiskRetentionRuleCriteriaOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyDiskRetentionRuleCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyDiskRetentionRuleCriteria)(nil)).Elem()
+}
+
+func (o BackupPolicyDiskRetentionRuleCriteriaOutput) ToBackupPolicyDiskRetentionRuleCriteriaOutput() BackupPolicyDiskRetentionRuleCriteriaOutput {
+	return o
+}
+
+func (o BackupPolicyDiskRetentionRuleCriteriaOutput) ToBackupPolicyDiskRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyDiskRetentionRuleCriteriaOutput {
+	return o
+}
+
+// Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+func (o BackupPolicyDiskRetentionRuleCriteriaOutput) AbsoluteCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyDiskRetentionRuleCriteria) *string { return v.AbsoluteCriteria }).(pulumi.StringPtrOutput)
+}
+
 type BackupPolicyPostgresqlRetentionRule struct {
 	// A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
 	Criteria BackupPolicyPostgresqlRetentionRuleCriteria `pulumi:"criteria"`
@@ -394,6 +570,9 @@ func (o BackupVaultIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleArrayOutput{})
+	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleCriteriaOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleCriteriaOutput{})

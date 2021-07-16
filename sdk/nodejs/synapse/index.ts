@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./firewallRule";
 export * from "./getWorkspace";
 export * from "./managedPrivateEndpoint";
+export * from "./privateLinkHub";
 export * from "./roleAssignment";
 export * from "./sparkPool";
 export * from "./sqlPool";
@@ -16,6 +17,7 @@ export * from "./workspace";
 // Import resources to register:
 import { FirewallRule } from "./firewallRule";
 import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
+import { PrivateLinkHub } from "./privateLinkHub";
 import { RoleAssignment } from "./roleAssignment";
 import { SparkPool } from "./sparkPool";
 import { SqlPool } from "./sqlPool";
@@ -29,6 +31,8 @@ const _module = {
                 return new FirewallRule(name, <any>undefined, { urn })
             case "azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint":
                 return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
+            case "azure:synapse/privateLinkHub:PrivateLinkHub":
+                return new PrivateLinkHub(name, <any>undefined, { urn })
             case "azure:synapse/roleAssignment:RoleAssignment":
                 return new RoleAssignment(name, <any>undefined, { urn })
             case "azure:synapse/sparkPool:SparkPool":
@@ -44,6 +48,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "synapse/firewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/managedPrivateEndpoint", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/privateLinkHub", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/roleAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/sparkPool", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/sqlPool", _module)

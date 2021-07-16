@@ -10,6 +10,7 @@ export * from "./configuration";
 export * from "./database";
 export * from "./firewallRule";
 export * from "./flexibleServer";
+export * from "./flexibleServerConfiguration";
 export * from "./flexibleServerFirewallRule";
 export * from "./getFlexibleServer";
 export * from "./getServer";
@@ -23,6 +24,7 @@ import { Configuration } from "./configuration";
 import { Database } from "./database";
 import { FirewallRule } from "./firewallRule";
 import { FlexibleServer } from "./flexibleServer";
+import { FlexibleServerConfiguration } from "./flexibleServerConfiguration";
 import { FlexibleServerFirewallRule } from "./flexibleServerFirewallRule";
 import { Server } from "./server";
 import { ServerKey } from "./serverKey";
@@ -42,6 +44,8 @@ const _module = {
                 return new FirewallRule(name, <any>undefined, { urn })
             case "azure:postgresql/flexibleServer:FlexibleServer":
                 return new FlexibleServer(name, <any>undefined, { urn })
+            case "azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration":
+                return new FlexibleServerConfiguration(name, <any>undefined, { urn })
             case "azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule":
                 return new FlexibleServerFirewallRule(name, <any>undefined, { urn })
             case "azure:postgresql/server:Server":
@@ -60,6 +64,7 @@ pulumi.runtime.registerResourceModule("azure", "postgresql/configuration", _modu
 pulumi.runtime.registerResourceModule("azure", "postgresql/database", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/firewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServer", _module)
+pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerFirewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/server", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/serverKey", _module)

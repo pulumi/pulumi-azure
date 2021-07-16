@@ -271,6 +271,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/apiRelease",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/apiRelease:ApiRelease": "ApiRelease"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/apiSchema",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
@@ -1679,10 +1687,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/customDataset",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/customDataset:CustomDataset": "CustomDataset"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/datasetAzureBlob",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
    "azure:datafactory/datasetAzureBlob:DatasetAzureBlob": "DatasetAzureBlob"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "datafactory/datasetBinary",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/datasetBinary:DatasetBinary": "DatasetBinary"
   }
  },
  {
@@ -2035,6 +2059,14 @@ _utilities.register(
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
    "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql": "BackupInstancePostgresql"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dataprotection/backupPolicyDisk",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupPolicyDisk:BackupPolicyDisk": "BackupPolicyDisk"
   }
  },
  {
@@ -3263,6 +3295,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "maintenance/assignmentVirtualMachineScaleSet",
+  "fqn": "pulumi_azure.maintenance",
+  "classes": {
+   "azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet": "AssignmentVirtualMachineScaleSet"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "maintenance/configuration",
   "fqn": "pulumi_azure.maintenance",
   "classes": {
@@ -4431,6 +4471,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "postgresql/flexibleServerConfiguration",
+  "fqn": "pulumi_azure.postgresql",
+  "classes": {
+   "azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration": "FlexibleServerConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "postgresql/flexibleServerFirewallRule",
   "fqn": "pulumi_azure.postgresql",
   "classes": {
@@ -5355,6 +5403,14 @@ _utilities.register(
   "fqn": "pulumi_azure.synapse",
   "classes": {
    "azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint": "ManagedPrivateEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "synapse/privateLinkHub",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/privateLinkHub:PrivateLinkHub": "PrivateLinkHub"
   }
  },
  {

@@ -78,6 +78,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Is Managed Virtual Network enabled?
+        /// </summary>
+        [Output("managedVirtualNetworkEnabled")]
+        public Output<bool?> ManagedVirtualNetworkEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Output("name")]
@@ -190,6 +196,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Is Managed Virtual Network enabled?
+        /// </summary>
+        [Input("managedVirtualNetworkEnabled")]
+        public Input<bool>? ManagedVirtualNetworkEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Input("name")]
@@ -267,6 +279,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Is Managed Virtual Network enabled?
+        /// </summary>
+        [Input("managedVirtualNetworkEnabled")]
+        public Input<bool>? ManagedVirtualNetworkEnabled { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.

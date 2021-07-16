@@ -9,7 +9,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CustomDatasetLinkedService',
     'DatasetAzureBlobSchemaColumn',
+    'DatasetBinaryAzureBlobStorageLocation',
+    'DatasetBinaryCompression',
+    'DatasetBinaryHttpServerLocation',
+    'DatasetBinarySftpServerLocation',
     'DatasetCosmosDBApiSchemaColumn',
     'DatasetDelimitedTextAzureBlobFsLocation',
     'DatasetDelimitedTextAzureBlobStorageLocation',
@@ -56,6 +61,36 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class CustomDatasetLinkedService(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name of the Data Factory Linked Service.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class DatasetAzureBlobSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
@@ -95,6 +130,162 @@ class DatasetAzureBlobSchemaColumn(dict):
         Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DatasetBinaryAzureBlobStorageLocation(dict):
+    def __init__(__self__, *,
+                 container: str,
+                 filename: str,
+                 path: str):
+        """
+        :param str container: The container on the Azure Blob Storage Account hosting the file.
+        :param str filename: The filename of the file on the web server.
+        :param str path: The folder path to the file on the web server.
+        """
+        pulumi.set(__self__, "container", container)
+        pulumi.set(__self__, "filename", filename)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def container(self) -> str:
+        """
+        The container on the Azure Blob Storage Account hosting the file.
+        """
+        return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter
+    def filename(self) -> str:
+        """
+        The filename of the file on the web server.
+        """
+        return pulumi.get(self, "filename")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The folder path to the file on the web server.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class DatasetBinaryCompression(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 level: Optional[str] = None):
+        """
+        :param str type: The type of compression used during transport.
+        :param str level: The level of compression. Possible values are `Fastest` and `Optimal`.
+        """
+        pulumi.set(__self__, "type", type)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of compression used during transport.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        The level of compression. Possible values are `Fastest` and `Optimal`.
+        """
+        return pulumi.get(self, "level")
+
+
+@pulumi.output_type
+class DatasetBinaryHttpServerLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relativeUrl":
+            suggest = "relative_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetBinaryHttpServerLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetBinaryHttpServerLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetBinaryHttpServerLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filename: str,
+                 path: str,
+                 relative_url: str):
+        """
+        :param str filename: The filename of the file on the web server.
+        :param str path: The folder path to the file on the web server.
+        :param str relative_url: The base URL to the web server hosting the file.
+        """
+        pulumi.set(__self__, "filename", filename)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "relative_url", relative_url)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> str:
+        """
+        The filename of the file on the web server.
+        """
+        return pulumi.get(self, "filename")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The folder path to the file on the web server.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="relativeUrl")
+    def relative_url(self) -> str:
+        """
+        The base URL to the web server hosting the file.
+        """
+        return pulumi.get(self, "relative_url")
+
+
+@pulumi.output_type
+class DatasetBinarySftpServerLocation(dict):
+    def __init__(__self__, *,
+                 filename: str,
+                 path: str):
+        """
+        :param str filename: The filename of the file on the SFTP server.
+        :param str path: The folder path to the file on the SFTP server.
+        """
+        pulumi.set(__self__, "filename", filename)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> str:
+        """
+        The filename of the file on the SFTP server.
+        """
+        return pulumi.get(self, "filename")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The folder path to the file on the SFTP server.
+        """
+        return pulumi.get(self, "path")
 
 
 @pulumi.output_type

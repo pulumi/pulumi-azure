@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to v2.68.0 of the AzureRM Terraform Provider
 * (breaking) Bring Go `*State` types for resource get methods into agreement with other languages.
 
 ---

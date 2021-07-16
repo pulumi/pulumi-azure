@@ -11,9 +11,21 @@ from . import outputs
 
 __all__ = [
     'ApiDiagnosticBackendRequest',
+    'ApiDiagnosticBackendRequestDataMasking',
+    'ApiDiagnosticBackendRequestDataMaskingHeader',
+    'ApiDiagnosticBackendRequestDataMaskingQueryParam',
     'ApiDiagnosticBackendResponse',
+    'ApiDiagnosticBackendResponseDataMasking',
+    'ApiDiagnosticBackendResponseDataMaskingHeader',
+    'ApiDiagnosticBackendResponseDataMaskingQueryParam',
     'ApiDiagnosticFrontendRequest',
+    'ApiDiagnosticFrontendRequestDataMasking',
+    'ApiDiagnosticFrontendRequestDataMaskingHeader',
+    'ApiDiagnosticFrontendRequestDataMaskingQueryParam',
     'ApiDiagnosticFrontendResponse',
+    'ApiDiagnosticFrontendResponseDataMasking',
+    'ApiDiagnosticFrontendResponseDataMaskingHeader',
+    'ApiDiagnosticFrontendResponseDataMaskingQueryParam',
     'ApiImport',
     'ApiImportWsdlSelector',
     'ApiOauth2Authorization',
@@ -42,12 +54,25 @@ __all__ = [
     'CustomDomainProxy',
     'CustomDomainScm',
     'DiagnosticBackendRequest',
+    'DiagnosticBackendRequestDataMasking',
+    'DiagnosticBackendRequestDataMaskingHeader',
+    'DiagnosticBackendRequestDataMaskingQueryParam',
     'DiagnosticBackendResponse',
+    'DiagnosticBackendResponseDataMasking',
+    'DiagnosticBackendResponseDataMaskingHeader',
+    'DiagnosticBackendResponseDataMaskingQueryParam',
     'DiagnosticFrontendRequest',
+    'DiagnosticFrontendRequestDataMasking',
+    'DiagnosticFrontendRequestDataMaskingHeader',
+    'DiagnosticFrontendRequestDataMaskingQueryParam',
     'DiagnosticFrontendResponse',
+    'DiagnosticFrontendResponseDataMasking',
+    'DiagnosticFrontendResponseDataMaskingHeader',
+    'DiagnosticFrontendResponseDataMaskingQueryParam',
     'GatewayLocationData',
     'LoggerApplicationInsights',
     'LoggerEventhub',
+    'NamedValueValueFromKeyVault',
     'ServiceAdditionalLocation',
     'ServiceAdditionalLocationVirtualNetworkConfiguration',
     'ServiceCertificate',
@@ -85,6 +110,8 @@ class ApiDiagnosticBackendRequest(dict):
         suggest = None
         if key == "bodyBytes":
             suggest = "body_bytes"
+        elif key == "dataMasking":
+            suggest = "data_masking"
         elif key == "headersToLogs":
             suggest = "headers_to_logs"
 
@@ -101,13 +128,17 @@ class ApiDiagnosticBackendRequest(dict):
 
     def __init__(__self__, *,
                  body_bytes: Optional[int] = None,
+                 data_masking: Optional['outputs.ApiDiagnosticBackendRequestDataMasking'] = None,
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
+        :param 'ApiDiagnosticBackendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -120,6 +151,14 @@ class ApiDiagnosticBackendRequest(dict):
         return pulumi.get(self, "body_bytes")
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional['outputs.ApiDiagnosticBackendRequestDataMasking']:
+        """
+        A `data_masking` block as defined below.
+        """
+        return pulumi.get(self, "data_masking")
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[Sequence[str]]:
         """
@@ -129,12 +168,120 @@ class ApiDiagnosticBackendRequest(dict):
 
 
 @pulumi.output_type
+class ApiDiagnosticBackendRequestDataMasking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryParams":
+            suggest = "query_params"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiDiagnosticBackendRequestDataMasking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiDiagnosticBackendRequestDataMasking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiDiagnosticBackendRequestDataMasking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 headers: Optional[Sequence['outputs.ApiDiagnosticBackendRequestDataMaskingHeader']] = None,
+                 query_params: Optional[Sequence['outputs.ApiDiagnosticBackendRequestDataMaskingQueryParam']] = None):
+        """
+        :param Sequence['ApiDiagnosticBackendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
+        :param Sequence['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
+        """
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.ApiDiagnosticBackendRequestDataMaskingHeader']]:
+        """
+        A `headers` block as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[Sequence['outputs.ApiDiagnosticBackendRequestDataMaskingQueryParam']]:
+        """
+        A `query_params` block as defined below.
+        """
+        return pulumi.get(self, "query_params")
+
+
+@pulumi.output_type
+class ApiDiagnosticBackendRequestDataMaskingHeader(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        """
+        :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param str value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiDiagnosticBackendRequestDataMaskingQueryParam(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        """
+        :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param str value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ApiDiagnosticBackendResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "bodyBytes":
             suggest = "body_bytes"
+        elif key == "dataMasking":
+            suggest = "data_masking"
         elif key == "headersToLogs":
             suggest = "headers_to_logs"
 
@@ -151,13 +298,17 @@ class ApiDiagnosticBackendResponse(dict):
 
     def __init__(__self__, *,
                  body_bytes: Optional[int] = None,
+                 data_masking: Optional['outputs.ApiDiagnosticBackendResponseDataMasking'] = None,
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
+        :param 'ApiDiagnosticBackendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -170,6 +321,14 @@ class ApiDiagnosticBackendResponse(dict):
         return pulumi.get(self, "body_bytes")
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional['outputs.ApiDiagnosticBackendResponseDataMasking']:
+        """
+        A `data_masking` block as defined below.
+        """
+        return pulumi.get(self, "data_masking")
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[Sequence[str]]:
         """
@@ -179,12 +338,120 @@ class ApiDiagnosticBackendResponse(dict):
 
 
 @pulumi.output_type
+class ApiDiagnosticBackendResponseDataMasking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryParams":
+            suggest = "query_params"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiDiagnosticBackendResponseDataMasking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiDiagnosticBackendResponseDataMasking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiDiagnosticBackendResponseDataMasking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 headers: Optional[Sequence['outputs.ApiDiagnosticBackendResponseDataMaskingHeader']] = None,
+                 query_params: Optional[Sequence['outputs.ApiDiagnosticBackendResponseDataMaskingQueryParam']] = None):
+        """
+        :param Sequence['ApiDiagnosticBackendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
+        :param Sequence['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
+        """
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.ApiDiagnosticBackendResponseDataMaskingHeader']]:
+        """
+        A `headers` block as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[Sequence['outputs.ApiDiagnosticBackendResponseDataMaskingQueryParam']]:
+        """
+        A `query_params` block as defined below.
+        """
+        return pulumi.get(self, "query_params")
+
+
+@pulumi.output_type
+class ApiDiagnosticBackendResponseDataMaskingHeader(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        """
+        :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param str value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiDiagnosticBackendResponseDataMaskingQueryParam(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        """
+        :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param str value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ApiDiagnosticFrontendRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "bodyBytes":
             suggest = "body_bytes"
+        elif key == "dataMasking":
+            suggest = "data_masking"
         elif key == "headersToLogs":
             suggest = "headers_to_logs"
 
@@ -201,13 +468,17 @@ class ApiDiagnosticFrontendRequest(dict):
 
     def __init__(__self__, *,
                  body_bytes: Optional[int] = None,
+                 data_masking: Optional['outputs.ApiDiagnosticFrontendRequestDataMasking'] = None,
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
+        :param 'ApiDiagnosticFrontendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -220,6 +491,14 @@ class ApiDiagnosticFrontendRequest(dict):
         return pulumi.get(self, "body_bytes")
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional['outputs.ApiDiagnosticFrontendRequestDataMasking']:
+        """
+        A `data_masking` block as defined below.
+        """
+        return pulumi.get(self, "data_masking")
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[Sequence[str]]:
         """
@@ -229,12 +508,120 @@ class ApiDiagnosticFrontendRequest(dict):
 
 
 @pulumi.output_type
+class ApiDiagnosticFrontendRequestDataMasking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryParams":
+            suggest = "query_params"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiDiagnosticFrontendRequestDataMasking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiDiagnosticFrontendRequestDataMasking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiDiagnosticFrontendRequestDataMasking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 headers: Optional[Sequence['outputs.ApiDiagnosticFrontendRequestDataMaskingHeader']] = None,
+                 query_params: Optional[Sequence['outputs.ApiDiagnosticFrontendRequestDataMaskingQueryParam']] = None):
+        """
+        :param Sequence['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
+        :param Sequence['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
+        """
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.ApiDiagnosticFrontendRequestDataMaskingHeader']]:
+        """
+        A `headers` block as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[Sequence['outputs.ApiDiagnosticFrontendRequestDataMaskingQueryParam']]:
+        """
+        A `query_params` block as defined below.
+        """
+        return pulumi.get(self, "query_params")
+
+
+@pulumi.output_type
+class ApiDiagnosticFrontendRequestDataMaskingHeader(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        """
+        :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param str value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiDiagnosticFrontendRequestDataMaskingQueryParam(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        """
+        :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param str value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ApiDiagnosticFrontendResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "bodyBytes":
             suggest = "body_bytes"
+        elif key == "dataMasking":
+            suggest = "data_masking"
         elif key == "headersToLogs":
             suggest = "headers_to_logs"
 
@@ -251,13 +638,17 @@ class ApiDiagnosticFrontendResponse(dict):
 
     def __init__(__self__, *,
                  body_bytes: Optional[int] = None,
+                 data_masking: Optional['outputs.ApiDiagnosticFrontendResponseDataMasking'] = None,
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
+        :param 'ApiDiagnosticFrontendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -270,12 +661,126 @@ class ApiDiagnosticFrontendResponse(dict):
         return pulumi.get(self, "body_bytes")
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional['outputs.ApiDiagnosticFrontendResponseDataMasking']:
+        """
+        A `data_masking` block as defined below.
+        """
+        return pulumi.get(self, "data_masking")
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of headers to log.
         """
         return pulumi.get(self, "headers_to_logs")
+
+
+@pulumi.output_type
+class ApiDiagnosticFrontendResponseDataMasking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryParams":
+            suggest = "query_params"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiDiagnosticFrontendResponseDataMasking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiDiagnosticFrontendResponseDataMasking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiDiagnosticFrontendResponseDataMasking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 headers: Optional[Sequence['outputs.ApiDiagnosticFrontendResponseDataMaskingHeader']] = None,
+                 query_params: Optional[Sequence['outputs.ApiDiagnosticFrontendResponseDataMaskingQueryParam']] = None):
+        """
+        :param Sequence['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
+        :param Sequence['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
+        """
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.ApiDiagnosticFrontendResponseDataMaskingHeader']]:
+        """
+        A `headers` block as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[Sequence['outputs.ApiDiagnosticFrontendResponseDataMaskingQueryParam']]:
+        """
+        A `query_params` block as defined below.
+        """
+        return pulumi.get(self, "query_params")
+
+
+@pulumi.output_type
+class ApiDiagnosticFrontendResponseDataMaskingHeader(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        """
+        :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param str value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiDiagnosticFrontendResponseDataMaskingQueryParam(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        """
+        :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        :param str value: The name of the header or the uery parameter to mask.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The name of the header or the uery parameter to mask.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2214,6 +2719,8 @@ class DiagnosticBackendRequest(dict):
         suggest = None
         if key == "bodyBytes":
             suggest = "body_bytes"
+        elif key == "dataMasking":
+            suggest = "data_masking"
         elif key == "headersToLogs":
             suggest = "headers_to_logs"
 
@@ -2230,6 +2737,7 @@ class DiagnosticBackendRequest(dict):
 
     def __init__(__self__, *,
                  body_bytes: Optional[int] = None,
+                 data_masking: Optional['outputs.DiagnosticBackendRequestDataMasking'] = None,
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
@@ -2237,6 +2745,8 @@ class DiagnosticBackendRequest(dict):
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -2249,6 +2759,11 @@ class DiagnosticBackendRequest(dict):
         return pulumi.get(self, "body_bytes")
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional['outputs.DiagnosticBackendRequestDataMasking']:
+        return pulumi.get(self, "data_masking")
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[Sequence[str]]:
         """
@@ -2258,12 +2773,90 @@ class DiagnosticBackendRequest(dict):
 
 
 @pulumi.output_type
+class DiagnosticBackendRequestDataMasking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryParams":
+            suggest = "query_params"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticBackendRequestDataMasking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticBackendRequestDataMasking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticBackendRequestDataMasking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 headers: Optional[Sequence['outputs.DiagnosticBackendRequestDataMaskingHeader']] = None,
+                 query_params: Optional[Sequence['outputs.DiagnosticBackendRequestDataMaskingQueryParam']] = None):
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.DiagnosticBackendRequestDataMaskingHeader']]:
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[Sequence['outputs.DiagnosticBackendRequestDataMaskingQueryParam']]:
+        return pulumi.get(self, "query_params")
+
+
+@pulumi.output_type
+class DiagnosticBackendRequestDataMaskingHeader(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DiagnosticBackendRequestDataMaskingQueryParam(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class DiagnosticBackendResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "bodyBytes":
             suggest = "body_bytes"
+        elif key == "dataMasking":
+            suggest = "data_masking"
         elif key == "headersToLogs":
             suggest = "headers_to_logs"
 
@@ -2280,6 +2873,7 @@ class DiagnosticBackendResponse(dict):
 
     def __init__(__self__, *,
                  body_bytes: Optional[int] = None,
+                 data_masking: Optional['outputs.DiagnosticBackendResponseDataMasking'] = None,
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
@@ -2287,6 +2881,8 @@ class DiagnosticBackendResponse(dict):
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -2299,6 +2895,11 @@ class DiagnosticBackendResponse(dict):
         return pulumi.get(self, "body_bytes")
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional['outputs.DiagnosticBackendResponseDataMasking']:
+        return pulumi.get(self, "data_masking")
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[Sequence[str]]:
         """
@@ -2308,12 +2909,90 @@ class DiagnosticBackendResponse(dict):
 
 
 @pulumi.output_type
+class DiagnosticBackendResponseDataMasking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryParams":
+            suggest = "query_params"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticBackendResponseDataMasking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticBackendResponseDataMasking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticBackendResponseDataMasking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 headers: Optional[Sequence['outputs.DiagnosticBackendResponseDataMaskingHeader']] = None,
+                 query_params: Optional[Sequence['outputs.DiagnosticBackendResponseDataMaskingQueryParam']] = None):
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.DiagnosticBackendResponseDataMaskingHeader']]:
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[Sequence['outputs.DiagnosticBackendResponseDataMaskingQueryParam']]:
+        return pulumi.get(self, "query_params")
+
+
+@pulumi.output_type
+class DiagnosticBackendResponseDataMaskingHeader(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DiagnosticBackendResponseDataMaskingQueryParam(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class DiagnosticFrontendRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "bodyBytes":
             suggest = "body_bytes"
+        elif key == "dataMasking":
+            suggest = "data_masking"
         elif key == "headersToLogs":
             suggest = "headers_to_logs"
 
@@ -2330,6 +3009,7 @@ class DiagnosticFrontendRequest(dict):
 
     def __init__(__self__, *,
                  body_bytes: Optional[int] = None,
+                 data_masking: Optional['outputs.DiagnosticFrontendRequestDataMasking'] = None,
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
@@ -2337,6 +3017,8 @@ class DiagnosticFrontendRequest(dict):
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -2349,6 +3031,11 @@ class DiagnosticFrontendRequest(dict):
         return pulumi.get(self, "body_bytes")
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional['outputs.DiagnosticFrontendRequestDataMasking']:
+        return pulumi.get(self, "data_masking")
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[Sequence[str]]:
         """
@@ -2358,12 +3045,90 @@ class DiagnosticFrontendRequest(dict):
 
 
 @pulumi.output_type
+class DiagnosticFrontendRequestDataMasking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryParams":
+            suggest = "query_params"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticFrontendRequestDataMasking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticFrontendRequestDataMasking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticFrontendRequestDataMasking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 headers: Optional[Sequence['outputs.DiagnosticFrontendRequestDataMaskingHeader']] = None,
+                 query_params: Optional[Sequence['outputs.DiagnosticFrontendRequestDataMaskingQueryParam']] = None):
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.DiagnosticFrontendRequestDataMaskingHeader']]:
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[Sequence['outputs.DiagnosticFrontendRequestDataMaskingQueryParam']]:
+        return pulumi.get(self, "query_params")
+
+
+@pulumi.output_type
+class DiagnosticFrontendRequestDataMaskingHeader(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DiagnosticFrontendRequestDataMaskingQueryParam(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class DiagnosticFrontendResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "bodyBytes":
             suggest = "body_bytes"
+        elif key == "dataMasking":
+            suggest = "data_masking"
         elif key == "headersToLogs":
             suggest = "headers_to_logs"
 
@@ -2380,6 +3145,7 @@ class DiagnosticFrontendResponse(dict):
 
     def __init__(__self__, *,
                  body_bytes: Optional[int] = None,
+                 data_masking: Optional['outputs.DiagnosticFrontendResponseDataMasking'] = None,
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
@@ -2387,6 +3153,8 @@ class DiagnosticFrontendResponse(dict):
         """
         if body_bytes is not None:
             pulumi.set(__self__, "body_bytes", body_bytes)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers_to_logs is not None:
             pulumi.set(__self__, "headers_to_logs", headers_to_logs)
 
@@ -2399,12 +3167,93 @@ class DiagnosticFrontendResponse(dict):
         return pulumi.get(self, "body_bytes")
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional['outputs.DiagnosticFrontendResponseDataMasking']:
+        return pulumi.get(self, "data_masking")
+
+    @property
     @pulumi.getter(name="headersToLogs")
     def headers_to_logs(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of headers to log.
         """
         return pulumi.get(self, "headers_to_logs")
+
+
+@pulumi.output_type
+class DiagnosticFrontendResponseDataMasking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryParams":
+            suggest = "query_params"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticFrontendResponseDataMasking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticFrontendResponseDataMasking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticFrontendResponseDataMasking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 headers: Optional[Sequence['outputs.DiagnosticFrontendResponseDataMaskingHeader']] = None,
+                 query_params: Optional[Sequence['outputs.DiagnosticFrontendResponseDataMaskingQueryParam']] = None):
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.DiagnosticFrontendResponseDataMaskingHeader']]:
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[Sequence['outputs.DiagnosticFrontendResponseDataMaskingQueryParam']]:
+        return pulumi.get(self, "query_params")
+
+
+@pulumi.output_type
+class DiagnosticFrontendResponseDataMaskingHeader(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DiagnosticFrontendResponseDataMaskingQueryParam(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 value: str):
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2540,6 +3389,54 @@ class LoggerEventhub(dict):
         The name of an EventHub.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class NamedValueValueFromKeyVault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityClientId":
+            suggest = "identity_client_id"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NamedValueValueFromKeyVault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NamedValueValueFromKeyVault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NamedValueValueFromKeyVault.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_client_id: str,
+                 secret_id: str):
+        """
+        :param str identity_client_id: The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+        :param str secret_id: The resource ID of the Key Vault Secret.
+        """
+        pulumi.set(__self__, "identity_client_id", identity_client_id)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> str:
+        """
+        The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> str:
+        """
+        The resource ID of the Key Vault Secret.
+        """
+        return pulumi.get(self, "secret_id")
 
 
 @pulumi.output_type

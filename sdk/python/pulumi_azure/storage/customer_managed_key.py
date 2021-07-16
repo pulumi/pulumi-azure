@@ -16,19 +16,23 @@ class CustomerManagedKeyArgs:
                  key_name: pulumi.Input[str],
                  key_vault_id: pulumi.Input[str],
                  storage_account_id: pulumi.Input[str],
-                 key_version: Optional[pulumi.Input[str]] = None):
+                 key_version: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CustomerManagedKey resource.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
         pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="keyName")
@@ -78,6 +82,18 @@ class CustomerManagedKeyArgs:
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
 
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
 
 @pulumi.input_type
 class _CustomerManagedKeyState:
@@ -85,13 +101,15 @@ class _CustomerManagedKeyState:
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
-                 storage_account_id: Optional[pulumi.Input[str]] = None):
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CustomerManagedKey resources.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
@@ -101,6 +119,8 @@ class _CustomerManagedKeyState:
             pulumi.set(__self__, "key_version", key_version)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="keyName")
@@ -150,6 +170,18 @@ class _CustomerManagedKeyState:
     def storage_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_id", value)
 
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
 
 class CustomerManagedKey(pulumi.CustomResource):
     @overload
@@ -160,6 +192,7 @@ class CustomerManagedKey(pulumi.CustomResource):
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Customer Managed Key for a Storage Account.
@@ -178,6 +211,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
         ...
     @overload
@@ -215,6 +249,7 @@ class CustomerManagedKey(pulumi.CustomResource):
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -237,6 +272,7 @@ class CustomerManagedKey(pulumi.CustomResource):
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__.__dict__["storage_account_id"] = storage_account_id
+            __props__.__dict__["user_assigned_identity_id"] = user_assigned_identity_id
         super(CustomerManagedKey, __self__).__init__(
             'azure:storage/customerManagedKey:CustomerManagedKey',
             resource_name,
@@ -250,7 +286,8 @@ class CustomerManagedKey(pulumi.CustomResource):
             key_name: Optional[pulumi.Input[str]] = None,
             key_vault_id: Optional[pulumi.Input[str]] = None,
             key_version: Optional[pulumi.Input[str]] = None,
-            storage_account_id: Optional[pulumi.Input[str]] = None) -> 'CustomerManagedKey':
+            storage_account_id: Optional[pulumi.Input[str]] = None,
+            user_assigned_identity_id: Optional[pulumi.Input[str]] = None) -> 'CustomerManagedKey':
         """
         Get an existing CustomerManagedKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -262,6 +299,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -271,6 +309,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["key_vault_id"] = key_vault_id
         __props__.__dict__["key_version"] = key_version
         __props__.__dict__["storage_account_id"] = storage_account_id
+        __props__.__dict__["user_assigned_identity_id"] = user_assigned_identity_id
         return CustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -304,4 +343,12 @@ class CustomerManagedKey(pulumi.CustomResource):
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 

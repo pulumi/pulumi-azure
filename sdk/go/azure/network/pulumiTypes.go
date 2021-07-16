@@ -21261,6 +21261,121 @@ func (o GetGatewayConnectionTrafficSelectorPolicyArrayOutput) Index(i pulumi.Int
 	}).(GetGatewayConnectionTrafficSelectorPolicyOutput)
 }
 
+type GetLocalNetworkGatewayBgpSetting struct {
+	// The BGP speaker's ASN.
+	Asn int `pulumi:"asn"`
+	// The BGP peering address and BGP identifier of this BGP speaker.
+	BgpPeeringAddress string `pulumi:"bgpPeeringAddress"`
+	// The weight added to routes learned from this BGP speaker.
+	PeerWeight int `pulumi:"peerWeight"`
+}
+
+// GetLocalNetworkGatewayBgpSettingInput is an input type that accepts GetLocalNetworkGatewayBgpSettingArgs and GetLocalNetworkGatewayBgpSettingOutput values.
+// You can construct a concrete instance of `GetLocalNetworkGatewayBgpSettingInput` via:
+//
+//          GetLocalNetworkGatewayBgpSettingArgs{...}
+type GetLocalNetworkGatewayBgpSettingInput interface {
+	pulumi.Input
+
+	ToGetLocalNetworkGatewayBgpSettingOutput() GetLocalNetworkGatewayBgpSettingOutput
+	ToGetLocalNetworkGatewayBgpSettingOutputWithContext(context.Context) GetLocalNetworkGatewayBgpSettingOutput
+}
+
+type GetLocalNetworkGatewayBgpSettingArgs struct {
+	// The BGP speaker's ASN.
+	Asn pulumi.IntInput `pulumi:"asn"`
+	// The BGP peering address and BGP identifier of this BGP speaker.
+	BgpPeeringAddress pulumi.StringInput `pulumi:"bgpPeeringAddress"`
+	// The weight added to routes learned from this BGP speaker.
+	PeerWeight pulumi.IntInput `pulumi:"peerWeight"`
+}
+
+func (GetLocalNetworkGatewayBgpSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalNetworkGatewayBgpSetting)(nil)).Elem()
+}
+
+func (i GetLocalNetworkGatewayBgpSettingArgs) ToGetLocalNetworkGatewayBgpSettingOutput() GetLocalNetworkGatewayBgpSettingOutput {
+	return i.ToGetLocalNetworkGatewayBgpSettingOutputWithContext(context.Background())
+}
+
+func (i GetLocalNetworkGatewayBgpSettingArgs) ToGetLocalNetworkGatewayBgpSettingOutputWithContext(ctx context.Context) GetLocalNetworkGatewayBgpSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalNetworkGatewayBgpSettingOutput)
+}
+
+// GetLocalNetworkGatewayBgpSettingArrayInput is an input type that accepts GetLocalNetworkGatewayBgpSettingArray and GetLocalNetworkGatewayBgpSettingArrayOutput values.
+// You can construct a concrete instance of `GetLocalNetworkGatewayBgpSettingArrayInput` via:
+//
+//          GetLocalNetworkGatewayBgpSettingArray{ GetLocalNetworkGatewayBgpSettingArgs{...} }
+type GetLocalNetworkGatewayBgpSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalNetworkGatewayBgpSettingArrayOutput() GetLocalNetworkGatewayBgpSettingArrayOutput
+	ToGetLocalNetworkGatewayBgpSettingArrayOutputWithContext(context.Context) GetLocalNetworkGatewayBgpSettingArrayOutput
+}
+
+type GetLocalNetworkGatewayBgpSettingArray []GetLocalNetworkGatewayBgpSettingInput
+
+func (GetLocalNetworkGatewayBgpSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalNetworkGatewayBgpSetting)(nil)).Elem()
+}
+
+func (i GetLocalNetworkGatewayBgpSettingArray) ToGetLocalNetworkGatewayBgpSettingArrayOutput() GetLocalNetworkGatewayBgpSettingArrayOutput {
+	return i.ToGetLocalNetworkGatewayBgpSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalNetworkGatewayBgpSettingArray) ToGetLocalNetworkGatewayBgpSettingArrayOutputWithContext(ctx context.Context) GetLocalNetworkGatewayBgpSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalNetworkGatewayBgpSettingArrayOutput)
+}
+
+type GetLocalNetworkGatewayBgpSettingOutput struct{ *pulumi.OutputState }
+
+func (GetLocalNetworkGatewayBgpSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalNetworkGatewayBgpSetting)(nil)).Elem()
+}
+
+func (o GetLocalNetworkGatewayBgpSettingOutput) ToGetLocalNetworkGatewayBgpSettingOutput() GetLocalNetworkGatewayBgpSettingOutput {
+	return o
+}
+
+func (o GetLocalNetworkGatewayBgpSettingOutput) ToGetLocalNetworkGatewayBgpSettingOutputWithContext(ctx context.Context) GetLocalNetworkGatewayBgpSettingOutput {
+	return o
+}
+
+// The BGP speaker's ASN.
+func (o GetLocalNetworkGatewayBgpSettingOutput) Asn() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLocalNetworkGatewayBgpSetting) int { return v.Asn }).(pulumi.IntOutput)
+}
+
+// The BGP peering address and BGP identifier of this BGP speaker.
+func (o GetLocalNetworkGatewayBgpSettingOutput) BgpPeeringAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalNetworkGatewayBgpSetting) string { return v.BgpPeeringAddress }).(pulumi.StringOutput)
+}
+
+// The weight added to routes learned from this BGP speaker.
+func (o GetLocalNetworkGatewayBgpSettingOutput) PeerWeight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLocalNetworkGatewayBgpSetting) int { return v.PeerWeight }).(pulumi.IntOutput)
+}
+
+type GetLocalNetworkGatewayBgpSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalNetworkGatewayBgpSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalNetworkGatewayBgpSetting)(nil)).Elem()
+}
+
+func (o GetLocalNetworkGatewayBgpSettingArrayOutput) ToGetLocalNetworkGatewayBgpSettingArrayOutput() GetLocalNetworkGatewayBgpSettingArrayOutput {
+	return o
+}
+
+func (o GetLocalNetworkGatewayBgpSettingArrayOutput) ToGetLocalNetworkGatewayBgpSettingArrayOutputWithContext(ctx context.Context) GetLocalNetworkGatewayBgpSettingArrayOutput {
+	return o
+}
+
+func (o GetLocalNetworkGatewayBgpSettingArrayOutput) Index(i pulumi.IntInput) GetLocalNetworkGatewayBgpSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalNetworkGatewayBgpSetting {
+		return vs[0].([]GetLocalNetworkGatewayBgpSetting)[vs[1].(int)]
+	}).(GetLocalNetworkGatewayBgpSettingOutput)
+}
+
 type GetNetworkInterfaceIpConfiguration struct {
 	// A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
 	ApplicationGatewayBackendAddressPoolsIds []string `pulumi:"applicationGatewayBackendAddressPoolsIds"`
@@ -23506,6 +23621,8 @@ func init() {
 	pulumi.RegisterOutputType(GetGatewayConnectionIpsecPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayConnectionTrafficSelectorPolicyOutput{})
 	pulumi.RegisterOutputType(GetGatewayConnectionTrafficSelectorPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalNetworkGatewayBgpSettingOutput{})
+	pulumi.RegisterOutputType(GetLocalNetworkGatewayBgpSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceIpConfigurationOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkSecurityGroupSecurityRuleOutput{})
