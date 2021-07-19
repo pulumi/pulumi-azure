@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.68.0 of the AzureRM Terraform Provider
-* (breaking) Bring Go `*State` types for resource get methods into agreement with other languages.
+_(none)_
 
 ---
+
+## 4.11.0 (2021-07-19)
+* Upgrade to v2.68.0 of the AzureRM Terraform Provider
+* (breaking) Change the way types are generated for the Pulumi Go SDK. In most circumstances these changes will relax the allowed types for input properties on `State` types, but in this release and future releases it may cause some properties to require an update to match the desired type.
 
 ## 4.10.0 (2021-07-12)
 * Upgrade to v2.67.0 of the AzureRM Terraform Provider
@@ -36,9 +39,9 @@ CHANGELOG
   **PLEASE NOTE:**  
   There is a breaking change in this release due to a change in the upstream frontdoor resources.  
   - `azure.frontdoor.Frontdoor` no longer has support for `customHttpsConfiguration` or `customHttpsProvisioningEnabled`
-  as part of `frontendEndpoints`. If you need to enable custom https functionality then it is suggested to use 
+  as part of `frontendEndpoints`. If you need to enable custom https functionality then it is suggested to use
   `azure.frontdoor.customHttpsConfiguration`
-  - `azure.frontdoor.customHttpsConfiguration` no longer has support for `resourceGroupName` as this is inherited 
+  - `azure.frontdoor.customHttpsConfiguration` no longer has support for `resourceGroupName` as this is inherited
     from the corresponding frootdoor service
 
 ## 4.1.0 (2021-05-04)
