@@ -84,6 +84,10 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
      */
     public readonly edition!: pulumi.Output<string | undefined>;
     /**
+     * An `expressCustomSetup` block as defined below.
+     */
+    public readonly expressCustomSetup!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisExpressCustomSetup | undefined>;
+    /**
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
@@ -107,6 +111,14 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
      * Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
      */
     public readonly numberOfNodes!: pulumi.Output<number | undefined>;
+    /**
+     * One or more `packageStore` block as defined below.
+     */
+    public readonly packageStores!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisPackageStore[] | undefined>;
+    /**
+     * A `proxy` block as defined below.
+     */
+    public readonly proxy!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisProxy | undefined>;
     /**
      * The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
      */
@@ -134,12 +146,15 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["edition"] = state ? state.edition : undefined;
+            inputs["expressCustomSetup"] = state ? state.expressCustomSetup : undefined;
             inputs["licenseType"] = state ? state.licenseType : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maxParallelExecutionsPerNode"] = state ? state.maxParallelExecutionsPerNode : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nodeSize"] = state ? state.nodeSize : undefined;
             inputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
+            inputs["packageStores"] = state ? state.packageStores : undefined;
+            inputs["proxy"] = state ? state.proxy : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["vnetIntegration"] = state ? state.vnetIntegration : undefined;
         } else {
@@ -158,12 +173,15 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["edition"] = args ? args.edition : undefined;
+            inputs["expressCustomSetup"] = args ? args.expressCustomSetup : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maxParallelExecutionsPerNode"] = args ? args.maxParallelExecutionsPerNode : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["nodeSize"] = args ? args.nodeSize : undefined;
             inputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
+            inputs["packageStores"] = args ? args.packageStores : undefined;
+            inputs["proxy"] = args ? args.proxy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["vnetIntegration"] = args ? args.vnetIntegration : undefined;
         }
@@ -199,6 +217,10 @@ export interface IntegrationRuntimeSsisState {
      */
     edition?: pulumi.Input<string>;
     /**
+     * An `expressCustomSetup` block as defined below.
+     */
+    expressCustomSetup?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressCustomSetup>;
+    /**
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
     licenseType?: pulumi.Input<string>;
@@ -222,6 +244,14 @@ export interface IntegrationRuntimeSsisState {
      * Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
      */
     numberOfNodes?: pulumi.Input<number>;
+    /**
+     * One or more `packageStore` block as defined below.
+     */
+    packageStores?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPackageStore>[]>;
+    /**
+     * A `proxy` block as defined below.
+     */
+    proxy?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisProxy>;
     /**
      * The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
      */
@@ -257,6 +287,10 @@ export interface IntegrationRuntimeSsisArgs {
      */
     edition?: pulumi.Input<string>;
     /**
+     * An `expressCustomSetup` block as defined below.
+     */
+    expressCustomSetup?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressCustomSetup>;
+    /**
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
     licenseType?: pulumi.Input<string>;
@@ -280,6 +314,14 @@ export interface IntegrationRuntimeSsisArgs {
      * Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
      */
     numberOfNodes?: pulumi.Input<number>;
+    /**
+     * One or more `packageStore` block as defined below.
+     */
+    packageStores?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPackageStore>[]>;
+    /**
+     * A `proxy` block as defined below.
+     */
+    proxy?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisProxy>;
     /**
      * The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
      */

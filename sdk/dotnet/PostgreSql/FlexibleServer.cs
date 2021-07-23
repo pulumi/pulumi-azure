@@ -150,6 +150,12 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
+        /// A `high_availability` block as defined below.
+        /// </summary>
+        [Output("highAvailability")]
+        public Output<Outputs.FlexibleServerHighAvailability?> HighAvailability { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Output("location")]
@@ -304,6 +310,12 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? DelegatedSubnetId { get; set; }
 
         /// <summary>
+        /// A `high_availability` block as defined below.
+        /// </summary>
+        [Input("highAvailability")]
+        public Input<Inputs.FlexibleServerHighAvailabilityArgs>? HighAvailability { get; set; }
+
+        /// <summary>
         /// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("location")]
@@ -429,6 +441,12 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
+
+        /// <summary>
+        /// A `high_availability` block as defined below.
+        /// </summary>
+        [Input("highAvailability")]
+        public Input<Inputs.FlexibleServerHighAvailabilityGetArgs>? HighAvailability { get; set; }
 
         /// <summary>
         /// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.

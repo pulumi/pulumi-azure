@@ -34,7 +34,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+// 		exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
 // 			PolicyType: pulumi.String("Custom"),
 // 			Mode:       pulumi.String("All"),
 // 			PolicyRule: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "	{\n", "    \"if\": {\n", "      \"not\": {\n", "        \"field\": \"location\",\n", "        \"equals\": \"westeurope\"\n", "      }\n", "    },\n", "    \"then\": {\n", "      \"effect\": \"Deny\"\n", "    }\n", "  }\n")),
@@ -44,7 +44,7 @@ import (
 // 		}
 // 		_, err = core.NewResourceGroupPolicyAssignment(ctx, "exampleResourceGroupPolicyAssignment", &core.ResourceGroupPolicyAssignmentArgs{
 // 			ResourceGroupId:    exampleResourceGroup.ID(),
-// 			PolicyDefinitionId: pulumi.Any(azurerm_policy_assignment.Example.Id),
+// 			PolicyDefinitionId: exampleDefinition.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -73,6 +73,8 @@ type IntegrationRuntimeSsis struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition pulumi.StringPtrOutput `pulumi:"edition"`
+	// An `expressCustomSetup` block as defined below.
+	ExpressCustomSetup IntegrationRuntimeSsisExpressCustomSetupPtrOutput `pulumi:"expressCustomSetup"`
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -85,6 +87,10 @@ type IntegrationRuntimeSsis struct {
 	NodeSize pulumi.StringOutput `pulumi:"nodeSize"`
 	// Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
 	NumberOfNodes pulumi.IntPtrOutput `pulumi:"numberOfNodes"`
+	// One or more `packageStore` block as defined below.
+	PackageStores IntegrationRuntimeSsisPackageStoreArrayOutput `pulumi:"packageStores"`
+	// A `proxy` block as defined below.
+	Proxy IntegrationRuntimeSsisProxyPtrOutput `pulumi:"proxy"`
 	// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `vnetIntegration` block as defined below.
@@ -139,6 +145,8 @@ type integrationRuntimeSsisState struct {
 	Description *string `pulumi:"description"`
 	// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition *string `pulumi:"edition"`
+	// An `expressCustomSetup` block as defined below.
+	ExpressCustomSetup *IntegrationRuntimeSsisExpressCustomSetup `pulumi:"expressCustomSetup"`
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -151,6 +159,10 @@ type integrationRuntimeSsisState struct {
 	NodeSize *string `pulumi:"nodeSize"`
 	// Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
 	NumberOfNodes *int `pulumi:"numberOfNodes"`
+	// One or more `packageStore` block as defined below.
+	PackageStores []IntegrationRuntimeSsisPackageStore `pulumi:"packageStores"`
+	// A `proxy` block as defined below.
+	Proxy *IntegrationRuntimeSsisProxy `pulumi:"proxy"`
 	// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `vnetIntegration` block as defined below.
@@ -168,6 +180,8 @@ type IntegrationRuntimeSsisState struct {
 	Description pulumi.StringPtrInput
 	// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition pulumi.StringPtrInput
+	// An `expressCustomSetup` block as defined below.
+	ExpressCustomSetup IntegrationRuntimeSsisExpressCustomSetupPtrInput
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -180,6 +194,10 @@ type IntegrationRuntimeSsisState struct {
 	NodeSize pulumi.StringPtrInput
 	// Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
 	NumberOfNodes pulumi.IntPtrInput
+	// One or more `packageStore` block as defined below.
+	PackageStores IntegrationRuntimeSsisPackageStoreArrayInput
+	// A `proxy` block as defined below.
+	Proxy IntegrationRuntimeSsisProxyPtrInput
 	// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `vnetIntegration` block as defined below.
@@ -201,6 +219,8 @@ type integrationRuntimeSsisArgs struct {
 	Description *string `pulumi:"description"`
 	// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition *string `pulumi:"edition"`
+	// An `expressCustomSetup` block as defined below.
+	ExpressCustomSetup *IntegrationRuntimeSsisExpressCustomSetup `pulumi:"expressCustomSetup"`
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -213,6 +233,10 @@ type integrationRuntimeSsisArgs struct {
 	NodeSize string `pulumi:"nodeSize"`
 	// Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
 	NumberOfNodes *int `pulumi:"numberOfNodes"`
+	// One or more `packageStore` block as defined below.
+	PackageStores []IntegrationRuntimeSsisPackageStore `pulumi:"packageStores"`
+	// A `proxy` block as defined below.
+	Proxy *IntegrationRuntimeSsisProxy `pulumi:"proxy"`
 	// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `vnetIntegration` block as defined below.
@@ -231,6 +255,8 @@ type IntegrationRuntimeSsisArgs struct {
 	Description pulumi.StringPtrInput
 	// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition pulumi.StringPtrInput
+	// An `expressCustomSetup` block as defined below.
+	ExpressCustomSetup IntegrationRuntimeSsisExpressCustomSetupPtrInput
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -243,6 +269,10 @@ type IntegrationRuntimeSsisArgs struct {
 	NodeSize pulumi.StringInput
 	// Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
 	NumberOfNodes pulumi.IntPtrInput
+	// One or more `packageStore` block as defined below.
+	PackageStores IntegrationRuntimeSsisPackageStoreArrayInput
+	// A `proxy` block as defined below.
+	Proxy IntegrationRuntimeSsisProxyPtrInput
 	// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `vnetIntegration` block as defined below.

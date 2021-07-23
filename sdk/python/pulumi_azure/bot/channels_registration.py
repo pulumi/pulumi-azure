@@ -16,11 +16,15 @@ class ChannelsRegistrationArgs:
                  microsoft_app_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input[str],
+                 cmk_key_vault_url: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_key: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 icon_url: Optional[pulumi.Input[str]] = None,
+                 isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -29,11 +33,15 @@ class ChannelsRegistrationArgs:
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] cmk_key_vault_url: The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+        :param pulumi.Input[str] description: The description of the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_key: The Application Insights Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] display_name: The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
+        :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration.
+        :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -41,6 +49,10 @@ class ChannelsRegistrationArgs:
         pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if cmk_key_vault_url is not None:
+            pulumi.set(__self__, "cmk_key_vault_url", cmk_key_vault_url)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if developer_app_insights_api_key is not None:
             pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
@@ -51,6 +63,10 @@ class ChannelsRegistrationArgs:
             pulumi.set(__self__, "display_name", display_name)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if icon_url is not None:
+            pulumi.set(__self__, "icon_url", icon_url)
+        if isolated_network_enabled is not None:
+            pulumi.set(__self__, "isolated_network_enabled", isolated_network_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -95,6 +111,30 @@ class ChannelsRegistrationArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="cmkKeyVaultUrl")
+    def cmk_key_vault_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+        """
+        return pulumi.get(self, "cmk_key_vault_url")
+
+    @cmk_key_vault_url.setter
+    def cmk_key_vault_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cmk_key_vault_url", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Bot Channels Registration.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
     @pulumi.getter(name="developerAppInsightsApiKey")
     def developer_app_insights_api_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -153,6 +193,30 @@ class ChannelsRegistrationArgs:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="iconUrl")
+    def icon_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The icon URL to visually identify the Bot Channels Registration.
+        """
+        return pulumi.get(self, "icon_url")
+
+    @icon_url.setter
+    def icon_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_url", value)
+
+    @property
+    @pulumi.getter(name="isolatedNetworkEnabled")
+    def isolated_network_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Bot Channels Registration in an isolated network?
+        """
+        return pulumi.get(self, "isolated_network_enabled")
+
+    @isolated_network_enabled.setter
+    def isolated_network_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "isolated_network_enabled", value)
 
     @property
     @pulumi.getter
@@ -194,11 +258,15 @@ class ChannelsRegistrationArgs:
 @pulumi.input_type
 class _ChannelsRegistrationState:
     def __init__(__self__, *,
+                 cmk_key_vault_url: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_key: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 icon_url: Optional[pulumi.Input[str]] = None,
+                 isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -207,11 +275,15 @@ class _ChannelsRegistrationState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ChannelsRegistration resources.
+        :param pulumi.Input[str] cmk_key_vault_url: The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+        :param pulumi.Input[str] description: The description of the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_key: The Application Insights Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] display_name: The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
+        :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration.
+        :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
@@ -219,6 +291,10 @@ class _ChannelsRegistrationState:
         :param pulumi.Input[str] sku: The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        if cmk_key_vault_url is not None:
+            pulumi.set(__self__, "cmk_key_vault_url", cmk_key_vault_url)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if developer_app_insights_api_key is not None:
             pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
@@ -229,6 +305,10 @@ class _ChannelsRegistrationState:
             pulumi.set(__self__, "display_name", display_name)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if icon_url is not None:
+            pulumi.set(__self__, "icon_url", icon_url)
+        if isolated_network_enabled is not None:
+            pulumi.set(__self__, "isolated_network_enabled", isolated_network_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if microsoft_app_id is not None:
@@ -241,6 +321,30 @@ class _ChannelsRegistrationState:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="cmkKeyVaultUrl")
+    def cmk_key_vault_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+        """
+        return pulumi.get(self, "cmk_key_vault_url")
+
+    @cmk_key_vault_url.setter
+    def cmk_key_vault_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cmk_key_vault_url", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Bot Channels Registration.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="developerAppInsightsApiKey")
@@ -301,6 +405,30 @@ class _ChannelsRegistrationState:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="iconUrl")
+    def icon_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The icon URL to visually identify the Bot Channels Registration.
+        """
+        return pulumi.get(self, "icon_url")
+
+    @icon_url.setter
+    def icon_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_url", value)
+
+    @property
+    @pulumi.getter(name="isolatedNetworkEnabled")
+    def isolated_network_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Bot Channels Registration in an isolated network?
+        """
+        return pulumi.get(self, "isolated_network_enabled")
+
+    @isolated_network_enabled.setter
+    def isolated_network_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "isolated_network_enabled", value)
 
     @property
     @pulumi.getter
@@ -380,11 +508,15 @@ class ChannelsRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cmk_key_vault_url: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_key: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 icon_url: Optional[pulumi.Input[str]] = None,
+                 isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -420,11 +552,15 @@ class ChannelsRegistration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cmk_key_vault_url: The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+        :param pulumi.Input[str] description: The description of the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_key: The Application Insights Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] display_name: The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
+        :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration.
+        :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
@@ -479,11 +615,15 @@ class ChannelsRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cmk_key_vault_url: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_key: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 icon_url: Optional[pulumi.Input[str]] = None,
+                 isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -502,11 +642,15 @@ class ChannelsRegistration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ChannelsRegistrationArgs.__new__(ChannelsRegistrationArgs)
 
+            __props__.__dict__["cmk_key_vault_url"] = cmk_key_vault_url
+            __props__.__dict__["description"] = description
             __props__.__dict__["developer_app_insights_api_key"] = developer_app_insights_api_key
             __props__.__dict__["developer_app_insights_application_id"] = developer_app_insights_application_id
             __props__.__dict__["developer_app_insights_key"] = developer_app_insights_key
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["endpoint"] = endpoint
+            __props__.__dict__["icon_url"] = icon_url
+            __props__.__dict__["isolated_network_enabled"] = isolated_network_enabled
             __props__.__dict__["location"] = location
             if microsoft_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'microsoft_app_id'")
@@ -529,11 +673,15 @@ class ChannelsRegistration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            cmk_key_vault_url: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
             developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
             developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
             developer_app_insights_key: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
+            icon_url: Optional[pulumi.Input[str]] = None,
+            isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             microsoft_app_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -547,11 +695,15 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cmk_key_vault_url: The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+        :param pulumi.Input[str] description: The description of the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_key: The Application Insights Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] display_name: The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
+        :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration.
+        :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
@@ -563,11 +715,15 @@ class ChannelsRegistration(pulumi.CustomResource):
 
         __props__ = _ChannelsRegistrationState.__new__(_ChannelsRegistrationState)
 
+        __props__.__dict__["cmk_key_vault_url"] = cmk_key_vault_url
+        __props__.__dict__["description"] = description
         __props__.__dict__["developer_app_insights_api_key"] = developer_app_insights_api_key
         __props__.__dict__["developer_app_insights_application_id"] = developer_app_insights_application_id
         __props__.__dict__["developer_app_insights_key"] = developer_app_insights_key
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["icon_url"] = icon_url
+        __props__.__dict__["isolated_network_enabled"] = isolated_network_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["microsoft_app_id"] = microsoft_app_id
         __props__.__dict__["name"] = name
@@ -575,6 +731,22 @@ class ChannelsRegistration(pulumi.CustomResource):
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
         return ChannelsRegistration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="cmkKeyVaultUrl")
+    def cmk_key_vault_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+        """
+        return pulumi.get(self, "cmk_key_vault_url")
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the Bot Channels Registration.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="developerAppInsightsApiKey")
@@ -615,6 +787,22 @@ class ChannelsRegistration(pulumi.CustomResource):
         The Bot Channels Registration endpoint.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="iconUrl")
+    def icon_url(self) -> pulumi.Output[str]:
+        """
+        The icon URL to visually identify the Bot Channels Registration.
+        """
+        return pulumi.get(self, "icon_url")
+
+    @property
+    @pulumi.getter(name="isolatedNetworkEnabled")
+    def isolated_network_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is the Bot Channels Registration in an isolated network?
+        """
+        return pulumi.get(self, "isolated_network_enabled")
 
     @property
     @pulumi.getter

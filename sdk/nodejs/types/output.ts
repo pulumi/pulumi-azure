@@ -11244,6 +11244,10 @@ export namespace datafactory {
          */
         administratorPassword?: string;
         /**
+         * The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.
+         */
+        dualStandbyPairName?: string;
+        /**
          * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
          */
         pricingTier?: string;
@@ -11264,7 +11268,128 @@ export namespace datafactory {
         sasToken: string;
     }
 
+    export interface IntegrationRuntimeSsisExpressCustomSetup {
+        /**
+         * One or more `commandKey` blocks as defined below.
+         */
+        commandKeys?: outputs.datafactory.IntegrationRuntimeSsisExpressCustomSetupCommandKey[];
+        /**
+         * One or more `component` blocks as defined below.
+         */
+        components?: outputs.datafactory.IntegrationRuntimeSsisExpressCustomSetupComponent[];
+        /**
+         * The Environment Variables for the Azure-SSIS Integration Runtime.
+         */
+        environment?: {[key: string]: string};
+        /**
+         * The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+         */
+        powershellVersion?: string;
+    }
+
+    export interface IntegrationRuntimeSsisExpressCustomSetupCommandKey {
+        /**
+         * A `keyVaultSecretReference` block as defined below.
+         */
+        keyVaultPassword?: outputs.datafactory.IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword;
+        /**
+         * The password for the target device.
+         */
+        password?: string;
+        /**
+         * The target computer or domain name.
+         */
+        targetName: string;
+        /**
+         * The username for the target device.
+         */
+        userName: string;
+    }
+
+    export interface IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * A map of parameters to associate with the Key Vault Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+        /**
+         * Specifies the secret name in Azure Key Vault.
+         */
+        secretName: string;
+        /**
+         * Specifies the secret version in Azure Key Vault.
+         */
+        secretVersion?: string;
+    }
+
+    export interface IntegrationRuntimeSsisExpressCustomSetupComponent {
+        /**
+         * A `keyVaultSecretReference` block as defined below.
+         */
+        keyVaultLicense?: outputs.datafactory.IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense;
+        /**
+         * The license used for the Component.
+         */
+        license?: string;
+        /**
+         * The Component Name installed for the Azure-SSIS Integration Runtime.
+         */
+        name: string;
+    }
+
+    export interface IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * A map of parameters to associate with the Key Vault Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+        /**
+         * Specifies the secret name in Azure Key Vault.
+         */
+        secretName: string;
+        /**
+         * Specifies the secret version in Azure Key Vault.
+         */
+        secretVersion?: string;
+    }
+
+    export interface IntegrationRuntimeSsisPackageStore {
+        /**
+         * Name of the Linked Service to associate with the packages.
+         */
+        linkedServiceName: string;
+        /**
+         * Name of the package store.
+         */
+        name: string;
+    }
+
+    export interface IntegrationRuntimeSsisProxy {
+        /**
+         * The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
+         */
+        path?: string;
+        /**
+         * Name of Self Hosted Integration Runtime as a proxy.
+         */
+        selfHostedIntegrationRuntimeName: string;
+        /**
+         * Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
+         */
+        stagingStorageLinkedServiceName: string;
+    }
+
     export interface IntegrationRuntimeSsisVnetIntegration {
+        /**
+         * Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
+         */
+        publicIps?: string[];
         /**
          * Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
          */
@@ -11919,6 +12044,174 @@ export namespace dns {
         ttl?: number;
     }
 
+}
+
+export namespace domainservices {
+    export interface GetServiceNotification {
+        /**
+         * A list of additional email addresses to notify when there are alerts in the managed domain.
+         */
+        additionalRecipients: string[];
+        /**
+         * Whethermembers of the _AAD DC Administrators_ group are notified when there are alerts in the managed domain.
+         */
+        notifyDcAdmins: boolean;
+        /**
+         * Whether all Global Administrators are notified when there are alerts in the managed domain.
+         */
+        notifyGlobalAdmins: boolean;
+    }
+
+    export interface GetServiceReplicaSet {
+        /**
+         * A list of subnet IP addresses for the domain controllers in the replica set, typically two.
+         */
+        domainControllerIpAddresses: string[];
+        /**
+         * The publicly routable IP address for the domain controllers in the replica set.
+         */
+        externalAccessIpAddress: string;
+        /**
+         * The ID of the Domain Service.
+         */
+        id: string;
+        /**
+         * The Azure location in which the replica set resides.
+         */
+        location: string;
+        /**
+         * The current service status for the replica set.
+         */
+        serviceStatus: string;
+        /**
+         * The ID of the subnet in which the replica set resides.
+         */
+        subnetId: string;
+    }
+
+    export interface GetServiceSecureLdap {
+        certificateExpiry: string;
+        certificateThumbprint: string;
+        /**
+         * Whether secure LDAP is enabled for the managed domain.
+         */
+        enabled: boolean;
+        /**
+         * Whether external access to LDAPS over the Internet, is enabled.
+         */
+        externalAccessEnabled: boolean;
+        publicCertificate: string;
+    }
+
+    export interface GetServiceSecurity {
+        /**
+         * Whether legacy NTLM v1 support is enabled.
+         */
+        ntlmV1Enabled: boolean;
+        /**
+         * Whether Kerberos password hashes are synchronized to the managed domain.
+         */
+        syncKerberosPasswords: boolean;
+        /**
+         * Whether NTLM password hashes are synchronized to the managed domain.
+         */
+        syncNtlmPasswords: boolean;
+        /**
+         * Whether on-premises password hashes are synchronized to the managed domain.
+         */
+        syncOnPremPasswords: boolean;
+        /**
+         * Whether legacy TLS v1 support is enabled.
+         */
+        tlsV1Enabled: boolean;
+    }
+
+    export interface ServiceInitialReplicaSet {
+        /**
+         * A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
+         */
+        domainControllerIpAddresses: string[];
+        /**
+         * The publicly routable IP address for the domain controllers in the initial replica set.
+         */
+        externalAccessIpAddress: string;
+        /**
+         * The ID of the Domain Service.
+         */
+        id: string;
+        /**
+         * The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
+         */
+        location: string;
+        /**
+         * The current service status for the initial replica set.
+         */
+        serviceStatus: string;
+        /**
+         * The ID of the subnet in which to place the initial replica set.
+         */
+        subnetId: string;
+    }
+
+    export interface ServiceNotifications {
+        /**
+         * A list of additional email addresses to notify when there are alerts in the managed domain.
+         */
+        additionalRecipients?: string[];
+        /**
+         * Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+         */
+        notifyDcAdmins?: boolean;
+        /**
+         * Whether to notify all Global Administrators when there are alerts in the managed domain.
+         */
+        notifyGlobalAdmins?: boolean;
+    }
+
+    export interface ServiceSecureLdap {
+        certificateExpiry: string;
+        certificateThumbprint: string;
+        /**
+         * Whether to enable secure LDAP for the managed domain. Defaults to `false`.
+         */
+        enabled: boolean;
+        /**
+         * Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
+         */
+        externalAccessEnabled?: boolean;
+        /**
+         * The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file).
+         */
+        pfxCertificate: string;
+        /**
+         * The password to use for decrypting the PKCS#12 bundle (PFX file).
+         */
+        pfxCertificatePassword: string;
+        publicCertificate: string;
+    }
+
+    export interface ServiceSecurity {
+        /**
+         * Whether to enable legacy NTLM v1 support. Defaults to `false`.
+         */
+        ntlmV1Enabled?: boolean;
+        /**
+         * Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `false`.
+         */
+        syncKerberosPasswords?: boolean;
+        /**
+         * Whether to synchronize NTLM password hashes to the managed domain. Defaults to `false`.
+         */
+        syncNtlmPasswords?: boolean;
+        /**
+         * Whether to synchronize on-premises password hashes to the managed domain. Defaults to `false`.
+         */
+        syncOnPremPasswords?: boolean;
+        /**
+         * Whether to enable legacy TLS v1 support. Defaults to `false`.
+         */
+        tlsV1Enabled?: boolean;
+    }
 }
 
 export namespace eventgrid {
@@ -23769,6 +24062,17 @@ export namespace policy {
 }
 
 export namespace postgresql {
+    export interface FlexibleServerHighAvailability {
+        /**
+         * The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+         */
+        mode: string;
+        /**
+         * The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+         */
+        standbyAvailabilityZone: string;
+    }
+
     export interface FlexibleServerMaintenanceWindow {
         /**
          * The day of week for maintenance window. Defaults to `0`.
@@ -24269,6 +24573,10 @@ export namespace redis {
          * the Weekday name for the patch item
          */
         dayOfWeek: string;
+        /**
+         * The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated.
+         */
+        maintenanceWindow: string;
         /**
          * The Start Hour for maintenance in UTC
          */
@@ -24967,6 +25275,32 @@ export namespace signalr {
          * A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
          */
         value: string;
+    }
+
+    export interface ServiceNetworkAclPrivateEndpoint {
+        /**
+         * The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         */
+        allowedRequestTypes?: string[];
+        /**
+         * The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         */
+        deniedRequestTypes?: string[];
+        /**
+         * The ID of the Private Endpoint which is based on the SignalR service.
+         */
+        id: string;
+    }
+
+    export interface ServiceNetworkAclPublicNetwork {
+        /**
+         * The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         */
+        allowedRequestTypes?: string[];
+        /**
+         * The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         */
+        deniedRequestTypes?: string[];
     }
 
     export interface ServiceSku {

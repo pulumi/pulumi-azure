@@ -131,6 +131,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualHubRouteTable{}
 	case "azure:network/virtualNetwork:VirtualNetwork":
 		r = &VirtualNetwork{}
+	case "azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers":
+		r = &VirtualNetworkDnsServers{}
 	case "azure:network/virtualNetworkGateway:VirtualNetworkGateway":
 		r = &VirtualNetworkGateway{}
 	case "azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection":
@@ -433,6 +435,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/virtualNetwork",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/virtualNetworkDnsServers",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

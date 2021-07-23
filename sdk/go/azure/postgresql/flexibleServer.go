@@ -129,6 +129,8 @@ type FlexibleServer struct {
 	DelegatedSubnetId pulumi.StringPtrOutput `pulumi:"delegatedSubnetId"`
 	// The FQDN of the PostgreSQL Flexible Server.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+	// A `highAvailability` block as defined below.
+	HighAvailability FlexibleServerHighAvailabilityPtrOutput `pulumi:"highAvailability"`
 	// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `maintenanceWindow` block as defined below.
@@ -205,6 +207,8 @@ type flexibleServerState struct {
 	DelegatedSubnetId *string `pulumi:"delegatedSubnetId"`
 	// The FQDN of the PostgreSQL Flexible Server.
 	Fqdn *string `pulumi:"fqdn"`
+	// A `highAvailability` block as defined below.
+	HighAvailability *FlexibleServerHighAvailability `pulumi:"highAvailability"`
 	// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Location *string `pulumi:"location"`
 	// A `maintenanceWindow` block as defined below.
@@ -250,6 +254,8 @@ type FlexibleServerState struct {
 	DelegatedSubnetId pulumi.StringPtrInput
 	// The FQDN of the PostgreSQL Flexible Server.
 	Fqdn pulumi.StringPtrInput
+	// A `highAvailability` block as defined below.
+	HighAvailability FlexibleServerHighAvailabilityPtrInput
 	// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Location pulumi.StringPtrInput
 	// A `maintenanceWindow` block as defined below.
@@ -293,6 +299,8 @@ type flexibleServerArgs struct {
 	CreateMode *string `pulumi:"createMode"`
 	// The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
 	DelegatedSubnetId *string `pulumi:"delegatedSubnetId"`
+	// A `highAvailability` block as defined below.
+	HighAvailability *FlexibleServerHighAvailability `pulumi:"highAvailability"`
 	// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Location *string `pulumi:"location"`
 	// A `maintenanceWindow` block as defined below.
@@ -331,6 +339,8 @@ type FlexibleServerArgs struct {
 	CreateMode pulumi.StringPtrInput
 	// The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
 	DelegatedSubnetId pulumi.StringPtrInput
+	// A `highAvailability` block as defined below.
+	HighAvailability FlexibleServerHighAvailabilityPtrInput
 	// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Location pulumi.StringPtrInput
 	// A `maintenanceWindow` block as defined below.

@@ -85,6 +85,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Edition { get; private set; } = null!;
 
         /// <summary>
+        /// An `express_custom_setup` block as defined below.
+        /// </summary>
+        [Output("expressCustomSetup")]
+        public Output<Outputs.IntegrationRuntimeSsisExpressCustomSetup?> ExpressCustomSetup { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         /// </summary>
         [Output("licenseType")]
@@ -119,6 +125,18 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("numberOfNodes")]
         public Output<int?> NumberOfNodes { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `package_store` block as defined below.
+        /// </summary>
+        [Output("packageStores")]
+        public Output<ImmutableArray<Outputs.IntegrationRuntimeSsisPackageStore>> PackageStores { get; private set; } = null!;
+
+        /// <summary>
+        /// A `proxy` block as defined below.
+        /// </summary>
+        [Output("proxy")]
+        public Output<Outputs.IntegrationRuntimeSsisProxy?> Proxy { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
@@ -209,6 +227,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Edition { get; set; }
 
         /// <summary>
+        /// An `express_custom_setup` block as defined below.
+        /// </summary>
+        [Input("expressCustomSetup")]
+        public Input<Inputs.IntegrationRuntimeSsisExpressCustomSetupArgs>? ExpressCustomSetup { get; set; }
+
+        /// <summary>
         /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         /// </summary>
         [Input("licenseType")]
@@ -243,6 +267,24 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("numberOfNodes")]
         public Input<int>? NumberOfNodes { get; set; }
+
+        [Input("packageStores")]
+        private InputList<Inputs.IntegrationRuntimeSsisPackageStoreArgs>? _packageStores;
+
+        /// <summary>
+        /// One or more `package_store` block as defined below.
+        /// </summary>
+        public InputList<Inputs.IntegrationRuntimeSsisPackageStoreArgs> PackageStores
+        {
+            get => _packageStores ?? (_packageStores = new InputList<Inputs.IntegrationRuntimeSsisPackageStoreArgs>());
+            set => _packageStores = value;
+        }
+
+        /// <summary>
+        /// A `proxy` block as defined below.
+        /// </summary>
+        [Input("proxy")]
+        public Input<Inputs.IntegrationRuntimeSsisProxyArgs>? Proxy { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
@@ -294,6 +336,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Edition { get; set; }
 
         /// <summary>
+        /// An `express_custom_setup` block as defined below.
+        /// </summary>
+        [Input("expressCustomSetup")]
+        public Input<Inputs.IntegrationRuntimeSsisExpressCustomSetupGetArgs>? ExpressCustomSetup { get; set; }
+
+        /// <summary>
         /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         /// </summary>
         [Input("licenseType")]
@@ -328,6 +376,24 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("numberOfNodes")]
         public Input<int>? NumberOfNodes { get; set; }
+
+        [Input("packageStores")]
+        private InputList<Inputs.IntegrationRuntimeSsisPackageStoreGetArgs>? _packageStores;
+
+        /// <summary>
+        /// One or more `package_store` block as defined below.
+        /// </summary>
+        public InputList<Inputs.IntegrationRuntimeSsisPackageStoreGetArgs> PackageStores
+        {
+            get => _packageStores ?? (_packageStores = new InputList<Inputs.IntegrationRuntimeSsisPackageStoreGetArgs>());
+            set => _packageStores = value;
+        }
+
+        /// <summary>
+        /// A `proxy` block as defined below.
+        /// </summary>
+        [Input("proxy")]
+        public Input<Inputs.IntegrationRuntimeSsisProxyGetArgs>? Proxy { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.

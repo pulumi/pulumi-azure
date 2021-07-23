@@ -101,6 +101,12 @@ namespace Pulumi.Azure.DataFactory
         [Output("timeToLiveMin")]
         public Output<int?> TimeToLiveMin { get; private set; } = null!;
 
+        /// <summary>
+        /// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("virtualNetworkEnabled")]
+        public Output<bool?> VirtualNetworkEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a IntegrationRuntimeRule resource with the given unique name, arguments, and options.
@@ -195,6 +201,12 @@ namespace Pulumi.Azure.DataFactory
         [Input("timeToLiveMin")]
         public Input<int>? TimeToLiveMin { get; set; }
 
+        /// <summary>
+        /// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("virtualNetworkEnabled")]
+        public Input<bool>? VirtualNetworkEnabled { get; set; }
+
         public IntegrationRuntimeRuleArgs()
         {
         }
@@ -249,6 +261,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("timeToLiveMin")]
         public Input<int>? TimeToLiveMin { get; set; }
+
+        /// <summary>
+        /// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("virtualNetworkEnabled")]
+        public Input<bool>? VirtualNetworkEnabled { get; set; }
 
         public IntegrationRuntimeRuleState()
         {

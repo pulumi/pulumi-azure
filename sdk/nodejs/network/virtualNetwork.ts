@@ -112,7 +112,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * List of IP addresses of DNS servers
      */
-    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
+    public readonly dnsServers!: pulumi.Output<string[]>;
     /**
      * The GUID of the virtual network.
      */

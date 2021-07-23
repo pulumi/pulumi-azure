@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .backup_instance_postgresql import *
+from .backup_policy_blob_storage import *
 from .backup_policy_disk import *
 from .backup_policy_postgresql import *
 from .backup_vault import *

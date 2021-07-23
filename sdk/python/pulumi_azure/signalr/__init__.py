@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from .get_service import *
 from .service import *
+from .service_network_acl import *
 from ._inputs import *
 from . import outputs

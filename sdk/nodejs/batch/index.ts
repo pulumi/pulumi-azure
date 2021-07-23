@@ -11,12 +11,14 @@ export * from "./certificate";
 export * from "./getAccount";
 export * from "./getCertificate";
 export * from "./getPool";
+export * from "./job";
 export * from "./pool";
 
 // Import resources to register:
 import { Account } from "./account";
 import { Application } from "./application";
 import { Certificate } from "./certificate";
+import { Job } from "./job";
 import { Pool } from "./pool";
 
 const _module = {
@@ -29,6 +31,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "azure:batch/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "azure:batch/job:Job":
+                return new Job(name, <any>undefined, { urn })
             case "azure:batch/pool:Pool":
                 return new Pool(name, <any>undefined, { urn })
             default:
@@ -39,4 +43,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "batch/account", _module)
 pulumi.runtime.registerResourceModule("azure", "batch/application", _module)
 pulumi.runtime.registerResourceModule("azure", "batch/certificate", _module)
+pulumi.runtime.registerResourceModule("azure", "batch/job", _module)
 pulumi.runtime.registerResourceModule("azure", "batch/pool", _module)

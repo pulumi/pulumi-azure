@@ -82,6 +82,9 @@ type EventSubscription struct {
 
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter EventSubscriptionAdvancedFilterPtrOutput `pulumi:"advancedFilter"`
+	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+	// ---
+	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrOutput `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint EventSubscriptionAzureFunctionEndpointPtrOutput `pulumi:"azureFunctionEndpoint"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -162,6 +165,9 @@ func GetEventSubscription(ctx *pulumi.Context,
 type eventSubscriptionState struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter *EventSubscriptionAdvancedFilter `pulumi:"advancedFilter"`
+	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+	// ---
+	AdvancedFilteringOnArraysEnabled *bool `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *EventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -211,6 +217,9 @@ type eventSubscriptionState struct {
 type EventSubscriptionState struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter EventSubscriptionAdvancedFilterPtrInput
+	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+	// ---
+	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrInput
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint EventSubscriptionAzureFunctionEndpointPtrInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -264,6 +273,9 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 type eventSubscriptionArgs struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter *EventSubscriptionAdvancedFilter `pulumi:"advancedFilter"`
+	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+	// ---
+	AdvancedFilteringOnArraysEnabled *bool `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *EventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -314,6 +326,9 @@ type eventSubscriptionArgs struct {
 type EventSubscriptionArgs struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter EventSubscriptionAdvancedFilterPtrInput
+	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+	// ---
+	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrInput
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint EventSubscriptionAzureFunctionEndpointPtrInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.

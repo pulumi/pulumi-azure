@@ -323,12 +323,15 @@ class EnterpriseDatabaseModule(dict):
 class GetCachePatchScheduleResult(dict):
     def __init__(__self__, *,
                  day_of_week: str,
+                 maintenance_window: str,
                  start_hour_utc: int):
         """
         :param str day_of_week: the Weekday name for the patch item
+        :param str maintenance_window: The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated.
         :param int start_hour_utc: The Start Hour for maintenance in UTC
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "maintenance_window", maintenance_window)
         pulumi.set(__self__, "start_hour_utc", start_hour_utc)
 
     @property
@@ -338,6 +341,14 @@ class GetCachePatchScheduleResult(dict):
         the Weekday name for the patch item
         """
         return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> str:
+        """
+        The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated.
+        """
+        return pulumi.get(self, "maintenance_window")
 
     @property
     @pulumi.getter(name="startHourUtc")

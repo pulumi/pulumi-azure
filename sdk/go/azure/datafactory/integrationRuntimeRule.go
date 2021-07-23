@@ -78,6 +78,8 @@ type IntegrationRuntimeRule struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin pulumi.IntPtrOutput `pulumi:"timeToLiveMin"`
+	// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+	VirtualNetworkEnabled pulumi.BoolPtrOutput `pulumi:"virtualNetworkEnabled"`
 }
 
 // NewIntegrationRuntimeRule registers a new resource with the given unique name, arguments, and options.
@@ -131,6 +133,8 @@ type integrationRuntimeRuleState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin *int `pulumi:"timeToLiveMin"`
+	// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+	VirtualNetworkEnabled *bool `pulumi:"virtualNetworkEnabled"`
 }
 
 type IntegrationRuntimeRuleState struct {
@@ -150,6 +154,8 @@ type IntegrationRuntimeRuleState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin pulumi.IntPtrInput
+	// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+	VirtualNetworkEnabled pulumi.BoolPtrInput
 }
 
 func (IntegrationRuntimeRuleState) ElementType() reflect.Type {
@@ -173,6 +179,8 @@ type integrationRuntimeRuleArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin *int `pulumi:"timeToLiveMin"`
+	// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+	VirtualNetworkEnabled *bool `pulumi:"virtualNetworkEnabled"`
 }
 
 // The set of arguments for constructing a IntegrationRuntimeRule resource.
@@ -193,6 +201,8 @@ type IntegrationRuntimeRuleArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin pulumi.IntPtrInput
+	// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+	VirtualNetworkEnabled pulumi.BoolPtrInput
 }
 
 func (IntegrationRuntimeRuleArgs) ElementType() reflect.Type {

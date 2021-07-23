@@ -86,6 +86,7 @@ export * from "./virtualHubConnection";
 export * from "./virtualHubIp";
 export * from "./virtualHubRouteTable";
 export * from "./virtualNetwork";
+export * from "./virtualNetworkDnsServers";
 export * from "./virtualNetworkGateway";
 export * from "./virtualNetworkGatewayConnection";
 export * from "./virtualNetworkPeering";
@@ -151,6 +152,7 @@ import { VirtualHubConnection } from "./virtualHubConnection";
 import { VirtualHubIp } from "./virtualHubIp";
 import { VirtualHubRouteTable } from "./virtualHubRouteTable";
 import { VirtualNetwork } from "./virtualNetwork";
+import { VirtualNetworkDnsServers } from "./virtualNetworkDnsServers";
 import { VirtualNetworkGateway } from "./virtualNetworkGateway";
 import { VirtualNetworkGatewayConnection } from "./virtualNetworkGatewayConnection";
 import { VirtualNetworkPeering } from "./virtualNetworkPeering";
@@ -274,6 +276,8 @@ const _module = {
                 return new VirtualHubRouteTable(name, <any>undefined, { urn })
             case "azure:network/virtualNetwork:VirtualNetwork":
                 return new VirtualNetwork(name, <any>undefined, { urn })
+            case "azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers":
+                return new VirtualNetworkDnsServers(name, <any>undefined, { urn })
             case "azure:network/virtualNetworkGateway:VirtualNetworkGateway":
                 return new VirtualNetworkGateway(name, <any>undefined, { urn })
             case "azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection":
@@ -350,6 +354,7 @@ pulumi.runtime.registerResourceModule("azure", "network/virtualHubConnection", _
 pulumi.runtime.registerResourceModule("azure", "network/virtualHubIp", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualHubRouteTable", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualNetwork", _module)
+pulumi.runtime.registerResourceModule("azure", "network/virtualNetworkDnsServers", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualNetworkGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualNetworkGatewayConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualNetworkPeering", _module)

@@ -653,7 +653,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def dns_servers(self) -> pulumi.Output[Sequence[str]]:
         """
         List of IP addresses of DNS servers
         """

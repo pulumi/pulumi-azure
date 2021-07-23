@@ -14,6 +14,10 @@ namespace Pulumi.Azure.DataFactory.Outputs
     public sealed class IntegrationRuntimeSsisVnetIntegration
     {
         /// <summary>
+        /// Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
+        /// </summary>
+        public readonly ImmutableArray<string> PublicIps;
+        /// <summary>
         /// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         /// </summary>
         public readonly string SubnetName;
@@ -24,10 +28,13 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
         [OutputConstructor]
         private IntegrationRuntimeSsisVnetIntegration(
+            ImmutableArray<string> publicIps,
+
             string subnetName,
 
             string vnetId)
         {
+            PublicIps = publicIps;
             SubnetName = subnetName;
             VnetId = vnetId;
         }

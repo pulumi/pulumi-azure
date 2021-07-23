@@ -10,6 +10,156 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FlexibleServerHighAvailability struct {
+	// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+	Mode string `pulumi:"mode"`
+	// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
+}
+
+// FlexibleServerHighAvailabilityInput is an input type that accepts FlexibleServerHighAvailabilityArgs and FlexibleServerHighAvailabilityOutput values.
+// You can construct a concrete instance of `FlexibleServerHighAvailabilityInput` via:
+//
+//          FlexibleServerHighAvailabilityArgs{...}
+type FlexibleServerHighAvailabilityInput interface {
+	pulumi.Input
+
+	ToFlexibleServerHighAvailabilityOutput() FlexibleServerHighAvailabilityOutput
+	ToFlexibleServerHighAvailabilityOutputWithContext(context.Context) FlexibleServerHighAvailabilityOutput
+}
+
+type FlexibleServerHighAvailabilityArgs struct {
+	// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
+}
+
+func (FlexibleServerHighAvailabilityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (i FlexibleServerHighAvailabilityArgs) ToFlexibleServerHighAvailabilityOutput() FlexibleServerHighAvailabilityOutput {
+	return i.ToFlexibleServerHighAvailabilityOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerHighAvailabilityArgs) ToFlexibleServerHighAvailabilityOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerHighAvailabilityOutput)
+}
+
+func (i FlexibleServerHighAvailabilityArgs) ToFlexibleServerHighAvailabilityPtrOutput() FlexibleServerHighAvailabilityPtrOutput {
+	return i.ToFlexibleServerHighAvailabilityPtrOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerHighAvailabilityArgs) ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerHighAvailabilityOutput).ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx)
+}
+
+// FlexibleServerHighAvailabilityPtrInput is an input type that accepts FlexibleServerHighAvailabilityArgs, FlexibleServerHighAvailabilityPtr and FlexibleServerHighAvailabilityPtrOutput values.
+// You can construct a concrete instance of `FlexibleServerHighAvailabilityPtrInput` via:
+//
+//          FlexibleServerHighAvailabilityArgs{...}
+//
+//  or:
+//
+//          nil
+type FlexibleServerHighAvailabilityPtrInput interface {
+	pulumi.Input
+
+	ToFlexibleServerHighAvailabilityPtrOutput() FlexibleServerHighAvailabilityPtrOutput
+	ToFlexibleServerHighAvailabilityPtrOutputWithContext(context.Context) FlexibleServerHighAvailabilityPtrOutput
+}
+
+type flexibleServerHighAvailabilityPtrType FlexibleServerHighAvailabilityArgs
+
+func FlexibleServerHighAvailabilityPtr(v *FlexibleServerHighAvailabilityArgs) FlexibleServerHighAvailabilityPtrInput {
+	return (*flexibleServerHighAvailabilityPtrType)(v)
+}
+
+func (*flexibleServerHighAvailabilityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (i *flexibleServerHighAvailabilityPtrType) ToFlexibleServerHighAvailabilityPtrOutput() FlexibleServerHighAvailabilityPtrOutput {
+	return i.ToFlexibleServerHighAvailabilityPtrOutputWithContext(context.Background())
+}
+
+func (i *flexibleServerHighAvailabilityPtrType) ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerHighAvailabilityPtrOutput)
+}
+
+type FlexibleServerHighAvailabilityOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerHighAvailabilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityOutput() FlexibleServerHighAvailabilityOutput {
+	return o
+}
+
+func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityOutput {
+	return o
+}
+
+func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityPtrOutput() FlexibleServerHighAvailabilityPtrOutput {
+	return o.ToFlexibleServerHighAvailabilityPtrOutputWithContext(context.Background())
+}
+
+func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityPtrOutput {
+	return o.ApplyT(func(v FlexibleServerHighAvailability) *FlexibleServerHighAvailability {
+		return &v
+	}).(FlexibleServerHighAvailabilityPtrOutput)
+}
+
+// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+func (o FlexibleServerHighAvailabilityOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v FlexibleServerHighAvailability) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+func (o FlexibleServerHighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlexibleServerHighAvailability) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+type FlexibleServerHighAvailabilityPtrOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerHighAvailabilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (o FlexibleServerHighAvailabilityPtrOutput) ToFlexibleServerHighAvailabilityPtrOutput() FlexibleServerHighAvailabilityPtrOutput {
+	return o
+}
+
+func (o FlexibleServerHighAvailabilityPtrOutput) ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityPtrOutput {
+	return o
+}
+
+func (o FlexibleServerHighAvailabilityPtrOutput) Elem() FlexibleServerHighAvailabilityOutput {
+	return o.ApplyT(func(v *FlexibleServerHighAvailability) FlexibleServerHighAvailability { return *v }).(FlexibleServerHighAvailabilityOutput)
+}
+
+// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+func (o FlexibleServerHighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerHighAvailability) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerHighAvailability) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StandbyAvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
 type FlexibleServerMaintenanceWindow struct {
 	// The day of week for maintenance window. Defaults to `0`.
 	DayOfWeek *int `pulumi:"dayOfWeek"`
@@ -913,6 +1063,8 @@ func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentity
 }
 
 func init() {
+	pulumi.RegisterOutputType(FlexibleServerHighAvailabilityOutput{})
+	pulumi.RegisterOutputType(FlexibleServerHighAvailabilityPtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(FlexibleServerMaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityOutput{})

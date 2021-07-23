@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ChannelSlack{}
 	case "azure:bot/channelTeams:ChannelTeams":
 		r = &ChannelTeams{}
+	case "azure:bot/channelWebChat:ChannelWebChat":
+		r = &ChannelWebChat{}
 	case "azure:bot/channelsRegistration:ChannelsRegistration":
 		r = &ChannelsRegistration{}
 	case "azure:bot/connection:Connection":
@@ -66,6 +68,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"bot/channelTeams",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"bot/channelWebChat",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

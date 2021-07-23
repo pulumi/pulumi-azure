@@ -93,7 +93,7 @@ type EventHubNamespace struct {
 	NetworkRulesets EventHubNamespaceNetworkRulesetsOutput `pulumi:"networkRulesets"`
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Defines which tier to use. Valid options are `Basic` and `Standard`.
+	// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please not that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -170,7 +170,7 @@ type eventHubNamespaceState struct {
 	NetworkRulesets *EventHubNamespaceNetworkRulesets `pulumi:"networkRulesets"`
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Defines which tier to use. Valid options are `Basic` and `Standard`.
+	// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please not that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -213,7 +213,7 @@ type EventHubNamespaceState struct {
 	NetworkRulesets EventHubNamespaceNetworkRulesetsPtrInput
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Defines which tier to use. Valid options are `Basic` and `Standard`.
+	// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please not that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -244,7 +244,7 @@ type eventHubNamespaceArgs struct {
 	NetworkRulesets *EventHubNamespaceNetworkRulesets `pulumi:"networkRulesets"`
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Defines which tier to use. Valid options are `Basic` and `Standard`.
+	// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please not that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -272,7 +272,7 @@ type EventHubNamespaceArgs struct {
 	NetworkRulesets EventHubNamespaceNetworkRulesetsPtrInput
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Defines which tier to use. Valid options are `Basic` and `Standard`.
+	// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please not that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

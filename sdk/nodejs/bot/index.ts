@@ -9,6 +9,7 @@ export * from "./channelDirectLine";
 export * from "./channelEmail";
 export * from "./channelSlack";
 export * from "./channelTeams";
+export * from "./channelWebChat";
 export * from "./channelsRegistration";
 export * from "./connection";
 export * from "./webApp";
@@ -18,6 +19,7 @@ import { ChannelDirectLine } from "./channelDirectLine";
 import { ChannelEmail } from "./channelEmail";
 import { ChannelSlack } from "./channelSlack";
 import { ChannelTeams } from "./channelTeams";
+import { ChannelWebChat } from "./channelWebChat";
 import { ChannelsRegistration } from "./channelsRegistration";
 import { Connection } from "./connection";
 import { WebApp } from "./webApp";
@@ -34,6 +36,8 @@ const _module = {
                 return new ChannelSlack(name, <any>undefined, { urn })
             case "azure:bot/channelTeams:ChannelTeams":
                 return new ChannelTeams(name, <any>undefined, { urn })
+            case "azure:bot/channelWebChat:ChannelWebChat":
+                return new ChannelWebChat(name, <any>undefined, { urn })
             case "azure:bot/channelsRegistration:ChannelsRegistration":
                 return new ChannelsRegistration(name, <any>undefined, { urn })
             case "azure:bot/connection:Connection":
@@ -49,6 +53,7 @@ pulumi.runtime.registerResourceModule("azure", "bot/channelDirectLine", _module)
 pulumi.runtime.registerResourceModule("azure", "bot/channelEmail", _module)
 pulumi.runtime.registerResourceModule("azure", "bot/channelSlack", _module)
 pulumi.runtime.registerResourceModule("azure", "bot/channelTeams", _module)
+pulumi.runtime.registerResourceModule("azure", "bot/channelWebChat", _module)
 pulumi.runtime.registerResourceModule("azure", "bot/channelsRegistration", _module)
 pulumi.runtime.registerResourceModule("azure", "bot/connection", _module)
 pulumi.runtime.registerResourceModule("azure", "bot/webApp", _module)

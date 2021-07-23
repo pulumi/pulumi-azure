@@ -76,6 +76,13 @@ namespace Pulumi.Azure.EventHub
         public Output<Outputs.EventSubscriptionAdvancedFilter?> AdvancedFilter { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+        /// ---
+        /// </summary>
+        [Output("advancedFilteringOnArraysEnabled")]
+        public Output<bool?> AdvancedFilteringOnArraysEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// An `azure_function_endpoint` block as defined below.
         /// </summary>
         [Output("azureFunctionEndpoint")]
@@ -242,6 +249,13 @@ namespace Pulumi.Azure.EventHub
         public Input<Inputs.EventSubscriptionAdvancedFilterArgs>? AdvancedFilter { get; set; }
 
         /// <summary>
+        /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+        /// ---
+        /// </summary>
+        [Input("advancedFilteringOnArraysEnabled")]
+        public Input<bool>? AdvancedFilteringOnArraysEnabled { get; set; }
+
+        /// <summary>
         /// An `azure_function_endpoint` block as defined below.
         /// </summary>
         [Input("azureFunctionEndpoint")]
@@ -379,6 +393,13 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("advancedFilter")]
         public Input<Inputs.EventSubscriptionAdvancedFilterGetArgs>? AdvancedFilter { get; set; }
+
+        /// <summary>
+        /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+        /// ---
+        /// </summary>
+        [Input("advancedFilteringOnArraysEnabled")]
+        public Input<bool>? AdvancedFilteringOnArraysEnabled { get; set; }
 
         /// <summary>
         /// An `azure_function_endpoint` block as defined below.

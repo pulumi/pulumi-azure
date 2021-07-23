@@ -18,6 +18,9 @@ class SqlFunctionArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SqlFunction resource.
+        :param pulumi.Input[str] body: Body of the User Defined Function.
+        :param pulumi.Input[str] container_id: The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+        :param pulumi.Input[str] name: The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
         """
         pulumi.set(__self__, "body", body)
         pulumi.set(__self__, "container_id", container_id)
@@ -27,6 +30,9 @@ class SqlFunctionArgs:
     @property
     @pulumi.getter
     def body(self) -> pulumi.Input[str]:
+        """
+        Body of the User Defined Function.
+        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -36,6 +42,9 @@ class SqlFunctionArgs:
     @property
     @pulumi.getter(name="containerId")
     def container_id(self) -> pulumi.Input[str]:
+        """
+        The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+        """
         return pulumi.get(self, "container_id")
 
     @container_id.setter
@@ -45,6 +54,9 @@ class SqlFunctionArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -60,6 +72,9 @@ class _SqlFunctionState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SqlFunction resources.
+        :param pulumi.Input[str] body: Body of the User Defined Function.
+        :param pulumi.Input[str] container_id: The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+        :param pulumi.Input[str] name: The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
@@ -71,6 +86,9 @@ class _SqlFunctionState:
     @property
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[str]]:
+        """
+        Body of the User Defined Function.
+        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -80,6 +98,9 @@ class _SqlFunctionState:
     @property
     @pulumi.getter(name="containerId")
     def container_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+        """
         return pulumi.get(self, "container_id")
 
     @container_id.setter
@@ -89,6 +110,9 @@ class _SqlFunctionState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -106,9 +130,43 @@ class SqlFunction(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a SqlFunction resource with the given unique name, props, and options.
+        Manages an SQL User Defined Function.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+            resource_group_name="tfex-cosmosdb-account-rg")
+        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
+            resource_group_name=azurerm_cosmosdb_account["example"]["resource_group_name"],
+            account_name=azurerm_cosmosdb_account["example"]["name"],
+            database_name=example_sql_database.name,
+            partition_key_path="/id")
+        example_sql_function = azure.cosmosdb.SqlFunction("exampleSqlFunction",
+            container_id=example_sql_container.id,
+            body="function trigger(){}")
+        ```
+
+        ## Import
+
+        SQL User Defined Functions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:cosmosdb/sqlFunction:SqlFunction example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/database1/containers/container1/userDefinedFunctions/userDefinedFunction1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] body: Body of the User Defined Function.
+        :param pulumi.Input[str] container_id: The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+        :param pulumi.Input[str] name: The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
         """
         ...
     @overload
@@ -117,7 +175,38 @@ class SqlFunction(pulumi.CustomResource):
                  args: SqlFunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SqlFunction resource with the given unique name, props, and options.
+        Manages an SQL User Defined Function.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+            resource_group_name="tfex-cosmosdb-account-rg")
+        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
+            resource_group_name=azurerm_cosmosdb_account["example"]["resource_group_name"],
+            account_name=azurerm_cosmosdb_account["example"]["name"],
+            database_name=example_sql_database.name,
+            partition_key_path="/id")
+        example_sql_function = azure.cosmosdb.SqlFunction("exampleSqlFunction",
+            container_id=example_sql_container.id,
+            body="function trigger(){}")
+        ```
+
+        ## Import
+
+        SQL User Defined Functions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:cosmosdb/sqlFunction:SqlFunction example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/database1/containers/container1/userDefinedFunctions/userDefinedFunction1
+        ```
+
         :param str resource_name: The name of the resource.
         :param SqlFunctionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,6 +264,9 @@ class SqlFunction(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] body: Body of the User Defined Function.
+        :param pulumi.Input[str] container_id: The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+        :param pulumi.Input[str] name: The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -188,15 +280,24 @@ class SqlFunction(pulumi.CustomResource):
     @property
     @pulumi.getter
     def body(self) -> pulumi.Output[str]:
+        """
+        Body of the User Defined Function.
+        """
         return pulumi.get(self, "body")
 
     @property
     @pulumi.getter(name="containerId")
     def container_id(self) -> pulumi.Output[str]:
+        """
+        The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+        """
         return pulumi.get(self, "container_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+        """
         return pulumi.get(self, "name")
 

@@ -422,7 +422,7 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         \"\"\")
         example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
             resource_group_id=example_resource_group.id,
-            policy_definition_id=azurerm_policy_assignment["example"]["id"])
+            policy_definition_id=example_definition.id)
         ```
 
         ## Import
@@ -480,7 +480,7 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         \"\"\")
         example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
             resource_group_id=example_resource_group.id,
-            policy_definition_id=azurerm_policy_assignment["example"]["id"])
+            policy_definition_id=example_definition.id)
         ```
 
         ## Import

@@ -609,6 +609,8 @@ func (o EnterpriseDatabaseModuleArrayOutput) Index(i pulumi.IntInput) Enterprise
 type GetCachePatchSchedule struct {
 	// the Weekday name for the patch item
 	DayOfWeek string `pulumi:"dayOfWeek"`
+	// The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated.
+	MaintenanceWindow string `pulumi:"maintenanceWindow"`
 	// The Start Hour for maintenance in UTC
 	StartHourUtc int `pulumi:"startHourUtc"`
 }
@@ -627,6 +629,8 @@ type GetCachePatchScheduleInput interface {
 type GetCachePatchScheduleArgs struct {
 	// the Weekday name for the patch item
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+	// The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated.
+	MaintenanceWindow pulumi.StringInput `pulumi:"maintenanceWindow"`
 	// The Start Hour for maintenance in UTC
 	StartHourUtc pulumi.IntInput `pulumi:"startHourUtc"`
 }
@@ -685,6 +689,11 @@ func (o GetCachePatchScheduleOutput) ToGetCachePatchScheduleOutputWithContext(ct
 // the Weekday name for the patch item
 func (o GetCachePatchScheduleOutput) DayOfWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCachePatchSchedule) string { return v.DayOfWeek }).(pulumi.StringOutput)
+}
+
+// The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated.
+func (o GetCachePatchScheduleOutput) MaintenanceWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCachePatchSchedule) string { return v.MaintenanceWindow }).(pulumi.StringOutput)
 }
 
 // The Start Hour for maintenance in UTC

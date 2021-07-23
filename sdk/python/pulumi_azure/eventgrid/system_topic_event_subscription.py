@@ -18,6 +18,7 @@ class SystemTopicEventSubscriptionArgs:
                  resource_group_name: pulumi.Input[str],
                  system_topic: pulumi.Input[str],
                  advanced_filter: Optional[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterArgs']] = None,
+                 advanced_filtering_on_arrays_enabled: Optional[pulumi.Input[bool]] = None,
                  azure_function_endpoint: Optional[pulumi.Input['SystemTopicEventSubscriptionAzureFunctionEndpointArgs']] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
                  eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,7 @@ class SystemTopicEventSubscriptionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the System Topic exists. Changing this forces a new Event Subscription to be created.
         :param pulumi.Input[str] system_topic: The System Topic where the Event Subscription should be created in. Changing this forces a new Event Subscription to be created.
         :param pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterArgs'] advanced_filter: A `advanced_filter` block as defined below.
+        :param pulumi.Input[bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
         :param pulumi.Input['SystemTopicEventSubscriptionAzureFunctionEndpointArgs'] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
@@ -58,6 +60,8 @@ class SystemTopicEventSubscriptionArgs:
         pulumi.set(__self__, "system_topic", system_topic)
         if advanced_filter is not None:
             pulumi.set(__self__, "advanced_filter", advanced_filter)
+        if advanced_filtering_on_arrays_enabled is not None:
+            pulumi.set(__self__, "advanced_filtering_on_arrays_enabled", advanced_filtering_on_arrays_enabled)
         if azure_function_endpoint is not None:
             pulumi.set(__self__, "azure_function_endpoint", azure_function_endpoint)
         if event_delivery_schema is not None:
@@ -124,6 +128,18 @@ class SystemTopicEventSubscriptionArgs:
     @advanced_filter.setter
     def advanced_filter(self, value: Optional[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterArgs']]):
         pulumi.set(self, "advanced_filter", value)
+
+    @property
+    @pulumi.getter(name="advancedFilteringOnArraysEnabled")
+    def advanced_filtering_on_arrays_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+        """
+        return pulumi.get(self, "advanced_filtering_on_arrays_enabled")
+
+    @advanced_filtering_on_arrays_enabled.setter
+    def advanced_filtering_on_arrays_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "advanced_filtering_on_arrays_enabled", value)
 
     @property
     @pulumi.getter(name="azureFunctionEndpoint")
@@ -310,6 +326,7 @@ class SystemTopicEventSubscriptionArgs:
 class _SystemTopicEventSubscriptionState:
     def __init__(__self__, *,
                  advanced_filter: Optional[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterArgs']] = None,
+                 advanced_filtering_on_arrays_enabled: Optional[pulumi.Input[bool]] = None,
                  azure_function_endpoint: Optional[pulumi.Input['SystemTopicEventSubscriptionAzureFunctionEndpointArgs']] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
                  eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -330,6 +347,7 @@ class _SystemTopicEventSubscriptionState:
         """
         Input properties used for looking up and filtering SystemTopicEventSubscription resources.
         :param pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterArgs'] advanced_filter: A `advanced_filter` block as defined below.
+        :param pulumi.Input[bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
         :param pulumi.Input['SystemTopicEventSubscriptionAzureFunctionEndpointArgs'] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
@@ -350,6 +368,8 @@ class _SystemTopicEventSubscriptionState:
         """
         if advanced_filter is not None:
             pulumi.set(__self__, "advanced_filter", advanced_filter)
+        if advanced_filtering_on_arrays_enabled is not None:
+            pulumi.set(__self__, "advanced_filtering_on_arrays_enabled", advanced_filtering_on_arrays_enabled)
         if azure_function_endpoint is not None:
             pulumi.set(__self__, "azure_function_endpoint", azure_function_endpoint)
         if event_delivery_schema is not None:
@@ -396,6 +416,18 @@ class _SystemTopicEventSubscriptionState:
     @advanced_filter.setter
     def advanced_filter(self, value: Optional[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterArgs']]):
         pulumi.set(self, "advanced_filter", value)
+
+    @property
+    @pulumi.getter(name="advancedFilteringOnArraysEnabled")
+    def advanced_filtering_on_arrays_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+        """
+        return pulumi.get(self, "advanced_filtering_on_arrays_enabled")
+
+    @advanced_filtering_on_arrays_enabled.setter
+    def advanced_filtering_on_arrays_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "advanced_filtering_on_arrays_enabled", value)
 
     @property
     @pulumi.getter(name="azureFunctionEndpoint")
@@ -608,6 +640,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_filter: Optional[pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionAdvancedFilterArgs']]] = None,
+                 advanced_filtering_on_arrays_enabled: Optional[pulumi.Input[bool]] = None,
                  azure_function_endpoint: Optional[pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionAzureFunctionEndpointArgs']]] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
                  eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -670,6 +703,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionAdvancedFilterArgs']] advanced_filter: A `advanced_filter` block as defined below.
+        :param pulumi.Input[bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionAzureFunctionEndpointArgs']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
@@ -751,6 +785,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_filter: Optional[pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionAdvancedFilterArgs']]] = None,
+                 advanced_filtering_on_arrays_enabled: Optional[pulumi.Input[bool]] = None,
                  azure_function_endpoint: Optional[pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionAzureFunctionEndpointArgs']]] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
                  eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -781,6 +816,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             __props__ = SystemTopicEventSubscriptionArgs.__new__(SystemTopicEventSubscriptionArgs)
 
             __props__.__dict__["advanced_filter"] = advanced_filter
+            __props__.__dict__["advanced_filtering_on_arrays_enabled"] = advanced_filtering_on_arrays_enabled
             __props__.__dict__["azure_function_endpoint"] = azure_function_endpoint
             __props__.__dict__["event_delivery_schema"] = event_delivery_schema
             __props__.__dict__["eventhub_endpoint_id"] = eventhub_endpoint_id
@@ -813,6 +849,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             advanced_filter: Optional[pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionAdvancedFilterArgs']]] = None,
+            advanced_filtering_on_arrays_enabled: Optional[pulumi.Input[bool]] = None,
             azure_function_endpoint: Optional[pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionAzureFunctionEndpointArgs']]] = None,
             event_delivery_schema: Optional[pulumi.Input[str]] = None,
             eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -838,6 +875,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionAdvancedFilterArgs']] advanced_filter: A `advanced_filter` block as defined below.
+        :param pulumi.Input[bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionAzureFunctionEndpointArgs']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
@@ -861,6 +899,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         __props__ = _SystemTopicEventSubscriptionState.__new__(_SystemTopicEventSubscriptionState)
 
         __props__.__dict__["advanced_filter"] = advanced_filter
+        __props__.__dict__["advanced_filtering_on_arrays_enabled"] = advanced_filtering_on_arrays_enabled
         __props__.__dict__["azure_function_endpoint"] = azure_function_endpoint
         __props__.__dict__["event_delivery_schema"] = event_delivery_schema
         __props__.__dict__["eventhub_endpoint_id"] = eventhub_endpoint_id
@@ -887,6 +926,14 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         A `advanced_filter` block as defined below.
         """
         return pulumi.get(self, "advanced_filter")
+
+    @property
+    @pulumi.getter(name="advancedFilteringOnArraysEnabled")
+    def advanced_filtering_on_arrays_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+        """
+        return pulumi.get(self, "advanced_filtering_on_arrays_enabled")
 
     @property
     @pulumi.getter(name="azureFunctionEndpoint")

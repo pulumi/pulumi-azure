@@ -4461,6 +4461,8 @@ type IntegrationRuntimeSsisCatalogInfo struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// Administrator login password for the SQL Server.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
+	// The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.
+	DualStandbyPairName *string `pulumi:"dualStandbyPairName"`
 	// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
 	PricingTier *string `pulumi:"pricingTier"`
 	// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
@@ -4483,6 +4485,8 @@ type IntegrationRuntimeSsisCatalogInfoArgs struct {
 	AdministratorLogin pulumi.StringPtrInput `pulumi:"administratorLogin"`
 	// Administrator login password for the SQL Server.
 	AdministratorPassword pulumi.StringPtrInput `pulumi:"administratorPassword"`
+	// The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.
+	DualStandbyPairName pulumi.StringPtrInput `pulumi:"dualStandbyPairName"`
 	// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
 	PricingTier pulumi.StringPtrInput `pulumi:"pricingTier"`
 	// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
@@ -4576,6 +4580,11 @@ func (o IntegrationRuntimeSsisCatalogInfoOutput) AdministratorPassword() pulumi.
 	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *string { return v.AdministratorPassword }).(pulumi.StringPtrOutput)
 }
 
+// The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.
+func (o IntegrationRuntimeSsisCatalogInfoOutput) DualStandbyPairName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *string { return v.DualStandbyPairName }).(pulumi.StringPtrOutput)
+}
+
 // Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
 func (o IntegrationRuntimeSsisCatalogInfoOutput) PricingTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *string { return v.PricingTier }).(pulumi.StringPtrOutput)
@@ -4621,6 +4630,16 @@ func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) AdministratorPassword() pulu
 			return nil
 		}
 		return v.AdministratorPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.
+func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) DualStandbyPairName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DualStandbyPairName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4794,7 +4813,1111 @@ func (o IntegrationRuntimeSsisCustomSetupScriptPtrOutput) SasToken() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type IntegrationRuntimeSsisExpressCustomSetup struct {
+	// One or more `commandKey` blocks as defined below.
+	CommandKeys []IntegrationRuntimeSsisExpressCustomSetupCommandKey `pulumi:"commandKeys"`
+	// One or more `component` blocks as defined below.
+	Components []IntegrationRuntimeSsisExpressCustomSetupComponent `pulumi:"components"`
+	// The Environment Variables for the Azure-SSIS Integration Runtime.
+	Environment map[string]string `pulumi:"environment"`
+	// The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+	PowershellVersion *string `pulumi:"powershellVersion"`
+}
+
+// IntegrationRuntimeSsisExpressCustomSetupInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupArgs and IntegrationRuntimeSsisExpressCustomSetupOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupInput` via:
+//
+//          IntegrationRuntimeSsisExpressCustomSetupArgs{...}
+type IntegrationRuntimeSsisExpressCustomSetupInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisExpressCustomSetupOutput() IntegrationRuntimeSsisExpressCustomSetupOutput
+	ToIntegrationRuntimeSsisExpressCustomSetupOutputWithContext(context.Context) IntegrationRuntimeSsisExpressCustomSetupOutput
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupArgs struct {
+	// One or more `commandKey` blocks as defined below.
+	CommandKeys IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayInput `pulumi:"commandKeys"`
+	// One or more `component` blocks as defined below.
+	Components IntegrationRuntimeSsisExpressCustomSetupComponentArrayInput `pulumi:"components"`
+	// The Environment Variables for the Azure-SSIS Integration Runtime.
+	Environment pulumi.StringMapInput `pulumi:"environment"`
+	// The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+	PowershellVersion pulumi.StringPtrInput `pulumi:"powershellVersion"`
+}
+
+func (IntegrationRuntimeSsisExpressCustomSetupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetup)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupArgs) ToIntegrationRuntimeSsisExpressCustomSetupOutput() IntegrationRuntimeSsisExpressCustomSetupOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupArgs) ToIntegrationRuntimeSsisExpressCustomSetupOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupOutput)
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupArgs) ToIntegrationRuntimeSsisExpressCustomSetupPtrOutput() IntegrationRuntimeSsisExpressCustomSetupPtrOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupArgs) ToIntegrationRuntimeSsisExpressCustomSetupPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupOutput).ToIntegrationRuntimeSsisExpressCustomSetupPtrOutputWithContext(ctx)
+}
+
+// IntegrationRuntimeSsisExpressCustomSetupPtrInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupArgs, IntegrationRuntimeSsisExpressCustomSetupPtr and IntegrationRuntimeSsisExpressCustomSetupPtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupPtrInput` via:
+//
+//          IntegrationRuntimeSsisExpressCustomSetupArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationRuntimeSsisExpressCustomSetupPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisExpressCustomSetupPtrOutput() IntegrationRuntimeSsisExpressCustomSetupPtrOutput
+	ToIntegrationRuntimeSsisExpressCustomSetupPtrOutputWithContext(context.Context) IntegrationRuntimeSsisExpressCustomSetupPtrOutput
+}
+
+type integrationRuntimeSsisExpressCustomSetupPtrType IntegrationRuntimeSsisExpressCustomSetupArgs
+
+func IntegrationRuntimeSsisExpressCustomSetupPtr(v *IntegrationRuntimeSsisExpressCustomSetupArgs) IntegrationRuntimeSsisExpressCustomSetupPtrInput {
+	return (*integrationRuntimeSsisExpressCustomSetupPtrType)(v)
+}
+
+func (*integrationRuntimeSsisExpressCustomSetupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisExpressCustomSetup)(nil)).Elem()
+}
+
+func (i *integrationRuntimeSsisExpressCustomSetupPtrType) ToIntegrationRuntimeSsisExpressCustomSetupPtrOutput() IntegrationRuntimeSsisExpressCustomSetupPtrOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeSsisExpressCustomSetupPtrType) ToIntegrationRuntimeSsisExpressCustomSetupPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupPtrOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisExpressCustomSetupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetup)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupOutput) ToIntegrationRuntimeSsisExpressCustomSetupOutput() IntegrationRuntimeSsisExpressCustomSetupOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupOutput) ToIntegrationRuntimeSsisExpressCustomSetupOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupOutput) ToIntegrationRuntimeSsisExpressCustomSetupPtrOutput() IntegrationRuntimeSsisExpressCustomSetupPtrOutput {
+	return o.ToIntegrationRuntimeSsisExpressCustomSetupPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupOutput) ToIntegrationRuntimeSsisExpressCustomSetupPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetup) *IntegrationRuntimeSsisExpressCustomSetup {
+		return &v
+	}).(IntegrationRuntimeSsisExpressCustomSetupPtrOutput)
+}
+
+// One or more `commandKey` blocks as defined below.
+func (o IntegrationRuntimeSsisExpressCustomSetupOutput) CommandKeys() IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetup) []IntegrationRuntimeSsisExpressCustomSetupCommandKey {
+		return v.CommandKeys
+	}).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput)
+}
+
+// One or more `component` blocks as defined below.
+func (o IntegrationRuntimeSsisExpressCustomSetupOutput) Components() IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetup) []IntegrationRuntimeSsisExpressCustomSetupComponent {
+		return v.Components
+	}).(IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput)
+}
+
+// The Environment Variables for the Azure-SSIS Integration Runtime.
+func (o IntegrationRuntimeSsisExpressCustomSetupOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetup) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+}
+
+// The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+func (o IntegrationRuntimeSsisExpressCustomSetupOutput) PowershellVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetup) *string { return v.PowershellVersion }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisExpressCustomSetupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisExpressCustomSetup)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) ToIntegrationRuntimeSsisExpressCustomSetupPtrOutput() IntegrationRuntimeSsisExpressCustomSetupPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) ToIntegrationRuntimeSsisExpressCustomSetupPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) Elem() IntegrationRuntimeSsisExpressCustomSetupOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetup) IntegrationRuntimeSsisExpressCustomSetup { return *v }).(IntegrationRuntimeSsisExpressCustomSetupOutput)
+}
+
+// One or more `commandKey` blocks as defined below.
+func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) CommandKeys() IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetup) []IntegrationRuntimeSsisExpressCustomSetupCommandKey {
+		if v == nil {
+			return nil
+		}
+		return v.CommandKeys
+	}).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput)
+}
+
+// One or more `component` blocks as defined below.
+func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) Components() IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetup) []IntegrationRuntimeSsisExpressCustomSetupComponent {
+		if v == nil {
+			return nil
+		}
+		return v.Components
+	}).(IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput)
+}
+
+// The Environment Variables for the Azure-SSIS Integration Runtime.
+func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetup) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(pulumi.StringMapOutput)
+}
+
+// The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) PowershellVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PowershellVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupCommandKey struct {
+	// A `keyVaultSecretReference` block as defined below.
+	KeyVaultPassword *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword `pulumi:"keyVaultPassword"`
+	// The password for the target device.
+	Password *string `pulumi:"password"`
+	// The target computer or domain name.
+	TargetName string `pulumi:"targetName"`
+	// The username for the target device.
+	UserName string `pulumi:"userName"`
+}
+
+// IntegrationRuntimeSsisExpressCustomSetupCommandKeyInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs and IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupCommandKeyInput` via:
+//
+//          IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs{...}
+type IntegrationRuntimeSsisExpressCustomSetupCommandKeyInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput
+	ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyOutputWithContext(context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs struct {
+	// A `keyVaultSecretReference` block as defined below.
+	KeyVaultPassword IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrInput `pulumi:"keyVaultPassword"`
+	// The password for the target device.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The target computer or domain name.
+	TargetName pulumi.StringInput `pulumi:"targetName"`
+	// The username for the target device.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetupCommandKey)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput)
+}
+
+// IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupCommandKeyArray and IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayInput` via:
+//
+//          IntegrationRuntimeSsisExpressCustomSetupCommandKeyArray{ IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs{...} }
+type IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput
+	ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutputWithContext(context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupCommandKeyArray []IntegrationRuntimeSsisExpressCustomSetupCommandKeyInput
+
+func (IntegrationRuntimeSsisExpressCustomSetupCommandKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationRuntimeSsisExpressCustomSetupCommandKey)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupCommandKeyArray) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupCommandKeyArray) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetupCommandKey)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput {
+	return o
+}
+
+// A `keyVaultSecretReference` block as defined below.
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput) KeyVaultPassword() IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKey) *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword {
+		return v.KeyVaultPassword
+	}).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput)
+}
+
+// The password for the target device.
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKey) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The target computer or domain name.
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput) TargetName() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKey) string { return v.TargetName }).(pulumi.StringOutput)
+}
+
+// The username for the target device.
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKey) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationRuntimeSsisExpressCustomSetupCommandKey)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationRuntimeSsisExpressCustomSetupCommandKey {
+		return vs[0].([]IntegrationRuntimeSsisExpressCustomSetupCommandKey)[vs[1].(int)]
+	}).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// A map of parameters to associate with the Key Vault Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Specifies the secret name in Azure Key Vault.
+	SecretName string `pulumi:"secretName"`
+	// Specifies the secret version in Azure Key Vault.
+	SecretVersion *string `pulumi:"secretVersion"`
+}
+
+// IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs and IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordInput` via:
+//
+//          IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs{...}
+type IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput
+	ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutputWithContext(context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// A map of parameters to associate with the Key Vault Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Specifies the secret name in Azure Key Vault.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+	// Specifies the secret version in Azure Key Vault.
+	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
+}
+
+func (IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput)
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput).ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutputWithContext(ctx)
+}
+
+// IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs, IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtr and IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrInput` via:
+//
+//          IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput
+	ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutputWithContext(context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput
+}
+
+type integrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrType IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs
+
+func IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtr(v *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs) IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrInput {
+	return (*integrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrType)(v)
+}
+
+func (*integrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword)(nil)).Elem()
+}
+
+func (i *integrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrType) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrType) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput {
+	return o.ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword {
+		return &v
+	}).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) string {
+		return v.LinkedServiceName
+	}).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Key Vault Data Factory Linked Service.
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) map[string]string {
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+// Specifies the secret name in Azure Key Vault.
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// Specifies the secret version in Azure Key Vault.
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) *string {
+		return v.SecretVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput() IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) Elem() IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword {
+		return *v
+	}).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Key Vault Data Factory Linked Service.
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+// Specifies the secret name in Azure Key Vault.
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret version in Azure Key Vault.
+func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupComponent struct {
+	// A `keyVaultSecretReference` block as defined below.
+	KeyVaultLicense *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense `pulumi:"keyVaultLicense"`
+	// The license used for the Component.
+	License *string `pulumi:"license"`
+	// The Component Name installed for the Azure-SSIS Integration Runtime.
+	Name string `pulumi:"name"`
+}
+
+// IntegrationRuntimeSsisExpressCustomSetupComponentInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupComponentArgs and IntegrationRuntimeSsisExpressCustomSetupComponentOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupComponentInput` via:
+//
+//          IntegrationRuntimeSsisExpressCustomSetupComponentArgs{...}
+type IntegrationRuntimeSsisExpressCustomSetupComponentInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisExpressCustomSetupComponentOutput() IntegrationRuntimeSsisExpressCustomSetupComponentOutput
+	ToIntegrationRuntimeSsisExpressCustomSetupComponentOutputWithContext(context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentOutput
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupComponentArgs struct {
+	// A `keyVaultSecretReference` block as defined below.
+	KeyVaultLicense IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrInput `pulumi:"keyVaultLicense"`
+	// The license used for the Component.
+	License pulumi.StringPtrInput `pulumi:"license"`
+	// The Component Name installed for the Azure-SSIS Integration Runtime.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (IntegrationRuntimeSsisExpressCustomSetupComponentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetupComponent)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupComponentArgs) ToIntegrationRuntimeSsisExpressCustomSetupComponentOutput() IntegrationRuntimeSsisExpressCustomSetupComponentOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupComponentOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupComponentArgs) ToIntegrationRuntimeSsisExpressCustomSetupComponentOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupComponentOutput)
+}
+
+// IntegrationRuntimeSsisExpressCustomSetupComponentArrayInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupComponentArray and IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupComponentArrayInput` via:
+//
+//          IntegrationRuntimeSsisExpressCustomSetupComponentArray{ IntegrationRuntimeSsisExpressCustomSetupComponentArgs{...} }
+type IntegrationRuntimeSsisExpressCustomSetupComponentArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput() IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput
+	ToIntegrationRuntimeSsisExpressCustomSetupComponentArrayOutputWithContext(context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupComponentArray []IntegrationRuntimeSsisExpressCustomSetupComponentInput
+
+func (IntegrationRuntimeSsisExpressCustomSetupComponentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationRuntimeSsisExpressCustomSetupComponent)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupComponentArray) ToIntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput() IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupComponentArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupComponentArray) ToIntegrationRuntimeSsisExpressCustomSetupComponentArrayOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupComponentOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisExpressCustomSetupComponentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetupComponent)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentOutput) ToIntegrationRuntimeSsisExpressCustomSetupComponentOutput() IntegrationRuntimeSsisExpressCustomSetupComponentOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentOutput) ToIntegrationRuntimeSsisExpressCustomSetupComponentOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentOutput {
+	return o
+}
+
+// A `keyVaultSecretReference` block as defined below.
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentOutput) KeyVaultLicense() IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponent) *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense {
+		return v.KeyVaultLicense
+	}).(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput)
+}
+
+// The license used for the Component.
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentOutput) License() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponent) *string { return v.License }).(pulumi.StringPtrOutput)
+}
+
+// The Component Name installed for the Azure-SSIS Integration Runtime.
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponent) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationRuntimeSsisExpressCustomSetupComponent)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput) ToIntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput() IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput) ToIntegrationRuntimeSsisExpressCustomSetupComponentArrayOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeSsisExpressCustomSetupComponentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationRuntimeSsisExpressCustomSetupComponent {
+		return vs[0].([]IntegrationRuntimeSsisExpressCustomSetupComponent)[vs[1].(int)]
+	}).(IntegrationRuntimeSsisExpressCustomSetupComponentOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// A map of parameters to associate with the Key Vault Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Specifies the secret name in Azure Key Vault.
+	SecretName string `pulumi:"secretName"`
+	// Specifies the secret version in Azure Key Vault.
+	SecretVersion *string `pulumi:"secretVersion"`
+}
+
+// IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs and IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseInput` via:
+//
+//          IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs{...}
+type IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput() IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput
+	ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutputWithContext(context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// A map of parameters to associate with the Key Vault Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Specifies the secret name in Azure Key Vault.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+	// Specifies the secret version in Azure Key Vault.
+	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
+}
+
+func (IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput() IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput)
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput() IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput).ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutputWithContext(ctx)
+}
+
+// IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs, IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtr and IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrInput` via:
+//
+//          IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput() IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput
+	ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutputWithContext(context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput
+}
+
+type integrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrType IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs
+
+func IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtr(v *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs) IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrInput {
+	return (*integrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrType)(v)
+}
+
+func (*integrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense)(nil)).Elem()
+}
+
+func (i *integrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrType) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput() IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput {
+	return i.ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrType) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput() IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput() IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput {
+	return o.ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense {
+		return &v
+	}).(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) string {
+		return v.LinkedServiceName
+	}).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Key Vault Data Factory Linked Service.
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) map[string]string {
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+// Specifies the secret name in Azure Key Vault.
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// Specifies the secret version in Azure Key Vault.
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) *string {
+		return v.SecretVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput() IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) Elem() IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense {
+		return *v
+	}).(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Key Vault Data Factory Linked Service.
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+// Specifies the secret name in Azure Key Vault.
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret version in Azure Key Vault.
+func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeSsisPackageStore struct {
+	// Name of the Linked Service to associate with the packages.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Name of the package store.
+	Name string `pulumi:"name"`
+}
+
+// IntegrationRuntimeSsisPackageStoreInput is an input type that accepts IntegrationRuntimeSsisPackageStoreArgs and IntegrationRuntimeSsisPackageStoreOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisPackageStoreInput` via:
+//
+//          IntegrationRuntimeSsisPackageStoreArgs{...}
+type IntegrationRuntimeSsisPackageStoreInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisPackageStoreOutput() IntegrationRuntimeSsisPackageStoreOutput
+	ToIntegrationRuntimeSsisPackageStoreOutputWithContext(context.Context) IntegrationRuntimeSsisPackageStoreOutput
+}
+
+type IntegrationRuntimeSsisPackageStoreArgs struct {
+	// Name of the Linked Service to associate with the packages.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Name of the package store.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (IntegrationRuntimeSsisPackageStoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisPackageStore)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisPackageStoreArgs) ToIntegrationRuntimeSsisPackageStoreOutput() IntegrationRuntimeSsisPackageStoreOutput {
+	return i.ToIntegrationRuntimeSsisPackageStoreOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisPackageStoreArgs) ToIntegrationRuntimeSsisPackageStoreOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPackageStoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisPackageStoreOutput)
+}
+
+// IntegrationRuntimeSsisPackageStoreArrayInput is an input type that accepts IntegrationRuntimeSsisPackageStoreArray and IntegrationRuntimeSsisPackageStoreArrayOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisPackageStoreArrayInput` via:
+//
+//          IntegrationRuntimeSsisPackageStoreArray{ IntegrationRuntimeSsisPackageStoreArgs{...} }
+type IntegrationRuntimeSsisPackageStoreArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisPackageStoreArrayOutput() IntegrationRuntimeSsisPackageStoreArrayOutput
+	ToIntegrationRuntimeSsisPackageStoreArrayOutputWithContext(context.Context) IntegrationRuntimeSsisPackageStoreArrayOutput
+}
+
+type IntegrationRuntimeSsisPackageStoreArray []IntegrationRuntimeSsisPackageStoreInput
+
+func (IntegrationRuntimeSsisPackageStoreArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationRuntimeSsisPackageStore)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisPackageStoreArray) ToIntegrationRuntimeSsisPackageStoreArrayOutput() IntegrationRuntimeSsisPackageStoreArrayOutput {
+	return i.ToIntegrationRuntimeSsisPackageStoreArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisPackageStoreArray) ToIntegrationRuntimeSsisPackageStoreArrayOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPackageStoreArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisPackageStoreArrayOutput)
+}
+
+type IntegrationRuntimeSsisPackageStoreOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisPackageStoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisPackageStore)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisPackageStoreOutput) ToIntegrationRuntimeSsisPackageStoreOutput() IntegrationRuntimeSsisPackageStoreOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisPackageStoreOutput) ToIntegrationRuntimeSsisPackageStoreOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPackageStoreOutput {
+	return o
+}
+
+// Name of the Linked Service to associate with the packages.
+func (o IntegrationRuntimeSsisPackageStoreOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisPackageStore) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Name of the package store.
+func (o IntegrationRuntimeSsisPackageStoreOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisPackageStore) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type IntegrationRuntimeSsisPackageStoreArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisPackageStoreArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationRuntimeSsisPackageStore)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisPackageStoreArrayOutput) ToIntegrationRuntimeSsisPackageStoreArrayOutput() IntegrationRuntimeSsisPackageStoreArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisPackageStoreArrayOutput) ToIntegrationRuntimeSsisPackageStoreArrayOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPackageStoreArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisPackageStoreArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeSsisPackageStoreOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationRuntimeSsisPackageStore {
+		return vs[0].([]IntegrationRuntimeSsisPackageStore)[vs[1].(int)]
+	}).(IntegrationRuntimeSsisPackageStoreOutput)
+}
+
+type IntegrationRuntimeSsisProxy struct {
+	// The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
+	Path *string `pulumi:"path"`
+	// Name of Self Hosted Integration Runtime as a proxy.
+	SelfHostedIntegrationRuntimeName string `pulumi:"selfHostedIntegrationRuntimeName"`
+	// Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
+	StagingStorageLinkedServiceName string `pulumi:"stagingStorageLinkedServiceName"`
+}
+
+// IntegrationRuntimeSsisProxyInput is an input type that accepts IntegrationRuntimeSsisProxyArgs and IntegrationRuntimeSsisProxyOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisProxyInput` via:
+//
+//          IntegrationRuntimeSsisProxyArgs{...}
+type IntegrationRuntimeSsisProxyInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisProxyOutput() IntegrationRuntimeSsisProxyOutput
+	ToIntegrationRuntimeSsisProxyOutputWithContext(context.Context) IntegrationRuntimeSsisProxyOutput
+}
+
+type IntegrationRuntimeSsisProxyArgs struct {
+	// The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Name of Self Hosted Integration Runtime as a proxy.
+	SelfHostedIntegrationRuntimeName pulumi.StringInput `pulumi:"selfHostedIntegrationRuntimeName"`
+	// Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
+	StagingStorageLinkedServiceName pulumi.StringInput `pulumi:"stagingStorageLinkedServiceName"`
+}
+
+func (IntegrationRuntimeSsisProxyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisProxy)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisProxyArgs) ToIntegrationRuntimeSsisProxyOutput() IntegrationRuntimeSsisProxyOutput {
+	return i.ToIntegrationRuntimeSsisProxyOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisProxyArgs) ToIntegrationRuntimeSsisProxyOutputWithContext(ctx context.Context) IntegrationRuntimeSsisProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisProxyOutput)
+}
+
+func (i IntegrationRuntimeSsisProxyArgs) ToIntegrationRuntimeSsisProxyPtrOutput() IntegrationRuntimeSsisProxyPtrOutput {
+	return i.ToIntegrationRuntimeSsisProxyPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisProxyArgs) ToIntegrationRuntimeSsisProxyPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisProxyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisProxyOutput).ToIntegrationRuntimeSsisProxyPtrOutputWithContext(ctx)
+}
+
+// IntegrationRuntimeSsisProxyPtrInput is an input type that accepts IntegrationRuntimeSsisProxyArgs, IntegrationRuntimeSsisProxyPtr and IntegrationRuntimeSsisProxyPtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisProxyPtrInput` via:
+//
+//          IntegrationRuntimeSsisProxyArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationRuntimeSsisProxyPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisProxyPtrOutput() IntegrationRuntimeSsisProxyPtrOutput
+	ToIntegrationRuntimeSsisProxyPtrOutputWithContext(context.Context) IntegrationRuntimeSsisProxyPtrOutput
+}
+
+type integrationRuntimeSsisProxyPtrType IntegrationRuntimeSsisProxyArgs
+
+func IntegrationRuntimeSsisProxyPtr(v *IntegrationRuntimeSsisProxyArgs) IntegrationRuntimeSsisProxyPtrInput {
+	return (*integrationRuntimeSsisProxyPtrType)(v)
+}
+
+func (*integrationRuntimeSsisProxyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisProxy)(nil)).Elem()
+}
+
+func (i *integrationRuntimeSsisProxyPtrType) ToIntegrationRuntimeSsisProxyPtrOutput() IntegrationRuntimeSsisProxyPtrOutput {
+	return i.ToIntegrationRuntimeSsisProxyPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeSsisProxyPtrType) ToIntegrationRuntimeSsisProxyPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisProxyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisProxyPtrOutput)
+}
+
+type IntegrationRuntimeSsisProxyOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisProxyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisProxy)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisProxyOutput) ToIntegrationRuntimeSsisProxyOutput() IntegrationRuntimeSsisProxyOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisProxyOutput) ToIntegrationRuntimeSsisProxyOutputWithContext(ctx context.Context) IntegrationRuntimeSsisProxyOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisProxyOutput) ToIntegrationRuntimeSsisProxyPtrOutput() IntegrationRuntimeSsisProxyPtrOutput {
+	return o.ToIntegrationRuntimeSsisProxyPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisProxyOutput) ToIntegrationRuntimeSsisProxyPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisProxyPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisProxy) *IntegrationRuntimeSsisProxy {
+		return &v
+	}).(IntegrationRuntimeSsisProxyPtrOutput)
+}
+
+// The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
+func (o IntegrationRuntimeSsisProxyOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisProxy) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Name of Self Hosted Integration Runtime as a proxy.
+func (o IntegrationRuntimeSsisProxyOutput) SelfHostedIntegrationRuntimeName() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisProxy) string { return v.SelfHostedIntegrationRuntimeName }).(pulumi.StringOutput)
+}
+
+// Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
+func (o IntegrationRuntimeSsisProxyOutput) StagingStorageLinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisProxy) string { return v.StagingStorageLinkedServiceName }).(pulumi.StringOutput)
+}
+
+type IntegrationRuntimeSsisProxyPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisProxyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisProxy)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisProxyPtrOutput) ToIntegrationRuntimeSsisProxyPtrOutput() IntegrationRuntimeSsisProxyPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisProxyPtrOutput) ToIntegrationRuntimeSsisProxyPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisProxyPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisProxyPtrOutput) Elem() IntegrationRuntimeSsisProxyOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisProxy) IntegrationRuntimeSsisProxy { return *v }).(IntegrationRuntimeSsisProxyOutput)
+}
+
+// The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
+func (o IntegrationRuntimeSsisProxyPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisProxy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of Self Hosted Integration Runtime as a proxy.
+func (o IntegrationRuntimeSsisProxyPtrOutput) SelfHostedIntegrationRuntimeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisProxy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SelfHostedIntegrationRuntimeName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
+func (o IntegrationRuntimeSsisProxyPtrOutput) StagingStorageLinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisProxy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StagingStorageLinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
 type IntegrationRuntimeSsisVnetIntegration struct {
+	// Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
+	PublicIps []string `pulumi:"publicIps"`
 	// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 	SubnetName string `pulumi:"subnetName"`
 	// ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
@@ -4813,6 +5936,8 @@ type IntegrationRuntimeSsisVnetIntegrationInput interface {
 }
 
 type IntegrationRuntimeSsisVnetIntegrationArgs struct {
+	// Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
+	PublicIps pulumi.StringArrayInput `pulumi:"publicIps"`
 	// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 	SubnetName pulumi.StringInput `pulumi:"subnetName"`
 	// ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
@@ -4896,6 +6021,11 @@ func (o IntegrationRuntimeSsisVnetIntegrationOutput) ToIntegrationRuntimeSsisVne
 	}).(IntegrationRuntimeSsisVnetIntegrationPtrOutput)
 }
 
+// Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
+func (o IntegrationRuntimeSsisVnetIntegrationOutput) PublicIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisVnetIntegration) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
+}
+
 // Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 func (o IntegrationRuntimeSsisVnetIntegrationOutput) SubnetName() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisVnetIntegration) string { return v.SubnetName }).(pulumi.StringOutput)
@@ -4922,6 +6052,16 @@ func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) ToIntegrationRuntimeSsis
 
 func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) Elem() IntegrationRuntimeSsisVnetIntegrationOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisVnetIntegration) IntegrationRuntimeSsisVnetIntegration { return *v }).(IntegrationRuntimeSsisVnetIntegrationOutput)
+}
+
+// Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
+func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) PublicIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisVnetIntegration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIps
+	}).(pulumi.StringArrayOutput)
 }
 
 // Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
@@ -7515,6 +8655,20 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisCatalogInfoPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisCustomSetupScriptOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisCustomSetupScriptPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupComponentOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisPackageStoreOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisPackageStoreArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisProxyOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisProxyPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisVnetIntegrationOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisVnetIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(LinkedCustomServiceIntegrationRuntimeOutput{})

@@ -20,7 +20,8 @@ class IntegrationRuntimeRuleArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 time_to_live_min: Optional[pulumi.Input[int]] = None):
+                 time_to_live_min: Optional[pulumi.Input[int]] = None,
+                 virtual_network_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeRule resource.
         :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
@@ -31,6 +32,7 @@ class IntegrationRuntimeRuleArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
+        :param pulumi.Input[bool] virtual_network_enabled: Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "data_factory_name", data_factory_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -46,6 +48,8 @@ class IntegrationRuntimeRuleArgs:
             pulumi.set(__self__, "name", name)
         if time_to_live_min is not None:
             pulumi.set(__self__, "time_to_live_min", time_to_live_min)
+        if virtual_network_enabled is not None:
+            pulumi.set(__self__, "virtual_network_enabled", virtual_network_enabled)
 
     @property
     @pulumi.getter(name="dataFactoryName")
@@ -143,6 +147,18 @@ class IntegrationRuntimeRuleArgs:
     def time_to_live_min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "time_to_live_min", value)
 
+    @property
+    @pulumi.getter(name="virtualNetworkEnabled")
+    def virtual_network_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_network_enabled")
+
+    @virtual_network_enabled.setter
+    def virtual_network_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "virtual_network_enabled", value)
+
 
 @pulumi.input_type
 class _IntegrationRuntimeRuleState:
@@ -154,7 +170,8 @@ class _IntegrationRuntimeRuleState:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 time_to_live_min: Optional[pulumi.Input[int]] = None):
+                 time_to_live_min: Optional[pulumi.Input[int]] = None,
+                 virtual_network_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeRule resources.
         :param pulumi.Input[str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
@@ -165,6 +182,7 @@ class _IntegrationRuntimeRuleState:
         :param pulumi.Input[str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
+        :param pulumi.Input[bool] virtual_network_enabled: Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
         """
         if compute_type is not None:
             pulumi.set(__self__, "compute_type", compute_type)
@@ -182,6 +200,8 @@ class _IntegrationRuntimeRuleState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if time_to_live_min is not None:
             pulumi.set(__self__, "time_to_live_min", time_to_live_min)
+        if virtual_network_enabled is not None:
+            pulumi.set(__self__, "virtual_network_enabled", virtual_network_enabled)
 
     @property
     @pulumi.getter(name="computeType")
@@ -279,6 +299,18 @@ class _IntegrationRuntimeRuleState:
     def time_to_live_min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "time_to_live_min", value)
 
+    @property
+    @pulumi.getter(name="virtualNetworkEnabled")
+    def virtual_network_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_network_enabled")
+
+    @virtual_network_enabled.setter
+    def virtual_network_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "virtual_network_enabled", value)
+
 
 class IntegrationRuntimeRule(pulumi.CustomResource):
     @overload
@@ -293,6 +325,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  time_to_live_min: Optional[pulumi.Input[int]] = None,
+                 virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a Data Factory Azure Integration Runtime.
@@ -331,6 +364,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
+        :param pulumi.Input[bool] virtual_network_enabled: Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -388,6 +422,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  time_to_live_min: Optional[pulumi.Input[int]] = None,
+                 virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -412,6 +447,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["time_to_live_min"] = time_to_live_min
+            __props__.__dict__["virtual_network_enabled"] = virtual_network_enabled
         super(IntegrationRuntimeRule, __self__).__init__(
             'azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule',
             resource_name,
@@ -429,7 +465,8 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            time_to_live_min: Optional[pulumi.Input[int]] = None) -> 'IntegrationRuntimeRule':
+            time_to_live_min: Optional[pulumi.Input[int]] = None,
+            virtual_network_enabled: Optional[pulumi.Input[bool]] = None) -> 'IntegrationRuntimeRule':
         """
         Get an existing IntegrationRuntimeRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -445,6 +482,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
+        :param pulumi.Input[bool] virtual_network_enabled: Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -458,6 +496,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["time_to_live_min"] = time_to_live_min
+        __props__.__dict__["virtual_network_enabled"] = virtual_network_enabled
         return IntegrationRuntimeRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -523,4 +562,12 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         """
         return pulumi.get(self, "time_to_live_min")
+
+    @property
+    @pulumi.getter(name="virtualNetworkEnabled")
+    def virtual_network_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_network_enabled")
 
