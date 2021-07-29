@@ -49,6 +49,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure.devtest as devtest
     import pulumi_azure.digitaltwins as digitaltwins
     import pulumi_azure.dns as dns
+    import pulumi_azure.domainservices as domainservices
     import pulumi_azure.eventgrid as eventgrid
     import pulumi_azure.eventhub as eventhub
     import pulumi_azure.frontdoor as frontdoor
@@ -149,6 +150,7 @@ else:
     devtest = _utilities.lazy_import('pulumi_azure.devtest')
     digitaltwins = _utilities.lazy_import('pulumi_azure.digitaltwins')
     dns = _utilities.lazy_import('pulumi_azure.dns')
+    domainservices = _utilities.lazy_import('pulumi_azure.domainservices')
     eventgrid = _utilities.lazy_import('pulumi_azure.eventgrid')
     eventhub = _utilities.lazy_import('pulumi_azure.eventhub')
     frontdoor = _utilities.lazy_import('pulumi_azure.frontdoor')
@@ -347,6 +349,14 @@ _utilities.register(
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
    "azure:apimanagement/gateway:Gateway": "Gateway"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "apimanagement/gatewayApi",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/gatewayApi:GatewayApi": "GatewayApi"
   }
  },
  {
@@ -1039,6 +1049,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "batch/job",
+  "fqn": "pulumi_azure.batch",
+  "classes": {
+   "azure:batch/job:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "batch/pool",
   "fqn": "pulumi_azure.batch",
   "classes": {
@@ -1083,6 +1101,14 @@ _utilities.register(
   "fqn": "pulumi_azure.bot",
   "classes": {
    "azure:bot/channelTeams:ChannelTeams": "ChannelTeams"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "bot/channelWebChat",
+  "fqn": "pulumi_azure.bot",
+  "classes": {
+   "azure:bot/channelWebChat:ChannelWebChat": "ChannelWebChat"
   }
  },
  {
@@ -1983,6 +2009,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/managedPrivateEndpoint",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint": "ManagedPrivateEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/pipeline",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -2059,6 +2093,14 @@ _utilities.register(
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
    "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql": "BackupInstancePostgresql"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dataprotection/backupPolicyBlobStorage",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage": "BackupPolicyBlobStorage"
   }
  },
  {
@@ -2355,6 +2397,22 @@ _utilities.register(
   "fqn": "pulumi_azure.dns",
   "classes": {
    "azure:dns/zone:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "domainservices/replicaSet",
+  "fqn": "pulumi_azure.domainservices",
+  "classes": {
+   "azure:domainservices/replicaSet:ReplicaSet": "ReplicaSet"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "domainservices/service",
+  "fqn": "pulumi_azure.domainservices",
+  "classes": {
+   "azure:domainservices/service:Service": "Service"
   }
  },
  {
@@ -4287,6 +4345,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/virtualNetworkDnsServers",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers": "VirtualNetworkDnsServers"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/virtualNetworkGateway",
   "fqn": "pulumi_azure.network",
   "classes": {
@@ -5019,6 +5085,14 @@ _utilities.register(
   "fqn": "pulumi_azure.signalr",
   "classes": {
    "azure:signalr/service:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "signalr/serviceNetworkAcl",
+  "fqn": "pulumi_azure.signalr",
+  "classes": {
+   "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl": "ServiceNetworkAcl"
   }
  },
  {

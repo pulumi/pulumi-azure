@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Core
     ///         var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", new Azure.Core.ResourceGroupPolicyAssignmentArgs
     ///         {
     ///             ResourceGroupId = exampleResourceGroup.Id,
-    ///             PolicyDefinitionId = azurerm_policy_assignment.Example.Id,
+    ///             PolicyDefinitionId = exampleDefinition.Id,
     ///         });
     ///     }
     /// 

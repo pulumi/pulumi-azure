@@ -82,6 +82,10 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
      */
     public readonly advancedFilter!: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilter | undefined>;
     /**
+     * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+     */
+    public readonly advancedFilteringOnArraysEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * An `azureFunctionEndpoint` block as defined below.
      */
     public readonly azureFunctionEndpoint!: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionAzureFunctionEndpoint | undefined>;
@@ -164,6 +168,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SystemTopicEventSubscriptionState | undefined;
             inputs["advancedFilter"] = state ? state.advancedFilter : undefined;
+            inputs["advancedFilteringOnArraysEnabled"] = state ? state.advancedFilteringOnArraysEnabled : undefined;
             inputs["azureFunctionEndpoint"] = state ? state.azureFunctionEndpoint : undefined;
             inputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
             inputs["eventhubEndpointId"] = state ? state.eventhubEndpointId : undefined;
@@ -190,6 +195,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'systemTopic'");
             }
             inputs["advancedFilter"] = args ? args.advancedFilter : undefined;
+            inputs["advancedFilteringOnArraysEnabled"] = args ? args.advancedFilteringOnArraysEnabled : undefined;
             inputs["azureFunctionEndpoint"] = args ? args.azureFunctionEndpoint : undefined;
             inputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
             inputs["eventhubEndpointId"] = args ? args.eventhubEndpointId : undefined;
@@ -223,6 +229,10 @@ export interface SystemTopicEventSubscriptionState {
      * A `advancedFilter` block as defined below.
      */
     advancedFilter?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilter>;
+    /**
+     * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+     */
+    advancedFilteringOnArraysEnabled?: pulumi.Input<boolean>;
     /**
      * An `azureFunctionEndpoint` block as defined below.
      */
@@ -301,6 +311,10 @@ export interface SystemTopicEventSubscriptionArgs {
      * A `advancedFilter` block as defined below.
      */
     advancedFilter?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilter>;
+    /**
+     * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+     */
+    advancedFilteringOnArraysEnabled?: pulumi.Input<boolean>;
     /**
      * An `azureFunctionEndpoint` block as defined below.
      */

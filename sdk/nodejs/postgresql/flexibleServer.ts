@@ -121,6 +121,10 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
+     * A `highAvailability` block as defined below.
+     */
+    public readonly highAvailability!: pulumi.Output<outputs.postgresql.FlexibleServerHighAvailability | undefined>;
+    /**
      * The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -193,6 +197,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             inputs["createMode"] = state ? state.createMode : undefined;
             inputs["delegatedSubnetId"] = state ? state.delegatedSubnetId : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
+            inputs["highAvailability"] = state ? state.highAvailability : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -216,6 +221,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             inputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
             inputs["createMode"] = args ? args.createMode : undefined;
             inputs["delegatedSubnetId"] = args ? args.delegatedSubnetId : undefined;
+            inputs["highAvailability"] = args ? args.highAvailability : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -273,6 +279,10 @@ export interface FlexibleServerState {
      * The FQDN of the PostgreSQL Flexible Server.
      */
     fqdn?: pulumi.Input<string>;
+    /**
+     * A `highAvailability` block as defined below.
+     */
+    highAvailability?: pulumi.Input<inputs.postgresql.FlexibleServerHighAvailability>;
     /**
      * The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
@@ -351,6 +361,10 @@ export interface FlexibleServerArgs {
      * The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     delegatedSubnetId?: pulumi.Input<string>;
+    /**
+     * A `highAvailability` block as defined below.
+     */
+    highAvailability?: pulumi.Input<inputs.postgresql.FlexibleServerHighAvailability>;
     /**
      * The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */

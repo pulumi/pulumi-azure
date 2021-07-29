@@ -4,6 +4,44 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an SQL User Defined Function.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleAccount = azure.cosmosdb.getAccount({
+ *     name: "tfex-cosmosdb-account",
+ *     resourceGroupName: "tfex-cosmosdb-account-rg",
+ * });
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("exampleSqlDatabase", {
+ *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
+ *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
+ *     throughput: 400,
+ * });
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
+ *     resourceGroupName: azurerm_cosmosdb_account.example.resource_group_name,
+ *     accountName: azurerm_cosmosdb_account.example.name,
+ *     databaseName: exampleSqlDatabase.name,
+ *     partitionKeyPath: "/id",
+ * });
+ * const exampleSqlFunction = new azure.cosmosdb.SqlFunction("exampleSqlFunction", {
+ *     containerId: exampleSqlContainer.id,
+ *     body: "function trigger(){}",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * SQL User Defined Functions can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:cosmosdb/sqlFunction:SqlFunction example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/database1/containers/container1/userDefinedFunctions/userDefinedFunction1
+ * ```
+ */
 export class SqlFunction extends pulumi.CustomResource {
     /**
      * Get an existing SqlFunction resource's state with the given name, ID, and optional extra
@@ -32,8 +70,17 @@ export class SqlFunction extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlFunction.__pulumiType;
     }
 
+    /**
+     * Body of the User Defined Function.
+     */
     public readonly body!: pulumi.Output<string>;
+    /**
+     * The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+     */
     public readonly containerId!: pulumi.Output<string>;
+    /**
+     * The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -75,8 +122,17 @@ export class SqlFunction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SqlFunction resources.
  */
 export interface SqlFunctionState {
+    /**
+     * Body of the User Defined Function.
+     */
     body?: pulumi.Input<string>;
+    /**
+     * The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+     */
     containerId?: pulumi.Input<string>;
+    /**
+     * The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+     */
     name?: pulumi.Input<string>;
 }
 
@@ -84,7 +140,16 @@ export interface SqlFunctionState {
  * The set of arguments for constructing a SqlFunction resource.
  */
 export interface SqlFunctionArgs {
+    /**
+     * Body of the User Defined Function.
+     */
     body: pulumi.Input<string>;
+    /**
+     * The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+     */
     containerId: pulumi.Input<string>;
+    /**
+     * The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+     */
     name?: pulumi.Input<string>;
 }

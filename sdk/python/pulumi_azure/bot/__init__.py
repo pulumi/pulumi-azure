@@ -9,6 +9,7 @@ from .channel_direct_line import *
 from .channel_email import *
 from .channel_slack import *
 from .channel_teams import *
+from .channel_web_chat import *
 from .channels_registration import *
 from .connection import *
 from .web_app import *

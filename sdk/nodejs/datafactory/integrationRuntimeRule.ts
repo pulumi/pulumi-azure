@@ -93,6 +93,10 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
     public readonly timeToLiveMin!: pulumi.Output<number | undefined>;
+    /**
+     * Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+     */
+    public readonly virtualNetworkEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a IntegrationRuntimeRule resource with the given unique name, arguments, and options.
@@ -115,6 +119,7 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["timeToLiveMin"] = state ? state.timeToLiveMin : undefined;
+            inputs["virtualNetworkEnabled"] = state ? state.virtualNetworkEnabled : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeRuleArgs | undefined;
             if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
@@ -131,6 +136,7 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["timeToLiveMin"] = args ? args.timeToLiveMin : undefined;
+            inputs["virtualNetworkEnabled"] = args ? args.virtualNetworkEnabled : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -175,6 +181,10 @@ export interface IntegrationRuntimeRuleState {
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
     timeToLiveMin?: pulumi.Input<number>;
+    /**
+     * Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+     */
+    virtualNetworkEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -213,4 +223,8 @@ export interface IntegrationRuntimeRuleArgs {
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
     timeToLiveMin?: pulumi.Input<number>;
+    /**
+     * Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
+     */
+    virtualNetworkEnabled?: pulumi.Input<boolean>;
 }

@@ -43,6 +43,7 @@ from .linked_service_snowflake import *
 from .linked_service_sql_server import *
 from .linked_service_synapse import *
 from .linked_service_web import *
+from .managed_private_endpoint import *
 from .pipeline import *
 from .trigger_blob_event import *
 from .trigger_schedule import *

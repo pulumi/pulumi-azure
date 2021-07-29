@@ -83,6 +83,7 @@ const (
 	azureDevTest               = "DevTest"               // Dev Test Labs
 	azureDigitalTwins          = "DigitalTwins"          // Digital Twins
 	azureDNS                   = "Dns"                   // DNS
+	azureDomainServices        = "DomainServices"        // DomainServices
 	azureFrontdoor             = "FrontDoor"             // Frontdoor
 	azureHdInsight             = "HDInsight"             // nolint:misspell // HDInsight
 	azureHealthcare            = "Healthcare"            // HealthCare
@@ -296,6 +297,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
+			// ActiveDirectoryDomainService
+			"azurerm_active_directory_domain_service": {
+				Tok: azureResource(azureDomainServices, "Service"),
+			},
+			"azurerm_active_directory_domain_service_replica_set": {
+				Tok: azureResource(azureDomainServices, "ReplicaSet"),
+			},
+
 			// API Mannagement
 			"azurerm_api_management": {
 				Tok: azureResource(azureAPIManagement, "Service"),
@@ -360,6 +369,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_api_operation_tag":           {Tok: azureResource(azureAPIManagement, "ApiOperationTag")},
 			"azurerm_api_management_gateway":                     {Tok: azureResource(azureAPIManagement, "Gateway")},
 			"azurerm_api_management_api_release":                 {Tok: azureResource(azureAPIManagement, "ApiRelease")},
+			"azurerm_api_management_gateway_api":                 {Tok: azureResource(azureAPIManagement, "GatewayApi")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -576,6 +586,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_batch_pool": {Tok: azureResource(azureBatch, "Pool")},
+			"azurerm_batch_job":  {Tok: azureResource(azureBatch, "Job")},
 
 			// Core
 			"azurerm_resource_group": {
@@ -803,6 +814,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_trigger_blob_event":              {Tok: azureResource(azureDataFactory, "TriggerBlobEvent")},
 			"azurerm_data_factory_custom_dataset":                  {Tok: azureResource(azureDataFactory, "CustomDataset")},
 			"azurerm_data_factory_dataset_binary":                  {Tok: azureResource(azureDataFactory, "DatasetBinary")},
+			"azurerm_data_factory_managed_private_endpoint":        {Tok: azureResource(azureDataFactory, "ManagedPrivateEndpoint")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":          {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -817,6 +829,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_protection_backup_policy_postgresql":   {Tok: azureResource(azureDataProtection, "BackupPolicyPostgresql")},
 			"azurerm_data_protection_backup_instance_postgresql": {Tok: azureResource(azureDataProtection, "BackupInstancePostgresql")},
 			"azurerm_data_protection_backup_policy_disk":         {Tok: azureResource(azureDataProtection, "BackupPolicyDisk")},
+			"azurerm_data_protection_backup_policy_blob_storage": {Tok: azureResource(azureDataProtection, "BackupPolicyBlobStorage")},
 
 			// DataShare
 			"azurerm_data_share_account": {Tok: azureResource(azureDataShare, "Account")},
@@ -1450,9 +1463,10 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_ip_group":           {Tok: azureResource(azureNetwork, "IPGroup")},
-			"azurerm_vpn_site":           {Tok: azureResource(azureNetwork, "VpnSite")},
-			"azurerm_express_route_port": {Tok: azureResource(azureNetwork, "ExpressRoutePort")},
+			"azurerm_ip_group":                    {Tok: azureResource(azureNetwork, "IPGroup")},
+			"azurerm_vpn_site":                    {Tok: azureResource(azureNetwork, "VpnSite")},
+			"azurerm_express_route_port":          {Tok: azureResource(azureNetwork, "ExpressRoutePort")},
+			"azurerm_virtual_network_dns_servers": {Tok: azureResource(azureNetwork, "VirtualNetworkDnsServers")},
 
 			// Redis
 			"azurerm_redis_cache":               {Tok: azureResource(azureRedis, "Cache")},
@@ -1489,7 +1503,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_search_service": {Tok: azureResource(azureSearch, "Service")},
 
 			// SignalR
-			"azurerm_signalr_service": {Tok: azureResource(azureSignalr, "Service")},
+			"azurerm_signalr_service":             {Tok: azureResource(azureSignalr, "Service")},
+			"azurerm_signalr_service_network_acl": {Tok: azureResource(azureSignalr, "ServiceNetworkAcl")},
 
 			// Storage
 			"azurerm_storage_account": {
@@ -1688,6 +1703,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_bot_web_app":               {Tok: azureResource(azureBot, "WebApp")},
 			"azurerm_bot_channel_ms_teams":      {Tok: azureResource(azureBot, "ChannelTeams")},
 			"azurerm_bot_channel_directline":    {Tok: azureResource(azureBot, "ChannelDirectLine")},
+			"azurerm_bot_channel_web_chat":      {Tok: azureResource(azureBot, "ChannelWebChat")},
 
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
@@ -2171,6 +2187,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule_template":     {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
 			"azurerm_maintenance_configuration":        {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
 			"azurerm_advisor_recommendations":          {Tok: azureDataSource(advisor, "getRecommendations")},
+			"azurerm_active_directory_domain_service":  {Tok: azureDataSource(azureDomainServices, "getService")},
 			"azurerm_blueprint_definition":             {Tok: azureDataSource(azureBlueprint, "getDefinition")},
 			"azurerm_blueprint_published_version":      {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
 			"azurerm_web_application_firewall_policy":  {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},

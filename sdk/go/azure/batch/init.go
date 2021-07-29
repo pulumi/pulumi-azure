@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Application{}
 	case "azure:batch/certificate:Certificate":
 		r = &Certificate{}
+	case "azure:batch/job:Job":
+		r = &Job{}
 	case "azure:batch/pool:Pool":
 		r = &Pool{}
 	default:
@@ -55,6 +57,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"batch/certificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"batch/job",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

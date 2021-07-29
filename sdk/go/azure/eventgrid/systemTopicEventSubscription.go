@@ -88,6 +88,8 @@ type SystemTopicEventSubscription struct {
 
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter SystemTopicEventSubscriptionAdvancedFilterPtrOutput `pulumi:"advancedFilter"`
+	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrOutput `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput `pulumi:"azureFunctionEndpoint"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -161,6 +163,8 @@ func GetSystemTopicEventSubscription(ctx *pulumi.Context,
 type systemTopicEventSubscriptionState struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter *SystemTopicEventSubscriptionAdvancedFilter `pulumi:"advancedFilter"`
+	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+	AdvancedFilteringOnArraysEnabled *bool `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *SystemTopicEventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -200,6 +204,8 @@ type systemTopicEventSubscriptionState struct {
 type SystemTopicEventSubscriptionState struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter SystemTopicEventSubscriptionAdvancedFilterPtrInput
+	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrInput
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint SystemTopicEventSubscriptionAzureFunctionEndpointPtrInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -243,6 +249,8 @@ func (SystemTopicEventSubscriptionState) ElementType() reflect.Type {
 type systemTopicEventSubscriptionArgs struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter *SystemTopicEventSubscriptionAdvancedFilter `pulumi:"advancedFilter"`
+	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+	AdvancedFilteringOnArraysEnabled *bool `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *SystemTopicEventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -283,6 +291,8 @@ type systemTopicEventSubscriptionArgs struct {
 type SystemTopicEventSubscriptionArgs struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter SystemTopicEventSubscriptionAdvancedFilterPtrInput
+	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrInput
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint SystemTopicEventSubscriptionAzureFunctionEndpointPtrInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.

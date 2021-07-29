@@ -80,6 +80,11 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly advancedFilter!: pulumi.Output<outputs.eventhub.EventSubscriptionAdvancedFilter | undefined>;
     /**
+     * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+     * ---
+     */
+    public readonly advancedFilteringOnArraysEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * An `azureFunctionEndpoint` block as defined below.
      */
     public readonly azureFunctionEndpoint!: pulumi.Output<outputs.eventhub.EventSubscriptionAzureFunctionEndpoint | undefined>;
@@ -179,6 +184,7 @@ export class EventSubscription extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EventSubscriptionState | undefined;
             inputs["advancedFilter"] = state ? state.advancedFilter : undefined;
+            inputs["advancedFilteringOnArraysEnabled"] = state ? state.advancedFilteringOnArraysEnabled : undefined;
             inputs["azureFunctionEndpoint"] = state ? state.azureFunctionEndpoint : undefined;
             inputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
             inputs["eventhubEndpoint"] = state ? state.eventhubEndpoint : undefined;
@@ -204,6 +210,7 @@ export class EventSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["advancedFilter"] = args ? args.advancedFilter : undefined;
+            inputs["advancedFilteringOnArraysEnabled"] = args ? args.advancedFilteringOnArraysEnabled : undefined;
             inputs["azureFunctionEndpoint"] = args ? args.azureFunctionEndpoint : undefined;
             inputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
             inputs["eventhubEndpoint"] = args ? args.eventhubEndpoint : undefined;
@@ -239,6 +246,11 @@ export interface EventSubscriptionState {
      * A `advancedFilter` block as defined below.
      */
     advancedFilter?: pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilter>;
+    /**
+     * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+     * ---
+     */
+    advancedFilteringOnArraysEnabled?: pulumi.Input<boolean>;
     /**
      * An `azureFunctionEndpoint` block as defined below.
      */
@@ -331,6 +343,11 @@ export interface EventSubscriptionArgs {
      * A `advancedFilter` block as defined below.
      */
     advancedFilter?: pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilter>;
+    /**
+     * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
+     * ---
+     */
+    advancedFilteringOnArraysEnabled?: pulumi.Input<boolean>;
     /**
      * An `azureFunctionEndpoint` block as defined below.
      */

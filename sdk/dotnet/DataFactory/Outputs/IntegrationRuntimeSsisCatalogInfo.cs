@@ -22,6 +22,10 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string? AdministratorPassword;
         /// <summary>
+        /// The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.
+        /// </summary>
+        public readonly string? DualStandbyPairName;
+        /// <summary>
         /// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
         /// </summary>
         public readonly string? PricingTier;
@@ -36,12 +40,15 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
             string? administratorPassword,
 
+            string? dualStandbyPairName,
+
             string? pricingTier,
 
             string serverEndpoint)
         {
             AdministratorLogin = administratorLogin;
             AdministratorPassword = administratorPassword;
+            DualStandbyPairName = dualStandbyPairName;
             PricingTier = pricingTier;
             ServerEndpoint = serverEndpoint;
         }

@@ -60,6 +60,10 @@ import (
 type ChannelsRegistration struct {
 	pulumi.CustomResourceState
 
+	// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+	CmkKeyVaultUrl pulumi.StringPtrOutput `pulumi:"cmkKeyVaultUrl"`
+	// The description of the Bot Channels Registration.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Application Insights API Key to associate with the Bot Channels Registration.
 	DeveloperAppInsightsApiKey pulumi.StringOutput `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights Application ID to associate with the Bot Channels Registration.
@@ -70,6 +74,10 @@ type ChannelsRegistration struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The Bot Channels Registration endpoint.
 	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
+	// The icon URL to visually identify the Bot Channels Registration.
+	IconUrl pulumi.StringOutput `pulumi:"iconUrl"`
+	// Is the Bot Channels Registration in an isolated network?
+	IsolatedNetworkEnabled pulumi.BoolPtrOutput `pulumi:"isolatedNetworkEnabled"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
@@ -122,6 +130,10 @@ func GetChannelsRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ChannelsRegistration resources.
 type channelsRegistrationState struct {
+	// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+	CmkKeyVaultUrl *string `pulumi:"cmkKeyVaultUrl"`
+	// The description of the Bot Channels Registration.
+	Description *string `pulumi:"description"`
 	// The Application Insights API Key to associate with the Bot Channels Registration.
 	DeveloperAppInsightsApiKey *string `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights Application ID to associate with the Bot Channels Registration.
@@ -132,6 +144,10 @@ type channelsRegistrationState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The Bot Channels Registration endpoint.
 	Endpoint *string `pulumi:"endpoint"`
+	// The icon URL to visually identify the Bot Channels Registration.
+	IconUrl *string `pulumi:"iconUrl"`
+	// Is the Bot Channels Registration in an isolated network?
+	IsolatedNetworkEnabled *bool `pulumi:"isolatedNetworkEnabled"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
@@ -147,6 +163,10 @@ type channelsRegistrationState struct {
 }
 
 type ChannelsRegistrationState struct {
+	// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+	CmkKeyVaultUrl pulumi.StringPtrInput
+	// The description of the Bot Channels Registration.
+	Description pulumi.StringPtrInput
 	// The Application Insights API Key to associate with the Bot Channels Registration.
 	DeveloperAppInsightsApiKey pulumi.StringPtrInput
 	// The Application Insights Application ID to associate with the Bot Channels Registration.
@@ -157,6 +177,10 @@ type ChannelsRegistrationState struct {
 	DisplayName pulumi.StringPtrInput
 	// The Bot Channels Registration endpoint.
 	Endpoint pulumi.StringPtrInput
+	// The icon URL to visually identify the Bot Channels Registration.
+	IconUrl pulumi.StringPtrInput
+	// Is the Bot Channels Registration in an isolated network?
+	IsolatedNetworkEnabled pulumi.BoolPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
@@ -176,6 +200,10 @@ func (ChannelsRegistrationState) ElementType() reflect.Type {
 }
 
 type channelsRegistrationArgs struct {
+	// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+	CmkKeyVaultUrl *string `pulumi:"cmkKeyVaultUrl"`
+	// The description of the Bot Channels Registration.
+	Description *string `pulumi:"description"`
 	// The Application Insights API Key to associate with the Bot Channels Registration.
 	DeveloperAppInsightsApiKey *string `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights Application ID to associate with the Bot Channels Registration.
@@ -186,6 +214,10 @@ type channelsRegistrationArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The Bot Channels Registration endpoint.
 	Endpoint *string `pulumi:"endpoint"`
+	// The icon URL to visually identify the Bot Channels Registration.
+	IconUrl *string `pulumi:"iconUrl"`
+	// Is the Bot Channels Registration in an isolated network?
+	IsolatedNetworkEnabled *bool `pulumi:"isolatedNetworkEnabled"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
@@ -202,6 +234,10 @@ type channelsRegistrationArgs struct {
 
 // The set of arguments for constructing a ChannelsRegistration resource.
 type ChannelsRegistrationArgs struct {
+	// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+	CmkKeyVaultUrl pulumi.StringPtrInput
+	// The description of the Bot Channels Registration.
+	Description pulumi.StringPtrInput
 	// The Application Insights API Key to associate with the Bot Channels Registration.
 	DeveloperAppInsightsApiKey pulumi.StringPtrInput
 	// The Application Insights Application ID to associate with the Bot Channels Registration.
@@ -212,6 +248,10 @@ type ChannelsRegistrationArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The Bot Channels Registration endpoint.
 	Endpoint pulumi.StringPtrInput
+	// The icon URL to visually identify the Bot Channels Registration.
+	IconUrl pulumi.StringPtrInput
+	// Is the Bot Channels Registration in an isolated network?
+	IsolatedNetworkEnabled pulumi.BoolPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.

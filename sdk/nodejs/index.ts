@@ -49,6 +49,7 @@ import * as devspace from "./devspace";
 import * as devtest from "./devtest";
 import * as digitaltwins from "./digitaltwins";
 import * as dns from "./dns";
+import * as domainservices from "./domainservices";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
 import * as frontdoor from "./frontdoor";
@@ -151,6 +152,7 @@ export {
     devtest,
     digitaltwins,
     dns,
+    domainservices,
     eventgrid,
     eventhub,
     frontdoor,

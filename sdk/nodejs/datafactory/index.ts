@@ -43,6 +43,7 @@ export * from "./linkedServiceSnowflake";
 export * from "./linkedServiceSqlServer";
 export * from "./linkedServiceSynapse";
 export * from "./linkedServiceWeb";
+export * from "./managedPrivateEndpoint";
 export * from "./pipeline";
 export * from "./triggerBlobEvent";
 export * from "./triggerSchedule";
@@ -85,6 +86,7 @@ import { LinkedServiceSnowflake } from "./linkedServiceSnowflake";
 import { LinkedServiceSqlServer } from "./linkedServiceSqlServer";
 import { LinkedServiceSynapse } from "./linkedServiceSynapse";
 import { LinkedServiceWeb } from "./linkedServiceWeb";
+import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
 import { Pipeline } from "./pipeline";
 import { TriggerBlobEvent } from "./triggerBlobEvent";
 import { TriggerSchedule } from "./triggerSchedule";
@@ -167,6 +169,8 @@ const _module = {
                 return new LinkedServiceSynapse(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceWeb:LinkedServiceWeb":
                 return new LinkedServiceWeb(name, <any>undefined, { urn })
+            case "azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint":
+                return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
             case "azure:datafactory/pipeline:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
             case "azure:datafactory/triggerBlobEvent:TriggerBlobEvent":
@@ -215,6 +219,7 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSnowfla
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSqlServer", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSynapse", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceWeb", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/managedPrivateEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/pipeline", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/triggerBlobEvent", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/triggerSchedule", _module)

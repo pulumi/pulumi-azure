@@ -12,6 +12,18 @@ namespace Pulumi.Azure.DataFactory.Inputs
 
     public sealed class IntegrationRuntimeSsisVnetIntegrationArgs : Pulumi.ResourceArgs
     {
+        [Input("publicIps")]
+        private InputList<string>? _publicIps;
+
+        /// <summary>
+        /// Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
+        /// </summary>
+        public InputList<string> PublicIps
+        {
+            get => _publicIps ?? (_publicIps = new InputList<string>());
+            set => _publicIps = value;
+        }
+
         /// <summary>
         /// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         /// </summary>

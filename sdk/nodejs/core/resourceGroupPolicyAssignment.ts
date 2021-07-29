@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleResourceGroupPolicyAssignment = new azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", {
  *     resourceGroupId: exampleResourceGroup.id,
- *     policyDefinitionId: azurerm_policy_assignment.example.id,
+ *     policyDefinitionId: exampleDefinition.id,
  * });
  * ```
  *

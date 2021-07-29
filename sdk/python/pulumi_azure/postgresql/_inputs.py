@@ -9,11 +9,50 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'FlexibleServerHighAvailabilityArgs',
     'FlexibleServerMaintenanceWindowArgs',
     'ServerIdentityArgs',
     'ServerStorageProfileArgs',
     'ServerThreatDetectionPolicyArgs',
 ]
+
+@pulumi.input_type
+class FlexibleServerHighAvailabilityArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 standby_availability_zone: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mode: The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+        :param pulumi.Input[str] standby_availability_zone: The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if standby_availability_zone is not None:
+            pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="standbyAvailabilityZone")
+    def standby_availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+        """
+        return pulumi.get(self, "standby_availability_zone")
+
+    @standby_availability_zone.setter
+    def standby_availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "standby_availability_zone", value)
+
 
 @pulumi.input_type
 class FlexibleServerMaintenanceWindowArgs:

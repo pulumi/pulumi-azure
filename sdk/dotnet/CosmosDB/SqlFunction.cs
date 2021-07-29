@@ -9,15 +9,73 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.CosmosDB
 {
+    /// <summary>
+    /// Manages an SQL User Defined Function.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
+    ///         {
+    ///             Name = "tfex-cosmosdb-account",
+    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///         }));
+    ///         var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new Azure.CosmosDB.SqlDatabaseArgs
+    ///         {
+    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
+    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
+    ///             Throughput = 400,
+    ///         });
+    ///         var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new Azure.CosmosDB.SqlContainerArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_cosmosdb_account.Example.Resource_group_name,
+    ///             AccountName = azurerm_cosmosdb_account.Example.Name,
+    ///             DatabaseName = exampleSqlDatabase.Name,
+    ///             PartitionKeyPath = "/id",
+    ///         });
+    ///         var exampleSqlFunction = new Azure.CosmosDB.SqlFunction("exampleSqlFunction", new Azure.CosmosDB.SqlFunctionArgs
+    ///         {
+    ///             ContainerId = exampleSqlContainer.Id,
+    ///             Body = "function trigger(){}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SQL User Defined Functions can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:cosmosdb/sqlFunction:SqlFunction example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/database1/containers/container1/userDefinedFunctions/userDefinedFunction1
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:cosmosdb/sqlFunction:SqlFunction")]
     public partial class SqlFunction : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Body of the User Defined Function.
+        /// </summary>
         [Output("body")]
         public Output<string> Body { get; private set; } = null!;
 
+        /// <summary>
+        /// The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+        /// </summary>
         [Output("containerId")]
         public Output<string> ContainerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -67,12 +125,21 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class SqlFunctionArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Body of the User Defined Function.
+        /// </summary>
         [Input("body", required: true)]
         public Input<string> Body { get; set; } = null!;
 
+        /// <summary>
+        /// The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+        /// </summary>
         [Input("containerId", required: true)]
         public Input<string> ContainerId { get; set; } = null!;
 
+        /// <summary>
+        /// The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -83,12 +150,21 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class SqlFunctionState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Body of the User Defined Function.
+        /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
+        /// <summary>
+        /// The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+        /// </summary>
         [Input("containerId")]
         public Input<string>? ContainerId { get; set; }
 
+        /// <summary>
+        /// The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

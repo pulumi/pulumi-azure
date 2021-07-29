@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EmailTemplate{}
 	case "azure:apimanagement/gateway:Gateway":
 		r = &Gateway{}
+	case "azure:apimanagement/gatewayApi:GatewayApi":
+		r = &GatewayApi{}
 	case "azure:apimanagement/group:Group":
 		r = &Group{}
 	case "azure:apimanagement/groupUser:GroupUser":
@@ -186,6 +188,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/gateway",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/gatewayApi",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

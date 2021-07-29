@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'CustomDatasetLinkedService',
@@ -41,6 +42,13 @@ __all__ = [
     'IntegrationRuntimeSelfHostedRbacAuthorization',
     'IntegrationRuntimeSsisCatalogInfo',
     'IntegrationRuntimeSsisCustomSetupScript',
+    'IntegrationRuntimeSsisExpressCustomSetup',
+    'IntegrationRuntimeSsisExpressCustomSetupCommandKey',
+    'IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword',
+    'IntegrationRuntimeSsisExpressCustomSetupComponent',
+    'IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense',
+    'IntegrationRuntimeSsisPackageStore',
+    'IntegrationRuntimeSsisProxy',
     'IntegrationRuntimeSsisVnetIntegration',
     'LinkedCustomServiceIntegrationRuntime',
     'LinkedServiceAzureDatabricksInstancePool',
@@ -1538,6 +1546,8 @@ class IntegrationRuntimeSsisCatalogInfo(dict):
             suggest = "administrator_login"
         elif key == "administratorPassword":
             suggest = "administrator_password"
+        elif key == "dualStandbyPairName":
+            suggest = "dual_standby_pair_name"
         elif key == "pricingTier":
             suggest = "pricing_tier"
 
@@ -1556,11 +1566,13 @@ class IntegrationRuntimeSsisCatalogInfo(dict):
                  server_endpoint: str,
                  administrator_login: Optional[str] = None,
                  administrator_password: Optional[str] = None,
+                 dual_standby_pair_name: Optional[str] = None,
                  pricing_tier: Optional[str] = None):
         """
         :param str server_endpoint: The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
         :param str administrator_login: Administrator login name for the SQL Server.
         :param str administrator_password: Administrator login password for the SQL Server.
+        :param str dual_standby_pair_name: The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.
         :param str pricing_tier: Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
         """
         pulumi.set(__self__, "server_endpoint", server_endpoint)
@@ -1568,6 +1580,8 @@ class IntegrationRuntimeSsisCatalogInfo(dict):
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_password is not None:
             pulumi.set(__self__, "administrator_password", administrator_password)
+        if dual_standby_pair_name is not None:
+            pulumi.set(__self__, "dual_standby_pair_name", dual_standby_pair_name)
         if pricing_tier is not None:
             pulumi.set(__self__, "pricing_tier", pricing_tier)
 
@@ -1594,6 +1608,14 @@ class IntegrationRuntimeSsisCatalogInfo(dict):
         Administrator login password for the SQL Server.
         """
         return pulumi.get(self, "administrator_password")
+
+    @property
+    @pulumi.getter(name="dualStandbyPairName")
+    def dual_standby_pair_name(self) -> Optional[str]:
+        """
+        The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.
+        """
+        return pulumi.get(self, "dual_standby_pair_name")
 
     @property
     @pulumi.getter(name="pricingTier")
@@ -1653,6 +1675,467 @@ class IntegrationRuntimeSsisCustomSetupScript(dict):
 
 
 @pulumi.output_type
+class IntegrationRuntimeSsisExpressCustomSetup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commandKeys":
+            suggest = "command_keys"
+        elif key == "powershellVersion":
+            suggest = "powershell_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisExpressCustomSetup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisExpressCustomSetup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisExpressCustomSetup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 command_keys: Optional[Sequence['outputs.IntegrationRuntimeSsisExpressCustomSetupCommandKey']] = None,
+                 components: Optional[Sequence['outputs.IntegrationRuntimeSsisExpressCustomSetupComponent']] = None,
+                 environment: Optional[Mapping[str, str]] = None,
+                 powershell_version: Optional[str] = None):
+        """
+        :param Sequence['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs'] command_keys: One or more `command_key` blocks as defined below.
+        :param Sequence['IntegrationRuntimeSsisExpressCustomSetupComponentArgs'] components: One or more `component` blocks as defined below.
+        :param Mapping[str, str] environment: The Environment Variables for the Azure-SSIS Integration Runtime.
+        :param str powershell_version: The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+        """
+        if command_keys is not None:
+            pulumi.set(__self__, "command_keys", command_keys)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if powershell_version is not None:
+            pulumi.set(__self__, "powershell_version", powershell_version)
+
+    @property
+    @pulumi.getter(name="commandKeys")
+    def command_keys(self) -> Optional[Sequence['outputs.IntegrationRuntimeSsisExpressCustomSetupCommandKey']]:
+        """
+        One or more `command_key` blocks as defined below.
+        """
+        return pulumi.get(self, "command_keys")
+
+    @property
+    @pulumi.getter
+    def components(self) -> Optional[Sequence['outputs.IntegrationRuntimeSsisExpressCustomSetupComponent']]:
+        """
+        One or more `component` blocks as defined below.
+        """
+        return pulumi.get(self, "components")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[Mapping[str, str]]:
+        """
+        The Environment Variables for the Azure-SSIS Integration Runtime.
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="powershellVersion")
+    def powershell_version(self) -> Optional[str]:
+        """
+        The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+        """
+        return pulumi.get(self, "powershell_version")
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisExpressCustomSetupCommandKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetName":
+            suggest = "target_name"
+        elif key == "userName":
+            suggest = "user_name"
+        elif key == "keyVaultPassword":
+            suggest = "key_vault_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisExpressCustomSetupCommandKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisExpressCustomSetupCommandKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisExpressCustomSetupCommandKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_name: str,
+                 user_name: str,
+                 key_vault_password: Optional['outputs.IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword'] = None,
+                 password: Optional[str] = None):
+        """
+        :param str target_name: The target computer or domain name.
+        :param str user_name: The username for the target device.
+        :param 'IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs' key_vault_password: A `key_vault_secret_reference` block as defined below.
+        :param str password: The password for the target device.
+        """
+        pulumi.set(__self__, "target_name", target_name)
+        pulumi.set(__self__, "user_name", user_name)
+        if key_vault_password is not None:
+            pulumi.set(__self__, "key_vault_password", key_vault_password)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> str:
+        """
+        The target computer or domain name.
+        """
+        return pulumi.get(self, "target_name")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        The username for the target device.
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter(name="keyVaultPassword")
+    def key_vault_password(self) -> Optional['outputs.IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword']:
+        """
+        A `key_vault_secret_reference` block as defined below.
+        """
+        return pulumi.get(self, "key_vault_password")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password for the target device.
+        """
+        return pulumi.get(self, "password")
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+        elif key == "secretVersion":
+            suggest = "secret_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: str,
+                 secret_name: str,
+                 parameters: Optional[Mapping[str, str]] = None,
+                 secret_version: Optional[str] = None):
+        """
+        :param str linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param str secret_name: Specifies the secret name in Azure Key Vault.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Key Vault Data Factory Linked Service.
+        :param str secret_version: Specifies the secret version in Azure Key Vault.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> str:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Specifies the secret name in Azure Key Vault.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[str]:
+        """
+        Specifies the secret version in Azure Key Vault.
+        """
+        return pulumi.get(self, "secret_version")
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisExpressCustomSetupComponent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultLicense":
+            suggest = "key_vault_license"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisExpressCustomSetupComponent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisExpressCustomSetupComponent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisExpressCustomSetupComponent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 key_vault_license: Optional['outputs.IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense'] = None,
+                 license: Optional[str] = None):
+        """
+        :param str name: The Component Name installed for the Azure-SSIS Integration Runtime.
+        :param 'IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs' key_vault_license: A `key_vault_secret_reference` block as defined below.
+        :param str license: The license used for the Component.
+        """
+        pulumi.set(__self__, "name", name)
+        if key_vault_license is not None:
+            pulumi.set(__self__, "key_vault_license", key_vault_license)
+        if license is not None:
+            pulumi.set(__self__, "license", license)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Component Name installed for the Azure-SSIS Integration Runtime.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="keyVaultLicense")
+    def key_vault_license(self) -> Optional['outputs.IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense']:
+        """
+        A `key_vault_secret_reference` block as defined below.
+        """
+        return pulumi.get(self, "key_vault_license")
+
+    @property
+    @pulumi.getter
+    def license(self) -> Optional[str]:
+        """
+        The license used for the Component.
+        """
+        return pulumi.get(self, "license")
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+        elif key == "secretVersion":
+            suggest = "secret_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: str,
+                 secret_name: str,
+                 parameters: Optional[Mapping[str, str]] = None,
+                 secret_version: Optional[str] = None):
+        """
+        :param str linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param str secret_name: Specifies the secret name in Azure Key Vault.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Key Vault Data Factory Linked Service.
+        :param str secret_version: Specifies the secret version in Azure Key Vault.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> str:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Specifies the secret name in Azure Key Vault.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[str]:
+        """
+        Specifies the secret version in Azure Key Vault.
+        """
+        return pulumi.get(self, "secret_version")
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisPackageStore(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisPackageStore. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisPackageStore.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisPackageStore.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: str,
+                 name: str):
+        """
+        :param str linked_service_name: Name of the Linked Service to associate with the packages.
+        :param str name: Name of the package store.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> str:
+        """
+        Name of the Linked Service to associate with the packages.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the package store.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisProxy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selfHostedIntegrationRuntimeName":
+            suggest = "self_hosted_integration_runtime_name"
+        elif key == "stagingStorageLinkedServiceName":
+            suggest = "staging_storage_linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisProxy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisProxy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisProxy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 self_hosted_integration_runtime_name: str,
+                 staging_storage_linked_service_name: str,
+                 path: Optional[str] = None):
+        """
+        :param str self_hosted_integration_runtime_name: Name of Self Hosted Integration Runtime as a proxy.
+        :param str staging_storage_linked_service_name: Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
+        :param str path: The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
+        """
+        pulumi.set(__self__, "self_hosted_integration_runtime_name", self_hosted_integration_runtime_name)
+        pulumi.set(__self__, "staging_storage_linked_service_name", staging_storage_linked_service_name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="selfHostedIntegrationRuntimeName")
+    def self_hosted_integration_runtime_name(self) -> str:
+        """
+        Name of Self Hosted Integration Runtime as a proxy.
+        """
+        return pulumi.get(self, "self_hosted_integration_runtime_name")
+
+    @property
+    @pulumi.getter(name="stagingStorageLinkedServiceName")
+    def staging_storage_linked_service_name(self) -> str:
+        """
+        Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
+        """
+        return pulumi.get(self, "staging_storage_linked_service_name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
 class IntegrationRuntimeSsisVnetIntegration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1661,6 +2144,8 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
             suggest = "subnet_name"
         elif key == "vnetId":
             suggest = "vnet_id"
+        elif key == "publicIps":
+            suggest = "public_ips"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisVnetIntegration. Access the value via the '{suggest}' property getter instead.")
@@ -1675,13 +2160,17 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
 
     def __init__(__self__, *,
                  subnet_name: str,
-                 vnet_id: str):
+                 vnet_id: str,
+                 public_ips: Optional[Sequence[str]] = None):
         """
         :param str subnet_name: Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         :param str vnet_id: ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        :param Sequence[str] public_ips: Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
         """
         pulumi.set(__self__, "subnet_name", subnet_name)
         pulumi.set(__self__, "vnet_id", vnet_id)
+        if public_ips is not None:
+            pulumi.set(__self__, "public_ips", public_ips)
 
     @property
     @pulumi.getter(name="subnetName")
@@ -1698,6 +2187,14 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
         ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
         """
         return pulumi.get(self, "vnet_id")
+
+    @property
+    @pulumi.getter(name="publicIps")
+    def public_ips(self) -> Optional[Sequence[str]]:
+        """
+        Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
+        """
+        return pulumi.get(self, "public_ips")
 
 
 @pulumi.output_type

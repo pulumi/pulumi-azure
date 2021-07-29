@@ -22,11 +22,14 @@ class IntegrationRuntimeSsisArgs:
                  custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
+                 express_custom_setup: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
+                 package_stores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]] = None,
+                 proxy: Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']] = None,
                  vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeSsis resource.
@@ -37,11 +40,14 @@ class IntegrationRuntimeSsisArgs:
         :param pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs'] custom_setup_script: A `custom_setup_script` block as defined below.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
+        :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs'] express_custom_setup: An `express_custom_setup` block as defined below.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
         :param pulumi.Input[str] name: Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]] package_stores: One or more `package_store` block as defined below.
+        :param pulumi.Input['IntegrationRuntimeSsisProxyArgs'] proxy: A `proxy` block as defined below.
         :param pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs'] vnet_integration: A `vnet_integration` block as defined below.
         """
         pulumi.set(__self__, "data_factory_name", data_factory_name)
@@ -55,6 +61,8 @@ class IntegrationRuntimeSsisArgs:
             pulumi.set(__self__, "description", description)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
+        if express_custom_setup is not None:
+            pulumi.set(__self__, "express_custom_setup", express_custom_setup)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -65,6 +73,10 @@ class IntegrationRuntimeSsisArgs:
             pulumi.set(__self__, "name", name)
         if number_of_nodes is not None:
             pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+        if package_stores is not None:
+            pulumi.set(__self__, "package_stores", package_stores)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
         if vnet_integration is not None:
             pulumi.set(__self__, "vnet_integration", vnet_integration)
 
@@ -153,6 +165,18 @@ class IntegrationRuntimeSsisArgs:
         pulumi.set(self, "edition", value)
 
     @property
+    @pulumi.getter(name="expressCustomSetup")
+    def express_custom_setup(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']]:
+        """
+        An `express_custom_setup` block as defined below.
+        """
+        return pulumi.get(self, "express_custom_setup")
+
+    @express_custom_setup.setter
+    def express_custom_setup(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']]):
+        pulumi.set(self, "express_custom_setup", value)
+
+    @property
     @pulumi.getter(name="licenseType")
     def license_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -213,6 +237,30 @@ class IntegrationRuntimeSsisArgs:
         pulumi.set(self, "number_of_nodes", value)
 
     @property
+    @pulumi.getter(name="packageStores")
+    def package_stores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]]:
+        """
+        One or more `package_store` block as defined below.
+        """
+        return pulumi.get(self, "package_stores")
+
+    @package_stores.setter
+    def package_stores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]]):
+        pulumi.set(self, "package_stores", value)
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']]:
+        """
+        A `proxy` block as defined below.
+        """
+        return pulumi.get(self, "proxy")
+
+    @proxy.setter
+    def proxy(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']]):
+        pulumi.set(self, "proxy", value)
+
+    @property
     @pulumi.getter(name="vnetIntegration")
     def vnet_integration(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']]:
         """
@@ -233,12 +281,15 @@ class _IntegrationRuntimeSsisState:
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
+                 express_custom_setup: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
+                 package_stores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]] = None,
+                 proxy: Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']] = None):
         """
@@ -248,12 +299,15 @@ class _IntegrationRuntimeSsisState:
         :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
+        :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs'] express_custom_setup: An `express_custom_setup` block as defined below.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
         :param pulumi.Input[str] name: Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] node_size: The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]] package_stores: One or more `package_store` block as defined below.
+        :param pulumi.Input['IntegrationRuntimeSsisProxyArgs'] proxy: A `proxy` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs'] vnet_integration: A `vnet_integration` block as defined below.
         """
@@ -267,6 +321,8 @@ class _IntegrationRuntimeSsisState:
             pulumi.set(__self__, "description", description)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
+        if express_custom_setup is not None:
+            pulumi.set(__self__, "express_custom_setup", express_custom_setup)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -279,6 +335,10 @@ class _IntegrationRuntimeSsisState:
             pulumi.set(__self__, "node_size", node_size)
         if number_of_nodes is not None:
             pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+        if package_stores is not None:
+            pulumi.set(__self__, "package_stores", package_stores)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if vnet_integration is not None:
@@ -343,6 +403,18 @@ class _IntegrationRuntimeSsisState:
     @edition.setter
     def edition(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "edition", value)
+
+    @property
+    @pulumi.getter(name="expressCustomSetup")
+    def express_custom_setup(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']]:
+        """
+        An `express_custom_setup` block as defined below.
+        """
+        return pulumi.get(self, "express_custom_setup")
+
+    @express_custom_setup.setter
+    def express_custom_setup(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']]):
+        pulumi.set(self, "express_custom_setup", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -417,6 +489,30 @@ class _IntegrationRuntimeSsisState:
         pulumi.set(self, "number_of_nodes", value)
 
     @property
+    @pulumi.getter(name="packageStores")
+    def package_stores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]]:
+        """
+        One or more `package_store` block as defined below.
+        """
+        return pulumi.get(self, "package_stores")
+
+    @package_stores.setter
+    def package_stores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]]):
+        pulumi.set(self, "package_stores", value)
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']]:
+        """
+        A `proxy` block as defined below.
+        """
+        return pulumi.get(self, "proxy")
+
+    @proxy.setter
+    def proxy(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']]):
+        pulumi.set(self, "proxy", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -451,12 +547,15 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
+                 express_custom_setup: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressCustomSetupArgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
+                 package_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisPackageStoreArgs']]]]] = None,
+                 proxy: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisProxyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vnet_integration: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisVnetIntegrationArgs']]] = None,
                  __props__=None):
@@ -495,12 +594,15 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
+        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressCustomSetupArgs']] express_custom_setup: An `express_custom_setup` block as defined below.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
         :param pulumi.Input[str] name: Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] node_size: The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisPackageStoreArgs']]]] package_stores: One or more `package_store` block as defined below.
+        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisProxyArgs']] proxy: A `proxy` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisVnetIntegrationArgs']] vnet_integration: A `vnet_integration` block as defined below.
         """
@@ -558,12 +660,15 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
+                 express_custom_setup: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressCustomSetupArgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
+                 package_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisPackageStoreArgs']]]]] = None,
+                 proxy: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisProxyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vnet_integration: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisVnetIntegrationArgs']]] = None,
                  __props__=None):
@@ -585,6 +690,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
             __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["edition"] = edition
+            __props__.__dict__["express_custom_setup"] = express_custom_setup
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
             __props__.__dict__["max_parallel_executions_per_node"] = max_parallel_executions_per_node
@@ -593,6 +699,8 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
                 raise TypeError("Missing required property 'node_size'")
             __props__.__dict__["node_size"] = node_size
             __props__.__dict__["number_of_nodes"] = number_of_nodes
+            __props__.__dict__["package_stores"] = package_stores
+            __props__.__dict__["proxy"] = proxy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -612,12 +720,15 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             edition: Optional[pulumi.Input[str]] = None,
+            express_custom_setup: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressCustomSetupArgs']]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_size: Optional[pulumi.Input[str]] = None,
             number_of_nodes: Optional[pulumi.Input[int]] = None,
+            package_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisPackageStoreArgs']]]]] = None,
+            proxy: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisProxyArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             vnet_integration: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisVnetIntegrationArgs']]] = None) -> 'IntegrationRuntimeSsis':
         """
@@ -632,12 +743,15 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
+        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressCustomSetupArgs']] express_custom_setup: An `express_custom_setup` block as defined below.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
         :param pulumi.Input[str] name: Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] node_size: The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisPackageStoreArgs']]]] package_stores: One or more `package_store` block as defined below.
+        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisProxyArgs']] proxy: A `proxy` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisVnetIntegrationArgs']] vnet_integration: A `vnet_integration` block as defined below.
         """
@@ -650,12 +764,15 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["edition"] = edition
+        __props__.__dict__["express_custom_setup"] = express_custom_setup
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["location"] = location
         __props__.__dict__["max_parallel_executions_per_node"] = max_parallel_executions_per_node
         __props__.__dict__["name"] = name
         __props__.__dict__["node_size"] = node_size
         __props__.__dict__["number_of_nodes"] = number_of_nodes
+        __props__.__dict__["package_stores"] = package_stores
+        __props__.__dict__["proxy"] = proxy
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["vnet_integration"] = vnet_integration
         return IntegrationRuntimeSsis(resource_name, opts=opts, __props__=__props__)
@@ -699,6 +816,14 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         """
         return pulumi.get(self, "edition")
+
+    @property
+    @pulumi.getter(name="expressCustomSetup")
+    def express_custom_setup(self) -> pulumi.Output[Optional['outputs.IntegrationRuntimeSsisExpressCustomSetup']]:
+        """
+        An `express_custom_setup` block as defined below.
+        """
+        return pulumi.get(self, "express_custom_setup")
 
     @property
     @pulumi.getter(name="licenseType")
@@ -747,6 +872,22 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
         """
         return pulumi.get(self, "number_of_nodes")
+
+    @property
+    @pulumi.getter(name="packageStores")
+    def package_stores(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationRuntimeSsisPackageStore']]]:
+        """
+        One or more `package_store` block as defined below.
+        """
+        return pulumi.get(self, "package_stores")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> pulumi.Output[Optional['outputs.IntegrationRuntimeSsisProxy']]:
+        """
+        A `proxy` block as defined below.
+        """
+        return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter(name="resourceGroupName")

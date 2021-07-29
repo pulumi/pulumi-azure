@@ -9248,6 +9248,10 @@ export namespace datafactory {
          */
         administratorPassword?: pulumi.Input<string>;
         /**
+         * The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.
+         */
+        dualStandbyPairName?: pulumi.Input<string>;
+        /**
          * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
          */
         pricingTier?: pulumi.Input<string>;
@@ -9268,7 +9272,128 @@ export namespace datafactory {
         sasToken: pulumi.Input<string>;
     }
 
+    export interface IntegrationRuntimeSsisExpressCustomSetup {
+        /**
+         * One or more `commandKey` blocks as defined below.
+         */
+        commandKeys?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressCustomSetupCommandKey>[]>;
+        /**
+         * One or more `component` blocks as defined below.
+         */
+        components?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressCustomSetupComponent>[]>;
+        /**
+         * The Environment Variables for the Azure-SSIS Integration Runtime.
+         */
+        environment?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+         */
+        powershellVersion?: pulumi.Input<string>;
+    }
+
+    export interface IntegrationRuntimeSsisExpressCustomSetupCommandKey {
+        /**
+         * A `keyVaultSecretReference` block as defined below.
+         */
+        keyVaultPassword?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword>;
+        /**
+         * The password for the target device.
+         */
+        password?: pulumi.Input<string>;
+        /**
+         * The target computer or domain name.
+         */
+        targetName: pulumi.Input<string>;
+        /**
+         * The username for the target device.
+         */
+        userName: pulumi.Input<string>;
+    }
+
+    export interface IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Key Vault Data Factory Linked Service.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies the secret name in Azure Key Vault.
+         */
+        secretName: pulumi.Input<string>;
+        /**
+         * Specifies the secret version in Azure Key Vault.
+         */
+        secretVersion?: pulumi.Input<string>;
+    }
+
+    export interface IntegrationRuntimeSsisExpressCustomSetupComponent {
+        /**
+         * A `keyVaultSecretReference` block as defined below.
+         */
+        keyVaultLicense?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense>;
+        /**
+         * The license used for the Component.
+         */
+        license?: pulumi.Input<string>;
+        /**
+         * The Component Name installed for the Azure-SSIS Integration Runtime.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Key Vault Data Factory Linked Service.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies the secret name in Azure Key Vault.
+         */
+        secretName: pulumi.Input<string>;
+        /**
+         * Specifies the secret version in Azure Key Vault.
+         */
+        secretVersion?: pulumi.Input<string>;
+    }
+
+    export interface IntegrationRuntimeSsisPackageStore {
+        /**
+         * Name of the Linked Service to associate with the packages.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * Name of the package store.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface IntegrationRuntimeSsisProxy {
+        /**
+         * The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * Name of Self Hosted Integration Runtime as a proxy.
+         */
+        selfHostedIntegrationRuntimeName: pulumi.Input<string>;
+        /**
+         * Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
+         */
+        stagingStorageLinkedServiceName: pulumi.Input<string>;
+    }
+
     export interface IntegrationRuntimeSsisVnetIntegration {
+        /**
+         * Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
+         */
+        publicIps?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
          */
@@ -9839,6 +9964,96 @@ export namespace dns {
          */
         ttl?: pulumi.Input<number>;
     }
+}
+
+export namespace domainservices {
+    export interface ServiceInitialReplicaSet {
+        /**
+         * A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
+         */
+        domainControllerIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The publicly routable IP address for the domain controllers in the initial replica set.
+         */
+        externalAccessIpAddress?: pulumi.Input<string>;
+        /**
+         * The ID of the Domain Service.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * The current service status for the initial replica set.
+         */
+        serviceStatus?: pulumi.Input<string>;
+        /**
+         * The ID of the subnet in which to place the initial replica set.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+
+    export interface ServiceNotifications {
+        /**
+         * A list of additional email addresses to notify when there are alerts in the managed domain.
+         */
+        additionalRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+         */
+        notifyDcAdmins?: pulumi.Input<boolean>;
+        /**
+         * Whether to notify all Global Administrators when there are alerts in the managed domain.
+         */
+        notifyGlobalAdmins?: pulumi.Input<boolean>;
+    }
+
+    export interface ServiceSecureLdap {
+        certificateExpiry?: pulumi.Input<string>;
+        certificateThumbprint?: pulumi.Input<string>;
+        /**
+         * Whether to enable secure LDAP for the managed domain. Defaults to `false`.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
+         */
+        externalAccessEnabled?: pulumi.Input<boolean>;
+        /**
+         * The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file).
+         */
+        pfxCertificate: pulumi.Input<string>;
+        /**
+         * The password to use for decrypting the PKCS#12 bundle (PFX file).
+         */
+        pfxCertificatePassword: pulumi.Input<string>;
+        publicCertificate?: pulumi.Input<string>;
+    }
+
+    export interface ServiceSecurity {
+        /**
+         * Whether to enable legacy NTLM v1 support. Defaults to `false`.
+         */
+        ntlmV1Enabled?: pulumi.Input<boolean>;
+        /**
+         * Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `false`.
+         */
+        syncKerberosPasswords?: pulumi.Input<boolean>;
+        /**
+         * Whether to synchronize NTLM password hashes to the managed domain. Defaults to `false`.
+         */
+        syncNtlmPasswords?: pulumi.Input<boolean>;
+        /**
+         * Whether to synchronize on-premises password hashes to the managed domain. Defaults to `false`.
+         */
+        syncOnPremPasswords?: pulumi.Input<boolean>;
+        /**
+         * Whether to enable legacy TLS v1 support. Defaults to `false`.
+         */
+        tlsV1Enabled?: pulumi.Input<boolean>;
+    }
+
 }
 
 export namespace eventgrid {
@@ -20347,6 +20562,17 @@ export namespace policy {
 }
 
 export namespace postgresql {
+    export interface FlexibleServerHighAvailability {
+        /**
+         * The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+         */
+        mode: pulumi.Input<string>;
+        /**
+         * The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+         */
+        standbyAvailabilityZone?: pulumi.Input<string>;
+    }
+
     export interface FlexibleServerMaintenanceWindow {
         /**
          * The day of week for maintenance window. Defaults to `0`.
@@ -21311,6 +21537,32 @@ export namespace signalr {
          * A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface ServiceNetworkAclPrivateEndpoint {
+        /**
+         * The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         */
+        allowedRequestTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         */
+        deniedRequestTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Private Endpoint which is based on the SignalR service.
+         */
+        id: pulumi.Input<string>;
+    }
+
+    export interface ServiceNetworkAclPublicNetwork {
+        /**
+         * The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         */
+        allowedRequestTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         */
+        deniedRequestTypes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ServiceSku {

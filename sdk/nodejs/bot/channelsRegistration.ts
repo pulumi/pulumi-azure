@@ -60,6 +60,14 @@ export class ChannelsRegistration extends pulumi.CustomResource {
     }
 
     /**
+     * The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+     */
+    public readonly cmkKeyVaultUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The description of the Bot Channels Registration.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * The Application Insights API Key to associate with the Bot Channels Registration.
      */
     public readonly developerAppInsightsApiKey!: pulumi.Output<string>;
@@ -79,6 +87,14 @@ export class ChannelsRegistration extends pulumi.CustomResource {
      * The Bot Channels Registration endpoint.
      */
     public readonly endpoint!: pulumi.Output<string | undefined>;
+    /**
+     * The icon URL to visually identify the Bot Channels Registration.
+     */
+    public readonly iconUrl!: pulumi.Output<string>;
+    /**
+     * Is the Bot Channels Registration in an isolated network?
+     */
+    public readonly isolatedNetworkEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -117,11 +133,15 @@ export class ChannelsRegistration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelsRegistrationState | undefined;
+            inputs["cmkKeyVaultUrl"] = state ? state.cmkKeyVaultUrl : undefined;
+            inputs["description"] = state ? state.description : undefined;
             inputs["developerAppInsightsApiKey"] = state ? state.developerAppInsightsApiKey : undefined;
             inputs["developerAppInsightsApplicationId"] = state ? state.developerAppInsightsApplicationId : undefined;
             inputs["developerAppInsightsKey"] = state ? state.developerAppInsightsKey : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
+            inputs["iconUrl"] = state ? state.iconUrl : undefined;
+            inputs["isolatedNetworkEnabled"] = state ? state.isolatedNetworkEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["microsoftAppId"] = state ? state.microsoftAppId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -139,11 +159,15 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["cmkKeyVaultUrl"] = args ? args.cmkKeyVaultUrl : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["developerAppInsightsApiKey"] = args ? args.developerAppInsightsApiKey : undefined;
             inputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
             inputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["endpoint"] = args ? args.endpoint : undefined;
+            inputs["iconUrl"] = args ? args.iconUrl : undefined;
+            inputs["isolatedNetworkEnabled"] = args ? args.isolatedNetworkEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["microsoftAppId"] = args ? args.microsoftAppId : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -162,6 +186,14 @@ export class ChannelsRegistration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ChannelsRegistration resources.
  */
 export interface ChannelsRegistrationState {
+    /**
+     * The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+     */
+    cmkKeyVaultUrl?: pulumi.Input<string>;
+    /**
+     * The description of the Bot Channels Registration.
+     */
+    description?: pulumi.Input<string>;
     /**
      * The Application Insights API Key to associate with the Bot Channels Registration.
      */
@@ -182,6 +214,14 @@ export interface ChannelsRegistrationState {
      * The Bot Channels Registration endpoint.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * The icon URL to visually identify the Bot Channels Registration.
+     */
+    iconUrl?: pulumi.Input<string>;
+    /**
+     * Is the Bot Channels Registration in an isolated network?
+     */
+    isolatedNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -213,6 +253,14 @@ export interface ChannelsRegistrationState {
  */
 export interface ChannelsRegistrationArgs {
     /**
+     * The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+     */
+    cmkKeyVaultUrl?: pulumi.Input<string>;
+    /**
+     * The description of the Bot Channels Registration.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * The Application Insights API Key to associate with the Bot Channels Registration.
      */
     developerAppInsightsApiKey?: pulumi.Input<string>;
@@ -232,6 +280,14 @@ export interface ChannelsRegistrationArgs {
      * The Bot Channels Registration endpoint.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * The icon URL to visually identify the Bot Channels Registration.
+     */
+    iconUrl?: pulumi.Input<string>;
+    /**
+     * Is the Bot Channels Registration in an isolated network?
+     */
+    isolatedNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

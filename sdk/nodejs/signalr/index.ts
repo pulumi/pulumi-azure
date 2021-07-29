@@ -7,9 +7,11 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getService";
 export * from "./service";
+export * from "./serviceNetworkAcl";
 
 // Import resources to register:
 import { Service } from "./service";
+import { ServiceNetworkAcl } from "./serviceNetworkAcl";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +19,12 @@ const _module = {
         switch (type) {
             case "azure:signalr/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl":
+                return new ServiceNetworkAcl(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "signalr/service", _module)
+pulumi.runtime.registerResourceModule("azure", "signalr/serviceNetworkAcl", _module)

@@ -51,6 +51,18 @@ namespace Pulumi.Azure.Bot
     public partial class ChannelsRegistration : Pulumi.CustomResource
     {
         /// <summary>
+        /// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+        /// </summary>
+        [Output("cmkKeyVaultUrl")]
+        public Output<string?> CmkKeyVaultUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the Bot Channels Registration.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// The Application Insights API Key to associate with the Bot Channels Registration.
         /// </summary>
         [Output("developerAppInsightsApiKey")]
@@ -79,6 +91,18 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Output("endpoint")]
         public Output<string?> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The icon URL to visually identify the Bot Channels Registration.
+        /// </summary>
+        [Output("iconUrl")]
+        public Output<string> IconUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Is the Bot Channels Registration in an isolated network?
+        /// </summary>
+        [Output("isolatedNetworkEnabled")]
+        public Output<bool?> IsolatedNetworkEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -163,6 +187,18 @@ namespace Pulumi.Azure.Bot
     public sealed class ChannelsRegistrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+        /// </summary>
+        [Input("cmkKeyVaultUrl")]
+        public Input<string>? CmkKeyVaultUrl { get; set; }
+
+        /// <summary>
+        /// The description of the Bot Channels Registration.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The Application Insights API Key to associate with the Bot Channels Registration.
         /// </summary>
         [Input("developerAppInsightsApiKey")]
@@ -191,6 +227,18 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// The icon URL to visually identify the Bot Channels Registration.
+        /// </summary>
+        [Input("iconUrl")]
+        public Input<string>? IconUrl { get; set; }
+
+        /// <summary>
+        /// Is the Bot Channels Registration in an isolated network?
+        /// </summary>
+        [Input("isolatedNetworkEnabled")]
+        public Input<bool>? IsolatedNetworkEnabled { get; set; }
 
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -242,6 +290,18 @@ namespace Pulumi.Azure.Bot
     public sealed class ChannelsRegistrationState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+        /// </summary>
+        [Input("cmkKeyVaultUrl")]
+        public Input<string>? CmkKeyVaultUrl { get; set; }
+
+        /// <summary>
+        /// The description of the Bot Channels Registration.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The Application Insights API Key to associate with the Bot Channels Registration.
         /// </summary>
         [Input("developerAppInsightsApiKey")]
@@ -270,6 +330,18 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// The icon URL to visually identify the Bot Channels Registration.
+        /// </summary>
+        [Input("iconUrl")]
+        public Input<string>? IconUrl { get; set; }
+
+        /// <summary>
+        /// Is the Bot Channels Registration in an isolated network?
+        /// </summary>
+        [Input("isolatedNetworkEnabled")]
+        public Input<bool>? IsolatedNetworkEnabled { get; set; }
 
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.

@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Redis.Outputs
         /// </summary>
         public readonly string DayOfWeek;
         /// <summary>
+        /// The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated.
+        /// </summary>
+        public readonly string MaintenanceWindow;
+        /// <summary>
         /// The Start Hour for maintenance in UTC
         /// </summary>
         public readonly int StartHourUtc;
@@ -26,9 +30,12 @@ namespace Pulumi.Azure.Redis.Outputs
         private GetCachePatchScheduleResult(
             string dayOfWeek,
 
+            string maintenanceWindow,
+
             int startHourUtc)
         {
             DayOfWeek = dayOfWeek;
+            MaintenanceWindow = maintenanceWindow;
             StartHourUtc = startHourUtc;
         }
     }

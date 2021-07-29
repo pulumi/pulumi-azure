@@ -213,6 +213,271 @@ func (o ServiceFeatureArrayOutput) Index(i pulumi.IntInput) ServiceFeatureOutput
 	}).(ServiceFeatureOutput)
 }
 
+type ServiceNetworkAclPrivateEndpoint struct {
+	// The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	AllowedRequestTypes []string `pulumi:"allowedRequestTypes"`
+	// The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	DeniedRequestTypes []string `pulumi:"deniedRequestTypes"`
+	// The ID of the Private Endpoint which is based on the SignalR service.
+	Id string `pulumi:"id"`
+}
+
+// ServiceNetworkAclPrivateEndpointInput is an input type that accepts ServiceNetworkAclPrivateEndpointArgs and ServiceNetworkAclPrivateEndpointOutput values.
+// You can construct a concrete instance of `ServiceNetworkAclPrivateEndpointInput` via:
+//
+//          ServiceNetworkAclPrivateEndpointArgs{...}
+type ServiceNetworkAclPrivateEndpointInput interface {
+	pulumi.Input
+
+	ToServiceNetworkAclPrivateEndpointOutput() ServiceNetworkAclPrivateEndpointOutput
+	ToServiceNetworkAclPrivateEndpointOutputWithContext(context.Context) ServiceNetworkAclPrivateEndpointOutput
+}
+
+type ServiceNetworkAclPrivateEndpointArgs struct {
+	// The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	AllowedRequestTypes pulumi.StringArrayInput `pulumi:"allowedRequestTypes"`
+	// The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	DeniedRequestTypes pulumi.StringArrayInput `pulumi:"deniedRequestTypes"`
+	// The ID of the Private Endpoint which is based on the SignalR service.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (ServiceNetworkAclPrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkAclPrivateEndpoint)(nil)).Elem()
+}
+
+func (i ServiceNetworkAclPrivateEndpointArgs) ToServiceNetworkAclPrivateEndpointOutput() ServiceNetworkAclPrivateEndpointOutput {
+	return i.ToServiceNetworkAclPrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkAclPrivateEndpointArgs) ToServiceNetworkAclPrivateEndpointOutputWithContext(ctx context.Context) ServiceNetworkAclPrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPrivateEndpointOutput)
+}
+
+// ServiceNetworkAclPrivateEndpointArrayInput is an input type that accepts ServiceNetworkAclPrivateEndpointArray and ServiceNetworkAclPrivateEndpointArrayOutput values.
+// You can construct a concrete instance of `ServiceNetworkAclPrivateEndpointArrayInput` via:
+//
+//          ServiceNetworkAclPrivateEndpointArray{ ServiceNetworkAclPrivateEndpointArgs{...} }
+type ServiceNetworkAclPrivateEndpointArrayInput interface {
+	pulumi.Input
+
+	ToServiceNetworkAclPrivateEndpointArrayOutput() ServiceNetworkAclPrivateEndpointArrayOutput
+	ToServiceNetworkAclPrivateEndpointArrayOutputWithContext(context.Context) ServiceNetworkAclPrivateEndpointArrayOutput
+}
+
+type ServiceNetworkAclPrivateEndpointArray []ServiceNetworkAclPrivateEndpointInput
+
+func (ServiceNetworkAclPrivateEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceNetworkAclPrivateEndpoint)(nil)).Elem()
+}
+
+func (i ServiceNetworkAclPrivateEndpointArray) ToServiceNetworkAclPrivateEndpointArrayOutput() ServiceNetworkAclPrivateEndpointArrayOutput {
+	return i.ToServiceNetworkAclPrivateEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkAclPrivateEndpointArray) ToServiceNetworkAclPrivateEndpointArrayOutputWithContext(ctx context.Context) ServiceNetworkAclPrivateEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPrivateEndpointArrayOutput)
+}
+
+type ServiceNetworkAclPrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkAclPrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkAclPrivateEndpoint)(nil)).Elem()
+}
+
+func (o ServiceNetworkAclPrivateEndpointOutput) ToServiceNetworkAclPrivateEndpointOutput() ServiceNetworkAclPrivateEndpointOutput {
+	return o
+}
+
+func (o ServiceNetworkAclPrivateEndpointOutput) ToServiceNetworkAclPrivateEndpointOutputWithContext(ctx context.Context) ServiceNetworkAclPrivateEndpointOutput {
+	return o
+}
+
+// The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+func (o ServiceNetworkAclPrivateEndpointOutput) AllowedRequestTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceNetworkAclPrivateEndpoint) []string { return v.AllowedRequestTypes }).(pulumi.StringArrayOutput)
+}
+
+// The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+func (o ServiceNetworkAclPrivateEndpointOutput) DeniedRequestTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceNetworkAclPrivateEndpoint) []string { return v.DeniedRequestTypes }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Private Endpoint which is based on the SignalR service.
+func (o ServiceNetworkAclPrivateEndpointOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceNetworkAclPrivateEndpoint) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type ServiceNetworkAclPrivateEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkAclPrivateEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceNetworkAclPrivateEndpoint)(nil)).Elem()
+}
+
+func (o ServiceNetworkAclPrivateEndpointArrayOutput) ToServiceNetworkAclPrivateEndpointArrayOutput() ServiceNetworkAclPrivateEndpointArrayOutput {
+	return o
+}
+
+func (o ServiceNetworkAclPrivateEndpointArrayOutput) ToServiceNetworkAclPrivateEndpointArrayOutputWithContext(ctx context.Context) ServiceNetworkAclPrivateEndpointArrayOutput {
+	return o
+}
+
+func (o ServiceNetworkAclPrivateEndpointArrayOutput) Index(i pulumi.IntInput) ServiceNetworkAclPrivateEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceNetworkAclPrivateEndpoint {
+		return vs[0].([]ServiceNetworkAclPrivateEndpoint)[vs[1].(int)]
+	}).(ServiceNetworkAclPrivateEndpointOutput)
+}
+
+type ServiceNetworkAclPublicNetwork struct {
+	// The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	AllowedRequestTypes []string `pulumi:"allowedRequestTypes"`
+	// The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	DeniedRequestTypes []string `pulumi:"deniedRequestTypes"`
+}
+
+// ServiceNetworkAclPublicNetworkInput is an input type that accepts ServiceNetworkAclPublicNetworkArgs and ServiceNetworkAclPublicNetworkOutput values.
+// You can construct a concrete instance of `ServiceNetworkAclPublicNetworkInput` via:
+//
+//          ServiceNetworkAclPublicNetworkArgs{...}
+type ServiceNetworkAclPublicNetworkInput interface {
+	pulumi.Input
+
+	ToServiceNetworkAclPublicNetworkOutput() ServiceNetworkAclPublicNetworkOutput
+	ToServiceNetworkAclPublicNetworkOutputWithContext(context.Context) ServiceNetworkAclPublicNetworkOutput
+}
+
+type ServiceNetworkAclPublicNetworkArgs struct {
+	// The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	AllowedRequestTypes pulumi.StringArrayInput `pulumi:"allowedRequestTypes"`
+	// The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	DeniedRequestTypes pulumi.StringArrayInput `pulumi:"deniedRequestTypes"`
+}
+
+func (ServiceNetworkAclPublicNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkAclPublicNetwork)(nil)).Elem()
+}
+
+func (i ServiceNetworkAclPublicNetworkArgs) ToServiceNetworkAclPublicNetworkOutput() ServiceNetworkAclPublicNetworkOutput {
+	return i.ToServiceNetworkAclPublicNetworkOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkAclPublicNetworkArgs) ToServiceNetworkAclPublicNetworkOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPublicNetworkOutput)
+}
+
+func (i ServiceNetworkAclPublicNetworkArgs) ToServiceNetworkAclPublicNetworkPtrOutput() ServiceNetworkAclPublicNetworkPtrOutput {
+	return i.ToServiceNetworkAclPublicNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkAclPublicNetworkArgs) ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPublicNetworkOutput).ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx)
+}
+
+// ServiceNetworkAclPublicNetworkPtrInput is an input type that accepts ServiceNetworkAclPublicNetworkArgs, ServiceNetworkAclPublicNetworkPtr and ServiceNetworkAclPublicNetworkPtrOutput values.
+// You can construct a concrete instance of `ServiceNetworkAclPublicNetworkPtrInput` via:
+//
+//          ServiceNetworkAclPublicNetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceNetworkAclPublicNetworkPtrInput interface {
+	pulumi.Input
+
+	ToServiceNetworkAclPublicNetworkPtrOutput() ServiceNetworkAclPublicNetworkPtrOutput
+	ToServiceNetworkAclPublicNetworkPtrOutputWithContext(context.Context) ServiceNetworkAclPublicNetworkPtrOutput
+}
+
+type serviceNetworkAclPublicNetworkPtrType ServiceNetworkAclPublicNetworkArgs
+
+func ServiceNetworkAclPublicNetworkPtr(v *ServiceNetworkAclPublicNetworkArgs) ServiceNetworkAclPublicNetworkPtrInput {
+	return (*serviceNetworkAclPublicNetworkPtrType)(v)
+}
+
+func (*serviceNetworkAclPublicNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkAclPublicNetwork)(nil)).Elem()
+}
+
+func (i *serviceNetworkAclPublicNetworkPtrType) ToServiceNetworkAclPublicNetworkPtrOutput() ServiceNetworkAclPublicNetworkPtrOutput {
+	return i.ToServiceNetworkAclPublicNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceNetworkAclPublicNetworkPtrType) ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPublicNetworkPtrOutput)
+}
+
+type ServiceNetworkAclPublicNetworkOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkAclPublicNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkAclPublicNetwork)(nil)).Elem()
+}
+
+func (o ServiceNetworkAclPublicNetworkOutput) ToServiceNetworkAclPublicNetworkOutput() ServiceNetworkAclPublicNetworkOutput {
+	return o
+}
+
+func (o ServiceNetworkAclPublicNetworkOutput) ToServiceNetworkAclPublicNetworkOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkOutput {
+	return o
+}
+
+func (o ServiceNetworkAclPublicNetworkOutput) ToServiceNetworkAclPublicNetworkPtrOutput() ServiceNetworkAclPublicNetworkPtrOutput {
+	return o.ToServiceNetworkAclPublicNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkAclPublicNetworkOutput) ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkPtrOutput {
+	return o.ApplyT(func(v ServiceNetworkAclPublicNetwork) *ServiceNetworkAclPublicNetwork {
+		return &v
+	}).(ServiceNetworkAclPublicNetworkPtrOutput)
+}
+
+// The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+func (o ServiceNetworkAclPublicNetworkOutput) AllowedRequestTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceNetworkAclPublicNetwork) []string { return v.AllowedRequestTypes }).(pulumi.StringArrayOutput)
+}
+
+// The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+func (o ServiceNetworkAclPublicNetworkOutput) DeniedRequestTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceNetworkAclPublicNetwork) []string { return v.DeniedRequestTypes }).(pulumi.StringArrayOutput)
+}
+
+type ServiceNetworkAclPublicNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkAclPublicNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkAclPublicNetwork)(nil)).Elem()
+}
+
+func (o ServiceNetworkAclPublicNetworkPtrOutput) ToServiceNetworkAclPublicNetworkPtrOutput() ServiceNetworkAclPublicNetworkPtrOutput {
+	return o
+}
+
+func (o ServiceNetworkAclPublicNetworkPtrOutput) ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkPtrOutput {
+	return o
+}
+
+func (o ServiceNetworkAclPublicNetworkPtrOutput) Elem() ServiceNetworkAclPublicNetworkOutput {
+	return o.ApplyT(func(v *ServiceNetworkAclPublicNetwork) ServiceNetworkAclPublicNetwork { return *v }).(ServiceNetworkAclPublicNetworkOutput)
+}
+
+// The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+func (o ServiceNetworkAclPublicNetworkPtrOutput) AllowedRequestTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceNetworkAclPublicNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedRequestTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+func (o ServiceNetworkAclPublicNetworkPtrOutput) DeniedRequestTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceNetworkAclPublicNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DeniedRequestTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 type ServiceSku struct {
 	// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
 	Capacity int `pulumi:"capacity"`
@@ -492,6 +757,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceCorArrayOutput{})
 	pulumi.RegisterOutputType(ServiceFeatureOutput{})
 	pulumi.RegisterOutputType(ServiceFeatureArrayOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkAclPrivateEndpointOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkAclPrivateEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkAclPublicNetworkOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkAclPublicNetworkPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSkuOutput{})
 	pulumi.RegisterOutputType(ServiceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ServiceUpstreamEndpointOutput{})

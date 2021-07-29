@@ -11,12 +11,72 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an SQL User Defined Function.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/cosmosdb"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+// 			Name:              "tfex-cosmosdb-account",
+// 			ResourceGroupName: "tfex-cosmosdb-account-rg",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
+// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+// 			AccountName:       pulumi.String(exampleAccount.Name),
+// 			Throughput:        pulumi.Int(400),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
+// 			ResourceGroupName: pulumi.Any(azurerm_cosmosdb_account.Example.Resource_group_name),
+// 			AccountName:       pulumi.Any(azurerm_cosmosdb_account.Example.Name),
+// 			DatabaseName:      exampleSqlDatabase.Name,
+// 			PartitionKeyPath:  pulumi.String("/id"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cosmosdb.NewSqlFunction(ctx, "exampleSqlFunction", &cosmosdb.SqlFunctionArgs{
+// 			ContainerId: exampleSqlContainer.ID(),
+// 			Body:        pulumi.String("function trigger(){}"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// SQL User Defined Functions can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:cosmosdb/sqlFunction:SqlFunction example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/database1/containers/container1/userDefinedFunctions/userDefinedFunction1
+// ```
 type SqlFunction struct {
 	pulumi.CustomResourceState
 
-	Body        pulumi.StringOutput `pulumi:"body"`
+	// Body of the User Defined Function.
+	Body pulumi.StringOutput `pulumi:"body"`
+	// The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
 	ContainerId pulumi.StringOutput `pulumi:"containerId"`
-	Name        pulumi.StringOutput `pulumi:"name"`
+	// The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewSqlFunction registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +114,21 @@ func GetSqlFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlFunction resources.
 type sqlFunctionState struct {
-	Body        *string `pulumi:"body"`
+	// Body of the User Defined Function.
+	Body *string `pulumi:"body"`
+	// The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
 	ContainerId *string `pulumi:"containerId"`
-	Name        *string `pulumi:"name"`
+	// The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+	Name *string `pulumi:"name"`
 }
 
 type SqlFunctionState struct {
-	Body        pulumi.StringPtrInput
+	// Body of the User Defined Function.
+	Body pulumi.StringPtrInput
+	// The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
 	ContainerId pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
+	// The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+	Name pulumi.StringPtrInput
 }
 
 func (SqlFunctionState) ElementType() reflect.Type {
@@ -70,16 +136,22 @@ func (SqlFunctionState) ElementType() reflect.Type {
 }
 
 type sqlFunctionArgs struct {
-	Body        string  `pulumi:"body"`
-	ContainerId string  `pulumi:"containerId"`
-	Name        *string `pulumi:"name"`
+	// Body of the User Defined Function.
+	Body string `pulumi:"body"`
+	// The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
+	ContainerId string `pulumi:"containerId"`
+	// The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a SqlFunction resource.
 type SqlFunctionArgs struct {
-	Body        pulumi.StringInput
+	// Body of the User Defined Function.
+	Body pulumi.StringInput
+	// The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
 	ContainerId pulumi.StringInput
-	Name        pulumi.StringPtrInput
+	// The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
+	Name pulumi.StringPtrInput
 }
 
 func (SqlFunctionArgs) ElementType() reflect.Type {

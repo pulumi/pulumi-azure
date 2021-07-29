@@ -95,6 +95,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinkedServiceSynapse{}
 	case "azure:datafactory/linkedServiceWeb:LinkedServiceWeb":
 		r = &LinkedServiceWeb{}
+	case "azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint":
+		r = &ManagedPrivateEndpoint{}
 	case "azure:datafactory/pipeline:Pipeline":
 		r = &Pipeline{}
 	case "azure:datafactory/triggerBlobEvent:TriggerBlobEvent":
@@ -297,6 +299,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/linkedServiceWeb",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/managedPrivateEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
