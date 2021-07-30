@@ -41,6 +41,9 @@ namespace Pulumi.Azure.Automation
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The is exportable flag of the certificate.
+        /// </summary>
         [Output("exportable")]
         public Output<bool> Exportable { get; private set; } = null!;
 
@@ -127,6 +130,12 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The is exportable flag of the certificate.
+        /// </summary>
+        [Input("exportable")]
+        public Input<bool>? Exportable { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Certificate. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -163,6 +172,9 @@ namespace Pulumi.Azure.Automation
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The is exportable flag of the certificate.
+        /// </summary>
         [Input("exportable")]
         public Input<bool>? Exportable { get; set; }
 

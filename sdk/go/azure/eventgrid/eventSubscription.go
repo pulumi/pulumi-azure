@@ -81,7 +81,6 @@ type EventSubscription struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter EventSubscriptionAdvancedFilterPtrOutput `pulumi:"advancedFilter"`
 	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-	// ---
 	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrOutput `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint EventSubscriptionAzureFunctionEndpointPtrOutput `pulumi:"azureFunctionEndpoint"`
@@ -170,7 +169,6 @@ type eventSubscriptionState struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter *EventSubscriptionAdvancedFilter `pulumi:"advancedFilter"`
 	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-	// ---
 	AdvancedFilteringOnArraysEnabled *bool `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *EventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
@@ -222,7 +220,6 @@ type EventSubscriptionState struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter EventSubscriptionAdvancedFilterPtrInput
 	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-	// ---
 	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrInput
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint EventSubscriptionAzureFunctionEndpointPtrInput
@@ -278,7 +275,6 @@ type eventSubscriptionArgs struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter *EventSubscriptionAdvancedFilter `pulumi:"advancedFilter"`
 	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-	// ---
 	AdvancedFilteringOnArraysEnabled *bool `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *EventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
@@ -331,7 +327,6 @@ type EventSubscriptionArgs struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter EventSubscriptionAdvancedFilterPtrInput
 	// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-	// ---
 	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrInput
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint EventSubscriptionAzureFunctionEndpointPtrInput

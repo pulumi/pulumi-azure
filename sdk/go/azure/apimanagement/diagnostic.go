@@ -144,6 +144,8 @@ type Diagnostic struct {
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// Log client IP address.
 	LogClientIp pulumi.BoolOutput `pulumi:"logClientIp"`
+	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+	OperationNameFormat pulumi.StringPtrOutput `pulumi:"operationNameFormat"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
@@ -215,6 +217,8 @@ type diagnosticState struct {
 	Identifier *string `pulumi:"identifier"`
 	// Log client IP address.
 	LogClientIp *bool `pulumi:"logClientIp"`
+	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
@@ -246,6 +250,8 @@ type DiagnosticState struct {
 	Identifier pulumi.StringPtrInput
 	// Log client IP address.
 	LogClientIp pulumi.BoolPtrInput
+	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+	OperationNameFormat pulumi.StringPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
@@ -281,6 +287,8 @@ type diagnosticArgs struct {
 	Identifier string `pulumi:"identifier"`
 	// Log client IP address.
 	LogClientIp *bool `pulumi:"logClientIp"`
+	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
@@ -313,6 +321,8 @@ type DiagnosticArgs struct {
 	Identifier pulumi.StringInput
 	// Log client IP address.
 	LogClientIp pulumi.BoolPtrInput
+	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+	OperationNameFormat pulumi.StringPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.

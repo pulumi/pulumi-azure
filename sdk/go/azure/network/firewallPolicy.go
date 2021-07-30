@@ -59,6 +59,8 @@ type FirewallPolicy struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of private IP ranges to which traffic will not be SNAT.
+	PrivateIpRanges pulumi.StringArrayOutput `pulumi:"privateIpRanges"`
 	// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
@@ -117,6 +119,8 @@ type firewallPolicyState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
 	Name *string `pulumi:"name"`
+	// A list of private IP ranges to which traffic will not be SNAT.
+	PrivateIpRanges []string `pulumi:"privateIpRanges"`
 	// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
@@ -144,6 +148,8 @@ type FirewallPolicyState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
 	Name pulumi.StringPtrInput
+	// A list of private IP ranges to which traffic will not be SNAT.
+	PrivateIpRanges pulumi.StringArrayInput
 	// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
@@ -171,6 +177,8 @@ type firewallPolicyArgs struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
 	Name *string `pulumi:"name"`
+	// A list of private IP ranges to which traffic will not be SNAT.
+	PrivateIpRanges []string `pulumi:"privateIpRanges"`
 	// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
@@ -193,6 +201,8 @@ type FirewallPolicyArgs struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
 	Name pulumi.StringPtrInput
+	// A list of private IP ranges to which traffic will not be SNAT.
+	PrivateIpRanges pulumi.StringArrayInput
 	// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.

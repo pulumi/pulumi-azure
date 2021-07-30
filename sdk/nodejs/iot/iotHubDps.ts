@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * const exampleIotHubDps = new azure.iot.IotHubDps("exampleIotHubDps", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
+ *     allocationPolicy: "Hashed",
  *     sku: {
  *         name: "S1",
  *         capacity: "1",
@@ -62,9 +63,9 @@ export class IotHubDps extends pulumi.CustomResource {
     }
 
     /**
-     * The allocation policy of the IoT Device Provisioning Service.
+     * The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
      */
-    public /*out*/ readonly allocationPolicy!: pulumi.Output<string>;
+    public readonly allocationPolicy!: pulumi.Output<string | undefined>;
     /**
      * The device endpoint of the IoT Device Provisioning Service.
      */
@@ -133,13 +134,13 @@ export class IotHubDps extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["allocationPolicy"] = args ? args.allocationPolicy : undefined;
             inputs["linkedHubs"] = args ? args.linkedHubs : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["allocationPolicy"] = undefined /*out*/;
             inputs["deviceProvisioningHostName"] = undefined /*out*/;
             inputs["idScope"] = undefined /*out*/;
             inputs["serviceOperationsHostName"] = undefined /*out*/;
@@ -156,7 +157,7 @@ export class IotHubDps extends pulumi.CustomResource {
  */
 export interface IotHubDpsState {
     /**
-     * The allocation policy of the IoT Device Provisioning Service.
+     * The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
      */
     allocationPolicy?: pulumi.Input<string>;
     /**
@@ -201,6 +202,10 @@ export interface IotHubDpsState {
  * The set of arguments for constructing a IotHubDps resource.
  */
 export interface IotHubDpsArgs {
+    /**
+     * The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
+     */
+    allocationPolicy?: pulumi.Input<string>;
     /**
      * A `linkedHub` block as defined below.
      */

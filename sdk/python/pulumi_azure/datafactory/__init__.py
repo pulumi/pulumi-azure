@@ -46,6 +46,8 @@ from .linked_service_web import *
 from .managed_private_endpoint import *
 from .pipeline import *
 from .trigger_blob_event import *
+from .trigger_custom_event import *
 from .trigger_schedule import *
+from .trigger_tumbling_window import *
 from ._inputs import *
 from . import outputs

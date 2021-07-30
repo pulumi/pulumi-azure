@@ -94,12 +94,16 @@ type Pipeline struct {
 	ActivitiesJson pulumi.StringPtrOutput `pulumi:"activitiesJson"`
 	// List of tags that can be used for describing the Data Factory Pipeline.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
+	// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+	Concurrency pulumi.IntPtrOutput `pulumi:"concurrency"`
 	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Pipeline.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
 	Folder pulumi.StringPtrOutput `pulumi:"folder"`
+	// The TimeSpan value after which an Azure Monitoring Metric is fired.
+	MoniterMetricsAfterDuration pulumi.StringPtrOutput `pulumi:"moniterMetricsAfterDuration"`
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -149,12 +153,16 @@ type pipelineState struct {
 	ActivitiesJson *string `pulumi:"activitiesJson"`
 	// List of tags that can be used for describing the Data Factory Pipeline.
 	Annotations []string `pulumi:"annotations"`
+	// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+	Concurrency *int `pulumi:"concurrency"`
 	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Pipeline.
 	Description *string `pulumi:"description"`
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
 	Folder *string `pulumi:"folder"`
+	// The TimeSpan value after which an Azure Monitoring Metric is fired.
+	MoniterMetricsAfterDuration *string `pulumi:"moniterMetricsAfterDuration"`
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -170,12 +178,16 @@ type PipelineState struct {
 	ActivitiesJson pulumi.StringPtrInput
 	// List of tags that can be used for describing the Data Factory Pipeline.
 	Annotations pulumi.StringArrayInput
+	// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+	Concurrency pulumi.IntPtrInput
 	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Pipeline.
 	Description pulumi.StringPtrInput
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
 	Folder pulumi.StringPtrInput
+	// The TimeSpan value after which an Azure Monitoring Metric is fired.
+	MoniterMetricsAfterDuration pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -195,12 +207,16 @@ type pipelineArgs struct {
 	ActivitiesJson *string `pulumi:"activitiesJson"`
 	// List of tags that can be used for describing the Data Factory Pipeline.
 	Annotations []string `pulumi:"annotations"`
+	// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+	Concurrency *int `pulumi:"concurrency"`
 	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
 	DataFactoryName string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Pipeline.
 	Description *string `pulumi:"description"`
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
 	Folder *string `pulumi:"folder"`
+	// The TimeSpan value after which an Azure Monitoring Metric is fired.
+	MoniterMetricsAfterDuration *string `pulumi:"moniterMetricsAfterDuration"`
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -217,12 +233,16 @@ type PipelineArgs struct {
 	ActivitiesJson pulumi.StringPtrInput
 	// List of tags that can be used for describing the Data Factory Pipeline.
 	Annotations pulumi.StringArrayInput
+	// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+	Concurrency pulumi.IntPtrInput
 	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringInput
 	// The description for the Data Factory Pipeline.
 	Description pulumi.StringPtrInput
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
 	Folder pulumi.StringPtrInput
+	// The TimeSpan value after which an Azure Monitoring Metric is fired.
+	MoniterMetricsAfterDuration pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Pipeline.

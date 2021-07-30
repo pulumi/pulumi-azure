@@ -278,10 +278,10 @@ func (o DatasetAzureBlobSchemaColumnArrayOutput) Index(i pulumi.IntInput) Datase
 type DatasetBinaryAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
-	// The filename of the file on the web server.
-	Filename string `pulumi:"filename"`
-	// The folder path to the file on the web server.
-	Path string `pulumi:"path"`
+	// The filename of the file in the blob container.
+	Filename *string `pulumi:"filename"`
+	// The folder path to the file in the blob container.
+	Path *string `pulumi:"path"`
 }
 
 // DatasetBinaryAzureBlobStorageLocationInput is an input type that accepts DatasetBinaryAzureBlobStorageLocationArgs and DatasetBinaryAzureBlobStorageLocationOutput values.
@@ -298,10 +298,10 @@ type DatasetBinaryAzureBlobStorageLocationInput interface {
 type DatasetBinaryAzureBlobStorageLocationArgs struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
-	// The filename of the file on the web server.
-	Filename pulumi.StringInput `pulumi:"filename"`
-	// The folder path to the file on the web server.
-	Path pulumi.StringInput `pulumi:"path"`
+	// The filename of the file in the blob container.
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
+	// The folder path to the file in the blob container.
+	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (DatasetBinaryAzureBlobStorageLocationArgs) ElementType() reflect.Type {
@@ -386,14 +386,14 @@ func (o DatasetBinaryAzureBlobStorageLocationOutput) Container() pulumi.StringOu
 	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
 }
 
-// The filename of the file on the web server.
-func (o DatasetBinaryAzureBlobStorageLocationOutput) Filename() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) string { return v.Filename }).(pulumi.StringOutput)
+// The filename of the file in the blob container.
+func (o DatasetBinaryAzureBlobStorageLocationOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
 
-// The folder path to the file on the web server.
-func (o DatasetBinaryAzureBlobStorageLocationOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) string { return v.Path }).(pulumi.StringOutput)
+// The folder path to the file in the blob container.
+func (o DatasetBinaryAzureBlobStorageLocationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 type DatasetBinaryAzureBlobStorageLocationPtrOutput struct{ *pulumi.OutputState }
@@ -424,23 +424,23 @@ func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) Container() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The filename of the file on the web server.
+// The filename of the file in the blob container.
 func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetBinaryAzureBlobStorageLocation) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Filename
+		return v.Filename
 	}).(pulumi.StringPtrOutput)
 }
 
-// The folder path to the file on the web server.
+// The folder path to the file in the blob container.
 func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetBinaryAzureBlobStorageLocation) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Path
+		return v.Path
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8194,6 +8194,500 @@ func (o TriggerBlobEventPipelineArrayOutput) Index(i pulumi.IntInput) TriggerBlo
 	}).(TriggerBlobEventPipelineOutput)
 }
 
+type TriggerCustomEventPipeline struct {
+	// The Data Factory Pipeline name that the trigger will act on.
+	Name string `pulumi:"name"`
+	// The Data Factory Pipeline parameters that the trigger will act on.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// TriggerCustomEventPipelineInput is an input type that accepts TriggerCustomEventPipelineArgs and TriggerCustomEventPipelineOutput values.
+// You can construct a concrete instance of `TriggerCustomEventPipelineInput` via:
+//
+//          TriggerCustomEventPipelineArgs{...}
+type TriggerCustomEventPipelineInput interface {
+	pulumi.Input
+
+	ToTriggerCustomEventPipelineOutput() TriggerCustomEventPipelineOutput
+	ToTriggerCustomEventPipelineOutputWithContext(context.Context) TriggerCustomEventPipelineOutput
+}
+
+type TriggerCustomEventPipelineArgs struct {
+	// The Data Factory Pipeline name that the trigger will act on.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Data Factory Pipeline parameters that the trigger will act on.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (TriggerCustomEventPipelineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerCustomEventPipeline)(nil)).Elem()
+}
+
+func (i TriggerCustomEventPipelineArgs) ToTriggerCustomEventPipelineOutput() TriggerCustomEventPipelineOutput {
+	return i.ToTriggerCustomEventPipelineOutputWithContext(context.Background())
+}
+
+func (i TriggerCustomEventPipelineArgs) ToTriggerCustomEventPipelineOutputWithContext(ctx context.Context) TriggerCustomEventPipelineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomEventPipelineOutput)
+}
+
+// TriggerCustomEventPipelineArrayInput is an input type that accepts TriggerCustomEventPipelineArray and TriggerCustomEventPipelineArrayOutput values.
+// You can construct a concrete instance of `TriggerCustomEventPipelineArrayInput` via:
+//
+//          TriggerCustomEventPipelineArray{ TriggerCustomEventPipelineArgs{...} }
+type TriggerCustomEventPipelineArrayInput interface {
+	pulumi.Input
+
+	ToTriggerCustomEventPipelineArrayOutput() TriggerCustomEventPipelineArrayOutput
+	ToTriggerCustomEventPipelineArrayOutputWithContext(context.Context) TriggerCustomEventPipelineArrayOutput
+}
+
+type TriggerCustomEventPipelineArray []TriggerCustomEventPipelineInput
+
+func (TriggerCustomEventPipelineArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerCustomEventPipeline)(nil)).Elem()
+}
+
+func (i TriggerCustomEventPipelineArray) ToTriggerCustomEventPipelineArrayOutput() TriggerCustomEventPipelineArrayOutput {
+	return i.ToTriggerCustomEventPipelineArrayOutputWithContext(context.Background())
+}
+
+func (i TriggerCustomEventPipelineArray) ToTriggerCustomEventPipelineArrayOutputWithContext(ctx context.Context) TriggerCustomEventPipelineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomEventPipelineArrayOutput)
+}
+
+type TriggerCustomEventPipelineOutput struct{ *pulumi.OutputState }
+
+func (TriggerCustomEventPipelineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerCustomEventPipeline)(nil)).Elem()
+}
+
+func (o TriggerCustomEventPipelineOutput) ToTriggerCustomEventPipelineOutput() TriggerCustomEventPipelineOutput {
+	return o
+}
+
+func (o TriggerCustomEventPipelineOutput) ToTriggerCustomEventPipelineOutputWithContext(ctx context.Context) TriggerCustomEventPipelineOutput {
+	return o
+}
+
+// The Data Factory Pipeline name that the trigger will act on.
+func (o TriggerCustomEventPipelineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerCustomEventPipeline) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Data Factory Pipeline parameters that the trigger will act on.
+func (o TriggerCustomEventPipelineOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TriggerCustomEventPipeline) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type TriggerCustomEventPipelineArrayOutput struct{ *pulumi.OutputState }
+
+func (TriggerCustomEventPipelineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerCustomEventPipeline)(nil)).Elem()
+}
+
+func (o TriggerCustomEventPipelineArrayOutput) ToTriggerCustomEventPipelineArrayOutput() TriggerCustomEventPipelineArrayOutput {
+	return o
+}
+
+func (o TriggerCustomEventPipelineArrayOutput) ToTriggerCustomEventPipelineArrayOutputWithContext(ctx context.Context) TriggerCustomEventPipelineArrayOutput {
+	return o
+}
+
+func (o TriggerCustomEventPipelineArrayOutput) Index(i pulumi.IntInput) TriggerCustomEventPipelineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerCustomEventPipeline {
+		return vs[0].([]TriggerCustomEventPipeline)[vs[1].(int)]
+	}).(TriggerCustomEventPipelineOutput)
+}
+
+type TriggerTumblingWindowPipeline struct {
+	Name       string            `pulumi:"name"`
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// TriggerTumblingWindowPipelineInput is an input type that accepts TriggerTumblingWindowPipelineArgs and TriggerTumblingWindowPipelineOutput values.
+// You can construct a concrete instance of `TriggerTumblingWindowPipelineInput` via:
+//
+//          TriggerTumblingWindowPipelineArgs{...}
+type TriggerTumblingWindowPipelineInput interface {
+	pulumi.Input
+
+	ToTriggerTumblingWindowPipelineOutput() TriggerTumblingWindowPipelineOutput
+	ToTriggerTumblingWindowPipelineOutputWithContext(context.Context) TriggerTumblingWindowPipelineOutput
+}
+
+type TriggerTumblingWindowPipelineArgs struct {
+	Name       pulumi.StringInput    `pulumi:"name"`
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (TriggerTumblingWindowPipelineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerTumblingWindowPipeline)(nil)).Elem()
+}
+
+func (i TriggerTumblingWindowPipelineArgs) ToTriggerTumblingWindowPipelineOutput() TriggerTumblingWindowPipelineOutput {
+	return i.ToTriggerTumblingWindowPipelineOutputWithContext(context.Background())
+}
+
+func (i TriggerTumblingWindowPipelineArgs) ToTriggerTumblingWindowPipelineOutputWithContext(ctx context.Context) TriggerTumblingWindowPipelineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowPipelineOutput)
+}
+
+func (i TriggerTumblingWindowPipelineArgs) ToTriggerTumblingWindowPipelinePtrOutput() TriggerTumblingWindowPipelinePtrOutput {
+	return i.ToTriggerTumblingWindowPipelinePtrOutputWithContext(context.Background())
+}
+
+func (i TriggerTumblingWindowPipelineArgs) ToTriggerTumblingWindowPipelinePtrOutputWithContext(ctx context.Context) TriggerTumblingWindowPipelinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowPipelineOutput).ToTriggerTumblingWindowPipelinePtrOutputWithContext(ctx)
+}
+
+// TriggerTumblingWindowPipelinePtrInput is an input type that accepts TriggerTumblingWindowPipelineArgs, TriggerTumblingWindowPipelinePtr and TriggerTumblingWindowPipelinePtrOutput values.
+// You can construct a concrete instance of `TriggerTumblingWindowPipelinePtrInput` via:
+//
+//          TriggerTumblingWindowPipelineArgs{...}
+//
+//  or:
+//
+//          nil
+type TriggerTumblingWindowPipelinePtrInput interface {
+	pulumi.Input
+
+	ToTriggerTumblingWindowPipelinePtrOutput() TriggerTumblingWindowPipelinePtrOutput
+	ToTriggerTumblingWindowPipelinePtrOutputWithContext(context.Context) TriggerTumblingWindowPipelinePtrOutput
+}
+
+type triggerTumblingWindowPipelinePtrType TriggerTumblingWindowPipelineArgs
+
+func TriggerTumblingWindowPipelinePtr(v *TriggerTumblingWindowPipelineArgs) TriggerTumblingWindowPipelinePtrInput {
+	return (*triggerTumblingWindowPipelinePtrType)(v)
+}
+
+func (*triggerTumblingWindowPipelinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerTumblingWindowPipeline)(nil)).Elem()
+}
+
+func (i *triggerTumblingWindowPipelinePtrType) ToTriggerTumblingWindowPipelinePtrOutput() TriggerTumblingWindowPipelinePtrOutput {
+	return i.ToTriggerTumblingWindowPipelinePtrOutputWithContext(context.Background())
+}
+
+func (i *triggerTumblingWindowPipelinePtrType) ToTriggerTumblingWindowPipelinePtrOutputWithContext(ctx context.Context) TriggerTumblingWindowPipelinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowPipelinePtrOutput)
+}
+
+type TriggerTumblingWindowPipelineOutput struct{ *pulumi.OutputState }
+
+func (TriggerTumblingWindowPipelineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerTumblingWindowPipeline)(nil)).Elem()
+}
+
+func (o TriggerTumblingWindowPipelineOutput) ToTriggerTumblingWindowPipelineOutput() TriggerTumblingWindowPipelineOutput {
+	return o
+}
+
+func (o TriggerTumblingWindowPipelineOutput) ToTriggerTumblingWindowPipelineOutputWithContext(ctx context.Context) TriggerTumblingWindowPipelineOutput {
+	return o
+}
+
+func (o TriggerTumblingWindowPipelineOutput) ToTriggerTumblingWindowPipelinePtrOutput() TriggerTumblingWindowPipelinePtrOutput {
+	return o.ToTriggerTumblingWindowPipelinePtrOutputWithContext(context.Background())
+}
+
+func (o TriggerTumblingWindowPipelineOutput) ToTriggerTumblingWindowPipelinePtrOutputWithContext(ctx context.Context) TriggerTumblingWindowPipelinePtrOutput {
+	return o.ApplyT(func(v TriggerTumblingWindowPipeline) *TriggerTumblingWindowPipeline {
+		return &v
+	}).(TriggerTumblingWindowPipelinePtrOutput)
+}
+func (o TriggerTumblingWindowPipelineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerTumblingWindowPipeline) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o TriggerTumblingWindowPipelineOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TriggerTumblingWindowPipeline) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type TriggerTumblingWindowPipelinePtrOutput struct{ *pulumi.OutputState }
+
+func (TriggerTumblingWindowPipelinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerTumblingWindowPipeline)(nil)).Elem()
+}
+
+func (o TriggerTumblingWindowPipelinePtrOutput) ToTriggerTumblingWindowPipelinePtrOutput() TriggerTumblingWindowPipelinePtrOutput {
+	return o
+}
+
+func (o TriggerTumblingWindowPipelinePtrOutput) ToTriggerTumblingWindowPipelinePtrOutputWithContext(ctx context.Context) TriggerTumblingWindowPipelinePtrOutput {
+	return o
+}
+
+func (o TriggerTumblingWindowPipelinePtrOutput) Elem() TriggerTumblingWindowPipelineOutput {
+	return o.ApplyT(func(v *TriggerTumblingWindowPipeline) TriggerTumblingWindowPipeline { return *v }).(TriggerTumblingWindowPipelineOutput)
+}
+
+func (o TriggerTumblingWindowPipelinePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TriggerTumblingWindowPipeline) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TriggerTumblingWindowPipelinePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TriggerTumblingWindowPipeline) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type TriggerTumblingWindowRetry struct {
+	Count    int  `pulumi:"count"`
+	Interval *int `pulumi:"interval"`
+}
+
+// TriggerTumblingWindowRetryInput is an input type that accepts TriggerTumblingWindowRetryArgs and TriggerTumblingWindowRetryOutput values.
+// You can construct a concrete instance of `TriggerTumblingWindowRetryInput` via:
+//
+//          TriggerTumblingWindowRetryArgs{...}
+type TriggerTumblingWindowRetryInput interface {
+	pulumi.Input
+
+	ToTriggerTumblingWindowRetryOutput() TriggerTumblingWindowRetryOutput
+	ToTriggerTumblingWindowRetryOutputWithContext(context.Context) TriggerTumblingWindowRetryOutput
+}
+
+type TriggerTumblingWindowRetryArgs struct {
+	Count    pulumi.IntInput    `pulumi:"count"`
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (TriggerTumblingWindowRetryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerTumblingWindowRetry)(nil)).Elem()
+}
+
+func (i TriggerTumblingWindowRetryArgs) ToTriggerTumblingWindowRetryOutput() TriggerTumblingWindowRetryOutput {
+	return i.ToTriggerTumblingWindowRetryOutputWithContext(context.Background())
+}
+
+func (i TriggerTumblingWindowRetryArgs) ToTriggerTumblingWindowRetryOutputWithContext(ctx context.Context) TriggerTumblingWindowRetryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowRetryOutput)
+}
+
+func (i TriggerTumblingWindowRetryArgs) ToTriggerTumblingWindowRetryPtrOutput() TriggerTumblingWindowRetryPtrOutput {
+	return i.ToTriggerTumblingWindowRetryPtrOutputWithContext(context.Background())
+}
+
+func (i TriggerTumblingWindowRetryArgs) ToTriggerTumblingWindowRetryPtrOutputWithContext(ctx context.Context) TriggerTumblingWindowRetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowRetryOutput).ToTriggerTumblingWindowRetryPtrOutputWithContext(ctx)
+}
+
+// TriggerTumblingWindowRetryPtrInput is an input type that accepts TriggerTumblingWindowRetryArgs, TriggerTumblingWindowRetryPtr and TriggerTumblingWindowRetryPtrOutput values.
+// You can construct a concrete instance of `TriggerTumblingWindowRetryPtrInput` via:
+//
+//          TriggerTumblingWindowRetryArgs{...}
+//
+//  or:
+//
+//          nil
+type TriggerTumblingWindowRetryPtrInput interface {
+	pulumi.Input
+
+	ToTriggerTumblingWindowRetryPtrOutput() TriggerTumblingWindowRetryPtrOutput
+	ToTriggerTumblingWindowRetryPtrOutputWithContext(context.Context) TriggerTumblingWindowRetryPtrOutput
+}
+
+type triggerTumblingWindowRetryPtrType TriggerTumblingWindowRetryArgs
+
+func TriggerTumblingWindowRetryPtr(v *TriggerTumblingWindowRetryArgs) TriggerTumblingWindowRetryPtrInput {
+	return (*triggerTumblingWindowRetryPtrType)(v)
+}
+
+func (*triggerTumblingWindowRetryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerTumblingWindowRetry)(nil)).Elem()
+}
+
+func (i *triggerTumblingWindowRetryPtrType) ToTriggerTumblingWindowRetryPtrOutput() TriggerTumblingWindowRetryPtrOutput {
+	return i.ToTriggerTumblingWindowRetryPtrOutputWithContext(context.Background())
+}
+
+func (i *triggerTumblingWindowRetryPtrType) ToTriggerTumblingWindowRetryPtrOutputWithContext(ctx context.Context) TriggerTumblingWindowRetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowRetryPtrOutput)
+}
+
+type TriggerTumblingWindowRetryOutput struct{ *pulumi.OutputState }
+
+func (TriggerTumblingWindowRetryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerTumblingWindowRetry)(nil)).Elem()
+}
+
+func (o TriggerTumblingWindowRetryOutput) ToTriggerTumblingWindowRetryOutput() TriggerTumblingWindowRetryOutput {
+	return o
+}
+
+func (o TriggerTumblingWindowRetryOutput) ToTriggerTumblingWindowRetryOutputWithContext(ctx context.Context) TriggerTumblingWindowRetryOutput {
+	return o
+}
+
+func (o TriggerTumblingWindowRetryOutput) ToTriggerTumblingWindowRetryPtrOutput() TriggerTumblingWindowRetryPtrOutput {
+	return o.ToTriggerTumblingWindowRetryPtrOutputWithContext(context.Background())
+}
+
+func (o TriggerTumblingWindowRetryOutput) ToTriggerTumblingWindowRetryPtrOutputWithContext(ctx context.Context) TriggerTumblingWindowRetryPtrOutput {
+	return o.ApplyT(func(v TriggerTumblingWindowRetry) *TriggerTumblingWindowRetry {
+		return &v
+	}).(TriggerTumblingWindowRetryPtrOutput)
+}
+func (o TriggerTumblingWindowRetryOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v TriggerTumblingWindowRetry) int { return v.Count }).(pulumi.IntOutput)
+}
+
+func (o TriggerTumblingWindowRetryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TriggerTumblingWindowRetry) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type TriggerTumblingWindowRetryPtrOutput struct{ *pulumi.OutputState }
+
+func (TriggerTumblingWindowRetryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerTumblingWindowRetry)(nil)).Elem()
+}
+
+func (o TriggerTumblingWindowRetryPtrOutput) ToTriggerTumblingWindowRetryPtrOutput() TriggerTumblingWindowRetryPtrOutput {
+	return o
+}
+
+func (o TriggerTumblingWindowRetryPtrOutput) ToTriggerTumblingWindowRetryPtrOutputWithContext(ctx context.Context) TriggerTumblingWindowRetryPtrOutput {
+	return o
+}
+
+func (o TriggerTumblingWindowRetryPtrOutput) Elem() TriggerTumblingWindowRetryOutput {
+	return o.ApplyT(func(v *TriggerTumblingWindowRetry) TriggerTumblingWindowRetry { return *v }).(TriggerTumblingWindowRetryOutput)
+}
+
+func (o TriggerTumblingWindowRetryPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TriggerTumblingWindowRetry) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TriggerTumblingWindowRetryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TriggerTumblingWindowRetry) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type TriggerTumblingWindowTriggerDependency struct {
+	Offset      *string `pulumi:"offset"`
+	Size        *string `pulumi:"size"`
+	TriggerName *string `pulumi:"triggerName"`
+}
+
+// TriggerTumblingWindowTriggerDependencyInput is an input type that accepts TriggerTumblingWindowTriggerDependencyArgs and TriggerTumblingWindowTriggerDependencyOutput values.
+// You can construct a concrete instance of `TriggerTumblingWindowTriggerDependencyInput` via:
+//
+//          TriggerTumblingWindowTriggerDependencyArgs{...}
+type TriggerTumblingWindowTriggerDependencyInput interface {
+	pulumi.Input
+
+	ToTriggerTumblingWindowTriggerDependencyOutput() TriggerTumblingWindowTriggerDependencyOutput
+	ToTriggerTumblingWindowTriggerDependencyOutputWithContext(context.Context) TriggerTumblingWindowTriggerDependencyOutput
+}
+
+type TriggerTumblingWindowTriggerDependencyArgs struct {
+	Offset      pulumi.StringPtrInput `pulumi:"offset"`
+	Size        pulumi.StringPtrInput `pulumi:"size"`
+	TriggerName pulumi.StringPtrInput `pulumi:"triggerName"`
+}
+
+func (TriggerTumblingWindowTriggerDependencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerTumblingWindowTriggerDependency)(nil)).Elem()
+}
+
+func (i TriggerTumblingWindowTriggerDependencyArgs) ToTriggerTumblingWindowTriggerDependencyOutput() TriggerTumblingWindowTriggerDependencyOutput {
+	return i.ToTriggerTumblingWindowTriggerDependencyOutputWithContext(context.Background())
+}
+
+func (i TriggerTumblingWindowTriggerDependencyArgs) ToTriggerTumblingWindowTriggerDependencyOutputWithContext(ctx context.Context) TriggerTumblingWindowTriggerDependencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowTriggerDependencyOutput)
+}
+
+// TriggerTumblingWindowTriggerDependencyArrayInput is an input type that accepts TriggerTumblingWindowTriggerDependencyArray and TriggerTumblingWindowTriggerDependencyArrayOutput values.
+// You can construct a concrete instance of `TriggerTumblingWindowTriggerDependencyArrayInput` via:
+//
+//          TriggerTumblingWindowTriggerDependencyArray{ TriggerTumblingWindowTriggerDependencyArgs{...} }
+type TriggerTumblingWindowTriggerDependencyArrayInput interface {
+	pulumi.Input
+
+	ToTriggerTumblingWindowTriggerDependencyArrayOutput() TriggerTumblingWindowTriggerDependencyArrayOutput
+	ToTriggerTumblingWindowTriggerDependencyArrayOutputWithContext(context.Context) TriggerTumblingWindowTriggerDependencyArrayOutput
+}
+
+type TriggerTumblingWindowTriggerDependencyArray []TriggerTumblingWindowTriggerDependencyInput
+
+func (TriggerTumblingWindowTriggerDependencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerTumblingWindowTriggerDependency)(nil)).Elem()
+}
+
+func (i TriggerTumblingWindowTriggerDependencyArray) ToTriggerTumblingWindowTriggerDependencyArrayOutput() TriggerTumblingWindowTriggerDependencyArrayOutput {
+	return i.ToTriggerTumblingWindowTriggerDependencyArrayOutputWithContext(context.Background())
+}
+
+func (i TriggerTumblingWindowTriggerDependencyArray) ToTriggerTumblingWindowTriggerDependencyArrayOutputWithContext(ctx context.Context) TriggerTumblingWindowTriggerDependencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowTriggerDependencyArrayOutput)
+}
+
+type TriggerTumblingWindowTriggerDependencyOutput struct{ *pulumi.OutputState }
+
+func (TriggerTumblingWindowTriggerDependencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerTumblingWindowTriggerDependency)(nil)).Elem()
+}
+
+func (o TriggerTumblingWindowTriggerDependencyOutput) ToTriggerTumblingWindowTriggerDependencyOutput() TriggerTumblingWindowTriggerDependencyOutput {
+	return o
+}
+
+func (o TriggerTumblingWindowTriggerDependencyOutput) ToTriggerTumblingWindowTriggerDependencyOutputWithContext(ctx context.Context) TriggerTumblingWindowTriggerDependencyOutput {
+	return o
+}
+
+func (o TriggerTumblingWindowTriggerDependencyOutput) Offset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerTumblingWindowTriggerDependency) *string { return v.Offset }).(pulumi.StringPtrOutput)
+}
+
+func (o TriggerTumblingWindowTriggerDependencyOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerTumblingWindowTriggerDependency) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+func (o TriggerTumblingWindowTriggerDependencyOutput) TriggerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerTumblingWindowTriggerDependency) *string { return v.TriggerName }).(pulumi.StringPtrOutput)
+}
+
+type TriggerTumblingWindowTriggerDependencyArrayOutput struct{ *pulumi.OutputState }
+
+func (TriggerTumblingWindowTriggerDependencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerTumblingWindowTriggerDependency)(nil)).Elem()
+}
+
+func (o TriggerTumblingWindowTriggerDependencyArrayOutput) ToTriggerTumblingWindowTriggerDependencyArrayOutput() TriggerTumblingWindowTriggerDependencyArrayOutput {
+	return o
+}
+
+func (o TriggerTumblingWindowTriggerDependencyArrayOutput) ToTriggerTumblingWindowTriggerDependencyArrayOutputWithContext(ctx context.Context) TriggerTumblingWindowTriggerDependencyArrayOutput {
+	return o
+}
+
+func (o TriggerTumblingWindowTriggerDependencyArrayOutput) Index(i pulumi.IntInput) TriggerTumblingWindowTriggerDependencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerTumblingWindowTriggerDependency {
+		return vs[0].([]TriggerTumblingWindowTriggerDependency)[vs[1].(int)]
+	}).(TriggerTumblingWindowTriggerDependencyOutput)
+}
+
 type GetFactoryGithubConfiguration struct {
 	// The VSTS account name.
 	AccountName string `pulumi:"accountName"`
@@ -8697,6 +9191,14 @@ func init() {
 	pulumi.RegisterOutputType(LinkedServiceSynapseKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(TriggerBlobEventPipelineOutput{})
 	pulumi.RegisterOutputType(TriggerBlobEventPipelineArrayOutput{})
+	pulumi.RegisterOutputType(TriggerCustomEventPipelineOutput{})
+	pulumi.RegisterOutputType(TriggerCustomEventPipelineArrayOutput{})
+	pulumi.RegisterOutputType(TriggerTumblingWindowPipelineOutput{})
+	pulumi.RegisterOutputType(TriggerTumblingWindowPipelinePtrOutput{})
+	pulumi.RegisterOutputType(TriggerTumblingWindowRetryOutput{})
+	pulumi.RegisterOutputType(TriggerTumblingWindowRetryPtrOutput{})
+	pulumi.RegisterOutputType(TriggerTumblingWindowTriggerDependencyOutput{})
+	pulumi.RegisterOutputType(TriggerTumblingWindowTriggerDependencyArrayOutput{})
 	pulumi.RegisterOutputType(GetFactoryGithubConfigurationOutput{})
 	pulumi.RegisterOutputType(GetFactoryGithubConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetFactoryIdentityOutput{})

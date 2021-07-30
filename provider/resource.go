@@ -815,6 +815,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_custom_dataset":                  {Tok: azureResource(azureDataFactory, "CustomDataset")},
 			"azurerm_data_factory_dataset_binary":                  {Tok: azureResource(azureDataFactory, "DatasetBinary")},
 			"azurerm_data_factory_managed_private_endpoint":        {Tok: azureResource(azureDataFactory, "ManagedPrivateEndpoint")},
+			"azurerm_data_factory_trigger_custom_event":            {Tok: azureResource(azureDataFactory, "TriggerCustomEvent")},
+			"azurerm_data_factory_trigger_tumbling_window":         {Tok: azureResource(azureDataFactory, "TriggerTumblingWindow")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":          {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -830,6 +832,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_protection_backup_instance_postgresql": {Tok: azureResource(azureDataProtection, "BackupInstancePostgresql")},
 			"azurerm_data_protection_backup_policy_disk":         {Tok: azureResource(azureDataProtection, "BackupPolicyDisk")},
 			"azurerm_data_protection_backup_policy_blob_storage": {Tok: azureResource(azureDataProtection, "BackupPolicyBlobStorage")},
+			"azurerm_data_protection_backup_instance_disk":       {Tok: azureResource(azureDataProtection, "BackupInstanceDisk")},
 
 			// DataShare
 			"azurerm_data_share_account": {Tok: azureResource(azureDataShare, "Account")},
@@ -1696,14 +1699,18 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// Bot
-			"azurerm_bot_channels_registration": {Tok: azureResource(azureBot, "ChannelsRegistration")},
-			"azurerm_bot_connection":            {Tok: azureResource(azureBot, "Connection")},
-			"azurerm_bot_channel_email":         {Tok: azureResource(azureBot, "ChannelEmail")},
-			"azurerm_bot_channel_slack":         {Tok: azureResource(azureBot, "ChannelSlack")},
-			"azurerm_bot_web_app":               {Tok: azureResource(azureBot, "WebApp")},
-			"azurerm_bot_channel_ms_teams":      {Tok: azureResource(azureBot, "ChannelTeams")},
-			"azurerm_bot_channel_directline":    {Tok: azureResource(azureBot, "ChannelDirectLine")},
-			"azurerm_bot_channel_web_chat":      {Tok: azureResource(azureBot, "ChannelWebChat")},
+			"azurerm_bot_channels_registration":      {Tok: azureResource(azureBot, "ChannelsRegistration")},
+			"azurerm_bot_connection":                 {Tok: azureResource(azureBot, "Connection")},
+			"azurerm_bot_channel_email":              {Tok: azureResource(azureBot, "ChannelEmail")},
+			"azurerm_bot_channel_slack":              {Tok: azureResource(azureBot, "ChannelSlack")},
+			"azurerm_bot_web_app":                    {Tok: azureResource(azureBot, "WebApp")},
+			"azurerm_bot_channel_ms_teams":           {Tok: azureResource(azureBot, "ChannelTeams")},
+			"azurerm_bot_channel_directline":         {Tok: azureResource(azureBot, "ChannelDirectLine")},
+			"azurerm_bot_channel_web_chat":           {Tok: azureResource(azureBot, "ChannelWebChat")},
+			"azurerm_bot_channel_alexa":              {Tok: azureResource(azureBot, "ChannelAlexa")},
+			"azurerm_bot_channel_direct_line_speech": {Tok: azureResource(azureBot, "ChannelDirectLineSpeech")},
+			"azurerm_bot_channel_facebook":           {Tok: azureResource(azureBot, "ChannelFacebook")},
+			"azurerm_bot_channel_sms":                {Tok: azureResource(azureBot, "ChannelSms")},
 
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
@@ -2203,6 +2210,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_billing_mca_account_scope":        {Tok: azureDataSource(azureBilling, "getMcaAccountScope")},
 			"azurerm_eventhub_cluster":                 {Tok: azureDataSource(azureEventHub, "getCluster")},
 			"azurerm_spatial_anchors_account":          {Tok: azureDataSource(azureMixedReality, "getSpatialAnchorsAccount")},
+			"azurerm_storage_share":                    {Tok: azureDataSource(azureStorage, "getShare")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

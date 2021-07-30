@@ -76,7 +76,6 @@ namespace Pulumi.Azure.EventGrid
 
         /// <summary>
         /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-        /// ---
         /// </summary>
         [Output("advancedFilteringOnArraysEnabled")]
         public Output<bool?> AdvancedFilteringOnArraysEnabled { get; private set; } = null!;
@@ -253,7 +252,6 @@ namespace Pulumi.Azure.EventGrid
 
         /// <summary>
         /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-        /// ---
         /// </summary>
         [Input("advancedFilteringOnArraysEnabled")]
         public Input<bool>? AdvancedFilteringOnArraysEnabled { get; set; }
@@ -399,7 +397,6 @@ namespace Pulumi.Azure.EventGrid
 
         /// <summary>
         /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-        /// ---
         /// </summary>
         [Input("advancedFilteringOnArraysEnabled")]
         public Input<bool>? AdvancedFilteringOnArraysEnabled { get; set; }

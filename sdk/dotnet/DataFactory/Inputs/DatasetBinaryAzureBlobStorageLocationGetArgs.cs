@@ -19,16 +19,16 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string> Container { get; set; } = null!;
 
         /// <summary>
-        /// The filename of the file on the web server.
+        /// The filename of the file in the blob container.
         /// </summary>
-        [Input("filename", required: true)]
-        public Input<string> Filename { get; set; } = null!;
+        [Input("filename")]
+        public Input<string>? Filename { get; set; }
 
         /// <summary>
-        /// The folder path to the file on the web server.
+        /// The folder path to the file in the blob container.
         /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
+        [Input("path")]
+        public Input<string>? Path { get; set; }
 
         public DatasetBinaryAzureBlobStorageLocationGetArgs()
         {

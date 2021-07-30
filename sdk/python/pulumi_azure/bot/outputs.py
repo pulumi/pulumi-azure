@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'ChannelDirectLineSite',
+    'ChannelFacebookPage',
 ]
 
 @pulumi.output_type
@@ -147,5 +148,51 @@ class ChannelDirectLineSite(dict):
         Enables v3 of the Directline protocol for this site. Enabled by default
         """
         return pulumi.get(self, "v3_allowed")
+
+
+@pulumi.output_type
+class ChannelFacebookPage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelFacebookPage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelFacebookPage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelFacebookPage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_token: str,
+                 id: str):
+        """
+        :param str access_token: The Facebook Page Access Token for the Facebook Channel.
+        :param str id: The Facebook Page ID for the Facebook Channel.
+        """
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> str:
+        """
+        The Facebook Page Access Token for the Facebook Channel.
+        """
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The Facebook Page ID for the Facebook Channel.
+        """
+        return pulumi.get(self, "id")
 
 

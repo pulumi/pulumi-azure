@@ -46,7 +46,9 @@ export * from "./linkedServiceWeb";
 export * from "./managedPrivateEndpoint";
 export * from "./pipeline";
 export * from "./triggerBlobEvent";
+export * from "./triggerCustomEvent";
 export * from "./triggerSchedule";
+export * from "./triggerTumblingWindow";
 
 // Import resources to register:
 import { CustomDataset } from "./customDataset";
@@ -89,7 +91,9 @@ import { LinkedServiceWeb } from "./linkedServiceWeb";
 import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
 import { Pipeline } from "./pipeline";
 import { TriggerBlobEvent } from "./triggerBlobEvent";
+import { TriggerCustomEvent } from "./triggerCustomEvent";
 import { TriggerSchedule } from "./triggerSchedule";
+import { TriggerTumblingWindow } from "./triggerTumblingWindow";
 
 const _module = {
     version: utilities.getVersion(),
@@ -175,8 +179,12 @@ const _module = {
                 return new Pipeline(name, <any>undefined, { urn })
             case "azure:datafactory/triggerBlobEvent:TriggerBlobEvent":
                 return new TriggerBlobEvent(name, <any>undefined, { urn })
+            case "azure:datafactory/triggerCustomEvent:TriggerCustomEvent":
+                return new TriggerCustomEvent(name, <any>undefined, { urn })
             case "azure:datafactory/triggerSchedule:TriggerSchedule":
                 return new TriggerSchedule(name, <any>undefined, { urn })
+            case "azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow":
+                return new TriggerTumblingWindow(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -222,4 +230,6 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceWeb", _
 pulumi.runtime.registerResourceModule("azure", "datafactory/managedPrivateEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/pipeline", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/triggerBlobEvent", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/triggerCustomEvent", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/triggerSchedule", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/triggerTumblingWindow", _module)

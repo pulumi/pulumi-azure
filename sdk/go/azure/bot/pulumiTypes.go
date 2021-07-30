@@ -179,7 +179,115 @@ func (o ChannelDirectLineSiteArrayOutput) Index(i pulumi.IntInput) ChannelDirect
 	}).(ChannelDirectLineSiteOutput)
 }
 
+type ChannelFacebookPage struct {
+	// The Facebook Page Access Token for the Facebook Channel.
+	AccessToken string `pulumi:"accessToken"`
+	// The Facebook Page ID for the Facebook Channel.
+	Id string `pulumi:"id"`
+}
+
+// ChannelFacebookPageInput is an input type that accepts ChannelFacebookPageArgs and ChannelFacebookPageOutput values.
+// You can construct a concrete instance of `ChannelFacebookPageInput` via:
+//
+//          ChannelFacebookPageArgs{...}
+type ChannelFacebookPageInput interface {
+	pulumi.Input
+
+	ToChannelFacebookPageOutput() ChannelFacebookPageOutput
+	ToChannelFacebookPageOutputWithContext(context.Context) ChannelFacebookPageOutput
+}
+
+type ChannelFacebookPageArgs struct {
+	// The Facebook Page Access Token for the Facebook Channel.
+	AccessToken pulumi.StringInput `pulumi:"accessToken"`
+	// The Facebook Page ID for the Facebook Channel.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (ChannelFacebookPageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelFacebookPage)(nil)).Elem()
+}
+
+func (i ChannelFacebookPageArgs) ToChannelFacebookPageOutput() ChannelFacebookPageOutput {
+	return i.ToChannelFacebookPageOutputWithContext(context.Background())
+}
+
+func (i ChannelFacebookPageArgs) ToChannelFacebookPageOutputWithContext(ctx context.Context) ChannelFacebookPageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelFacebookPageOutput)
+}
+
+// ChannelFacebookPageArrayInput is an input type that accepts ChannelFacebookPageArray and ChannelFacebookPageArrayOutput values.
+// You can construct a concrete instance of `ChannelFacebookPageArrayInput` via:
+//
+//          ChannelFacebookPageArray{ ChannelFacebookPageArgs{...} }
+type ChannelFacebookPageArrayInput interface {
+	pulumi.Input
+
+	ToChannelFacebookPageArrayOutput() ChannelFacebookPageArrayOutput
+	ToChannelFacebookPageArrayOutputWithContext(context.Context) ChannelFacebookPageArrayOutput
+}
+
+type ChannelFacebookPageArray []ChannelFacebookPageInput
+
+func (ChannelFacebookPageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelFacebookPage)(nil)).Elem()
+}
+
+func (i ChannelFacebookPageArray) ToChannelFacebookPageArrayOutput() ChannelFacebookPageArrayOutput {
+	return i.ToChannelFacebookPageArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelFacebookPageArray) ToChannelFacebookPageArrayOutputWithContext(ctx context.Context) ChannelFacebookPageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelFacebookPageArrayOutput)
+}
+
+type ChannelFacebookPageOutput struct{ *pulumi.OutputState }
+
+func (ChannelFacebookPageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelFacebookPage)(nil)).Elem()
+}
+
+func (o ChannelFacebookPageOutput) ToChannelFacebookPageOutput() ChannelFacebookPageOutput {
+	return o
+}
+
+func (o ChannelFacebookPageOutput) ToChannelFacebookPageOutputWithContext(ctx context.Context) ChannelFacebookPageOutput {
+	return o
+}
+
+// The Facebook Page Access Token for the Facebook Channel.
+func (o ChannelFacebookPageOutput) AccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelFacebookPage) string { return v.AccessToken }).(pulumi.StringOutput)
+}
+
+// The Facebook Page ID for the Facebook Channel.
+func (o ChannelFacebookPageOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelFacebookPage) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type ChannelFacebookPageArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelFacebookPageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelFacebookPage)(nil)).Elem()
+}
+
+func (o ChannelFacebookPageArrayOutput) ToChannelFacebookPageArrayOutput() ChannelFacebookPageArrayOutput {
+	return o
+}
+
+func (o ChannelFacebookPageArrayOutput) ToChannelFacebookPageArrayOutputWithContext(ctx context.Context) ChannelFacebookPageArrayOutput {
+	return o
+}
+
+func (o ChannelFacebookPageArrayOutput) Index(i pulumi.IntInput) ChannelFacebookPageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelFacebookPage {
+		return vs[0].([]ChannelFacebookPage)[vs[1].(int)]
+	}).(ChannelFacebookPageOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ChannelDirectLineSiteOutput{})
 	pulumi.RegisterOutputType(ChannelDirectLineSiteArrayOutput{})
+	pulumi.RegisterOutputType(ChannelFacebookPageOutput{})
+	pulumi.RegisterOutputType(ChannelFacebookPageArrayOutput{})
 }

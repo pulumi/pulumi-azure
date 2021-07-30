@@ -3970,6 +3970,17 @@ export namespace bot {
          */
         v3Allowed?: pulumi.Input<boolean>;
     }
+
+    export interface ChannelFacebookPage {
+        /**
+         * The Facebook Page Access Token for the Facebook Channel.
+         */
+        accessToken: pulumi.Input<string>;
+        /**
+         * The Facebook Page ID for the Facebook Channel.
+         */
+        id: pulumi.Input<string>;
+    }
 }
 
 export namespace cdn {
@@ -8820,13 +8831,13 @@ export namespace datafactory {
          */
         container: pulumi.Input<string>;
         /**
-         * The filename of the file on the web server.
+         * The filename of the file in the blob container.
          */
-        filename: pulumi.Input<string>;
+        filename?: pulumi.Input<string>;
         /**
-         * The folder path to the file on the web server.
+         * The folder path to the file in the blob container.
          */
-        path: pulumi.Input<string>;
+        path?: pulumi.Input<string>;
     }
 
     export interface DatasetBinaryCompression {
@@ -9587,6 +9598,32 @@ export namespace datafactory {
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
+    export interface TriggerCustomEventPipeline {
+        /**
+         * The Data Factory Pipeline name that the trigger will act on.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Data Factory Pipeline parameters that the trigger will act on.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface TriggerTumblingWindowPipeline {
+        name: pulumi.Input<string>;
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface TriggerTumblingWindowRetry {
+        count: pulumi.Input<number>;
+        interval?: pulumi.Input<number>;
+    }
+
+    export interface TriggerTumblingWindowTriggerDependency {
+        offset?: pulumi.Input<string>;
+        size?: pulumi.Input<string>;
+        triggerName?: pulumi.Input<string>;
+    }
 }
 
 export namespace dataprotection {
@@ -14381,7 +14418,7 @@ export namespace iot {
          */
         endpointNames?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
          */
         source?: pulumi.Input<string>;
     }
@@ -14450,7 +14487,7 @@ export namespace iot {
          */
         name: pulumi.Input<string>;
         /**
-         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
          */
         source: pulumi.Input<string>;
     }
@@ -22346,6 +22383,32 @@ export namespace storage {
         table: boolean;
     }
 
+    export interface GetShareAcl {
+        /**
+         * An `accessPolicy` block as defined below.
+         */
+        accessPolicies?: inputs.storage.GetShareAclAccessPolicy[];
+        /**
+         * The ID which should be used for this Shared Identifier.
+         */
+        id?: string;
+    }
+
+    export interface GetShareAclAccessPolicy {
+        /**
+         * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         */
+        expiry?: string;
+        /**
+         * The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+         */
+        permissions?: string;
+        /**
+         * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         */
+        start?: string;
+    }
+
     export interface ManagementPolicyRule {
         /**
          * An `actions` block as documented below.
@@ -22526,7 +22589,6 @@ export namespace storage {
          */
         start: pulumi.Input<string>;
     }
-
 }
 
 export namespace streamanalytics {

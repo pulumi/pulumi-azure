@@ -81,6 +81,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A list of private IP ranges to which traffic will not be SNAT.
+     */
+    public readonly privateIpRanges!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -124,6 +128,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["firewalls"] = state ? state.firewalls : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["privateIpRanges"] = state ? state.privateIpRanges : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["ruleCollectionGroups"] = state ? state.ruleCollectionGroups : undefined;
             inputs["sku"] = state ? state.sku : undefined;
@@ -139,6 +144,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["dns"] = args ? args.dns : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["privateIpRanges"] = args ? args.privateIpRanges : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -183,6 +189,10 @@ export interface FirewallPolicyState {
      * The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A list of private IP ranges to which traffic will not be SNAT.
+     */
+    privateIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
@@ -229,6 +239,10 @@ export interface FirewallPolicyArgs {
      * The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A list of private IP ranges to which traffic will not be SNAT.
+     */
+    privateIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */

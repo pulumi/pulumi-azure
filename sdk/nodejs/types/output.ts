@@ -5030,6 +5030,17 @@ export namespace bot {
         v3Allowed?: boolean;
     }
 
+    export interface ChannelFacebookPage {
+        /**
+         * The Facebook Page Access Token for the Facebook Channel.
+         */
+        accessToken: string;
+        /**
+         * The Facebook Page ID for the Facebook Channel.
+         */
+        id: string;
+    }
+
 }
 
 export namespace cdn {
@@ -10750,13 +10761,13 @@ export namespace datafactory {
          */
         container: string;
         /**
-         * The filename of the file on the web server.
+         * The filename of the file in the blob container.
          */
-        filename: string;
+        filename?: string;
         /**
-         * The folder path to the file on the web server.
+         * The folder path to the file in the blob container.
          */
-        path: string;
+        path?: string;
     }
 
     export interface DatasetBinaryCompression {
@@ -11582,6 +11593,34 @@ export namespace datafactory {
          */
         parameters?: {[key: string]: string};
     }
+
+    export interface TriggerCustomEventPipeline {
+        /**
+         * The Data Factory Pipeline name that the trigger will act on.
+         */
+        name: string;
+        /**
+         * The Data Factory Pipeline parameters that the trigger will act on.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface TriggerTumblingWindowPipeline {
+        name: string;
+        parameters?: {[key: string]: string};
+    }
+
+    export interface TriggerTumblingWindowRetry {
+        count: number;
+        interval?: number;
+    }
+
+    export interface TriggerTumblingWindowTriggerDependency {
+        offset?: string;
+        size?: string;
+        triggerName?: string;
+    }
+
 }
 
 export namespace dataprotection {
@@ -16598,7 +16637,7 @@ export namespace iot {
          */
         endpointNames: string[];
         /**
-         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
          */
         source?: string;
     }
@@ -16667,7 +16706,7 @@ export namespace iot {
          */
         name: string;
         /**
-         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
          */
         source: string;
     }
@@ -26219,6 +26258,32 @@ export namespace storage {
         value: string;
     }
 
+    export interface GetShareAcl {
+        /**
+         * An `accessPolicy` block as defined below.
+         */
+        accessPolicies: outputs.storage.GetShareAclAccessPolicy[];
+        /**
+         * The ID which should be used for this Shared Identifier.
+         */
+        id: string;
+    }
+
+    export interface GetShareAclAccessPolicy {
+        /**
+         * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         */
+        expiry: string;
+        /**
+         * The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+         */
+        permissions: string;
+        /**
+         * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         */
+        start: string;
+    }
+
     export interface ManagementPolicyRule {
         /**
          * An `actions` block as documented below.
@@ -26399,6 +26464,7 @@ export namespace storage {
          */
         start: string;
     }
+
 }
 
 export namespace streamanalytics {

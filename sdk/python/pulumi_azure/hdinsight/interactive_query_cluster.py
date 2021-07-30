@@ -21,6 +21,7 @@ class InteractiveQueryClusterArgs:
                  resource_group_name: pulumi.Input[str],
                  roles: pulumi.Input['InteractiveQueryClusterRolesArgs'],
                  tier: pulumi.Input[str],
+                 encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input['InteractiveQueryClusterMetastoresArgs']] = None,
                  monitor: Optional[pulumi.Input['InteractiveQueryClusterMonitorArgs']] = None,
@@ -38,6 +39,7 @@ class InteractiveQueryClusterArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
         :param pulumi.Input['InteractiveQueryClusterMonitorArgs'] monitor: A `monitor` block as defined below.
@@ -53,6 +55,8 @@ class InteractiveQueryClusterArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "tier", tier)
+        if encryption_in_transit_enabled is not None:
+            pulumi.set(__self__, "encryption_in_transit_enabled", encryption_in_transit_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if metastores is not None:
@@ -143,6 +147,18 @@ class InteractiveQueryClusterArgs:
     @tier.setter
     def tier(self, value: pulumi.Input[str]):
         pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter(name="encryptionInTransitEnabled")
+    def encryption_in_transit_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "encryption_in_transit_enabled")
+
+    @encryption_in_transit_enabled.setter
+    def encryption_in_transit_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_in_transit_enabled", value)
 
     @property
     @pulumi.getter
@@ -255,6 +271,7 @@ class _InteractiveQueryClusterState:
     def __init__(__self__, *,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input['InteractiveQueryClusterComponentVersionArgs']] = None,
+                 encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway: Optional[pulumi.Input['InteractiveQueryClusterGatewayArgs']] = None,
                  https_endpoint: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -274,6 +291,7 @@ class _InteractiveQueryClusterState:
         Input properties used for looking up and filtering InteractiveQueryCluster resources.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterGatewayArgs'] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
@@ -293,6 +311,8 @@ class _InteractiveQueryClusterState:
             pulumi.set(__self__, "cluster_version", cluster_version)
         if component_version is not None:
             pulumi.set(__self__, "component_version", component_version)
+        if encryption_in_transit_enabled is not None:
+            pulumi.set(__self__, "encryption_in_transit_enabled", encryption_in_transit_enabled)
         if gateway is not None:
             pulumi.set(__self__, "gateway", gateway)
         if https_endpoint is not None:
@@ -347,6 +367,18 @@ class _InteractiveQueryClusterState:
     @component_version.setter
     def component_version(self, value: Optional[pulumi.Input['InteractiveQueryClusterComponentVersionArgs']]):
         pulumi.set(self, "component_version", value)
+
+    @property
+    @pulumi.getter(name="encryptionInTransitEnabled")
+    def encryption_in_transit_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "encryption_in_transit_enabled")
+
+    @encryption_in_transit_enabled.setter
+    def encryption_in_transit_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_in_transit_enabled", value)
 
     @property
     @pulumi.getter
@@ -533,6 +565,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
+                 encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']]] = None,
@@ -615,6 +648,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
@@ -715,6 +749,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
+                 encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']]] = None,
@@ -746,6 +781,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             if component_version is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version'")
             __props__.__dict__["component_version"] = component_version
+            __props__.__dict__["encryption_in_transit_enabled"] = encryption_in_transit_enabled
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
             __props__.__dict__["gateway"] = gateway
@@ -781,6 +817,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_version: Optional[pulumi.Input[str]] = None,
             component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
+            encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
             gateway: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']]] = None,
             https_endpoint: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -805,6 +842,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
@@ -826,6 +864,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
         __props__.__dict__["cluster_version"] = cluster_version
         __props__.__dict__["component_version"] = component_version
+        __props__.__dict__["encryption_in_transit_enabled"] = encryption_in_transit_enabled
         __props__.__dict__["gateway"] = gateway
         __props__.__dict__["https_endpoint"] = https_endpoint
         __props__.__dict__["location"] = location
@@ -858,6 +897,14 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         A `component_version` block as defined below.
         """
         return pulumi.get(self, "component_version")
+
+    @property
+    @pulumi.getter(name="encryptionInTransitEnabled")
+    def encryption_in_transit_enabled(self) -> pulumi.Output[bool]:
+        """
+        Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "encryption_in_transit_enabled")
 
     @property
     @pulumi.getter

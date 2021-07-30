@@ -101,8 +101,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Pipeline{}
 	case "azure:datafactory/triggerBlobEvent:TriggerBlobEvent":
 		r = &TriggerBlobEvent{}
+	case "azure:datafactory/triggerCustomEvent:TriggerCustomEvent":
+		r = &TriggerCustomEvent{}
 	case "azure:datafactory/triggerSchedule:TriggerSchedule":
 		r = &TriggerSchedule{}
+	case "azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow":
+		r = &TriggerTumblingWindow{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -318,7 +322,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"datafactory/triggerCustomEvent",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"datafactory/triggerSchedule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/triggerTumblingWindow",
 		&module{version},
 	)
 }

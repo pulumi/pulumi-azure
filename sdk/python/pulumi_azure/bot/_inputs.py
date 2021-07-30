@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'ChannelDirectLineSiteArgs',
+    'ChannelFacebookPageArgs',
 ]
 
 @pulumi.input_type
@@ -160,5 +161,42 @@ class ChannelDirectLineSiteArgs:
     @v3_allowed.setter
     def v3_allowed(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "v3_allowed", value)
+
+
+@pulumi.input_type
+class ChannelFacebookPageArgs:
+    def __init__(__self__, *,
+                 access_token: pulumi.Input[str],
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] access_token: The Facebook Page Access Token for the Facebook Channel.
+        :param pulumi.Input[str] id: The Facebook Page ID for the Facebook Channel.
+        """
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> pulumi.Input[str]:
+        """
+        The Facebook Page Access Token for the Facebook Channel.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_token", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The Facebook Page ID for the Facebook Channel.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
 
 

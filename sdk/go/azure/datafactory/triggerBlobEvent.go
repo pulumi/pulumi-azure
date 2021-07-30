@@ -65,6 +65,7 @@ import (
 // 			},
 // 			BlobPathEndsWith: pulumi.String(".txt"),
 // 			IgnoreEmptyBlobs: pulumi.Bool(true),
+// 			Activated:        pulumi.Bool(true),
 // 			Annotations: pulumi.StringArray{
 // 				pulumi.String("test1"),
 // 				pulumi.String("test2"),
@@ -102,6 +103,8 @@ import (
 type TriggerBlobEvent struct {
 	pulumi.CustomResourceState
 
+	// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+	Activated pulumi.BoolPtrOutput `pulumi:"activated"`
 	// A map of additional properties to associate with the Data Factory Blob Event Trigger.
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Blob Event Trigger.
@@ -167,6 +170,8 @@ func GetTriggerBlobEvent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TriggerBlobEvent resources.
 type triggerBlobEventState struct {
+	// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+	Activated *bool `pulumi:"activated"`
 	// A map of additional properties to associate with the Data Factory Blob Event Trigger.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Blob Event Trigger.
@@ -192,6 +197,8 @@ type triggerBlobEventState struct {
 }
 
 type TriggerBlobEventState struct {
+	// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+	Activated pulumi.BoolPtrInput
 	// A map of additional properties to associate with the Data Factory Blob Event Trigger.
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Blob Event Trigger.
@@ -221,6 +228,8 @@ func (TriggerBlobEventState) ElementType() reflect.Type {
 }
 
 type triggerBlobEventArgs struct {
+	// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+	Activated *bool `pulumi:"activated"`
 	// A map of additional properties to associate with the Data Factory Blob Event Trigger.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Blob Event Trigger.
@@ -247,6 +256,8 @@ type triggerBlobEventArgs struct {
 
 // The set of arguments for constructing a TriggerBlobEvent resource.
 type TriggerBlobEventArgs struct {
+	// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+	Activated pulumi.BoolPtrInput
 	// A map of additional properties to associate with the Data Factory Blob Event Trigger.
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Blob Event Trigger.

@@ -19,6 +19,7 @@ class TriggerBlobEventArgs:
                  events: pulumi.Input[Sequence[pulumi.Input[str]]],
                  pipelines: pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]],
                  storage_account_id: pulumi.Input[str],
+                 activated: Optional[pulumi.Input[bool]] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  blob_path_begins_with: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class TriggerBlobEventArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
         :param pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]] pipelines: One or more `pipeline` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of Storage Account in which blob event will be listened. Changing this forces a new resource.
+        :param pulumi.Input[bool] activated: Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Blob Event Trigger.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Blob Event Trigger.
         :param pulumi.Input[str] blob_path_begins_with: The pattern that blob path starts with for trigger to fire.
@@ -44,6 +46,8 @@ class TriggerBlobEventArgs:
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "pipelines", pipelines)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if activated is not None:
+            pulumi.set(__self__, "activated", activated)
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
@@ -106,6 +110,18 @@ class TriggerBlobEventArgs:
     @storage_account_id.setter
     def storage_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter
+    def activated(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+        """
+        return pulumi.get(self, "activated")
+
+    @activated.setter
+    def activated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "activated", value)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -195,6 +211,7 @@ class TriggerBlobEventArgs:
 @pulumi.input_type
 class _TriggerBlobEventState:
     def __init__(__self__, *,
+                 activated: Optional[pulumi.Input[bool]] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  blob_path_begins_with: Optional[pulumi.Input[str]] = None,
@@ -208,6 +225,7 @@ class _TriggerBlobEventState:
                  storage_account_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TriggerBlobEvent resources.
+        :param pulumi.Input[bool] activated: Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Blob Event Trigger.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Blob Event Trigger.
         :param pulumi.Input[str] blob_path_begins_with: The pattern that blob path starts with for trigger to fire.
@@ -220,6 +238,8 @@ class _TriggerBlobEventState:
         :param pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]] pipelines: One or more `pipeline` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of Storage Account in which blob event will be listened. Changing this forces a new resource.
         """
+        if activated is not None:
+            pulumi.set(__self__, "activated", activated)
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
@@ -242,6 +262,18 @@ class _TriggerBlobEventState:
             pulumi.set(__self__, "pipelines", pipelines)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter
+    def activated(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+        """
+        return pulumi.get(self, "activated")
+
+    @activated.setter
+    def activated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "activated", value)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -381,6 +413,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 activated: Optional[pulumi.Input[bool]] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  blob_path_begins_with: Optional[pulumi.Input[str]] = None,
@@ -423,6 +456,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
             ],
             blob_path_ends_with=".txt",
             ignore_empty_blobs=True,
+            activated=True,
             annotations=[
                 "test1",
                 "test2",
@@ -451,6 +485,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] activated: Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Blob Event Trigger.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Blob Event Trigger.
         :param pulumi.Input[str] blob_path_begins_with: The pattern that blob path starts with for trigger to fire.
@@ -499,6 +534,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
             ],
             blob_path_ends_with=".txt",
             ignore_empty_blobs=True,
+            activated=True,
             annotations=[
                 "test1",
                 "test2",
@@ -540,6 +576,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 activated: Optional[pulumi.Input[bool]] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  blob_path_begins_with: Optional[pulumi.Input[str]] = None,
@@ -563,6 +600,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TriggerBlobEventArgs.__new__(TriggerBlobEventArgs)
 
+            __props__.__dict__["activated"] = activated
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
             __props__.__dict__["blob_path_begins_with"] = blob_path_begins_with
@@ -592,6 +630,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            activated: Optional[pulumi.Input[bool]] = None,
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             blob_path_begins_with: Optional[pulumi.Input[str]] = None,
@@ -610,6 +649,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] activated: Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Blob Event Trigger.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Blob Event Trigger.
         :param pulumi.Input[str] blob_path_begins_with: The pattern that blob path starts with for trigger to fire.
@@ -626,6 +666,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
 
         __props__ = _TriggerBlobEventState.__new__(_TriggerBlobEventState)
 
+        __props__.__dict__["activated"] = activated
         __props__.__dict__["additional_properties"] = additional_properties
         __props__.__dict__["annotations"] = annotations
         __props__.__dict__["blob_path_begins_with"] = blob_path_begins_with
@@ -638,6 +679,14 @@ class TriggerBlobEvent(pulumi.CustomResource):
         __props__.__dict__["pipelines"] = pipelines
         __props__.__dict__["storage_account_id"] = storage_account_id
         return TriggerBlobEvent(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def activated(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+        """
+        return pulumi.get(self, "activated")
 
     @property
     @pulumi.getter(name="additionalProperties")

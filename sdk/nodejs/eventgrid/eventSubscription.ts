@@ -78,7 +78,6 @@ export class EventSubscription extends pulumi.CustomResource {
     public readonly advancedFilter!: pulumi.Output<outputs.eventgrid.EventSubscriptionAdvancedFilter | undefined>;
     /**
      * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-     * ---
      */
     public readonly advancedFilteringOnArraysEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -244,7 +243,6 @@ export interface EventSubscriptionState {
     advancedFilter?: pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilter>;
     /**
      * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-     * ---
      */
     advancedFilteringOnArraysEnabled?: pulumi.Input<boolean>;
     /**
@@ -341,7 +339,6 @@ export interface EventSubscriptionArgs {
     advancedFilter?: pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilter>;
     /**
      * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-     * ---
      */
     advancedFilteringOnArraysEnabled?: pulumi.Input<boolean>;
     /**

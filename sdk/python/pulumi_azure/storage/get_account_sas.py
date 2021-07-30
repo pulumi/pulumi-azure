@@ -21,7 +21,7 @@ class GetAccountSASResult:
     """
     A collection of values returned by getAccountSAS.
     """
-    def __init__(__self__, connection_string=None, expiry=None, https_only=None, id=None, permissions=None, resource_types=None, sas=None, services=None, signed_version=None, start=None):
+    def __init__(__self__, connection_string=None, expiry=None, https_only=None, id=None, ip_addresses=None, permissions=None, resource_types=None, sas=None, services=None, signed_version=None, start=None):
         if connection_string and not isinstance(connection_string, str):
             raise TypeError("Expected argument 'connection_string' to be a str")
         pulumi.set(__self__, "connection_string", connection_string)
@@ -34,6 +34,9 @@ class GetAccountSASResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_addresses and not isinstance(ip_addresses, str):
+            raise TypeError("Expected argument 'ip_addresses' to be a str")
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
         if permissions and not isinstance(permissions, dict):
             raise TypeError("Expected argument 'permissions' to be a dict")
         pulumi.set(__self__, "permissions", permissions)
@@ -75,6 +78,11 @@ class GetAccountSASResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[str]:
+        return pulumi.get(self, "ip_addresses")
 
     @property
     @pulumi.getter
@@ -120,6 +128,7 @@ class AwaitableGetAccountSASResult(GetAccountSASResult):
             expiry=self.expiry,
             https_only=self.https_only,
             id=self.id,
+            ip_addresses=self.ip_addresses,
             permissions=self.permissions,
             resource_types=self.resource_types,
             sas=self.sas,
@@ -131,6 +140,7 @@ class AwaitableGetAccountSASResult(GetAccountSASResult):
 def get_account_sas(connection_string: Optional[str] = None,
                     expiry: Optional[str] = None,
                     https_only: Optional[bool] = None,
+                    ip_addresses: Optional[str] = None,
                     permissions: Optional[pulumi.InputType['GetAccountSASPermissionsArgs']] = None,
                     resource_types: Optional[pulumi.InputType['GetAccountSASResourceTypesArgs']] = None,
                     services: Optional[pulumi.InputType['GetAccountSASServicesArgs']] = None,
@@ -193,6 +203,7 @@ def get_account_sas(connection_string: Optional[str] = None,
     :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.
     :param str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
     :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
+    :param str ip_addresses: IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
     :param pulumi.InputType['GetAccountSASPermissionsArgs'] permissions: A `permissions` block as defined below.
     :param pulumi.InputType['GetAccountSASResourceTypesArgs'] resource_types: A `resource_types` block as defined below.
     :param pulumi.InputType['GetAccountSASServicesArgs'] services: A `services` block as defined below.
@@ -203,6 +214,7 @@ def get_account_sas(connection_string: Optional[str] = None,
     __args__['connectionString'] = connection_string
     __args__['expiry'] = expiry
     __args__['httpsOnly'] = https_only
+    __args__['ipAddresses'] = ip_addresses
     __args__['permissions'] = permissions
     __args__['resourceTypes'] = resource_types
     __args__['services'] = services
@@ -219,6 +231,7 @@ def get_account_sas(connection_string: Optional[str] = None,
         expiry=__ret__.expiry,
         https_only=__ret__.https_only,
         id=__ret__.id,
+        ip_addresses=__ret__.ip_addresses,
         permissions=__ret__.permissions,
         resource_types=__ret__.resource_types,
         sas=__ret__.sas,

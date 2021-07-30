@@ -301,7 +301,7 @@ type IoTHubFallbackRoute struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
 	EndpointNames []string `pulumi:"endpointNames"`
-	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 	Source *string `pulumi:"source"`
 }
 
@@ -323,7 +323,7 @@ type IoTHubFallbackRouteArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
-	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 	Source pulumi.StringPtrInput `pulumi:"source"`
 }
 
@@ -419,7 +419,7 @@ func (o IoTHubFallbackRouteOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) []string { return v.EndpointNames }).(pulumi.StringArrayOutput)
 }
 
-// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 func (o IoTHubFallbackRouteOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
@@ -472,7 +472,7 @@ func (o IoTHubFallbackRoutePtrOutput) EndpointNames() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 func (o IoTHubFallbackRoutePtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFallbackRoute) *string {
 		if v == nil {
@@ -851,7 +851,7 @@ type IoTHubRoute struct {
 	EndpointNames []string `pulumi:"endpointNames"`
 	// The name of the route.
 	Name string `pulumi:"name"`
-	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 	Source string `pulumi:"source"`
 }
 
@@ -875,7 +875,7 @@ type IoTHubRouteArgs struct {
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
 	// The name of the route.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -950,7 +950,7 @@ func (o IoTHubRouteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubRoute) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 func (o IoTHubRouteOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubRoute) string { return v.Source }).(pulumi.StringOutput)
 }

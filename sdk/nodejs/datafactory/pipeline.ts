@@ -96,6 +96,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
+     * The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+     */
+    public readonly concurrency!: pulumi.Output<number | undefined>;
+    /**
      * The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
@@ -107,6 +111,10 @@ export class Pipeline extends pulumi.CustomResource {
      * The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
      */
     public readonly folder!: pulumi.Output<string | undefined>;
+    /**
+     * The TimeSpan value after which an Azure Monitoring Metric is fired.
+     */
+    public readonly moniterMetricsAfterDuration!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
@@ -139,9 +147,11 @@ export class Pipeline extends pulumi.CustomResource {
             const state = argsOrState as PipelineState | undefined;
             inputs["activitiesJson"] = state ? state.activitiesJson : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
+            inputs["concurrency"] = state ? state.concurrency : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["folder"] = state ? state.folder : undefined;
+            inputs["moniterMetricsAfterDuration"] = state ? state.moniterMetricsAfterDuration : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -156,9 +166,11 @@ export class Pipeline extends pulumi.CustomResource {
             }
             inputs["activitiesJson"] = args ? args.activitiesJson : undefined;
             inputs["annotations"] = args ? args.annotations : undefined;
+            inputs["concurrency"] = args ? args.concurrency : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["folder"] = args ? args.folder : undefined;
+            inputs["moniterMetricsAfterDuration"] = args ? args.moniterMetricsAfterDuration : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -184,6 +196,10 @@ export interface PipelineState {
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+     */
+    concurrency?: pulumi.Input<number>;
+    /**
      * The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
      */
     dataFactoryName?: pulumi.Input<string>;
@@ -195,6 +211,10 @@ export interface PipelineState {
      * The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
      */
     folder?: pulumi.Input<string>;
+    /**
+     * The TimeSpan value after which an Azure Monitoring Metric is fired.
+     */
+    moniterMetricsAfterDuration?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
@@ -226,6 +246,10 @@ export interface PipelineArgs {
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+     */
+    concurrency?: pulumi.Input<number>;
+    /**
      * The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
      */
     dataFactoryName: pulumi.Input<string>;
@@ -237,6 +261,10 @@ export interface PipelineArgs {
      * The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
      */
     folder?: pulumi.Input<string>;
+    /**
+     * The TimeSpan value after which an Azure Monitoring Metric is fired.
+     */
+    moniterMetricsAfterDuration?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */

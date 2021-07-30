@@ -109,6 +109,10 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
      */
     public readonly componentVersion!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterComponentVersion>;
     /**
+     * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+     */
+    public readonly encryptionInTransitEnabled!: pulumi.Output<boolean>;
+    /**
      * A `gateway` block as defined below.
      */
     public readonly gateway!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterGateway>;
@@ -181,6 +185,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             const state = argsOrState as InteractiveQueryClusterState | undefined;
             inputs["clusterVersion"] = state ? state.clusterVersion : undefined;
             inputs["componentVersion"] = state ? state.componentVersion : undefined;
+            inputs["encryptionInTransitEnabled"] = state ? state.encryptionInTransitEnabled : undefined;
             inputs["gateway"] = state ? state.gateway : undefined;
             inputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -218,6 +223,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             }
             inputs["clusterVersion"] = args ? args.clusterVersion : undefined;
             inputs["componentVersion"] = args ? args.componentVersion : undefined;
+            inputs["encryptionInTransitEnabled"] = args ? args.encryptionInTransitEnabled : undefined;
             inputs["gateway"] = args ? args.gateway : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["metastores"] = args ? args.metastores : undefined;
@@ -253,6 +259,10 @@ export interface InteractiveQueryClusterState {
      * A `componentVersion` block as defined below.
      */
     componentVersion?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterComponentVersion>;
+    /**
+     * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+     */
+    encryptionInTransitEnabled?: pulumi.Input<boolean>;
     /**
      * A `gateway` block as defined below.
      */
@@ -324,6 +334,10 @@ export interface InteractiveQueryClusterArgs {
      * A `componentVersion` block as defined below.
      */
     componentVersion: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterComponentVersion>;
+    /**
+     * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+     */
+    encryptionInTransitEnabled?: pulumi.Input<boolean>;
     /**
      * A `gateway` block as defined below.
      */

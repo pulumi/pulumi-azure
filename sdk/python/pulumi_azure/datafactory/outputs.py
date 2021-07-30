@@ -63,6 +63,10 @@ __all__ = [
     'LinkedServiceSqlServerKeyVaultPassword',
     'LinkedServiceSynapseKeyVaultPassword',
     'TriggerBlobEventPipeline',
+    'TriggerCustomEventPipeline',
+    'TriggerTumblingWindowPipeline',
+    'TriggerTumblingWindowRetry',
+    'TriggerTumblingWindowTriggerDependency',
     'GetFactoryGithubConfigurationResult',
     'GetFactoryIdentityResult',
     'GetFactoryVstsConfigurationResult',
@@ -144,16 +148,18 @@ class DatasetAzureBlobSchemaColumn(dict):
 class DatasetBinaryAzureBlobStorageLocation(dict):
     def __init__(__self__, *,
                  container: str,
-                 filename: str,
-                 path: str):
+                 filename: Optional[str] = None,
+                 path: Optional[str] = None):
         """
         :param str container: The container on the Azure Blob Storage Account hosting the file.
-        :param str filename: The filename of the file on the web server.
-        :param str path: The folder path to the file on the web server.
+        :param str filename: The filename of the file in the blob container.
+        :param str path: The folder path to the file in the blob container.
         """
         pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "filename", filename)
-        pulumi.set(__self__, "path", path)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -165,17 +171,17 @@ class DatasetBinaryAzureBlobStorageLocation(dict):
 
     @property
     @pulumi.getter
-    def filename(self) -> str:
+    def filename(self) -> Optional[str]:
         """
-        The filename of the file on the web server.
+        The filename of the file in the blob container.
         """
         return pulumi.get(self, "filename")
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         """
-        The folder path to the file on the web server.
+        The folder path to the file in the blob container.
         """
         return pulumi.get(self, "path")
 
@@ -2904,6 +2910,122 @@ class TriggerBlobEventPipeline(dict):
         The Data Factory Pipeline parameters that the trigger will act on.
         """
         return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class TriggerCustomEventPipeline(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The Data Factory Pipeline name that the trigger will act on.
+        :param Mapping[str, str] parameters: The Data Factory Pipeline parameters that the trigger will act on.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Data Factory Pipeline name that the trigger will act on.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        The Data Factory Pipeline parameters that the trigger will act on.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class TriggerTumblingWindowPipeline(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class TriggerTumblingWindowRetry(dict):
+    def __init__(__self__, *,
+                 count: int,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "count", count)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class TriggerTumblingWindowTriggerDependency(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "triggerName":
+            suggest = "trigger_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerTumblingWindowTriggerDependency. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerTumblingWindowTriggerDependency.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerTumblingWindowTriggerDependency.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 offset: Optional[str] = None,
+                 size: Optional[str] = None,
+                 trigger_name: Optional[str] = None):
+        if offset is not None:
+            pulumi.set(__self__, "offset", offset)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if trigger_name is not None:
+            pulumi.set(__self__, "trigger_name", trigger_name)
+
+    @property
+    @pulumi.getter
+    def offset(self) -> Optional[str]:
+        return pulumi.get(self, "offset")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="triggerName")
+    def trigger_name(self) -> Optional[str]:
+        return pulumi.get(self, "trigger_name")
 
 
 @pulumi.output_type

@@ -114,6 +114,12 @@ namespace Pulumi.Azure.Storage
         public bool? HttpsOnly { get; set; }
 
         /// <summary>
+        /// IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
+        /// </summary>
+        [Input("ipAddresses")]
+        public string? IpAddresses { get; set; }
+
+        /// <summary>
         /// A `permissions` block as defined below.
         /// </summary>
         [Input("permissions", required: true)]
@@ -159,6 +165,7 @@ namespace Pulumi.Azure.Storage
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? IpAddresses;
         public readonly Outputs.GetAccountSASPermissionsResult Permissions;
         public readonly Outputs.GetAccountSASResourceTypesResult ResourceTypes;
         /// <summary>
@@ -179,6 +186,8 @@ namespace Pulumi.Azure.Storage
 
             string id,
 
+            string? ipAddresses,
+
             Outputs.GetAccountSASPermissionsResult permissions,
 
             Outputs.GetAccountSASResourceTypesResult resourceTypes,
@@ -195,6 +204,7 @@ namespace Pulumi.Azure.Storage
             Expiry = expiry;
             HttpsOnly = httpsOnly;
             Id = id;
+            IpAddresses = ipAddresses;
             Permissions = permissions;
             ResourceTypes = resourceTypes;
             Sas = sas;

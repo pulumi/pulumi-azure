@@ -17,8 +17,10 @@ class PipelineArgs:
                  resource_group_name: pulumi.Input[str],
                  activities_json: Optional[pulumi.Input[str]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 concurrency: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
+                 moniter_metrics_after_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -28,8 +30,10 @@ class PipelineArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
         :param pulumi.Input[str] activities_json: A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Pipeline.
+        :param pulumi.Input[int] concurrency: The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+        :param pulumi.Input[str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map of variables to associate with the Data Factory Pipeline.
@@ -40,10 +44,14 @@ class PipelineArgs:
             pulumi.set(__self__, "activities_json", activities_json)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if concurrency is not None:
+            pulumi.set(__self__, "concurrency", concurrency)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if folder is not None:
             pulumi.set(__self__, "folder", folder)
+        if moniter_metrics_after_duration is not None:
+            pulumi.set(__self__, "moniter_metrics_after_duration", moniter_metrics_after_duration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
@@ -101,6 +109,18 @@ class PipelineArgs:
 
     @property
     @pulumi.getter
+    def concurrency(self) -> Optional[pulumi.Input[int]]:
+        """
+        The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+        """
+        return pulumi.get(self, "concurrency")
+
+    @concurrency.setter
+    def concurrency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "concurrency", value)
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         The description for the Data Factory Pipeline.
@@ -122,6 +142,18 @@ class PipelineArgs:
     @folder.setter
     def folder(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "folder", value)
+
+    @property
+    @pulumi.getter(name="moniterMetricsAfterDuration")
+    def moniter_metrics_after_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The TimeSpan value after which an Azure Monitoring Metric is fired.
+        """
+        return pulumi.get(self, "moniter_metrics_after_duration")
+
+    @moniter_metrics_after_duration.setter
+    def moniter_metrics_after_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "moniter_metrics_after_duration", value)
 
     @property
     @pulumi.getter
@@ -165,9 +197,11 @@ class _PipelineState:
     def __init__(__self__, *,
                  activities_json: Optional[pulumi.Input[str]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 concurrency: Optional[pulumi.Input[int]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
+                 moniter_metrics_after_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -176,9 +210,11 @@ class _PipelineState:
         Input properties used for looking up and filtering Pipeline resources.
         :param pulumi.Input[str] activities_json: A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Pipeline.
+        :param pulumi.Input[int] concurrency: The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+        :param pulumi.Input[str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
@@ -188,12 +224,16 @@ class _PipelineState:
             pulumi.set(__self__, "activities_json", activities_json)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if concurrency is not None:
+            pulumi.set(__self__, "concurrency", concurrency)
         if data_factory_name is not None:
             pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if folder is not None:
             pulumi.set(__self__, "folder", folder)
+        if moniter_metrics_after_duration is not None:
+            pulumi.set(__self__, "moniter_metrics_after_duration", moniter_metrics_after_duration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
@@ -226,6 +266,18 @@ class _PipelineState:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def concurrency(self) -> Optional[pulumi.Input[int]]:
+        """
+        The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+        """
+        return pulumi.get(self, "concurrency")
+
+    @concurrency.setter
+    def concurrency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "concurrency", value)
 
     @property
     @pulumi.getter(name="dataFactoryName")
@@ -262,6 +314,18 @@ class _PipelineState:
     @folder.setter
     def folder(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "folder", value)
+
+    @property
+    @pulumi.getter(name="moniterMetricsAfterDuration")
+    def moniter_metrics_after_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The TimeSpan value after which an Azure Monitoring Metric is fired.
+        """
+        return pulumi.get(self, "moniter_metrics_after_duration")
+
+    @moniter_metrics_after_duration.setter
+    def moniter_metrics_after_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "moniter_metrics_after_duration", value)
 
     @property
     @pulumi.getter
@@ -319,9 +383,11 @@ class Pipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activities_json: Optional[pulumi.Input[str]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 concurrency: Optional[pulumi.Input[int]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
+                 moniter_metrics_after_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -383,9 +449,11 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activities_json: A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Pipeline.
+        :param pulumi.Input[int] concurrency: The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+        :param pulumi.Input[str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
@@ -466,9 +534,11 @@ class Pipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activities_json: Optional[pulumi.Input[str]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 concurrency: Optional[pulumi.Input[int]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
+                 moniter_metrics_after_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -487,11 +557,13 @@ class Pipeline(pulumi.CustomResource):
 
             __props__.__dict__["activities_json"] = activities_json
             __props__.__dict__["annotations"] = annotations
+            __props__.__dict__["concurrency"] = concurrency
             if data_factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_name'")
             __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["folder"] = folder
+            __props__.__dict__["moniter_metrics_after_duration"] = moniter_metrics_after_duration
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             if resource_group_name is None and not opts.urn:
@@ -510,9 +582,11 @@ class Pipeline(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             activities_json: Optional[pulumi.Input[str]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            concurrency: Optional[pulumi.Input[int]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             folder: Optional[pulumi.Input[str]] = None,
+            moniter_metrics_after_duration: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -526,9 +600,11 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activities_json: A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Pipeline.
+        :param pulumi.Input[int] concurrency: The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+        :param pulumi.Input[str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
@@ -540,9 +616,11 @@ class Pipeline(pulumi.CustomResource):
 
         __props__.__dict__["activities_json"] = activities_json
         __props__.__dict__["annotations"] = annotations
+        __props__.__dict__["concurrency"] = concurrency
         __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["folder"] = folder
+        __props__.__dict__["moniter_metrics_after_duration"] = moniter_metrics_after_duration
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -564,6 +642,14 @@ class Pipeline(pulumi.CustomResource):
         List of tags that can be used for describing the Data Factory Pipeline.
         """
         return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def concurrency(self) -> pulumi.Output[Optional[int]]:
+        """
+        The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+        """
+        return pulumi.get(self, "concurrency")
 
     @property
     @pulumi.getter(name="dataFactoryName")
@@ -588,6 +674,14 @@ class Pipeline(pulumi.CustomResource):
         The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
         """
         return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter(name="moniterMetricsAfterDuration")
+    def moniter_metrics_after_duration(self) -> pulumi.Output[Optional[str]]:
+        """
+        The TimeSpan value after which an Azure Monitoring Metric is fired.
+        """
+        return pulumi.get(self, "moniter_metrics_after_duration")
 
     @property
     @pulumi.getter

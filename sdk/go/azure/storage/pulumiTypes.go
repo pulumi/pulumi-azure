@@ -6923,6 +6923,227 @@ func (o GetPolicyRuleFilterMatchBlobIndexTagArrayOutput) Index(i pulumi.IntInput
 	}).(GetPolicyRuleFilterMatchBlobIndexTagOutput)
 }
 
+type GetShareAcl struct {
+	// An `accessPolicy` block as defined below.
+	AccessPolicies []GetShareAclAccessPolicy `pulumi:"accessPolicies"`
+	// The ID which should be used for this Shared Identifier.
+	Id string `pulumi:"id"`
+}
+
+// GetShareAclInput is an input type that accepts GetShareAclArgs and GetShareAclOutput values.
+// You can construct a concrete instance of `GetShareAclInput` via:
+//
+//          GetShareAclArgs{...}
+type GetShareAclInput interface {
+	pulumi.Input
+
+	ToGetShareAclOutput() GetShareAclOutput
+	ToGetShareAclOutputWithContext(context.Context) GetShareAclOutput
+}
+
+type GetShareAclArgs struct {
+	// An `accessPolicy` block as defined below.
+	AccessPolicies GetShareAclAccessPolicyArrayInput `pulumi:"accessPolicies"`
+	// The ID which should be used for this Shared Identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetShareAclArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetShareAcl)(nil)).Elem()
+}
+
+func (i GetShareAclArgs) ToGetShareAclOutput() GetShareAclOutput {
+	return i.ToGetShareAclOutputWithContext(context.Background())
+}
+
+func (i GetShareAclArgs) ToGetShareAclOutputWithContext(ctx context.Context) GetShareAclOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetShareAclOutput)
+}
+
+// GetShareAclArrayInput is an input type that accepts GetShareAclArray and GetShareAclArrayOutput values.
+// You can construct a concrete instance of `GetShareAclArrayInput` via:
+//
+//          GetShareAclArray{ GetShareAclArgs{...} }
+type GetShareAclArrayInput interface {
+	pulumi.Input
+
+	ToGetShareAclArrayOutput() GetShareAclArrayOutput
+	ToGetShareAclArrayOutputWithContext(context.Context) GetShareAclArrayOutput
+}
+
+type GetShareAclArray []GetShareAclInput
+
+func (GetShareAclArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetShareAcl)(nil)).Elem()
+}
+
+func (i GetShareAclArray) ToGetShareAclArrayOutput() GetShareAclArrayOutput {
+	return i.ToGetShareAclArrayOutputWithContext(context.Background())
+}
+
+func (i GetShareAclArray) ToGetShareAclArrayOutputWithContext(ctx context.Context) GetShareAclArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetShareAclArrayOutput)
+}
+
+type GetShareAclOutput struct{ *pulumi.OutputState }
+
+func (GetShareAclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetShareAcl)(nil)).Elem()
+}
+
+func (o GetShareAclOutput) ToGetShareAclOutput() GetShareAclOutput {
+	return o
+}
+
+func (o GetShareAclOutput) ToGetShareAclOutputWithContext(ctx context.Context) GetShareAclOutput {
+	return o
+}
+
+// An `accessPolicy` block as defined below.
+func (o GetShareAclOutput) AccessPolicies() GetShareAclAccessPolicyArrayOutput {
+	return o.ApplyT(func(v GetShareAcl) []GetShareAclAccessPolicy { return v.AccessPolicies }).(GetShareAclAccessPolicyArrayOutput)
+}
+
+// The ID which should be used for this Shared Identifier.
+func (o GetShareAclOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetShareAcl) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetShareAclArrayOutput struct{ *pulumi.OutputState }
+
+func (GetShareAclArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetShareAcl)(nil)).Elem()
+}
+
+func (o GetShareAclArrayOutput) ToGetShareAclArrayOutput() GetShareAclArrayOutput {
+	return o
+}
+
+func (o GetShareAclArrayOutput) ToGetShareAclArrayOutputWithContext(ctx context.Context) GetShareAclArrayOutput {
+	return o
+}
+
+func (o GetShareAclArrayOutput) Index(i pulumi.IntInput) GetShareAclOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetShareAcl {
+		return vs[0].([]GetShareAcl)[vs[1].(int)]
+	}).(GetShareAclOutput)
+}
+
+type GetShareAclAccessPolicy struct {
+	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+	Expiry string `pulumi:"expiry"`
+	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+	Permissions string `pulumi:"permissions"`
+	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+	Start string `pulumi:"start"`
+}
+
+// GetShareAclAccessPolicyInput is an input type that accepts GetShareAclAccessPolicyArgs and GetShareAclAccessPolicyOutput values.
+// You can construct a concrete instance of `GetShareAclAccessPolicyInput` via:
+//
+//          GetShareAclAccessPolicyArgs{...}
+type GetShareAclAccessPolicyInput interface {
+	pulumi.Input
+
+	ToGetShareAclAccessPolicyOutput() GetShareAclAccessPolicyOutput
+	ToGetShareAclAccessPolicyOutputWithContext(context.Context) GetShareAclAccessPolicyOutput
+}
+
+type GetShareAclAccessPolicyArgs struct {
+	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+	Expiry pulumi.StringInput `pulumi:"expiry"`
+	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+	Permissions pulumi.StringInput `pulumi:"permissions"`
+	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+	Start pulumi.StringInput `pulumi:"start"`
+}
+
+func (GetShareAclAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetShareAclAccessPolicy)(nil)).Elem()
+}
+
+func (i GetShareAclAccessPolicyArgs) ToGetShareAclAccessPolicyOutput() GetShareAclAccessPolicyOutput {
+	return i.ToGetShareAclAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i GetShareAclAccessPolicyArgs) ToGetShareAclAccessPolicyOutputWithContext(ctx context.Context) GetShareAclAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetShareAclAccessPolicyOutput)
+}
+
+// GetShareAclAccessPolicyArrayInput is an input type that accepts GetShareAclAccessPolicyArray and GetShareAclAccessPolicyArrayOutput values.
+// You can construct a concrete instance of `GetShareAclAccessPolicyArrayInput` via:
+//
+//          GetShareAclAccessPolicyArray{ GetShareAclAccessPolicyArgs{...} }
+type GetShareAclAccessPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetShareAclAccessPolicyArrayOutput() GetShareAclAccessPolicyArrayOutput
+	ToGetShareAclAccessPolicyArrayOutputWithContext(context.Context) GetShareAclAccessPolicyArrayOutput
+}
+
+type GetShareAclAccessPolicyArray []GetShareAclAccessPolicyInput
+
+func (GetShareAclAccessPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetShareAclAccessPolicy)(nil)).Elem()
+}
+
+func (i GetShareAclAccessPolicyArray) ToGetShareAclAccessPolicyArrayOutput() GetShareAclAccessPolicyArrayOutput {
+	return i.ToGetShareAclAccessPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetShareAclAccessPolicyArray) ToGetShareAclAccessPolicyArrayOutputWithContext(ctx context.Context) GetShareAclAccessPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetShareAclAccessPolicyArrayOutput)
+}
+
+type GetShareAclAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetShareAclAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetShareAclAccessPolicy)(nil)).Elem()
+}
+
+func (o GetShareAclAccessPolicyOutput) ToGetShareAclAccessPolicyOutput() GetShareAclAccessPolicyOutput {
+	return o
+}
+
+func (o GetShareAclAccessPolicyOutput) ToGetShareAclAccessPolicyOutputWithContext(ctx context.Context) GetShareAclAccessPolicyOutput {
+	return o
+}
+
+// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+func (o GetShareAclAccessPolicyOutput) Expiry() pulumi.StringOutput {
+	return o.ApplyT(func(v GetShareAclAccessPolicy) string { return v.Expiry }).(pulumi.StringOutput)
+}
+
+// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+func (o GetShareAclAccessPolicyOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v GetShareAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+func (o GetShareAclAccessPolicyOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v GetShareAclAccessPolicy) string { return v.Start }).(pulumi.StringOutput)
+}
+
+type GetShareAclAccessPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetShareAclAccessPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetShareAclAccessPolicy)(nil)).Elem()
+}
+
+func (o GetShareAclAccessPolicyArrayOutput) ToGetShareAclAccessPolicyArrayOutput() GetShareAclAccessPolicyArrayOutput {
+	return o
+}
+
+func (o GetShareAclAccessPolicyArrayOutput) ToGetShareAclAccessPolicyArrayOutputWithContext(ctx context.Context) GetShareAclAccessPolicyArrayOutput {
+	return o
+}
+
+func (o GetShareAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) GetShareAclAccessPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetShareAclAccessPolicy {
+		return vs[0].([]GetShareAclAccessPolicy)[vs[1].(int)]
+	}).(GetShareAclAccessPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountAzureFilesAuthenticationOutput{})
 	pulumi.RegisterOutputType(AccountAzureFilesAuthenticationPtrOutput{})
@@ -7018,4 +7239,8 @@ func init() {
 	pulumi.RegisterOutputType(GetPolicyRuleFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleFilterMatchBlobIndexTagOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleFilterMatchBlobIndexTagArrayOutput{})
+	pulumi.RegisterOutputType(GetShareAclOutput{})
+	pulumi.RegisterOutputType(GetShareAclArrayOutput{})
+	pulumi.RegisterOutputType(GetShareAclAccessPolicyOutput{})
+	pulumi.RegisterOutputType(GetShareAclAccessPolicyArrayOutput{})
 }
