@@ -62,6 +62,10 @@ __all__ = [
     'LinkedServiceSqlServerKeyVaultPasswordArgs',
     'LinkedServiceSynapseKeyVaultPasswordArgs',
     'TriggerBlobEventPipelineArgs',
+    'TriggerCustomEventPipelineArgs',
+    'TriggerTumblingWindowPipelineArgs',
+    'TriggerTumblingWindowRetryArgs',
+    'TriggerTumblingWindowTriggerDependencyArgs',
 ]
 
 @pulumi.input_type
@@ -160,16 +164,18 @@ class DatasetAzureBlobSchemaColumnArgs:
 class DatasetBinaryAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
-                 filename: pulumi.Input[str],
-                 path: pulumi.Input[str]):
+                 filename: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] container: The container on the Azure Blob Storage Account hosting the file.
-        :param pulumi.Input[str] filename: The filename of the file on the web server.
-        :param pulumi.Input[str] path: The folder path to the file on the web server.
+        :param pulumi.Input[str] filename: The filename of the file in the blob container.
+        :param pulumi.Input[str] path: The folder path to the file in the blob container.
         """
         pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "filename", filename)
-        pulumi.set(__self__, "path", path)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -185,26 +191,26 @@ class DatasetBinaryAzureBlobStorageLocationArgs:
 
     @property
     @pulumi.getter
-    def filename(self) -> pulumi.Input[str]:
+    def filename(self) -> Optional[pulumi.Input[str]]:
         """
-        The filename of the file on the web server.
+        The filename of the file in the blob container.
         """
         return pulumi.get(self, "filename")
 
     @filename.setter
-    def filename(self, value: pulumi.Input[str]):
+    def filename(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filename", value)
 
     @property
     @pulumi.getter
-    def path(self) -> pulumi.Input[str]:
+    def path(self) -> Optional[pulumi.Input[str]]:
         """
-        The folder path to the file on the web server.
+        The folder path to the file in the blob container.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: pulumi.Input[str]):
+    def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
 
@@ -2894,5 +2900,140 @@ class TriggerBlobEventPipelineArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class TriggerCustomEventPipelineArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: The Data Factory Pipeline name that the trigger will act on.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The Data Factory Pipeline parameters that the trigger will act on.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The Data Factory Pipeline name that the trigger will act on.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The Data Factory Pipeline parameters that the trigger will act on.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class TriggerTumblingWindowPipelineArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class TriggerTumblingWindowRetryArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "count", count)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+
+@pulumi.input_type
+class TriggerTumblingWindowTriggerDependencyArgs:
+    def __init__(__self__, *,
+                 offset: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 trigger_name: Optional[pulumi.Input[str]] = None):
+        if offset is not None:
+            pulumi.set(__self__, "offset", offset)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if trigger_name is not None:
+            pulumi.set(__self__, "trigger_name", trigger_name)
+
+    @property
+    @pulumi.getter
+    def offset(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "offset")
+
+    @offset.setter
+    def offset(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "offset", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter(name="triggerName")
+    def trigger_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "trigger_name")
+
+    @trigger_name.setter
+    def trigger_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trigger_name", value)
 
 

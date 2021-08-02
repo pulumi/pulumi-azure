@@ -110,6 +110,8 @@ type SparkCluster struct {
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion SparkClusterComponentVersionOutput `pulumi:"componentVersion"`
+	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled pulumi.BoolOutput `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
 	Gateway SparkClusterGatewayOutput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
@@ -192,6 +194,8 @@ type sparkClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *SparkClusterComponentVersion `pulumi:"componentVersion"`
+	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
 	Gateway *SparkClusterGateway `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
@@ -228,6 +232,8 @@ type SparkClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion SparkClusterComponentVersionPtrInput
+	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// A `gateway` block as defined below.
 	Gateway SparkClusterGatewayPtrInput
 	// The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
@@ -268,6 +274,8 @@ type sparkClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion SparkClusterComponentVersion `pulumi:"componentVersion"`
+	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
 	Gateway SparkClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
@@ -301,6 +309,8 @@ type SparkClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion SparkClusterComponentVersionInput
+	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// A `gateway` block as defined below.
 	Gateway SparkClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.

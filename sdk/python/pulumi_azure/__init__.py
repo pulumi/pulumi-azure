@@ -1073,10 +1073,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "bot/channelAlexa",
+  "fqn": "pulumi_azure.bot",
+  "classes": {
+   "azure:bot/channelAlexa:ChannelAlexa": "ChannelAlexa"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "bot/channelDirectLine",
   "fqn": "pulumi_azure.bot",
   "classes": {
    "azure:bot/channelDirectLine:ChannelDirectLine": "ChannelDirectLine"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "bot/channelDirectLineSpeech",
+  "fqn": "pulumi_azure.bot",
+  "classes": {
+   "azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech": "ChannelDirectLineSpeech"
   }
  },
  {
@@ -1089,10 +1105,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "bot/channelFacebook",
+  "fqn": "pulumi_azure.bot",
+  "classes": {
+   "azure:bot/channelFacebook:ChannelFacebook": "ChannelFacebook"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "bot/channelSlack",
   "fqn": "pulumi_azure.bot",
   "classes": {
    "azure:bot/channelSlack:ChannelSlack": "ChannelSlack"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "bot/channelSms",
+  "fqn": "pulumi_azure.bot",
+  "classes": {
+   "azure:bot/channelSms:ChannelSms": "ChannelSms"
   }
  },
  {
@@ -2033,10 +2065,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/triggerCustomEvent",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/triggerCustomEvent:TriggerCustomEvent": "TriggerCustomEvent"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/triggerSchedule",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
    "azure:datafactory/triggerSchedule:TriggerSchedule": "TriggerSchedule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "datafactory/triggerTumblingWindow",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow": "TriggerTumblingWindow"
   }
  },
  {
@@ -2085,6 +2133,14 @@ _utilities.register(
   "fqn": "pulumi_azure.datalake",
   "classes": {
    "azure:datalake/storeVirtualNetworkRule:StoreVirtualNetworkRule": "StoreVirtualNetworkRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dataprotection/backupInstanceDisk",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupInstanceDisk:BackupInstanceDisk": "BackupInstanceDisk"
   }
  },
  {

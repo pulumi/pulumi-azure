@@ -69,6 +69,8 @@ type GetAccountSASArgs struct {
 	Expiry string `pulumi:"expiry"`
 	// Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
+	// IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
+	IpAddresses *string `pulumi:"ipAddresses"`
 	// A `permissions` block as defined below.
 	Permissions GetAccountSASPermissions `pulumi:"permissions"`
 	// A `resourceTypes` block as defined below.
@@ -88,6 +90,7 @@ type GetAccountSASResult struct {
 	HttpsOnly        *bool  `pulumi:"httpsOnly"`
 	// The provider-assigned unique ID for this managed resource.
 	Id            string                     `pulumi:"id"`
+	IpAddresses   *string                    `pulumi:"ipAddresses"`
 	Permissions   GetAccountSASPermissions   `pulumi:"permissions"`
 	ResourceTypes GetAccountSASResourceTypes `pulumi:"resourceTypes"`
 	// The computed Account Shared Access Signature (SAS).

@@ -41,7 +41,6 @@ class EventSubscriptionArgs:
         :param pulumi.Input[str] scope: Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['EventSubscriptionAdvancedFilterArgs'] advanced_filter: A `advanced_filter` block as defined below.
         :param pulumi.Input[bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-               ---
         :param pulumi.Input['EventSubscriptionAzureFunctionEndpointArgs'] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input['EventSubscriptionEventhubEndpointArgs'] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
@@ -141,7 +140,6 @@ class EventSubscriptionArgs:
     def advanced_filtering_on_arrays_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-        ---
         """
         return pulumi.get(self, "advanced_filtering_on_arrays_enabled")
 
@@ -394,7 +392,6 @@ class _EventSubscriptionState:
         Input properties used for looking up and filtering EventSubscription resources.
         :param pulumi.Input['EventSubscriptionAdvancedFilterArgs'] advanced_filter: A `advanced_filter` block as defined below.
         :param pulumi.Input[bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-               ---
         :param pulumi.Input['EventSubscriptionAzureFunctionEndpointArgs'] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input['EventSubscriptionEventhubEndpointArgs'] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
@@ -484,7 +481,6 @@ class _EventSubscriptionState:
     def advanced_filtering_on_arrays_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-        ---
         """
         return pulumi.get(self, "advanced_filtering_on_arrays_enabled")
 
@@ -789,7 +785,6 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionAdvancedFilterArgs']] advanced_filter: A `advanced_filter` block as defined below.
         :param pulumi.Input[bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-               ---
         :param pulumi.Input[pulumi.InputType['EventSubscriptionAzureFunctionEndpointArgs']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
@@ -975,7 +970,6 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionAdvancedFilterArgs']] advanced_filter: A `advanced_filter` block as defined below.
         :param pulumi.Input[bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-               ---
         :param pulumi.Input[pulumi.InputType['EventSubscriptionAzureFunctionEndpointArgs']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
@@ -1036,7 +1030,6 @@ class EventSubscription(pulumi.CustomResource):
     def advanced_filtering_on_arrays_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-        ---
         """
         return pulumi.get(self, "advanced_filtering_on_arrays_enabled")
 

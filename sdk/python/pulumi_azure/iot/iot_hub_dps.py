@@ -17,6 +17,7 @@ class IotHubDpsArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['IotHubDpsSkuArgs'],
+                 allocation_policy: Optional[pulumi.Input[str]] = None,
                  linked_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsLinkedHubArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -25,6 +26,7 @@ class IotHubDpsArgs:
         The set of arguments for constructing a IotHubDps resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input['IotHubDpsSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubDpsLinkedHubArgs']]] linked_hubs: A `linked_hub` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
@@ -32,6 +34,8 @@ class IotHubDpsArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if allocation_policy is not None:
+            pulumi.set(__self__, "allocation_policy", allocation_policy)
         if linked_hubs is not None:
             pulumi.set(__self__, "linked_hubs", linked_hubs)
         if location is not None:
@@ -64,6 +68,18 @@ class IotHubDpsArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['IotHubDpsSkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="allocationPolicy")
+    def allocation_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
+        """
+        return pulumi.get(self, "allocation_policy")
+
+    @allocation_policy.setter
+    def allocation_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allocation_policy", value)
 
     @property
     @pulumi.getter(name="linkedHubs")
@@ -129,7 +145,7 @@ class _IotHubDpsState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IotHubDps resources.
-        :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service.
+        :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         :param pulumi.Input[str] device_provisioning_host_name: The device endpoint of the IoT Device Provisioning Service.
         :param pulumi.Input[str] id_scope: The unique identifier of the IoT Device Provisioning Service.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubDpsLinkedHubArgs']]] linked_hubs: A `linked_hub` block as defined below.
@@ -165,7 +181,7 @@ class _IotHubDpsState:
     @pulumi.getter(name="allocationPolicy")
     def allocation_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The allocation policy of the IoT Device Provisioning Service.
+        The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         """
         return pulumi.get(self, "allocation_policy")
 
@@ -287,6 +303,7 @@ class IotHubDps(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allocation_policy: Optional[pulumi.Input[str]] = None,
                  linked_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -307,6 +324,7 @@ class IotHubDps(pulumi.CustomResource):
         example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
+            allocation_policy="Hashed",
             sku=azure.iot.IotHubDpsSkuArgs(
                 name="S1",
                 capacity=1,
@@ -323,6 +341,7 @@ class IotHubDps(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]] linked_hubs: A `linked_hub` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
@@ -349,6 +368,7 @@ class IotHubDps(pulumi.CustomResource):
         example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
+            allocation_policy="Hashed",
             sku=azure.iot.IotHubDpsSkuArgs(
                 name="S1",
                 capacity=1,
@@ -378,6 +398,7 @@ class IotHubDps(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allocation_policy: Optional[pulumi.Input[str]] = None,
                  linked_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -396,6 +417,7 @@ class IotHubDps(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IotHubDpsArgs.__new__(IotHubDpsArgs)
 
+            __props__.__dict__["allocation_policy"] = allocation_policy
             __props__.__dict__["linked_hubs"] = linked_hubs
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -406,7 +428,6 @@ class IotHubDps(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["allocation_policy"] = None
             __props__.__dict__["device_provisioning_host_name"] = None
             __props__.__dict__["id_scope"] = None
             __props__.__dict__["service_operations_host_name"] = None
@@ -437,7 +458,7 @@ class IotHubDps(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service.
+        :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         :param pulumi.Input[str] device_provisioning_host_name: The device endpoint of the IoT Device Provisioning Service.
         :param pulumi.Input[str] id_scope: The unique identifier of the IoT Device Provisioning Service.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]] linked_hubs: A `linked_hub` block as defined below.
@@ -466,9 +487,9 @@ class IotHubDps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationPolicy")
-    def allocation_policy(self) -> pulumi.Output[str]:
+    def allocation_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        The allocation policy of the IoT Device Provisioning Service.
+        The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         """
         return pulumi.get(self, "allocation_policy")
 

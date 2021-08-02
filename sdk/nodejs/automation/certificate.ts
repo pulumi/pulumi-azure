@@ -55,7 +55,10 @@ export class Certificate extends pulumi.CustomResource {
      * The description of this Automation Certificate.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly exportable!: pulumi.Output<boolean>;
+    /**
+     * The is exportable flag of the certificate.
+     */
+    public readonly exportable!: pulumi.Output<boolean>;
     /**
      * Specifies the name of the Certificate. Changing this forces a new resource to be created.
      */
@@ -103,9 +106,9 @@ export class Certificate extends pulumi.CustomResource {
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["base64"] = args ? args.base64 : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["exportable"] = args ? args.exportable : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["exportable"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -131,6 +134,9 @@ export interface CertificateState {
      * The description of this Automation Certificate.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The is exportable flag of the certificate.
+     */
     exportable?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Certificate. Changing this forces a new resource to be created.
@@ -162,6 +168,10 @@ export interface CertificateArgs {
      * The description of this Automation Certificate.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The is exportable flag of the certificate.
+     */
+    exportable?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Certificate. Changing this forces a new resource to be created.
      */

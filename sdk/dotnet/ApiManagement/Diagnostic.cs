@@ -181,6 +181,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<bool> LogClientIp { get; private set; } = null!;
 
         /// <summary>
+        /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        /// </summary>
+        [Output("operationNameFormat")]
+        public Output<string?> OperationNameFormat { get; private set; } = null!;
+
+        /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -308,6 +314,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? LogClientIp { get; set; }
 
         /// <summary>
+        /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        /// </summary>
+        [Input("operationNameFormat")]
+        public Input<string>? OperationNameFormat { get; set; }
+
+        /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -394,6 +406,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("logClientIp")]
         public Input<bool>? LogClientIp { get; set; }
+
+        /// <summary>
+        /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        /// </summary>
+        [Input("operationNameFormat")]
+        public Input<string>? OperationNameFormat { get; set; }
 
         /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.

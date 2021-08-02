@@ -10,37 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataBricks
 {
     /// <summary>
-    /// Manages a Databricks Workspace
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleWorkspace = new Azure.DataBricks.Workspace("exampleWorkspace", new Azure.DataBricks.WorkspaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Databrick Workspaces can be imported using the `resource id`, e.g.

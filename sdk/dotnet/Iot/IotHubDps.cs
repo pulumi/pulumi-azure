@@ -30,6 +30,7 @@ namespace Pulumi.Azure.Iot
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
+    ///             AllocationPolicy = "Hashed",
     ///             Sku = new Azure.Iot.Inputs.IotHubDpsSkuArgs
     ///             {
     ///                 Name = "S1",
@@ -53,10 +54,10 @@ namespace Pulumi.Azure.Iot
     public partial class IotHubDps : Pulumi.CustomResource
     {
         /// <summary>
-        /// The allocation policy of the IoT Device Provisioning Service.
+        /// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         /// </summary>
         [Output("allocationPolicy")]
-        public Output<string> AllocationPolicy { get; private set; } = null!;
+        public Output<string?> AllocationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The device endpoint of the IoT Device Provisioning Service.
@@ -158,6 +159,12 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IotHubDpsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
+        /// </summary>
+        [Input("allocationPolicy")]
+        public Input<string>? AllocationPolicy { get; set; }
+
         [Input("linkedHubs")]
         private InputList<Inputs.IotHubDpsLinkedHubArgs>? _linkedHubs;
 
@@ -214,7 +221,7 @@ namespace Pulumi.Azure.Iot
     public sealed class IotHubDpsState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The allocation policy of the IoT Device Provisioning Service.
+        /// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         /// </summary>
         [Input("allocationPolicy")]
         public Input<string>? AllocationPolicy { get; set; }

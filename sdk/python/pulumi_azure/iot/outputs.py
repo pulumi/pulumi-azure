@@ -250,7 +250,7 @@ class IoTHubFallbackRoute(dict):
         :param str condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
         :param bool enabled: Used to specify whether the fallback route is enabled.
         :param Sequence[str] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
-        :param str source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        :param str source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
         """
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
@@ -289,7 +289,7 @@ class IoTHubFallbackRoute(dict):
     @pulumi.getter
     def source(self) -> Optional[str]:
         """
-        The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
         """
         return pulumi.get(self, "source")
 
@@ -496,7 +496,7 @@ class IoTHubRoute(dict):
         :param bool enabled: Used to specify whether a route is enabled.
         :param Sequence[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed.
         :param str name: The name of the route.
-        :param str source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        :param str source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
         :param str condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -534,7 +534,7 @@ class IoTHubRoute(dict):
     @pulumi.getter
     def source(self) -> str:
         """
-        The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
         """
         return pulumi.get(self, "source")
 

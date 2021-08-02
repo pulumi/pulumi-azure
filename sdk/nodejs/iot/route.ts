@@ -118,7 +118,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+     * The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
      */
     public readonly source!: pulumi.Output<string>;
 
@@ -203,7 +203,7 @@ export interface RouteState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+     * The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
      */
     source?: pulumi.Input<string>;
 }
@@ -237,7 +237,7 @@ export interface RouteArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+     * The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
      */
     source: pulumi.Input<string>;
 }

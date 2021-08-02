@@ -18,21 +18,21 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string Container;
         /// <summary>
-        /// The filename of the file on the web server.
+        /// The filename of the file in the blob container.
         /// </summary>
-        public readonly string Filename;
+        public readonly string? Filename;
         /// <summary>
-        /// The folder path to the file on the web server.
+        /// The folder path to the file in the blob container.
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
 
         [OutputConstructor]
         private DatasetBinaryAzureBlobStorageLocation(
             string container,
 
-            string filename,
+            string? filename,
 
-            string path)
+            string? path)
         {
             Container = container;
             Filename = filename;

@@ -29,7 +29,8 @@ type Certificate struct {
 	Base64 pulumi.StringOutput `pulumi:"base64"`
 	// The description of this Automation Certificate.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Exportable  pulumi.BoolOutput      `pulumi:"exportable"`
+	// The is exportable flag of the certificate.
+	Exportable pulumi.BoolOutput `pulumi:"exportable"`
 	// Specifies the name of the Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
@@ -82,7 +83,8 @@ type certificateState struct {
 	Base64 *string `pulumi:"base64"`
 	// The description of this Automation Certificate.
 	Description *string `pulumi:"description"`
-	Exportable  *bool   `pulumi:"exportable"`
+	// The is exportable flag of the certificate.
+	Exportable *bool `pulumi:"exportable"`
 	// Specifies the name of the Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
@@ -98,7 +100,8 @@ type CertificateState struct {
 	Base64 pulumi.StringPtrInput
 	// The description of this Automation Certificate.
 	Description pulumi.StringPtrInput
-	Exportable  pulumi.BoolPtrInput
+	// The is exportable flag of the certificate.
+	Exportable pulumi.BoolPtrInput
 	// Specifies the name of the Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
@@ -118,6 +121,8 @@ type certificateArgs struct {
 	Base64 string `pulumi:"base64"`
 	// The description of this Automation Certificate.
 	Description *string `pulumi:"description"`
+	// The is exportable flag of the certificate.
+	Exportable *bool `pulumi:"exportable"`
 	// Specifies the name of the Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
@@ -132,6 +137,8 @@ type CertificateArgs struct {
 	Base64 pulumi.StringInput
 	// The description of this Automation Certificate.
 	Description pulumi.StringPtrInput
+	// The is exportable flag of the certificate.
+	Exportable pulumi.BoolPtrInput
 	// Specifies the name of the Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.

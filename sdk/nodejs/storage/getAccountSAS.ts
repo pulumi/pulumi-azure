@@ -72,6 +72,7 @@ export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptio
         "connectionString": args.connectionString,
         "expiry": args.expiry,
         "httpsOnly": args.httpsOnly,
+        "ipAddresses": args.ipAddresses,
         "permissions": args.permissions,
         "resourceTypes": args.resourceTypes,
         "services": args.services,
@@ -96,6 +97,10 @@ export interface GetAccountSASArgs {
      * Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
      */
     httpsOnly?: boolean;
+    /**
+     * IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
+     */
+    ipAddresses?: string;
     /**
      * A `permissions` block as defined below.
      */
@@ -129,6 +134,7 @@ export interface GetAccountSASResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly ipAddresses?: string;
     readonly permissions: outputs.storage.GetAccountSASPermissions;
     readonly resourceTypes: outputs.storage.GetAccountSASResourceTypes;
     /**

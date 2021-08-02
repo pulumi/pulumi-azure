@@ -160,6 +160,10 @@ export class Diagnostic extends pulumi.CustomResource {
      */
     public readonly logClientIp!: pulumi.Output<boolean>;
     /**
+     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     */
+    public readonly operationNameFormat!: pulumi.Output<string | undefined>;
+    /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -196,6 +200,7 @@ export class Diagnostic extends pulumi.CustomResource {
             inputs["httpCorrelationProtocol"] = state ? state.httpCorrelationProtocol : undefined;
             inputs["identifier"] = state ? state.identifier : undefined;
             inputs["logClientIp"] = state ? state.logClientIp : undefined;
+            inputs["operationNameFormat"] = state ? state.operationNameFormat : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
             inputs["verbosity"] = state ? state.verbosity : undefined;
@@ -224,6 +229,7 @@ export class Diagnostic extends pulumi.CustomResource {
             inputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
             inputs["identifier"] = args ? args.identifier : undefined;
             inputs["logClientIp"] = args ? args.logClientIp : undefined;
+            inputs["operationNameFormat"] = args ? args.operationNameFormat : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["verbosity"] = args ? args.verbosity : undefined;
@@ -283,6 +289,10 @@ export interface DiagnosticState {
      * Log client IP address.
      */
     logClientIp?: pulumi.Input<boolean>;
+    /**
+     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     */
+    operationNameFormat?: pulumi.Input<string>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -345,6 +355,10 @@ export interface DiagnosticArgs {
      * Log client IP address.
      */
     logClientIp?: pulumi.Input<boolean>;
+    /**
+     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     */
+    operationNameFormat?: pulumi.Input<string>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly ImmutableArray<string> EndpointNames;
         /// <summary>
-        /// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        /// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
         /// </summary>
         public readonly string? Source;
 

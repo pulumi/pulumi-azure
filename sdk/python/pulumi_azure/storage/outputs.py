@@ -60,6 +60,8 @@ __all__ = [
     'GetPolicyRuleActionVersionResult',
     'GetPolicyRuleFilterResult',
     'GetPolicyRuleFilterMatchBlobIndexTagResult',
+    'GetShareAclResult',
+    'GetShareAclAccessPolicyResult',
 ]
 
 @pulumi.output_type
@@ -2965,5 +2967,74 @@ class GetPolicyRuleFilterMatchBlobIndexTagResult(dict):
         The filter tag value used for tag based filtering for blob objects.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetShareAclResult(dict):
+    def __init__(__self__, *,
+                 access_policies: Sequence['outputs.GetShareAclAccessPolicyResult'],
+                 id: str):
+        """
+        :param Sequence['GetShareAclAccessPolicyArgs'] access_policies: An `access_policy` block as defined below.
+        :param str id: The ID which should be used for this Shared Identifier.
+        """
+        pulumi.set(__self__, "access_policies", access_policies)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="accessPolicies")
+    def access_policies(self) -> Sequence['outputs.GetShareAclAccessPolicyResult']:
+        """
+        An `access_policy` block as defined below.
+        """
+        return pulumi.get(self, "access_policies")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID which should be used for this Shared Identifier.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetShareAclAccessPolicyResult(dict):
+    def __init__(__self__, *,
+                 expiry: str,
+                 permissions: str,
+                 start: str):
+        """
+        :param str expiry: The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        :param str permissions: The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+        :param str start: The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        """
+        pulumi.set(__self__, "expiry", expiry)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> str:
+        """
+        The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        """
+        return pulumi.get(self, "expiry")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> str:
+        """
+        The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
+        """
+        The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        """
+        return pulumi.get(self, "start")
 
 

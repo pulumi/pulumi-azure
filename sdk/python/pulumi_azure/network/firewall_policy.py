@@ -20,6 +20,7 @@ class FirewallPolicyArgs:
                  dns: Optional[pulumi.Input['FirewallPolicyDnsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intelligence_allowlist: Optional[pulumi.Input['FirewallPolicyThreatIntelligenceAllowlistArgs']] = None,
@@ -31,6 +32,7 @@ class FirewallPolicyArgs:
         :param pulumi.Input['FirewallPolicyDnsArgs'] dns: A `dns` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of private IP ranges to which traffic will not be SNAT.
         :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Firewall Policy.
         :param pulumi.Input['FirewallPolicyThreatIntelligenceAllowlistArgs'] threat_intelligence_allowlist: A `threat_intelligence_allowlist` block as defined below.
@@ -45,6 +47,8 @@ class FirewallPolicyArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_ip_ranges is not None:
+            pulumi.set(__self__, "private_ip_ranges", private_ip_ranges)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -115,6 +119,18 @@ class FirewallPolicyArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="privateIpRanges")
+    def private_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of private IP ranges to which traffic will not be SNAT.
+        """
+        return pulumi.get(self, "private_ip_ranges")
+
+    @private_ip_ranges.setter
+    def private_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "private_ip_ranges", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
@@ -172,6 +188,7 @@ class _FirewallPolicyState:
                  firewalls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_collection_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -186,6 +203,7 @@ class _FirewallPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] firewalls: A list of references to Azure Firewalls that this Firewall Policy is associated with.
         :param pulumi.Input[str] location: The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of private IP ranges to which traffic will not be SNAT.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rule_collection_groups: A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
         :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
@@ -205,6 +223,8 @@ class _FirewallPolicyState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_ip_ranges is not None:
+            pulumi.set(__self__, "private_ip_ranges", private_ip_ranges)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if rule_collection_groups is not None:
@@ -291,6 +311,18 @@ class _FirewallPolicyState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="privateIpRanges")
+    def private_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of private IP ranges to which traffic will not be SNAT.
+        """
+        return pulumi.get(self, "private_ip_ranges")
+
+    @private_ip_ranges.setter
+    def private_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "private_ip_ranges", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -372,6 +404,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  dns: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyDnsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -406,6 +439,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FirewallPolicyDnsArgs']] dns: A `dns` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of private IP ranges to which traffic will not be SNAT.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Firewall Policy.
@@ -459,6 +493,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  dns: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyDnsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -480,6 +515,7 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["dns"] = dns
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["private_ip_ranges"] = private_ip_ranges
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -506,6 +542,7 @@ class FirewallPolicy(pulumi.CustomResource):
             firewalls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             rule_collection_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             sku: Optional[pulumi.Input[str]] = None,
@@ -525,6 +562,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] firewalls: A list of references to Azure Firewalls that this Firewall Policy is associated with.
         :param pulumi.Input[str] location: The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of private IP ranges to which traffic will not be SNAT.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rule_collection_groups: A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
         :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
@@ -542,6 +580,7 @@ class FirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["firewalls"] = firewalls
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["private_ip_ranges"] = private_ip_ranges
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["rule_collection_groups"] = rule_collection_groups
         __props__.__dict__["sku"] = sku
@@ -597,6 +636,14 @@ class FirewallPolicy(pulumi.CustomResource):
         The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIpRanges")
+    def private_ip_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of private IP ranges to which traffic will not be SNAT.
+        """
+        return pulumi.get(self, "private_ip_ranges")
 
     @property
     @pulumi.getter(name="resourceGroupName")

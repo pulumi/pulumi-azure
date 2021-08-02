@@ -6,25 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Databricks Workspace
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleWorkspace = new azure.databricks.Workspace("exampleWorkspace", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "standard",
- *     tags: {
- *         Environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Databrick Workspaces can be imported using the `resource id`, e.g.

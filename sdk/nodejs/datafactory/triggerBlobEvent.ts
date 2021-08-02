@@ -38,6 +38,7 @@ import * as utilities from "../utilities";
  *     ],
  *     blobPathEndsWith: ".txt",
  *     ignoreEmptyBlobs: true,
+ *     activated: true,
  *     annotations: [
  *         "test1",
  *         "test2",
@@ -93,6 +94,10 @@ export class TriggerBlobEvent extends pulumi.CustomResource {
         return obj['__pulumiType'] === TriggerBlobEvent.__pulumiType;
     }
 
+    /**
+     * Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+     */
+    public readonly activated!: pulumi.Output<boolean | undefined>;
     /**
      * A map of additional properties to associate with the Data Factory Blob Event Trigger.
      */
@@ -151,6 +156,7 @@ export class TriggerBlobEvent extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerBlobEventState | undefined;
+            inputs["activated"] = state ? state.activated : undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["blobPathBeginsWith"] = state ? state.blobPathBeginsWith : undefined;
@@ -176,6 +182,7 @@ export class TriggerBlobEvent extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
+            inputs["activated"] = args ? args.activated : undefined;
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["blobPathBeginsWith"] = args ? args.blobPathBeginsWith : undefined;
@@ -199,6 +206,10 @@ export class TriggerBlobEvent extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TriggerBlobEvent resources.
  */
 export interface TriggerBlobEventState {
+    /**
+     * Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+     */
+    activated?: pulumi.Input<boolean>;
     /**
      * A map of additional properties to associate with the Data Factory Blob Event Trigger.
      */
@@ -249,6 +260,10 @@ export interface TriggerBlobEventState {
  * The set of arguments for constructing a TriggerBlobEvent resource.
  */
 export interface TriggerBlobEventArgs {
+    /**
+     * Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+     */
+    activated?: pulumi.Input<boolean>;
     /**
      * A map of additional properties to associate with the Data Factory Blob Event Trigger.
      */

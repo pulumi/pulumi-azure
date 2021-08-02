@@ -80,6 +80,12 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A list of private IP ranges to which traffic will not be SNAT.
+        /// </summary>
+        [Output("privateIpRanges")]
+        public Output<ImmutableArray<string>> PrivateIpRanges { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -185,6 +191,18 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("privateIpRanges")]
+        private InputList<string>? _privateIpRanges;
+
+        /// <summary>
+        /// A list of private IP ranges to which traffic will not be SNAT.
+        /// </summary>
+        public InputList<string> PrivateIpRanges
+        {
+            get => _privateIpRanges ?? (_privateIpRanges = new InputList<string>());
+            set => _privateIpRanges = value;
+        }
+
         /// <summary>
         /// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         /// </summary>
@@ -275,6 +293,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("privateIpRanges")]
+        private InputList<string>? _privateIpRanges;
+
+        /// <summary>
+        /// A list of private IP ranges to which traffic will not be SNAT.
+        /// </summary>
+        public InputList<string> PrivateIpRanges
+        {
+            get => _privateIpRanges ?? (_privateIpRanges = new InputList<string>());
+            set => _privateIpRanges = value;
+        }
 
         /// <summary>
         /// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.

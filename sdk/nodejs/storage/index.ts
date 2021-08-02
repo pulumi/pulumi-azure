@@ -20,6 +20,7 @@ export * from "./getAccountSAS";
 export * from "./getBlob";
 export * from "./getEncryptionScope";
 export * from "./getPolicy";
+export * from "./getShare";
 export * from "./getStorageContainer";
 export * from "./getSync";
 export * from "./getSyncGroup";

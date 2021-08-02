@@ -101,6 +101,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
+        /// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+        /// </summary>
+        [Output("concurrency")]
+        public Output<int?> Concurrency { get; private set; } = null!;
+
+        /// <summary>
         /// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
         /// </summary>
         [Output("dataFactoryName")]
@@ -117,6 +123,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("folder")]
         public Output<string?> Folder { get; private set; } = null!;
+
+        /// <summary>
+        /// The TimeSpan value after which an Azure Monitoring Metric is fired.
+        /// </summary>
+        [Output("moniterMetricsAfterDuration")]
+        public Output<string?> MoniterMetricsAfterDuration { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -207,6 +219,12 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
+        /// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+        /// </summary>
+        [Input("concurrency")]
+        public Input<int>? Concurrency { get; set; }
+
+        /// <summary>
         /// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryName", required: true)]
@@ -223,6 +241,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("folder")]
         public Input<string>? Folder { get; set; }
+
+        /// <summary>
+        /// The TimeSpan value after which an Azure Monitoring Metric is fired.
+        /// </summary>
+        [Input("moniterMetricsAfterDuration")]
+        public Input<string>? MoniterMetricsAfterDuration { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -286,6 +310,12 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
+        /// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
+        /// </summary>
+        [Input("concurrency")]
+        public Input<int>? Concurrency { get; set; }
+
+        /// <summary>
         /// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryName")]
@@ -302,6 +332,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("folder")]
         public Input<string>? Folder { get; set; }
+
+        /// <summary>
+        /// The TimeSpan value after which an Azure Monitoring Metric is fired.
+        /// </summary>
+        [Input("moniterMetricsAfterDuration")]
+        public Input<string>? MoniterMetricsAfterDuration { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.

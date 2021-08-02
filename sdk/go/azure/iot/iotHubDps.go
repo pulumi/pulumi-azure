@@ -35,6 +35,7 @@ import (
 // 		_, err = iot.NewIotHubDps(ctx, "exampleIotHubDps", &iot.IotHubDpsArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
+// 			AllocationPolicy:  pulumi.String("Hashed"),
 // 			Sku: &iot.IotHubDpsSkuArgs{
 // 				Name:     pulumi.String("S1"),
 // 				Capacity: pulumi.Int(1),
@@ -58,8 +59,8 @@ import (
 type IotHubDps struct {
 	pulumi.CustomResourceState
 
-	// The allocation policy of the IoT Device Provisioning Service.
-	AllocationPolicy pulumi.StringOutput `pulumi:"allocationPolicy"`
+	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
+	AllocationPolicy pulumi.StringPtrOutput `pulumi:"allocationPolicy"`
 	// The device endpoint of the IoT Device Provisioning Service.
 	DeviceProvisioningHostName pulumi.StringOutput `pulumi:"deviceProvisioningHostName"`
 	// The unique identifier of the IoT Device Provisioning Service.
@@ -115,7 +116,7 @@ func GetIotHubDps(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotHubDps resources.
 type iotHubDpsState struct {
-	// The allocation policy of the IoT Device Provisioning Service.
+	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
 	AllocationPolicy *string `pulumi:"allocationPolicy"`
 	// The device endpoint of the IoT Device Provisioning Service.
 	DeviceProvisioningHostName *string `pulumi:"deviceProvisioningHostName"`
@@ -138,7 +139,7 @@ type iotHubDpsState struct {
 }
 
 type IotHubDpsState struct {
-	// The allocation policy of the IoT Device Provisioning Service.
+	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
 	AllocationPolicy pulumi.StringPtrInput
 	// The device endpoint of the IoT Device Provisioning Service.
 	DeviceProvisioningHostName pulumi.StringPtrInput
@@ -165,6 +166,8 @@ func (IotHubDpsState) ElementType() reflect.Type {
 }
 
 type iotHubDpsArgs struct {
+	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
+	AllocationPolicy *string `pulumi:"allocationPolicy"`
 	// A `linkedHub` block as defined below.
 	LinkedHubs []IotHubDpsLinkedHub `pulumi:"linkedHubs"`
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
@@ -181,6 +184,8 @@ type iotHubDpsArgs struct {
 
 // The set of arguments for constructing a IotHubDps resource.
 type IotHubDpsArgs struct {
+	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
+	AllocationPolicy pulumi.StringPtrInput
 	// A `linkedHub` block as defined below.
 	LinkedHubs IotHubDpsLinkedHubArrayInput
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.

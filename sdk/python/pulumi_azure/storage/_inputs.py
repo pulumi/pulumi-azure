@@ -51,6 +51,8 @@ __all__ = [
     'GetAccountSASPermissionsArgs',
     'GetAccountSASResourceTypesArgs',
     'GetAccountSASServicesArgs',
+    'GetShareAclArgs',
+    'GetShareAclAccessPolicyArgs',
 ]
 
 @pulumi.input_type
@@ -2657,5 +2659,94 @@ class GetAccountSASServicesArgs:
     @table.setter
     def table(self, value: bool):
         pulumi.set(self, "table", value)
+
+
+@pulumi.input_type
+class GetShareAclArgs:
+    def __init__(__self__, *,
+                 access_policies: Sequence['GetShareAclAccessPolicyArgs'],
+                 id: str):
+        """
+        :param Sequence['GetShareAclAccessPolicyArgs'] access_policies: An `access_policy` block as defined below.
+        :param str id: The ID which should be used for this Shared Identifier.
+        """
+        pulumi.set(__self__, "access_policies", access_policies)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="accessPolicies")
+    def access_policies(self) -> Sequence['GetShareAclAccessPolicyArgs']:
+        """
+        An `access_policy` block as defined below.
+        """
+        return pulumi.get(self, "access_policies")
+
+    @access_policies.setter
+    def access_policies(self, value: Sequence['GetShareAclAccessPolicyArgs']):
+        pulumi.set(self, "access_policies", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID which should be used for this Shared Identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetShareAclAccessPolicyArgs:
+    def __init__(__self__, *,
+                 expiry: str,
+                 permissions: str,
+                 start: str):
+        """
+        :param str expiry: The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        :param str permissions: The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+        :param str start: The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        """
+        pulumi.set(__self__, "expiry", expiry)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> str:
+        """
+        The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        """
+        return pulumi.get(self, "expiry")
+
+    @expiry.setter
+    def expiry(self, value: str):
+        pulumi.set(self, "expiry", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> str:
+        """
+        The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: str):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
+        """
+        The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        """
+        return pulumi.get(self, "start")
+
+    @start.setter
+    def start(self, value: str):
+        pulumi.set(self, "start", value)
 
 

@@ -110,6 +110,8 @@ type InteractiveQueryCluster struct {
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion InteractiveQueryClusterComponentVersionOutput `pulumi:"componentVersion"`
+	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled pulumi.BoolOutput `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
 	Gateway InteractiveQueryClusterGatewayOutput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
@@ -192,6 +194,8 @@ type interactiveQueryClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *InteractiveQueryClusterComponentVersion `pulumi:"componentVersion"`
+	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
 	Gateway *InteractiveQueryClusterGateway `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
@@ -228,6 +232,8 @@ type InteractiveQueryClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion InteractiveQueryClusterComponentVersionPtrInput
+	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// A `gateway` block as defined below.
 	Gateway InteractiveQueryClusterGatewayPtrInput
 	// The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
@@ -268,6 +274,8 @@ type interactiveQueryClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion InteractiveQueryClusterComponentVersion `pulumi:"componentVersion"`
+	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
 	Gateway InteractiveQueryClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
@@ -301,6 +309,8 @@ type InteractiveQueryClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion InteractiveQueryClusterComponentVersionInput
+	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// A `gateway` block as defined below.
 	Gateway InteractiveQueryClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.

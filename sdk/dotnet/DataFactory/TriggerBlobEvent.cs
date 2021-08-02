@@ -54,6 +54,7 @@ namespace Pulumi.Azure.DataFactory
     ///             },
     ///             BlobPathEndsWith = ".txt",
     ///             IgnoreEmptyBlobs = true,
+    ///             Activated = true,
     ///             Annotations = 
     ///             {
     ///                 "test1",
@@ -94,6 +95,12 @@ namespace Pulumi.Azure.DataFactory
     [AzureResourceType("azure:datafactory/triggerBlobEvent:TriggerBlobEvent")]
     public partial class TriggerBlobEvent : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+        /// </summary>
+        [Output("activated")]
+        public Output<bool?> Activated { get; private set; } = null!;
+
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Blob Event Trigger.
         /// </summary>
@@ -206,6 +213,12 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class TriggerBlobEventArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+        /// </summary>
+        [Input("activated")]
+        public Input<bool>? Activated { get; set; }
+
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
 
@@ -303,6 +316,12 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class TriggerBlobEventState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+        /// </summary>
+        [Input("activated")]
+        public Input<bool>? Activated { get; set; }
+
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
 

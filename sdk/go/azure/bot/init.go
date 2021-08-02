@@ -21,12 +21,20 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:bot/channelAlexa:ChannelAlexa":
+		r = &ChannelAlexa{}
 	case "azure:bot/channelDirectLine:ChannelDirectLine":
 		r = &ChannelDirectLine{}
+	case "azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech":
+		r = &ChannelDirectLineSpeech{}
 	case "azure:bot/channelEmail:ChannelEmail":
 		r = &ChannelEmail{}
+	case "azure:bot/channelFacebook:ChannelFacebook":
+		r = &ChannelFacebook{}
 	case "azure:bot/channelSlack:ChannelSlack":
 		r = &ChannelSlack{}
+	case "azure:bot/channelSms:ChannelSms":
+		r = &ChannelSms{}
 	case "azure:bot/channelTeams:ChannelTeams":
 		r = &ChannelTeams{}
 	case "azure:bot/channelWebChat:ChannelWebChat":
@@ -52,7 +60,17 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"azure",
+		"bot/channelAlexa",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"bot/channelDirectLine",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"bot/channelDirectLineSpeech",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -62,7 +80,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"bot/channelFacebook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"bot/channelSlack",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"bot/channelSms",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
