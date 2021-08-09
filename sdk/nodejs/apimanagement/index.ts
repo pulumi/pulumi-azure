@@ -49,6 +49,7 @@ export * from "./property";
 export * from "./redisCache";
 export * from "./service";
 export * from "./subscription";
+export * from "./tag";
 export * from "./user";
 
 // Import resources to register:
@@ -89,6 +90,7 @@ import { Property } from "./property";
 import { RedisCache } from "./redisCache";
 import { Service } from "./service";
 import { Subscription } from "./subscription";
+import { Tag } from "./tag";
 import { User } from "./user";
 
 const _module = {
@@ -169,6 +171,8 @@ const _module = {
                 return new Service(name, <any>undefined, { urn })
             case "azure:apimanagement/subscription:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
+            case "azure:apimanagement/tag:Tag":
+                return new Tag(name, <any>undefined, { urn })
             case "azure:apimanagement/user:User":
                 return new User(name, <any>undefined, { urn })
             default:
@@ -213,4 +217,5 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/property", _module
 pulumi.runtime.registerResourceModule("azure", "apimanagement/redisCache", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/service", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/subscription", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/tag", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/user", _module)

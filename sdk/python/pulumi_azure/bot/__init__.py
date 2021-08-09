@@ -10,6 +10,7 @@ from .channel_direct_line import *
 from .channel_direct_line_speech import *
 from .channel_email import *
 from .channel_facebook import *
+from .channel_line import *
 from .channel_slack import *
 from .channel_sms import *
 from .channel_teams import *

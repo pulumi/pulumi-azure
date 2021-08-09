@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
+        /// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

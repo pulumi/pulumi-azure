@@ -37,9 +37,17 @@ import (
 // 			Location:          rg.Location,
 // 			Sku:               pulumi.String("Premium"),
 // 			AdminEnabled:      pulumi.Bool(false),
-// 			GeoreplicationLocations: pulumi.StringArray{
-// 				pulumi.String("East US"),
-// 				pulumi.String("West Europe"),
+// 			Georeplications: containerservice.RegistryGeoreplicationArray{
+// 				&containerservice.RegistryGeoreplicationArgs{
+// 					Location:              pulumi.String("East US"),
+// 					ZoneRedundancyEnabled: pulumi.Bool(true),
+// 					Tags:                  nil,
+// 				},
+// 				&containerservice.RegistryGeoreplicationArgs{
+// 					Location:              pulumi.String("westeurope"),
+// 					ZoneRedundancyEnabled: pulumi.Bool(true),
+// 					Tags:                  nil,
+// 				},
 // 			},
 // 		})
 // 		if err != nil {

@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'ChannelDirectLineSite',
     'ChannelFacebookPage',
+    'ChannelLineLineChannel',
 ]
 
 @pulumi.output_type
@@ -194,5 +195,51 @@ class ChannelFacebookPage(dict):
         The Facebook Page ID for the Facebook Channel.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ChannelLineLineChannel(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelLineLineChannel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelLineLineChannel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelLineLineChannel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_token: str,
+                 secret: str):
+        """
+        :param str access_token: The access token which is used to call the Line Channel API.
+        :param str secret: The secret which is used to access the Line Channel.
+        """
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> str:
+        """
+        The access token which is used to call the Line Channel API.
+        """
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The secret which is used to access the Line Channel.
+        """
+        return pulumi.get(self, "secret")
 
 

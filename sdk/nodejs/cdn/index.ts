@@ -6,11 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./endpoint";
+export * from "./endpointCustomDomain";
 export * from "./getProfile";
 export * from "./profile";
 
 // Import resources to register:
 import { Endpoint } from "./endpoint";
+import { EndpointCustomDomain } from "./endpointCustomDomain";
 import { Profile } from "./profile";
 
 const _module = {
@@ -19,6 +21,8 @@ const _module = {
         switch (type) {
             case "azure:cdn/endpoint:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
+            case "azure:cdn/endpointCustomDomain:EndpointCustomDomain":
+                return new EndpointCustomDomain(name, <any>undefined, { urn })
             case "azure:cdn/profile:Profile":
                 return new Profile(name, <any>undefined, { urn })
             default:
@@ -27,4 +31,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "cdn/endpoint", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/endpointCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/profile", _module)

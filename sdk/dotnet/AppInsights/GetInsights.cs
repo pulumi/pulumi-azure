@@ -103,6 +103,10 @@ namespace Pulumi.Azure.AppInsights
         /// Tags applied to the component.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// The id of the associated Log Analytics workspace
+        /// </summary>
+        public readonly string WorkspaceId;
 
         [OutputConstructor]
         private GetInsightsResult(
@@ -124,7 +128,9 @@ namespace Pulumi.Azure.AppInsights
 
             int retentionInDays,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            string workspaceId)
         {
             AppId = appId;
             ApplicationType = applicationType;
@@ -136,6 +142,7 @@ namespace Pulumi.Azure.AppInsights
             ResourceGroupName = resourceGroupName;
             RetentionInDays = retentionInDays;
             Tags = tags;
+            WorkspaceId = workspaceId;
         }
     }
 }

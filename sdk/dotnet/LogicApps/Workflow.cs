@@ -120,6 +120,12 @@ namespace Pulumi.Azure.LogicApps
         public Output<ImmutableArray<string>> WorkflowOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+        /// </summary>
+        [Output("workflowParameters")]
+        public Output<ImmutableDictionary<string, string>?> WorkflowParameters { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("workflowSchema")]
@@ -229,6 +235,18 @@ namespace Pulumi.Azure.LogicApps
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("workflowParameters")]
+        private InputMap<string>? _workflowParameters;
+
+        /// <summary>
+        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+        /// </summary>
+        public InputMap<string> WorkflowParameters
+        {
+            get => _workflowParameters ?? (_workflowParameters = new InputMap<string>());
+            set => _workflowParameters = value;
         }
 
         /// <summary>
@@ -356,6 +374,18 @@ namespace Pulumi.Azure.LogicApps
         {
             get => _workflowOutboundIpAddresses ?? (_workflowOutboundIpAddresses = new InputList<string>());
             set => _workflowOutboundIpAddresses = value;
+        }
+
+        [Input("workflowParameters")]
+        private InputMap<string>? _workflowParameters;
+
+        /// <summary>
+        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+        /// </summary>
+        public InputMap<string> WorkflowParameters
+        {
+            get => _workflowParameters ?? (_workflowParameters = new InputMap<string>());
+            set => _workflowParameters = value;
         }
 
         /// <summary>

@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./customDataset";
+export * from "./dataFlow";
 export * from "./datasetAzureBlob";
 export * from "./datasetBinary";
 export * from "./datasetCosmosDBApi";
@@ -52,6 +53,7 @@ export * from "./triggerTumblingWindow";
 
 // Import resources to register:
 import { CustomDataset } from "./customDataset";
+import { DataFlow } from "./dataFlow";
 import { DatasetAzureBlob } from "./datasetAzureBlob";
 import { DatasetBinary } from "./datasetBinary";
 import { DatasetCosmosDBApi } from "./datasetCosmosDBApi";
@@ -101,6 +103,8 @@ const _module = {
         switch (type) {
             case "azure:datafactory/customDataset:CustomDataset":
                 return new CustomDataset(name, <any>undefined, { urn })
+            case "azure:datafactory/dataFlow:DataFlow":
+                return new DataFlow(name, <any>undefined, { urn })
             case "azure:datafactory/datasetAzureBlob:DatasetAzureBlob":
                 return new DatasetAzureBlob(name, <any>undefined, { urn })
             case "azure:datafactory/datasetBinary:DatasetBinary":
@@ -191,6 +195,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "datafactory/customDataset", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/dataFlow", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetAzureBlob", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetBinary", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetCosmosDBApi", _module)

@@ -24,8 +24,7 @@ class ExtensionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Extension resource.
-        :param pulumi.Input[str] publisher: The publisher of the extension, available publishers
-               can be found by using the Azure CLI.
+        :param pulumi.Input[str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of extension, available types for a publisher can
                be found using the Azure CLI.
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
@@ -60,8 +59,7 @@ class ExtensionArgs:
     @pulumi.getter
     def publisher(self) -> pulumi.Input[str]:
         """
-        The publisher of the extension, available publishers
-        can be found by using the Azure CLI.
+        The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
@@ -192,8 +190,7 @@ class _ExtensionState:
                this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
                extension, like settings, these are specified as a JSON object in a string.
-        :param pulumi.Input[str] publisher: The publisher of the extension, available publishers
-               can be found by using the Azure CLI.
+        :param pulumi.Input[str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         :param pulumi.Input[str] settings: The settings passed to the extension, these are
                specified as a JSON object in a string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -265,8 +262,7 @@ class _ExtensionState:
     @pulumi.getter
     def publisher(self) -> Optional[pulumi.Input[str]]:
         """
-        The publisher of the extension, available publishers
-        can be found by using the Azure CLI.
+        The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
@@ -453,8 +449,7 @@ class Extension(pulumi.CustomResource):
                this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
                extension, like settings, these are specified as a JSON object in a string.
-        :param pulumi.Input[str] publisher: The publisher of the extension, available publishers
-               can be found by using the Azure CLI.
+        :param pulumi.Input[str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         :param pulumi.Input[str] settings: The settings passed to the extension, these are
                specified as a JSON object in a string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -647,8 +642,7 @@ class Extension(pulumi.CustomResource):
                this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
                extension, like settings, these are specified as a JSON object in a string.
-        :param pulumi.Input[str] publisher: The publisher of the extension, available publishers
-               can be found by using the Azure CLI.
+        :param pulumi.Input[str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         :param pulumi.Input[str] settings: The settings passed to the extension, these are
                specified as a JSON object in a string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -704,8 +698,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter
     def publisher(self) -> pulumi.Output[str]:
         """
-        The publisher of the extension, available publishers
-        can be found by using the Azure CLI.
+        The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 

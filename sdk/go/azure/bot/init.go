@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ChannelEmail{}
 	case "azure:bot/channelFacebook:ChannelFacebook":
 		r = &ChannelFacebook{}
+	case "azure:bot/channelLine:ChannelLine":
+		r = &ChannelLine{}
 	case "azure:bot/channelSlack:ChannelSlack":
 		r = &ChannelSlack{}
 	case "azure:bot/channelSms:ChannelSms":
@@ -81,6 +83,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"bot/channelFacebook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"bot/channelLine",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

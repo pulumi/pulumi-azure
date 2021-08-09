@@ -25,6 +25,7 @@ class PublicIpArgs:
                  public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  reverse_fqdn: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[str]] = None):
         """
@@ -43,6 +44,7 @@ class PublicIpArgs:
         :param pulumi.Input[str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "allocation_method", allocation_method)
@@ -67,6 +69,8 @@ class PublicIpArgs:
             pulumi.set(__self__, "reverse_fqdn", reverse_fqdn)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if sku_tier is not None:
+            pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
@@ -222,6 +226,18 @@ class PublicIpArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+        """
+        return pulumi.get(self, "sku_tier")
+
+    @sku_tier.setter
+    def sku_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_tier", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -260,6 +276,7 @@ class _PublicIpState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  reverse_fqdn: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[str]] = None):
         """
@@ -280,6 +297,7 @@ class _PublicIpState:
                create the public ip.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if allocation_method is not None:
@@ -310,6 +328,8 @@ class _PublicIpState:
             pulumi.set(__self__, "reverse_fqdn", reverse_fqdn)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if sku_tier is not None:
+            pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
@@ -489,6 +509,18 @@ class _PublicIpState:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+        """
+        return pulumi.get(self, "sku_tier")
+
+    @sku_tier.setter
+    def sku_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_tier", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -527,6 +559,7 @@ class PublicIp(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  reverse_fqdn: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -573,6 +606,7 @@ class PublicIp(pulumi.CustomResource):
                create the public ip.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -635,6 +669,7 @@ class PublicIp(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  reverse_fqdn: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -665,6 +700,7 @@ class PublicIp(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["reverse_fqdn"] = reverse_fqdn
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["tags"] = tags
             if zones is not None and not opts.urn:
                 warnings.warn("""This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""", DeprecationWarning)
@@ -696,6 +732,7 @@ class PublicIp(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             reverse_fqdn: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
+            sku_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             zones: Optional[pulumi.Input[str]] = None) -> 'PublicIp':
         """
@@ -721,6 +758,7 @@ class PublicIp(pulumi.CustomResource):
                create the public ip.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -741,6 +779,7 @@ class PublicIp(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["reverse_fqdn"] = reverse_fqdn
         __props__.__dict__["sku"] = sku
+        __props__.__dict__["sku_tier"] = sku_tier
         __props__.__dict__["tags"] = tags
         __props__.__dict__["zones"] = zones
         return PublicIp(resource_name, opts=opts, __props__=__props__)
@@ -858,6 +897,14 @@ class PublicIp(pulumi.CustomResource):
         The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+        """
+        return pulumi.get(self, "sku_tier")
 
     @property
     @pulumi.getter

@@ -14,6 +14,14 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetAppServiceSiteConfigResult
     {
         /// <summary>
+        /// Are Managed Identity Credentials used for Azure Container Registry pull.
+        /// </summary>
+        public readonly bool AcrUseManagedIdentityCredentials;
+        /// <summary>
+        /// The User Managed Identity Client Id.
+        /// </summary>
+        public readonly string AcrUserManagedIdentityClientId;
+        /// <summary>
         /// Is the app loaded at all times?
         /// </summary>
         public readonly bool AlwaysOn;
@@ -124,6 +132,10 @@ namespace Pulumi.Azure.AppService.Outputs
 
         [OutputConstructor]
         private GetAppServiceSiteConfigResult(
+            bool acrUseManagedIdentityCredentials,
+
+            string acrUserManagedIdentityClientId,
+
             bool alwaysOn,
 
             string appCommandLine,
@@ -178,6 +190,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string windowsFxVersion)
         {
+            AcrUseManagedIdentityCredentials = acrUseManagedIdentityCredentials;
+            AcrUserManagedIdentityClientId = acrUserManagedIdentityClientId;
             AlwaysOn = alwaysOn;
             AppCommandLine = appCommandLine;
             Cors = cors;

@@ -86,7 +86,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly autoScalerProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterAutoScalerProfile>;
     /**
-     * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+     * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
      */
     public readonly automaticChannelUpgrade!: pulumi.Output<string | undefined>;
     /**
@@ -143,9 +143,17 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly linuxProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterLinuxProfile | undefined>;
     /**
+     * Is local account disabled for AAD integrated kubernetes cluster?
+     */
+    public readonly localAccountDisabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * A `maintenanceWindow` block as defined below.
+     */
+    public readonly maintenanceWindow!: pulumi.Output<outputs.containerservice.KubernetesClusterMaintenanceWindow | undefined>;
     /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      */
@@ -230,7 +238,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["kubeletIdentities"] = state ? state.kubeletIdentities : undefined;
             inputs["kubernetesVersion"] = state ? state.kubernetesVersion : undefined;
             inputs["linuxProfile"] = state ? state.linuxProfile : undefined;
+            inputs["localAccountDisabled"] = state ? state.localAccountDisabled : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkProfile"] = state ? state.networkProfile : undefined;
             inputs["nodeResourceGroup"] = state ? state.nodeResourceGroup : undefined;
@@ -265,7 +275,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["kubeletIdentities"] = args ? args.kubeletIdentities : undefined;
             inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
             inputs["linuxProfile"] = args ? args.linuxProfile : undefined;
+            inputs["localAccountDisabled"] = args ? args.localAccountDisabled : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
@@ -309,7 +321,7 @@ export interface KubernetesClusterState {
      */
     autoScalerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAutoScalerProfile>;
     /**
-     * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+     * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
      */
     automaticChannelUpgrade?: pulumi.Input<string>;
     /**
@@ -366,9 +378,17 @@ export interface KubernetesClusterState {
      */
     linuxProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterLinuxProfile>;
     /**
+     * Is local account disabled for AAD integrated kubernetes cluster?
+     */
+    localAccountDisabled?: pulumi.Input<boolean>;
+    /**
      * The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * A `maintenanceWindow` block as defined below.
+     */
+    maintenanceWindow?: pulumi.Input<inputs.containerservice.KubernetesClusterMaintenanceWindow>;
     /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      */
@@ -440,7 +460,7 @@ export interface KubernetesClusterArgs {
      */
     autoScalerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAutoScalerProfile>;
     /**
-     * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+     * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
      */
     automaticChannelUpgrade?: pulumi.Input<string>;
     /**
@@ -477,9 +497,17 @@ export interface KubernetesClusterArgs {
      */
     linuxProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterLinuxProfile>;
     /**
+     * Is local account disabled for AAD integrated kubernetes cluster?
+     */
+    localAccountDisabled?: pulumi.Input<boolean>;
+    /**
      * The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * A `maintenanceWindow` block as defined below.
+     */
+    maintenanceWindow?: pulumi.Input<inputs.containerservice.KubernetesClusterMaintenanceWindow>;
     /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      */

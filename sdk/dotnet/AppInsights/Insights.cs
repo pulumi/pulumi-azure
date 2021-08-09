@@ -42,6 +42,44 @@ namespace Pulumi.Azure.AppInsights
     ///     public Output&lt;string&gt; AppId { get; set; }
     /// }
     /// ```
+    /// ### Workspace Mode
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "PerGB2018",
+    ///             RetentionInDays = 30,
+    ///         });
+    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             WorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///             ApplicationType = "web",
+    ///         });
+    ///         this.InstrumentationKey = exampleInsights.InstrumentationKey;
+    ///         this.AppId = exampleInsights.AppId;
+    ///     }
+    /// 
+    ///     [Output("instrumentationKey")]
+    ///     public Output&lt;string&gt; InstrumentationKey { get; set; }
+    ///     [Output("appId")]
+    ///     public Output&lt;string&gt; AppId { get; set; }
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -133,6 +171,12 @@ namespace Pulumi.Azure.AppInsights
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the id of a log analytics workspace resource
+        /// </summary>
+        [Output("workspaceId")]
+        public Output<string?> WorkspaceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -248,6 +292,12 @@ namespace Pulumi.Azure.AppInsights
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies the id of a log analytics workspace resource
+        /// </summary>
+        [Input("workspaceId")]
+        public Input<string>? WorkspaceId { get; set; }
+
         public InsightsArgs()
         {
         }
@@ -340,6 +390,12 @@ namespace Pulumi.Azure.AppInsights
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies the id of a log analytics workspace resource
+        /// </summary>
+        [Input("workspaceId")]
+        public Input<string>? WorkspaceId { get; set; }
 
         public InsightsState()
         {

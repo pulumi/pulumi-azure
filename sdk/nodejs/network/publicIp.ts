@@ -119,6 +119,10 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+     */
+    public readonly skuTier!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -154,6 +158,7 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["reverseFqdn"] = state ? state.reverseFqdn : undefined;
             inputs["sku"] = state ? state.sku : undefined;
+            inputs["skuTier"] = state ? state.skuTier : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["zones"] = state ? state.zones : undefined;
         } else {
@@ -176,6 +181,7 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["reverseFqdn"] = args ? args.reverseFqdn : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["skuTier"] = args ? args.skuTier : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["fqdn"] = undefined /*out*/;
@@ -251,6 +257,10 @@ export interface PublicIpState {
      */
     sku?: pulumi.Input<string>;
     /**
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+     */
+    skuTier?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -314,6 +324,10 @@ export interface PublicIpArgs {
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
      */
     sku?: pulumi.Input<string>;
+    /**
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+     */
+    skuTier?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

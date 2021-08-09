@@ -22,7 +22,8 @@ class InsightsArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Insights resource.
         :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
@@ -37,6 +38,7 @@ class InsightsArgs:
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource
         """
         pulumi.set(__self__, "application_type", application_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -56,6 +58,8 @@ class InsightsArgs:
             pulumi.set(__self__, "sampling_percentage", sampling_percentage)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="applicationType")
@@ -179,6 +183,18 @@ class InsightsArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the id of a log analytics workspace resource
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_id", value)
+
 
 @pulumi.input_type
 class _InsightsState:
@@ -195,7 +211,8 @@ class _InsightsState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Insights resources.
         :param pulumi.Input[str] app_id: The App ID associated with this Application Insights component.
@@ -213,6 +230,7 @@ class _InsightsState:
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -240,6 +258,8 @@ class _InsightsState:
             pulumi.set(__self__, "sampling_percentage", sampling_percentage)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="appId")
@@ -399,6 +419,18 @@ class _InsightsState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the id of a log analytics workspace resource
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_id", value)
+
 
 class Insights(pulumi.CustomResource):
     @overload
@@ -415,6 +447,7 @@ class Insights(pulumi.CustomResource):
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages an Application Insights component.
@@ -429,6 +462,26 @@ class Insights(pulumi.CustomResource):
         example_insights = azure.appinsights.Insights("exampleInsights",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
+            application_type="web")
+        pulumi.export("instrumentationKey", example_insights.instrumentation_key)
+        pulumi.export("appId", example_insights.app_id)
+        ```
+        ### Workspace Mode
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_id=example_analytics_workspace.id,
             application_type="web")
         pulumi.export("instrumentationKey", example_insights.instrumentation_key)
         pulumi.export("appId", example_insights.app_id)
@@ -456,6 +509,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource
         """
         ...
     @overload
@@ -476,6 +530,26 @@ class Insights(pulumi.CustomResource):
         example_insights = azure.appinsights.Insights("exampleInsights",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
+            application_type="web")
+        pulumi.export("instrumentationKey", example_insights.instrumentation_key)
+        pulumi.export("appId", example_insights.app_id)
+        ```
+        ### Workspace Mode
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_id=example_analytics_workspace.id,
             application_type="web")
         pulumi.export("instrumentationKey", example_insights.instrumentation_key)
         pulumi.export("appId", example_insights.app_id)
@@ -514,6 +588,7 @@ class Insights(pulumi.CustomResource):
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -540,6 +615,7 @@ class Insights(pulumi.CustomResource):
             __props__.__dict__["retention_in_days"] = retention_in_days
             __props__.__dict__["sampling_percentage"] = sampling_percentage
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["app_id"] = None
             __props__.__dict__["connection_string"] = None
             __props__.__dict__["instrumentation_key"] = None
@@ -565,7 +641,8 @@ class Insights(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             retention_in_days: Optional[pulumi.Input[int]] = None,
             sampling_percentage: Optional[pulumi.Input[float]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Insights':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            workspace_id: Optional[pulumi.Input[str]] = None) -> 'Insights':
         """
         Get an existing Insights resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -588,6 +665,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -606,6 +684,7 @@ class Insights(pulumi.CustomResource):
         __props__.__dict__["retention_in_days"] = retention_in_days
         __props__.__dict__["sampling_percentage"] = sampling_percentage
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["workspace_id"] = workspace_id
         return Insights(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -713,4 +792,12 @@ class Insights(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the id of a log analytics workspace resource
+        """
+        return pulumi.get(self, "workspace_id")
 

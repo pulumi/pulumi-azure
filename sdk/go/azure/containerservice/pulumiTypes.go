@@ -7083,6 +7083,372 @@ func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) KeyData() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type KubernetesClusterMaintenanceWindow struct {
+	// One or more `allowed` block as defined below.
+	Alloweds []KubernetesClusterMaintenanceWindowAllowed `pulumi:"alloweds"`
+	// One or more `notAllowed` block as defined below.
+	NotAlloweds []KubernetesClusterMaintenanceWindowNotAllowed `pulumi:"notAlloweds"`
+}
+
+// KubernetesClusterMaintenanceWindowInput is an input type that accepts KubernetesClusterMaintenanceWindowArgs and KubernetesClusterMaintenanceWindowOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowInput` via:
+//
+//          KubernetesClusterMaintenanceWindowArgs{...}
+type KubernetesClusterMaintenanceWindowInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowOutput() KubernetesClusterMaintenanceWindowOutput
+	ToKubernetesClusterMaintenanceWindowOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowOutput
+}
+
+type KubernetesClusterMaintenanceWindowArgs struct {
+	// One or more `allowed` block as defined below.
+	Alloweds KubernetesClusterMaintenanceWindowAllowedArrayInput `pulumi:"alloweds"`
+	// One or more `notAllowed` block as defined below.
+	NotAlloweds KubernetesClusterMaintenanceWindowNotAllowedArrayInput `pulumi:"notAlloweds"`
+}
+
+func (KubernetesClusterMaintenanceWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindow)(nil)).Elem()
+}
+
+func (i KubernetesClusterMaintenanceWindowArgs) ToKubernetesClusterMaintenanceWindowOutput() KubernetesClusterMaintenanceWindowOutput {
+	return i.ToKubernetesClusterMaintenanceWindowOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowArgs) ToKubernetesClusterMaintenanceWindowOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowOutput)
+}
+
+func (i KubernetesClusterMaintenanceWindowArgs) ToKubernetesClusterMaintenanceWindowPtrOutput() KubernetesClusterMaintenanceWindowPtrOutput {
+	return i.ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowArgs) ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowOutput).ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterMaintenanceWindowPtrInput is an input type that accepts KubernetesClusterMaintenanceWindowArgs, KubernetesClusterMaintenanceWindowPtr and KubernetesClusterMaintenanceWindowPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowPtrInput` via:
+//
+//          KubernetesClusterMaintenanceWindowArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterMaintenanceWindowPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowPtrOutput() KubernetesClusterMaintenanceWindowPtrOutput
+	ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowPtrOutput
+}
+
+type kubernetesClusterMaintenanceWindowPtrType KubernetesClusterMaintenanceWindowArgs
+
+func KubernetesClusterMaintenanceWindowPtr(v *KubernetesClusterMaintenanceWindowArgs) KubernetesClusterMaintenanceWindowPtrInput {
+	return (*kubernetesClusterMaintenanceWindowPtrType)(v)
+}
+
+func (*kubernetesClusterMaintenanceWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterMaintenanceWindow)(nil)).Elem()
+}
+
+func (i *kubernetesClusterMaintenanceWindowPtrType) ToKubernetesClusterMaintenanceWindowPtrOutput() KubernetesClusterMaintenanceWindowPtrOutput {
+	return i.ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterMaintenanceWindowPtrType) ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowPtrOutput)
+}
+
+type KubernetesClusterMaintenanceWindowOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindow)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowOutput) ToKubernetesClusterMaintenanceWindowOutput() KubernetesClusterMaintenanceWindowOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowOutput) ToKubernetesClusterMaintenanceWindowOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowOutput) ToKubernetesClusterMaintenanceWindowPtrOutput() KubernetesClusterMaintenanceWindowPtrOutput {
+	return o.ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterMaintenanceWindowOutput) ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindow) *KubernetesClusterMaintenanceWindow {
+		return &v
+	}).(KubernetesClusterMaintenanceWindowPtrOutput)
+}
+
+// One or more `allowed` block as defined below.
+func (o KubernetesClusterMaintenanceWindowOutput) Alloweds() KubernetesClusterMaintenanceWindowAllowedArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindow) []KubernetesClusterMaintenanceWindowAllowed {
+		return v.Alloweds
+	}).(KubernetesClusterMaintenanceWindowAllowedArrayOutput)
+}
+
+// One or more `notAllowed` block as defined below.
+func (o KubernetesClusterMaintenanceWindowOutput) NotAlloweds() KubernetesClusterMaintenanceWindowNotAllowedArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindow) []KubernetesClusterMaintenanceWindowNotAllowed {
+		return v.NotAlloweds
+	}).(KubernetesClusterMaintenanceWindowNotAllowedArrayOutput)
+}
+
+type KubernetesClusterMaintenanceWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterMaintenanceWindow)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowPtrOutput) ToKubernetesClusterMaintenanceWindowPtrOutput() KubernetesClusterMaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowPtrOutput) ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowPtrOutput) Elem() KubernetesClusterMaintenanceWindowOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindow) KubernetesClusterMaintenanceWindow { return *v }).(KubernetesClusterMaintenanceWindowOutput)
+}
+
+// One or more `allowed` block as defined below.
+func (o KubernetesClusterMaintenanceWindowPtrOutput) Alloweds() KubernetesClusterMaintenanceWindowAllowedArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindow) []KubernetesClusterMaintenanceWindowAllowed {
+		if v == nil {
+			return nil
+		}
+		return v.Alloweds
+	}).(KubernetesClusterMaintenanceWindowAllowedArrayOutput)
+}
+
+// One or more `notAllowed` block as defined below.
+func (o KubernetesClusterMaintenanceWindowPtrOutput) NotAlloweds() KubernetesClusterMaintenanceWindowNotAllowedArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindow) []KubernetesClusterMaintenanceWindowNotAllowed {
+		if v == nil {
+			return nil
+		}
+		return v.NotAlloweds
+	}).(KubernetesClusterMaintenanceWindowNotAllowedArrayOutput)
+}
+
+type KubernetesClusterMaintenanceWindowAllowed struct {
+	// A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+	Day string `pulumi:"day"`
+	// An array of hour slots in a day. Possible values are between `0` and `23`.
+	Hours []int `pulumi:"hours"`
+}
+
+// KubernetesClusterMaintenanceWindowAllowedInput is an input type that accepts KubernetesClusterMaintenanceWindowAllowedArgs and KubernetesClusterMaintenanceWindowAllowedOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowAllowedInput` via:
+//
+//          KubernetesClusterMaintenanceWindowAllowedArgs{...}
+type KubernetesClusterMaintenanceWindowAllowedInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowAllowedOutput() KubernetesClusterMaintenanceWindowAllowedOutput
+	ToKubernetesClusterMaintenanceWindowAllowedOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowAllowedOutput
+}
+
+type KubernetesClusterMaintenanceWindowAllowedArgs struct {
+	// A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+	Day pulumi.StringInput `pulumi:"day"`
+	// An array of hour slots in a day. Possible values are between `0` and `23`.
+	Hours pulumi.IntArrayInput `pulumi:"hours"`
+}
+
+func (KubernetesClusterMaintenanceWindowAllowedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindowAllowed)(nil)).Elem()
+}
+
+func (i KubernetesClusterMaintenanceWindowAllowedArgs) ToKubernetesClusterMaintenanceWindowAllowedOutput() KubernetesClusterMaintenanceWindowAllowedOutput {
+	return i.ToKubernetesClusterMaintenanceWindowAllowedOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowAllowedArgs) ToKubernetesClusterMaintenanceWindowAllowedOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAllowedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAllowedOutput)
+}
+
+// KubernetesClusterMaintenanceWindowAllowedArrayInput is an input type that accepts KubernetesClusterMaintenanceWindowAllowedArray and KubernetesClusterMaintenanceWindowAllowedArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowAllowedArrayInput` via:
+//
+//          KubernetesClusterMaintenanceWindowAllowedArray{ KubernetesClusterMaintenanceWindowAllowedArgs{...} }
+type KubernetesClusterMaintenanceWindowAllowedArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowAllowedArrayOutput() KubernetesClusterMaintenanceWindowAllowedArrayOutput
+	ToKubernetesClusterMaintenanceWindowAllowedArrayOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowAllowedArrayOutput
+}
+
+type KubernetesClusterMaintenanceWindowAllowedArray []KubernetesClusterMaintenanceWindowAllowedInput
+
+func (KubernetesClusterMaintenanceWindowAllowedArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterMaintenanceWindowAllowed)(nil)).Elem()
+}
+
+func (i KubernetesClusterMaintenanceWindowAllowedArray) ToKubernetesClusterMaintenanceWindowAllowedArrayOutput() KubernetesClusterMaintenanceWindowAllowedArrayOutput {
+	return i.ToKubernetesClusterMaintenanceWindowAllowedArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowAllowedArray) ToKubernetesClusterMaintenanceWindowAllowedArrayOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAllowedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAllowedArrayOutput)
+}
+
+type KubernetesClusterMaintenanceWindowAllowedOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowAllowedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindowAllowed)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowAllowedOutput) ToKubernetesClusterMaintenanceWindowAllowedOutput() KubernetesClusterMaintenanceWindowAllowedOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAllowedOutput) ToKubernetesClusterMaintenanceWindowAllowedOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAllowedOutput {
+	return o
+}
+
+// A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+func (o KubernetesClusterMaintenanceWindowAllowedOutput) Day() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAllowed) string { return v.Day }).(pulumi.StringOutput)
+}
+
+// An array of hour slots in a day. Possible values are between `0` and `23`.
+func (o KubernetesClusterMaintenanceWindowAllowedOutput) Hours() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAllowed) []int { return v.Hours }).(pulumi.IntArrayOutput)
+}
+
+type KubernetesClusterMaintenanceWindowAllowedArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowAllowedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterMaintenanceWindowAllowed)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowAllowedArrayOutput) ToKubernetesClusterMaintenanceWindowAllowedArrayOutput() KubernetesClusterMaintenanceWindowAllowedArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAllowedArrayOutput) ToKubernetesClusterMaintenanceWindowAllowedArrayOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAllowedArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAllowedArrayOutput) Index(i pulumi.IntInput) KubernetesClusterMaintenanceWindowAllowedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterMaintenanceWindowAllowed {
+		return vs[0].([]KubernetesClusterMaintenanceWindowAllowed)[vs[1].(int)]
+	}).(KubernetesClusterMaintenanceWindowAllowedOutput)
+}
+
+type KubernetesClusterMaintenanceWindowNotAllowed struct {
+	// The end of a time span, formatted as an RFC3339 string.
+	End string `pulumi:"end"`
+	// The start of a time span, formatted as an RFC3339 string.
+	Start string `pulumi:"start"`
+}
+
+// KubernetesClusterMaintenanceWindowNotAllowedInput is an input type that accepts KubernetesClusterMaintenanceWindowNotAllowedArgs and KubernetesClusterMaintenanceWindowNotAllowedOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowNotAllowedInput` via:
+//
+//          KubernetesClusterMaintenanceWindowNotAllowedArgs{...}
+type KubernetesClusterMaintenanceWindowNotAllowedInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowNotAllowedOutput() KubernetesClusterMaintenanceWindowNotAllowedOutput
+	ToKubernetesClusterMaintenanceWindowNotAllowedOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowNotAllowedOutput
+}
+
+type KubernetesClusterMaintenanceWindowNotAllowedArgs struct {
+	// The end of a time span, formatted as an RFC3339 string.
+	End pulumi.StringInput `pulumi:"end"`
+	// The start of a time span, formatted as an RFC3339 string.
+	Start pulumi.StringInput `pulumi:"start"`
+}
+
+func (KubernetesClusterMaintenanceWindowNotAllowedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindowNotAllowed)(nil)).Elem()
+}
+
+func (i KubernetesClusterMaintenanceWindowNotAllowedArgs) ToKubernetesClusterMaintenanceWindowNotAllowedOutput() KubernetesClusterMaintenanceWindowNotAllowedOutput {
+	return i.ToKubernetesClusterMaintenanceWindowNotAllowedOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowNotAllowedArgs) ToKubernetesClusterMaintenanceWindowNotAllowedOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNotAllowedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNotAllowedOutput)
+}
+
+// KubernetesClusterMaintenanceWindowNotAllowedArrayInput is an input type that accepts KubernetesClusterMaintenanceWindowNotAllowedArray and KubernetesClusterMaintenanceWindowNotAllowedArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowNotAllowedArrayInput` via:
+//
+//          KubernetesClusterMaintenanceWindowNotAllowedArray{ KubernetesClusterMaintenanceWindowNotAllowedArgs{...} }
+type KubernetesClusterMaintenanceWindowNotAllowedArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowNotAllowedArrayOutput() KubernetesClusterMaintenanceWindowNotAllowedArrayOutput
+	ToKubernetesClusterMaintenanceWindowNotAllowedArrayOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowNotAllowedArrayOutput
+}
+
+type KubernetesClusterMaintenanceWindowNotAllowedArray []KubernetesClusterMaintenanceWindowNotAllowedInput
+
+func (KubernetesClusterMaintenanceWindowNotAllowedArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterMaintenanceWindowNotAllowed)(nil)).Elem()
+}
+
+func (i KubernetesClusterMaintenanceWindowNotAllowedArray) ToKubernetesClusterMaintenanceWindowNotAllowedArrayOutput() KubernetesClusterMaintenanceWindowNotAllowedArrayOutput {
+	return i.ToKubernetesClusterMaintenanceWindowNotAllowedArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowNotAllowedArray) ToKubernetesClusterMaintenanceWindowNotAllowedArrayOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNotAllowedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNotAllowedArrayOutput)
+}
+
+type KubernetesClusterMaintenanceWindowNotAllowedOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowNotAllowedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindowNotAllowed)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowNotAllowedOutput) ToKubernetesClusterMaintenanceWindowNotAllowedOutput() KubernetesClusterMaintenanceWindowNotAllowedOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNotAllowedOutput) ToKubernetesClusterMaintenanceWindowNotAllowedOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNotAllowedOutput {
+	return o
+}
+
+// The end of a time span, formatted as an RFC3339 string.
+func (o KubernetesClusterMaintenanceWindowNotAllowedOutput) End() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNotAllowed) string { return v.End }).(pulumi.StringOutput)
+}
+
+// The start of a time span, formatted as an RFC3339 string.
+func (o KubernetesClusterMaintenanceWindowNotAllowedOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNotAllowed) string { return v.Start }).(pulumi.StringOutput)
+}
+
+type KubernetesClusterMaintenanceWindowNotAllowedArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowNotAllowedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterMaintenanceWindowNotAllowed)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowNotAllowedArrayOutput) ToKubernetesClusterMaintenanceWindowNotAllowedArrayOutput() KubernetesClusterMaintenanceWindowNotAllowedArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNotAllowedArrayOutput) ToKubernetesClusterMaintenanceWindowNotAllowedArrayOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNotAllowedArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNotAllowedArrayOutput) Index(i pulumi.IntInput) KubernetesClusterMaintenanceWindowNotAllowedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterMaintenanceWindowNotAllowed {
+		return vs[0].([]KubernetesClusterMaintenanceWindowNotAllowed)[vs[1].(int)]
+	}).(KubernetesClusterMaintenanceWindowNotAllowedOutput)
+}
+
 type KubernetesClusterNetworkProfile struct {
 	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
@@ -13532,6 +13898,12 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfileSshKeyOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfileSshKeyPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowAllowedOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowAllowedArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowNotAllowedOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowNotAllowedArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileLoadBalancerProfileOutput{})

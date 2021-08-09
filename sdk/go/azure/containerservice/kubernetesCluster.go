@@ -78,7 +78,7 @@ type KubernetesCluster struct {
 	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfileOutput `pulumi:"autoScalerProfile"`
-	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
 	AutomaticChannelUpgrade pulumi.StringPtrOutput `pulumi:"automaticChannelUpgrade"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
@@ -107,8 +107,12 @@ type KubernetesCluster struct {
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrOutput `pulumi:"linuxProfile"`
+	// Is local account disabled for AAD integrated kubernetes cluster?
+	LocalAccountDisabled pulumi.BoolPtrOutput `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A `maintenanceWindow` block as defined below.
+	MaintenanceWindow KubernetesClusterMaintenanceWindowPtrOutput `pulumi:"maintenanceWindow"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkProfile` block as defined below.
@@ -178,7 +182,7 @@ type kubernetesClusterState struct {
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
-	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
 	AutomaticChannelUpgrade *string `pulumi:"automaticChannelUpgrade"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
@@ -207,8 +211,12 @@ type kubernetesClusterState struct {
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile *KubernetesClusterLinuxProfile `pulumi:"linuxProfile"`
+	// Is local account disabled for AAD integrated kubernetes cluster?
+	LocalAccountDisabled *bool `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `maintenanceWindow` block as defined below.
+	MaintenanceWindow *KubernetesClusterMaintenanceWindow `pulumi:"maintenanceWindow"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
@@ -244,7 +252,7 @@ type KubernetesClusterState struct {
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
-	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
 	AutomaticChannelUpgrade pulumi.StringPtrInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
@@ -273,8 +281,12 @@ type KubernetesClusterState struct {
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrInput
+	// Is local account disabled for AAD integrated kubernetes cluster?
+	LocalAccountDisabled pulumi.BoolPtrInput
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `maintenanceWindow` block as defined below.
+	MaintenanceWindow KubernetesClusterMaintenanceWindowPtrInput
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
@@ -314,7 +326,7 @@ type kubernetesClusterArgs struct {
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
-	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
 	AutomaticChannelUpgrade *string `pulumi:"automaticChannelUpgrade"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
@@ -333,8 +345,12 @@ type kubernetesClusterArgs struct {
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile *KubernetesClusterLinuxProfile `pulumi:"linuxProfile"`
+	// Is local account disabled for AAD integrated kubernetes cluster?
+	LocalAccountDisabled *bool `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `maintenanceWindow` block as defined below.
+	MaintenanceWindow *KubernetesClusterMaintenanceWindow `pulumi:"maintenanceWindow"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
@@ -369,7 +385,7 @@ type KubernetesClusterArgs struct {
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
-	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
 	AutomaticChannelUpgrade pulumi.StringPtrInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolInput
@@ -388,8 +404,12 @@ type KubernetesClusterArgs struct {
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrInput
+	// Is local account disabled for AAD integrated kubernetes cluster?
+	LocalAccountDisabled pulumi.BoolPtrInput
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `maintenanceWindow` block as defined below.
+	MaintenanceWindow KubernetesClusterMaintenanceWindowPtrInput
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.

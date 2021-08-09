@@ -663,9 +663,17 @@ class Registry(pulumi.CustomResource):
             location=rg.location,
             sku="Premium",
             admin_enabled=False,
-            georeplication_locations=[
-                "East US",
-                "West Europe",
+            georeplications=[
+                azure.containerservice.RegistryGeoreplicationArgs(
+                    location="East US",
+                    zone_redundancy_enabled=True,
+                    tags={},
+                ),
+                azure.containerservice.RegistryGeoreplicationArgs(
+                    location="westeurope",
+                    zone_redundancy_enabled=True,
+                    tags={},
+                ),
             ])
         ```
         ### Encryption)
@@ -744,9 +752,17 @@ class Registry(pulumi.CustomResource):
             location=rg.location,
             sku="Premium",
             admin_enabled=False,
-            georeplication_locations=[
-                "East US",
-                "West Europe",
+            georeplications=[
+                azure.containerservice.RegistryGeoreplicationArgs(
+                    location="East US",
+                    zone_redundancy_enabled=True,
+                    tags={},
+                ),
+                azure.containerservice.RegistryGeoreplicationArgs(
+                    location="westeurope",
+                    zone_redundancy_enabled=True,
+                    tags={},
+                ),
             ])
         ```
         ### Encryption)

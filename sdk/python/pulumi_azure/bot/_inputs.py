@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'ChannelDirectLineSiteArgs',
     'ChannelFacebookPageArgs',
+    'ChannelLineLineChannelArgs',
 ]
 
 @pulumi.input_type
@@ -198,5 +199,42 @@ class ChannelFacebookPageArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class ChannelLineLineChannelArgs:
+    def __init__(__self__, *,
+                 access_token: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] access_token: The access token which is used to call the Line Channel API.
+        :param pulumi.Input[str] secret: The secret which is used to access the Line Channel.
+        """
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> pulumi.Input[str]:
+        """
+        The access token which is used to call the Line Channel API.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_token", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The secret which is used to access the Line Channel.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
 
 

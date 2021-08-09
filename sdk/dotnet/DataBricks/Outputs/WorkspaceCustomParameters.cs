@@ -15,6 +15,10 @@ namespace Pulumi.Azure.DataBricks.Outputs
     {
         public readonly string? MachineLearningWorkspaceId;
         /// <summary>
+        /// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? NatGatewayName;
+        /// <summary>
         /// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? NoPublicIp;
@@ -23,31 +27,76 @@ namespace Pulumi.Azure.DataBricks.Outputs
         /// </summary>
         public readonly string? PrivateSubnetName;
         /// <summary>
+        /// The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
+        /// </summary>
+        public readonly string? PrivateSubnetNetworkSecurityGroupAssociationId;
+        /// <summary>
+        /// Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? PublicIpName;
+        /// <summary>
         /// The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PublicSubnetName;
         /// <summary>
+        /// The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
+        /// </summary>
+        public readonly string? PublicSubnetNetworkSecurityGroupAssociationId;
+        /// <summary>
+        /// Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? StorageAccountName;
+        /// <summary>
+        /// Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? StorageAccountSkuName;
+        /// <summary>
         /// The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? VirtualNetworkId;
+        /// <summary>
+        /// Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? VnetAddressPrefix;
 
         [OutputConstructor]
         private WorkspaceCustomParameters(
             string? machineLearningWorkspaceId,
 
+            string? natGatewayName,
+
             bool? noPublicIp,
 
             string? privateSubnetName,
 
+            string? privateSubnetNetworkSecurityGroupAssociationId,
+
+            string? publicIpName,
+
             string? publicSubnetName,
 
-            string? virtualNetworkId)
+            string? publicSubnetNetworkSecurityGroupAssociationId,
+
+            string? storageAccountName,
+
+            string? storageAccountSkuName,
+
+            string? virtualNetworkId,
+
+            string? vnetAddressPrefix)
         {
             MachineLearningWorkspaceId = machineLearningWorkspaceId;
+            NatGatewayName = natGatewayName;
             NoPublicIp = noPublicIp;
             PrivateSubnetName = privateSubnetName;
+            PrivateSubnetNetworkSecurityGroupAssociationId = privateSubnetNetworkSecurityGroupAssociationId;
+            PublicIpName = publicIpName;
             PublicSubnetName = publicSubnetName;
+            PublicSubnetNetworkSecurityGroupAssociationId = publicSubnetNetworkSecurityGroupAssociationId;
+            StorageAccountName = storageAccountName;
+            StorageAccountSkuName = storageAccountSkuName;
             VirtualNetworkId = virtualNetworkId;
+            VnetAddressPrefix = vnetAddressPrefix;
         }
     }
 }

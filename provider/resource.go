@@ -370,6 +370,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_gateway":                     {Tok: azureResource(azureAPIManagement, "Gateway")},
 			"azurerm_api_management_api_release":                 {Tok: azureResource(azureAPIManagement, "ApiRelease")},
 			"azurerm_api_management_gateway_api":                 {Tok: azureResource(azureAPIManagement, "GatewayApi")},
+			"azurerm_api_management_tag":                         {Tok: azureResource(azureAPIManagement, "Tag")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -625,7 +626,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_portal_tenant_configuration":        {Tok: azureResource(azureCore, "PortalTenantConfiguration")},
 
 			// CDN
-			"azurerm_cdn_endpoint": {Tok: azureResource(azureCDN, "Endpoint")},
+			"azurerm_cdn_endpoint":               {Tok: azureResource(azureCDN, "Endpoint")},
+			"azurerm_cdn_endpoint_custom_domain": {Tok: azureResource(azureCDN, "EndpointCustomDomain")},
 			"azurerm_cdn_profile": {
 				Tok: azureResource(azureCDN, "Profile"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -817,6 +819,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_managed_private_endpoint":        {Tok: azureResource(azureDataFactory, "ManagedPrivateEndpoint")},
 			"azurerm_data_factory_trigger_custom_event":            {Tok: azureResource(azureDataFactory, "TriggerCustomEvent")},
 			"azurerm_data_factory_trigger_tumbling_window":         {Tok: azureResource(azureDataFactory, "TriggerTumblingWindow")},
+			"azurerm_data_factory_data_flow":                       {Tok: azureResource(azureDataFactory, "DataFlow")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":          {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -1218,6 +1221,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_postgresql_flexible_server_configuration": {
 				Tok: azureResource(azurePostgresql, "FlexibleServerConfiguration"),
+			},
+			"azurerm_postgresql_flexible_server_database": {
+				Tok: azureResource(azurePostgresql, "FlexibleServerDatabase"),
 			},
 
 			// Policy
@@ -1711,6 +1717,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_bot_channel_direct_line_speech": {Tok: azureResource(azureBot, "ChannelDirectLineSpeech")},
 			"azurerm_bot_channel_facebook":           {Tok: azureResource(azureBot, "ChannelFacebook")},
 			"azurerm_bot_channel_sms":                {Tok: azureResource(azureBot, "ChannelSms")},
+			"azurerm_bot_channel_line":               {Tok: azureResource(azureBot, "ChannelLine")},
 
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
@@ -2184,23 +2191,26 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_configuration": {
 				Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore"),
 			},
-			"azurerm_servicebus_subscription":          {Tok: azureDataSource(azureServiceBus, "getSubscription")},
-			"azurerm_machine_learning_workspace":       {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
-			"azurerm_managed_application_definition":   {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
-			"azurerm_spring_cloud_service":             {Tok: azureDataSource(azureAppPlatform, "getSpringCloudService")},
-			"azurerm_spring_cloud_app":                 {Tok: azureDataSource(azureAppPlatform, "getSpringCloudApp")},
-			"azurerm_private_dns_zone":                 {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
-			"azurerm_sentinel_alert_rule":              {Tok: azureDataSource(azureSentinel, "getAlertRule")},
-			"azurerm_sentinel_alert_rule_template":     {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
-			"azurerm_maintenance_configuration":        {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
-			"azurerm_advisor_recommendations":          {Tok: azureDataSource(advisor, "getRecommendations")},
-			"azurerm_active_directory_domain_service":  {Tok: azureDataSource(azureDomainServices, "getService")},
-			"azurerm_blueprint_definition":             {Tok: azureDataSource(azureBlueprint, "getDefinition")},
-			"azurerm_blueprint_published_version":      {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
-			"azurerm_web_application_firewall_policy":  {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},
-			"azurerm_synapse_workspace":                {Tok: azureDataSource(azureSynapse, "getWorkspace")},
-			"azurerm_attestation_provider":             {Tok: azureDataSource(azureAttestation, "getProvider")},
-			"azurerm_databricks_workspace":             {Tok: azureDataSource(azureDataBricks, "getWorkspace")},
+			"azurerm_servicebus_subscription":         {Tok: azureDataSource(azureServiceBus, "getSubscription")},
+			"azurerm_machine_learning_workspace":      {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
+			"azurerm_managed_application_definition":  {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
+			"azurerm_spring_cloud_service":            {Tok: azureDataSource(azureAppPlatform, "getSpringCloudService")},
+			"azurerm_spring_cloud_app":                {Tok: azureDataSource(azureAppPlatform, "getSpringCloudApp")},
+			"azurerm_private_dns_zone":                {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
+			"azurerm_sentinel_alert_rule":             {Tok: azureDataSource(azureSentinel, "getAlertRule")},
+			"azurerm_sentinel_alert_rule_template":    {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
+			"azurerm_maintenance_configuration":       {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
+			"azurerm_advisor_recommendations":         {Tok: azureDataSource(advisor, "getRecommendations")},
+			"azurerm_active_directory_domain_service": {Tok: azureDataSource(azureDomainServices, "getService")},
+			"azurerm_blueprint_definition":            {Tok: azureDataSource(azureBlueprint, "getDefinition")},
+			"azurerm_blueprint_published_version":     {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
+			"azurerm_web_application_firewall_policy": {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},
+			"azurerm_synapse_workspace":               {Tok: azureDataSource(azureSynapse, "getWorkspace")},
+			"azurerm_attestation_provider":            {Tok: azureDataSource(azureAttestation, "getProvider")},
+			"azurerm_databricks_workspace":            {Tok: azureDataSource(azureDataBricks, "getWorkspace")},
+			"azurerm_databricks_workspace_private_endpoint_connection": {
+				Tok: azureDataSource(azureDataBricks, "getWorkspacePrivateEndpointConnection"),
+			},
 			"azurerm_mysql_server":                     {Tok: azureDataSource(azureMySQL, "getServer")},
 			"azurerm_cognitive_account":                {Tok: azureDataSource(azureCognitive, "getAccount")},
 			"azurerm_digital_twins_instance":           {Tok: azureDataSource(azureDigitalTwins, "getInstance")},

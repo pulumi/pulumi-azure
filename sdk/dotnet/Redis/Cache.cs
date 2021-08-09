@@ -170,10 +170,22 @@ namespace Pulumi.Azure.Redis
         public Output<Outputs.CacheRedisConfiguration> RedisConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Redis version. Only major version needed. Valid values: `4`, `6`.
+        /// </summary>
+        [Output("redisVersion")]
+        public Output<string> RedisVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Amount of replicas to create per master for this Redis Cache.
         /// </summary>
         [Output("replicasPerMaster")]
-        public Output<int?> ReplicasPerMaster { get; private set; } = null!;
+        public Output<int> ReplicasPerMaster { get; private set; } = null!;
+
+        /// <summary>
+        /// Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+        /// </summary>
+        [Output("replicasPerPrimary")]
+        public Output<int> ReplicasPerPrimary { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to
@@ -223,6 +235,12 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A mapping of tenant settings to assign to the resource.
+        /// </summary>
+        [Output("tenantSettings")]
+        public Output<ImmutableDictionary<string, string>?> TenantSettings { get; private set; } = null!;
 
         /// <summary>
         /// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
@@ -344,10 +362,22 @@ namespace Pulumi.Azure.Redis
         public Input<Inputs.CacheRedisConfigurationArgs>? RedisConfiguration { get; set; }
 
         /// <summary>
+        /// Redis version. Only major version needed. Valid values: `4`, `6`.
+        /// </summary>
+        [Input("redisVersion")]
+        public Input<string>? RedisVersion { get; set; }
+
+        /// <summary>
         /// Amount of replicas to create per master for this Redis Cache.
         /// </summary>
         [Input("replicasPerMaster")]
         public Input<int>? ReplicasPerMaster { get; set; }
+
+        /// <summary>
+        /// Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+        /// </summary>
+        [Input("replicasPerPrimary")]
+        public Input<int>? ReplicasPerPrimary { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to
@@ -384,6 +414,18 @@ namespace Pulumi.Azure.Redis
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tenantSettings")]
+        private InputMap<string>? _tenantSettings;
+
+        /// <summary>
+        /// A mapping of tenant settings to assign to the resource.
+        /// </summary>
+        public InputMap<string> TenantSettings
+        {
+            get => _tenantSettings ?? (_tenantSettings = new InputMap<string>());
+            set => _tenantSettings = value;
         }
 
         [Input("zones")]
@@ -497,10 +539,22 @@ namespace Pulumi.Azure.Redis
         public Input<Inputs.CacheRedisConfigurationGetArgs>? RedisConfiguration { get; set; }
 
         /// <summary>
+        /// Redis version. Only major version needed. Valid values: `4`, `6`.
+        /// </summary>
+        [Input("redisVersion")]
+        public Input<string>? RedisVersion { get; set; }
+
+        /// <summary>
         /// Amount of replicas to create per master for this Redis Cache.
         /// </summary>
         [Input("replicasPerMaster")]
         public Input<int>? ReplicasPerMaster { get; set; }
+
+        /// <summary>
+        /// Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+        /// </summary>
+        [Input("replicasPerPrimary")]
+        public Input<int>? ReplicasPerPrimary { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to
@@ -555,6 +609,18 @@ namespace Pulumi.Azure.Redis
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tenantSettings")]
+        private InputMap<string>? _tenantSettings;
+
+        /// <summary>
+        /// A mapping of tenant settings to assign to the resource.
+        /// </summary>
+        public InputMap<string> TenantSettings
+        {
+            get => _tenantSettings ?? (_tenantSettings = new InputMap<string>());
+            set => _tenantSettings = value;
         }
 
         [Input("zones")]

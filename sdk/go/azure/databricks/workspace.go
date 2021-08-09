@@ -27,14 +27,22 @@ type Workspace struct {
 	CustomerManagedKeyEnabled pulumi.BoolPtrOutput `pulumi:"customerManagedKeyEnabled"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
+	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+	LoadBalancerBackendAddressPoolId pulumi.StringPtrOutput `pulumi:"loadBalancerBackendAddressPoolId"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID of the Managed Resource Group created by the Databricks Workspace.
 	ManagedResourceGroupId pulumi.StringOutput `pulumi:"managedResourceGroupId"`
 	// The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
 	ManagedResourceGroupName pulumi.StringOutput `pulumi:"managedResourceGroupName"`
+	// Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+	ManagedServicesCmkKeyVaultKeyId pulumi.StringPtrOutput `pulumi:"managedServicesCmkKeyVaultKeyId"`
 	// Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`. Changing this forces a new resource to be created.
+	NetworkSecurityGroupRulesRequired pulumi.StringOutput `pulumi:"networkSecurityGroupRulesRequired"`
+	// Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
@@ -90,14 +98,22 @@ type workspaceState struct {
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
+	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+	LoadBalancerBackendAddressPoolId *string `pulumi:"loadBalancerBackendAddressPoolId"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The ID of the Managed Resource Group created by the Databricks Workspace.
 	ManagedResourceGroupId *string `pulumi:"managedResourceGroupId"`
 	// The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
+	// Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+	ManagedServicesCmkKeyVaultKeyId *string `pulumi:"managedServicesCmkKeyVaultKeyId"`
 	// Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`. Changing this forces a new resource to be created.
+	NetworkSecurityGroupRulesRequired *string `pulumi:"networkSecurityGroupRulesRequired"`
+	// Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
@@ -119,14 +135,22 @@ type WorkspaceState struct {
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
+	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+	LoadBalancerBackendAddressPoolId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The ID of the Managed Resource Group created by the Databricks Workspace.
 	ManagedResourceGroupId pulumi.StringPtrInput
 	// The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
 	ManagedResourceGroupName pulumi.StringPtrInput
+	// Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+	ManagedServicesCmkKeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`. Changing this forces a new resource to be created.
+	NetworkSecurityGroupRulesRequired pulumi.StringPtrInput
+	// Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
@@ -152,12 +176,20 @@ type workspaceArgs struct {
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
+	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+	LoadBalancerBackendAddressPoolId *string `pulumi:"loadBalancerBackendAddressPoolId"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
+	// Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+	ManagedServicesCmkKeyVaultKeyId *string `pulumi:"managedServicesCmkKeyVaultKeyId"`
 	// Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`. Changing this forces a new resource to be created.
+	NetworkSecurityGroupRulesRequired *string `pulumi:"networkSecurityGroupRulesRequired"`
+	// Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
@@ -174,12 +206,20 @@ type WorkspaceArgs struct {
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
+	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+	LoadBalancerBackendAddressPoolId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
 	ManagedResourceGroupName pulumi.StringPtrInput
+	// Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+	ManagedServicesCmkKeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`. Changing this forces a new resource to be created.
+	NetworkSecurityGroupRulesRequired pulumi.StringPtrInput
+	// Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.

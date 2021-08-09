@@ -105,6 +105,10 @@ export class Workflow extends pulumi.CustomResource {
      */
     public /*out*/ readonly workflowOutboundIpAddresses!: pulumi.Output<string[]>;
     /**
+     * Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+     */
+    public readonly workflowParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
      */
     public readonly workflowSchema!: pulumi.Output<string | undefined>;
@@ -138,6 +142,7 @@ export class Workflow extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["workflowEndpointIpAddresses"] = state ? state.workflowEndpointIpAddresses : undefined;
             inputs["workflowOutboundIpAddresses"] = state ? state.workflowOutboundIpAddresses : undefined;
+            inputs["workflowParameters"] = state ? state.workflowParameters : undefined;
             inputs["workflowSchema"] = state ? state.workflowSchema : undefined;
             inputs["workflowVersion"] = state ? state.workflowVersion : undefined;
         } else {
@@ -152,6 +157,7 @@ export class Workflow extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["workflowParameters"] = args ? args.workflowParameters : undefined;
             inputs["workflowSchema"] = args ? args.workflowSchema : undefined;
             inputs["workflowVersion"] = args ? args.workflowVersion : undefined;
             inputs["accessEndpoint"] = undefined /*out*/;
@@ -220,6 +226,10 @@ export interface WorkflowState {
      */
     workflowOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+     */
+    workflowParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
      */
     workflowSchema?: pulumi.Input<string>;
@@ -261,6 +271,10 @@ export interface WorkflowArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+     */
+    workflowParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
      */

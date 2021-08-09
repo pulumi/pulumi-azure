@@ -46,6 +46,50 @@ import (
 // 	})
 // }
 // ```
+// ### Workspace Mode
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/operationalinsights"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("PerGB2018"),
+// 			RetentionInDays:   pulumi.Int(30),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			WorkspaceId:       exampleAnalyticsWorkspace.ID(),
+// 			ApplicationType:   pulumi.String("web"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("instrumentationKey", exampleInsights.InstrumentationKey)
+// 		ctx.Export("appId", exampleInsights.AppId)
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -85,6 +129,8 @@ type Insights struct {
 	SamplingPercentage pulumi.Float64PtrOutput `pulumi:"samplingPercentage"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies the id of a log analytics workspace resource
+	WorkspaceId pulumi.StringPtrOutput `pulumi:"workspaceId"`
 }
 
 // NewInsights registers a new resource with the given unique name, arguments, and options.
@@ -150,6 +196,8 @@ type insightsState struct {
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the id of a log analytics workspace resource
+	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type InsightsState struct {
@@ -181,6 +229,8 @@ type InsightsState struct {
 	SamplingPercentage pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Specifies the id of a log analytics workspace resource
+	WorkspaceId pulumi.StringPtrInput
 }
 
 func (InsightsState) ElementType() reflect.Type {
@@ -210,6 +260,8 @@ type insightsArgs struct {
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the id of a log analytics workspace resource
+	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a Insights resource.
@@ -236,6 +288,8 @@ type InsightsArgs struct {
 	SamplingPercentage pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Specifies the id of a log analytics workspace resource
+	WorkspaceId pulumi.StringPtrInput
 }
 
 func (InsightsArgs) ElementType() reflect.Type {

@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .custom_dataset import *
+from .data_flow import *
 from .dataset_azure_blob import *
 from .dataset_binary import *
 from .dataset_cosmos_db_api import *
