@@ -75,9 +75,15 @@ namespace Pulumi.Azure.AppService
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// </summary>
         [Output("skuSize")]
         public Output<string?> SkuSize { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// </summary>
         [Output("skuTier")]
         public Output<string?> SkuTier { get; private set; } = null!;
 
@@ -151,9 +157,15 @@ namespace Pulumi.Azure.AppService
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// </summary>
         [Input("skuSize")]
         public Input<string>? SkuSize { get; set; }
 
+        /// <summary>
+        /// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
 
@@ -206,9 +218,15 @@ namespace Pulumi.Azure.AppService
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// </summary>
         [Input("skuSize")]
         public Input<string>? SkuSize { get; set; }
 
+        /// <summary>
+        /// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
 

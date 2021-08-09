@@ -12,14 +12,28 @@ import (
 
 type WorkspaceCustomParameters struct {
 	MachineLearningWorkspaceId *string `pulumi:"machineLearningWorkspaceId"`
+	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+	NatGatewayName *string `pulumi:"natGatewayName"`
 	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	NoPublicIp *bool `pulumi:"noPublicIp"`
 	// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PrivateSubnetName *string `pulumi:"privateSubnetName"`
+	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
+	PrivateSubnetNetworkSecurityGroupAssociationId *string `pulumi:"privateSubnetNetworkSecurityGroupAssociationId"`
+	// Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+	PublicIpName *string `pulumi:"publicIpName"`
 	// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PublicSubnetName *string `pulumi:"publicSubnetName"`
+	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
+	PublicSubnetNetworkSecurityGroupAssociationId *string `pulumi:"publicSubnetNetworkSecurityGroupAssociationId"`
+	// Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
+	StorageAccountName *string `pulumi:"storageAccountName"`
+	// Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+	StorageAccountSkuName *string `pulumi:"storageAccountSkuName"`
 	// The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	// Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
+	VnetAddressPrefix *string `pulumi:"vnetAddressPrefix"`
 }
 
 // WorkspaceCustomParametersInput is an input type that accepts WorkspaceCustomParametersArgs and WorkspaceCustomParametersOutput values.
@@ -35,14 +49,28 @@ type WorkspaceCustomParametersInput interface {
 
 type WorkspaceCustomParametersArgs struct {
 	MachineLearningWorkspaceId pulumi.StringPtrInput `pulumi:"machineLearningWorkspaceId"`
+	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+	NatGatewayName pulumi.StringPtrInput `pulumi:"natGatewayName"`
 	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	NoPublicIp pulumi.BoolPtrInput `pulumi:"noPublicIp"`
 	// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PrivateSubnetName pulumi.StringPtrInput `pulumi:"privateSubnetName"`
+	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
+	PrivateSubnetNetworkSecurityGroupAssociationId pulumi.StringPtrInput `pulumi:"privateSubnetNetworkSecurityGroupAssociationId"`
+	// Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+	PublicIpName pulumi.StringPtrInput `pulumi:"publicIpName"`
 	// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PublicSubnetName pulumi.StringPtrInput `pulumi:"publicSubnetName"`
+	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
+	PublicSubnetNetworkSecurityGroupAssociationId pulumi.StringPtrInput `pulumi:"publicSubnetNetworkSecurityGroupAssociationId"`
+	// Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
+	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+	// Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+	StorageAccountSkuName pulumi.StringPtrInput `pulumi:"storageAccountSkuName"`
 	// The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
+	// Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
+	VnetAddressPrefix pulumi.StringPtrInput `pulumi:"vnetAddressPrefix"`
 }
 
 func (WorkspaceCustomParametersArgs) ElementType() reflect.Type {
@@ -125,6 +153,11 @@ func (o WorkspaceCustomParametersOutput) MachineLearningWorkspaceId() pulumi.Str
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.MachineLearningWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
+// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+func (o WorkspaceCustomParametersOutput) NatGatewayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.NatGatewayName }).(pulumi.StringPtrOutput)
+}
+
 // Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersOutput) NoPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *bool { return v.NoPublicIp }).(pulumi.BoolPtrOutput)
@@ -135,14 +168,44 @@ func (o WorkspaceCustomParametersOutput) PrivateSubnetName() pulumi.StringPtrOut
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PrivateSubnetName }).(pulumi.StringPtrOutput)
 }
 
+// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
+func (o WorkspaceCustomParametersOutput) PrivateSubnetNetworkSecurityGroupAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PrivateSubnetNetworkSecurityGroupAssociationId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+func (o WorkspaceCustomParametersOutput) PublicIpName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PublicIpName }).(pulumi.StringPtrOutput)
+}
+
 // The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersOutput) PublicSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PublicSubnetName }).(pulumi.StringPtrOutput)
 }
 
+// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
+func (o WorkspaceCustomParametersOutput) PublicSubnetNetworkSecurityGroupAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PublicSubnetNetworkSecurityGroupAssociationId }).(pulumi.StringPtrOutput)
+}
+
+// Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
+func (o WorkspaceCustomParametersOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+// Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+func (o WorkspaceCustomParametersOutput) StorageAccountSkuName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.StorageAccountSkuName }).(pulumi.StringPtrOutput)
+}
+
 // The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersOutput) VirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+}
+
+// Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
+func (o WorkspaceCustomParametersOutput) VnetAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.VnetAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
 type WorkspaceCustomParametersPtrOutput struct{ *pulumi.OutputState }
@@ -172,6 +235,16 @@ func (o WorkspaceCustomParametersPtrOutput) MachineLearningWorkspaceId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+func (o WorkspaceCustomParametersPtrOutput) NatGatewayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NatGatewayName
+	}).(pulumi.StringPtrOutput)
+}
+
 // Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersPtrOutput) NoPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *bool {
@@ -192,6 +265,26 @@ func (o WorkspaceCustomParametersPtrOutput) PrivateSubnetName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
+func (o WorkspaceCustomParametersPtrOutput) PrivateSubnetNetworkSecurityGroupAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateSubnetNetworkSecurityGroupAssociationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+func (o WorkspaceCustomParametersPtrOutput) PublicIpName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersPtrOutput) PublicSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
@@ -202,6 +295,36 @@ func (o WorkspaceCustomParametersPtrOutput) PublicSubnetName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
+func (o WorkspaceCustomParametersPtrOutput) PublicSubnetNetworkSecurityGroupAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicSubnetNetworkSecurityGroupAssociationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
+func (o WorkspaceCustomParametersPtrOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+func (o WorkspaceCustomParametersPtrOutput) StorageAccountSkuName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountSkuName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersPtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
@@ -209,6 +332,16 @@ func (o WorkspaceCustomParametersPtrOutput) VirtualNetworkId() pulumi.StringPtrO
 			return nil
 		}
 		return v.VirtualNetworkId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
+func (o WorkspaceCustomParametersPtrOutput) VnetAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VnetAddressPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -327,9 +460,144 @@ func (o WorkspaceStorageAccountIdentityArrayOutput) Index(i pulumi.IntInput) Wor
 	}).(WorkspaceStorageAccountIdentityOutput)
 }
 
+type GetWorkspacePrivateEndpointConnectionConnection struct {
+	// Actions required for a private endpoint connection.
+	ActionRequired string `pulumi:"actionRequired"`
+	// The description for the current state of a private endpoint connection.
+	Description string `pulumi:"description"`
+	// The name of the Databricks Workspace.
+	Name string `pulumi:"name"`
+	// The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+	Status string `pulumi:"status"`
+	// The Databricks Workspace resource ID for the private link endpoint.
+	WorkspacePrivateEndpointId string `pulumi:"workspacePrivateEndpointId"`
+}
+
+// GetWorkspacePrivateEndpointConnectionConnectionInput is an input type that accepts GetWorkspacePrivateEndpointConnectionConnectionArgs and GetWorkspacePrivateEndpointConnectionConnectionOutput values.
+// You can construct a concrete instance of `GetWorkspacePrivateEndpointConnectionConnectionInput` via:
+//
+//          GetWorkspacePrivateEndpointConnectionConnectionArgs{...}
+type GetWorkspacePrivateEndpointConnectionConnectionInput interface {
+	pulumi.Input
+
+	ToGetWorkspacePrivateEndpointConnectionConnectionOutput() GetWorkspacePrivateEndpointConnectionConnectionOutput
+	ToGetWorkspacePrivateEndpointConnectionConnectionOutputWithContext(context.Context) GetWorkspacePrivateEndpointConnectionConnectionOutput
+}
+
+type GetWorkspacePrivateEndpointConnectionConnectionArgs struct {
+	// Actions required for a private endpoint connection.
+	ActionRequired pulumi.StringInput `pulumi:"actionRequired"`
+	// The description for the current state of a private endpoint connection.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The name of the Databricks Workspace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+	Status pulumi.StringInput `pulumi:"status"`
+	// The Databricks Workspace resource ID for the private link endpoint.
+	WorkspacePrivateEndpointId pulumi.StringInput `pulumi:"workspacePrivateEndpointId"`
+}
+
+func (GetWorkspacePrivateEndpointConnectionConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionConnection)(nil)).Elem()
+}
+
+func (i GetWorkspacePrivateEndpointConnectionConnectionArgs) ToGetWorkspacePrivateEndpointConnectionConnectionOutput() GetWorkspacePrivateEndpointConnectionConnectionOutput {
+	return i.ToGetWorkspacePrivateEndpointConnectionConnectionOutputWithContext(context.Background())
+}
+
+func (i GetWorkspacePrivateEndpointConnectionConnectionArgs) ToGetWorkspacePrivateEndpointConnectionConnectionOutputWithContext(ctx context.Context) GetWorkspacePrivateEndpointConnectionConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspacePrivateEndpointConnectionConnectionOutput)
+}
+
+// GetWorkspacePrivateEndpointConnectionConnectionArrayInput is an input type that accepts GetWorkspacePrivateEndpointConnectionConnectionArray and GetWorkspacePrivateEndpointConnectionConnectionArrayOutput values.
+// You can construct a concrete instance of `GetWorkspacePrivateEndpointConnectionConnectionArrayInput` via:
+//
+//          GetWorkspacePrivateEndpointConnectionConnectionArray{ GetWorkspacePrivateEndpointConnectionConnectionArgs{...} }
+type GetWorkspacePrivateEndpointConnectionConnectionArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkspacePrivateEndpointConnectionConnectionArrayOutput() GetWorkspacePrivateEndpointConnectionConnectionArrayOutput
+	ToGetWorkspacePrivateEndpointConnectionConnectionArrayOutputWithContext(context.Context) GetWorkspacePrivateEndpointConnectionConnectionArrayOutput
+}
+
+type GetWorkspacePrivateEndpointConnectionConnectionArray []GetWorkspacePrivateEndpointConnectionConnectionInput
+
+func (GetWorkspacePrivateEndpointConnectionConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspacePrivateEndpointConnectionConnection)(nil)).Elem()
+}
+
+func (i GetWorkspacePrivateEndpointConnectionConnectionArray) ToGetWorkspacePrivateEndpointConnectionConnectionArrayOutput() GetWorkspacePrivateEndpointConnectionConnectionArrayOutput {
+	return i.ToGetWorkspacePrivateEndpointConnectionConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkspacePrivateEndpointConnectionConnectionArray) ToGetWorkspacePrivateEndpointConnectionConnectionArrayOutputWithContext(ctx context.Context) GetWorkspacePrivateEndpointConnectionConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspacePrivateEndpointConnectionConnectionArrayOutput)
+}
+
+type GetWorkspacePrivateEndpointConnectionConnectionOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspacePrivateEndpointConnectionConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionConnection)(nil)).Elem()
+}
+
+func (o GetWorkspacePrivateEndpointConnectionConnectionOutput) ToGetWorkspacePrivateEndpointConnectionConnectionOutput() GetWorkspacePrivateEndpointConnectionConnectionOutput {
+	return o
+}
+
+func (o GetWorkspacePrivateEndpointConnectionConnectionOutput) ToGetWorkspacePrivateEndpointConnectionConnectionOutputWithContext(ctx context.Context) GetWorkspacePrivateEndpointConnectionConnectionOutput {
+	return o
+}
+
+// Actions required for a private endpoint connection.
+func (o GetWorkspacePrivateEndpointConnectionConnectionOutput) ActionRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspacePrivateEndpointConnectionConnection) string { return v.ActionRequired }).(pulumi.StringOutput)
+}
+
+// The description for the current state of a private endpoint connection.
+func (o GetWorkspacePrivateEndpointConnectionConnectionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspacePrivateEndpointConnectionConnection) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The name of the Databricks Workspace.
+func (o GetWorkspacePrivateEndpointConnectionConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspacePrivateEndpointConnectionConnection) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+func (o GetWorkspacePrivateEndpointConnectionConnectionOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspacePrivateEndpointConnectionConnection) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The Databricks Workspace resource ID for the private link endpoint.
+func (o GetWorkspacePrivateEndpointConnectionConnectionOutput) WorkspacePrivateEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspacePrivateEndpointConnectionConnection) string { return v.WorkspacePrivateEndpointId }).(pulumi.StringOutput)
+}
+
+type GetWorkspacePrivateEndpointConnectionConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspacePrivateEndpointConnectionConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspacePrivateEndpointConnectionConnection)(nil)).Elem()
+}
+
+func (o GetWorkspacePrivateEndpointConnectionConnectionArrayOutput) ToGetWorkspacePrivateEndpointConnectionConnectionArrayOutput() GetWorkspacePrivateEndpointConnectionConnectionArrayOutput {
+	return o
+}
+
+func (o GetWorkspacePrivateEndpointConnectionConnectionArrayOutput) ToGetWorkspacePrivateEndpointConnectionConnectionArrayOutputWithContext(ctx context.Context) GetWorkspacePrivateEndpointConnectionConnectionArrayOutput {
+	return o
+}
+
+func (o GetWorkspacePrivateEndpointConnectionConnectionArrayOutput) Index(i pulumi.IntInput) GetWorkspacePrivateEndpointConnectionConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkspacePrivateEndpointConnectionConnection {
+		return vs[0].([]GetWorkspacePrivateEndpointConnectionConnection)[vs[1].(int)]
+	}).(GetWorkspacePrivateEndpointConnectionConnectionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceCustomParametersOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetWorkspacePrivateEndpointConnectionConnectionOutput{})
+	pulumi.RegisterOutputType(GetWorkspacePrivateEndpointConnectionConnectionArrayOutput{})
 }

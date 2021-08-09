@@ -1216,7 +1216,11 @@ class AppServiceSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "alwaysOn":
+        if key == "acrUseManagedIdentityCredentials":
+            suggest = "acr_use_managed_identity_credentials"
+        elif key == "acrUserManagedIdentityClientId":
+            suggest = "acr_user_managed_identity_client_id"
+        elif key == "alwaysOn":
             suggest = "always_on"
         elif key == "appCommandLine":
             suggest = "app_command_line"
@@ -1283,6 +1287,8 @@ class AppServiceSiteConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 acr_use_managed_identity_credentials: Optional[bool] = None,
+                 acr_user_managed_identity_client_id: Optional[str] = None,
                  always_on: Optional[bool] = None,
                  app_command_line: Optional[str] = None,
                  auto_swap_slot_name: Optional[str] = None,
@@ -1312,11 +1318,13 @@ class AppServiceSiteConfig(dict):
                  websockets_enabled: Optional[bool] = None,
                  windows_fx_version: Optional[str] = None):
         """
+        :param bool acr_use_managed_identity_credentials: Are Managed Identity Credentials used for Azure Container Registry pull
+        :param str acr_user_managed_identity_client_id: If using User Managed Identity, the User Managed Identity Client Id
         :param bool always_on: Should the app be loaded at all times? Defaults to `false`.
         :param str app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
         :param 'AppServiceSiteConfigCorsArgs' cors: A `cors` block as defined below.
         :param Sequence[str] default_documents: The ordering of default documents to load, if an address isn't specified.
-        :param str dotnet_framework_version: The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        :param str dotnet_framework_version: The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param str ftps_state: State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param str health_check_path: The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
@@ -1340,6 +1348,10 @@ class AppServiceSiteConfig(dict):
         :param bool websockets_enabled: Should WebSockets be enabled?
         :param str windows_fx_version: The Windows Docker container image (`DOCKER|<user/image:tag>`)
         """
+        if acr_use_managed_identity_credentials is not None:
+            pulumi.set(__self__, "acr_use_managed_identity_credentials", acr_use_managed_identity_credentials)
+        if acr_user_managed_identity_client_id is not None:
+            pulumi.set(__self__, "acr_user_managed_identity_client_id", acr_user_managed_identity_client_id)
         if always_on is not None:
             pulumi.set(__self__, "always_on", always_on)
         if app_command_line is not None:
@@ -1398,6 +1410,22 @@ class AppServiceSiteConfig(dict):
             pulumi.set(__self__, "windows_fx_version", windows_fx_version)
 
     @property
+    @pulumi.getter(name="acrUseManagedIdentityCredentials")
+    def acr_use_managed_identity_credentials(self) -> Optional[bool]:
+        """
+        Are Managed Identity Credentials used for Azure Container Registry pull
+        """
+        return pulumi.get(self, "acr_use_managed_identity_credentials")
+
+    @property
+    @pulumi.getter(name="acrUserManagedIdentityClientId")
+    def acr_user_managed_identity_client_id(self) -> Optional[str]:
+        """
+        If using User Managed Identity, the User Managed Identity Client Id
+        """
+        return pulumi.get(self, "acr_user_managed_identity_client_id")
+
+    @property
     @pulumi.getter(name="alwaysOn")
     def always_on(self) -> Optional[bool]:
         """
@@ -1438,7 +1466,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[str]:
         """
-        The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -3016,8 +3044,12 @@ class FunctionAppSiteConfig(dict):
         suggest = None
         if key == "alwaysOn":
             suggest = "always_on"
+        elif key == "appScaleLimit":
+            suggest = "app_scale_limit"
         elif key == "autoSwapSlotName":
             suggest = "auto_swap_slot_name"
+        elif key == "elasticInstanceMinimum":
+            suggest = "elastic_instance_minimum"
         elif key == "ftpsState":
             suggest = "ftps_state"
         elif key == "healthCheckPath":
@@ -3034,6 +3066,8 @@ class FunctionAppSiteConfig(dict):
             suggest = "min_tls_version"
         elif key == "preWarmedInstanceCount":
             suggest = "pre_warmed_instance_count"
+        elif key == "runtimeScaleMonitoringEnabled":
+            suggest = "runtime_scale_monitoring_enabled"
         elif key == "scmIpRestrictions":
             suggest = "scm_ip_restrictions"
         elif key == "scmType":
@@ -3058,8 +3092,10 @@ class FunctionAppSiteConfig(dict):
 
     def __init__(__self__, *,
                  always_on: Optional[bool] = None,
+                 app_scale_limit: Optional[int] = None,
                  auto_swap_slot_name: Optional[str] = None,
                  cors: Optional['outputs.FunctionAppSiteConfigCors'] = None,
+                 elastic_instance_minimum: Optional[int] = None,
                  ftps_state: Optional[str] = None,
                  health_check_path: Optional[str] = None,
                  http2_enabled: Optional[bool] = None,
@@ -3068,6 +3104,7 @@ class FunctionAppSiteConfig(dict):
                  linux_fx_version: Optional[str] = None,
                  min_tls_version: Optional[str] = None,
                  pre_warmed_instance_count: Optional[int] = None,
+                 runtime_scale_monitoring_enabled: Optional[bool] = None,
                  scm_ip_restrictions: Optional[Sequence['outputs.FunctionAppSiteConfigScmIpRestriction']] = None,
                  scm_type: Optional[str] = None,
                  scm_use_main_ip_restriction: Optional[bool] = None,
@@ -3075,7 +3112,9 @@ class FunctionAppSiteConfig(dict):
                  websockets_enabled: Optional[bool] = None):
         """
         :param bool always_on: Should the Function App be loaded at all times? Defaults to `false`.
+        :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param 'FunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined below.
+        :param int elastic_instance_minimum: The number of minimum instances for this function app. Only affects apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param str health_check_path: Path which will be checked for this function app health.
         :param bool http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
@@ -3084,6 +3123,7 @@ class FunctionAppSiteConfig(dict):
         :param str linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param str min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+        :param bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         :param Sequence['FunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         :param str scm_type: The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
@@ -3092,10 +3132,14 @@ class FunctionAppSiteConfig(dict):
         """
         if always_on is not None:
             pulumi.set(__self__, "always_on", always_on)
+        if app_scale_limit is not None:
+            pulumi.set(__self__, "app_scale_limit", app_scale_limit)
         if auto_swap_slot_name is not None:
             pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
+        if elastic_instance_minimum is not None:
+            pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
         if ftps_state is not None:
             pulumi.set(__self__, "ftps_state", ftps_state)
         if health_check_path is not None:
@@ -3112,6 +3156,8 @@ class FunctionAppSiteConfig(dict):
             pulumi.set(__self__, "min_tls_version", min_tls_version)
         if pre_warmed_instance_count is not None:
             pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        if runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
         if scm_ip_restrictions is not None:
             pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         if scm_type is not None:
@@ -3132,6 +3178,14 @@ class FunctionAppSiteConfig(dict):
         return pulumi.get(self, "always_on")
 
     @property
+    @pulumi.getter(name="appScaleLimit")
+    def app_scale_limit(self) -> Optional[int]:
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        return pulumi.get(self, "app_scale_limit")
+
+    @property
     @pulumi.getter(name="autoSwapSlotName")
     def auto_swap_slot_name(self) -> Optional[str]:
         return pulumi.get(self, "auto_swap_slot_name")
@@ -3143,6 +3197,14 @@ class FunctionAppSiteConfig(dict):
         A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="elasticInstanceMinimum")
+    def elastic_instance_minimum(self) -> Optional[int]:
+        """
+        The number of minimum instances for this function app. Only affects apps on the Premium plan.
+        """
+        return pulumi.get(self, "elastic_instance_minimum")
 
     @property
     @pulumi.getter(name="ftpsState")
@@ -3207,6 +3269,14 @@ class FunctionAppSiteConfig(dict):
         The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         """
         return pulumi.get(self, "pre_warmed_instance_count")
+
+    @property
+    @pulumi.getter(name="runtimeScaleMonitoringEnabled")
+    def runtime_scale_monitoring_enabled(self) -> Optional[bool]:
+        """
+        Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        """
+        return pulumi.get(self, "runtime_scale_monitoring_enabled")
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
@@ -4323,8 +4393,12 @@ class FunctionAppSlotSiteConfig(dict):
         suggest = None
         if key == "alwaysOn":
             suggest = "always_on"
+        elif key == "appScaleLimit":
+            suggest = "app_scale_limit"
         elif key == "autoSwapSlotName":
             suggest = "auto_swap_slot_name"
+        elif key == "elasticInstanceMinimum":
+            suggest = "elastic_instance_minimum"
         elif key == "ftpsState":
             suggest = "ftps_state"
         elif key == "healthCheckPath":
@@ -4341,6 +4415,8 @@ class FunctionAppSlotSiteConfig(dict):
             suggest = "min_tls_version"
         elif key == "preWarmedInstanceCount":
             suggest = "pre_warmed_instance_count"
+        elif key == "runtimeScaleMonitoringEnabled":
+            suggest = "runtime_scale_monitoring_enabled"
         elif key == "scmIpRestrictions":
             suggest = "scm_ip_restrictions"
         elif key == "scmType":
@@ -4365,8 +4441,10 @@ class FunctionAppSlotSiteConfig(dict):
 
     def __init__(__self__, *,
                  always_on: Optional[bool] = None,
+                 app_scale_limit: Optional[int] = None,
                  auto_swap_slot_name: Optional[str] = None,
                  cors: Optional['outputs.FunctionAppSlotSiteConfigCors'] = None,
+                 elastic_instance_minimum: Optional[int] = None,
                  ftps_state: Optional[str] = None,
                  health_check_path: Optional[str] = None,
                  http2_enabled: Optional[bool] = None,
@@ -4375,6 +4453,7 @@ class FunctionAppSlotSiteConfig(dict):
                  linux_fx_version: Optional[str] = None,
                  min_tls_version: Optional[str] = None,
                  pre_warmed_instance_count: Optional[int] = None,
+                 runtime_scale_monitoring_enabled: Optional[bool] = None,
                  scm_ip_restrictions: Optional[Sequence['outputs.FunctionAppSlotSiteConfigScmIpRestriction']] = None,
                  scm_type: Optional[str] = None,
                  scm_use_main_ip_restriction: Optional[bool] = None,
@@ -4382,23 +4461,30 @@ class FunctionAppSlotSiteConfig(dict):
                  websockets_enabled: Optional[bool] = None):
         """
         :param bool always_on: Should the Function App be loaded at all times? Defaults to `false`.
+        :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param str auto_swap_slot_name: The name of the slot to automatically swap to during deployment
         :param 'FunctionAppSlotSiteConfigCorsArgs' cors: A `cors` block as defined below.
+        :param int elastic_instance_minimum: The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param bool http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
         :param Sequence['FunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         :param str linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param str min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+        :param bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         :param bool use32_bit_worker_process: Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         :param bool websockets_enabled: Should WebSockets be enabled?
         """
         if always_on is not None:
             pulumi.set(__self__, "always_on", always_on)
+        if app_scale_limit is not None:
+            pulumi.set(__self__, "app_scale_limit", app_scale_limit)
         if auto_swap_slot_name is not None:
             pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
+        if elastic_instance_minimum is not None:
+            pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
         if ftps_state is not None:
             pulumi.set(__self__, "ftps_state", ftps_state)
         if health_check_path is not None:
@@ -4415,6 +4501,8 @@ class FunctionAppSlotSiteConfig(dict):
             pulumi.set(__self__, "min_tls_version", min_tls_version)
         if pre_warmed_instance_count is not None:
             pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        if runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
         if scm_ip_restrictions is not None:
             pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         if scm_type is not None:
@@ -4435,6 +4523,14 @@ class FunctionAppSlotSiteConfig(dict):
         return pulumi.get(self, "always_on")
 
     @property
+    @pulumi.getter(name="appScaleLimit")
+    def app_scale_limit(self) -> Optional[int]:
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        return pulumi.get(self, "app_scale_limit")
+
+    @property
     @pulumi.getter(name="autoSwapSlotName")
     def auto_swap_slot_name(self) -> Optional[str]:
         """
@@ -4449,6 +4545,14 @@ class FunctionAppSlotSiteConfig(dict):
         A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="elasticInstanceMinimum")
+    def elastic_instance_minimum(self) -> Optional[int]:
+        """
+        The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+        """
+        return pulumi.get(self, "elastic_instance_minimum")
 
     @property
     @pulumi.getter(name="ftpsState")
@@ -4507,6 +4611,14 @@ class FunctionAppSlotSiteConfig(dict):
         The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         """
         return pulumi.get(self, "pre_warmed_instance_count")
+
+    @property
+    @pulumi.getter(name="runtimeScaleMonitoringEnabled")
+    def runtime_scale_monitoring_enabled(self) -> Optional[bool]:
+        """
+        Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        """
+        return pulumi.get(self, "runtime_scale_monitoring_enabled")
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
@@ -6076,7 +6188,11 @@ class SlotSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "alwaysOn":
+        if key == "acrUseManagedIdentityCredentials":
+            suggest = "acr_use_managed_identity_credentials"
+        elif key == "acrUserManagedIdentityClientId":
+            suggest = "acr_user_managed_identity_client_id"
+        elif key == "alwaysOn":
             suggest = "always_on"
         elif key == "appCommandLine":
             suggest = "app_command_line"
@@ -6143,6 +6259,8 @@ class SlotSiteConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 acr_use_managed_identity_credentials: Optional[bool] = None,
+                 acr_user_managed_identity_client_id: Optional[str] = None,
                  always_on: Optional[bool] = None,
                  app_command_line: Optional[str] = None,
                  auto_swap_slot_name: Optional[str] = None,
@@ -6172,12 +6290,14 @@ class SlotSiteConfig(dict):
                  websockets_enabled: Optional[bool] = None,
                  windows_fx_version: Optional[str] = None):
         """
+        :param bool acr_use_managed_identity_credentials: Are Managed Identity Credential used for Azure Container Registry pull
+        :param str acr_user_managed_identity_client_id: If using User Managed Identity, the User Managed Identity Client Id
         :param bool always_on: Should the app be loaded at all times? Defaults to `false`.
         :param str app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
         :param str auto_swap_slot_name: The name of the slot to automatically swap to during deployment
         :param 'SlotSiteConfigCorsArgs' cors: A `cors` block as defined below.
         :param Sequence[str] default_documents: The ordering of default documents to load, if an address isn't specified.
-        :param str dotnet_framework_version: The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        :param str dotnet_framework_version: The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
         :param Sequence['SlotSiteConfigIpRestrictionArgs'] ip_restrictions: A list of objects representing ip restrictions as defined below.
         :param str java_container: The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
@@ -6194,6 +6314,10 @@ class SlotSiteConfig(dict):
         :param bool use32_bit_worker_process: Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
         :param bool websockets_enabled: Should WebSockets be enabled?
         """
+        if acr_use_managed_identity_credentials is not None:
+            pulumi.set(__self__, "acr_use_managed_identity_credentials", acr_use_managed_identity_credentials)
+        if acr_user_managed_identity_client_id is not None:
+            pulumi.set(__self__, "acr_user_managed_identity_client_id", acr_user_managed_identity_client_id)
         if always_on is not None:
             pulumi.set(__self__, "always_on", always_on)
         if app_command_line is not None:
@@ -6252,6 +6376,22 @@ class SlotSiteConfig(dict):
             pulumi.set(__self__, "windows_fx_version", windows_fx_version)
 
     @property
+    @pulumi.getter(name="acrUseManagedIdentityCredentials")
+    def acr_use_managed_identity_credentials(self) -> Optional[bool]:
+        """
+        Are Managed Identity Credential used for Azure Container Registry pull
+        """
+        return pulumi.get(self, "acr_use_managed_identity_credentials")
+
+    @property
+    @pulumi.getter(name="acrUserManagedIdentityClientId")
+    def acr_user_managed_identity_client_id(self) -> Optional[str]:
+        """
+        If using User Managed Identity, the User Managed Identity Client Id
+        """
+        return pulumi.get(self, "acr_user_managed_identity_client_id")
+
+    @property
     @pulumi.getter(name="alwaysOn")
     def always_on(self) -> Optional[bool]:
         """
@@ -6295,7 +6435,7 @@ class SlotSiteConfig(dict):
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[str]:
         """
-        The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -7027,6 +7167,8 @@ class GetAppServicePlanSkuResult(dict):
 @pulumi.output_type
 class GetAppServiceSiteConfigResult(dict):
     def __init__(__self__, *,
+                 acr_use_managed_identity_credentials: bool,
+                 acr_user_managed_identity_client_id: str,
                  always_on: bool,
                  app_command_line: str,
                  cors: Sequence['outputs.GetAppServiceSiteConfigCorResult'],
@@ -7055,6 +7197,8 @@ class GetAppServiceSiteConfigResult(dict):
                  websockets_enabled: bool,
                  windows_fx_version: str):
         """
+        :param bool acr_use_managed_identity_credentials: Are Managed Identity Credentials used for Azure Container Registry pull.
+        :param str acr_user_managed_identity_client_id: The User Managed Identity Client Id.
         :param bool always_on: Is the app loaded at all times?
         :param str app_command_line: App command line to launch.
         :param Sequence['GetAppServiceSiteConfigCorArgs'] cors: A `cors` block as defined above.
@@ -7083,6 +7227,8 @@ class GetAppServiceSiteConfigResult(dict):
         :param bool websockets_enabled: Are WebSockets enabled for this App Service?
         :param str windows_fx_version: Windows Container Docker Image for the AppService.
         """
+        pulumi.set(__self__, "acr_use_managed_identity_credentials", acr_use_managed_identity_credentials)
+        pulumi.set(__self__, "acr_user_managed_identity_client_id", acr_user_managed_identity_client_id)
         pulumi.set(__self__, "always_on", always_on)
         pulumi.set(__self__, "app_command_line", app_command_line)
         pulumi.set(__self__, "cors", cors)
@@ -7110,6 +7256,22 @@ class GetAppServiceSiteConfigResult(dict):
         pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
         pulumi.set(__self__, "websockets_enabled", websockets_enabled)
         pulumi.set(__self__, "windows_fx_version", windows_fx_version)
+
+    @property
+    @pulumi.getter(name="acrUseManagedIdentityCredentials")
+    def acr_use_managed_identity_credentials(self) -> bool:
+        """
+        Are Managed Identity Credentials used for Azure Container Registry pull.
+        """
+        return pulumi.get(self, "acr_use_managed_identity_credentials")
+
+    @property
+    @pulumi.getter(name="acrUserManagedIdentityClientId")
+    def acr_user_managed_identity_client_id(self) -> str:
+        """
+        The User Managed Identity Client Id.
+        """
+        return pulumi.get(self, "acr_user_managed_identity_client_id")
 
     @property
     @pulumi.getter(name="alwaysOn")
@@ -7828,8 +7990,10 @@ class GetFunctionAppIdentityResult(dict):
 class GetFunctionAppSiteConfigResult(dict):
     def __init__(__self__, *,
                  always_on: bool,
+                 app_scale_limit: int,
                  auto_swap_slot_name: str,
                  cors: 'outputs.GetFunctionAppSiteConfigCorsResult',
+                 elastic_instance_minimum: int,
                  ftps_state: str,
                  health_check_path: str,
                  http2_enabled: bool,
@@ -7838,6 +8002,7 @@ class GetFunctionAppSiteConfigResult(dict):
                  linux_fx_version: str,
                  min_tls_version: str,
                  pre_warmed_instance_count: int,
+                 runtime_scale_monitoring_enabled: bool,
                  scm_ip_restrictions: Sequence['outputs.GetFunctionAppSiteConfigScmIpRestrictionResult'],
                  scm_type: str,
                  scm_use_main_ip_restriction: bool,
@@ -7845,7 +8010,9 @@ class GetFunctionAppSiteConfigResult(dict):
                  websockets_enabled: bool):
         """
         :param bool always_on: Is the app loaded at all times?
+        :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param 'GetFunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
+        :param int elastic_instance_minimum: The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this AppService.
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service?
         :param Sequence['GetFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
@@ -7853,6 +8020,7 @@ class GetFunctionAppSiteConfigResult(dict):
         :param str linux_fx_version: Linux App Framework and version for the AppService.
         :param str min_tls_version: The minimum supported TLS version for this App Service.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
+        :param bool runtime_scale_monitoring_enabled: Is Runtime Scale Monitoring Enabled on this function app?
         :param Sequence['GetFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_type: The type of Source Control enabled for this App Service.
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main.
@@ -7860,8 +8028,10 @@ class GetFunctionAppSiteConfigResult(dict):
         :param bool websockets_enabled: Are WebSockets enabled for this App Service?
         """
         pulumi.set(__self__, "always_on", always_on)
+        pulumi.set(__self__, "app_scale_limit", app_scale_limit)
         pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         pulumi.set(__self__, "cors", cors)
+        pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
         pulumi.set(__self__, "ftps_state", ftps_state)
         pulumi.set(__self__, "health_check_path", health_check_path)
         pulumi.set(__self__, "http2_enabled", http2_enabled)
@@ -7870,6 +8040,7 @@ class GetFunctionAppSiteConfigResult(dict):
         pulumi.set(__self__, "linux_fx_version", linux_fx_version)
         pulumi.set(__self__, "min_tls_version", min_tls_version)
         pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
         pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         pulumi.set(__self__, "scm_type", scm_type)
         pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
@@ -7885,6 +8056,14 @@ class GetFunctionAppSiteConfigResult(dict):
         return pulumi.get(self, "always_on")
 
     @property
+    @pulumi.getter(name="appScaleLimit")
+    def app_scale_limit(self) -> int:
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        return pulumi.get(self, "app_scale_limit")
+
+    @property
     @pulumi.getter(name="autoSwapSlotName")
     def auto_swap_slot_name(self) -> str:
         return pulumi.get(self, "auto_swap_slot_name")
@@ -7896,6 +8075,14 @@ class GetFunctionAppSiteConfigResult(dict):
         A `cors` block as defined above.
         """
         return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="elasticInstanceMinimum")
+    def elastic_instance_minimum(self) -> int:
+        """
+        The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+        """
+        return pulumi.get(self, "elastic_instance_minimum")
 
     @property
     @pulumi.getter(name="ftpsState")
@@ -7957,6 +8144,14 @@ class GetFunctionAppSiteConfigResult(dict):
         The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
         """
         return pulumi.get(self, "pre_warmed_instance_count")
+
+    @property
+    @pulumi.getter(name="runtimeScaleMonitoringEnabled")
+    def runtime_scale_monitoring_enabled(self) -> bool:
+        """
+        Is Runtime Scale Monitoring Enabled on this function app?
+        """
+        return pulumi.get(self, "runtime_scale_monitoring_enabled")
 
     @property
     @pulumi.getter(name="scmIpRestrictions")

@@ -18,6 +18,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? AlwaysOn;
         /// <summary>
+        /// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        /// </summary>
+        public readonly int? AppScaleLimit;
+        /// <summary>
         /// The name of the slot to automatically swap to during deployment
         /// </summary>
         public readonly string? AutoSwapSlotName;
@@ -25,6 +29,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// A `cors` block as defined below.
         /// </summary>
         public readonly Outputs.FunctionAppSlotSiteConfigCors? Cors;
+        /// <summary>
+        /// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+        /// </summary>
+        public readonly int? ElasticInstanceMinimum;
         /// <summary>
         /// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         /// </summary>
@@ -51,6 +59,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         /// </summary>
         public readonly int? PreWarmedInstanceCount;
+        /// <summary>
+        /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        /// </summary>
+        public readonly bool? RuntimeScaleMonitoringEnabled;
         public readonly ImmutableArray<Outputs.FunctionAppSlotSiteConfigScmIpRestriction> ScmIpRestrictions;
         public readonly string? ScmType;
         public readonly bool? ScmUseMainIpRestriction;
@@ -67,9 +79,13 @@ namespace Pulumi.Azure.AppService.Outputs
         private FunctionAppSlotSiteConfig(
             bool? alwaysOn,
 
+            int? appScaleLimit,
+
             string? autoSwapSlotName,
 
             Outputs.FunctionAppSlotSiteConfigCors? cors,
+
+            int? elasticInstanceMinimum,
 
             string? ftpsState,
 
@@ -87,6 +103,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             int? preWarmedInstanceCount,
 
+            bool? runtimeScaleMonitoringEnabled,
+
             ImmutableArray<Outputs.FunctionAppSlotSiteConfigScmIpRestriction> scmIpRestrictions,
 
             string? scmType,
@@ -98,8 +116,10 @@ namespace Pulumi.Azure.AppService.Outputs
             bool? websocketsEnabled)
         {
             AlwaysOn = alwaysOn;
+            AppScaleLimit = appScaleLimit;
             AutoSwapSlotName = autoSwapSlotName;
             Cors = cors;
+            ElasticInstanceMinimum = elasticInstanceMinimum;
             FtpsState = ftpsState;
             HealthCheckPath = healthCheckPath;
             Http2Enabled = http2Enabled;
@@ -108,6 +128,7 @@ namespace Pulumi.Azure.AppService.Outputs
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;
+            RuntimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             ScmIpRestrictions = scmIpRestrictions;
             ScmType = scmType;
             ScmUseMainIpRestriction = scmUseMainIpRestriction;

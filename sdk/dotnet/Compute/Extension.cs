@@ -175,8 +175,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> ProtectedSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The publisher of the extension, available publishers
-        /// can be found by using the Azure CLI.
+        /// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         /// </summary>
         [Output("publisher")]
         public Output<string> Publisher { get; private set; } = null!;
@@ -282,8 +281,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ProtectedSettings { get; set; }
 
         /// <summary>
-        /// The publisher of the extension, available publishers
-        /// can be found by using the Azure CLI.
+        /// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
@@ -356,8 +354,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ProtectedSettings { get; set; }
 
         /// <summary>
-        /// The publisher of the extension, available publishers
-        /// can be found by using the Azure CLI.
+        /// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publisher")]
         public Input<string>? Publisher { get; set; }

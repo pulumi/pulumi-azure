@@ -107,25 +107,25 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storage_account_key` and `use_managed_identity`.
         /// </summary>
         [Output("servicePrincipalId")]
         public Output<string?> ServicePrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Output("servicePrincipalKey")]
         public Output<string?> ServicePrincipalKey { get; private set; } = null!;
 
         /// <summary>
-        /// The Storage Account Key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
         /// </summary>
         [Output("storageAccountKey")]
         public Output<string?> StorageAccountKey { get; private set; } = null!;
 
         /// <summary>
-        /// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Output("tenant")]
         public Output<string?> Tenant { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id` and `service_principal_key`
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `storage_account_key`.
         /// </summary>
         [Output("useManagedIdentity")]
         public Output<bool?> UseManagedIdentity { get; private set; } = null!;
@@ -256,25 +256,25 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storage_account_key` and `use_managed_identity`.
         /// </summary>
         [Input("servicePrincipalId")]
         public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Input("servicePrincipalKey")]
         public Input<string>? ServicePrincipalKey { get; set; }
 
         /// <summary>
-        /// The Storage Account Key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
         /// </summary>
         [Input("storageAccountKey")]
         public Input<string>? StorageAccountKey { get; set; }
 
         /// <summary>
-        /// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Input("tenant")]
         public Input<string>? Tenant { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> Url { get; set; } = null!;
 
         /// <summary>
-        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id` and `service_principal_key`
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `storage_account_key`.
         /// </summary>
         [Input("useManagedIdentity")]
         public Input<bool>? UseManagedIdentity { get; set; }
@@ -366,25 +366,25 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storage_account_key` and `use_managed_identity`.
         /// </summary>
         [Input("servicePrincipalId")]
         public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Input("servicePrincipalKey")]
         public Input<string>? ServicePrincipalKey { get; set; }
 
         /// <summary>
-        /// The Storage Account Key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
         /// </summary>
         [Input("storageAccountKey")]
         public Input<string>? StorageAccountKey { get; set; }
 
         /// <summary>
-        /// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Input("tenant")]
         public Input<string>? Tenant { get; set; }
@@ -396,7 +396,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id` and `service_principal_key`
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `storage_account_key`.
         /// </summary>
         [Input("useManagedIdentity")]
         public Input<bool>? UseManagedIdentity { get; set; }

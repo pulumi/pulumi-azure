@@ -152,9 +152,17 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly redisConfiguration!: pulumi.Output<outputs.redis.CacheRedisConfiguration>;
     /**
+     * Redis version. Only major version needed. Valid values: `4`, `6`.
+     */
+    public readonly redisVersion!: pulumi.Output<string>;
+    /**
      * Amount of replicas to create per master for this Redis Cache.
      */
-    public readonly replicasPerMaster!: pulumi.Output<number | undefined>;
+    public readonly replicasPerMaster!: pulumi.Output<number>;
+    /**
+     * Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
+     */
+    public readonly replicasPerPrimary!: pulumi.Output<number>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -189,6 +197,10 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A mapping of tenant settings to assign to the resource.
+     */
+    public readonly tenantSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * A list of a one or more Availability Zones, where the Redis Cache should be allocated.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
@@ -220,7 +232,9 @@ export class Cache extends pulumi.CustomResource {
             inputs["privateStaticIpAddress"] = state ? state.privateStaticIpAddress : undefined;
             inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["redisConfiguration"] = state ? state.redisConfiguration : undefined;
+            inputs["redisVersion"] = state ? state.redisVersion : undefined;
             inputs["replicasPerMaster"] = state ? state.replicasPerMaster : undefined;
+            inputs["replicasPerPrimary"] = state ? state.replicasPerPrimary : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
@@ -229,6 +243,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["sslPort"] = state ? state.sslPort : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tenantSettings"] = state ? state.tenantSettings : undefined;
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as CacheArgs | undefined;
@@ -254,12 +269,15 @@ export class Cache extends pulumi.CustomResource {
             inputs["privateStaticIpAddress"] = args ? args.privateStaticIpAddress : undefined;
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
+            inputs["redisVersion"] = args ? args.redisVersion : undefined;
             inputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
+            inputs["replicasPerPrimary"] = args ? args.replicasPerPrimary : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shardCount"] = args ? args.shardCount : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tenantSettings"] = args ? args.tenantSettings : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["hostname"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
@@ -338,9 +356,17 @@ export interface CacheState {
      */
     redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration>;
     /**
+     * Redis version. Only major version needed. Valid values: `4`, `6`.
+     */
+    redisVersion?: pulumi.Input<string>;
+    /**
      * Amount of replicas to create per master for this Redis Cache.
      */
     replicasPerMaster?: pulumi.Input<number>;
+    /**
+     * Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
+     */
+    replicasPerPrimary?: pulumi.Input<number>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -374,6 +400,10 @@ export interface CacheState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A mapping of tenant settings to assign to the resource.
+     */
+    tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of a one or more Availability Zones, where the Redis Cache should be allocated.
      */
@@ -426,9 +456,17 @@ export interface CacheArgs {
      */
     redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration>;
     /**
+     * Redis version. Only major version needed. Valid values: `4`, `6`.
+     */
+    redisVersion?: pulumi.Input<string>;
+    /**
      * Amount of replicas to create per master for this Redis Cache.
      */
     replicasPerMaster?: pulumi.Input<number>;
+    /**
+     * Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
+     */
+    replicasPerPrimary?: pulumi.Input<number>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -450,6 +488,10 @@ export interface CacheArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A mapping of tenant settings to assign to the resource.
+     */
+    tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of a one or more Availability Zones, where the Redis Cache should be allocated.
      */

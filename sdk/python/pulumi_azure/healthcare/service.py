@@ -32,7 +32,7 @@ class ServiceArgs:
         :param pulumi.Input['ServiceAuthenticationConfigurationArgs'] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input['ServiceCorsConfigurationArgs'] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+        :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
@@ -122,7 +122,7 @@ class ServiceArgs:
     @pulumi.getter(name="cosmosdbThroughput")
     def cosmosdb_throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+        The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
         """
         return pulumi.get(self, "cosmosdb_throughput")
 
@@ -210,7 +210,7 @@ class _ServiceState:
         :param pulumi.Input['ServiceAuthenticationConfigurationArgs'] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input['ServiceCorsConfigurationArgs'] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+        :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
@@ -290,7 +290,7 @@ class _ServiceState:
     @pulumi.getter(name="cosmosdbThroughput")
     def cosmosdb_throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+        The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
         """
         return pulumi.get(self, "cosmosdb_throughput")
 
@@ -443,7 +443,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+        :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
@@ -589,7 +589,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+        :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
@@ -647,7 +647,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="cosmosdbThroughput")
     def cosmosdb_throughput(self) -> pulumi.Output[Optional[int]]:
         """
-        The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+        The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
         """
         return pulumi.get(self, "cosmosdb_throughput")
 

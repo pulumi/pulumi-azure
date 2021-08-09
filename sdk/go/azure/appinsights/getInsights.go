@@ -70,4 +70,6 @@ type LookupInsightsResult struct {
 	RetentionInDays int `pulumi:"retentionInDays"`
 	// Tags applied to the component.
 	Tags map[string]string `pulumi:"tags"`
+	// The id of the associated Log Analytics workspace
+	WorkspaceId string `pulumi:"workspaceId"`
 }

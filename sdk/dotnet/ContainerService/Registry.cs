@@ -32,10 +32,20 @@ namespace Pulumi.Azure.ContainerService
     ///             Location = rg.Location,
     ///             Sku = "Premium",
     ///             AdminEnabled = false,
-    ///             GeoreplicationLocations = 
+    ///             Georeplications = 
     ///             {
-    ///                 "East US",
-    ///                 "West Europe",
+    ///                 new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
+    ///                 {
+    ///                     Location = "East US",
+    ///                     ZoneRedundancyEnabled = true,
+    ///                     Tags = ,
+    ///                 },
+    ///                 new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
+    ///                 {
+    ///                     Location = "westeurope",
+    ///                     ZoneRedundancyEnabled = true,
+    ///                     Tags = ,
+    ///                 },
     ///             },
     ///         });
     ///     }

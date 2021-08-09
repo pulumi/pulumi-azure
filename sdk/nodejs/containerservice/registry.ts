@@ -20,9 +20,17 @@ import * as utilities from "../utilities";
  *     location: rg.location,
  *     sku: "Premium",
  *     adminEnabled: false,
- *     georeplicationLocations: [
- *         "East US",
- *         "West Europe",
+ *     georeplications: [
+ *         {
+ *             location: "East US",
+ *             zoneRedundancyEnabled: true,
+ *             tags: {},
+ *         },
+ *         {
+ *             location: "westeurope",
+ *             zoneRedundancyEnabled: true,
+ *             tags: {},
+ *         },
  *     ],
  * });
  * ```

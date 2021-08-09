@@ -119,8 +119,12 @@ type Cache struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationOutput `pulumi:"redisConfiguration"`
+	// Redis version. Only major version needed. Valid values: `4`, `6`.
+	RedisVersion pulumi.StringOutput `pulumi:"redisVersion"`
 	// Amount of replicas to create per master for this Redis Cache.
-	ReplicasPerMaster pulumi.IntPtrOutput `pulumi:"replicasPerMaster"`
+	ReplicasPerMaster pulumi.IntOutput `pulumi:"replicasPerMaster"`
+	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
+	ReplicasPerPrimary pulumi.IntOutput `pulumi:"replicasPerPrimary"`
 	// The name of the resource group in which to
 	// create the Redis instance.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -138,6 +142,8 @@ type Cache struct {
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A mapping of tenant settings to assign to the resource.
+	TenantSettings pulumi.StringMapOutput `pulumi:"tenantSettings"`
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
@@ -212,8 +218,12 @@ type cacheState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration *CacheRedisConfiguration `pulumi:"redisConfiguration"`
+	// Redis version. Only major version needed. Valid values: `4`, `6`.
+	RedisVersion *string `pulumi:"redisVersion"`
 	// Amount of replicas to create per master for this Redis Cache.
 	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
+	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
+	ReplicasPerPrimary *int `pulumi:"replicasPerPrimary"`
 	// The name of the resource group in which to
 	// create the Redis instance.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -231,6 +241,8 @@ type cacheState struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A mapping of tenant settings to assign to the resource.
+	TenantSettings map[string]string `pulumi:"tenantSettings"`
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
 	Zones []string `pulumi:"zones"`
 }
@@ -265,8 +277,12 @@ type CacheState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationPtrInput
+	// Redis version. Only major version needed. Valid values: `4`, `6`.
+	RedisVersion pulumi.StringPtrInput
 	// Amount of replicas to create per master for this Redis Cache.
 	ReplicasPerMaster pulumi.IntPtrInput
+	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
+	ReplicasPerPrimary pulumi.IntPtrInput
 	// The name of the resource group in which to
 	// create the Redis instance.
 	ResourceGroupName pulumi.StringPtrInput
@@ -284,6 +300,8 @@ type CacheState struct {
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A mapping of tenant settings to assign to the resource.
+	TenantSettings pulumi.StringMapInput
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
 	Zones pulumi.StringArrayInput
 }
@@ -314,8 +332,12 @@ type cacheArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration *CacheRedisConfiguration `pulumi:"redisConfiguration"`
+	// Redis version. Only major version needed. Valid values: `4`, `6`.
+	RedisVersion *string `pulumi:"redisVersion"`
 	// Amount of replicas to create per master for this Redis Cache.
 	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
+	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
+	ReplicasPerPrimary *int `pulumi:"replicasPerPrimary"`
 	// The name of the resource group in which to
 	// create the Redis instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -327,6 +349,8 @@ type cacheArgs struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A mapping of tenant settings to assign to the resource.
+	TenantSettings map[string]string `pulumi:"tenantSettings"`
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
 	Zones []string `pulumi:"zones"`
 }
@@ -354,8 +378,12 @@ type CacheArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationPtrInput
+	// Redis version. Only major version needed. Valid values: `4`, `6`.
+	RedisVersion pulumi.StringPtrInput
 	// Amount of replicas to create per master for this Redis Cache.
 	ReplicasPerMaster pulumi.IntPtrInput
+	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
+	ReplicasPerPrimary pulumi.IntPtrInput
 	// The name of the resource group in which to
 	// create the Redis instance.
 	ResourceGroupName pulumi.StringInput
@@ -367,6 +395,8 @@ type CacheArgs struct {
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A mapping of tenant settings to assign to the resource.
+	TenantSettings pulumi.StringMapInput
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
 	Zones pulumi.StringArrayInput
 }

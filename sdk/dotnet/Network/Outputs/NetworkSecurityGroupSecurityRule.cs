@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
+        /// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         /// </summary>
         public readonly string Protocol;
         /// <summary>

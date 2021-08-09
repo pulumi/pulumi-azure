@@ -1851,6 +1851,14 @@ export namespace appservice {
 
     export interface AppServiceSiteConfig {
         /**
+         * Are Managed Identity Credentials used for Azure Container Registry pull
+         */
+        acrUseManagedIdentityCredentials?: pulumi.Input<boolean>;
+        /**
+         * If using User Managed Identity, the User Managed Identity Client Id
+         */
+        acrUserManagedIdentityClientId?: pulumi.Input<string>;
+        /**
          * Should the app be loaded at all times? Defaults to `false`.
          */
         alwaysOn?: pulumi.Input<boolean>;
@@ -1868,7 +1876,7 @@ export namespace appservice {
          */
         defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+         * The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: pulumi.Input<string>;
         /**
@@ -2337,11 +2345,19 @@ export namespace appservice {
          * Should the Function App be loaded at all times? Defaults to `false`.
          */
         alwaysOn?: pulumi.Input<boolean>;
+        /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit?: pulumi.Input<number>;
         autoSwapSlotName?: pulumi.Input<string>;
         /**
          * A `cors` block as defined below.
          */
         cors?: pulumi.Input<inputs.appservice.FunctionAppSiteConfigCors>;
+        /**
+         * The number of minimum instances for this function app. Only affects apps on the Premium plan.
+         */
+        elasticInstanceMinimum?: pulumi.Input<number>;
         /**
          * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
          */
@@ -2374,6 +2390,10 @@ export namespace appservice {
          * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
          */
         preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
+         * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+         */
+        runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
         /**
          * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
          */
@@ -2682,6 +2702,10 @@ export namespace appservice {
          */
         alwaysOn?: pulumi.Input<boolean>;
         /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit?: pulumi.Input<number>;
+        /**
          * The name of the slot to automatically swap to during deployment
          */
         autoSwapSlotName?: pulumi.Input<string>;
@@ -2689,6 +2713,10 @@ export namespace appservice {
          * A `cors` block as defined below.
          */
         cors?: pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfigCors>;
+        /**
+         * The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+         */
+        elasticInstanceMinimum?: pulumi.Input<number>;
         /**
          * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
          */
@@ -2715,6 +2743,10 @@ export namespace appservice {
          * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
          */
         preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
+         * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+         */
+        runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
         scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfigScmIpRestriction>[]>;
         scmType?: pulumi.Input<string>;
         scmUseMainIpRestriction?: pulumi.Input<boolean>;
@@ -3126,6 +3158,14 @@ export namespace appservice {
 
     export interface SlotSiteConfig {
         /**
+         * Are Managed Identity Credential used for Azure Container Registry pull
+         */
+        acrUseManagedIdentityCredentials?: pulumi.Input<boolean>;
+        /**
+         * If using User Managed Identity, the User Managed Identity Client Id
+         */
+        acrUserManagedIdentityClientId?: pulumi.Input<string>;
+        /**
          * Should the app be loaded at all times? Defaults to `false`.
          */
         alwaysOn?: pulumi.Input<boolean>;
@@ -3146,7 +3186,7 @@ export namespace appservice {
          */
         defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+         * The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: pulumi.Input<string>;
         ftpsState?: pulumi.Input<string>;
@@ -3980,6 +4020,17 @@ export namespace bot {
          * The Facebook Page ID for the Facebook Channel.
          */
         id: pulumi.Input<string>;
+    }
+
+    export interface ChannelLineLineChannel {
+        /**
+         * The access token which is used to call the Line Channel API.
+         */
+        accessToken: pulumi.Input<string>;
+        /**
+         * The secret which is used to access the Line Channel.
+         */
+        secret: pulumi.Input<string>;
     }
 }
 
@@ -7656,6 +7707,39 @@ export namespace containerservice {
         keyData: pulumi.Input<string>;
     }
 
+    export interface KubernetesClusterMaintenanceWindow {
+        /**
+         * One or more `allowed` block as defined below.
+         */
+        alloweds?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterMaintenanceWindowAllowed>[]>;
+        /**
+         * One or more `notAllowed` block as defined below.
+         */
+        notAlloweds?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterMaintenanceWindowNotAllowed>[]>;
+    }
+
+    export interface KubernetesClusterMaintenanceWindowAllowed {
+        /**
+         * A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+         */
+        day: pulumi.Input<string>;
+        /**
+         * An array of hour slots in a day. Possible values are between `0` and `23`.
+         */
+        hours: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface KubernetesClusterMaintenanceWindowNotAllowed {
+        /**
+         * The end of a time span, formatted as an RFC3339 string.
+         */
+        end: pulumi.Input<string>;
+        /**
+         * The start of a time span, formatted as an RFC3339 string.
+         */
+        start: pulumi.Input<string>;
+    }
+
     export interface KubernetesClusterNetworkProfile {
         /**
          * IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
@@ -8082,7 +8166,6 @@ export namespace containerservice {
          */
         enabled?: pulumi.Input<boolean>;
     }
-
 }
 
 export namespace core {
@@ -8765,6 +8848,10 @@ export namespace databricks {
     export interface WorkspaceCustomParameters {
         machineLearningWorkspaceId?: pulumi.Input<string>;
         /**
+         * Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+         */
+        natGatewayName?: pulumi.Input<string>;
+        /**
          * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          */
         noPublicIp?: pulumi.Input<boolean>;
@@ -8773,13 +8860,37 @@ export namespace databricks {
          */
         privateSubnetName?: pulumi.Input<string>;
         /**
+         * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
+         */
+        privateSubnetNetworkSecurityGroupAssociationId?: pulumi.Input<string>;
+        /**
+         * Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+         */
+        publicIpName?: pulumi.Input<string>;
+        /**
          * The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
          */
         publicSubnetName?: pulumi.Input<string>;
         /**
+         * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
+         */
+        publicSubnetNetworkSecurityGroupAssociationId?: pulumi.Input<string>;
+        /**
+         * Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
+         */
+        storageAccountName?: pulumi.Input<string>;
+        /**
+         * Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+         */
+        storageAccountSkuName?: pulumi.Input<string>;
+        /**
          * The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: pulumi.Input<string>;
+        /**
+         * Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
+         */
+        vnetAddressPrefix?: pulumi.Input<string>;
     }
 
     export interface WorkspaceStorageAccountIdentity {
@@ -8808,6 +8919,129 @@ export namespace datafactory {
          * A map of parameters to associate with the Data Factory Linked Service.
          */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface DataFlowSink {
+        /**
+         * A `dataset` block as defined below.
+         */
+        dataset?: pulumi.Input<inputs.datafactory.DataFlowSinkDataset>;
+        /**
+         * The description for the Data Flow Source.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A `linkedService` block as defined below.
+         */
+        linkedService?: pulumi.Input<inputs.datafactory.DataFlowSinkLinkedService>;
+        /**
+         * The name for the Data Flow Source.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `schemaLinkedService` block as defined below.
+         */
+        schemaLinkedService?: pulumi.Input<inputs.datafactory.DataFlowSinkSchemaLinkedService>;
+    }
+
+    export interface DataFlowSinkDataset {
+        /**
+         * The name for the Data Factory Dataset.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface DataFlowSinkLinkedService {
+        /**
+         * The name for the Data Factory Linked Service.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface DataFlowSinkSchemaLinkedService {
+        /**
+         * The name for the Data Factory Linked Service with schema.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface DataFlowSource {
+        /**
+         * A `dataset` block as defined below.
+         */
+        dataset?: pulumi.Input<inputs.datafactory.DataFlowSourceDataset>;
+        /**
+         * The description for the Data Flow Source.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A `linkedService` block as defined below.
+         */
+        linkedService?: pulumi.Input<inputs.datafactory.DataFlowSourceLinkedService>;
+        /**
+         * The name for the Data Flow Source.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `schemaLinkedService` block as defined below.
+         */
+        schemaLinkedService?: pulumi.Input<inputs.datafactory.DataFlowSourceSchemaLinkedService>;
+    }
+
+    export interface DataFlowSourceDataset {
+        /**
+         * The name for the Data Factory Dataset.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface DataFlowSourceLinkedService {
+        /**
+         * The name for the Data Factory Linked Service.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface DataFlowSourceSchemaLinkedService {
+        /**
+         * The name for the Data Factory Linked Service with schema.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface DataFlowTransformation {
+        /**
+         * The description for the Data Flow transformation.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name for the Data Flow transformation.
+         */
+        name: pulumi.Input<string>;
     }
 
     export interface DatasetAzureBlobSchemaColumn {
@@ -19475,7 +19709,7 @@ export namespace network {
          */
         priority: pulumi.Input<number>;
         /**
-         * Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
+         * Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
          */
         protocol: pulumi.Input<string>;
         /**

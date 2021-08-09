@@ -19,7 +19,7 @@ class GetInsightsResult:
     """
     A collection of values returned by getInsights.
     """
-    def __init__(__self__, app_id=None, application_type=None, connection_string=None, id=None, instrumentation_key=None, location=None, name=None, resource_group_name=None, retention_in_days=None, tags=None):
+    def __init__(__self__, app_id=None, application_type=None, connection_string=None, id=None, instrumentation_key=None, location=None, name=None, resource_group_name=None, retention_in_days=None, tags=None, workspace_id=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
@@ -50,6 +50,9 @@ class GetInsightsResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if workspace_id and not isinstance(workspace_id, str):
+            raise TypeError("Expected argument 'workspace_id' to be a str")
+        pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="appId")
@@ -125,6 +128,14 @@ class GetInsightsResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        The id of the associated Log Analytics workspace
+        """
+        return pulumi.get(self, "workspace_id")
+
 
 class AwaitableGetInsightsResult(GetInsightsResult):
     # pylint: disable=using-constant-test
@@ -141,7 +152,8 @@ class AwaitableGetInsightsResult(GetInsightsResult):
             name=self.name,
             resource_group_name=self.resource_group_name,
             retention_in_days=self.retention_in_days,
-            tags=self.tags)
+            tags=self.tags,
+            workspace_id=self.workspace_id)
 
 
 def get_insights(name: Optional[str] = None,
@@ -184,4 +196,5 @@ def get_insights(name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         retention_in_days=__ret__.retention_in_days,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        workspace_id=__ret__.workspace_id)

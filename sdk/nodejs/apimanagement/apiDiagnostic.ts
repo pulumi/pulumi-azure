@@ -172,6 +172,10 @@ export class ApiDiagnostic extends pulumi.CustomResource {
      */
     public readonly logClientIp!: pulumi.Output<boolean>;
     /**
+     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     */
+    public readonly operationNameFormat!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -208,6 +212,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             inputs["httpCorrelationProtocol"] = state ? state.httpCorrelationProtocol : undefined;
             inputs["identifier"] = state ? state.identifier : undefined;
             inputs["logClientIp"] = state ? state.logClientIp : undefined;
+            inputs["operationNameFormat"] = state ? state.operationNameFormat : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
             inputs["verbosity"] = state ? state.verbosity : undefined;
@@ -239,6 +244,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             inputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
             inputs["identifier"] = args ? args.identifier : undefined;
             inputs["logClientIp"] = args ? args.logClientIp : undefined;
+            inputs["operationNameFormat"] = args ? args.operationNameFormat : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["verbosity"] = args ? args.verbosity : undefined;
@@ -298,6 +304,10 @@ export interface ApiDiagnosticState {
      * Log client IP address.
      */
     logClientIp?: pulumi.Input<boolean>;
+    /**
+     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     */
+    operationNameFormat?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
@@ -360,6 +370,10 @@ export interface ApiDiagnosticArgs {
      * Log client IP address.
      */
     logClientIp?: pulumi.Input<boolean>;
+    /**
+     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     */
+    operationNameFormat?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */

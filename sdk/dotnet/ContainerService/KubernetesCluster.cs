@@ -89,7 +89,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterAutoScalerProfile> AutoScalerProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         /// </summary>
         [Output("automaticChannelUpgrade")]
         public Output<string?> AutomaticChannelUpgrade { get; private set; } = null!;
@@ -176,10 +176,22 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterLinuxProfile?> LinuxProfile { get; private set; } = null!;
 
         /// <summary>
+        /// Is local account disabled for AAD integrated kubernetes cluster?
+        /// </summary>
+        [Output("localAccountDisabled")]
+        public Output<bool?> LocalAccountDisabled { get; private set; } = null!;
+
+        /// <summary>
         /// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// A `maintenance_window` block as defined below.
+        /// </summary>
+        [Output("maintenanceWindow")]
+        public Output<Outputs.KubernetesClusterMaintenanceWindow?> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
@@ -327,7 +339,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterAutoScalerProfileArgs>? AutoScalerProfile { get; set; }
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         /// </summary>
         [Input("automaticChannelUpgrade")]
         public Input<string>? AutomaticChannelUpgrade { get; set; }
@@ -390,10 +402,22 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterLinuxProfileArgs>? LinuxProfile { get; set; }
 
         /// <summary>
+        /// Is local account disabled for AAD integrated kubernetes cluster?
+        /// </summary>
+        [Input("localAccountDisabled")]
+        public Input<bool>? LocalAccountDisabled { get; set; }
+
+        /// <summary>
         /// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// A `maintenance_window` block as defined below.
+        /// </summary>
+        [Input("maintenanceWindow")]
+        public Input<Inputs.KubernetesClusterMaintenanceWindowArgs>? MaintenanceWindow { get; set; }
 
         /// <summary>
         /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
@@ -502,7 +526,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterAutoScalerProfileGetArgs>? AutoScalerProfile { get; set; }
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         /// </summary>
         [Input("automaticChannelUpgrade")]
         public Input<string>? AutomaticChannelUpgrade { get; set; }
@@ -607,10 +631,22 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterLinuxProfileGetArgs>? LinuxProfile { get; set; }
 
         /// <summary>
+        /// Is local account disabled for AAD integrated kubernetes cluster?
+        /// </summary>
+        [Input("localAccountDisabled")]
+        public Input<bool>? LocalAccountDisabled { get; set; }
+
+        /// <summary>
         /// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// A `maintenance_window` block as defined below.
+        /// </summary>
+        [Input("maintenanceWindow")]
+        public Input<Inputs.KubernetesClusterMaintenanceWindowGetArgs>? MaintenanceWindow { get; set; }
 
         /// <summary>
         /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.

@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_workspace import *
+from .get_workspace_private_endpoint_connection import *
 from .workspace import *
 from .workspace_customer_managed_key import *
 from ._inputs import *

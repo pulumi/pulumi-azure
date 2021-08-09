@@ -11447,7 +11447,7 @@ type NetworkSecurityGroupSecurityRule struct {
 	Name string `pulumi:"name"`
 	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 	Priority int `pulumi:"priority"`
-	// Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
+	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
 	Protocol string `pulumi:"protocol"`
 	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
 	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
@@ -11493,7 +11493,7 @@ type NetworkSecurityGroupSecurityRuleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
+	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
 	SourceAddressPrefix pulumi.StringPtrInput `pulumi:"sourceAddressPrefix"`
@@ -11608,7 +11608,7 @@ func (o NetworkSecurityGroupSecurityRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupSecurityRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
+// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
 func (o NetworkSecurityGroupSecurityRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupSecurityRule) string { return v.Protocol }).(pulumi.StringOutput)
 }

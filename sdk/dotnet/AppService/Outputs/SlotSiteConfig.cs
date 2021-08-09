@@ -14,6 +14,14 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class SlotSiteConfig
     {
         /// <summary>
+        /// Are Managed Identity Credential used for Azure Container Registry pull
+        /// </summary>
+        public readonly bool? AcrUseManagedIdentityCredentials;
+        /// <summary>
+        /// If using User Managed Identity, the User Managed Identity Client Id
+        /// </summary>
+        public readonly string? AcrUserManagedIdentityClientId;
+        /// <summary>
         /// Should the app be loaded at all times? Defaults to `false`.
         /// </summary>
         public readonly bool? AlwaysOn;
@@ -34,7 +42,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DefaultDocuments;
         /// <summary>
-        /// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        /// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         /// </summary>
         public readonly string? DotnetFrameworkVersion;
         public readonly string? FtpsState;
@@ -107,6 +115,10 @@ namespace Pulumi.Azure.AppService.Outputs
 
         [OutputConstructor]
         private SlotSiteConfig(
+            bool? acrUseManagedIdentityCredentials,
+
+            string? acrUserManagedIdentityClientId,
+
             bool? alwaysOn,
 
             string? appCommandLine,
@@ -163,6 +175,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string? windowsFxVersion)
         {
+            AcrUseManagedIdentityCredentials = acrUseManagedIdentityCredentials;
+            AcrUserManagedIdentityClientId = acrUserManagedIdentityClientId;
             AlwaysOn = alwaysOn;
             AppCommandLine = appCommandLine;
             AutoSwapSlotName = autoSwapSlotName;

@@ -18,6 +18,12 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
 
+        /// <summary>
+        /// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        /// </summary>
+        [Input("appScaleLimit")]
+        public Input<int>? AppScaleLimit { get; set; }
+
         [Input("autoSwapSlotName")]
         public Input<string>? AutoSwapSlotName { get; set; }
 
@@ -26,6 +32,12 @@ namespace Pulumi.Azure.AppService.Inputs
         /// </summary>
         [Input("cors")]
         public Input<Inputs.FunctionAppSiteConfigCorsArgs>? Cors { get; set; }
+
+        /// <summary>
+        /// The number of minimum instances for this function app. Only affects apps on the Premium plan.
+        /// </summary>
+        [Input("elasticInstanceMinimum")]
+        public Input<int>? ElasticInstanceMinimum { get; set; }
 
         /// <summary>
         /// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
@@ -80,6 +92,12 @@ namespace Pulumi.Azure.AppService.Inputs
         /// </summary>
         [Input("preWarmedInstanceCount")]
         public Input<int>? PreWarmedInstanceCount { get; set; }
+
+        /// <summary>
+        /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        /// </summary>
+        [Input("runtimeScaleMonitoringEnabled")]
+        public Input<bool>? RuntimeScaleMonitoringEnabled { get; set; }
 
         [Input("scmIpRestrictions")]
         private InputList<Inputs.FunctionAppSiteConfigScmIpRestrictionArgs>? _scmIpRestrictions;

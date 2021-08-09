@@ -29,7 +29,9 @@ class KubernetesClusterArgs:
                  kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input['KubernetesClusterLinuxProfileArgs']] = None,
+                 local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -48,7 +50,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterAddonProfileArgs'] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
-        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
@@ -56,7 +58,9 @@ class KubernetesClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
+        :param pulumi.Input[bool] local_account_disabled: Is local account disabled for AAD integrated kubernetes cluster?
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -94,8 +98,12 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "kubernetes_version", kubernetes_version)
         if linux_profile is not None:
             pulumi.set(__self__, "linux_profile", linux_profile)
+        if local_account_disabled is not None:
+            pulumi.set(__self__, "local_account_disabled", local_account_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if maintenance_window is not None:
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
@@ -186,7 +194,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="automaticChannelUpgrade")
     def automatic_channel_upgrade(self) -> Optional[pulumi.Input[str]]:
         """
-        The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+        The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         """
         return pulumi.get(self, "automatic_channel_upgrade")
 
@@ -288,6 +296,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "linux_profile", value)
 
     @property
+    @pulumi.getter(name="localAccountDisabled")
+    def local_account_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is local account disabled for AAD integrated kubernetes cluster?
+        """
+        return pulumi.get(self, "local_account_disabled")
+
+    @local_account_disabled.setter
+    def local_account_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_account_disabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -298,6 +318,18 @@ class KubernetesClusterArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']]:
+        """
+        A `maintenance_window` block as defined below.
+        """
+        return pulumi.get(self, "maintenance_window")
+
+    @maintenance_window.setter
+    def maintenance_window(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']]):
+        pulumi.set(self, "maintenance_window", value)
 
     @property
     @pulumi.getter
@@ -450,7 +482,9 @@ class _KubernetesClusterState:
                  kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input['KubernetesClusterLinuxProfileArgs']] = None,
+                 local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -469,7 +503,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterAddonProfileArgs'] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
-        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -483,7 +517,9 @@ class _KubernetesClusterState:
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
+        :param pulumi.Input[bool] local_account_disabled: Is local account disabled for AAD integrated kubernetes cluster?
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -533,8 +569,12 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "kubernetes_version", kubernetes_version)
         if linux_profile is not None:
             pulumi.set(__self__, "linux_profile", linux_profile)
+        if local_account_disabled is not None:
+            pulumi.set(__self__, "local_account_disabled", local_account_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if maintenance_window is not None:
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
@@ -605,7 +645,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="automaticChannelUpgrade")
     def automatic_channel_upgrade(self) -> Optional[pulumi.Input[str]]:
         """
-        The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+        The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         """
         return pulumi.get(self, "automatic_channel_upgrade")
 
@@ -779,6 +819,18 @@ class _KubernetesClusterState:
         pulumi.set(self, "linux_profile", value)
 
     @property
+    @pulumi.getter(name="localAccountDisabled")
+    def local_account_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is local account disabled for AAD integrated kubernetes cluster?
+        """
+        return pulumi.get(self, "local_account_disabled")
+
+    @local_account_disabled.setter
+    def local_account_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_account_disabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -789,6 +841,18 @@ class _KubernetesClusterState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']]:
+        """
+        A `maintenance_window` block as defined below.
+        """
+        return pulumi.get(self, "maintenance_window")
+
+    @maintenance_window.setter
+    def maintenance_window(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']]):
+        pulumi.set(self, "maintenance_window", value)
 
     @property
     @pulumi.getter
@@ -962,7 +1026,9 @@ class KubernetesCluster(pulumi.CustomResource):
                  kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']]] = None,
+                 local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -1020,7 +1086,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
-        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -1029,7 +1095,9 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
+        :param pulumi.Input[bool] local_account_disabled: Is local account disabled for AAD integrated kubernetes cluster?
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -1115,7 +1183,9 @@ class KubernetesCluster(pulumi.CustomResource):
                  kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']]] = None,
+                 local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -1155,7 +1225,9 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["kubelet_identities"] = kubelet_identities
             __props__.__dict__["kubernetes_version"] = kubernetes_version
             __props__.__dict__["linux_profile"] = linux_profile
+            __props__.__dict__["local_account_disabled"] = local_account_disabled
             __props__.__dict__["location"] = location
+            __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["name"] = name
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_resource_group"] = node_resource_group
@@ -1207,7 +1279,9 @@ class KubernetesCluster(pulumi.CustomResource):
             kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]]] = None,
             kubernetes_version: Optional[pulumi.Input[str]] = None,
             linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']]] = None,
+            local_account_disabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
             node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -1231,7 +1305,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
-        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -1245,7 +1319,9 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
+        :param pulumi.Input[bool] local_account_disabled: Is local account disabled for AAD integrated kubernetes cluster?
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -1281,7 +1357,9 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["kubelet_identities"] = kubelet_identities
         __props__.__dict__["kubernetes_version"] = kubernetes_version
         __props__.__dict__["linux_profile"] = linux_profile
+        __props__.__dict__["local_account_disabled"] = local_account_disabled
         __props__.__dict__["location"] = location
+        __props__.__dict__["maintenance_window"] = maintenance_window
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile"] = network_profile
         __props__.__dict__["node_resource_group"] = node_resource_group
@@ -1325,7 +1403,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="automaticChannelUpgrade")
     def automatic_channel_upgrade(self) -> pulumi.Output[Optional[str]]:
         """
-        The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
+        The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         """
         return pulumi.get(self, "automatic_channel_upgrade")
 
@@ -1439,12 +1517,28 @@ class KubernetesCluster(pulumi.CustomResource):
         return pulumi.get(self, "linux_profile")
 
     @property
+    @pulumi.getter(name="localAccountDisabled")
+    def local_account_disabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is local account disabled for AAD integrated kubernetes cluster?
+        """
+        return pulumi.get(self, "local_account_disabled")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> pulumi.Output[Optional['outputs.KubernetesClusterMaintenanceWindow']]:
+        """
+        A `maintenance_window` block as defined below.
+        """
+        return pulumi.get(self, "maintenance_window")
 
     @property
     @pulumi.getter

@@ -2861,6 +2861,10 @@ func (o AppServiceLogsHttpLogsFileSystemPtrOutput) RetentionInMb() pulumi.IntPtr
 }
 
 type AppServiceSiteConfig struct {
+	// Are Managed Identity Credentials used for Azure Container Registry pull
+	AcrUseManagedIdentityCredentials *bool `pulumi:"acrUseManagedIdentityCredentials"`
+	// If using User Managed Identity, the User Managed Identity Client Id
+	AcrUserManagedIdentityClientId *string `pulumi:"acrUserManagedIdentityClientId"`
 	// Should the app be loaded at all times? Defaults to `false`.
 	AlwaysOn *bool `pulumi:"alwaysOn"`
 	// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
@@ -2870,7 +2874,7 @@ type AppServiceSiteConfig struct {
 	Cors *AppServiceSiteConfigCors `pulumi:"cors"`
 	// The ordering of default documents to load, if an address isn't specified.
 	DefaultDocuments []string `pulumi:"defaultDocuments"`
-	// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+	// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
 	// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState *string `pulumi:"ftpsState"`
@@ -2930,6 +2934,10 @@ type AppServiceSiteConfigInput interface {
 }
 
 type AppServiceSiteConfigArgs struct {
+	// Are Managed Identity Credentials used for Azure Container Registry pull
+	AcrUseManagedIdentityCredentials pulumi.BoolPtrInput `pulumi:"acrUseManagedIdentityCredentials"`
+	// If using User Managed Identity, the User Managed Identity Client Id
+	AcrUserManagedIdentityClientId pulumi.StringPtrInput `pulumi:"acrUserManagedIdentityClientId"`
 	// Should the app be loaded at all times? Defaults to `false`.
 	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
 	// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
@@ -2939,7 +2947,7 @@ type AppServiceSiteConfigArgs struct {
 	Cors AppServiceSiteConfigCorsPtrInput `pulumi:"cors"`
 	// The ordering of default documents to load, if an address isn't specified.
 	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
-	// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+	// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
 	// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
@@ -3064,6 +3072,16 @@ func (o AppServiceSiteConfigOutput) ToAppServiceSiteConfigPtrOutputWithContext(c
 	}).(AppServiceSiteConfigPtrOutput)
 }
 
+// Are Managed Identity Credentials used for Azure Container Registry pull
+func (o AppServiceSiteConfigOutput) AcrUseManagedIdentityCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.AcrUseManagedIdentityCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// If using User Managed Identity, the User Managed Identity Client Id
+func (o AppServiceSiteConfigOutput) AcrUserManagedIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.AcrUserManagedIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
 // Should the app be loaded at all times? Defaults to `false`.
 func (o AppServiceSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
@@ -3088,7 +3106,7 @@ func (o AppServiceSiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v AppServiceSiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
 }
 
-// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 func (o AppServiceSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.DotnetFrameworkVersion }).(pulumi.StringPtrOutput)
 }
@@ -3221,6 +3239,26 @@ func (o AppServiceSiteConfigPtrOutput) Elem() AppServiceSiteConfigOutput {
 	return o.ApplyT(func(v *AppServiceSiteConfig) AppServiceSiteConfig { return *v }).(AppServiceSiteConfigOutput)
 }
 
+// Are Managed Identity Credentials used for Azure Container Registry pull
+func (o AppServiceSiteConfigPtrOutput) AcrUseManagedIdentityCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcrUseManagedIdentityCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If using User Managed Identity, the User Managed Identity Client Id
+func (o AppServiceSiteConfigPtrOutput) AcrUserManagedIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AcrUserManagedIdentityClientId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Should the app be loaded at all times? Defaults to `false`.
 func (o AppServiceSiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppServiceSiteConfig) *bool {
@@ -3270,7 +3308,7 @@ func (o AppServiceSiteConfigPtrOutput) DefaultDocuments() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 func (o AppServiceSiteConfigPtrOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppServiceSiteConfig) *string {
 		if v == nil {
@@ -6623,10 +6661,14 @@ func (o FunctionAppIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 
 type FunctionAppSiteConfig struct {
 	// Should the Function App be loaded at all times? Defaults to `false`.
-	AlwaysOn         *bool   `pulumi:"alwaysOn"`
+	AlwaysOn *bool `pulumi:"alwaysOn"`
+	// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+	AppScaleLimit    *int    `pulumi:"appScaleLimit"`
 	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors *FunctionAppSiteConfigCors `pulumi:"cors"`
+	// The number of minimum instances for this function app. Only affects apps on the Premium plan.
+	ElasticInstanceMinimum *int `pulumi:"elasticInstanceMinimum"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
 	FtpsState *string `pulumi:"ftpsState"`
 	// Path which will be checked for this function app health.
@@ -6643,6 +6685,8 @@ type FunctionAppSiteConfig struct {
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
 	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
+	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+	RuntimeScaleMonitoringEnabled *bool `pulumi:"runtimeScaleMonitoringEnabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 	ScmIpRestrictions []FunctionAppSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
@@ -6668,10 +6712,14 @@ type FunctionAppSiteConfigInput interface {
 
 type FunctionAppSiteConfigArgs struct {
 	// Should the Function App be loaded at all times? Defaults to `false`.
-	AlwaysOn         pulumi.BoolPtrInput   `pulumi:"alwaysOn"`
+	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
+	// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+	AppScaleLimit    pulumi.IntPtrInput    `pulumi:"appScaleLimit"`
 	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors FunctionAppSiteConfigCorsPtrInput `pulumi:"cors"`
+	// The number of minimum instances for this function app. Only affects apps on the Premium plan.
+	ElasticInstanceMinimum pulumi.IntPtrInput `pulumi:"elasticInstanceMinimum"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
 	// Path which will be checked for this function app health.
@@ -6688,6 +6736,8 @@ type FunctionAppSiteConfigArgs struct {
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
 	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
+	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput `pulumi:"runtimeScaleMonitoringEnabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 	ScmIpRestrictions FunctionAppSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
@@ -6782,6 +6832,11 @@ func (o FunctionAppSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
 }
 
+// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+func (o FunctionAppSiteConfigOutput) AppScaleLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) *int { return v.AppScaleLimit }).(pulumi.IntPtrOutput)
+}
+
 func (o FunctionAppSiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
 }
@@ -6789,6 +6844,11 @@ func (o FunctionAppSiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 // A `cors` block as defined below.
 func (o FunctionAppSiteConfigOutput) Cors() FunctionAppSiteConfigCorsPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *FunctionAppSiteConfigCors { return v.Cors }).(FunctionAppSiteConfigCorsPtrOutput)
+}
+
+// The number of minimum instances for this function app. Only affects apps on the Premium plan.
+func (o FunctionAppSiteConfigOutput) ElasticInstanceMinimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) *int { return v.ElasticInstanceMinimum }).(pulumi.IntPtrOutput)
 }
 
 // State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
@@ -6829,6 +6889,11 @@ func (o FunctionAppSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 // The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
 func (o FunctionAppSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+func (o FunctionAppSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) *bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
@@ -6884,6 +6949,16 @@ func (o FunctionAppSiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+func (o FunctionAppSiteConfigPtrOutput) AppScaleLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AppScaleLimit
+	}).(pulumi.IntPtrOutput)
+}
+
 func (o FunctionAppSiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionAppSiteConfig) *string {
 		if v == nil {
@@ -6901,6 +6976,16 @@ func (o FunctionAppSiteConfigPtrOutput) Cors() FunctionAppSiteConfigCorsPtrOutpu
 		}
 		return v.Cors
 	}).(FunctionAppSiteConfigCorsPtrOutput)
+}
+
+// The number of minimum instances for this function app. Only affects apps on the Premium plan.
+func (o FunctionAppSiteConfigPtrOutput) ElasticInstanceMinimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticInstanceMinimum
+	}).(pulumi.IntPtrOutput)
 }
 
 // State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
@@ -6981,6 +7066,16 @@ func (o FunctionAppSiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOu
 		}
 		return v.PreWarmedInstanceCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+func (o FunctionAppSiteConfigPtrOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeScaleMonitoringEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
@@ -9480,10 +9575,14 @@ func (o FunctionAppSlotIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type FunctionAppSlotSiteConfig struct {
 	// Should the Function App be loaded at all times? Defaults to `false`.
 	AlwaysOn *bool `pulumi:"alwaysOn"`
+	// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+	AppScaleLimit *int `pulumi:"appScaleLimit"`
 	// The name of the slot to automatically swap to during deployment
 	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors *FunctionAppSlotSiteConfigCors `pulumi:"cors"`
+	// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+	ElasticInstanceMinimum *int `pulumi:"elasticInstanceMinimum"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState       *string `pulumi:"ftpsState"`
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
@@ -9497,10 +9596,12 @@ type FunctionAppSlotSiteConfig struct {
 	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
-	PreWarmedInstanceCount  *int                                        `pulumi:"preWarmedInstanceCount"`
-	ScmIpRestrictions       []FunctionAppSlotSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
-	ScmType                 *string                                     `pulumi:"scmType"`
-	ScmUseMainIpRestriction *bool                                       `pulumi:"scmUseMainIpRestriction"`
+	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
+	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+	RuntimeScaleMonitoringEnabled *bool                                       `pulumi:"runtimeScaleMonitoringEnabled"`
+	ScmIpRestrictions             []FunctionAppSlotSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
+	ScmType                       *string                                     `pulumi:"scmType"`
+	ScmUseMainIpRestriction       *bool                                       `pulumi:"scmUseMainIpRestriction"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
 	// Should WebSockets be enabled?
@@ -9521,10 +9622,14 @@ type FunctionAppSlotSiteConfigInput interface {
 type FunctionAppSlotSiteConfigArgs struct {
 	// Should the Function App be loaded at all times? Defaults to `false`.
 	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
+	// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+	AppScaleLimit pulumi.IntPtrInput `pulumi:"appScaleLimit"`
 	// The name of the slot to automatically swap to during deployment
 	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors FunctionAppSlotSiteConfigCorsPtrInput `pulumi:"cors"`
+	// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+	ElasticInstanceMinimum pulumi.IntPtrInput `pulumi:"elasticInstanceMinimum"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState       pulumi.StringPtrInput `pulumi:"ftpsState"`
 	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
@@ -9538,10 +9643,12 @@ type FunctionAppSlotSiteConfigArgs struct {
 	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
-	PreWarmedInstanceCount  pulumi.IntPtrInput                                  `pulumi:"preWarmedInstanceCount"`
-	ScmIpRestrictions       FunctionAppSlotSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
-	ScmType                 pulumi.StringPtrInput                               `pulumi:"scmType"`
-	ScmUseMainIpRestriction pulumi.BoolPtrInput                                 `pulumi:"scmUseMainIpRestriction"`
+	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
+	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput                                 `pulumi:"runtimeScaleMonitoringEnabled"`
+	ScmIpRestrictions             FunctionAppSlotSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
+	ScmType                       pulumi.StringPtrInput                               `pulumi:"scmType"`
+	ScmUseMainIpRestriction       pulumi.BoolPtrInput                                 `pulumi:"scmUseMainIpRestriction"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
 	// Should WebSockets be enabled?
@@ -9630,6 +9737,11 @@ func (o FunctionAppSlotSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
 }
 
+// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+func (o FunctionAppSlotSiteConfigOutput) AppScaleLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *int { return v.AppScaleLimit }).(pulumi.IntPtrOutput)
+}
+
 // The name of the slot to automatically swap to during deployment
 func (o FunctionAppSlotSiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
@@ -9638,6 +9750,11 @@ func (o FunctionAppSlotSiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutp
 // A `cors` block as defined below.
 func (o FunctionAppSlotSiteConfigOutput) Cors() FunctionAppSlotSiteConfigCorsPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *FunctionAppSlotSiteConfigCors { return v.Cors }).(FunctionAppSlotSiteConfigCorsPtrOutput)
+}
+
+// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+func (o FunctionAppSlotSiteConfigOutput) ElasticInstanceMinimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *int { return v.ElasticInstanceMinimum }).(pulumi.IntPtrOutput)
 }
 
 // State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
@@ -9676,6 +9793,11 @@ func (o FunctionAppSlotSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput 
 // The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
 func (o FunctionAppSlotSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+func (o FunctionAppSlotSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o FunctionAppSlotSiteConfigOutput) ScmIpRestrictions() FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput {
@@ -9730,6 +9852,16 @@ func (o FunctionAppSlotSiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+func (o FunctionAppSlotSiteConfigPtrOutput) AppScaleLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AppScaleLimit
+	}).(pulumi.IntPtrOutput)
+}
+
 // The name of the slot to automatically swap to during deployment
 func (o FunctionAppSlotSiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *string {
@@ -9748,6 +9880,16 @@ func (o FunctionAppSlotSiteConfigPtrOutput) Cors() FunctionAppSlotSiteConfigCors
 		}
 		return v.Cors
 	}).(FunctionAppSlotSiteConfigCorsPtrOutput)
+}
+
+// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+func (o FunctionAppSlotSiteConfigPtrOutput) ElasticInstanceMinimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticInstanceMinimum
+	}).(pulumi.IntPtrOutput)
 }
 
 // State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
@@ -9826,6 +9968,16 @@ func (o FunctionAppSlotSiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntP
 		}
 		return v.PreWarmedInstanceCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+func (o FunctionAppSlotSiteConfigPtrOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeScaleMonitoringEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o FunctionAppSlotSiteConfigPtrOutput) ScmIpRestrictions() FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput {
@@ -13649,6 +13801,10 @@ func (o SlotLogsHttpLogsFileSystemPtrOutput) RetentionInMb() pulumi.IntPtrOutput
 }
 
 type SlotSiteConfig struct {
+	// Are Managed Identity Credential used for Azure Container Registry pull
+	AcrUseManagedIdentityCredentials *bool `pulumi:"acrUseManagedIdentityCredentials"`
+	// If using User Managed Identity, the User Managed Identity Client Id
+	AcrUserManagedIdentityClientId *string `pulumi:"acrUserManagedIdentityClientId"`
 	// Should the app be loaded at all times? Defaults to `false`.
 	AlwaysOn *bool `pulumi:"alwaysOn"`
 	// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
@@ -13659,7 +13815,7 @@ type SlotSiteConfig struct {
 	Cors *SlotSiteConfigCors `pulumi:"cors"`
 	// The ordering of default documents to load, if an address isn't specified.
 	DefaultDocuments []string `pulumi:"defaultDocuments"`
-	// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+	// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
 	FtpsState              *string `pulumi:"ftpsState"`
 	HealthCheckPath        *string `pulumi:"healthCheckPath"`
@@ -13712,6 +13868,10 @@ type SlotSiteConfigInput interface {
 }
 
 type SlotSiteConfigArgs struct {
+	// Are Managed Identity Credential used for Azure Container Registry pull
+	AcrUseManagedIdentityCredentials pulumi.BoolPtrInput `pulumi:"acrUseManagedIdentityCredentials"`
+	// If using User Managed Identity, the User Managed Identity Client Id
+	AcrUserManagedIdentityClientId pulumi.StringPtrInput `pulumi:"acrUserManagedIdentityClientId"`
 	// Should the app be loaded at all times? Defaults to `false`.
 	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
 	// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
@@ -13722,7 +13882,7 @@ type SlotSiteConfigArgs struct {
 	Cors SlotSiteConfigCorsPtrInput `pulumi:"cors"`
 	// The ordering of default documents to load, if an address isn't specified.
 	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
-	// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+	// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
 	FtpsState              pulumi.StringPtrInput `pulumi:"ftpsState"`
 	HealthCheckPath        pulumi.StringPtrInput `pulumi:"healthCheckPath"`
@@ -13840,6 +14000,16 @@ func (o SlotSiteConfigOutput) ToSlotSiteConfigPtrOutputWithContext(ctx context.C
 	}).(SlotSiteConfigPtrOutput)
 }
 
+// Are Managed Identity Credential used for Azure Container Registry pull
+func (o SlotSiteConfigOutput) AcrUseManagedIdentityCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfig) *bool { return v.AcrUseManagedIdentityCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// If using User Managed Identity, the User Managed Identity Client Id
+func (o SlotSiteConfigOutput) AcrUserManagedIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfig) *string { return v.AcrUserManagedIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
 // Should the app be loaded at all times? Defaults to `false`.
 func (o SlotSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
@@ -13865,7 +14035,7 @@ func (o SlotSiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotSiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
 }
 
-// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 func (o SlotSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.DotnetFrameworkVersion }).(pulumi.StringPtrOutput)
 }
@@ -13991,6 +14161,26 @@ func (o SlotSiteConfigPtrOutput) Elem() SlotSiteConfigOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) SlotSiteConfig { return *v }).(SlotSiteConfigOutput)
 }
 
+// Are Managed Identity Credential used for Azure Container Registry pull
+func (o SlotSiteConfigPtrOutput) AcrUseManagedIdentityCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SlotSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcrUseManagedIdentityCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If using User Managed Identity, the User Managed Identity Client Id
+func (o SlotSiteConfigPtrOutput) AcrUserManagedIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlotSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AcrUserManagedIdentityClientId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Should the app be loaded at all times? Defaults to `false`.
 func (o SlotSiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *bool {
@@ -14041,7 +14231,7 @@ func (o SlotSiteConfigPtrOutput) DefaultDocuments() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 func (o SlotSiteConfigPtrOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *string {
 		if v == nil {
@@ -15490,6 +15680,10 @@ func (o GetAppServicePlanSkuOutput) Tier() pulumi.StringOutput {
 }
 
 type GetAppServiceSiteConfig struct {
+	// Are Managed Identity Credentials used for Azure Container Registry pull.
+	AcrUseManagedIdentityCredentials bool `pulumi:"acrUseManagedIdentityCredentials"`
+	// The User Managed Identity Client Id.
+	AcrUserManagedIdentityClientId string `pulumi:"acrUserManagedIdentityClientId"`
 	// Is the app loaded at all times?
 	AlwaysOn bool `pulumi:"alwaysOn"`
 	// App command line to launch.
@@ -15558,6 +15752,10 @@ type GetAppServiceSiteConfigInput interface {
 }
 
 type GetAppServiceSiteConfigArgs struct {
+	// Are Managed Identity Credentials used for Azure Container Registry pull.
+	AcrUseManagedIdentityCredentials pulumi.BoolInput `pulumi:"acrUseManagedIdentityCredentials"`
+	// The User Managed Identity Client Id.
+	AcrUserManagedIdentityClientId pulumi.StringInput `pulumi:"acrUserManagedIdentityClientId"`
 	// Is the app loaded at all times?
 	AlwaysOn pulumi.BoolInput `pulumi:"alwaysOn"`
 	// App command line to launch.
@@ -15663,6 +15861,16 @@ func (o GetAppServiceSiteConfigOutput) ToGetAppServiceSiteConfigOutput() GetAppS
 
 func (o GetAppServiceSiteConfigOutput) ToGetAppServiceSiteConfigOutputWithContext(ctx context.Context) GetAppServiceSiteConfigOutput {
 	return o
+}
+
+// Are Managed Identity Credentials used for Azure Container Registry pull.
+func (o GetAppServiceSiteConfigOutput) AcrUseManagedIdentityCredentials() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfig) bool { return v.AcrUseManagedIdentityCredentials }).(pulumi.BoolOutput)
+}
+
+// The User Managed Identity Client Id.
+func (o GetAppServiceSiteConfigOutput) AcrUserManagedIdentityClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfig) string { return v.AcrUserManagedIdentityClientId }).(pulumi.StringOutput)
 }
 
 // Is the app loaded at all times?
@@ -17055,10 +17263,14 @@ func (o GetFunctionAppIdentityArrayOutput) Index(i pulumi.IntInput) GetFunctionA
 
 type GetFunctionAppSiteConfig struct {
 	// Is the app loaded at all times?
-	AlwaysOn         bool   `pulumi:"alwaysOn"`
+	AlwaysOn bool `pulumi:"alwaysOn"`
+	// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+	AppScaleLimit    int    `pulumi:"appScaleLimit"`
 	AutoSwapSlotName string `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined above.
 	Cors GetFunctionAppSiteConfigCors `pulumi:"cors"`
+	// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+	ElasticInstanceMinimum int `pulumi:"elasticInstanceMinimum"`
 	// State of FTP / FTPS service for this AppService.
 	FtpsState       string `pulumi:"ftpsState"`
 	HealthCheckPath string `pulumi:"healthCheckPath"`
@@ -17074,6 +17286,8 @@ type GetFunctionAppSiteConfig struct {
 	MinTlsVersion string `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
 	PreWarmedInstanceCount int `pulumi:"preWarmedInstanceCount"`
+	// Is Runtime Scale Monitoring Enabled on this function app?
+	RuntimeScaleMonitoringEnabled bool `pulumi:"runtimeScaleMonitoringEnabled"`
 	// One or more `scmIpRestriction` blocks as defined above.
 	ScmIpRestrictions []GetFunctionAppSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// The type of Source Control enabled for this App Service.
@@ -17099,10 +17313,14 @@ type GetFunctionAppSiteConfigInput interface {
 
 type GetFunctionAppSiteConfigArgs struct {
 	// Is the app loaded at all times?
-	AlwaysOn         pulumi.BoolInput   `pulumi:"alwaysOn"`
+	AlwaysOn pulumi.BoolInput `pulumi:"alwaysOn"`
+	// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+	AppScaleLimit    pulumi.IntInput    `pulumi:"appScaleLimit"`
 	AutoSwapSlotName pulumi.StringInput `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined above.
 	Cors GetFunctionAppSiteConfigCorsInput `pulumi:"cors"`
+	// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+	ElasticInstanceMinimum pulumi.IntInput `pulumi:"elasticInstanceMinimum"`
 	// State of FTP / FTPS service for this AppService.
 	FtpsState       pulumi.StringInput `pulumi:"ftpsState"`
 	HealthCheckPath pulumi.StringInput `pulumi:"healthCheckPath"`
@@ -17118,6 +17336,8 @@ type GetFunctionAppSiteConfigArgs struct {
 	MinTlsVersion pulumi.StringInput `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
 	PreWarmedInstanceCount pulumi.IntInput `pulumi:"preWarmedInstanceCount"`
+	// Is Runtime Scale Monitoring Enabled on this function app?
+	RuntimeScaleMonitoringEnabled pulumi.BoolInput `pulumi:"runtimeScaleMonitoringEnabled"`
 	// One or more `scmIpRestriction` blocks as defined above.
 	ScmIpRestrictions GetFunctionAppSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// The type of Source Control enabled for this App Service.
@@ -17186,6 +17406,11 @@ func (o GetFunctionAppSiteConfigOutput) AlwaysOn() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfig) bool { return v.AlwaysOn }).(pulumi.BoolOutput)
 }
 
+// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+func (o GetFunctionAppSiteConfigOutput) AppScaleLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) int { return v.AppScaleLimit }).(pulumi.IntOutput)
+}
+
 func (o GetFunctionAppSiteConfigOutput) AutoSwapSlotName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfig) string { return v.AutoSwapSlotName }).(pulumi.StringOutput)
 }
@@ -17193,6 +17418,11 @@ func (o GetFunctionAppSiteConfigOutput) AutoSwapSlotName() pulumi.StringOutput {
 // A `cors` block as defined above.
 func (o GetFunctionAppSiteConfigOutput) Cors() GetFunctionAppSiteConfigCorsOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfig) GetFunctionAppSiteConfigCors { return v.Cors }).(GetFunctionAppSiteConfigCorsOutput)
+}
+
+// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+func (o GetFunctionAppSiteConfigOutput) ElasticInstanceMinimum() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) int { return v.ElasticInstanceMinimum }).(pulumi.IntOutput)
 }
 
 // State of FTP / FTPS service for this AppService.
@@ -17232,6 +17462,11 @@ func (o GetFunctionAppSiteConfigOutput) MinTlsVersion() pulumi.StringOutput {
 // The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
 func (o GetFunctionAppSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfig) int { return v.PreWarmedInstanceCount }).(pulumi.IntOutput)
+}
+
+// Is Runtime Scale Monitoring Enabled on this function app?
+func (o GetFunctionAppSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolOutput)
 }
 
 // One or more `scmIpRestriction` blocks as defined above.

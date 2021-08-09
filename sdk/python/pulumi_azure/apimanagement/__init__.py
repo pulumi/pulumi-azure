@@ -49,6 +49,7 @@ from .property import *
 from .redis_cache import *
 from .service import *
 from .subscription import *
+from .tag import *
 from .user import *
 from ._inputs import *
 from . import outputs

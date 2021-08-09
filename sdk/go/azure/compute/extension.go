@@ -169,8 +169,7 @@ type Extension struct {
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings pulumi.StringPtrOutput `pulumi:"protectedSettings"`
-	// The publisher of the extension, available publishers
-	// can be found by using the Azure CLI.
+	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher pulumi.StringOutput `pulumi:"publisher"`
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
@@ -237,8 +236,7 @@ type extensionState struct {
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
-	// The publisher of the extension, available publishers
-	// can be found by using the Azure CLI.
+	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher *string `pulumi:"publisher"`
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
@@ -265,8 +263,7 @@ type ExtensionState struct {
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings pulumi.StringPtrInput
-	// The publisher of the extension, available publishers
-	// can be found by using the Azure CLI.
+	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher pulumi.StringPtrInput
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
@@ -297,8 +294,7 @@ type extensionArgs struct {
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
-	// The publisher of the extension, available publishers
-	// can be found by using the Azure CLI.
+	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
@@ -326,8 +322,7 @@ type ExtensionArgs struct {
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings pulumi.StringPtrInput
-	// The publisher of the extension, available publishers
-	// can be found by using the Azure CLI.
+	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.

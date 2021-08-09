@@ -77,7 +77,13 @@ export class StaticSite extends pulumi.CustomResource {
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+     */
     public readonly skuSize!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+     */
     public readonly skuTier!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
@@ -150,7 +156,13 @@ export interface StaticSiteState {
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+     */
     skuSize?: pulumi.Input<string>;
+    /**
+     * Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+     */
     skuTier?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -174,7 +186,13 @@ export interface StaticSiteArgs {
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+     */
     skuSize?: pulumi.Input<string>;
+    /**
+     * Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+     */
     skuTier?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.

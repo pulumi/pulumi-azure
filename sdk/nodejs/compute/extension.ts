@@ -147,8 +147,7 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly protectedSettings!: pulumi.Output<string | undefined>;
     /**
-     * The publisher of the extension, available publishers
-     * can be found by using the Azure CLI.
+     * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      */
     public readonly publisher!: pulumi.Output<string>;
     /**
@@ -248,8 +247,7 @@ export interface ExtensionState {
      */
     protectedSettings?: pulumi.Input<string>;
     /**
-     * The publisher of the extension, available publishers
-     * can be found by using the Azure CLI.
+     * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      */
     publisher?: pulumi.Input<string>;
     /**
@@ -297,8 +295,7 @@ export interface ExtensionArgs {
      */
     protectedSettings?: pulumi.Input<string>;
     /**
-     * The publisher of the extension, available publishers
-     * can be found by using the Azure CLI.
+     * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      */
     publisher: pulumi.Input<string>;
     /**

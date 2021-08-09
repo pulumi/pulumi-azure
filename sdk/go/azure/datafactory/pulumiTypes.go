@@ -160,6 +160,1278 @@ func (o CustomDatasetLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput
 	}).(pulumi.StringMapOutput)
 }
 
+type DataFlowSink struct {
+	// A `dataset` block as defined below.
+	Dataset *DataFlowSinkDataset `pulumi:"dataset"`
+	// The description for the Data Flow Source.
+	Description *string `pulumi:"description"`
+	// A `linkedService` block as defined below.
+	LinkedService *DataFlowSinkLinkedService `pulumi:"linkedService"`
+	// The name for the Data Flow Source.
+	Name string `pulumi:"name"`
+	// A `schemaLinkedService` block as defined below.
+	SchemaLinkedService *DataFlowSinkSchemaLinkedService `pulumi:"schemaLinkedService"`
+}
+
+// DataFlowSinkInput is an input type that accepts DataFlowSinkArgs and DataFlowSinkOutput values.
+// You can construct a concrete instance of `DataFlowSinkInput` via:
+//
+//          DataFlowSinkArgs{...}
+type DataFlowSinkInput interface {
+	pulumi.Input
+
+	ToDataFlowSinkOutput() DataFlowSinkOutput
+	ToDataFlowSinkOutputWithContext(context.Context) DataFlowSinkOutput
+}
+
+type DataFlowSinkArgs struct {
+	// A `dataset` block as defined below.
+	Dataset DataFlowSinkDatasetPtrInput `pulumi:"dataset"`
+	// The description for the Data Flow Source.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A `linkedService` block as defined below.
+	LinkedService DataFlowSinkLinkedServicePtrInput `pulumi:"linkedService"`
+	// The name for the Data Flow Source.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `schemaLinkedService` block as defined below.
+	SchemaLinkedService DataFlowSinkSchemaLinkedServicePtrInput `pulumi:"schemaLinkedService"`
+}
+
+func (DataFlowSinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSink)(nil)).Elem()
+}
+
+func (i DataFlowSinkArgs) ToDataFlowSinkOutput() DataFlowSinkOutput {
+	return i.ToDataFlowSinkOutputWithContext(context.Background())
+}
+
+func (i DataFlowSinkArgs) ToDataFlowSinkOutputWithContext(ctx context.Context) DataFlowSinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkOutput)
+}
+
+// DataFlowSinkArrayInput is an input type that accepts DataFlowSinkArray and DataFlowSinkArrayOutput values.
+// You can construct a concrete instance of `DataFlowSinkArrayInput` via:
+//
+//          DataFlowSinkArray{ DataFlowSinkArgs{...} }
+type DataFlowSinkArrayInput interface {
+	pulumi.Input
+
+	ToDataFlowSinkArrayOutput() DataFlowSinkArrayOutput
+	ToDataFlowSinkArrayOutputWithContext(context.Context) DataFlowSinkArrayOutput
+}
+
+type DataFlowSinkArray []DataFlowSinkInput
+
+func (DataFlowSinkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataFlowSink)(nil)).Elem()
+}
+
+func (i DataFlowSinkArray) ToDataFlowSinkArrayOutput() DataFlowSinkArrayOutput {
+	return i.ToDataFlowSinkArrayOutputWithContext(context.Background())
+}
+
+func (i DataFlowSinkArray) ToDataFlowSinkArrayOutputWithContext(ctx context.Context) DataFlowSinkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkArrayOutput)
+}
+
+type DataFlowSinkOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSink)(nil)).Elem()
+}
+
+func (o DataFlowSinkOutput) ToDataFlowSinkOutput() DataFlowSinkOutput {
+	return o
+}
+
+func (o DataFlowSinkOutput) ToDataFlowSinkOutputWithContext(ctx context.Context) DataFlowSinkOutput {
+	return o
+}
+
+// A `dataset` block as defined below.
+func (o DataFlowSinkOutput) Dataset() DataFlowSinkDatasetPtrOutput {
+	return o.ApplyT(func(v DataFlowSink) *DataFlowSinkDataset { return v.Dataset }).(DataFlowSinkDatasetPtrOutput)
+}
+
+// The description for the Data Flow Source.
+func (o DataFlowSinkOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataFlowSink) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A `linkedService` block as defined below.
+func (o DataFlowSinkOutput) LinkedService() DataFlowSinkLinkedServicePtrOutput {
+	return o.ApplyT(func(v DataFlowSink) *DataFlowSinkLinkedService { return v.LinkedService }).(DataFlowSinkLinkedServicePtrOutput)
+}
+
+// The name for the Data Flow Source.
+func (o DataFlowSinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowSink) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `schemaLinkedService` block as defined below.
+func (o DataFlowSinkOutput) SchemaLinkedService() DataFlowSinkSchemaLinkedServicePtrOutput {
+	return o.ApplyT(func(v DataFlowSink) *DataFlowSinkSchemaLinkedService { return v.SchemaLinkedService }).(DataFlowSinkSchemaLinkedServicePtrOutput)
+}
+
+type DataFlowSinkArrayOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSinkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataFlowSink)(nil)).Elem()
+}
+
+func (o DataFlowSinkArrayOutput) ToDataFlowSinkArrayOutput() DataFlowSinkArrayOutput {
+	return o
+}
+
+func (o DataFlowSinkArrayOutput) ToDataFlowSinkArrayOutputWithContext(ctx context.Context) DataFlowSinkArrayOutput {
+	return o
+}
+
+func (o DataFlowSinkArrayOutput) Index(i pulumi.IntInput) DataFlowSinkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataFlowSink {
+		return vs[0].([]DataFlowSink)[vs[1].(int)]
+	}).(DataFlowSinkOutput)
+}
+
+type DataFlowSinkDataset struct {
+	// The name for the Data Factory Dataset.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory dataset.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowSinkDatasetInput is an input type that accepts DataFlowSinkDatasetArgs and DataFlowSinkDatasetOutput values.
+// You can construct a concrete instance of `DataFlowSinkDatasetInput` via:
+//
+//          DataFlowSinkDatasetArgs{...}
+type DataFlowSinkDatasetInput interface {
+	pulumi.Input
+
+	ToDataFlowSinkDatasetOutput() DataFlowSinkDatasetOutput
+	ToDataFlowSinkDatasetOutputWithContext(context.Context) DataFlowSinkDatasetOutput
+}
+
+type DataFlowSinkDatasetArgs struct {
+	// The name for the Data Factory Dataset.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory dataset.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowSinkDatasetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSinkDataset)(nil)).Elem()
+}
+
+func (i DataFlowSinkDatasetArgs) ToDataFlowSinkDatasetOutput() DataFlowSinkDatasetOutput {
+	return i.ToDataFlowSinkDatasetOutputWithContext(context.Background())
+}
+
+func (i DataFlowSinkDatasetArgs) ToDataFlowSinkDatasetOutputWithContext(ctx context.Context) DataFlowSinkDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkDatasetOutput)
+}
+
+func (i DataFlowSinkDatasetArgs) ToDataFlowSinkDatasetPtrOutput() DataFlowSinkDatasetPtrOutput {
+	return i.ToDataFlowSinkDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowSinkDatasetArgs) ToDataFlowSinkDatasetPtrOutputWithContext(ctx context.Context) DataFlowSinkDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkDatasetOutput).ToDataFlowSinkDatasetPtrOutputWithContext(ctx)
+}
+
+// DataFlowSinkDatasetPtrInput is an input type that accepts DataFlowSinkDatasetArgs, DataFlowSinkDatasetPtr and DataFlowSinkDatasetPtrOutput values.
+// You can construct a concrete instance of `DataFlowSinkDatasetPtrInput` via:
+//
+//          DataFlowSinkDatasetArgs{...}
+//
+//  or:
+//
+//          nil
+type DataFlowSinkDatasetPtrInput interface {
+	pulumi.Input
+
+	ToDataFlowSinkDatasetPtrOutput() DataFlowSinkDatasetPtrOutput
+	ToDataFlowSinkDatasetPtrOutputWithContext(context.Context) DataFlowSinkDatasetPtrOutput
+}
+
+type dataFlowSinkDatasetPtrType DataFlowSinkDatasetArgs
+
+func DataFlowSinkDatasetPtr(v *DataFlowSinkDatasetArgs) DataFlowSinkDatasetPtrInput {
+	return (*dataFlowSinkDatasetPtrType)(v)
+}
+
+func (*dataFlowSinkDatasetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSinkDataset)(nil)).Elem()
+}
+
+func (i *dataFlowSinkDatasetPtrType) ToDataFlowSinkDatasetPtrOutput() DataFlowSinkDatasetPtrOutput {
+	return i.ToDataFlowSinkDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowSinkDatasetPtrType) ToDataFlowSinkDatasetPtrOutputWithContext(ctx context.Context) DataFlowSinkDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkDatasetPtrOutput)
+}
+
+type DataFlowSinkDatasetOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSinkDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSinkDataset)(nil)).Elem()
+}
+
+func (o DataFlowSinkDatasetOutput) ToDataFlowSinkDatasetOutput() DataFlowSinkDatasetOutput {
+	return o
+}
+
+func (o DataFlowSinkDatasetOutput) ToDataFlowSinkDatasetOutputWithContext(ctx context.Context) DataFlowSinkDatasetOutput {
+	return o
+}
+
+func (o DataFlowSinkDatasetOutput) ToDataFlowSinkDatasetPtrOutput() DataFlowSinkDatasetPtrOutput {
+	return o.ToDataFlowSinkDatasetPtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowSinkDatasetOutput) ToDataFlowSinkDatasetPtrOutputWithContext(ctx context.Context) DataFlowSinkDatasetPtrOutput {
+	return o.ApplyT(func(v DataFlowSinkDataset) *DataFlowSinkDataset {
+		return &v
+	}).(DataFlowSinkDatasetPtrOutput)
+}
+
+// The name for the Data Factory Dataset.
+func (o DataFlowSinkDatasetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowSinkDataset) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory dataset.
+func (o DataFlowSinkDatasetOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowSinkDataset) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowSinkDatasetPtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSinkDatasetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSinkDataset)(nil)).Elem()
+}
+
+func (o DataFlowSinkDatasetPtrOutput) ToDataFlowSinkDatasetPtrOutput() DataFlowSinkDatasetPtrOutput {
+	return o
+}
+
+func (o DataFlowSinkDatasetPtrOutput) ToDataFlowSinkDatasetPtrOutputWithContext(ctx context.Context) DataFlowSinkDatasetPtrOutput {
+	return o
+}
+
+func (o DataFlowSinkDatasetPtrOutput) Elem() DataFlowSinkDatasetOutput {
+	return o.ApplyT(func(v *DataFlowSinkDataset) DataFlowSinkDataset { return *v }).(DataFlowSinkDatasetOutput)
+}
+
+// The name for the Data Factory Dataset.
+func (o DataFlowSinkDatasetPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowSinkDataset) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory dataset.
+func (o DataFlowSinkDatasetPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowSinkDataset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type DataFlowSinkLinkedService struct {
+	// The name for the Data Factory Linked Service.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowSinkLinkedServiceInput is an input type that accepts DataFlowSinkLinkedServiceArgs and DataFlowSinkLinkedServiceOutput values.
+// You can construct a concrete instance of `DataFlowSinkLinkedServiceInput` via:
+//
+//          DataFlowSinkLinkedServiceArgs{...}
+type DataFlowSinkLinkedServiceInput interface {
+	pulumi.Input
+
+	ToDataFlowSinkLinkedServiceOutput() DataFlowSinkLinkedServiceOutput
+	ToDataFlowSinkLinkedServiceOutputWithContext(context.Context) DataFlowSinkLinkedServiceOutput
+}
+
+type DataFlowSinkLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowSinkLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSinkLinkedService)(nil)).Elem()
+}
+
+func (i DataFlowSinkLinkedServiceArgs) ToDataFlowSinkLinkedServiceOutput() DataFlowSinkLinkedServiceOutput {
+	return i.ToDataFlowSinkLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i DataFlowSinkLinkedServiceArgs) ToDataFlowSinkLinkedServiceOutputWithContext(ctx context.Context) DataFlowSinkLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkLinkedServiceOutput)
+}
+
+func (i DataFlowSinkLinkedServiceArgs) ToDataFlowSinkLinkedServicePtrOutput() DataFlowSinkLinkedServicePtrOutput {
+	return i.ToDataFlowSinkLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowSinkLinkedServiceArgs) ToDataFlowSinkLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkLinkedServiceOutput).ToDataFlowSinkLinkedServicePtrOutputWithContext(ctx)
+}
+
+// DataFlowSinkLinkedServicePtrInput is an input type that accepts DataFlowSinkLinkedServiceArgs, DataFlowSinkLinkedServicePtr and DataFlowSinkLinkedServicePtrOutput values.
+// You can construct a concrete instance of `DataFlowSinkLinkedServicePtrInput` via:
+//
+//          DataFlowSinkLinkedServiceArgs{...}
+//
+//  or:
+//
+//          nil
+type DataFlowSinkLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToDataFlowSinkLinkedServicePtrOutput() DataFlowSinkLinkedServicePtrOutput
+	ToDataFlowSinkLinkedServicePtrOutputWithContext(context.Context) DataFlowSinkLinkedServicePtrOutput
+}
+
+type dataFlowSinkLinkedServicePtrType DataFlowSinkLinkedServiceArgs
+
+func DataFlowSinkLinkedServicePtr(v *DataFlowSinkLinkedServiceArgs) DataFlowSinkLinkedServicePtrInput {
+	return (*dataFlowSinkLinkedServicePtrType)(v)
+}
+
+func (*dataFlowSinkLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSinkLinkedService)(nil)).Elem()
+}
+
+func (i *dataFlowSinkLinkedServicePtrType) ToDataFlowSinkLinkedServicePtrOutput() DataFlowSinkLinkedServicePtrOutput {
+	return i.ToDataFlowSinkLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowSinkLinkedServicePtrType) ToDataFlowSinkLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkLinkedServicePtrOutput)
+}
+
+type DataFlowSinkLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSinkLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSinkLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowSinkLinkedServiceOutput) ToDataFlowSinkLinkedServiceOutput() DataFlowSinkLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowSinkLinkedServiceOutput) ToDataFlowSinkLinkedServiceOutputWithContext(ctx context.Context) DataFlowSinkLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowSinkLinkedServiceOutput) ToDataFlowSinkLinkedServicePtrOutput() DataFlowSinkLinkedServicePtrOutput {
+	return o.ToDataFlowSinkLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowSinkLinkedServiceOutput) ToDataFlowSinkLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkLinkedServicePtrOutput {
+	return o.ApplyT(func(v DataFlowSinkLinkedService) *DataFlowSinkLinkedService {
+		return &v
+	}).(DataFlowSinkLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service.
+func (o DataFlowSinkLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowSinkLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowSinkLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowSinkLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowSinkLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSinkLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSinkLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowSinkLinkedServicePtrOutput) ToDataFlowSinkLinkedServicePtrOutput() DataFlowSinkLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowSinkLinkedServicePtrOutput) ToDataFlowSinkLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowSinkLinkedServicePtrOutput) Elem() DataFlowSinkLinkedServiceOutput {
+	return o.ApplyT(func(v *DataFlowSinkLinkedService) DataFlowSinkLinkedService { return *v }).(DataFlowSinkLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service.
+func (o DataFlowSinkLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowSinkLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowSinkLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowSinkLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type DataFlowSinkSchemaLinkedService struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowSinkSchemaLinkedServiceInput is an input type that accepts DataFlowSinkSchemaLinkedServiceArgs and DataFlowSinkSchemaLinkedServiceOutput values.
+// You can construct a concrete instance of `DataFlowSinkSchemaLinkedServiceInput` via:
+//
+//          DataFlowSinkSchemaLinkedServiceArgs{...}
+type DataFlowSinkSchemaLinkedServiceInput interface {
+	pulumi.Input
+
+	ToDataFlowSinkSchemaLinkedServiceOutput() DataFlowSinkSchemaLinkedServiceOutput
+	ToDataFlowSinkSchemaLinkedServiceOutputWithContext(context.Context) DataFlowSinkSchemaLinkedServiceOutput
+}
+
+type DataFlowSinkSchemaLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowSinkSchemaLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSinkSchemaLinkedService)(nil)).Elem()
+}
+
+func (i DataFlowSinkSchemaLinkedServiceArgs) ToDataFlowSinkSchemaLinkedServiceOutput() DataFlowSinkSchemaLinkedServiceOutput {
+	return i.ToDataFlowSinkSchemaLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i DataFlowSinkSchemaLinkedServiceArgs) ToDataFlowSinkSchemaLinkedServiceOutputWithContext(ctx context.Context) DataFlowSinkSchemaLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkSchemaLinkedServiceOutput)
+}
+
+func (i DataFlowSinkSchemaLinkedServiceArgs) ToDataFlowSinkSchemaLinkedServicePtrOutput() DataFlowSinkSchemaLinkedServicePtrOutput {
+	return i.ToDataFlowSinkSchemaLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowSinkSchemaLinkedServiceArgs) ToDataFlowSinkSchemaLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkSchemaLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkSchemaLinkedServiceOutput).ToDataFlowSinkSchemaLinkedServicePtrOutputWithContext(ctx)
+}
+
+// DataFlowSinkSchemaLinkedServicePtrInput is an input type that accepts DataFlowSinkSchemaLinkedServiceArgs, DataFlowSinkSchemaLinkedServicePtr and DataFlowSinkSchemaLinkedServicePtrOutput values.
+// You can construct a concrete instance of `DataFlowSinkSchemaLinkedServicePtrInput` via:
+//
+//          DataFlowSinkSchemaLinkedServiceArgs{...}
+//
+//  or:
+//
+//          nil
+type DataFlowSinkSchemaLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToDataFlowSinkSchemaLinkedServicePtrOutput() DataFlowSinkSchemaLinkedServicePtrOutput
+	ToDataFlowSinkSchemaLinkedServicePtrOutputWithContext(context.Context) DataFlowSinkSchemaLinkedServicePtrOutput
+}
+
+type dataFlowSinkSchemaLinkedServicePtrType DataFlowSinkSchemaLinkedServiceArgs
+
+func DataFlowSinkSchemaLinkedServicePtr(v *DataFlowSinkSchemaLinkedServiceArgs) DataFlowSinkSchemaLinkedServicePtrInput {
+	return (*dataFlowSinkSchemaLinkedServicePtrType)(v)
+}
+
+func (*dataFlowSinkSchemaLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSinkSchemaLinkedService)(nil)).Elem()
+}
+
+func (i *dataFlowSinkSchemaLinkedServicePtrType) ToDataFlowSinkSchemaLinkedServicePtrOutput() DataFlowSinkSchemaLinkedServicePtrOutput {
+	return i.ToDataFlowSinkSchemaLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowSinkSchemaLinkedServicePtrType) ToDataFlowSinkSchemaLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkSchemaLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkSchemaLinkedServicePtrOutput)
+}
+
+type DataFlowSinkSchemaLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSinkSchemaLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSinkSchemaLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowSinkSchemaLinkedServiceOutput) ToDataFlowSinkSchemaLinkedServiceOutput() DataFlowSinkSchemaLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowSinkSchemaLinkedServiceOutput) ToDataFlowSinkSchemaLinkedServiceOutputWithContext(ctx context.Context) DataFlowSinkSchemaLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowSinkSchemaLinkedServiceOutput) ToDataFlowSinkSchemaLinkedServicePtrOutput() DataFlowSinkSchemaLinkedServicePtrOutput {
+	return o.ToDataFlowSinkSchemaLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowSinkSchemaLinkedServiceOutput) ToDataFlowSinkSchemaLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkSchemaLinkedServicePtrOutput {
+	return o.ApplyT(func(v DataFlowSinkSchemaLinkedService) *DataFlowSinkSchemaLinkedService {
+		return &v
+	}).(DataFlowSinkSchemaLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o DataFlowSinkSchemaLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowSinkSchemaLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowSinkSchemaLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowSinkSchemaLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowSinkSchemaLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSinkSchemaLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSinkSchemaLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowSinkSchemaLinkedServicePtrOutput) ToDataFlowSinkSchemaLinkedServicePtrOutput() DataFlowSinkSchemaLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowSinkSchemaLinkedServicePtrOutput) ToDataFlowSinkSchemaLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkSchemaLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowSinkSchemaLinkedServicePtrOutput) Elem() DataFlowSinkSchemaLinkedServiceOutput {
+	return o.ApplyT(func(v *DataFlowSinkSchemaLinkedService) DataFlowSinkSchemaLinkedService { return *v }).(DataFlowSinkSchemaLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o DataFlowSinkSchemaLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowSinkSchemaLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowSinkSchemaLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowSinkSchemaLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type DataFlowSource struct {
+	// A `dataset` block as defined below.
+	Dataset *DataFlowSourceDataset `pulumi:"dataset"`
+	// The description for the Data Flow Source.
+	Description *string `pulumi:"description"`
+	// A `linkedService` block as defined below.
+	LinkedService *DataFlowSourceLinkedService `pulumi:"linkedService"`
+	// The name for the Data Flow Source.
+	Name string `pulumi:"name"`
+	// A `schemaLinkedService` block as defined below.
+	SchemaLinkedService *DataFlowSourceSchemaLinkedService `pulumi:"schemaLinkedService"`
+}
+
+// DataFlowSourceInput is an input type that accepts DataFlowSourceArgs and DataFlowSourceOutput values.
+// You can construct a concrete instance of `DataFlowSourceInput` via:
+//
+//          DataFlowSourceArgs{...}
+type DataFlowSourceInput interface {
+	pulumi.Input
+
+	ToDataFlowSourceOutput() DataFlowSourceOutput
+	ToDataFlowSourceOutputWithContext(context.Context) DataFlowSourceOutput
+}
+
+type DataFlowSourceArgs struct {
+	// A `dataset` block as defined below.
+	Dataset DataFlowSourceDatasetPtrInput `pulumi:"dataset"`
+	// The description for the Data Flow Source.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A `linkedService` block as defined below.
+	LinkedService DataFlowSourceLinkedServicePtrInput `pulumi:"linkedService"`
+	// The name for the Data Flow Source.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `schemaLinkedService` block as defined below.
+	SchemaLinkedService DataFlowSourceSchemaLinkedServicePtrInput `pulumi:"schemaLinkedService"`
+}
+
+func (DataFlowSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSource)(nil)).Elem()
+}
+
+func (i DataFlowSourceArgs) ToDataFlowSourceOutput() DataFlowSourceOutput {
+	return i.ToDataFlowSourceOutputWithContext(context.Background())
+}
+
+func (i DataFlowSourceArgs) ToDataFlowSourceOutputWithContext(ctx context.Context) DataFlowSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceOutput)
+}
+
+// DataFlowSourceArrayInput is an input type that accepts DataFlowSourceArray and DataFlowSourceArrayOutput values.
+// You can construct a concrete instance of `DataFlowSourceArrayInput` via:
+//
+//          DataFlowSourceArray{ DataFlowSourceArgs{...} }
+type DataFlowSourceArrayInput interface {
+	pulumi.Input
+
+	ToDataFlowSourceArrayOutput() DataFlowSourceArrayOutput
+	ToDataFlowSourceArrayOutputWithContext(context.Context) DataFlowSourceArrayOutput
+}
+
+type DataFlowSourceArray []DataFlowSourceInput
+
+func (DataFlowSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataFlowSource)(nil)).Elem()
+}
+
+func (i DataFlowSourceArray) ToDataFlowSourceArrayOutput() DataFlowSourceArrayOutput {
+	return i.ToDataFlowSourceArrayOutputWithContext(context.Background())
+}
+
+func (i DataFlowSourceArray) ToDataFlowSourceArrayOutputWithContext(ctx context.Context) DataFlowSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceArrayOutput)
+}
+
+type DataFlowSourceOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSource)(nil)).Elem()
+}
+
+func (o DataFlowSourceOutput) ToDataFlowSourceOutput() DataFlowSourceOutput {
+	return o
+}
+
+func (o DataFlowSourceOutput) ToDataFlowSourceOutputWithContext(ctx context.Context) DataFlowSourceOutput {
+	return o
+}
+
+// A `dataset` block as defined below.
+func (o DataFlowSourceOutput) Dataset() DataFlowSourceDatasetPtrOutput {
+	return o.ApplyT(func(v DataFlowSource) *DataFlowSourceDataset { return v.Dataset }).(DataFlowSourceDatasetPtrOutput)
+}
+
+// The description for the Data Flow Source.
+func (o DataFlowSourceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataFlowSource) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A `linkedService` block as defined below.
+func (o DataFlowSourceOutput) LinkedService() DataFlowSourceLinkedServicePtrOutput {
+	return o.ApplyT(func(v DataFlowSource) *DataFlowSourceLinkedService { return v.LinkedService }).(DataFlowSourceLinkedServicePtrOutput)
+}
+
+// The name for the Data Flow Source.
+func (o DataFlowSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowSource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `schemaLinkedService` block as defined below.
+func (o DataFlowSourceOutput) SchemaLinkedService() DataFlowSourceSchemaLinkedServicePtrOutput {
+	return o.ApplyT(func(v DataFlowSource) *DataFlowSourceSchemaLinkedService { return v.SchemaLinkedService }).(DataFlowSourceSchemaLinkedServicePtrOutput)
+}
+
+type DataFlowSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataFlowSource)(nil)).Elem()
+}
+
+func (o DataFlowSourceArrayOutput) ToDataFlowSourceArrayOutput() DataFlowSourceArrayOutput {
+	return o
+}
+
+func (o DataFlowSourceArrayOutput) ToDataFlowSourceArrayOutputWithContext(ctx context.Context) DataFlowSourceArrayOutput {
+	return o
+}
+
+func (o DataFlowSourceArrayOutput) Index(i pulumi.IntInput) DataFlowSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataFlowSource {
+		return vs[0].([]DataFlowSource)[vs[1].(int)]
+	}).(DataFlowSourceOutput)
+}
+
+type DataFlowSourceDataset struct {
+	// The name for the Data Factory Dataset.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory dataset.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowSourceDatasetInput is an input type that accepts DataFlowSourceDatasetArgs and DataFlowSourceDatasetOutput values.
+// You can construct a concrete instance of `DataFlowSourceDatasetInput` via:
+//
+//          DataFlowSourceDatasetArgs{...}
+type DataFlowSourceDatasetInput interface {
+	pulumi.Input
+
+	ToDataFlowSourceDatasetOutput() DataFlowSourceDatasetOutput
+	ToDataFlowSourceDatasetOutputWithContext(context.Context) DataFlowSourceDatasetOutput
+}
+
+type DataFlowSourceDatasetArgs struct {
+	// The name for the Data Factory Dataset.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory dataset.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowSourceDatasetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSourceDataset)(nil)).Elem()
+}
+
+func (i DataFlowSourceDatasetArgs) ToDataFlowSourceDatasetOutput() DataFlowSourceDatasetOutput {
+	return i.ToDataFlowSourceDatasetOutputWithContext(context.Background())
+}
+
+func (i DataFlowSourceDatasetArgs) ToDataFlowSourceDatasetOutputWithContext(ctx context.Context) DataFlowSourceDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceDatasetOutput)
+}
+
+func (i DataFlowSourceDatasetArgs) ToDataFlowSourceDatasetPtrOutput() DataFlowSourceDatasetPtrOutput {
+	return i.ToDataFlowSourceDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowSourceDatasetArgs) ToDataFlowSourceDatasetPtrOutputWithContext(ctx context.Context) DataFlowSourceDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceDatasetOutput).ToDataFlowSourceDatasetPtrOutputWithContext(ctx)
+}
+
+// DataFlowSourceDatasetPtrInput is an input type that accepts DataFlowSourceDatasetArgs, DataFlowSourceDatasetPtr and DataFlowSourceDatasetPtrOutput values.
+// You can construct a concrete instance of `DataFlowSourceDatasetPtrInput` via:
+//
+//          DataFlowSourceDatasetArgs{...}
+//
+//  or:
+//
+//          nil
+type DataFlowSourceDatasetPtrInput interface {
+	pulumi.Input
+
+	ToDataFlowSourceDatasetPtrOutput() DataFlowSourceDatasetPtrOutput
+	ToDataFlowSourceDatasetPtrOutputWithContext(context.Context) DataFlowSourceDatasetPtrOutput
+}
+
+type dataFlowSourceDatasetPtrType DataFlowSourceDatasetArgs
+
+func DataFlowSourceDatasetPtr(v *DataFlowSourceDatasetArgs) DataFlowSourceDatasetPtrInput {
+	return (*dataFlowSourceDatasetPtrType)(v)
+}
+
+func (*dataFlowSourceDatasetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSourceDataset)(nil)).Elem()
+}
+
+func (i *dataFlowSourceDatasetPtrType) ToDataFlowSourceDatasetPtrOutput() DataFlowSourceDatasetPtrOutput {
+	return i.ToDataFlowSourceDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowSourceDatasetPtrType) ToDataFlowSourceDatasetPtrOutputWithContext(ctx context.Context) DataFlowSourceDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceDatasetPtrOutput)
+}
+
+type DataFlowSourceDatasetOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSourceDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSourceDataset)(nil)).Elem()
+}
+
+func (o DataFlowSourceDatasetOutput) ToDataFlowSourceDatasetOutput() DataFlowSourceDatasetOutput {
+	return o
+}
+
+func (o DataFlowSourceDatasetOutput) ToDataFlowSourceDatasetOutputWithContext(ctx context.Context) DataFlowSourceDatasetOutput {
+	return o
+}
+
+func (o DataFlowSourceDatasetOutput) ToDataFlowSourceDatasetPtrOutput() DataFlowSourceDatasetPtrOutput {
+	return o.ToDataFlowSourceDatasetPtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowSourceDatasetOutput) ToDataFlowSourceDatasetPtrOutputWithContext(ctx context.Context) DataFlowSourceDatasetPtrOutput {
+	return o.ApplyT(func(v DataFlowSourceDataset) *DataFlowSourceDataset {
+		return &v
+	}).(DataFlowSourceDatasetPtrOutput)
+}
+
+// The name for the Data Factory Dataset.
+func (o DataFlowSourceDatasetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowSourceDataset) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory dataset.
+func (o DataFlowSourceDatasetOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowSourceDataset) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowSourceDatasetPtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSourceDatasetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSourceDataset)(nil)).Elem()
+}
+
+func (o DataFlowSourceDatasetPtrOutput) ToDataFlowSourceDatasetPtrOutput() DataFlowSourceDatasetPtrOutput {
+	return o
+}
+
+func (o DataFlowSourceDatasetPtrOutput) ToDataFlowSourceDatasetPtrOutputWithContext(ctx context.Context) DataFlowSourceDatasetPtrOutput {
+	return o
+}
+
+func (o DataFlowSourceDatasetPtrOutput) Elem() DataFlowSourceDatasetOutput {
+	return o.ApplyT(func(v *DataFlowSourceDataset) DataFlowSourceDataset { return *v }).(DataFlowSourceDatasetOutput)
+}
+
+// The name for the Data Factory Dataset.
+func (o DataFlowSourceDatasetPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowSourceDataset) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory dataset.
+func (o DataFlowSourceDatasetPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowSourceDataset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type DataFlowSourceLinkedService struct {
+	// The name for the Data Factory Linked Service.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowSourceLinkedServiceInput is an input type that accepts DataFlowSourceLinkedServiceArgs and DataFlowSourceLinkedServiceOutput values.
+// You can construct a concrete instance of `DataFlowSourceLinkedServiceInput` via:
+//
+//          DataFlowSourceLinkedServiceArgs{...}
+type DataFlowSourceLinkedServiceInput interface {
+	pulumi.Input
+
+	ToDataFlowSourceLinkedServiceOutput() DataFlowSourceLinkedServiceOutput
+	ToDataFlowSourceLinkedServiceOutputWithContext(context.Context) DataFlowSourceLinkedServiceOutput
+}
+
+type DataFlowSourceLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowSourceLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSourceLinkedService)(nil)).Elem()
+}
+
+func (i DataFlowSourceLinkedServiceArgs) ToDataFlowSourceLinkedServiceOutput() DataFlowSourceLinkedServiceOutput {
+	return i.ToDataFlowSourceLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i DataFlowSourceLinkedServiceArgs) ToDataFlowSourceLinkedServiceOutputWithContext(ctx context.Context) DataFlowSourceLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceLinkedServiceOutput)
+}
+
+func (i DataFlowSourceLinkedServiceArgs) ToDataFlowSourceLinkedServicePtrOutput() DataFlowSourceLinkedServicePtrOutput {
+	return i.ToDataFlowSourceLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowSourceLinkedServiceArgs) ToDataFlowSourceLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceLinkedServiceOutput).ToDataFlowSourceLinkedServicePtrOutputWithContext(ctx)
+}
+
+// DataFlowSourceLinkedServicePtrInput is an input type that accepts DataFlowSourceLinkedServiceArgs, DataFlowSourceLinkedServicePtr and DataFlowSourceLinkedServicePtrOutput values.
+// You can construct a concrete instance of `DataFlowSourceLinkedServicePtrInput` via:
+//
+//          DataFlowSourceLinkedServiceArgs{...}
+//
+//  or:
+//
+//          nil
+type DataFlowSourceLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToDataFlowSourceLinkedServicePtrOutput() DataFlowSourceLinkedServicePtrOutput
+	ToDataFlowSourceLinkedServicePtrOutputWithContext(context.Context) DataFlowSourceLinkedServicePtrOutput
+}
+
+type dataFlowSourceLinkedServicePtrType DataFlowSourceLinkedServiceArgs
+
+func DataFlowSourceLinkedServicePtr(v *DataFlowSourceLinkedServiceArgs) DataFlowSourceLinkedServicePtrInput {
+	return (*dataFlowSourceLinkedServicePtrType)(v)
+}
+
+func (*dataFlowSourceLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSourceLinkedService)(nil)).Elem()
+}
+
+func (i *dataFlowSourceLinkedServicePtrType) ToDataFlowSourceLinkedServicePtrOutput() DataFlowSourceLinkedServicePtrOutput {
+	return i.ToDataFlowSourceLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowSourceLinkedServicePtrType) ToDataFlowSourceLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceLinkedServicePtrOutput)
+}
+
+type DataFlowSourceLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSourceLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSourceLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowSourceLinkedServiceOutput) ToDataFlowSourceLinkedServiceOutput() DataFlowSourceLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowSourceLinkedServiceOutput) ToDataFlowSourceLinkedServiceOutputWithContext(ctx context.Context) DataFlowSourceLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowSourceLinkedServiceOutput) ToDataFlowSourceLinkedServicePtrOutput() DataFlowSourceLinkedServicePtrOutput {
+	return o.ToDataFlowSourceLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowSourceLinkedServiceOutput) ToDataFlowSourceLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceLinkedServicePtrOutput {
+	return o.ApplyT(func(v DataFlowSourceLinkedService) *DataFlowSourceLinkedService {
+		return &v
+	}).(DataFlowSourceLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service.
+func (o DataFlowSourceLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowSourceLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowSourceLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowSourceLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowSourceLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSourceLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSourceLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowSourceLinkedServicePtrOutput) ToDataFlowSourceLinkedServicePtrOutput() DataFlowSourceLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowSourceLinkedServicePtrOutput) ToDataFlowSourceLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowSourceLinkedServicePtrOutput) Elem() DataFlowSourceLinkedServiceOutput {
+	return o.ApplyT(func(v *DataFlowSourceLinkedService) DataFlowSourceLinkedService { return *v }).(DataFlowSourceLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service.
+func (o DataFlowSourceLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowSourceLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowSourceLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowSourceLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type DataFlowSourceSchemaLinkedService struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowSourceSchemaLinkedServiceInput is an input type that accepts DataFlowSourceSchemaLinkedServiceArgs and DataFlowSourceSchemaLinkedServiceOutput values.
+// You can construct a concrete instance of `DataFlowSourceSchemaLinkedServiceInput` via:
+//
+//          DataFlowSourceSchemaLinkedServiceArgs{...}
+type DataFlowSourceSchemaLinkedServiceInput interface {
+	pulumi.Input
+
+	ToDataFlowSourceSchemaLinkedServiceOutput() DataFlowSourceSchemaLinkedServiceOutput
+	ToDataFlowSourceSchemaLinkedServiceOutputWithContext(context.Context) DataFlowSourceSchemaLinkedServiceOutput
+}
+
+type DataFlowSourceSchemaLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowSourceSchemaLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSourceSchemaLinkedService)(nil)).Elem()
+}
+
+func (i DataFlowSourceSchemaLinkedServiceArgs) ToDataFlowSourceSchemaLinkedServiceOutput() DataFlowSourceSchemaLinkedServiceOutput {
+	return i.ToDataFlowSourceSchemaLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i DataFlowSourceSchemaLinkedServiceArgs) ToDataFlowSourceSchemaLinkedServiceOutputWithContext(ctx context.Context) DataFlowSourceSchemaLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceSchemaLinkedServiceOutput)
+}
+
+func (i DataFlowSourceSchemaLinkedServiceArgs) ToDataFlowSourceSchemaLinkedServicePtrOutput() DataFlowSourceSchemaLinkedServicePtrOutput {
+	return i.ToDataFlowSourceSchemaLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowSourceSchemaLinkedServiceArgs) ToDataFlowSourceSchemaLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceSchemaLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceSchemaLinkedServiceOutput).ToDataFlowSourceSchemaLinkedServicePtrOutputWithContext(ctx)
+}
+
+// DataFlowSourceSchemaLinkedServicePtrInput is an input type that accepts DataFlowSourceSchemaLinkedServiceArgs, DataFlowSourceSchemaLinkedServicePtr and DataFlowSourceSchemaLinkedServicePtrOutput values.
+// You can construct a concrete instance of `DataFlowSourceSchemaLinkedServicePtrInput` via:
+//
+//          DataFlowSourceSchemaLinkedServiceArgs{...}
+//
+//  or:
+//
+//          nil
+type DataFlowSourceSchemaLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToDataFlowSourceSchemaLinkedServicePtrOutput() DataFlowSourceSchemaLinkedServicePtrOutput
+	ToDataFlowSourceSchemaLinkedServicePtrOutputWithContext(context.Context) DataFlowSourceSchemaLinkedServicePtrOutput
+}
+
+type dataFlowSourceSchemaLinkedServicePtrType DataFlowSourceSchemaLinkedServiceArgs
+
+func DataFlowSourceSchemaLinkedServicePtr(v *DataFlowSourceSchemaLinkedServiceArgs) DataFlowSourceSchemaLinkedServicePtrInput {
+	return (*dataFlowSourceSchemaLinkedServicePtrType)(v)
+}
+
+func (*dataFlowSourceSchemaLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSourceSchemaLinkedService)(nil)).Elem()
+}
+
+func (i *dataFlowSourceSchemaLinkedServicePtrType) ToDataFlowSourceSchemaLinkedServicePtrOutput() DataFlowSourceSchemaLinkedServicePtrOutput {
+	return i.ToDataFlowSourceSchemaLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowSourceSchemaLinkedServicePtrType) ToDataFlowSourceSchemaLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceSchemaLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceSchemaLinkedServicePtrOutput)
+}
+
+type DataFlowSourceSchemaLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSourceSchemaLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSourceSchemaLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowSourceSchemaLinkedServiceOutput) ToDataFlowSourceSchemaLinkedServiceOutput() DataFlowSourceSchemaLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowSourceSchemaLinkedServiceOutput) ToDataFlowSourceSchemaLinkedServiceOutputWithContext(ctx context.Context) DataFlowSourceSchemaLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowSourceSchemaLinkedServiceOutput) ToDataFlowSourceSchemaLinkedServicePtrOutput() DataFlowSourceSchemaLinkedServicePtrOutput {
+	return o.ToDataFlowSourceSchemaLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowSourceSchemaLinkedServiceOutput) ToDataFlowSourceSchemaLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceSchemaLinkedServicePtrOutput {
+	return o.ApplyT(func(v DataFlowSourceSchemaLinkedService) *DataFlowSourceSchemaLinkedService {
+		return &v
+	}).(DataFlowSourceSchemaLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o DataFlowSourceSchemaLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowSourceSchemaLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowSourceSchemaLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowSourceSchemaLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowSourceSchemaLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSourceSchemaLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSourceSchemaLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowSourceSchemaLinkedServicePtrOutput) ToDataFlowSourceSchemaLinkedServicePtrOutput() DataFlowSourceSchemaLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowSourceSchemaLinkedServicePtrOutput) ToDataFlowSourceSchemaLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceSchemaLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowSourceSchemaLinkedServicePtrOutput) Elem() DataFlowSourceSchemaLinkedServiceOutput {
+	return o.ApplyT(func(v *DataFlowSourceSchemaLinkedService) DataFlowSourceSchemaLinkedService { return *v }).(DataFlowSourceSchemaLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o DataFlowSourceSchemaLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowSourceSchemaLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowSourceSchemaLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowSourceSchemaLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type DataFlowTransformation struct {
+	// The description for the Data Flow transformation.
+	Description *string `pulumi:"description"`
+	// The name for the Data Flow transformation.
+	Name string `pulumi:"name"`
+}
+
+// DataFlowTransformationInput is an input type that accepts DataFlowTransformationArgs and DataFlowTransformationOutput values.
+// You can construct a concrete instance of `DataFlowTransformationInput` via:
+//
+//          DataFlowTransformationArgs{...}
+type DataFlowTransformationInput interface {
+	pulumi.Input
+
+	ToDataFlowTransformationOutput() DataFlowTransformationOutput
+	ToDataFlowTransformationOutputWithContext(context.Context) DataFlowTransformationOutput
+}
+
+type DataFlowTransformationArgs struct {
+	// The description for the Data Flow transformation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name for the Data Flow transformation.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DataFlowTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowTransformation)(nil)).Elem()
+}
+
+func (i DataFlowTransformationArgs) ToDataFlowTransformationOutput() DataFlowTransformationOutput {
+	return i.ToDataFlowTransformationOutputWithContext(context.Background())
+}
+
+func (i DataFlowTransformationArgs) ToDataFlowTransformationOutputWithContext(ctx context.Context) DataFlowTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowTransformationOutput)
+}
+
+// DataFlowTransformationArrayInput is an input type that accepts DataFlowTransformationArray and DataFlowTransformationArrayOutput values.
+// You can construct a concrete instance of `DataFlowTransformationArrayInput` via:
+//
+//          DataFlowTransformationArray{ DataFlowTransformationArgs{...} }
+type DataFlowTransformationArrayInput interface {
+	pulumi.Input
+
+	ToDataFlowTransformationArrayOutput() DataFlowTransformationArrayOutput
+	ToDataFlowTransformationArrayOutputWithContext(context.Context) DataFlowTransformationArrayOutput
+}
+
+type DataFlowTransformationArray []DataFlowTransformationInput
+
+func (DataFlowTransformationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataFlowTransformation)(nil)).Elem()
+}
+
+func (i DataFlowTransformationArray) ToDataFlowTransformationArrayOutput() DataFlowTransformationArrayOutput {
+	return i.ToDataFlowTransformationArrayOutputWithContext(context.Background())
+}
+
+func (i DataFlowTransformationArray) ToDataFlowTransformationArrayOutputWithContext(ctx context.Context) DataFlowTransformationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowTransformationArrayOutput)
+}
+
+type DataFlowTransformationOutput struct{ *pulumi.OutputState }
+
+func (DataFlowTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowTransformation)(nil)).Elem()
+}
+
+func (o DataFlowTransformationOutput) ToDataFlowTransformationOutput() DataFlowTransformationOutput {
+	return o
+}
+
+func (o DataFlowTransformationOutput) ToDataFlowTransformationOutputWithContext(ctx context.Context) DataFlowTransformationOutput {
+	return o
+}
+
+// The description for the Data Flow transformation.
+func (o DataFlowTransformationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataFlowTransformation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Flow transformation.
+func (o DataFlowTransformationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowTransformation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DataFlowTransformationArrayOutput struct{ *pulumi.OutputState }
+
+func (DataFlowTransformationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataFlowTransformation)(nil)).Elem()
+}
+
+func (o DataFlowTransformationArrayOutput) ToDataFlowTransformationArrayOutput() DataFlowTransformationArrayOutput {
+	return o
+}
+
+func (o DataFlowTransformationArrayOutput) ToDataFlowTransformationArrayOutputWithContext(ctx context.Context) DataFlowTransformationArrayOutput {
+	return o
+}
+
+func (o DataFlowTransformationArrayOutput) Index(i pulumi.IntInput) DataFlowTransformationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataFlowTransformation {
+		return vs[0].([]DataFlowTransformation)[vs[1].(int)]
+	}).(DataFlowTransformationOutput)
+}
+
 type DatasetAzureBlobSchemaColumn struct {
 	// The description of the column.
 	Description *string `pulumi:"description"`
@@ -9087,6 +10359,24 @@ func (o GetFactoryVstsConfigurationArrayOutput) Index(i pulumi.IntInput) GetFact
 func init() {
 	pulumi.RegisterOutputType(CustomDatasetLinkedServiceOutput{})
 	pulumi.RegisterOutputType(CustomDatasetLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(DataFlowSinkOutput{})
+	pulumi.RegisterOutputType(DataFlowSinkArrayOutput{})
+	pulumi.RegisterOutputType(DataFlowSinkDatasetOutput{})
+	pulumi.RegisterOutputType(DataFlowSinkDatasetPtrOutput{})
+	pulumi.RegisterOutputType(DataFlowSinkLinkedServiceOutput{})
+	pulumi.RegisterOutputType(DataFlowSinkLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(DataFlowSinkSchemaLinkedServiceOutput{})
+	pulumi.RegisterOutputType(DataFlowSinkSchemaLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(DataFlowSourceOutput{})
+	pulumi.RegisterOutputType(DataFlowSourceArrayOutput{})
+	pulumi.RegisterOutputType(DataFlowSourceDatasetOutput{})
+	pulumi.RegisterOutputType(DataFlowSourceDatasetPtrOutput{})
+	pulumi.RegisterOutputType(DataFlowSourceLinkedServiceOutput{})
+	pulumi.RegisterOutputType(DataFlowSourceLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(DataFlowSourceSchemaLinkedServiceOutput{})
+	pulumi.RegisterOutputType(DataFlowSourceSchemaLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(DataFlowTransformationOutput{})
+	pulumi.RegisterOutputType(DataFlowTransformationArrayOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetBinaryAzureBlobStorageLocationOutput{})

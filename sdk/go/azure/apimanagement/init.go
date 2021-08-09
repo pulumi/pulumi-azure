@@ -95,6 +95,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Service{}
 	case "azure:apimanagement/subscription:Subscription":
 		r = &Subscription{}
+	case "azure:apimanagement/tag:Tag":
+		r = &Tag{}
 	case "azure:apimanagement/user:User":
 		r = &User{}
 	default:
@@ -293,6 +295,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/subscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/tag",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

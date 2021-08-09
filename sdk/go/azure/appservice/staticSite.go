@@ -58,9 +58,11 @@ type StaticSite struct {
 	// The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
-	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
-	SkuSize           pulumi.StringPtrOutput `pulumi:"skuSize"`
-	SkuTier           pulumi.StringPtrOutput `pulumi:"skuTier"`
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	SkuSize pulumi.StringPtrOutput `pulumi:"skuSize"`
+	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -107,8 +109,10 @@ type staticSiteState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	SkuSize           *string `pulumi:"skuSize"`
-	SkuTier           *string `pulumi:"skuTier"`
+	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	SkuSize *string `pulumi:"skuSize"`
+	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -124,8 +128,10 @@ type StaticSiteState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	SkuSize           pulumi.StringPtrInput
-	SkuTier           pulumi.StringPtrInput
+	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	SkuSize pulumi.StringPtrInput
+	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -140,9 +146,11 @@ type staticSiteArgs struct {
 	// The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
-	ResourceGroupName string  `pulumi:"resourceGroupName"`
-	SkuSize           *string `pulumi:"skuSize"`
-	SkuTier           *string `pulumi:"skuTier"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	SkuSize *string `pulumi:"skuSize"`
+	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -155,8 +163,10 @@ type StaticSiteArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringInput
-	SkuSize           pulumi.StringPtrInput
-	SkuTier           pulumi.StringPtrInput
+	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	SkuSize pulumi.StringPtrInput
+	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

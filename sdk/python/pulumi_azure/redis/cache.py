@@ -27,10 +27,13 @@ class CacheArgs:
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  redis_configuration: Optional[pulumi.Input['CacheRedisConfigurationArgs']] = None,
+                 redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
+                 replicas_per_primary: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cache resource.
@@ -48,10 +51,13 @@ class CacheArgs:
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
+        :param pulumi.Input[int] replicas_per_primary: Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
         :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -74,14 +80,20 @@ class CacheArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if redis_configuration is not None:
             pulumi.set(__self__, "redis_configuration", redis_configuration)
+        if redis_version is not None:
+            pulumi.set(__self__, "redis_version", redis_version)
         if replicas_per_master is not None:
             pulumi.set(__self__, "replicas_per_master", replicas_per_master)
+        if replicas_per_primary is not None:
+            pulumi.set(__self__, "replicas_per_primary", replicas_per_primary)
         if shard_count is not None:
             pulumi.set(__self__, "shard_count", shard_count)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tenant_settings is not None:
+            pulumi.set(__self__, "tenant_settings", tenant_settings)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -232,6 +244,18 @@ class CacheArgs:
         pulumi.set(self, "redis_configuration", value)
 
     @property
+    @pulumi.getter(name="redisVersion")
+    def redis_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Redis version. Only major version needed. Valid values: `4`, `6`.
+        """
+        return pulumi.get(self, "redis_version")
+
+    @redis_version.setter
+    def redis_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redis_version", value)
+
+    @property
     @pulumi.getter(name="replicasPerMaster")
     def replicas_per_master(self) -> Optional[pulumi.Input[int]]:
         """
@@ -242,6 +266,18 @@ class CacheArgs:
     @replicas_per_master.setter
     def replicas_per_master(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replicas_per_master", value)
+
+    @property
+    @pulumi.getter(name="replicasPerPrimary")
+    def replicas_per_primary(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+        """
+        return pulumi.get(self, "replicas_per_primary")
+
+    @replicas_per_primary.setter
+    def replicas_per_primary(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replicas_per_primary", value)
 
     @property
     @pulumi.getter(name="shardCount")
@@ -280,6 +316,18 @@ class CacheArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tenantSettings")
+    def tenant_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tenant settings to assign to the resource.
+        """
+        return pulumi.get(self, "tenant_settings")
+
+    @tenant_settings.setter
+    def tenant_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tenant_settings", value)
+
+    @property
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -309,7 +357,9 @@ class _CacheState:
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  redis_configuration: Optional[pulumi.Input['CacheRedisConfigurationArgs']] = None,
+                 redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
+                 replicas_per_primary: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_access_key: Optional[pulumi.Input[str]] = None,
                  secondary_connection_string: Optional[pulumi.Input[str]] = None,
@@ -318,6 +368,7 @@ class _CacheState:
                  ssl_port: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cache resources.
@@ -336,7 +387,9 @@ class _CacheState:
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
+        :param pulumi.Input[int] replicas_per_primary: Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Redis instance.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Instance
@@ -346,6 +399,7 @@ class _CacheState:
         :param pulumi.Input[int] ssl_port: The SSL Port of the Redis Instance
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         """
         if capacity is not None:
@@ -376,8 +430,12 @@ class _CacheState:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if redis_configuration is not None:
             pulumi.set(__self__, "redis_configuration", redis_configuration)
+        if redis_version is not None:
+            pulumi.set(__self__, "redis_version", redis_version)
         if replicas_per_master is not None:
             pulumi.set(__self__, "replicas_per_master", replicas_per_master)
+        if replicas_per_primary is not None:
+            pulumi.set(__self__, "replicas_per_primary", replicas_per_primary)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_access_key is not None:
@@ -394,6 +452,8 @@ class _CacheState:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tenant_settings is not None:
+            pulumi.set(__self__, "tenant_settings", tenant_settings)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -567,6 +627,18 @@ class _CacheState:
         pulumi.set(self, "redis_configuration", value)
 
     @property
+    @pulumi.getter(name="redisVersion")
+    def redis_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Redis version. Only major version needed. Valid values: `4`, `6`.
+        """
+        return pulumi.get(self, "redis_version")
+
+    @redis_version.setter
+    def redis_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redis_version", value)
+
+    @property
     @pulumi.getter(name="replicasPerMaster")
     def replicas_per_master(self) -> Optional[pulumi.Input[int]]:
         """
@@ -577,6 +649,18 @@ class _CacheState:
     @replicas_per_master.setter
     def replicas_per_master(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replicas_per_master", value)
+
+    @property
+    @pulumi.getter(name="replicasPerPrimary")
+    def replicas_per_primary(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+        """
+        return pulumi.get(self, "replicas_per_primary")
+
+    @replicas_per_primary.setter
+    def replicas_per_primary(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replicas_per_primary", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -676,6 +760,18 @@ class _CacheState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tenantSettings")
+    def tenant_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tenant settings to assign to the resource.
+        """
+        return pulumi.get(self, "tenant_settings")
+
+    @tenant_settings.setter
+    def tenant_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tenant_settings", value)
+
+    @property
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -703,12 +799,15 @@ class Cache(pulumi.CustomResource):
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  redis_configuration: Optional[pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']]] = None,
+                 redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
+                 replicas_per_primary: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -784,13 +883,16 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
+        :param pulumi.Input[int] replicas_per_primary: Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Redis instance.
         :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         """
         ...
@@ -884,12 +986,15 @@ class Cache(pulumi.CustomResource):
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  redis_configuration: Optional[pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']]] = None,
+                 redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
+                 replicas_per_primary: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -917,7 +1022,9 @@ class Cache(pulumi.CustomResource):
             __props__.__dict__["private_static_ip_address"] = private_static_ip_address
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["redis_configuration"] = redis_configuration
+            __props__.__dict__["redis_version"] = redis_version
             __props__.__dict__["replicas_per_master"] = replicas_per_master
+            __props__.__dict__["replicas_per_primary"] = replicas_per_primary
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -927,6 +1034,7 @@ class Cache(pulumi.CustomResource):
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tenant_settings"] = tenant_settings
             __props__.__dict__["zones"] = zones
             __props__.__dict__["hostname"] = None
             __props__.__dict__["port"] = None
@@ -959,7 +1067,9 @@ class Cache(pulumi.CustomResource):
             private_static_ip_address: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             redis_configuration: Optional[pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']]] = None,
+            redis_version: Optional[pulumi.Input[str]] = None,
             replicas_per_master: Optional[pulumi.Input[int]] = None,
+            replicas_per_primary: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_access_key: Optional[pulumi.Input[str]] = None,
             secondary_connection_string: Optional[pulumi.Input[str]] = None,
@@ -968,6 +1078,7 @@ class Cache(pulumi.CustomResource):
             ssl_port: Optional[pulumi.Input[int]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Cache':
         """
         Get an existing Cache resource's state with the given name, id, and optional extra
@@ -991,7 +1102,9 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
+        :param pulumi.Input[int] replicas_per_primary: Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Redis instance.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Instance
@@ -1001,6 +1114,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[int] ssl_port: The SSL Port of the Redis Instance
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1021,7 +1135,9 @@ class Cache(pulumi.CustomResource):
         __props__.__dict__["private_static_ip_address"] = private_static_ip_address
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["redis_configuration"] = redis_configuration
+        __props__.__dict__["redis_version"] = redis_version
         __props__.__dict__["replicas_per_master"] = replicas_per_master
+        __props__.__dict__["replicas_per_primary"] = replicas_per_primary
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secondary_access_key"] = secondary_access_key
         __props__.__dict__["secondary_connection_string"] = secondary_connection_string
@@ -1030,6 +1146,7 @@ class Cache(pulumi.CustomResource):
         __props__.__dict__["ssl_port"] = ssl_port
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tenant_settings"] = tenant_settings
         __props__.__dict__["zones"] = zones
         return Cache(resource_name, opts=opts, __props__=__props__)
 
@@ -1147,12 +1264,28 @@ class Cache(pulumi.CustomResource):
         return pulumi.get(self, "redis_configuration")
 
     @property
+    @pulumi.getter(name="redisVersion")
+    def redis_version(self) -> pulumi.Output[str]:
+        """
+        Redis version. Only major version needed. Valid values: `4`, `6`.
+        """
+        return pulumi.get(self, "redis_version")
+
+    @property
     @pulumi.getter(name="replicasPerMaster")
-    def replicas_per_master(self) -> pulumi.Output[Optional[int]]:
+    def replicas_per_master(self) -> pulumi.Output[int]:
         """
         Amount of replicas to create per master for this Redis Cache.
         """
         return pulumi.get(self, "replicas_per_master")
+
+    @property
+    @pulumi.getter(name="replicasPerPrimary")
+    def replicas_per_primary(self) -> pulumi.Output[int]:
+        """
+        Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+        """
+        return pulumi.get(self, "replicas_per_primary")
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -1218,6 +1351,14 @@ class Cache(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantSettings")
+    def tenant_settings(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tenant settings to assign to the resource.
+        """
+        return pulumi.get(self, "tenant_settings")
 
     @property
     @pulumi.getter

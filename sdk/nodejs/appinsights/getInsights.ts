@@ -87,4 +87,8 @@ export interface GetInsightsResult {
      * Tags applied to the component.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The id of the associated Log Analytics workspace
+     */
+    readonly workspaceId: string;
 }

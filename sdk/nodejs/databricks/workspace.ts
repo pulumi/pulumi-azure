@@ -55,6 +55,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+     */
+    public readonly loadBalancerBackendAddressPoolId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -67,9 +71,21 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly managedResourceGroupName!: pulumi.Output<string>;
     /**
+     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+     */
+    public readonly managedServicesCmkKeyVaultKeyId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly networkSecurityGroupRulesRequired!: pulumi.Output<string>;
+    /**
+     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -111,10 +127,14 @@ export class Workspace extends pulumi.CustomResource {
             inputs["customParameters"] = state ? state.customParameters : undefined;
             inputs["customerManagedKeyEnabled"] = state ? state.customerManagedKeyEnabled : undefined;
             inputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
+            inputs["loadBalancerBackendAddressPoolId"] = state ? state.loadBalancerBackendAddressPoolId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managedResourceGroupId"] = state ? state.managedResourceGroupId : undefined;
             inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
+            inputs["managedServicesCmkKeyVaultKeyId"] = state ? state.managedServicesCmkKeyVaultKeyId : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkSecurityGroupRulesRequired"] = state ? state.networkSecurityGroupRulesRequired : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["storageAccountIdentities"] = state ? state.storageAccountIdentities : undefined;
@@ -132,9 +152,13 @@ export class Workspace extends pulumi.CustomResource {
             inputs["customParameters"] = args ? args.customParameters : undefined;
             inputs["customerManagedKeyEnabled"] = args ? args.customerManagedKeyEnabled : undefined;
             inputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
+            inputs["loadBalancerBackendAddressPoolId"] = args ? args.loadBalancerBackendAddressPoolId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
+            inputs["managedServicesCmkKeyVaultKeyId"] = args ? args.managedServicesCmkKeyVaultKeyId : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networkSecurityGroupRulesRequired"] = args ? args.networkSecurityGroupRulesRequired : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -167,6 +191,10 @@ export interface WorkspaceState {
      */
     infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
+     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+     */
+    loadBalancerBackendAddressPoolId?: pulumi.Input<string>;
+    /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -179,9 +207,21 @@ export interface WorkspaceState {
      */
     managedResourceGroupName?: pulumi.Input<string>;
     /**
+     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+     */
+    managedServicesCmkKeyVaultKeyId?: pulumi.Input<string>;
+    /**
      * Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`. Changing this forces a new resource to be created.
+     */
+    networkSecurityGroupRulesRequired?: pulumi.Input<string>;
+    /**
+     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -225,6 +265,10 @@ export interface WorkspaceArgs {
      */
     infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
+     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+     */
+    loadBalancerBackendAddressPoolId?: pulumi.Input<string>;
+    /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -233,9 +277,21 @@ export interface WorkspaceArgs {
      */
     managedResourceGroupName?: pulumi.Input<string>;
     /**
+     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+     */
+    managedServicesCmkKeyVaultKeyId?: pulumi.Input<string>;
+    /**
      * Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`. Changing this forces a new resource to be created.
+     */
+    networkSecurityGroupRulesRequired?: pulumi.Input<string>;
+    /**
+     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
      */

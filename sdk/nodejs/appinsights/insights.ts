@@ -22,6 +22,28 @@ import * as utilities from "../utilities";
  * export const instrumentationKey = exampleInsights.instrumentationKey;
  * export const appId = exampleInsights.appId;
  * ```
+ * ### Workspace Mode
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "PerGB2018",
+ *     retentionInDays: 30,
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     workspaceId: exampleAnalyticsWorkspace.id,
+ *     applicationType: "web",
+ * });
+ * export const instrumentationKey = exampleInsights.instrumentationKey;
+ * export const appId = exampleInsights.appId;
+ * ```
  *
  * ## Import
  *
@@ -113,6 +135,10 @@ export class Insights extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies the id of a log analytics workspace resource
+     */
+    public readonly workspaceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Insights resource with the given unique name, arguments, and options.
@@ -140,6 +166,7 @@ export class Insights extends pulumi.CustomResource {
             inputs["retentionInDays"] = state ? state.retentionInDays : undefined;
             inputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as InsightsArgs | undefined;
             if ((!args || args.applicationType === undefined) && !opts.urn) {
@@ -158,6 +185,7 @@ export class Insights extends pulumi.CustomResource {
             inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["workspaceId"] = args ? args.workspaceId : undefined;
             inputs["appId"] = undefined /*out*/;
             inputs["connectionString"] = undefined /*out*/;
             inputs["instrumentationKey"] = undefined /*out*/;
@@ -227,6 +255,10 @@ export interface InsightsState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the id of a log analytics workspace resource
+     */
+    workspaceId?: pulumi.Input<string>;
 }
 
 /**
@@ -275,4 +307,8 @@ export interface InsightsArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the id of a log analytics workspace resource
+     */
+    workspaceId?: pulumi.Input<string>;
 }

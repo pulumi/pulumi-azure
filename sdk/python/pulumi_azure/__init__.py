@@ -521,6 +521,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/tag",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/tag:Tag": "Tag"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/user",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
@@ -1113,6 +1121,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "bot/channelLine",
+  "fqn": "pulumi_azure.bot",
+  "classes": {
+   "azure:bot/channelLine:ChannelLine": "ChannelLine"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "bot/channelSlack",
   "fqn": "pulumi_azure.bot",
   "classes": {
@@ -1173,6 +1189,14 @@ _utilities.register(
   "fqn": "pulumi_azure.cdn",
   "classes": {
    "azure:cdn/endpoint:Endpoint": "Endpoint"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cdn/endpointCustomDomain",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/endpointCustomDomain:EndpointCustomDomain": "EndpointCustomDomain"
   }
  },
  {
@@ -1749,6 +1773,14 @@ _utilities.register(
   "fqn": "pulumi_azure.datafactory",
   "classes": {
    "azure:datafactory/customDataset:CustomDataset": "CustomDataset"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "datafactory/dataFlow",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/dataFlow:DataFlow": "DataFlow"
   }
  },
  {
@@ -4597,6 +4629,14 @@ _utilities.register(
   "fqn": "pulumi_azure.postgresql",
   "classes": {
    "azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration": "FlexibleServerConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "postgresql/flexibleServerDatabase",
+  "fqn": "pulumi_azure.postgresql",
+  "classes": {
+   "azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase": "FlexibleServerDatabase"
   }
  },
  {

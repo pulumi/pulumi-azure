@@ -88,6 +88,8 @@ type PublicIp struct {
 	ReverseFqdn pulumi.StringPtrOutput `pulumi:"reverseFqdn"`
 	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
+	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
@@ -159,6 +161,8 @@ type publicIpState struct {
 	ReverseFqdn *string `pulumi:"reverseFqdn"`
 	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
 	Sku *string `pulumi:"sku"`
+	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
@@ -196,6 +200,8 @@ type PublicIpState struct {
 	ReverseFqdn pulumi.StringPtrInput
 	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
 	Sku pulumi.StringPtrInput
+	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
@@ -233,6 +239,8 @@ type publicIpArgs struct {
 	ReverseFqdn *string `pulumi:"reverseFqdn"`
 	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
 	Sku *string `pulumi:"sku"`
+	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
@@ -267,6 +275,8 @@ type PublicIpArgs struct {
 	ReverseFqdn pulumi.StringPtrInput
 	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
 	Sku pulumi.StringPtrInput
+	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/

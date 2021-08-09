@@ -86,17 +86,17 @@ type LinkedServiceDataLakeStorageGen2 struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
 	ServicePrincipalId pulumi.StringPtrOutput `pulumi:"servicePrincipalId"`
-	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalKey pulumi.StringPtrOutput `pulumi:"servicePrincipalKey"`
-	// The Storage Account Key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
 	StorageAccountKey pulumi.StringPtrOutput `pulumi:"storageAccountKey"`
-	// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
 	Tenant pulumi.StringPtrOutput `pulumi:"tenant"`
 	// The endpoint for the Azure Data Lake Storage Gen2 service.
 	Url pulumi.StringOutput `pulumi:"url"`
-	// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `storageAccountKey`.
 	UseManagedIdentity pulumi.BoolPtrOutput `pulumi:"useManagedIdentity"`
 }
 
@@ -155,17 +155,17 @@ type linkedServiceDataLakeStorageGen2State struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
 	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
-	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalKey *string `pulumi:"servicePrincipalKey"`
-	// The Storage Account Key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
 	StorageAccountKey *string `pulumi:"storageAccountKey"`
-	// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
 	Tenant *string `pulumi:"tenant"`
 	// The endpoint for the Azure Data Lake Storage Gen2 service.
 	Url *string `pulumi:"url"`
-	// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `storageAccountKey`.
 	UseManagedIdentity *bool `pulumi:"useManagedIdentity"`
 }
 
@@ -187,17 +187,17 @@ type LinkedServiceDataLakeStorageGen2State struct {
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringPtrInput
-	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
 	ServicePrincipalId pulumi.StringPtrInput
-	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalKey pulumi.StringPtrInput
-	// The Storage Account Key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
 	StorageAccountKey pulumi.StringPtrInput
-	// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
 	Tenant pulumi.StringPtrInput
 	// The endpoint for the Azure Data Lake Storage Gen2 service.
 	Url pulumi.StringPtrInput
-	// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `storageAccountKey`.
 	UseManagedIdentity pulumi.BoolPtrInput
 }
 
@@ -223,17 +223,17 @@ type linkedServiceDataLakeStorageGen2Args struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
 	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
-	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalKey *string `pulumi:"servicePrincipalKey"`
-	// The Storage Account Key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
 	StorageAccountKey *string `pulumi:"storageAccountKey"`
-	// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
 	Tenant *string `pulumi:"tenant"`
 	// The endpoint for the Azure Data Lake Storage Gen2 service.
 	Url string `pulumi:"url"`
-	// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `storageAccountKey`.
 	UseManagedIdentity *bool `pulumi:"useManagedIdentity"`
 }
 
@@ -256,17 +256,17 @@ type LinkedServiceDataLakeStorageGen2Args struct {
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringInput
-	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
 	ServicePrincipalId pulumi.StringPtrInput
-	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalKey pulumi.StringPtrInput
-	// The Storage Account Key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
 	StorageAccountKey pulumi.StringPtrInput
-	// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+	// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
 	Tenant pulumi.StringPtrInput
 	// The endpoint for the Azure Data Lake Storage Gen2 service.
 	Url pulumi.StringInput
-	// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `storageAccountKey`.
 	UseManagedIdentity pulumi.BoolPtrInput
 }
 

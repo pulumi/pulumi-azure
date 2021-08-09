@@ -2241,6 +2241,14 @@ export namespace appservice {
 
     export interface AppServiceSiteConfig {
         /**
+         * Are Managed Identity Credentials used for Azure Container Registry pull
+         */
+        acrUseManagedIdentityCredentials?: boolean;
+        /**
+         * If using User Managed Identity, the User Managed Identity Client Id
+         */
+        acrUserManagedIdentityClientId?: string;
+        /**
          * Should the app be loaded at all times? Defaults to `false`.
          */
         alwaysOn?: boolean;
@@ -2258,7 +2266,7 @@ export namespace appservice {
          */
         defaultDocuments?: string[];
         /**
-         * The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+         * The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: string;
         /**
@@ -2727,11 +2735,19 @@ export namespace appservice {
          * Should the Function App be loaded at all times? Defaults to `false`.
          */
         alwaysOn?: boolean;
+        /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit: number;
         autoSwapSlotName?: string;
         /**
          * A `cors` block as defined below.
          */
         cors: outputs.appservice.FunctionAppSiteConfigCors;
+        /**
+         * The number of minimum instances for this function app. Only affects apps on the Premium plan.
+         */
+        elasticInstanceMinimum: number;
         /**
          * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
          */
@@ -2764,6 +2780,10 @@ export namespace appservice {
          * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
          */
         preWarmedInstanceCount: number;
+        /**
+         * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+         */
+        runtimeScaleMonitoringEnabled?: boolean;
         /**
          * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
          */
@@ -3072,6 +3092,10 @@ export namespace appservice {
          */
         alwaysOn?: boolean;
         /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit: number;
+        /**
          * The name of the slot to automatically swap to during deployment
          */
         autoSwapSlotName?: string;
@@ -3079,6 +3103,10 @@ export namespace appservice {
          * A `cors` block as defined below.
          */
         cors: outputs.appservice.FunctionAppSlotSiteConfigCors;
+        /**
+         * The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+         */
+        elasticInstanceMinimum: number;
         /**
          * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
          */
@@ -3105,6 +3133,10 @@ export namespace appservice {
          * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
          */
         preWarmedInstanceCount: number;
+        /**
+         * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+         */
+        runtimeScaleMonitoringEnabled?: boolean;
         scmIpRestrictions: outputs.appservice.FunctionAppSlotSiteConfigScmIpRestriction[];
         scmType: string;
         scmUseMainIpRestriction?: boolean;
@@ -3305,6 +3337,14 @@ export namespace appservice {
     }
 
     export interface GetAppServiceSiteConfig {
+        /**
+         * Are Managed Identity Credentials used for Azure Container Registry pull.
+         */
+        acrUseManagedIdentityCredentials: boolean;
+        /**
+         * The User Managed Identity Client Id.
+         */
+        acrUserManagedIdentityClientId: string;
         /**
          * Is the app loaded at all times?
          */
@@ -3589,11 +3629,19 @@ export namespace appservice {
          * Is the app loaded at all times?
          */
         alwaysOn: boolean;
+        /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit: number;
         autoSwapSlotName: string;
         /**
          * A `cors` block as defined above.
          */
         cors: outputs.appservice.GetFunctionAppSiteConfigCors;
+        /**
+         * The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+         */
+        elasticInstanceMinimum: number;
         /**
          * State of FTP / FTPS service for this AppService.
          */
@@ -3623,6 +3671,10 @@ export namespace appservice {
          * The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
          */
         preWarmedInstanceCount: number;
+        /**
+         * Is Runtime Scale Monitoring Enabled on this function app?
+         */
+        runtimeScaleMonitoringEnabled: boolean;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -4007,6 +4059,14 @@ export namespace appservice {
 
     export interface SlotSiteConfig {
         /**
+         * Are Managed Identity Credential used for Azure Container Registry pull
+         */
+        acrUseManagedIdentityCredentials?: boolean;
+        /**
+         * If using User Managed Identity, the User Managed Identity Client Id
+         */
+        acrUserManagedIdentityClientId?: string;
+        /**
          * Should the app be loaded at all times? Defaults to `false`.
          */
         alwaysOn?: boolean;
@@ -4027,7 +4087,7 @@ export namespace appservice {
          */
         defaultDocuments?: string[];
         /**
-         * The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+         * The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: string;
         ftpsState: string;
@@ -5039,6 +5099,17 @@ export namespace bot {
          * The Facebook Page ID for the Facebook Channel.
          */
         id: string;
+    }
+
+    export interface ChannelLineLineChannel {
+        /**
+         * The access token which is used to call the Line Channel API.
+         */
+        accessToken: string;
+        /**
+         * The secret which is used to access the Line Channel.
+         */
+        secret: string;
     }
 
 }
@@ -9479,6 +9550,39 @@ export namespace containerservice {
         keyData: string;
     }
 
+    export interface KubernetesClusterMaintenanceWindow {
+        /**
+         * One or more `allowed` block as defined below.
+         */
+        alloweds?: outputs.containerservice.KubernetesClusterMaintenanceWindowAllowed[];
+        /**
+         * One or more `notAllowed` block as defined below.
+         */
+        notAlloweds?: outputs.containerservice.KubernetesClusterMaintenanceWindowNotAllowed[];
+    }
+
+    export interface KubernetesClusterMaintenanceWindowAllowed {
+        /**
+         * A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+         */
+        day: string;
+        /**
+         * An array of hour slots in a day. Possible values are between `0` and `23`.
+         */
+        hours: number[];
+    }
+
+    export interface KubernetesClusterMaintenanceWindowNotAllowed {
+        /**
+         * The end of a time span, formatted as an RFC3339 string.
+         */
+        end: string;
+        /**
+         * The start of a time span, formatted as an RFC3339 string.
+         */
+        start: string;
+    }
+
     export interface KubernetesClusterNetworkProfile {
         /**
          * IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
@@ -9905,7 +10009,6 @@ export namespace containerservice {
          */
         enabled?: boolean;
     }
-
 }
 
 export namespace core {
@@ -10691,24 +10794,75 @@ export namespace databoxedge {
 }
 
 export namespace databricks {
+    export interface GetWorkspacePrivateEndpointConnectionConnection {
+        /**
+         * Actions required for a private endpoint connection.
+         */
+        actionRequired: string;
+        /**
+         * The description for the current state of a private endpoint connection.
+         */
+        description: string;
+        /**
+         * The name of the Databricks Workspace.
+         */
+        name: string;
+        /**
+         * The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+         */
+        status: string;
+        /**
+         * The Databricks Workspace resource ID for the private link endpoint.
+         */
+        workspacePrivateEndpointId: string;
+    }
+
     export interface WorkspaceCustomParameters {
         machineLearningWorkspaceId?: string;
         /**
+         * Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+         */
+        natGatewayName: string;
+        /**
          * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          */
-        noPublicIp?: boolean;
+        noPublicIp: boolean;
         /**
          * The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
          */
         privateSubnetName?: string;
         /**
+         * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
+         */
+        privateSubnetNetworkSecurityGroupAssociationId?: string;
+        /**
+         * Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+         */
+        publicIpName: string;
+        /**
          * The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
          */
         publicSubnetName?: string;
         /**
+         * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
+         */
+        publicSubnetNetworkSecurityGroupAssociationId?: string;
+        /**
+         * Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
+         */
+        storageAccountName: string;
+        /**
+         * Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+         */
+        storageAccountSkuName: string;
+        /**
          * The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
+        /**
+         * Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
+         */
+        vnetAddressPrefix: string;
     }
 
     export interface WorkspaceStorageAccountIdentity {
@@ -10738,6 +10892,129 @@ export namespace datafactory {
          * A map of parameters to associate with the Data Factory Linked Service.
          */
         parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowSink {
+        /**
+         * A `dataset` block as defined below.
+         */
+        dataset?: outputs.datafactory.DataFlowSinkDataset;
+        /**
+         * The description for the Data Flow Source.
+         */
+        description?: string;
+        /**
+         * A `linkedService` block as defined below.
+         */
+        linkedService?: outputs.datafactory.DataFlowSinkLinkedService;
+        /**
+         * The name for the Data Flow Source.
+         */
+        name: string;
+        /**
+         * A `schemaLinkedService` block as defined below.
+         */
+        schemaLinkedService?: outputs.datafactory.DataFlowSinkSchemaLinkedService;
+    }
+
+    export interface DataFlowSinkDataset {
+        /**
+         * The name for the Data Factory Dataset.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowSinkLinkedService {
+        /**
+         * The name for the Data Factory Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowSinkSchemaLinkedService {
+        /**
+         * The name for the Data Factory Linked Service with schema.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowSource {
+        /**
+         * A `dataset` block as defined below.
+         */
+        dataset?: outputs.datafactory.DataFlowSourceDataset;
+        /**
+         * The description for the Data Flow Source.
+         */
+        description?: string;
+        /**
+         * A `linkedService` block as defined below.
+         */
+        linkedService?: outputs.datafactory.DataFlowSourceLinkedService;
+        /**
+         * The name for the Data Flow Source.
+         */
+        name: string;
+        /**
+         * A `schemaLinkedService` block as defined below.
+         */
+        schemaLinkedService?: outputs.datafactory.DataFlowSourceSchemaLinkedService;
+    }
+
+    export interface DataFlowSourceDataset {
+        /**
+         * The name for the Data Factory Dataset.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowSourceLinkedService {
+        /**
+         * The name for the Data Factory Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowSourceSchemaLinkedService {
+        /**
+         * The name for the Data Factory Linked Service with schema.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowTransformation {
+        /**
+         * The description for the Data Flow transformation.
+         */
+        description?: string;
+        /**
+         * The name for the Data Flow transformation.
+         */
+        name: string;
     }
 
     export interface DatasetAzureBlobSchemaColumn {
@@ -11620,7 +11897,6 @@ export namespace datafactory {
         size?: string;
         triggerName?: string;
     }
-
 }
 
 export namespace dataprotection {
@@ -22891,7 +23167,7 @@ export namespace network {
          */
         priority: number;
         /**
-         * Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
+         * Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
          */
         protocol: string;
         /**

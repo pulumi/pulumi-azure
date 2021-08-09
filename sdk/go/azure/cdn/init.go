@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:cdn/endpoint:Endpoint":
 		r = &Endpoint{}
+	case "azure:cdn/endpointCustomDomain:EndpointCustomDomain":
+		r = &EndpointCustomDomain{}
 	case "azure:cdn/profile:Profile":
 		r = &Profile{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cdn/endpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cdn/endpointCustomDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

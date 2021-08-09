@@ -46,6 +46,9 @@ __all__ = [
     'KubernetesClusterKubeletIdentity',
     'KubernetesClusterLinuxProfile',
     'KubernetesClusterLinuxProfileSshKey',
+    'KubernetesClusterMaintenanceWindow',
+    'KubernetesClusterMaintenanceWindowAllowed',
+    'KubernetesClusterMaintenanceWindowNotAllowed',
     'KubernetesClusterNetworkProfile',
     'KubernetesClusterNetworkProfileLoadBalancerProfile',
     'KubernetesClusterNodePoolKubeletConfig',
@@ -3413,6 +3416,112 @@ class KubernetesClusterLinuxProfileSshKey(dict):
         The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_data")
+
+
+@pulumi.output_type
+class KubernetesClusterMaintenanceWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notAlloweds":
+            suggest = "not_alloweds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterMaintenanceWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterMaintenanceWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterMaintenanceWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alloweds: Optional[Sequence['outputs.KubernetesClusterMaintenanceWindowAllowed']] = None,
+                 not_alloweds: Optional[Sequence['outputs.KubernetesClusterMaintenanceWindowNotAllowed']] = None):
+        """
+        :param Sequence['KubernetesClusterMaintenanceWindowAllowedArgs'] alloweds: One or more `allowed` block as defined below.
+        :param Sequence['KubernetesClusterMaintenanceWindowNotAllowedArgs'] not_alloweds: One or more `not_allowed` block as defined below.
+        """
+        if alloweds is not None:
+            pulumi.set(__self__, "alloweds", alloweds)
+        if not_alloweds is not None:
+            pulumi.set(__self__, "not_alloweds", not_alloweds)
+
+    @property
+    @pulumi.getter
+    def alloweds(self) -> Optional[Sequence['outputs.KubernetesClusterMaintenanceWindowAllowed']]:
+        """
+        One or more `allowed` block as defined below.
+        """
+        return pulumi.get(self, "alloweds")
+
+    @property
+    @pulumi.getter(name="notAlloweds")
+    def not_alloweds(self) -> Optional[Sequence['outputs.KubernetesClusterMaintenanceWindowNotAllowed']]:
+        """
+        One or more `not_allowed` block as defined below.
+        """
+        return pulumi.get(self, "not_alloweds")
+
+
+@pulumi.output_type
+class KubernetesClusterMaintenanceWindowAllowed(dict):
+    def __init__(__self__, *,
+                 day: str,
+                 hours: Sequence[int]):
+        """
+        :param str day: A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        :param Sequence[int] hours: An array of hour slots in a day. Possible values are between `0` and `23`.
+        """
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "hours", hours)
+
+    @property
+    @pulumi.getter
+    def day(self) -> str:
+        """
+        A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter
+    def hours(self) -> Sequence[int]:
+        """
+        An array of hour slots in a day. Possible values are between `0` and `23`.
+        """
+        return pulumi.get(self, "hours")
+
+
+@pulumi.output_type
+class KubernetesClusterMaintenanceWindowNotAllowed(dict):
+    def __init__(__self__, *,
+                 end: str,
+                 start: str):
+        """
+        :param str end: The end of a time span, formatted as an RFC3339 string.
+        :param str start: The start of a time span, formatted as an RFC3339 string.
+        """
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> str:
+        """
+        The end of a time span, formatted as an RFC3339 string.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
+        """
+        The start of a time span, formatted as an RFC3339 string.
+        """
+        return pulumi.get(self, "start")
 
 
 @pulumi.output_type

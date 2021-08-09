@@ -285,9 +285,117 @@ func (o ChannelFacebookPageArrayOutput) Index(i pulumi.IntInput) ChannelFacebook
 	}).(ChannelFacebookPageOutput)
 }
 
+type ChannelLineLineChannel struct {
+	// The access token which is used to call the Line Channel API.
+	AccessToken string `pulumi:"accessToken"`
+	// The secret which is used to access the Line Channel.
+	Secret string `pulumi:"secret"`
+}
+
+// ChannelLineLineChannelInput is an input type that accepts ChannelLineLineChannelArgs and ChannelLineLineChannelOutput values.
+// You can construct a concrete instance of `ChannelLineLineChannelInput` via:
+//
+//          ChannelLineLineChannelArgs{...}
+type ChannelLineLineChannelInput interface {
+	pulumi.Input
+
+	ToChannelLineLineChannelOutput() ChannelLineLineChannelOutput
+	ToChannelLineLineChannelOutputWithContext(context.Context) ChannelLineLineChannelOutput
+}
+
+type ChannelLineLineChannelArgs struct {
+	// The access token which is used to call the Line Channel API.
+	AccessToken pulumi.StringInput `pulumi:"accessToken"`
+	// The secret which is used to access the Line Channel.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (ChannelLineLineChannelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLineLineChannel)(nil)).Elem()
+}
+
+func (i ChannelLineLineChannelArgs) ToChannelLineLineChannelOutput() ChannelLineLineChannelOutput {
+	return i.ToChannelLineLineChannelOutputWithContext(context.Background())
+}
+
+func (i ChannelLineLineChannelArgs) ToChannelLineLineChannelOutputWithContext(ctx context.Context) ChannelLineLineChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLineLineChannelOutput)
+}
+
+// ChannelLineLineChannelArrayInput is an input type that accepts ChannelLineLineChannelArray and ChannelLineLineChannelArrayOutput values.
+// You can construct a concrete instance of `ChannelLineLineChannelArrayInput` via:
+//
+//          ChannelLineLineChannelArray{ ChannelLineLineChannelArgs{...} }
+type ChannelLineLineChannelArrayInput interface {
+	pulumi.Input
+
+	ToChannelLineLineChannelArrayOutput() ChannelLineLineChannelArrayOutput
+	ToChannelLineLineChannelArrayOutputWithContext(context.Context) ChannelLineLineChannelArrayOutput
+}
+
+type ChannelLineLineChannelArray []ChannelLineLineChannelInput
+
+func (ChannelLineLineChannelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelLineLineChannel)(nil)).Elem()
+}
+
+func (i ChannelLineLineChannelArray) ToChannelLineLineChannelArrayOutput() ChannelLineLineChannelArrayOutput {
+	return i.ToChannelLineLineChannelArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelLineLineChannelArray) ToChannelLineLineChannelArrayOutputWithContext(ctx context.Context) ChannelLineLineChannelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLineLineChannelArrayOutput)
+}
+
+type ChannelLineLineChannelOutput struct{ *pulumi.OutputState }
+
+func (ChannelLineLineChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLineLineChannel)(nil)).Elem()
+}
+
+func (o ChannelLineLineChannelOutput) ToChannelLineLineChannelOutput() ChannelLineLineChannelOutput {
+	return o
+}
+
+func (o ChannelLineLineChannelOutput) ToChannelLineLineChannelOutputWithContext(ctx context.Context) ChannelLineLineChannelOutput {
+	return o
+}
+
+// The access token which is used to call the Line Channel API.
+func (o ChannelLineLineChannelOutput) AccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelLineLineChannel) string { return v.AccessToken }).(pulumi.StringOutput)
+}
+
+// The secret which is used to access the Line Channel.
+func (o ChannelLineLineChannelOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelLineLineChannel) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type ChannelLineLineChannelArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelLineLineChannelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelLineLineChannel)(nil)).Elem()
+}
+
+func (o ChannelLineLineChannelArrayOutput) ToChannelLineLineChannelArrayOutput() ChannelLineLineChannelArrayOutput {
+	return o
+}
+
+func (o ChannelLineLineChannelArrayOutput) ToChannelLineLineChannelArrayOutputWithContext(ctx context.Context) ChannelLineLineChannelArrayOutput {
+	return o
+}
+
+func (o ChannelLineLineChannelArrayOutput) Index(i pulumi.IntInput) ChannelLineLineChannelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelLineLineChannel {
+		return vs[0].([]ChannelLineLineChannel)[vs[1].(int)]
+	}).(ChannelLineLineChannelOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ChannelDirectLineSiteOutput{})
 	pulumi.RegisterOutputType(ChannelDirectLineSiteArrayOutput{})
 	pulumi.RegisterOutputType(ChannelFacebookPageOutput{})
 	pulumi.RegisterOutputType(ChannelFacebookPageArrayOutput{})
+	pulumi.RegisterOutputType(ChannelLineLineChannelOutput{})
+	pulumi.RegisterOutputType(ChannelLineLineChannelArrayOutput{})
 }

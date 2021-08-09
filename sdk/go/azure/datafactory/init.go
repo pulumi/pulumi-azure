@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:datafactory/customDataset:CustomDataset":
 		r = &CustomDataset{}
+	case "azure:datafactory/dataFlow:DataFlow":
+		r = &DataFlow{}
 	case "azure:datafactory/datasetAzureBlob:DatasetAzureBlob":
 		r = &DatasetAzureBlob{}
 	case "azure:datafactory/datasetBinary:DatasetBinary":
@@ -123,6 +125,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/customDataset",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/dataFlow",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
