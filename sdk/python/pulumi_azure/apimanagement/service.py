@@ -48,7 +48,7 @@ class ServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
-        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in master region? This is only supported when `additional_location` is set.
+        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input['ServiceHostnameConfigurationArgs'] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block is documented below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
@@ -200,7 +200,7 @@ class ServiceArgs:
     @pulumi.getter(name="gatewayDisabled")
     def gateway_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Disable the gateway in master region? This is only supported when `additional_location` is set.
+        Disable the gateway in main region? This is only supported when `additional_location` is set.
         """
         return pulumi.get(self, "gateway_disabled")
 
@@ -443,7 +443,7 @@ class _ServiceState:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
-        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in master region? This is only supported when `additional_location` is set.
+        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
         :param pulumi.Input['ServiceHostnameConfigurationArgs'] hostname_configuration: A `hostname_configuration` block as defined below.
@@ -590,7 +590,7 @@ class _ServiceState:
     @pulumi.getter(name="gatewayDisabled")
     def gateway_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Disable the gateway in master region? This is only supported when `additional_location` is set.
+        Disable the gateway in main region? This is only supported when `additional_location` is set.
         """
         return pulumi.get(self, "gateway_disabled")
 
@@ -989,7 +989,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
-        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in master region? This is only supported when `additional_location` is set.
+        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block is documented below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
@@ -1192,7 +1192,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
-        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in master region? This is only supported when `additional_location` is set.
+        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
         :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
@@ -1296,7 +1296,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="gatewayDisabled")
     def gateway_disabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Disable the gateway in master region? This is only supported when `additional_location` is set.
+        Disable the gateway in main region? This is only supported when `additional_location` is set.
         """
         return pulumi.get(self, "gateway_disabled")
 

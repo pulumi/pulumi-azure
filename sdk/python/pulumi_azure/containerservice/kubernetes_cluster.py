@@ -48,7 +48,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterAddonProfileArgs'] addon_profile: A `addon_profile` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
@@ -170,7 +170,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
     def api_server_authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The IP ranges to whitelist for incoming traffic to the masters.
+        The IP ranges to allow for incoming traffic to the server nodes.
         """
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 
@@ -501,7 +501,7 @@ class _KubernetesClusterState:
         """
         Input properties used for looking up and filtering KubernetesCluster resources.
         :param pulumi.Input['KubernetesClusterAddonProfileArgs'] addon_profile: A `addon_profile` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
@@ -621,7 +621,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
     def api_server_authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The IP ranges to whitelist for incoming traffic to the masters.
+        The IP ranges to allow for incoming traffic to the server nodes.
         """
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 
@@ -1084,7 +1084,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
@@ -1303,7 +1303,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
@@ -1387,7 +1387,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
     def api_server_authorized_ip_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The IP ranges to whitelist for incoming traffic to the masters.
+        The IP ranges to allow for incoming traffic to the server nodes.
         """
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 

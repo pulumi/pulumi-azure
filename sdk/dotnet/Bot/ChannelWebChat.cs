@@ -12,6 +12,43 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Web Chat integration for a Bot Channel
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new Azure.Bot.ChannelsRegistrationArgs
+    ///         {
+    ///             Location = "global",
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "F0",
+    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
+    ///         });
+    ///         var exampleChannelWebChat = new Azure.Bot.ChannelWebChat("exampleChannelWebChat", new Azure.Bot.ChannelWebChatArgs
+    ///         {
+    ///             BotName = exampleChannelsRegistration.Name,
+    ///             Location = exampleChannelsRegistration.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SiteNames = 
+    ///             {
+    ///                 "TestSite",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Web Chat Channels can be imported using the `resource id`, e.g.

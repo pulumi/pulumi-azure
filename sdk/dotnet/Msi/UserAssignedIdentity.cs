@@ -9,87 +9,28 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Msi
 {
-    /// <summary>
-    /// Manages a user assigned identity.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new Azure.Authorization.UserAssignedIdentityArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// User Assigned Identities can be imported using the `resource id`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import azure:msi/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
-    /// ```
-    /// </summary>
     [Obsolete(@"azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity")]
     [AzureResourceType("azure:msi/userAssignedIdentity:UserAssignedIdentity")]
     public partial class UserAssignedIdentity : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Client ID associated with the user assigned identity.
-        /// </summary>
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
 
-        /// <summary>
-        /// The location/region where the user assigned identity is
-        /// created.
-        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the user assigned identity. Changing this forces a
-        /// new identity to be created.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Service Principal ID associated with the user assigned identity.
-        /// </summary>
         [Output("principalId")]
         public Output<string> PrincipalId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the resource group in which to
-        /// create the user assigned identity.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Tenant ID associated with the user assigned identity.
-        /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
 
@@ -139,33 +80,17 @@ namespace Pulumi.Azure.Msi
 
     public sealed class UserAssignedIdentityArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The location/region where the user assigned identity is
-        /// created.
-        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// The name of the user assigned identity. Changing this forces a
-        /// new identity to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which to
-        /// create the user assigned identity.
-        /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -179,54 +104,29 @@ namespace Pulumi.Azure.Msi
 
     public sealed class UserAssignedIdentityState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Client ID associated with the user assigned identity.
-        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
-        /// <summary>
-        /// The location/region where the user assigned identity is
-        /// created.
-        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// The name of the user assigned identity. Changing this forces a
-        /// new identity to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Service Principal ID associated with the user assigned identity.
-        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which to
-        /// create the user assigned identity.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Tenant ID associated with the user assigned identity.
-        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 

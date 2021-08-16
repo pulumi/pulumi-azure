@@ -155,7 +155,7 @@ class GetAccountResult:
     @pulumi.getter(name="enableMultipleWriteLocations")
     def enable_multiple_write_locations(self) -> bool:
         """
-        If multi-master is enabled for this Cosmos DB account.
+        If multiple write locations are enabled for this Cosmos DB account.
         """
         return pulumi.get(self, "enable_multiple_write_locations")
 
@@ -237,7 +237,7 @@ class GetAccountResult:
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> str:
         """
-        The Primary master key for the CosmosDB Account.
+        The Primary key for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_key")
 
@@ -250,7 +250,7 @@ class GetAccountResult:
     @pulumi.getter(name="primaryReadonlyKey")
     def primary_readonly_key(self) -> str:
         """
-        The Primary read-only master Key for the CosmosDB Account.
+        The Primary read-only Key for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_readonly_key")
 
@@ -276,7 +276,7 @@ class GetAccountResult:
     @pulumi.getter(name="secondaryKey")
     def secondary_key(self) -> str:
         """
-        The Secondary master key for the CosmosDB Account.
+        The Secondary key for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_key")
 
@@ -289,7 +289,7 @@ class GetAccountResult:
     @pulumi.getter(name="secondaryReadonlyKey")
     def secondary_readonly_key(self) -> str:
         """
-        The Secondary read-only master key for the CosmosDB Account.
+        The Secondary read-only key for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_readonly_key")
 

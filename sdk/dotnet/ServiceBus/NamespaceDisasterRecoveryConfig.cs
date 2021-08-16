@@ -45,7 +45,7 @@ namespace Pulumi.Azure.ServiceBus
     ///         var exampleNamespaceDisasterRecoveryConfig = new Azure.ServiceBus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", new Azure.ServiceBus.NamespaceDisasterRecoveryConfigArgs
     ///         {
     ///             PrimaryNamespaceId = primary.Id,
-    ///             PartnerNamespaceId = azurerm_resource_group.Secondary.Id,
+    ///             PartnerNamespaceId = secondary.Id,
     ///         });
     ///     }
     /// 

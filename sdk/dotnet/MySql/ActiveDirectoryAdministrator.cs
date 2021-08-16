@@ -68,7 +68,7 @@ namespace Pulumi.Azure.MySql
         public Output<string> Login { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the principal to set as the server administrator
+        /// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         /// </summary>
         [Output("objectId")]
         public Output<string> ObjectId { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.MySql
         public Input<string> Login { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the principal to set as the server administrator
+        /// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         /// </summary>
         [Input("objectId", required: true)]
         public Input<string> ObjectId { get; set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? Login { get; set; }
 
         /// <summary>
-        /// The ID of the principal to set as the server administrator
+        /// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         /// </summary>
         [Input("objectId")]
         public Input<string>? ObjectId { get; set; }

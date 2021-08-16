@@ -557,7 +557,7 @@ class Diagnostic(pulumi.CustomResource):
             sampling_percentage=5,
             always_log_errors=True,
             log_client_ip=True,
-            verbosity="Verbose",
+            verbosity="verbose",
             http_correlation_protocol="W3C",
             frontend_request=azure.apimanagement.DiagnosticFrontendRequestArgs(
                 body_bytes=32,
@@ -658,7 +658,7 @@ class Diagnostic(pulumi.CustomResource):
             sampling_percentage=5,
             always_log_errors=True,
             log_client_ip=True,
-            verbosity="Verbose",
+            verbosity="verbose",
             http_correlation_protocol="W3C",
             frontend_request=azure.apimanagement.DiagnosticFrontendRequestArgs(
                 body_bytes=32,

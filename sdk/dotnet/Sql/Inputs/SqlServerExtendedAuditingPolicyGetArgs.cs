@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Sql.Inputs
     public sealed class SqlServerExtendedAuditingPolicyGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        /// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
         /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }

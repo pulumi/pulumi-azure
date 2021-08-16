@@ -6667,6 +6667,8 @@ type FunctionAppSiteConfig struct {
 	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors *FunctionAppSiteConfigCors `pulumi:"cors"`
+	// The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
 	// The number of minimum instances for this function app. Only affects apps on the Premium plan.
 	ElasticInstanceMinimum *int `pulumi:"elasticInstanceMinimum"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
@@ -6718,6 +6720,8 @@ type FunctionAppSiteConfigArgs struct {
 	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors FunctionAppSiteConfigCorsPtrInput `pulumi:"cors"`
+	// The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
 	// The number of minimum instances for this function app. Only affects apps on the Premium plan.
 	ElasticInstanceMinimum pulumi.IntPtrInput `pulumi:"elasticInstanceMinimum"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
@@ -6844,6 +6848,11 @@ func (o FunctionAppSiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 // A `cors` block as defined below.
 func (o FunctionAppSiteConfigOutput) Cors() FunctionAppSiteConfigCorsPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *FunctionAppSiteConfigCors { return v.Cors }).(FunctionAppSiteConfigCorsPtrOutput)
+}
+
+// The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+func (o FunctionAppSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) *string { return v.DotnetFrameworkVersion }).(pulumi.StringPtrOutput)
 }
 
 // The number of minimum instances for this function app. Only affects apps on the Premium plan.
@@ -6976,6 +6985,16 @@ func (o FunctionAppSiteConfigPtrOutput) Cors() FunctionAppSiteConfigCorsPtrOutpu
 		}
 		return v.Cors
 	}).(FunctionAppSiteConfigCorsPtrOutput)
+}
+
+// The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+func (o FunctionAppSiteConfigPtrOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DotnetFrameworkVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of minimum instances for this function app. Only affects apps on the Premium plan.
@@ -9581,6 +9600,8 @@ type FunctionAppSlotSiteConfig struct {
 	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors *FunctionAppSlotSiteConfigCors `pulumi:"cors"`
+	// The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
 	// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
 	ElasticInstanceMinimum *int `pulumi:"elasticInstanceMinimum"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
@@ -9628,6 +9649,8 @@ type FunctionAppSlotSiteConfigArgs struct {
 	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors FunctionAppSlotSiteConfigCorsPtrInput `pulumi:"cors"`
+	// The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
 	// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
 	ElasticInstanceMinimum pulumi.IntPtrInput `pulumi:"elasticInstanceMinimum"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
@@ -9750,6 +9773,11 @@ func (o FunctionAppSlotSiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutp
 // A `cors` block as defined below.
 func (o FunctionAppSlotSiteConfigOutput) Cors() FunctionAppSlotSiteConfigCorsPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *FunctionAppSlotSiteConfigCors { return v.Cors }).(FunctionAppSlotSiteConfigCorsPtrOutput)
+}
+
+// The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+func (o FunctionAppSlotSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *string { return v.DotnetFrameworkVersion }).(pulumi.StringPtrOutput)
 }
 
 // The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
@@ -9880,6 +9908,16 @@ func (o FunctionAppSlotSiteConfigPtrOutput) Cors() FunctionAppSlotSiteConfigCors
 		}
 		return v.Cors
 	}).(FunctionAppSlotSiteConfigCorsPtrOutput)
+}
+
+// The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+func (o FunctionAppSlotSiteConfigPtrOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DotnetFrameworkVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
@@ -17269,6 +17307,8 @@ type GetFunctionAppSiteConfig struct {
 	AutoSwapSlotName string `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined above.
 	Cors GetFunctionAppSiteConfigCors `pulumi:"cors"`
+	// The version of the .net framework's CLR used in this App Service.
+	DotnetFrameworkVersion string `pulumi:"dotnetFrameworkVersion"`
 	// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
 	ElasticInstanceMinimum int `pulumi:"elasticInstanceMinimum"`
 	// State of FTP / FTPS service for this AppService.
@@ -17319,6 +17359,8 @@ type GetFunctionAppSiteConfigArgs struct {
 	AutoSwapSlotName pulumi.StringInput `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined above.
 	Cors GetFunctionAppSiteConfigCorsInput `pulumi:"cors"`
+	// The version of the .net framework's CLR used in this App Service.
+	DotnetFrameworkVersion pulumi.StringInput `pulumi:"dotnetFrameworkVersion"`
 	// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
 	ElasticInstanceMinimum pulumi.IntInput `pulumi:"elasticInstanceMinimum"`
 	// State of FTP / FTPS service for this AppService.
@@ -17418,6 +17460,11 @@ func (o GetFunctionAppSiteConfigOutput) AutoSwapSlotName() pulumi.StringOutput {
 // A `cors` block as defined above.
 func (o GetFunctionAppSiteConfigOutput) Cors() GetFunctionAppSiteConfigCorsOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfig) GetFunctionAppSiteConfigCors { return v.Cors }).(GetFunctionAppSiteConfigCorsOutput)
+}
+
+// The version of the .net framework's CLR used in this App Service.
+func (o GetFunctionAppSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) string { return v.DotnetFrameworkVersion }).(pulumi.StringOutput)
 }
 
 // The number of minimum instances for this function app. Only applicable to apps on the Premium plan.

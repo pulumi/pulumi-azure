@@ -83,7 +83,7 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         public readonly bool EnableFreeTier;
         /// <summary>
-        /// If multi-master is enabled for this Cosmos DB account.
+        /// If multiple write locations are enabled for this Cosmos DB account.
         /// </summary>
         public readonly bool EnableMultipleWriteLocations;
         /// <summary>
@@ -121,12 +121,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         public readonly string OfferType;
         /// <summary>
-        /// The Primary master key for the CosmosDB Account.
+        /// The Primary key for the CosmosDB Account.
         /// </summary>
         public readonly string PrimaryKey;
         public readonly string PrimaryMasterKey;
         /// <summary>
-        /// The Primary read-only master Key for the CosmosDB Account.
+        /// The Primary read-only Key for the CosmosDB Account.
         /// </summary>
         public readonly string PrimaryReadonlyKey;
         public readonly string PrimaryReadonlyMasterKey;
@@ -136,12 +136,12 @@ namespace Pulumi.Azure.CosmosDB
         public readonly ImmutableArray<string> ReadEndpoints;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The Secondary master key for the CosmosDB Account.
+        /// The Secondary key for the CosmosDB Account.
         /// </summary>
         public readonly string SecondaryKey;
         public readonly string SecondaryMasterKey;
         /// <summary>
-        /// The Secondary read-only master key for the CosmosDB Account.
+        /// The Secondary read-only key for the CosmosDB Account.
         /// </summary>
         public readonly string SecondaryReadonlyKey;
         public readonly string SecondaryReadonlyMasterKey;

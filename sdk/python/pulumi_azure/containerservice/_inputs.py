@@ -3113,7 +3113,7 @@ class KubernetesClusterIdentityArgs:
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `user_assigned_identity_id` must be set as well.
-        :param pulumi.Input[str] principal_id: The principal id of the system assigned identity which is used by master components.
+        :param pulumi.Input[str] principal_id: The principal id of the system assigned identity which is used by main components.
         :param pulumi.Input[str] tenant_id: The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
@@ -3141,7 +3141,7 @@ class KubernetesClusterIdentityArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The principal id of the system assigned identity which is used by master components.
+        The principal id of the system assigned identity which is used by main components.
         """
         return pulumi.get(self, "principal_id")
 

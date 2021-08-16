@@ -97,7 +97,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     public readonly azureBlobStorageLocation!: pulumi.Output<outputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation | undefined>;
     /**
-     * The column delimiter.
+     * The column delimiter. Defaults to `,`.
      */
     public readonly columnDelimiter!: pulumi.Output<string | undefined>;
     /**
@@ -121,11 +121,11 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     public readonly encoding!: pulumi.Output<string | undefined>;
     /**
-     * The escape character.
+     * The escape character. Defaults to `\`.
      */
     public readonly escapeCharacter!: pulumi.Output<string | undefined>;
     /**
-     * When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+     * When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
      */
     public readonly firstRowAsHeader!: pulumi.Output<boolean | undefined>;
     /**
@@ -145,7 +145,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The null value string.
+     * The null value string. Defaults to an empty string.
      */
     public readonly nullValue!: pulumi.Output<string | undefined>;
     /**
@@ -153,7 +153,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The quote character.
+     * The quote character. Defaults to `"`.
      */
     public readonly quoteCharacter!: pulumi.Output<string | undefined>;
     /**
@@ -161,7 +161,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The row delimiter.
+     * The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
      */
     public readonly rowDelimiter!: pulumi.Output<string | undefined>;
     /**
@@ -266,7 +266,7 @@ export interface DatasetDelimitedTextState {
      */
     azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation>;
     /**
-     * The column delimiter.
+     * The column delimiter. Defaults to `,`.
      */
     columnDelimiter?: pulumi.Input<string>;
     /**
@@ -290,11 +290,11 @@ export interface DatasetDelimitedTextState {
      */
     encoding?: pulumi.Input<string>;
     /**
-     * The escape character.
+     * The escape character. Defaults to `\`.
      */
     escapeCharacter?: pulumi.Input<string>;
     /**
-     * When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+     * When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
      */
     firstRowAsHeader?: pulumi.Input<boolean>;
     /**
@@ -314,7 +314,7 @@ export interface DatasetDelimitedTextState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The null value string.
+     * The null value string. Defaults to an empty string.
      */
     nullValue?: pulumi.Input<string>;
     /**
@@ -322,7 +322,7 @@ export interface DatasetDelimitedTextState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The quote character.
+     * The quote character. Defaults to `"`.
      */
     quoteCharacter?: pulumi.Input<string>;
     /**
@@ -330,7 +330,7 @@ export interface DatasetDelimitedTextState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The row delimiter.
+     * The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
      */
     rowDelimiter?: pulumi.Input<string>;
     /**
@@ -360,7 +360,7 @@ export interface DatasetDelimitedTextArgs {
      */
     azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation>;
     /**
-     * The column delimiter.
+     * The column delimiter. Defaults to `,`.
      */
     columnDelimiter?: pulumi.Input<string>;
     /**
@@ -384,11 +384,11 @@ export interface DatasetDelimitedTextArgs {
      */
     encoding?: pulumi.Input<string>;
     /**
-     * The escape character.
+     * The escape character. Defaults to `\`.
      */
     escapeCharacter?: pulumi.Input<string>;
     /**
-     * When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+     * When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
      */
     firstRowAsHeader?: pulumi.Input<boolean>;
     /**
@@ -408,7 +408,7 @@ export interface DatasetDelimitedTextArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The null value string.
+     * The null value string. Defaults to an empty string.
      */
     nullValue?: pulumi.Input<string>;
     /**
@@ -416,7 +416,7 @@ export interface DatasetDelimitedTextArgs {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The quote character.
+     * The quote character. Defaults to `"`.
      */
     quoteCharacter?: pulumi.Input<string>;
     /**
@@ -424,7 +424,7 @@ export interface DatasetDelimitedTextArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The row delimiter.
+     * The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
      */
     rowDelimiter?: pulumi.Input<string>;
     /**

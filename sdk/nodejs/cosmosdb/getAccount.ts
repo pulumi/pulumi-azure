@@ -67,7 +67,7 @@ export interface GetAccountResult {
      */
     readonly enableFreeTier: boolean;
     /**
-     * If multi-master is enabled for this Cosmos DB account.
+     * If multiple write locations are enabled for this Cosmos DB account.
      */
     readonly enableMultipleWriteLocations: boolean;
     /**
@@ -105,7 +105,7 @@ export interface GetAccountResult {
      */
     readonly offerType: string;
     /**
-     * The Primary master key for the CosmosDB Account.
+     * The Primary key for the CosmosDB Account.
      */
     readonly primaryKey: string;
     /**
@@ -113,7 +113,7 @@ export interface GetAccountResult {
      */
     readonly primaryMasterKey: string;
     /**
-     * The Primary read-only master Key for the CosmosDB Account.
+     * The Primary read-only Key for the CosmosDB Account.
      */
     readonly primaryReadonlyKey: string;
     /**
@@ -126,7 +126,7 @@ export interface GetAccountResult {
     readonly readEndpoints: string[];
     readonly resourceGroupName: string;
     /**
-     * The Secondary master key for the CosmosDB Account.
+     * The Secondary key for the CosmosDB Account.
      */
     readonly secondaryKey: string;
     /**
@@ -134,7 +134,7 @@ export interface GetAccountResult {
      */
     readonly secondaryMasterKey: string;
     /**
-     * The Secondary read-only master key for the CosmosDB Account.
+     * The Secondary read-only key for the CosmosDB Account.
      */
     readonly secondaryReadonlyKey: string;
     /**

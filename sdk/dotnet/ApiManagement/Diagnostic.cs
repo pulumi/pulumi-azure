@@ -58,7 +58,7 @@ namespace Pulumi.Azure.ApiManagement
     ///             SamplingPercentage = 5,
     ///             AlwaysLogErrors = true,
     ///             LogClientIp = true,
-    ///             Verbosity = "Verbose",
+    ///             Verbosity = "verbose",
     ///             HttpCorrelationProtocol = "W3C",
     ///             FrontendRequest = new Azure.ApiManagement.Inputs.DiagnosticFrontendRequestArgs
     ///             {

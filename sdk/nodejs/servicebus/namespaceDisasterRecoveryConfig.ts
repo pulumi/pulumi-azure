@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleNamespaceDisasterRecoveryConfig = new azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", {
  *     primaryNamespaceId: primary.id,
- *     partnerNamespaceId: azurerm_resource_group.secondary.id,
+ *     partnerNamespaceId: secondary.id,
  * });
  * ```
  *

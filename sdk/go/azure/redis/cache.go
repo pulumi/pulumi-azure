@@ -61,7 +61,7 @@ import (
 // | maxmemoryDelta                 | 2            | 50           | 200          |
 // | maxmemoryPolicy                | volatile-lru | volatile-lru | volatile-lru |
 //
-// > **NOTE:** The `maxmemoryReserved`, `maxmemoryDelta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+// > **NOTE:** The `maxmemoryReserved`, `maxmemoryDelta` and `maxfragmentationmemoryReserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below.
 //
 // ***
 //

@@ -11,68 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a user assigned identity.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Import
-//
-// User Assigned Identities can be imported using the `resource id`, e.g.
-//
-// ```sh
-//  $ pulumi import azure:msi/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
-// ```
-//
 // Deprecated: azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity
 type UserAssignedIdentity struct {
 	pulumi.CustomResourceState
 
-	// Client ID associated with the user assigned identity.
-	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// The location/region where the user assigned identity is
-	// created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the user assigned identity. Changing this forces a
-	// new identity to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Service Principal ID associated with the user assigned identity.
-	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// The name of the resource group in which to
-	// create the user assigned identity.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Tenant ID associated with the user assigned identity.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
+	ClientId          pulumi.StringOutput    `pulumi:"clientId"`
+	Location          pulumi.StringOutput    `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	PrincipalId       pulumi.StringOutput    `pulumi:"principalId"`
+	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	TenantId          pulumi.StringOutput    `pulumi:"tenantId"`
 }
 
 // NewUserAssignedIdentity registers a new resource with the given unique name, arguments, and options.
@@ -107,43 +56,23 @@ func GetUserAssignedIdentity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserAssignedIdentity resources.
 type userAssignedIdentityState struct {
-	// Client ID associated with the user assigned identity.
-	ClientId *string `pulumi:"clientId"`
-	// The location/region where the user assigned identity is
-	// created.
-	Location *string `pulumi:"location"`
-	// The name of the user assigned identity. Changing this forces a
-	// new identity to be created.
-	Name *string `pulumi:"name"`
-	// Service Principal ID associated with the user assigned identity.
-	PrincipalId *string `pulumi:"principalId"`
-	// The name of the resource group in which to
-	// create the user assigned identity.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Tenant ID associated with the user assigned identity.
-	TenantId *string `pulumi:"tenantId"`
+	ClientId          *string           `pulumi:"clientId"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	PrincipalId       *string           `pulumi:"principalId"`
+	ResourceGroupName *string           `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	TenantId          *string           `pulumi:"tenantId"`
 }
 
 type UserAssignedIdentityState struct {
-	// Client ID associated with the user assigned identity.
-	ClientId pulumi.StringPtrInput
-	// The location/region where the user assigned identity is
-	// created.
-	Location pulumi.StringPtrInput
-	// The name of the user assigned identity. Changing this forces a
-	// new identity to be created.
-	Name pulumi.StringPtrInput
-	// Service Principal ID associated with the user assigned identity.
-	PrincipalId pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the user assigned identity.
+	ClientId          pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	PrincipalId       pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
-	// Tenant ID associated with the user assigned identity.
-	TenantId pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TenantId          pulumi.StringPtrInput
 }
 
 func (UserAssignedIdentityState) ElementType() reflect.Type {
@@ -151,32 +80,18 @@ func (UserAssignedIdentityState) ElementType() reflect.Type {
 }
 
 type userAssignedIdentityArgs struct {
-	// The location/region where the user assigned identity is
-	// created.
-	Location *string `pulumi:"location"`
-	// The name of the user assigned identity. Changing this forces a
-	// new identity to be created.
-	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the user assigned identity.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a UserAssignedIdentity resource.
 type UserAssignedIdentityArgs struct {
-	// The location/region where the user assigned identity is
-	// created.
-	Location pulumi.StringPtrInput
-	// The name of the user assigned identity. Changing this forces a
-	// new identity to be created.
-	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the user assigned identity.
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (UserAssignedIdentityArgs) ElementType() reflect.Type {

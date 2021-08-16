@@ -3048,6 +3048,8 @@ class FunctionAppSiteConfig(dict):
             suggest = "app_scale_limit"
         elif key == "autoSwapSlotName":
             suggest = "auto_swap_slot_name"
+        elif key == "dotnetFrameworkVersion":
+            suggest = "dotnet_framework_version"
         elif key == "elasticInstanceMinimum":
             suggest = "elastic_instance_minimum"
         elif key == "ftpsState":
@@ -3095,6 +3097,7 @@ class FunctionAppSiteConfig(dict):
                  app_scale_limit: Optional[int] = None,
                  auto_swap_slot_name: Optional[str] = None,
                  cors: Optional['outputs.FunctionAppSiteConfigCors'] = None,
+                 dotnet_framework_version: Optional[str] = None,
                  elastic_instance_minimum: Optional[int] = None,
                  ftps_state: Optional[str] = None,
                  health_check_path: Optional[str] = None,
@@ -3114,6 +3117,7 @@ class FunctionAppSiteConfig(dict):
         :param bool always_on: Should the Function App be loaded at all times? Defaults to `false`.
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param 'FunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined below.
+        :param str dotnet_framework_version: The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param int elastic_instance_minimum: The number of minimum instances for this function app. Only affects apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param str health_check_path: Path which will be checked for this function app health.
@@ -3138,6 +3142,8 @@ class FunctionAppSiteConfig(dict):
             pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
+        if dotnet_framework_version is not None:
+            pulumi.set(__self__, "dotnet_framework_version", dotnet_framework_version)
         if elastic_instance_minimum is not None:
             pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
         if ftps_state is not None:
@@ -3197,6 +3203,14 @@ class FunctionAppSiteConfig(dict):
         A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="dotnetFrameworkVersion")
+    def dotnet_framework_version(self) -> Optional[str]:
+        """
+        The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        """
+        return pulumi.get(self, "dotnet_framework_version")
 
     @property
     @pulumi.getter(name="elasticInstanceMinimum")
@@ -4397,6 +4411,8 @@ class FunctionAppSlotSiteConfig(dict):
             suggest = "app_scale_limit"
         elif key == "autoSwapSlotName":
             suggest = "auto_swap_slot_name"
+        elif key == "dotnetFrameworkVersion":
+            suggest = "dotnet_framework_version"
         elif key == "elasticInstanceMinimum":
             suggest = "elastic_instance_minimum"
         elif key == "ftpsState":
@@ -4444,6 +4460,7 @@ class FunctionAppSlotSiteConfig(dict):
                  app_scale_limit: Optional[int] = None,
                  auto_swap_slot_name: Optional[str] = None,
                  cors: Optional['outputs.FunctionAppSlotSiteConfigCors'] = None,
+                 dotnet_framework_version: Optional[str] = None,
                  elastic_instance_minimum: Optional[int] = None,
                  ftps_state: Optional[str] = None,
                  health_check_path: Optional[str] = None,
@@ -4464,6 +4481,7 @@ class FunctionAppSlotSiteConfig(dict):
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param str auto_swap_slot_name: The name of the slot to automatically swap to during deployment
         :param 'FunctionAppSlotSiteConfigCorsArgs' cors: A `cors` block as defined below.
+        :param str dotnet_framework_version: The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param int elastic_instance_minimum: The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param bool http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
@@ -4483,6 +4501,8 @@ class FunctionAppSlotSiteConfig(dict):
             pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
+        if dotnet_framework_version is not None:
+            pulumi.set(__self__, "dotnet_framework_version", dotnet_framework_version)
         if elastic_instance_minimum is not None:
             pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
         if ftps_state is not None:
@@ -4545,6 +4565,14 @@ class FunctionAppSlotSiteConfig(dict):
         A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="dotnetFrameworkVersion")
+    def dotnet_framework_version(self) -> Optional[str]:
+        """
+        The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        """
+        return pulumi.get(self, "dotnet_framework_version")
 
     @property
     @pulumi.getter(name="elasticInstanceMinimum")
@@ -7993,6 +8021,7 @@ class GetFunctionAppSiteConfigResult(dict):
                  app_scale_limit: int,
                  auto_swap_slot_name: str,
                  cors: 'outputs.GetFunctionAppSiteConfigCorsResult',
+                 dotnet_framework_version: str,
                  elastic_instance_minimum: int,
                  ftps_state: str,
                  health_check_path: str,
@@ -8012,6 +8041,7 @@ class GetFunctionAppSiteConfigResult(dict):
         :param bool always_on: Is the app loaded at all times?
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param 'GetFunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
+        :param str dotnet_framework_version: The version of the .net framework's CLR used in this App Service.
         :param int elastic_instance_minimum: The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this AppService.
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service?
@@ -8031,6 +8061,7 @@ class GetFunctionAppSiteConfigResult(dict):
         pulumi.set(__self__, "app_scale_limit", app_scale_limit)
         pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         pulumi.set(__self__, "cors", cors)
+        pulumi.set(__self__, "dotnet_framework_version", dotnet_framework_version)
         pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
         pulumi.set(__self__, "ftps_state", ftps_state)
         pulumi.set(__self__, "health_check_path", health_check_path)
@@ -8075,6 +8106,14 @@ class GetFunctionAppSiteConfigResult(dict):
         A `cors` block as defined above.
         """
         return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="dotnetFrameworkVersion")
+    def dotnet_framework_version(self) -> str:
+        """
+        The version of the .net framework's CLR used in this App Service.
+        """
+        return pulumi.get(self, "dotnet_framework_version")
 
     @property
     @pulumi.getter(name="elasticInstanceMinimum")

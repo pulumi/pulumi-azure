@@ -14,6 +14,7 @@ __all__ = [
     'ProviderFeaturesKeyVaultArgs',
     'ProviderFeaturesLogAnalyticsWorkspaceArgs',
     'ProviderFeaturesNetworkArgs',
+    'ProviderFeaturesResourceGroupArgs',
     'ProviderFeaturesTemplateDeploymentArgs',
     'ProviderFeaturesVirtualMachineArgs',
     'ProviderFeaturesVirtualMachineScaleSetArgs',
@@ -26,6 +27,7 @@ class ProviderFeaturesArgs:
                  key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']] = None,
                  log_analytics_workspace: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']] = None,
                  network: Optional[pulumi.Input['ProviderFeaturesNetworkArgs']] = None,
+                 resource_group: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']] = None,
                  template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
                  virtual_machine: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']] = None,
                  virtual_machine_scale_set: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']] = None):
@@ -37,6 +39,8 @@ class ProviderFeaturesArgs:
             pulumi.set(__self__, "log_analytics_workspace", log_analytics_workspace)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
         if template_deployment is not None:
             pulumi.set(__self__, "template_deployment", template_deployment)
         if virtual_machine is not None:
@@ -79,6 +83,15 @@ class ProviderFeaturesArgs:
     @network.setter
     def network(self, value: Optional[pulumi.Input['ProviderFeaturesNetworkArgs']]):
         pulumi.set(self, "network", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']]:
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']]):
+        pulumi.set(self, "resource_group", value)
 
     @property
     @pulumi.getter(name="templateDeployment")
@@ -184,6 +197,23 @@ class ProviderFeaturesNetworkArgs:
     @relaxed_locking.setter
     def relaxed_locking(self, value: pulumi.Input[bool]):
         pulumi.set(self, "relaxed_locking", value)
+
+
+@pulumi.input_type
+class ProviderFeaturesResourceGroupArgs:
+    def __init__(__self__, *,
+                 prevent_deletion_if_contains_resources: Optional[pulumi.Input[bool]] = None):
+        if prevent_deletion_if_contains_resources is not None:
+            pulumi.set(__self__, "prevent_deletion_if_contains_resources", prevent_deletion_if_contains_resources)
+
+    @property
+    @pulumi.getter(name="preventDeletionIfContainsResources")
+    def prevent_deletion_if_contains_resources(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "prevent_deletion_if_contains_resources")
+
+    @prevent_deletion_if_contains_resources.setter
+    def prevent_deletion_if_contains_resources(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "prevent_deletion_if_contains_resources", value)
 
 
 @pulumi.input_type

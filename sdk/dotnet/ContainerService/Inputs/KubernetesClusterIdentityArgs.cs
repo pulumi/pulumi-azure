@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The principal id of the system assigned identity which is used by master components.
+        /// The principal id of the system assigned identity which is used by main components.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }

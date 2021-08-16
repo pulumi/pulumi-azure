@@ -75,7 +75,7 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
      */
     public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -142,7 +142,7 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
  */
 export interface ServerExtendedAuditingPolicyState {
     /**
-     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
      */
     logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
@@ -172,7 +172,7 @@ export interface ServerExtendedAuditingPolicyState {
  */
 export interface ServerExtendedAuditingPolicyArgs {
     /**
-     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
      */
     logMonitoringEnabled?: pulumi.Input<boolean>;
     /**

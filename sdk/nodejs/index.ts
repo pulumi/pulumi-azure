@@ -110,6 +110,7 @@ import * as streamanalytics from "./streamanalytics";
 import * as synapse from "./synapse";
 import * as trafficmanager from "./trafficmanager";
 import * as types from "./types";
+import * as videoanalyzer from "./videoanalyzer";
 import * as waf from "./waf";
 
 export {
@@ -213,6 +214,7 @@ export {
     synapse,
     trafficmanager,
     types,
+    videoanalyzer,
     waf,
 };
 

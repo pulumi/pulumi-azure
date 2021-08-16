@@ -15,10 +15,10 @@ import (
 //
 // ## Import
 //
-// Domain Services can be imported using the resource ID, e.g.
+// Domain Service Replica Sets can be imported using the resource ID of the parent Domain Service and the Replica Set ID, e.g.
 //
 // ```sh
-//  $ pulumi import azure:domainservices/replicaSet:ReplicaSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AAD/domainServices/instance1
+//  $ pulumi import azure:domainservices/replicaSet:ReplicaSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AAD/domainServices/instance1/replicaSets/00000000-0000-0000-0000-000000000000
 // ```
 type ReplicaSet struct {
 	pulumi.CustomResourceState

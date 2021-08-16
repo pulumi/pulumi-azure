@@ -75,7 +75,7 @@ type ActiveDirectoryAdministrator struct {
 
 	// The login name of the principal to set as the server administrator
 	Login pulumi.StringOutput `pulumi:"login"`
-	// The ID of the principal to set as the server administrator
+	// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
 	ObjectId pulumi.StringOutput `pulumi:"objectId"`
 	// The name of the resource group for the MySQL server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -131,7 +131,7 @@ func GetActiveDirectoryAdministrator(ctx *pulumi.Context,
 type activeDirectoryAdministratorState struct {
 	// The login name of the principal to set as the server administrator
 	Login *string `pulumi:"login"`
-	// The ID of the principal to set as the server administrator
+	// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
 	ObjectId *string `pulumi:"objectId"`
 	// The name of the resource group for the MySQL server. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -144,7 +144,7 @@ type activeDirectoryAdministratorState struct {
 type ActiveDirectoryAdministratorState struct {
 	// The login name of the principal to set as the server administrator
 	Login pulumi.StringPtrInput
-	// The ID of the principal to set as the server administrator
+	// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
 	ObjectId pulumi.StringPtrInput
 	// The name of the resource group for the MySQL server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -161,7 +161,7 @@ func (ActiveDirectoryAdministratorState) ElementType() reflect.Type {
 type activeDirectoryAdministratorArgs struct {
 	// The login name of the principal to set as the server administrator
 	Login string `pulumi:"login"`
-	// The ID of the principal to set as the server administrator
+	// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
 	ObjectId string `pulumi:"objectId"`
 	// The name of the resource group for the MySQL server. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -175,7 +175,7 @@ type activeDirectoryAdministratorArgs struct {
 type ActiveDirectoryAdministratorArgs struct {
 	// The login name of the principal to set as the server administrator
 	Login pulumi.StringInput
-	// The ID of the principal to set as the server administrator
+	// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
 	ObjectId pulumi.StringInput
 	// The name of the resource group for the MySQL server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

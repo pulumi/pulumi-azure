@@ -46,20 +46,20 @@ class DatasetDelimitedTextArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs'] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
         :param pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs'] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
-        :param pulumi.Input[str] column_delimiter: The column delimiter.
+        :param pulumi.Input[str] column_delimiter: The column delimiter. Defaults to `,`.
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] encoding: The encoding format for the file.
-        :param pulumi.Input[str] escape_character: The escape character.
-        :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+        :param pulumi.Input[str] escape_character: The escape character. Defaults to `\`.
+        :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input[str] null_value: The null value string.
+        :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[str] quote_character: The quote character.
-        :param pulumi.Input[str] row_delimiter: The row delimiter.
+        :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
+        :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
         pulumi.set(__self__, "data_factory_name", data_factory_name)
@@ -192,7 +192,7 @@ class DatasetDelimitedTextArgs:
     @pulumi.getter(name="columnDelimiter")
     def column_delimiter(self) -> Optional[pulumi.Input[str]]:
         """
-        The column delimiter.
+        The column delimiter. Defaults to `,`.
         """
         return pulumi.get(self, "column_delimiter")
 
@@ -252,7 +252,7 @@ class DatasetDelimitedTextArgs:
     @pulumi.getter(name="escapeCharacter")
     def escape_character(self) -> Optional[pulumi.Input[str]]:
         """
-        The escape character.
+        The escape character. Defaults to `\`.
         """
         return pulumi.get(self, "escape_character")
 
@@ -264,7 +264,7 @@ class DatasetDelimitedTextArgs:
     @pulumi.getter(name="firstRowAsHeader")
     def first_row_as_header(self) -> Optional[pulumi.Input[bool]]:
         """
-        When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+        When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         """
         return pulumi.get(self, "first_row_as_header")
 
@@ -312,7 +312,7 @@ class DatasetDelimitedTextArgs:
     @pulumi.getter(name="nullValue")
     def null_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The null value string.
+        The null value string. Defaults to an empty string.
         """
         return pulumi.get(self, "null_value")
 
@@ -336,7 +336,7 @@ class DatasetDelimitedTextArgs:
     @pulumi.getter(name="quoteCharacter")
     def quote_character(self) -> Optional[pulumi.Input[str]]:
         """
-        The quote character.
+        The quote character. Defaults to `"`.
         """
         return pulumi.get(self, "quote_character")
 
@@ -348,7 +348,7 @@ class DatasetDelimitedTextArgs:
     @pulumi.getter(name="rowDelimiter")
     def row_delimiter(self) -> Optional[pulumi.Input[str]]:
         """
-        The row delimiter.
+        The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         """
         return pulumi.get(self, "row_delimiter")
 
@@ -400,23 +400,23 @@ class _DatasetDelimitedTextState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs'] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
         :param pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs'] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
-        :param pulumi.Input[str] column_delimiter: The column delimiter.
+        :param pulumi.Input[str] column_delimiter: The column delimiter. Defaults to `,`.
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] encoding: The encoding format for the file.
-        :param pulumi.Input[str] escape_character: The escape character.
-        :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+        :param pulumi.Input[str] escape_character: The escape character. Defaults to `\`.
+        :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input[str] null_value: The null value string.
+        :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[str] quote_character: The quote character.
+        :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-        :param pulumi.Input[str] row_delimiter: The row delimiter.
+        :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
         if additional_properties is not None:
@@ -516,7 +516,7 @@ class _DatasetDelimitedTextState:
     @pulumi.getter(name="columnDelimiter")
     def column_delimiter(self) -> Optional[pulumi.Input[str]]:
         """
-        The column delimiter.
+        The column delimiter. Defaults to `,`.
         """
         return pulumi.get(self, "column_delimiter")
 
@@ -588,7 +588,7 @@ class _DatasetDelimitedTextState:
     @pulumi.getter(name="escapeCharacter")
     def escape_character(self) -> Optional[pulumi.Input[str]]:
         """
-        The escape character.
+        The escape character. Defaults to `\`.
         """
         return pulumi.get(self, "escape_character")
 
@@ -600,7 +600,7 @@ class _DatasetDelimitedTextState:
     @pulumi.getter(name="firstRowAsHeader")
     def first_row_as_header(self) -> Optional[pulumi.Input[bool]]:
         """
-        When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+        When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         """
         return pulumi.get(self, "first_row_as_header")
 
@@ -660,7 +660,7 @@ class _DatasetDelimitedTextState:
     @pulumi.getter(name="nullValue")
     def null_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The null value string.
+        The null value string. Defaults to an empty string.
         """
         return pulumi.get(self, "null_value")
 
@@ -684,7 +684,7 @@ class _DatasetDelimitedTextState:
     @pulumi.getter(name="quoteCharacter")
     def quote_character(self) -> Optional[pulumi.Input[str]]:
         """
-        The quote character.
+        The quote character. Defaults to `"`.
         """
         return pulumi.get(self, "quote_character")
 
@@ -708,7 +708,7 @@ class _DatasetDelimitedTextState:
     @pulumi.getter(name="rowDelimiter")
     def row_delimiter(self) -> Optional[pulumi.Input[str]]:
         """
-        The row delimiter.
+        The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         """
         return pulumi.get(self, "row_delimiter")
 
@@ -807,23 +807,23 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
-        :param pulumi.Input[str] column_delimiter: The column delimiter.
+        :param pulumi.Input[str] column_delimiter: The column delimiter. Defaults to `,`.
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] encoding: The encoding format for the file.
-        :param pulumi.Input[str] escape_character: The escape character.
-        :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+        :param pulumi.Input[str] escape_character: The escape character. Defaults to `\`.
+        :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input[str] null_value: The null value string.
+        :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[str] quote_character: The quote character.
+        :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-        :param pulumi.Input[str] row_delimiter: The row delimiter.
+        :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDelimitedTextSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
         """
         ...
@@ -996,23 +996,23 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
-        :param pulumi.Input[str] column_delimiter: The column delimiter.
+        :param pulumi.Input[str] column_delimiter: The column delimiter. Defaults to `,`.
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] encoding: The encoding format for the file.
-        :param pulumi.Input[str] escape_character: The escape character.
-        :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+        :param pulumi.Input[str] escape_character: The escape character. Defaults to `\`.
+        :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input[str] null_value: The null value string.
+        :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[str] quote_character: The quote character.
+        :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-        :param pulumi.Input[str] row_delimiter: The row delimiter.
+        :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDelimitedTextSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1079,7 +1079,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
     @pulumi.getter(name="columnDelimiter")
     def column_delimiter(self) -> pulumi.Output[Optional[str]]:
         """
-        The column delimiter.
+        The column delimiter. Defaults to `,`.
         """
         return pulumi.get(self, "column_delimiter")
 
@@ -1127,7 +1127,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
     @pulumi.getter(name="escapeCharacter")
     def escape_character(self) -> pulumi.Output[Optional[str]]:
         """
-        The escape character.
+        The escape character. Defaults to `\`.
         """
         return pulumi.get(self, "escape_character")
 
@@ -1135,7 +1135,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
     @pulumi.getter(name="firstRowAsHeader")
     def first_row_as_header(self) -> pulumi.Output[Optional[bool]]:
         """
-        When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+        When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         """
         return pulumi.get(self, "first_row_as_header")
 
@@ -1175,7 +1175,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
     @pulumi.getter(name="nullValue")
     def null_value(self) -> pulumi.Output[Optional[str]]:
         """
-        The null value string.
+        The null value string. Defaults to an empty string.
         """
         return pulumi.get(self, "null_value")
 
@@ -1191,7 +1191,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
     @pulumi.getter(name="quoteCharacter")
     def quote_character(self) -> pulumi.Output[Optional[str]]:
         """
-        The quote character.
+        The quote character. Defaults to `"`.
         """
         return pulumi.get(self, "quote_character")
 
@@ -1207,7 +1207,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
     @pulumi.getter(name="rowDelimiter")
     def row_delimiter(self) -> pulumi.Output[Optional[str]]:
         """
-        The row delimiter.
+        The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         """
         return pulumi.get(self, "row_delimiter")
 

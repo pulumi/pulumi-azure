@@ -109,6 +109,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure.streamanalytics as streamanalytics
     import pulumi_azure.synapse as synapse
     import pulumi_azure.trafficmanager as trafficmanager
+    import pulumi_azure.videoanalyzer as videoanalyzer
     import pulumi_azure.waf as waf
 else:
     advisor = _utilities.lazy_import('pulumi_azure.advisor')
@@ -210,6 +211,7 @@ else:
     streamanalytics = _utilities.lazy_import('pulumi_azure.streamanalytics')
     synapse = _utilities.lazy_import('pulumi_azure.synapse')
     trafficmanager = _utilities.lazy_import('pulumi_azure.trafficmanager')
+    videoanalyzer = _utilities.lazy_import('pulumi_azure.videoanalyzer')
     waf = _utilities.lazy_import('pulumi_azure.waf')
 
 _utilities.register(
@@ -5629,6 +5631,22 @@ _utilities.register(
   "fqn": "pulumi_azure.trafficmanager",
   "classes": {
    "azure:trafficmanager/profile:Profile": "Profile"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "videoanalyzer/analyzer",
+  "fqn": "pulumi_azure.videoanalyzer",
+  "classes": {
+   "azure:videoanalyzer/analyzer:Analyzer": "Analyzer"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "videoanalyzer/edgeModule",
+  "fqn": "pulumi_azure.videoanalyzer",
+  "classes": {
+   "azure:videoanalyzer/edgeModule:EdgeModule": "EdgeModule"
   }
  },
  {

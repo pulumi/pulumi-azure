@@ -491,7 +491,7 @@ class SqlServerExtendedAuditingPolicy(dict):
                  storage_account_access_key_is_secondary: Optional[bool] = None,
                  storage_endpoint: Optional[str] = None):
         """
-        :param bool log_monitoring_enabled: (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        :param bool log_monitoring_enabled: (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
         :param int retention_in_days: (Optional) Specifies the number of days to retain logs for in the storage account.
         :param str storage_account_access_key: (Optional)  Specifies the access key to use for the auditing storage account.
         :param bool storage_account_access_key_is_secondary: (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
@@ -512,7 +512,7 @@ class SqlServerExtendedAuditingPolicy(dict):
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> Optional[bool]:
         """
-        (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
         """
         return pulumi.get(self, "log_monitoring_enabled")
 

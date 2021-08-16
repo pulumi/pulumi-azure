@@ -24,14 +24,14 @@ import (
 
 	"github.com/Azure/go-autorest/autorest/azure/cli"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/hashicorp/terraform-provider-azurerm/helpers/azure"
+	"github.com/hashicorp/terraform-provider-azurerm/shim"
 	"github.com/pulumi/pulumi-azure/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
-	"github.com/terraform-providers/terraform-provider-azurerm/azurerm"
-	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/azure"
 )
 
 const (
@@ -138,6 +138,7 @@ const (
 	azureStorage               = "Storage"               // Storage
 	azureStreamAnalytics       = "StreamAnalytics"       // StreamAnalytics
 	azureSynapse               = "Synapse"               // Synapse
+	azureVideoAnalyzer         = "VideoAnalyzer"         // Video Analyzer
 	azureWaf                   = "Waf"                   // WAF
 
 	// Legacy Module Names
@@ -232,7 +233,7 @@ func detectCloudShell() cloudShellProfile {
 //
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(azurerm.Provider())
+	p := shimv2.NewProvider(shim.NewProvider())
 
 	// Adjust the defaults if running in Azure Cloud Shell.
 	// Environment variables still take preference, e.g. USE_MSI=false disables the MSI endpoint.
@@ -245,6 +246,7 @@ func Provider() tfbridge.ProviderInfo {
 		Keywords:    []string{"pulumi", "azure"},
 		Homepage:    "https://pulumi.io",
 		License:     "Apache-2.0",
+		GitHubOrg:   "hashicorp",
 		Repository:  "https://github.com/pulumi/pulumi-azure",
 		Version:     version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
@@ -1721,6 +1723,10 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
+
+			// Video Analyzer
+			"azurerm_video_analyzer":             {Tok: azureResource(azureVideoAnalyzer, "Analyzer")},
+			"azurerm_video_analyzer_edge_module": {Tok: azureResource(azureVideoAnalyzer, "EdgeModule")},
 
 			// WAF
 			"azurerm_web_application_firewall_policy": {Tok: azureResource(azureWaf, "Policy")},

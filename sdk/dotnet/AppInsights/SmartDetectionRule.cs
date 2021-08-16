@@ -65,7 +65,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, 
-        /// `Long dependency duration`.  Changing this forces a new resource to be created.
+        /// `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`,
+        /// `Potential memory leak detected`, `Potential security issue detected`, `Abnormal rise in daily data volume`.  Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -148,7 +149,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, 
-        /// `Long dependency duration`.  Changing this forces a new resource to be created.
+        /// `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`,
+        /// `Potential memory leak detected`, `Potential security issue detected`, `Abnormal rise in daily data volume`.  Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -192,7 +194,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, 
-        /// `Long dependency duration`.  Changing this forces a new resource to be created.
+        /// `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`,
+        /// `Potential memory leak detected`, `Potential security issue detected`, `Abnormal rise in daily data volume`.  Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

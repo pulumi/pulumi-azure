@@ -18,7 +18,7 @@ class NetworkInterfaceBackendAddressPoolAssociationArgs:
                  network_interface_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a NetworkInterfaceBackendAddressPoolAssociation resource.
-        :param pulumi.Input[str] backend_address_pool_id: The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] backend_address_pool_id: The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         """
@@ -30,7 +30,7 @@ class NetworkInterfaceBackendAddressPoolAssociationArgs:
     @pulumi.getter(name="backendAddressPoolId")
     def backend_address_pool_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backend_address_pool_id")
 
@@ -71,7 +71,7 @@ class _NetworkInterfaceBackendAddressPoolAssociationState:
                  network_interface_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterfaceBackendAddressPoolAssociation resources.
-        :param pulumi.Input[str] backend_address_pool_id: The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] backend_address_pool_id: The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         """
@@ -86,7 +86,7 @@ class _NetworkInterfaceBackendAddressPoolAssociationState:
     @pulumi.getter(name="backendAddressPoolId")
     def backend_address_pool_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backend_address_pool_id")
 
@@ -184,7 +184,7 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] backend_address_pool_id: The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] backend_address_pool_id: The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         """
@@ -307,7 +307,7 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] backend_address_pool_id: The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] backend_address_pool_id: The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         """
@@ -324,7 +324,7 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
     @pulumi.getter(name="backendAddressPoolId")
     def backend_address_pool_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backend_address_pool_id")
 

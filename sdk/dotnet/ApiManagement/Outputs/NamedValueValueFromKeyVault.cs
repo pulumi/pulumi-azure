@@ -14,9 +14,9 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class NamedValueValueFromKeyVault
     {
         /// <summary>
-        /// The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+        /// The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
         /// </summary>
-        public readonly string IdentityClientId;
+        public readonly string? IdentityClientId;
         /// <summary>
         /// The resource ID of the Key Vault Secret.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
         [OutputConstructor]
         private NamedValueValueFromKeyVault(
-            string identityClientId,
+            string? identityClientId,
 
             string secretId)
         {

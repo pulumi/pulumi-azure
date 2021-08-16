@@ -69,7 +69,7 @@ type Service struct {
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl pulumi.StringOutput `pulumi:"developerPortalUrl"`
-	// Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
 	GatewayDisabled pulumi.BoolPtrOutput `pulumi:"gatewayDisabled"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl pulumi.StringOutput `pulumi:"gatewayRegionalUrl"`
@@ -177,7 +177,7 @@ type serviceState struct {
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl *string `pulumi:"developerPortalUrl"`
-	// Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
 	GatewayDisabled *bool `pulumi:"gatewayDisabled"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl *string `pulumi:"gatewayRegionalUrl"`
@@ -245,7 +245,7 @@ type ServiceState struct {
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl pulumi.StringPtrInput
-	// Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
 	GatewayDisabled pulumi.BoolPtrInput
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl pulumi.StringPtrInput
@@ -315,7 +315,7 @@ type serviceArgs struct {
 	Certificates []ServiceCertificate `pulumi:"certificates"`
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
-	// Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
 	GatewayDisabled *bool `pulumi:"gatewayDisabled"`
 	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration *ServiceHostnameConfiguration `pulumi:"hostnameConfiguration"`
@@ -368,7 +368,7 @@ type ServiceArgs struct {
 	Certificates ServiceCertificateArrayInput
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrInput
-	// Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
 	GatewayDisabled pulumi.BoolPtrInput
 	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration ServiceHostnameConfigurationPtrInput

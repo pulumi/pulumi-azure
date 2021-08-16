@@ -79,7 +79,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> DeveloperPortalUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Disable the gateway in master region? This is only supported when `additional_location` is set.
+        /// Disable the gateway in main region? This is only supported when `additional_location` is set.
         /// </summary>
         [Output("gatewayDisabled")]
         public Output<bool?> GatewayDisabled { get; private set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? ClientCertificateEnabled { get; set; }
 
         /// <summary>
-        /// Disable the gateway in master region? This is only supported when `additional_location` is set.
+        /// Disable the gateway in main region? This is only supported when `additional_location` is set.
         /// </summary>
         [Input("gatewayDisabled")]
         public Input<bool>? GatewayDisabled { get; set; }
@@ -506,7 +506,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? DeveloperPortalUrl { get; set; }
 
         /// <summary>
-        /// Disable the gateway in master region? This is only supported when `additional_location` is set.
+        /// Disable the gateway in main region? This is only supported when `additional_location` is set.
         /// </summary>
         [Input("gatewayDisabled")]
         public Input<bool>? GatewayDisabled { get; set; }

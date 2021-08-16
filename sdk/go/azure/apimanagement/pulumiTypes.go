@@ -8634,8 +8634,8 @@ func (o LoggerEventhubPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type NamedValueValueFromKeyVault struct {
-	// The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
-	IdentityClientId string `pulumi:"identityClientId"`
+	// The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
+	IdentityClientId *string `pulumi:"identityClientId"`
 	// The resource ID of the Key Vault Secret.
 	SecretId string `pulumi:"secretId"`
 }
@@ -8652,8 +8652,8 @@ type NamedValueValueFromKeyVaultInput interface {
 }
 
 type NamedValueValueFromKeyVaultArgs struct {
-	// The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
-	IdentityClientId pulumi.StringInput `pulumi:"identityClientId"`
+	// The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
+	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
 	// The resource ID of the Key Vault Secret.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 }
@@ -8735,9 +8735,9 @@ func (o NamedValueValueFromKeyVaultOutput) ToNamedValueValueFromKeyVaultPtrOutpu
 	}).(NamedValueValueFromKeyVaultPtrOutput)
 }
 
-// The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
-func (o NamedValueValueFromKeyVaultOutput) IdentityClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v NamedValueValueFromKeyVault) string { return v.IdentityClientId }).(pulumi.StringOutput)
+// The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
+func (o NamedValueValueFromKeyVaultOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamedValueValueFromKeyVault) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
 
 // The resource ID of the Key Vault Secret.
@@ -8763,13 +8763,13 @@ func (o NamedValueValueFromKeyVaultPtrOutput) Elem() NamedValueValueFromKeyVault
 	return o.ApplyT(func(v *NamedValueValueFromKeyVault) NamedValueValueFromKeyVault { return *v }).(NamedValueValueFromKeyVaultOutput)
 }
 
-// The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+// The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
 func (o NamedValueValueFromKeyVaultPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamedValueValueFromKeyVault) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.IdentityClientId
+		return v.IdentityClientId
 	}).(pulumi.StringPtrOutput)
 }
 

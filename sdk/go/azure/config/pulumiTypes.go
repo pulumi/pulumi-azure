@@ -15,6 +15,7 @@ type Features struct {
 	KeyVault               *FeaturesKeyVault               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  *FeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
 	Network                *FeaturesNetwork                `pulumi:"network"`
+	ResourceGroup          *FeaturesResourceGroup          `pulumi:"resourceGroup"`
 	TemplateDeployment     *FeaturesTemplateDeployment     `pulumi:"templateDeployment"`
 	VirtualMachine         *FeaturesVirtualMachine         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet *FeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
@@ -36,6 +37,7 @@ type FeaturesArgs struct {
 	KeyVault               FeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  FeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
 	Network                FeaturesNetworkPtrInput                `pulumi:"network"`
+	ResourceGroup          FeaturesResourceGroupPtrInput          `pulumi:"resourceGroup"`
 	TemplateDeployment     FeaturesTemplateDeploymentPtrInput     `pulumi:"templateDeployment"`
 	VirtualMachine         FeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet FeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
@@ -81,6 +83,10 @@ func (o FeaturesOutput) LogAnalyticsWorkspace() FeaturesLogAnalyticsWorkspacePtr
 
 func (o FeaturesOutput) Network() FeaturesNetworkPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesNetwork { return v.Network }).(FeaturesNetworkPtrOutput)
+}
+
+func (o FeaturesOutput) ResourceGroup() FeaturesResourceGroupPtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesResourceGroup { return v.ResourceGroup }).(FeaturesResourceGroupPtrOutput)
 }
 
 func (o FeaturesOutput) TemplateDeployment() FeaturesTemplateDeploymentPtrOutput {
@@ -614,6 +620,132 @@ func (o FeaturesNetworkPtrOutput) RelaxedLocking() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type FeaturesResourceGroup struct {
+	PreventDeletionIfContainsResources *bool `pulumi:"preventDeletionIfContainsResources"`
+}
+
+// FeaturesResourceGroupInput is an input type that accepts FeaturesResourceGroupArgs and FeaturesResourceGroupOutput values.
+// You can construct a concrete instance of `FeaturesResourceGroupInput` via:
+//
+//          FeaturesResourceGroupArgs{...}
+type FeaturesResourceGroupInput interface {
+	pulumi.Input
+
+	ToFeaturesResourceGroupOutput() FeaturesResourceGroupOutput
+	ToFeaturesResourceGroupOutputWithContext(context.Context) FeaturesResourceGroupOutput
+}
+
+type FeaturesResourceGroupArgs struct {
+	PreventDeletionIfContainsResources pulumi.BoolPtrInput `pulumi:"preventDeletionIfContainsResources"`
+}
+
+func (FeaturesResourceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesResourceGroup)(nil)).Elem()
+}
+
+func (i FeaturesResourceGroupArgs) ToFeaturesResourceGroupOutput() FeaturesResourceGroupOutput {
+	return i.ToFeaturesResourceGroupOutputWithContext(context.Background())
+}
+
+func (i FeaturesResourceGroupArgs) ToFeaturesResourceGroupOutputWithContext(ctx context.Context) FeaturesResourceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesResourceGroupOutput)
+}
+
+func (i FeaturesResourceGroupArgs) ToFeaturesResourceGroupPtrOutput() FeaturesResourceGroupPtrOutput {
+	return i.ToFeaturesResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesResourceGroupArgs) ToFeaturesResourceGroupPtrOutputWithContext(ctx context.Context) FeaturesResourceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesResourceGroupOutput).ToFeaturesResourceGroupPtrOutputWithContext(ctx)
+}
+
+// FeaturesResourceGroupPtrInput is an input type that accepts FeaturesResourceGroupArgs, FeaturesResourceGroupPtr and FeaturesResourceGroupPtrOutput values.
+// You can construct a concrete instance of `FeaturesResourceGroupPtrInput` via:
+//
+//          FeaturesResourceGroupArgs{...}
+//
+//  or:
+//
+//          nil
+type FeaturesResourceGroupPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesResourceGroupPtrOutput() FeaturesResourceGroupPtrOutput
+	ToFeaturesResourceGroupPtrOutputWithContext(context.Context) FeaturesResourceGroupPtrOutput
+}
+
+type featuresResourceGroupPtrType FeaturesResourceGroupArgs
+
+func FeaturesResourceGroupPtr(v *FeaturesResourceGroupArgs) FeaturesResourceGroupPtrInput {
+	return (*featuresResourceGroupPtrType)(v)
+}
+
+func (*featuresResourceGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesResourceGroup)(nil)).Elem()
+}
+
+func (i *featuresResourceGroupPtrType) ToFeaturesResourceGroupPtrOutput() FeaturesResourceGroupPtrOutput {
+	return i.ToFeaturesResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresResourceGroupPtrType) ToFeaturesResourceGroupPtrOutputWithContext(ctx context.Context) FeaturesResourceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesResourceGroupPtrOutput)
+}
+
+type FeaturesResourceGroupOutput struct{ *pulumi.OutputState }
+
+func (FeaturesResourceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesResourceGroup)(nil)).Elem()
+}
+
+func (o FeaturesResourceGroupOutput) ToFeaturesResourceGroupOutput() FeaturesResourceGroupOutput {
+	return o
+}
+
+func (o FeaturesResourceGroupOutput) ToFeaturesResourceGroupOutputWithContext(ctx context.Context) FeaturesResourceGroupOutput {
+	return o
+}
+
+func (o FeaturesResourceGroupOutput) ToFeaturesResourceGroupPtrOutput() FeaturesResourceGroupPtrOutput {
+	return o.ToFeaturesResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesResourceGroupOutput) ToFeaturesResourceGroupPtrOutputWithContext(ctx context.Context) FeaturesResourceGroupPtrOutput {
+	return o.ApplyT(func(v FeaturesResourceGroup) *FeaturesResourceGroup {
+		return &v
+	}).(FeaturesResourceGroupPtrOutput)
+}
+func (o FeaturesResourceGroupOutput) PreventDeletionIfContainsResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesResourceGroup) *bool { return v.PreventDeletionIfContainsResources }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesResourceGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesResourceGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesResourceGroup)(nil)).Elem()
+}
+
+func (o FeaturesResourceGroupPtrOutput) ToFeaturesResourceGroupPtrOutput() FeaturesResourceGroupPtrOutput {
+	return o
+}
+
+func (o FeaturesResourceGroupPtrOutput) ToFeaturesResourceGroupPtrOutputWithContext(ctx context.Context) FeaturesResourceGroupPtrOutput {
+	return o
+}
+
+func (o FeaturesResourceGroupPtrOutput) Elem() FeaturesResourceGroupOutput {
+	return o.ApplyT(func(v *FeaturesResourceGroup) FeaturesResourceGroup { return *v }).(FeaturesResourceGroupOutput)
+}
+
+func (o FeaturesResourceGroupPtrOutput) PreventDeletionIfContainsResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesResourceGroup) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreventDeletionIfContainsResources
+	}).(pulumi.BoolPtrOutput)
+}
+
 type FeaturesTemplateDeployment struct {
 	DeleteNestedItemsDuringDeletion bool `pulumi:"deleteNestedItemsDuringDeletion"`
 }
@@ -1047,6 +1179,8 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesLogAnalyticsWorkspacePtrOutput{})
 	pulumi.RegisterOutputType(FeaturesNetworkOutput{})
 	pulumi.RegisterOutputType(FeaturesNetworkPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesResourceGroupOutput{})
+	pulumi.RegisterOutputType(FeaturesResourceGroupPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesTemplateDeploymentOutput{})
 	pulumi.RegisterOutputType(FeaturesTemplateDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesVirtualMachineOutput{})

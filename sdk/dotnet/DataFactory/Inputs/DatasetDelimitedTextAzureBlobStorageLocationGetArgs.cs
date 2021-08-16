@@ -21,14 +21,14 @@ namespace Pulumi.Azure.DataFactory.Inputs
         /// <summary>
         /// The filename of the file.
         /// </summary>
-        [Input("filename", required: true)]
-        public Input<string> Filename { get; set; } = null!;
+        [Input("filename")]
+        public Input<string>? Filename { get; set; }
 
         /// <summary>
         /// The folder path to the file.
         /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
+        [Input("path")]
+        public Input<string>? Path { get; set; }
 
         public DatasetDelimitedTextAzureBlobStorageLocationGetArgs()
         {

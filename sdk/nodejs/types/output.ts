@@ -1100,9 +1100,9 @@ export namespace apimanagement {
 
     export interface NamedValueValueFromKeyVault {
         /**
-         * The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+         * The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
          */
-        identityClientId: string;
+        identityClientId?: string;
         /**
          * The resource ID of the Key Vault Secret.
          */
@@ -2745,6 +2745,10 @@ export namespace appservice {
          */
         cors: outputs.appservice.FunctionAppSiteConfigCors;
         /**
+         * The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         */
+        dotnetFrameworkVersion?: string;
+        /**
          * The number of minimum instances for this function app. Only affects apps on the Premium plan.
          */
         elasticInstanceMinimum: number;
@@ -3103,6 +3107,10 @@ export namespace appservice {
          * A `cors` block as defined below.
          */
         cors: outputs.appservice.FunctionAppSlotSiteConfigCors;
+        /**
+         * The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         */
+        dotnetFrameworkVersion?: string;
         /**
          * The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
          */
@@ -3638,6 +3646,10 @@ export namespace appservice {
          * A `cors` block as defined above.
          */
         cors: outputs.appservice.GetFunctionAppSiteConfigCors;
+        /**
+         * The version of the .net framework's CLR used in this App Service.
+         */
+        dotnetFrameworkVersion: string;
         /**
          * The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
          */
@@ -7967,6 +7979,7 @@ export namespace config {
         keyVault?: outputs.config.FeaturesKeyVault;
         logAnalyticsWorkspace?: outputs.config.FeaturesLogAnalyticsWorkspace;
         network?: outputs.config.FeaturesNetwork;
+        resourceGroup?: outputs.config.FeaturesResourceGroup;
         templateDeployment?: outputs.config.FeaturesTemplateDeployment;
         virtualMachine?: outputs.config.FeaturesVirtualMachine;
         virtualMachineScaleSet?: outputs.config.FeaturesVirtualMachineScaleSet;
@@ -7987,6 +8000,10 @@ export namespace config {
 
     export interface FeaturesNetwork {
         relaxedLocking: boolean;
+    }
+
+    export interface FeaturesResourceGroup {
+        preventDeletionIfContainsResources?: boolean;
     }
 
     export interface FeaturesTemplateDeployment {
@@ -9446,7 +9463,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterIdentity {
         /**
-         * The principal id of the system assigned identity which is used by master components.
+         * The principal id of the system assigned identity which is used by main components.
          */
         principalId: string;
         /**
@@ -11122,11 +11139,11 @@ export namespace datafactory {
         /**
          * The filename of the file.
          */
-        filename: string;
+        filename?: string;
         /**
          * The folder path to the file.
          */
-        path: string;
+        path?: string;
     }
 
     export interface DatasetDelimitedTextHttpServerLocation {
@@ -20506,7 +20523,7 @@ export namespace mssql {
 
     export interface ServerExtendedAuditingPolicy {
         /**
-         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
          */
         logMonitoringEnabled?: boolean;
         /**
@@ -25836,7 +25853,7 @@ export namespace sql {
 
     export interface SqlServerExtendedAuditingPolicy {
         /**
-         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
          */
         logMonitoringEnabled?: boolean;
         /**
@@ -27142,6 +27159,31 @@ export namespace trafficmanager {
          * The value of custom header. Applicable for Http and Https protocol.
          */
         value: string;
+    }
+
+}
+
+export namespace videoanalyzer {
+    export interface AnalyzerIdentity {
+        /**
+         * A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
+         */
+        identityIds: string[];
+        /**
+         * Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
+         */
+        type: string;
+    }
+
+    export interface AnalyzerStorageAccount {
+        /**
+         * Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
+         */
+        id: string;
+        /**
+         * Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
+         */
+        userAssignedIdentityId: string;
     }
 
 }

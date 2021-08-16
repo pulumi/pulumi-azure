@@ -1020,6 +1020,9 @@
         "types/output.ts",
         "util.ts",
         "utilities.ts",
+        "videoanalyzer/analyzer.ts",
+        "videoanalyzer/edgeModule.ts",
+        "videoanalyzer/index.ts",
         "waf/getFirewallPolicy.ts",
         "waf/index.ts",
         "waf/policy.ts"
