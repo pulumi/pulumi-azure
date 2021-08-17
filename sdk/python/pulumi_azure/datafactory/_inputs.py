@@ -900,16 +900,18 @@ class DatasetDelimitedTextAzureBlobFsLocationArgs:
 class DatasetDelimitedTextAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
-                 filename: pulumi.Input[str],
-                 path: pulumi.Input[str]):
+                 filename: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] container: The container on the Azure Blob Storage Account hosting the file.
         :param pulumi.Input[str] filename: The filename of the file.
         :param pulumi.Input[str] path: The folder path to the file.
         """
         pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "filename", filename)
-        pulumi.set(__self__, "path", path)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -925,26 +927,26 @@ class DatasetDelimitedTextAzureBlobStorageLocationArgs:
 
     @property
     @pulumi.getter
-    def filename(self) -> pulumi.Input[str]:
+    def filename(self) -> Optional[pulumi.Input[str]]:
         """
         The filename of the file.
         """
         return pulumi.get(self, "filename")
 
     @filename.setter
-    def filename(self, value: pulumi.Input[str]):
+    def filename(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filename", value)
 
     @property
     @pulumi.getter
-    def path(self) -> pulumi.Input[str]:
+    def path(self) -> Optional[pulumi.Input[str]]:
         """
         The folder path to the file.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: pulumi.Input[str]):
+    def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
 

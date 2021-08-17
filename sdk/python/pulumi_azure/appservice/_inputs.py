@@ -2977,6 +2977,7 @@ class FunctionAppSiteConfigArgs:
                  app_scale_limit: Optional[pulumi.Input[int]] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
                  cors: Optional[pulumi.Input['FunctionAppSiteConfigCorsArgs']] = None,
+                 dotnet_framework_version: Optional[pulumi.Input[str]] = None,
                  elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
@@ -2996,6 +2997,7 @@ class FunctionAppSiteConfigArgs:
         :param pulumi.Input[bool] always_on: Should the Function App be loaded at all times? Defaults to `false`.
         :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param pulumi.Input['FunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined below.
+        :param pulumi.Input[str] dotnet_framework_version: The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this function app. Only affects apps on the Premium plan.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param pulumi.Input[str] health_check_path: Path which will be checked for this function app health.
@@ -3020,6 +3022,8 @@ class FunctionAppSiteConfigArgs:
             pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
+        if dotnet_framework_version is not None:
+            pulumi.set(__self__, "dotnet_framework_version", dotnet_framework_version)
         if elastic_instance_minimum is not None:
             pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
         if ftps_state is not None:
@@ -3095,6 +3099,18 @@ class FunctionAppSiteConfigArgs:
     @cors.setter
     def cors(self, value: Optional[pulumi.Input['FunctionAppSiteConfigCorsArgs']]):
         pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="dotnetFrameworkVersion")
+    def dotnet_framework_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        """
+        return pulumi.get(self, "dotnet_framework_version")
+
+    @dotnet_framework_version.setter
+    def dotnet_framework_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dotnet_framework_version", value)
 
     @property
     @pulumi.getter(name="elasticInstanceMinimum")
@@ -4333,6 +4349,7 @@ class FunctionAppSlotSiteConfigArgs:
                  app_scale_limit: Optional[pulumi.Input[int]] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
                  cors: Optional[pulumi.Input['FunctionAppSlotSiteConfigCorsArgs']] = None,
+                 dotnet_framework_version: Optional[pulumi.Input[str]] = None,
                  elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
@@ -4353,6 +4370,7 @@ class FunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap to during deployment
         :param pulumi.Input['FunctionAppSlotSiteConfigCorsArgs'] cors: A `cors` block as defined below.
+        :param pulumi.Input[str] dotnet_framework_version: The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param pulumi.Input[bool] http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
@@ -4372,6 +4390,8 @@ class FunctionAppSlotSiteConfigArgs:
             pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
+        if dotnet_framework_version is not None:
+            pulumi.set(__self__, "dotnet_framework_version", dotnet_framework_version)
         if elastic_instance_minimum is not None:
             pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
         if ftps_state is not None:
@@ -4450,6 +4470,18 @@ class FunctionAppSlotSiteConfigArgs:
     @cors.setter
     def cors(self, value: Optional[pulumi.Input['FunctionAppSlotSiteConfigCorsArgs']]):
         pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="dotnetFrameworkVersion")
+    def dotnet_framework_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        """
+        return pulumi.get(self, "dotnet_framework_version")
+
+    @dotnet_framework_version.setter
+    def dotnet_framework_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dotnet_framework_version", value)
 
     @property
     @pulumi.getter(name="elasticInstanceMinimum")

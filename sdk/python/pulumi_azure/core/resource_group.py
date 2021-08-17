@@ -132,17 +132,6 @@ class ResourceGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a Resource Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        ```
-
         ## Import
 
         Resource Groups can be imported using the `resource id`, e.g.
@@ -164,17 +153,6 @@ class ResourceGroup(pulumi.CustomResource):
                  args: Optional[ResourceGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Resource Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        ```
-
         ## Import
 
         Resource Groups can be imported using the `resource id`, e.g.

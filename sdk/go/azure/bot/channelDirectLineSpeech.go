@@ -13,6 +13,63 @@ import (
 
 // Manages a Direct Line Speech integration for a Bot Channel
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/bot"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/cognitive"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := cognitive.NewAccount(ctx, "exampleAccount", &cognitive.AccountArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Kind:              pulumi.String("SpeechServices"),
+// 			SkuName:           pulumi.String("S0"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+// 			Location:          pulumi.String("global"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("F0"),
+// 			MicrosoftAppId:    pulumi.String(current.ClientId),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = bot.NewChannelDirectLineSpeech(ctx, "exampleChannelDirectLineSpeech", &bot.ChannelDirectLineSpeechArgs{
+// 			BotName:                   exampleChannelsRegistration.Name,
+// 			Location:                  exampleChannelsRegistration.Location,
+// 			ResourceGroupName:         exampleResourceGroup.Name,
+// 			CognitiveServiceLocation:  exampleAccount.Location,
+// 			CognitiveServiceAccessKey: exampleAccount.PrimaryAccessKey,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Direct Line Speech Channels can be imported using the `resource id`, e.g.

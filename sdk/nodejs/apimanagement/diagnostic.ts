@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     samplingPercentage: 5,
  *     alwaysLogErrors: true,
  *     logClientIp: true,
- *     verbosity: "Verbose",
+ *     verbosity: "verbose",
  *     httpCorrelationProtocol: "W3C",
  *     frontendRequest: {
  *         bodyBytes: 32,

@@ -23,6 +23,7 @@ class ApiOperationPolicyArgs:
         The set of arguments for constructing a ApiOperationPolicy resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_name: The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] operation_id: The operation identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] xml_content: The XML Content for this Policy.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
@@ -63,6 +64,9 @@ class ApiOperationPolicyArgs:
     @property
     @pulumi.getter(name="operationId")
     def operation_id(self) -> pulumi.Input[str]:
+        """
+        The operation identifier within an API. Must be unique in the current API Management service instance.
+        """
         return pulumi.get(self, "operation_id")
 
     @operation_id.setter
@@ -119,6 +123,7 @@ class _ApiOperationPolicyState:
         Input properties used for looking up and filtering ApiOperationPolicy resources.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_name: The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] operation_id: The operation identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] xml_content: The XML Content for this Policy.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
@@ -163,6 +168,9 @@ class _ApiOperationPolicyState:
     @property
     @pulumi.getter(name="operationId")
     def operation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The operation identifier within an API. Must be unique in the current API Management service instance.
+        """
         return pulumi.get(self, "operation_id")
 
     @operation_id.setter
@@ -254,6 +262,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_name: The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] operation_id: The operation identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] xml_content: The XML Content for this Policy.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
@@ -368,6 +377,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_name: The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] operation_id: The operation identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] xml_content: The XML Content for this Policy.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
@@ -403,6 +413,9 @@ class ApiOperationPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="operationId")
     def operation_id(self) -> pulumi.Output[str]:
+        """
+        The operation identifier within an API. Must be unique in the current API Management service instance.
+        """
         return pulumi.get(self, "operation_id")
 
     @property

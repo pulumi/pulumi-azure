@@ -12,6 +12,48 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Direct Line Speech integration for a Bot Channel
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Cognitive.Account("exampleAccount", new Azure.Cognitive.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Kind = "SpeechServices",
+    ///             SkuName = "S0",
+    ///         });
+    ///         var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new Azure.Bot.ChannelsRegistrationArgs
+    ///         {
+    ///             Location = "global",
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "F0",
+    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
+    ///         });
+    ///         var exampleChannelDirectLineSpeech = new Azure.Bot.ChannelDirectLineSpeech("exampleChannelDirectLineSpeech", new Azure.Bot.ChannelDirectLineSpeechArgs
+    ///         {
+    ///             BotName = exampleChannelsRegistration.Name,
+    ///             Location = exampleChannelsRegistration.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             CognitiveServiceLocation = exampleAccount.Location,
+    ///             CognitiveServiceAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Direct Line Speech Channels can be imported using the `resource id`, e.g.

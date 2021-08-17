@@ -530,7 +530,7 @@ class ServerExtendedAuditingPolicyArgs:
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] log_monitoring_enabled: (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        :param pulumi.Input[bool] log_monitoring_enabled: (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         :param pulumi.Input[int] retention_in_days: (Optional) Specifies the number of days to retain logs for in the storage account.
         :param pulumi.Input[str] storage_account_access_key: (Optional)  Specifies the access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
@@ -551,7 +551,7 @@ class ServerExtendedAuditingPolicyArgs:
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         """
         return pulumi.get(self, "log_monitoring_enabled")
 

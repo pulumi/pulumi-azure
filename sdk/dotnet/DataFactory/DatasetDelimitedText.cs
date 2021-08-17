@@ -98,7 +98,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.DatasetDelimitedTextAzureBlobStorageLocation?> AzureBlobStorageLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The column delimiter.
+        /// The column delimiter. Defaults to `,`.
         /// </summary>
         [Output("columnDelimiter")]
         public Output<string?> ColumnDelimiter { get; private set; } = null!;
@@ -134,13 +134,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Encoding { get; private set; } = null!;
 
         /// <summary>
-        /// The escape character.
+        /// The escape character. Defaults to `\`.
         /// </summary>
         [Output("escapeCharacter")]
         public Output<string?> EscapeCharacter { get; private set; } = null!;
 
         /// <summary>
-        /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+        /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         /// </summary>
         [Output("firstRowAsHeader")]
         public Output<bool?> FirstRowAsHeader { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The null value string.
+        /// The null value string. Defaults to an empty string.
         /// </summary>
         [Output("nullValue")]
         public Output<string?> NullValue { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The quote character.
+        /// The quote character. Defaults to `"`.
         /// </summary>
         [Output("quoteCharacter")]
         public Output<string?> QuoteCharacter { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The row delimiter.
+        /// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         /// </summary>
         [Output("rowDelimiter")]
         public Output<string?> RowDelimiter { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.DatasetDelimitedTextAzureBlobStorageLocationArgs>? AzureBlobStorageLocation { get; set; }
 
         /// <summary>
-        /// The column delimiter.
+        /// The column delimiter. Defaults to `,`.
         /// </summary>
         [Input("columnDelimiter")]
         public Input<string>? ColumnDelimiter { get; set; }
@@ -324,13 +324,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Encoding { get; set; }
 
         /// <summary>
-        /// The escape character.
+        /// The escape character. Defaults to `\`.
         /// </summary>
         [Input("escapeCharacter")]
         public Input<string>? EscapeCharacter { get; set; }
 
         /// <summary>
-        /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+        /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         /// </summary>
         [Input("firstRowAsHeader")]
         public Input<bool>? FirstRowAsHeader { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The null value string.
+        /// The null value string. Defaults to an empty string.
         /// </summary>
         [Input("nullValue")]
         public Input<string>? NullValue { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The quote character.
+        /// The quote character. Defaults to `"`.
         /// </summary>
         [Input("quoteCharacter")]
         public Input<string>? QuoteCharacter { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The row delimiter.
+        /// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         /// </summary>
         [Input("rowDelimiter")]
         public Input<string>? RowDelimiter { get; set; }
@@ -451,7 +451,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.DatasetDelimitedTextAzureBlobStorageLocationGetArgs>? AzureBlobStorageLocation { get; set; }
 
         /// <summary>
-        /// The column delimiter.
+        /// The column delimiter. Defaults to `,`.
         /// </summary>
         [Input("columnDelimiter")]
         public Input<string>? ColumnDelimiter { get; set; }
@@ -487,13 +487,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Encoding { get; set; }
 
         /// <summary>
-        /// The escape character.
+        /// The escape character. Defaults to `\`.
         /// </summary>
         [Input("escapeCharacter")]
         public Input<string>? EscapeCharacter { get; set; }
 
         /// <summary>
-        /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+        /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         /// </summary>
         [Input("firstRowAsHeader")]
         public Input<bool>? FirstRowAsHeader { get; set; }
@@ -523,7 +523,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The null value string.
+        /// The null value string. Defaults to an empty string.
         /// </summary>
         [Input("nullValue")]
         public Input<string>? NullValue { get; set; }
@@ -541,7 +541,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The quote character.
+        /// The quote character. Defaults to `"`.
         /// </summary>
         [Input("quoteCharacter")]
         public Input<string>? QuoteCharacter { get; set; }
@@ -553,7 +553,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The row delimiter.
+        /// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         /// </summary>
         [Input("rowDelimiter")]
         public Input<string>? RowDelimiter { get; set; }

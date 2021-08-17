@@ -15,6 +15,7 @@ type ProviderFeatures struct {
 	KeyVault               *ProviderFeaturesKeyVault               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  *ProviderFeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
 	Network                *ProviderFeaturesNetwork                `pulumi:"network"`
+	ResourceGroup          *ProviderFeaturesResourceGroup          `pulumi:"resourceGroup"`
 	TemplateDeployment     *ProviderFeaturesTemplateDeployment     `pulumi:"templateDeployment"`
 	VirtualMachine         *ProviderFeaturesVirtualMachine         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet *ProviderFeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
@@ -36,6 +37,7 @@ type ProviderFeaturesArgs struct {
 	KeyVault               ProviderFeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  ProviderFeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
 	Network                ProviderFeaturesNetworkPtrInput                `pulumi:"network"`
+	ResourceGroup          ProviderFeaturesResourceGroupPtrInput          `pulumi:"resourceGroup"`
 	TemplateDeployment     ProviderFeaturesTemplateDeploymentPtrInput     `pulumi:"templateDeployment"`
 	VirtualMachine         ProviderFeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet ProviderFeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
@@ -133,6 +135,10 @@ func (o ProviderFeaturesOutput) Network() ProviderFeaturesNetworkPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesNetwork { return v.Network }).(ProviderFeaturesNetworkPtrOutput)
 }
 
+func (o ProviderFeaturesOutput) ResourceGroup() ProviderFeaturesResourceGroupPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesResourceGroup { return v.ResourceGroup }).(ProviderFeaturesResourceGroupPtrOutput)
+}
+
 func (o ProviderFeaturesOutput) TemplateDeployment() ProviderFeaturesTemplateDeploymentPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesTemplateDeployment { return v.TemplateDeployment }).(ProviderFeaturesTemplateDeploymentPtrOutput)
 }
@@ -197,6 +203,15 @@ func (o ProviderFeaturesPtrOutput) Network() ProviderFeaturesNetworkPtrOutput {
 		}
 		return v.Network
 	}).(ProviderFeaturesNetworkPtrOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) ResourceGroup() ProviderFeaturesResourceGroupPtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesResourceGroup {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroup
+	}).(ProviderFeaturesResourceGroupPtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) TemplateDeployment() ProviderFeaturesTemplateDeploymentPtrOutput {
@@ -745,6 +760,132 @@ func (o ProviderFeaturesNetworkPtrOutput) RelaxedLocking() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ProviderFeaturesResourceGroup struct {
+	PreventDeletionIfContainsResources *bool `pulumi:"preventDeletionIfContainsResources"`
+}
+
+// ProviderFeaturesResourceGroupInput is an input type that accepts ProviderFeaturesResourceGroupArgs and ProviderFeaturesResourceGroupOutput values.
+// You can construct a concrete instance of `ProviderFeaturesResourceGroupInput` via:
+//
+//          ProviderFeaturesResourceGroupArgs{...}
+type ProviderFeaturesResourceGroupInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesResourceGroupOutput() ProviderFeaturesResourceGroupOutput
+	ToProviderFeaturesResourceGroupOutputWithContext(context.Context) ProviderFeaturesResourceGroupOutput
+}
+
+type ProviderFeaturesResourceGroupArgs struct {
+	PreventDeletionIfContainsResources pulumi.BoolPtrInput `pulumi:"preventDeletionIfContainsResources"`
+}
+
+func (ProviderFeaturesResourceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesResourceGroup)(nil)).Elem()
+}
+
+func (i ProviderFeaturesResourceGroupArgs) ToProviderFeaturesResourceGroupOutput() ProviderFeaturesResourceGroupOutput {
+	return i.ToProviderFeaturesResourceGroupOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesResourceGroupArgs) ToProviderFeaturesResourceGroupOutputWithContext(ctx context.Context) ProviderFeaturesResourceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesResourceGroupOutput)
+}
+
+func (i ProviderFeaturesResourceGroupArgs) ToProviderFeaturesResourceGroupPtrOutput() ProviderFeaturesResourceGroupPtrOutput {
+	return i.ToProviderFeaturesResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesResourceGroupArgs) ToProviderFeaturesResourceGroupPtrOutputWithContext(ctx context.Context) ProviderFeaturesResourceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesResourceGroupOutput).ToProviderFeaturesResourceGroupPtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesResourceGroupPtrInput is an input type that accepts ProviderFeaturesResourceGroupArgs, ProviderFeaturesResourceGroupPtr and ProviderFeaturesResourceGroupPtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesResourceGroupPtrInput` via:
+//
+//          ProviderFeaturesResourceGroupArgs{...}
+//
+//  or:
+//
+//          nil
+type ProviderFeaturesResourceGroupPtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesResourceGroupPtrOutput() ProviderFeaturesResourceGroupPtrOutput
+	ToProviderFeaturesResourceGroupPtrOutputWithContext(context.Context) ProviderFeaturesResourceGroupPtrOutput
+}
+
+type providerFeaturesResourceGroupPtrType ProviderFeaturesResourceGroupArgs
+
+func ProviderFeaturesResourceGroupPtr(v *ProviderFeaturesResourceGroupArgs) ProviderFeaturesResourceGroupPtrInput {
+	return (*providerFeaturesResourceGroupPtrType)(v)
+}
+
+func (*providerFeaturesResourceGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesResourceGroup)(nil)).Elem()
+}
+
+func (i *providerFeaturesResourceGroupPtrType) ToProviderFeaturesResourceGroupPtrOutput() ProviderFeaturesResourceGroupPtrOutput {
+	return i.ToProviderFeaturesResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesResourceGroupPtrType) ToProviderFeaturesResourceGroupPtrOutputWithContext(ctx context.Context) ProviderFeaturesResourceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesResourceGroupPtrOutput)
+}
+
+type ProviderFeaturesResourceGroupOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesResourceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesResourceGroup)(nil)).Elem()
+}
+
+func (o ProviderFeaturesResourceGroupOutput) ToProviderFeaturesResourceGroupOutput() ProviderFeaturesResourceGroupOutput {
+	return o
+}
+
+func (o ProviderFeaturesResourceGroupOutput) ToProviderFeaturesResourceGroupOutputWithContext(ctx context.Context) ProviderFeaturesResourceGroupOutput {
+	return o
+}
+
+func (o ProviderFeaturesResourceGroupOutput) ToProviderFeaturesResourceGroupPtrOutput() ProviderFeaturesResourceGroupPtrOutput {
+	return o.ToProviderFeaturesResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesResourceGroupOutput) ToProviderFeaturesResourceGroupPtrOutputWithContext(ctx context.Context) ProviderFeaturesResourceGroupPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesResourceGroup) *ProviderFeaturesResourceGroup {
+		return &v
+	}).(ProviderFeaturesResourceGroupPtrOutput)
+}
+func (o ProviderFeaturesResourceGroupOutput) PreventDeletionIfContainsResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesResourceGroup) *bool { return v.PreventDeletionIfContainsResources }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesResourceGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesResourceGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesResourceGroup)(nil)).Elem()
+}
+
+func (o ProviderFeaturesResourceGroupPtrOutput) ToProviderFeaturesResourceGroupPtrOutput() ProviderFeaturesResourceGroupPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesResourceGroupPtrOutput) ToProviderFeaturesResourceGroupPtrOutputWithContext(ctx context.Context) ProviderFeaturesResourceGroupPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesResourceGroupPtrOutput) Elem() ProviderFeaturesResourceGroupOutput {
+	return o.ApplyT(func(v *ProviderFeaturesResourceGroup) ProviderFeaturesResourceGroup { return *v }).(ProviderFeaturesResourceGroupOutput)
+}
+
+func (o ProviderFeaturesResourceGroupPtrOutput) PreventDeletionIfContainsResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesResourceGroup) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreventDeletionIfContainsResources
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ProviderFeaturesTemplateDeployment struct {
 	DeleteNestedItemsDuringDeletion bool `pulumi:"deleteNestedItemsDuringDeletion"`
 }
@@ -1179,6 +1320,8 @@ func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesLogAnalyticsWorkspacePtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesNetworkOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesNetworkPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesResourceGroupOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesResourceGroupPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesTemplateDeploymentOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesTemplateDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesVirtualMachineOutput{})

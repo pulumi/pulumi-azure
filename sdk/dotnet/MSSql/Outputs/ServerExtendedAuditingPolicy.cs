@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class ServerExtendedAuditingPolicy
     {
         /// <summary>
-        /// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        /// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         /// </summary>
         public readonly bool? LogMonitoringEnabled;
         /// <summary>

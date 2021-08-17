@@ -9,6 +9,7 @@ export interface ProviderFeatures {
     keyVault?: pulumi.Input<inputs.ProviderFeaturesKeyVault>;
     logAnalyticsWorkspace?: pulumi.Input<inputs.ProviderFeaturesLogAnalyticsWorkspace>;
     network?: pulumi.Input<inputs.ProviderFeaturesNetwork>;
+    resourceGroup?: pulumi.Input<inputs.ProviderFeaturesResourceGroup>;
     templateDeployment?: pulumi.Input<inputs.ProviderFeaturesTemplateDeployment>;
     virtualMachine?: pulumi.Input<inputs.ProviderFeaturesVirtualMachine>;
     virtualMachineScaleSet?: pulumi.Input<inputs.ProviderFeaturesVirtualMachineScaleSet>;
@@ -29,6 +30,10 @@ export interface ProviderFeaturesLogAnalyticsWorkspace {
 
 export interface ProviderFeaturesNetwork {
     relaxedLocking: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesResourceGroup {
+    preventDeletionIfContainsResources?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesTemplateDeployment {
@@ -934,9 +939,9 @@ export namespace apimanagement {
 
     export interface NamedValueValueFromKeyVault {
         /**
-         * The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+         * The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
          */
-        identityClientId: pulumi.Input<string>;
+        identityClientId?: pulumi.Input<string>;
         /**
          * The resource ID of the Key Vault Secret.
          */
@@ -2355,6 +2360,10 @@ export namespace appservice {
          */
         cors?: pulumi.Input<inputs.appservice.FunctionAppSiteConfigCors>;
         /**
+         * The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         */
+        dotnetFrameworkVersion?: pulumi.Input<string>;
+        /**
          * The number of minimum instances for this function app. Only affects apps on the Premium plan.
          */
         elasticInstanceMinimum?: pulumi.Input<number>;
@@ -2713,6 +2722,10 @@ export namespace appservice {
          * A `cors` block as defined below.
          */
         cors?: pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfigCors>;
+        /**
+         * The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         */
+        dotnetFrameworkVersion?: pulumi.Input<string>;
         /**
          * The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
          */
@@ -7603,7 +7616,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterIdentity {
         /**
-         * The principal id of the system assigned identity which is used by master components.
+         * The principal id of the system assigned identity which is used by main components.
          */
         principalId?: pulumi.Input<string>;
         /**
@@ -9149,11 +9162,11 @@ export namespace datafactory {
         /**
          * The filename of the file.
          */
-        filename: pulumi.Input<string>;
+        filename?: pulumi.Input<string>;
         /**
          * The folder path to the file.
          */
-        path: pulumi.Input<string>;
+        path?: pulumi.Input<string>;
     }
 
     export interface DatasetDelimitedTextHttpServerLocation {
@@ -17670,7 +17683,7 @@ export namespace mssql {
 
     export interface ServerExtendedAuditingPolicy {
         /**
-         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
          */
         logMonitoringEnabled?: pulumi.Input<boolean>;
         /**
@@ -22037,7 +22050,7 @@ export namespace sql {
 
     export interface SqlServerExtendedAuditingPolicy {
         /**
-         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
          */
         logMonitoringEnabled?: pulumi.Input<boolean>;
         /**
@@ -23192,6 +23205,30 @@ export namespace trafficmanager {
          * The value of custom header. Applicable for Http and Https protocol.
          */
         value: pulumi.Input<string>;
+    }
+}
+
+export namespace videoanalyzer {
+    export interface AnalyzerIdentity {
+        /**
+         * A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface AnalyzerStorageAccount {
+        /**
+         * Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
+         */
+        userAssignedIdentityId: pulumi.Input<string>;
     }
 }
 

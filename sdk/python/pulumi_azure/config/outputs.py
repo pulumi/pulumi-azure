@@ -15,6 +15,7 @@ __all__ = [
     'FeaturesKeyVault',
     'FeaturesLogAnalyticsWorkspace',
     'FeaturesNetwork',
+    'FeaturesResourceGroup',
     'FeaturesTemplateDeployment',
     'FeaturesVirtualMachine',
     'FeaturesVirtualMachineScaleSet',
@@ -27,6 +28,7 @@ class Features(dict):
                  key_vault: Optional['outputs.FeaturesKeyVault'] = None,
                  log_analytics_workspace: Optional['outputs.FeaturesLogAnalyticsWorkspace'] = None,
                  network: Optional['outputs.FeaturesNetwork'] = None,
+                 resource_group: Optional['outputs.FeaturesResourceGroup'] = None,
                  template_deployment: Optional['outputs.FeaturesTemplateDeployment'] = None,
                  virtual_machine: Optional['outputs.FeaturesVirtualMachine'] = None,
                  virtual_machine_scale_set: Optional['outputs.FeaturesVirtualMachineScaleSet'] = None):
@@ -38,6 +40,8 @@ class Features(dict):
             pulumi.set(__self__, "log_analytics_workspace", log_analytics_workspace)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
         if template_deployment is not None:
             pulumi.set(__self__, "template_deployment", template_deployment)
         if virtual_machine is not None:
@@ -64,6 +68,11 @@ class Features(dict):
     @pulumi.getter
     def network(self) -> Optional['outputs.FeaturesNetwork']:
         return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional['outputs.FeaturesResourceGroup']:
+        return pulumi.get(self, "resource_group")
 
     @property
     @pulumi.getter(name="templateDeployment")
@@ -137,6 +146,19 @@ class FeaturesNetwork(dict):
     @pulumi.getter(name="relaxedLocking")
     def relaxed_locking(self) -> bool:
         return pulumi.get(self, "relaxed_locking")
+
+
+@pulumi.output_type
+class FeaturesResourceGroup(dict):
+    def __init__(__self__, *,
+                 prevent_deletion_if_contains_resources: Optional[bool] = None):
+        if prevent_deletion_if_contains_resources is not None:
+            pulumi.set(__self__, "prevent_deletion_if_contains_resources", prevent_deletion_if_contains_resources)
+
+    @property
+    @pulumi.getter(name="preventDeletionIfContainsResources")
+    def prevent_deletion_if_contains_resources(self) -> Optional[bool]:
+        return pulumi.get(self, "prevent_deletion_if_contains_resources")
 
 
 @pulumi.output_type

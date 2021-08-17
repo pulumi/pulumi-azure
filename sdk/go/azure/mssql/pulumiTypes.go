@@ -1400,7 +1400,7 @@ func (o ServerAzureadAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 type ServerExtendedAuditingPolicyType struct {
-	// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// (Optional) Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
@@ -1424,7 +1424,7 @@ type ServerExtendedAuditingPolicyTypeInput interface {
 }
 
 type ServerExtendedAuditingPolicyTypeArgs struct {
-	// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
 	LogMonitoringEnabled pulumi.BoolPtrInput `pulumi:"logMonitoringEnabled"`
 	// (Optional) Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
@@ -1513,7 +1513,7 @@ func (o ServerExtendedAuditingPolicyTypeOutput) ToServerExtendedAuditingPolicyTy
 	}).(ServerExtendedAuditingPolicyTypePtrOutput)
 }
 
-// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
 func (o ServerExtendedAuditingPolicyTypeOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *bool { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1556,7 +1556,7 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) Elem() ServerExtendedAuditing
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) ServerExtendedAuditingPolicyType { return *v }).(ServerExtendedAuditingPolicyTypeOutput)
 }
 
-// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
 func (o ServerExtendedAuditingPolicyTypePtrOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *bool {
 		if v == nil {

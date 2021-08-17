@@ -3371,26 +3371,15 @@ class LoggerEventhubArgs:
 @pulumi.input_type
 class NamedValueValueFromKeyVaultArgs:
     def __init__(__self__, *,
-                 identity_client_id: pulumi.Input[str],
-                 secret_id: pulumi.Input[str]):
+                 secret_id: pulumi.Input[str],
+                 identity_client_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] identity_client_id: The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
         :param pulumi.Input[str] secret_id: The resource ID of the Key Vault Secret.
+        :param pulumi.Input[str] identity_client_id: The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
         """
-        pulumi.set(__self__, "identity_client_id", identity_client_id)
         pulumi.set(__self__, "secret_id", secret_id)
-
-    @property
-    @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> pulumi.Input[str]:
-        """
-        The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
-        """
-        return pulumi.get(self, "identity_client_id")
-
-    @identity_client_id.setter
-    def identity_client_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "identity_client_id", value)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
 
     @property
     @pulumi.getter(name="secretId")
@@ -3403,6 +3392,18 @@ class NamedValueValueFromKeyVaultArgs:
     @secret_id.setter
     def secret_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_id", value)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_client_id", value)
 
 
 @pulumi.input_type

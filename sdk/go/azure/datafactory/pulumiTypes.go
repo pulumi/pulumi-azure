@@ -2473,9 +2473,9 @@ type DatasetDelimitedTextAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
 	// The filename of the file.
-	Filename string `pulumi:"filename"`
+	Filename *string `pulumi:"filename"`
 	// The folder path to the file.
-	Path string `pulumi:"path"`
+	Path *string `pulumi:"path"`
 }
 
 // DatasetDelimitedTextAzureBlobStorageLocationInput is an input type that accepts DatasetDelimitedTextAzureBlobStorageLocationArgs and DatasetDelimitedTextAzureBlobStorageLocationOutput values.
@@ -2493,9 +2493,9 @@ type DatasetDelimitedTextAzureBlobStorageLocationArgs struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
 	// The filename of the file.
-	Filename pulumi.StringInput `pulumi:"filename"`
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
 	// The folder path to the file.
-	Path pulumi.StringInput `pulumi:"path"`
+	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (DatasetDelimitedTextAzureBlobStorageLocationArgs) ElementType() reflect.Type {
@@ -2581,13 +2581,13 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Container() pulumi.S
 }
 
 // The filename of the file.
-func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Filename() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) string { return v.Filename }).(pulumi.StringOutput)
+func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
 
 // The folder path to the file.
-func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) string { return v.Path }).(pulumi.StringOutput)
+func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 type DatasetDelimitedTextAzureBlobStorageLocationPtrOutput struct{ *pulumi.OutputState }
@@ -2626,7 +2626,7 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Filename() pulumi
 		if v == nil {
 			return nil
 		}
-		return &v.Filename
+		return v.Filename
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2636,7 +2636,7 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Path() pulumi.Str
 		if v == nil {
 			return nil
 		}
-		return &v.Path
+		return v.Path
 	}).(pulumi.StringPtrOutput)
 }
 

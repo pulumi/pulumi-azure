@@ -91,7 +91,7 @@ type DatasetDelimitedText struct {
 	AzureBlobFsLocation DatasetDelimitedTextAzureBlobFsLocationPtrOutput `pulumi:"azureBlobFsLocation"`
 	// An `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation DatasetDelimitedTextAzureBlobStorageLocationPtrOutput `pulumi:"azureBlobStorageLocation"`
-	// The column delimiter.
+	// The column delimiter. Defaults to `,`.
 	ColumnDelimiter pulumi.StringPtrOutput `pulumi:"columnDelimiter"`
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
 	CompressionCodec pulumi.StringPtrOutput `pulumi:"compressionCodec"`
@@ -103,9 +103,9 @@ type DatasetDelimitedText struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The encoding format for the file.
 	Encoding pulumi.StringPtrOutput `pulumi:"encoding"`
-	// The escape character.
+	// The escape character. Defaults to `\`.
 	EscapeCharacter pulumi.StringPtrOutput `pulumi:"escapeCharacter"`
-	// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+	// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
 	FirstRowAsHeader pulumi.BoolPtrOutput `pulumi:"firstRowAsHeader"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
 	Folder pulumi.StringPtrOutput `pulumi:"folder"`
@@ -115,15 +115,15 @@ type DatasetDelimitedText struct {
 	LinkedServiceName pulumi.StringOutput `pulumi:"linkedServiceName"`
 	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The null value string.
+	// The null value string. Defaults to an empty string.
 	NullValue pulumi.StringPtrOutput `pulumi:"nullValue"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The quote character.
+	// The quote character. Defaults to `"`.
 	QuoteCharacter pulumi.StringPtrOutput `pulumi:"quoteCharacter"`
 	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The row delimiter.
+	// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
 	RowDelimiter pulumi.StringPtrOutput `pulumi:"rowDelimiter"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetDelimitedTextSchemaColumnArrayOutput `pulumi:"schemaColumns"`
@@ -175,7 +175,7 @@ type datasetDelimitedTextState struct {
 	AzureBlobFsLocation *DatasetDelimitedTextAzureBlobFsLocation `pulumi:"azureBlobFsLocation"`
 	// An `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation *DatasetDelimitedTextAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
-	// The column delimiter.
+	// The column delimiter. Defaults to `,`.
 	ColumnDelimiter *string `pulumi:"columnDelimiter"`
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
 	CompressionCodec *string `pulumi:"compressionCodec"`
@@ -187,9 +187,9 @@ type datasetDelimitedTextState struct {
 	Description *string `pulumi:"description"`
 	// The encoding format for the file.
 	Encoding *string `pulumi:"encoding"`
-	// The escape character.
+	// The escape character. Defaults to `\`.
 	EscapeCharacter *string `pulumi:"escapeCharacter"`
-	// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+	// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
 	FirstRowAsHeader *bool `pulumi:"firstRowAsHeader"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
 	Folder *string `pulumi:"folder"`
@@ -199,15 +199,15 @@ type datasetDelimitedTextState struct {
 	LinkedServiceName *string `pulumi:"linkedServiceName"`
 	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// The null value string.
+	// The null value string. Defaults to an empty string.
 	NullValue *string `pulumi:"nullValue"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The quote character.
+	// The quote character. Defaults to `"`.
 	QuoteCharacter *string `pulumi:"quoteCharacter"`
 	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The row delimiter.
+	// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
 	RowDelimiter *string `pulumi:"rowDelimiter"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetDelimitedTextSchemaColumn `pulumi:"schemaColumns"`
@@ -222,7 +222,7 @@ type DatasetDelimitedTextState struct {
 	AzureBlobFsLocation DatasetDelimitedTextAzureBlobFsLocationPtrInput
 	// An `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation DatasetDelimitedTextAzureBlobStorageLocationPtrInput
-	// The column delimiter.
+	// The column delimiter. Defaults to `,`.
 	ColumnDelimiter pulumi.StringPtrInput
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
 	CompressionCodec pulumi.StringPtrInput
@@ -234,9 +234,9 @@ type DatasetDelimitedTextState struct {
 	Description pulumi.StringPtrInput
 	// The encoding format for the file.
 	Encoding pulumi.StringPtrInput
-	// The escape character.
+	// The escape character. Defaults to `\`.
 	EscapeCharacter pulumi.StringPtrInput
-	// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+	// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
 	FirstRowAsHeader pulumi.BoolPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
 	Folder pulumi.StringPtrInput
@@ -246,15 +246,15 @@ type DatasetDelimitedTextState struct {
 	LinkedServiceName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// The null value string.
+	// The null value string. Defaults to an empty string.
 	NullValue pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapInput
-	// The quote character.
+	// The quote character. Defaults to `"`.
 	QuoteCharacter pulumi.StringPtrInput
 	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
 	ResourceGroupName pulumi.StringPtrInput
-	// The row delimiter.
+	// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
 	RowDelimiter pulumi.StringPtrInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetDelimitedTextSchemaColumnArrayInput
@@ -273,7 +273,7 @@ type datasetDelimitedTextArgs struct {
 	AzureBlobFsLocation *DatasetDelimitedTextAzureBlobFsLocation `pulumi:"azureBlobFsLocation"`
 	// An `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation *DatasetDelimitedTextAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
-	// The column delimiter.
+	// The column delimiter. Defaults to `,`.
 	ColumnDelimiter *string `pulumi:"columnDelimiter"`
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
 	CompressionCodec *string `pulumi:"compressionCodec"`
@@ -285,9 +285,9 @@ type datasetDelimitedTextArgs struct {
 	Description *string `pulumi:"description"`
 	// The encoding format for the file.
 	Encoding *string `pulumi:"encoding"`
-	// The escape character.
+	// The escape character. Defaults to `\`.
 	EscapeCharacter *string `pulumi:"escapeCharacter"`
-	// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+	// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
 	FirstRowAsHeader *bool `pulumi:"firstRowAsHeader"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
 	Folder *string `pulumi:"folder"`
@@ -297,15 +297,15 @@ type datasetDelimitedTextArgs struct {
 	LinkedServiceName string `pulumi:"linkedServiceName"`
 	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// The null value string.
+	// The null value string. Defaults to an empty string.
 	NullValue *string `pulumi:"nullValue"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The quote character.
+	// The quote character. Defaults to `"`.
 	QuoteCharacter *string `pulumi:"quoteCharacter"`
 	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The row delimiter.
+	// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
 	RowDelimiter *string `pulumi:"rowDelimiter"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetDelimitedTextSchemaColumn `pulumi:"schemaColumns"`
@@ -321,7 +321,7 @@ type DatasetDelimitedTextArgs struct {
 	AzureBlobFsLocation DatasetDelimitedTextAzureBlobFsLocationPtrInput
 	// An `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation DatasetDelimitedTextAzureBlobStorageLocationPtrInput
-	// The column delimiter.
+	// The column delimiter. Defaults to `,`.
 	ColumnDelimiter pulumi.StringPtrInput
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
 	CompressionCodec pulumi.StringPtrInput
@@ -333,9 +333,9 @@ type DatasetDelimitedTextArgs struct {
 	Description pulumi.StringPtrInput
 	// The encoding format for the file.
 	Encoding pulumi.StringPtrInput
-	// The escape character.
+	// The escape character. Defaults to `\`.
 	EscapeCharacter pulumi.StringPtrInput
-	// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
+	// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
 	FirstRowAsHeader pulumi.BoolPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
 	Folder pulumi.StringPtrInput
@@ -345,15 +345,15 @@ type DatasetDelimitedTextArgs struct {
 	LinkedServiceName pulumi.StringInput
 	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// The null value string.
+	// The null value string. Defaults to an empty string.
 	NullValue pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapInput
-	// The quote character.
+	// The quote character. Defaults to `"`.
 	QuoteCharacter pulumi.StringPtrInput
 	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
 	ResourceGroupName pulumi.StringInput
-	// The row delimiter.
+	// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
 	RowDelimiter pulumi.StringPtrInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetDelimitedTextSchemaColumnArrayInput

@@ -74,7 +74,7 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
      */
     public readonly login!: pulumi.Output<string>;
     /**
-     * The ID of the principal to set as the server administrator
+     * The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
      */
     public readonly objectId!: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export interface ActiveDirectoryAdministratorState {
      */
     login?: pulumi.Input<string>;
     /**
-     * The ID of the principal to set as the server administrator
+     * The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
      */
     objectId?: pulumi.Input<string>;
     /**
@@ -173,7 +173,7 @@ export interface ActiveDirectoryAdministratorArgs {
      */
     login: pulumi.Input<string>;
     /**
-     * The ID of the principal to set as the server administrator
+     * The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
      */
     objectId: pulumi.Input<string>;
     /**

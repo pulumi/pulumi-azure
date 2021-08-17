@@ -94,7 +94,7 @@ export class NetworkInterfaceBackendAddressPoolAssociation extends pulumi.Custom
     }
 
     /**
-     * The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+     * The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
      */
     public readonly backendAddressPoolId!: pulumi.Output<string>;
     /**
@@ -149,7 +149,7 @@ export class NetworkInterfaceBackendAddressPoolAssociation extends pulumi.Custom
  */
 export interface NetworkInterfaceBackendAddressPoolAssociationState {
     /**
-     * The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+     * The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
      */
     backendAddressPoolId?: pulumi.Input<string>;
     /**
@@ -167,7 +167,7 @@ export interface NetworkInterfaceBackendAddressPoolAssociationState {
  */
 export interface NetworkInterfaceBackendAddressPoolAssociationArgs {
     /**
-     * The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+     * The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
      */
     backendAddressPoolId: pulumi.Input<string>;
     /**

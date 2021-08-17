@@ -3396,10 +3396,10 @@ class NamedValueValueFromKeyVault(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "identityClientId":
-            suggest = "identity_client_id"
-        elif key == "secretId":
+        if key == "secretId":
             suggest = "secret_id"
+        elif key == "identityClientId":
+            suggest = "identity_client_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NamedValueValueFromKeyVault. Access the value via the '{suggest}' property getter instead.")
@@ -3413,22 +3413,15 @@ class NamedValueValueFromKeyVault(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 identity_client_id: str,
-                 secret_id: str):
+                 secret_id: str,
+                 identity_client_id: Optional[str] = None):
         """
-        :param str identity_client_id: The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
         :param str secret_id: The resource ID of the Key Vault Secret.
+        :param str identity_client_id: The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
         """
-        pulumi.set(__self__, "identity_client_id", identity_client_id)
         pulumi.set(__self__, "secret_id", secret_id)
-
-    @property
-    @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> str:
-        """
-        The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
-        """
-        return pulumi.get(self, "identity_client_id")
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
 
     @property
     @pulumi.getter(name="secretId")
@@ -3437,6 +3430,14 @@ class NamedValueValueFromKeyVault(dict):
         The resource ID of the Key Vault Secret.
         """
         return pulumi.get(self, "secret_id")
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[str]:
+        """
+        The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
+        """
+        return pulumi.get(self, "identity_client_id")
 
 
 @pulumi.output_type

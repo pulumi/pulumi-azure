@@ -796,16 +796,18 @@ class DatasetDelimitedTextAzureBlobFsLocation(dict):
 class DatasetDelimitedTextAzureBlobStorageLocation(dict):
     def __init__(__self__, *,
                  container: str,
-                 filename: str,
-                 path: str):
+                 filename: Optional[str] = None,
+                 path: Optional[str] = None):
         """
         :param str container: The container on the Azure Blob Storage Account hosting the file.
         :param str filename: The filename of the file.
         :param str path: The folder path to the file.
         """
         pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "filename", filename)
-        pulumi.set(__self__, "path", path)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -817,7 +819,7 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
 
     @property
     @pulumi.getter
-    def filename(self) -> str:
+    def filename(self) -> Optional[str]:
         """
         The filename of the file.
         """
@@ -825,7 +827,7 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> Optional[str]:
         """
         The folder path to the file.
         """

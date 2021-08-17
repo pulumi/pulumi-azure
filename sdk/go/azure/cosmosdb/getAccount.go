@@ -59,7 +59,7 @@ type LookupAccountResult struct {
 	EnableAutomaticFailover bool `pulumi:"enableAutomaticFailover"`
 	// If Free Tier pricing option is enabled for this CosmosDB Account.
 	EnableFreeTier bool `pulumi:"enableFreeTier"`
-	// If multi-master is enabled for this Cosmos DB account.
+	// If multiple write locations are enabled for this Cosmos DB account.
 	EnableMultipleWriteLocations bool `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint     string                  `pulumi:"endpoint"`
@@ -79,22 +79,22 @@ type LookupAccountResult struct {
 	Name     string `pulumi:"name"`
 	// The Offer Type to used by this CosmosDB Account.
 	OfferType string `pulumi:"offerType"`
-	// The Primary master key for the CosmosDB Account.
+	// The Primary key for the CosmosDB Account.
 	PrimaryKey string `pulumi:"primaryKey"`
 	// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	PrimaryMasterKey string `pulumi:"primaryMasterKey"`
-	// The Primary read-only master Key for the CosmosDB Account.
+	// The Primary read-only Key for the CosmosDB Account.
 	PrimaryReadonlyKey string `pulumi:"primaryReadonlyKey"`
 	// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	PrimaryReadonlyMasterKey string `pulumi:"primaryReadonlyMasterKey"`
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints     []string `pulumi:"readEndpoints"`
 	ResourceGroupName string   `pulumi:"resourceGroupName"`
-	// The Secondary master key for the CosmosDB Account.
+	// The Secondary key for the CosmosDB Account.
 	SecondaryKey string `pulumi:"secondaryKey"`
 	// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	SecondaryMasterKey string `pulumi:"secondaryMasterKey"`
-	// The Secondary read-only master key for the CosmosDB Account.
+	// The Secondary read-only key for the CosmosDB Account.
 	SecondaryReadonlyKey string `pulumi:"secondaryReadonlyKey"`
 	// Deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	SecondaryReadonlyMasterKey string `pulumi:"secondaryReadonlyMasterKey"`

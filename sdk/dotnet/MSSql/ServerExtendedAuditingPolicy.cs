@@ -68,7 +68,7 @@ namespace Pulumi.Azure.MSSql
     public partial class ServerExtendedAuditingPolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         /// </summary>
         [Output("logMonitoringEnabled")]
         public Output<bool?> LogMonitoringEnabled { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerExtendedAuditingPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerExtendedAuditingPolicyState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }

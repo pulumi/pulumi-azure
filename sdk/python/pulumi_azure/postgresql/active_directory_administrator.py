@@ -21,7 +21,7 @@ class ActiveDirectoryAdministratorArgs:
         """
         The set of arguments for constructing a ActiveDirectoryAdministrator resource.
         :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
-        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator
+        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the PostgreSQL Server on which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID
@@ -48,7 +48,7 @@ class ActiveDirectoryAdministratorArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Input[str]:
         """
-        The ID of the principal to set as the server administrator
+        The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         """
         return pulumi.get(self, "object_id")
 
@@ -104,7 +104,7 @@ class _ActiveDirectoryAdministratorState:
         """
         Input properties used for looking up and filtering ActiveDirectoryAdministrator resources.
         :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
-        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator
+        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the PostgreSQL Server on which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID
@@ -136,7 +136,7 @@ class _ActiveDirectoryAdministratorState:
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the principal to set as the server administrator
+        The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         """
         return pulumi.get(self, "object_id")
 
@@ -228,7 +228,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
-        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator
+        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the PostgreSQL Server on which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID
@@ -342,7 +342,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
-        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator
+        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the PostgreSQL Server on which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID
@@ -370,7 +370,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Output[str]:
         """
-        The ID of the principal to set as the server administrator
+        The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         """
         return pulumi.get(self, "object_id")
 

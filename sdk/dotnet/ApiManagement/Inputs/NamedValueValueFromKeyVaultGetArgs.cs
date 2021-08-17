@@ -13,10 +13,10 @@ namespace Pulumi.Azure.ApiManagement.Inputs
     public sealed class NamedValueValueFromKeyVaultGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The client ID of the System Assigned Identity, or User Assigned Identity, for the API Management Service, which will be used to access the key vault secret.
+        /// The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
         /// </summary>
-        [Input("identityClientId", required: true)]
-        public Input<string> IdentityClientId { get; set; } = null!;
+        [Input("identityClientId")]
+        public Input<string>? IdentityClientId { get; set; }
 
         /// <summary>
         /// The resource ID of the Key Vault Secret.

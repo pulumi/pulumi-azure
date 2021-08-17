@@ -77,7 +77,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterAddonProfile> AddonProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The IP ranges to whitelist for incoming traffic to the masters.
+        /// The IP ranges to allow for incoming traffic to the server nodes.
         /// </summary>
         [Output("apiServerAuthorizedIpRanges")]
         public Output<ImmutableArray<string>> ApiServerAuthorizedIpRanges { get; private set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _apiServerAuthorizedIpRanges;
 
         /// <summary>
-        /// The IP ranges to whitelist for incoming traffic to the masters.
+        /// The IP ranges to allow for incoming traffic to the server nodes.
         /// </summary>
         public InputList<string> ApiServerAuthorizedIpRanges
         {
@@ -511,7 +511,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _apiServerAuthorizedIpRanges;
 
         /// <summary>
-        /// The IP ranges to whitelist for incoming traffic to the masters.
+        /// The IP ranges to allow for incoming traffic to the server nodes.
         /// </summary>
         public InputList<string> ApiServerAuthorizedIpRanges
         {

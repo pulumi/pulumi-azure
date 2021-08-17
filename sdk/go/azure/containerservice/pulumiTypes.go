@@ -6216,7 +6216,7 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) MaxSurge() pul
 }
 
 type KubernetesClusterIdentity struct {
-	// The principal id of the system assigned identity which is used by master components.
+	// The principal id of the system assigned identity which is used by main components.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId *string `pulumi:"tenantId"`
@@ -6238,7 +6238,7 @@ type KubernetesClusterIdentityInput interface {
 }
 
 type KubernetesClusterIdentityArgs struct {
-	// The principal id of the system assigned identity which is used by master components.
+	// The principal id of the system assigned identity which is used by main components.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
@@ -6325,7 +6325,7 @@ func (o KubernetesClusterIdentityOutput) ToKubernetesClusterIdentityPtrOutputWit
 	}).(KubernetesClusterIdentityPtrOutput)
 }
 
-// The principal id of the system assigned identity which is used by master components.
+// The principal id of the system assigned identity which is used by main components.
 func (o KubernetesClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -6363,7 +6363,7 @@ func (o KubernetesClusterIdentityPtrOutput) Elem() KubernetesClusterIdentityOutp
 	return o.ApplyT(func(v *KubernetesClusterIdentity) KubernetesClusterIdentity { return *v }).(KubernetesClusterIdentityOutput)
 }
 
-// The principal id of the system assigned identity which is used by master components.
+// The principal id of the system assigned identity which is used by main components.
 func (o KubernetesClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterIdentity) *string {
 		if v == nil {

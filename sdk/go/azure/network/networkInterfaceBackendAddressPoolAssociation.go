@@ -118,7 +118,7 @@ import (
 type NetworkInterfaceBackendAddressPoolAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
 	BackendAddressPoolId pulumi.StringOutput `pulumi:"backendAddressPoolId"`
 	// The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
 	IpConfigurationName pulumi.StringOutput `pulumi:"ipConfigurationName"`
@@ -164,7 +164,7 @@ func GetNetworkInterfaceBackendAddressPoolAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkInterfaceBackendAddressPoolAssociation resources.
 type networkInterfaceBackendAddressPoolAssociationState struct {
-	// The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
 	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
 	// The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
 	IpConfigurationName *string `pulumi:"ipConfigurationName"`
@@ -173,7 +173,7 @@ type networkInterfaceBackendAddressPoolAssociationState struct {
 }
 
 type NetworkInterfaceBackendAddressPoolAssociationState struct {
-	// The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
 	BackendAddressPoolId pulumi.StringPtrInput
 	// The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
 	IpConfigurationName pulumi.StringPtrInput
@@ -186,7 +186,7 @@ func (NetworkInterfaceBackendAddressPoolAssociationState) ElementType() reflect.
 }
 
 type networkInterfaceBackendAddressPoolAssociationArgs struct {
-	// The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
 	BackendAddressPoolId string `pulumi:"backendAddressPoolId"`
 	// The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
 	IpConfigurationName string `pulumi:"ipConfigurationName"`
@@ -196,7 +196,7 @@ type networkInterfaceBackendAddressPoolAssociationArgs struct {
 
 // The set of arguments for constructing a NetworkInterfaceBackendAddressPoolAssociation resource.
 type NetworkInterfaceBackendAddressPoolAssociationArgs struct {
-	// The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
 	BackendAddressPoolId pulumi.StringInput
 	// The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
 	IpConfigurationName pulumi.StringInput

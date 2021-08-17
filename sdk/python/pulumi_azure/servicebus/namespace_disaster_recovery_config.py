@@ -217,7 +217,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             capacity=1)
         example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig",
             primary_namespace_id=primary.id,
-            partner_namespace_id=azurerm_resource_group["secondary"]["id"])
+            partner_namespace_id=secondary.id)
         ```
 
         ## Import
@@ -264,7 +264,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             capacity=1)
         example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig",
             primary_namespace_id=primary.id,
-            partner_namespace_id=azurerm_resource_group["secondary"]["id"])
+            partner_namespace_id=secondary.id)
         ```
 
         ## Import

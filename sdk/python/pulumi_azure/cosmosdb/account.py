@@ -53,7 +53,7 @@ class AccountArgs:
         :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
+        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
@@ -251,7 +251,7 @@ class AccountArgs:
     @pulumi.getter(name="enableMultipleWriteLocations")
     def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable multi-master support for this Cosmos DB account.
+        Enable multiple write locations for this Cosmos DB account.
         """
         return pulumi.get(self, "enable_multiple_write_locations")
 
@@ -467,7 +467,7 @@ class _AccountState:
         :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
+        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
@@ -481,13 +481,13 @@ class _AccountState:
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
-        :param pulumi.Input[str] primary_key: The Primary master key for the CosmosDB Account.
-        :param pulumi.Input[str] primary_readonly_key: The Primary read-only master Key for the CosmosDB Account.
+        :param pulumi.Input[str] primary_key: The Primary key for the CosmosDB Account.
+        :param pulumi.Input[str] primary_readonly_key: The Primary read-only Key for the CosmosDB Account.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] secondary_key: The Secondary master key for the CosmosDB Account.
-        :param pulumi.Input[str] secondary_readonly_key: The Secondary read-only master key for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_key: The Secondary key for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_readonly_key: The Secondary read-only key for the CosmosDB Account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_endpoints: A list of write endpoints available for this CosmosDB account.
@@ -691,7 +691,7 @@ class _AccountState:
     @pulumi.getter(name="enableMultipleWriteLocations")
     def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable multi-master support for this Cosmos DB account.
+        Enable multiple write locations for this Cosmos DB account.
         """
         return pulumi.get(self, "enable_multiple_write_locations")
 
@@ -859,7 +859,7 @@ class _AccountState:
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Primary master key for the CosmosDB Account.
+        The Primary key for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_key")
 
@@ -880,7 +880,7 @@ class _AccountState:
     @pulumi.getter(name="primaryReadonlyKey")
     def primary_readonly_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Primary read-only master Key for the CosmosDB Account.
+        The Primary read-only Key for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_readonly_key")
 
@@ -937,7 +937,7 @@ class _AccountState:
     @pulumi.getter(name="secondaryKey")
     def secondary_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Secondary master key for the CosmosDB Account.
+        The Secondary key for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_key")
 
@@ -958,7 +958,7 @@ class _AccountState:
     @pulumi.getter(name="secondaryReadonlyKey")
     def secondary_readonly_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Secondary read-only master key for the CosmosDB Account.
+        The Secondary read-only key for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_readonly_key")
 
@@ -1109,7 +1109,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
+        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -1349,7 +1349,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
+        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
@@ -1363,13 +1363,13 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
-        :param pulumi.Input[str] primary_key: The Primary master key for the CosmosDB Account.
-        :param pulumi.Input[str] primary_readonly_key: The Primary read-only master Key for the CosmosDB Account.
+        :param pulumi.Input[str] primary_key: The Primary key for the CosmosDB Account.
+        :param pulumi.Input[str] primary_readonly_key: The Primary read-only Key for the CosmosDB Account.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] secondary_key: The Secondary master key for the CosmosDB Account.
-        :param pulumi.Input[str] secondary_readonly_key: The Secondary read-only master key for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_key: The Secondary key for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_readonly_key: The Secondary read-only key for the CosmosDB Account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_endpoints: A list of write endpoints available for this CosmosDB account.
@@ -1493,7 +1493,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="enableMultipleWriteLocations")
     def enable_multiple_write_locations(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable multi-master support for this Cosmos DB account.
+        Enable multiple write locations for this Cosmos DB account.
         """
         return pulumi.get(self, "enable_multiple_write_locations")
 
@@ -1605,7 +1605,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> pulumi.Output[str]:
         """
-        The Primary master key for the CosmosDB Account.
+        The Primary key for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_key")
 
@@ -1618,7 +1618,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="primaryReadonlyKey")
     def primary_readonly_key(self) -> pulumi.Output[str]:
         """
-        The Primary read-only master Key for the CosmosDB Account.
+        The Primary read-only Key for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_readonly_key")
 
@@ -1655,7 +1655,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="secondaryKey")
     def secondary_key(self) -> pulumi.Output[str]:
         """
-        The Secondary master key for the CosmosDB Account.
+        The Secondary key for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_key")
 
@@ -1668,7 +1668,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="secondaryReadonlyKey")
     def secondary_readonly_key(self) -> pulumi.Output[str]:
         """
-        The Secondary read-only master key for the CosmosDB Account.
+        The Secondary read-only key for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_readonly_key")
 

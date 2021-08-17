@@ -69,7 +69,7 @@ import (
 // 			SamplingPercentage:      pulumi.Float64(5),
 // 			AlwaysLogErrors:         pulumi.Bool(true),
 // 			LogClientIp:             pulumi.Bool(true),
-// 			Verbosity:               pulumi.String("Verbose"),
+// 			Verbosity:               pulumi.String("verbose"),
 // 			HttpCorrelationProtocol: pulumi.String("W3C"),
 // 			FrontendRequest: &apimanagement.DiagnosticFrontendRequestArgs{
 // 				BodyBytes: pulumi.Int(32),

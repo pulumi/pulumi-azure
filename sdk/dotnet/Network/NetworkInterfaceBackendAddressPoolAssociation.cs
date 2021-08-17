@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkInterfaceBackendAddressPoolAssociation : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        /// The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("backendAddressPoolId")]
         public Output<string> BackendAddressPoolId { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkInterfaceBackendAddressPoolAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        /// The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("backendAddressPoolId", required: true)]
         public Input<string> BackendAddressPoolId { get; set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkInterfaceBackendAddressPoolAssociationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        /// The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("backendAddressPoolId")]
         public Input<string>? BackendAddressPoolId { get; set; }

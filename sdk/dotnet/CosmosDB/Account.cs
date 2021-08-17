@@ -145,7 +145,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<bool?> EnableFreeTier { get; private set; } = null!;
 
         /// <summary>
-        /// Enable multi-master support for this Cosmos DB account.
+        /// Enable multiple write locations for this Cosmos DB account.
         /// </summary>
         [Output("enableMultipleWriteLocations")]
         public Output<bool?> EnableMultipleWriteLocations { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> OfferType { get; private set; } = null!;
 
         /// <summary>
-        /// The Primary master key for the CosmosDB Account.
+        /// The Primary key for the CosmosDB Account.
         /// </summary>
         [Output("primaryKey")]
         public Output<string> PrimaryKey { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> PrimaryMasterKey { get; private set; } = null!;
 
         /// <summary>
-        /// The Primary read-only master Key for the CosmosDB Account.
+        /// The Primary read-only Key for the CosmosDB Account.
         /// </summary>
         [Output("primaryReadonlyKey")]
         public Output<string> PrimaryReadonlyKey { get; private set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Secondary master key for the CosmosDB Account.
+        /// The Secondary key for the CosmosDB Account.
         /// </summary>
         [Output("secondaryKey")]
         public Output<string> SecondaryKey { get; private set; } = null!;
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> SecondaryMasterKey { get; private set; } = null!;
 
         /// <summary>
-        /// The Secondary read-only master key for the CosmosDB Account.
+        /// The Secondary read-only key for the CosmosDB Account.
         /// </summary>
         [Output("secondaryReadonlyKey")]
         public Output<string> SecondaryReadonlyKey { get; private set; } = null!;
@@ -401,7 +401,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? EnableFreeTier { get; set; }
 
         /// <summary>
-        /// Enable multi-master support for this Cosmos DB account.
+        /// Enable multiple write locations for this Cosmos DB account.
         /// </summary>
         [Input("enableMultipleWriteLocations")]
         public Input<bool>? EnableMultipleWriteLocations { get; set; }
@@ -600,7 +600,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? EnableFreeTier { get; set; }
 
         /// <summary>
-        /// Enable multi-master support for this Cosmos DB account.
+        /// Enable multiple write locations for this Cosmos DB account.
         /// </summary>
         [Input("enableMultipleWriteLocations")]
         public Input<bool>? EnableMultipleWriteLocations { get; set; }
@@ -696,7 +696,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? OfferType { get; set; }
 
         /// <summary>
-        /// The Primary master key for the CosmosDB Account.
+        /// The Primary key for the CosmosDB Account.
         /// </summary>
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
@@ -705,7 +705,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? PrimaryMasterKey { get; set; }
 
         /// <summary>
-        /// The Primary read-only master Key for the CosmosDB Account.
+        /// The Primary read-only Key for the CosmosDB Account.
         /// </summary>
         [Input("primaryReadonlyKey")]
         public Input<string>? PrimaryReadonlyKey { get; set; }
@@ -738,7 +738,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Secondary master key for the CosmosDB Account.
+        /// The Secondary key for the CosmosDB Account.
         /// </summary>
         [Input("secondaryKey")]
         public Input<string>? SecondaryKey { get; set; }
@@ -747,7 +747,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? SecondaryMasterKey { get; set; }
 
         /// <summary>
-        /// The Secondary read-only master key for the CosmosDB Account.
+        /// The Secondary read-only key for the CosmosDB Account.
         /// </summary>
         [Input("secondaryReadonlyKey")]
         public Input<string>? SecondaryReadonlyKey { get; set; }

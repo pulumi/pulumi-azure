@@ -27,6 +27,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.GetFunctionAppSiteConfigCorsResult Cors;
         /// <summary>
+        /// The version of the .net framework's CLR used in this App Service.
+        /// </summary>
+        public readonly string DotnetFrameworkVersion;
+        /// <summary>
         /// The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         /// </summary>
         public readonly int ElasticInstanceMinimum;
@@ -94,6 +98,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             Outputs.GetFunctionAppSiteConfigCorsResult cors,
 
+            string dotnetFrameworkVersion,
+
             int elasticInstanceMinimum,
 
             string ftpsState,
@@ -128,6 +134,7 @@ namespace Pulumi.Azure.AppService.Outputs
             AppScaleLimit = appScaleLimit;
             AutoSwapSlotName = autoSwapSlotName;
             Cors = cors;
+            DotnetFrameworkVersion = dotnetFrameworkVersion;
             ElasticInstanceMinimum = elasticInstanceMinimum;
             FtpsState = ftpsState;
             HealthCheckPath = healthCheckPath;

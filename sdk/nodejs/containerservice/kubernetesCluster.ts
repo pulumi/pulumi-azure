@@ -78,7 +78,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly addonProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterAddonProfile>;
     /**
-     * The IP ranges to whitelist for incoming traffic to the masters.
+     * The IP ranges to allow for incoming traffic to the server nodes.
      */
     public readonly apiServerAuthorizedIpRanges!: pulumi.Output<string[] | undefined>;
     /**
@@ -313,7 +313,7 @@ export interface KubernetesClusterState {
      */
     addonProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfile>;
     /**
-     * The IP ranges to whitelist for incoming traffic to the masters.
+     * The IP ranges to allow for incoming traffic to the server nodes.
      */
     apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -452,7 +452,7 @@ export interface KubernetesClusterArgs {
      */
     addonProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfile>;
     /**
-     * The IP ranges to whitelist for incoming traffic to the masters.
+     * The IP ranges to allow for incoming traffic to the server nodes.
      */
     apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**

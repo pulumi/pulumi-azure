@@ -43,7 +43,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = servicebus.NewNamespace(ctx, "secondary", &servicebus.NamespaceArgs{
+// 		secondary, err := servicebus.NewNamespace(ctx, "secondary", &servicebus.NamespaceArgs{
 // 			Location:          pulumi.String("West US"),
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Premium"),
@@ -54,7 +54,7 @@ import (
 // 		}
 // 		_, err = servicebus.NewNamespaceDisasterRecoveryConfig(ctx, "exampleNamespaceDisasterRecoveryConfig", &servicebus.NamespaceDisasterRecoveryConfigArgs{
 // 			PrimaryNamespaceId: primary.ID(),
-// 			PartnerNamespaceId: pulumi.Any(azurerm_resource_group.Secondary.Id),
+// 			PartnerNamespaceId: secondary.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

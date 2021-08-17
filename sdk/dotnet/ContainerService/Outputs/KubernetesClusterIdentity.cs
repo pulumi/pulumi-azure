@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterIdentity
     {
         /// <summary>
-        /// The principal id of the system assigned identity which is used by master components.
+        /// The principal id of the system assigned identity which is used by main components.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>

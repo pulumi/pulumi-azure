@@ -128,7 +128,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly enableFreeTier!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable multi-master support for this Cosmos DB account.
+     * Enable multiple write locations for this Cosmos DB account.
      */
     public readonly enableMultipleWriteLocations!: pulumi.Output<boolean | undefined>;
     /**
@@ -184,7 +184,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly offerType!: pulumi.Output<string>;
     /**
-     * The Primary master key for the CosmosDB Account.
+     * The Primary key for the CosmosDB Account.
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
@@ -192,7 +192,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryMasterKey!: pulumi.Output<string>;
     /**
-     * The Primary read-only master Key for the CosmosDB Account.
+     * The Primary read-only Key for the CosmosDB Account.
      */
     public /*out*/ readonly primaryReadonlyKey!: pulumi.Output<string>;
     /**
@@ -212,7 +212,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The Secondary master key for the CosmosDB Account.
+     * The Secondary key for the CosmosDB Account.
      */
     public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
@@ -220,7 +220,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryMasterKey!: pulumi.Output<string>;
     /**
-     * The Secondary read-only master key for the CosmosDB Account.
+     * The Secondary read-only key for the CosmosDB Account.
      */
     public /*out*/ readonly secondaryReadonlyKey!: pulumi.Output<string>;
     /**
@@ -390,7 +390,7 @@ export interface AccountState {
      */
     enableFreeTier?: pulumi.Input<boolean>;
     /**
-     * Enable multi-master support for this Cosmos DB account.
+     * Enable multiple write locations for this Cosmos DB account.
      */
     enableMultipleWriteLocations?: pulumi.Input<boolean>;
     /**
@@ -446,7 +446,7 @@ export interface AccountState {
      */
     offerType?: pulumi.Input<string>;
     /**
-     * The Primary master key for the CosmosDB Account.
+     * The Primary key for the CosmosDB Account.
      */
     primaryKey?: pulumi.Input<string>;
     /**
@@ -454,7 +454,7 @@ export interface AccountState {
      */
     primaryMasterKey?: pulumi.Input<string>;
     /**
-     * The Primary read-only master Key for the CosmosDB Account.
+     * The Primary read-only Key for the CosmosDB Account.
      */
     primaryReadonlyKey?: pulumi.Input<string>;
     /**
@@ -474,7 +474,7 @@ export interface AccountState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The Secondary master key for the CosmosDB Account.
+     * The Secondary key for the CosmosDB Account.
      */
     secondaryKey?: pulumi.Input<string>;
     /**
@@ -482,7 +482,7 @@ export interface AccountState {
      */
     secondaryMasterKey?: pulumi.Input<string>;
     /**
-     * The Secondary read-only master key for the CosmosDB Account.
+     * The Secondary read-only key for the CosmosDB Account.
      */
     secondaryReadonlyKey?: pulumi.Input<string>;
     /**
@@ -540,7 +540,7 @@ export interface AccountArgs {
      */
     enableFreeTier?: pulumi.Input<boolean>;
     /**
-     * Enable multi-master support for this Cosmos DB account.
+     * Enable multiple write locations for this Cosmos DB account.
      */
     enableMultipleWriteLocations?: pulumi.Input<boolean>;
     /**

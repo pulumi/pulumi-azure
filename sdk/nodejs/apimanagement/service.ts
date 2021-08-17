@@ -81,7 +81,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly developerPortalUrl!: pulumi.Output<string>;
     /**
-     * Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+     * Disable the gateway in main region? This is only supported when `additionalLocation` is set.
      */
     public readonly gatewayDisabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -314,7 +314,7 @@ export interface ServiceState {
      */
     developerPortalUrl?: pulumi.Input<string>;
     /**
-     * Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+     * Disable the gateway in main region? This is only supported when `additionalLocation` is set.
      */
     gatewayDisabled?: pulumi.Input<boolean>;
     /**
@@ -445,7 +445,7 @@ export interface ServiceArgs {
      */
     clientCertificateEnabled?: pulumi.Input<boolean>;
     /**
-     * Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+     * Disable the gateway in main region? This is only supported when `additionalLocation` is set.
      */
     gatewayDisabled?: pulumi.Input<boolean>;
     /**

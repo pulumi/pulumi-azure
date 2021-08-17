@@ -74,7 +74,7 @@ type KubernetesCluster struct {
 
 	// A `addonProfile` block as defined below.
 	AddonProfile KubernetesClusterAddonProfileOutput `pulumi:"addonProfile"`
-	// The IP ranges to whitelist for incoming traffic to the masters.
+	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfileOutput `pulumi:"autoScalerProfile"`
@@ -178,7 +178,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 type kubernetesClusterState struct {
 	// A `addonProfile` block as defined below.
 	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
-	// The IP ranges to whitelist for incoming traffic to the masters.
+	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
@@ -248,7 +248,7 @@ type kubernetesClusterState struct {
 type KubernetesClusterState struct {
 	// A `addonProfile` block as defined below.
 	AddonProfile KubernetesClusterAddonProfilePtrInput
-	// The IP ranges to whitelist for incoming traffic to the masters.
+	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
@@ -322,7 +322,7 @@ func (KubernetesClusterState) ElementType() reflect.Type {
 type kubernetesClusterArgs struct {
 	// A `addonProfile` block as defined below.
 	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
-	// The IP ranges to whitelist for incoming traffic to the masters.
+	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
@@ -381,7 +381,7 @@ type kubernetesClusterArgs struct {
 type KubernetesClusterArgs struct {
 	// A `addonProfile` block as defined below.
 	AddonProfile KubernetesClusterAddonProfilePtrInput
-	// The IP ranges to whitelist for incoming traffic to the masters.
+	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
