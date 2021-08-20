@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleFrontdoor = new azure.frontdoor.Frontdoor("exampleFrontdoor", {
- *     location: "EastUS2",
  *     resourceGroupName: exampleResourceGroup.name,
  *     enforceBackendPoolsCertificateNameCheck: false,
  *     routingRules: [{
@@ -157,7 +156,7 @@ export class Frontdoor extends pulumi.CustomResource {
      */
     public readonly loadBalancerEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+     * The `location` argument is deprecated and is now always set to `global`.
      *
      * @deprecated Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
      */
@@ -331,7 +330,7 @@ export interface FrontdoorState {
      */
     loadBalancerEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+     * The `location` argument is deprecated and is now always set to `global`.
      *
      * @deprecated Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
      */
@@ -395,7 +394,7 @@ export interface FrontdoorArgs {
      */
     loadBalancerEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+     * The `location` argument is deprecated and is now always set to `global`.
      *
      * @deprecated Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
      */

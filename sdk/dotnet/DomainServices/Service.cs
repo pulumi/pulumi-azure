@@ -70,6 +70,12 @@ namespace Pulumi.Azure.DomainServices
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure resource ID for the domain service.
+        /// </summary>
+        [Output("resourceId")]
+        public Output<string> ResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// A `secure_ldap` block as defined below.
         /// </summary>
         [Output("secureLdap")]
@@ -274,6 +280,12 @@ namespace Pulumi.Azure.DomainServices
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The Azure resource ID for the domain service.
+        /// </summary>
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
 
         /// <summary>
         /// A `secure_ldap` block as defined below.

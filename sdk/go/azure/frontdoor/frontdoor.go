@@ -40,7 +40,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = frontdoor.NewFrontdoor(ctx, "exampleFrontdoor", &frontdoor.FrontdoorArgs{
-// 			Location:                                pulumi.String("EastUS2"),
 // 			ResourceGroupName:                       exampleResourceGroup.Name,
 // 			EnforceBackendPoolsCertificateNameCheck: pulumi.Bool(false),
 // 			RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
@@ -141,7 +140,7 @@ type Frontdoor struct {
 	HeaderFrontdoorId pulumi.StringOutput `pulumi:"headerFrontdoorId"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrOutput `pulumi:"loadBalancerEnabled"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+	// The `location` argument is deprecated and is now always set to `global`.
 	//
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -236,7 +235,7 @@ type frontdoorState struct {
 	HeaderFrontdoorId *string `pulumi:"headerFrontdoorId"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled *bool `pulumi:"loadBalancerEnabled"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+	// The `location` argument is deprecated and is now always set to `global`.
 	//
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
 	Location *string `pulumi:"location"`
@@ -282,7 +281,7 @@ type FrontdoorState struct {
 	HeaderFrontdoorId pulumi.StringPtrInput
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+	// The `location` argument is deprecated and is now always set to `global`.
 	//
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
 	Location pulumi.StringPtrInput
@@ -319,7 +318,7 @@ type frontdoorArgs struct {
 	FrontendEndpoints []FrontdoorFrontendEndpoint `pulumi:"frontendEndpoints"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled *bool `pulumi:"loadBalancerEnabled"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+	// The `location` argument is deprecated and is now always set to `global`.
 	//
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
 	Location *string `pulumi:"location"`
@@ -351,7 +350,7 @@ type FrontdoorArgs struct {
 	FrontendEndpoints FrontdoorFrontendEndpointArrayInput
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+	// The `location` argument is deprecated and is now always set to `global`.
 	//
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
 	Location pulumi.StringPtrInput

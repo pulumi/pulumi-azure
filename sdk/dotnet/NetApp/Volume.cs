@@ -88,6 +88,7 @@ namespace Pulumi.Azure.NetApp
     ///             },
     ///             SecurityStyle = "Unix",
     ///             StorageQuotaInGb = 100,
+    ///             SnapshotDirectoryVisible = false,
     ///             CreateFromSnapshotResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
     ///             DataProtectionReplication = new Azure.NetApp.Inputs.VolumeDataProtectionReplicationArgs
     ///             {
@@ -184,6 +185,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Output("serviceLevel")]
         public Output<string> ServiceLevel { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        /// </summary>
+        [Output("snapshotDirectoryVisible")]
+        public Output<bool?> SnapshotDirectoryVisible { get; private set; } = null!;
 
         /// <summary>
         /// The maximum Storage Quota allowed for a file system in Gigabytes.
@@ -334,6 +341,12 @@ namespace Pulumi.Azure.NetApp
         public Input<string> ServiceLevel { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        /// </summary>
+        [Input("snapshotDirectoryVisible")]
+        public Input<bool>? SnapshotDirectoryVisible { get; set; }
+
+        /// <summary>
         /// The maximum Storage Quota allowed for a file system in Gigabytes.
         /// </summary>
         [Input("storageQuotaInGb", required: true)]
@@ -459,6 +472,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("serviceLevel")]
         public Input<string>? ServiceLevel { get; set; }
+
+        /// <summary>
+        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        /// </summary>
+        [Input("snapshotDirectoryVisible")]
+        public Input<bool>? SnapshotDirectoryVisible { get; set; }
 
         /// <summary>
         /// The maximum Storage Quota allowed for a file system in Gigabytes.

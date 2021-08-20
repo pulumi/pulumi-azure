@@ -151,6 +151,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+     */
+    public readonly ultraSsdEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `upgradeSettings` block as documented below.
      */
     public readonly upgradeSettings!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolUpgradeSettings | undefined>;
@@ -203,6 +207,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             inputs["spotMaxPrice"] = state ? state.spotMaxPrice : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["ultraSsdEnabled"] = state ? state.ultraSsdEnabled : undefined;
             inputs["upgradeSettings"] = state ? state.upgradeSettings : undefined;
             inputs["vmSize"] = state ? state.vmSize : undefined;
             inputs["vnetSubnetId"] = state ? state.vnetSubnetId : undefined;
@@ -241,6 +246,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             inputs["spotMaxPrice"] = args ? args.spotMaxPrice : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["ultraSsdEnabled"] = args ? args.ultraSsdEnabled : undefined;
             inputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["vnetSubnetId"] = args ? args.vnetSubnetId : undefined;
@@ -364,6 +370,10 @@ export interface KubernetesClusterNodePoolState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+     */
+    ultraSsdEnabled?: pulumi.Input<boolean>;
     /**
      * A `upgradeSettings` block as documented below.
      */
@@ -490,6 +500,10 @@ export interface KubernetesClusterNodePoolArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+     */
+    ultraSsdEnabled?: pulumi.Input<boolean>;
     /**
      * A `upgradeSettings` block as documented below.
      */

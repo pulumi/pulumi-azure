@@ -66,6 +66,8 @@ type Store struct {
 	FirewallAllowAzureIps pulumi.StringPtrOutput `pulumi:"firewallAllowAzureIps"`
 	// the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
 	FirewallState pulumi.StringPtrOutput `pulumi:"firewallState"`
+	// An `identity` block defined below.
+	Identity StoreIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
@@ -120,6 +122,8 @@ type storeState struct {
 	FirewallAllowAzureIps *string `pulumi:"firewallAllowAzureIps"`
 	// the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
 	FirewallState *string `pulumi:"firewallState"`
+	// An `identity` block defined below.
+	Identity *StoreIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
@@ -143,6 +147,8 @@ type StoreState struct {
 	FirewallAllowAzureIps pulumi.StringPtrInput
 	// the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
 	FirewallState pulumi.StringPtrInput
+	// An `identity` block defined below.
+	Identity StoreIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
@@ -168,6 +174,8 @@ type storeArgs struct {
 	FirewallAllowAzureIps *string `pulumi:"firewallAllowAzureIps"`
 	// the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
 	FirewallState *string `pulumi:"firewallState"`
+	// An `identity` block defined below.
+	Identity *StoreIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
@@ -190,6 +198,8 @@ type StoreArgs struct {
 	FirewallAllowAzureIps pulumi.StringPtrInput
 	// the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
 	FirewallState pulumi.StringPtrInput
+	// An `identity` block defined below.
+	Identity StoreIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.

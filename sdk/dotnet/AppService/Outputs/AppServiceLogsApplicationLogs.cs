@@ -17,6 +17,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// An `azure_blob_storage` block as defined below.
         /// </summary>
         public readonly Outputs.AppServiceLogsApplicationLogsAzureBlobStorage? AzureBlobStorage;
+        /// <summary>
+        /// Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+        /// </summary>
         public readonly string? FileSystemLevel;
 
         [OutputConstructor]

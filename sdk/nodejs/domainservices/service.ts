@@ -75,6 +75,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The Azure resource ID for the domain service.
+     */
+    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    /**
      * A `secureLdap` block as defined below.
      */
     public readonly secureLdap!: pulumi.Output<outputs.domainservices.ServiceSecureLdap>;
@@ -115,6 +119,7 @@ export class Service extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["notifications"] = state ? state.notifications : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["secureLdap"] = state ? state.secureLdap : undefined;
             inputs["security"] = state ? state.security : undefined;
             inputs["sku"] = state ? state.sku : undefined;
@@ -148,6 +153,7 @@ export class Service extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["deploymentId"] = undefined /*out*/;
+            inputs["resourceId"] = undefined /*out*/;
             inputs["syncOwner"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -195,6 +201,10 @@ export interface ServiceState {
      * The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The Azure resource ID for the domain service.
+     */
+    resourceId?: pulumi.Input<string>;
     /**
      * A `secureLdap` block as defined below.
      */

@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['StoreArgs', 'Store']
 
@@ -18,6 +20,7 @@ class StoreArgs:
                  encryption_type: Optional[pulumi.Input[str]] = None,
                  firewall_allow_azure_ips: Optional[pulumi.Input[str]] = None,
                  firewall_state: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['StoreIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -29,6 +32,7 @@ class StoreArgs:
         :param pulumi.Input[str] encryption_type: The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
         :param pulumi.Input[str] firewall_allow_azure_ips: are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
         :param pulumi.Input[str] firewall_state: the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
+        :param pulumi.Input['StoreIdentityArgs'] identity: An `identity` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -43,6 +47,8 @@ class StoreArgs:
             pulumi.set(__self__, "firewall_allow_azure_ips", firewall_allow_azure_ips)
         if firewall_state is not None:
             pulumi.set(__self__, "firewall_state", firewall_state)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -114,6 +120,18 @@ class StoreArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['StoreIdentityArgs']]:
+        """
+        An `identity` block defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['StoreIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -169,6 +187,7 @@ class _StoreState:
                  endpoint: Optional[pulumi.Input[str]] = None,
                  firewall_allow_azure_ips: Optional[pulumi.Input[str]] = None,
                  firewall_state: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['StoreIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -181,6 +200,7 @@ class _StoreState:
         :param pulumi.Input[str] endpoint: The Endpoint for the Data Lake Store.
         :param pulumi.Input[str] firewall_allow_azure_ips: are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
         :param pulumi.Input[str] firewall_state: the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
+        :param pulumi.Input['StoreIdentityArgs'] identity: An `identity` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Lake Store.
@@ -197,6 +217,8 @@ class _StoreState:
             pulumi.set(__self__, "firewall_allow_azure_ips", firewall_allow_azure_ips)
         if firewall_state is not None:
             pulumi.set(__self__, "firewall_state", firewall_state)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -270,6 +292,18 @@ class _StoreState:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['StoreIdentityArgs']]:
+        """
+        An `identity` block defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['StoreIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -338,6 +372,7 @@ class Store(pulumi.CustomResource):
                  encryption_type: Optional[pulumi.Input[str]] = None,
                  firewall_allow_azure_ips: Optional[pulumi.Input[str]] = None,
                  firewall_state: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['StoreIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -375,6 +410,7 @@ class Store(pulumi.CustomResource):
         :param pulumi.Input[str] encryption_type: The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
         :param pulumi.Input[str] firewall_allow_azure_ips: are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
         :param pulumi.Input[str] firewall_state: the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
+        :param pulumi.Input[pulumi.InputType['StoreIdentityArgs']] identity: An `identity` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Lake Store.
@@ -431,6 +467,7 @@ class Store(pulumi.CustomResource):
                  encryption_type: Optional[pulumi.Input[str]] = None,
                  firewall_allow_azure_ips: Optional[pulumi.Input[str]] = None,
                  firewall_state: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['StoreIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -452,6 +489,7 @@ class Store(pulumi.CustomResource):
             __props__.__dict__["encryption_type"] = encryption_type
             __props__.__dict__["firewall_allow_azure_ips"] = firewall_allow_azure_ips
             __props__.__dict__["firewall_state"] = firewall_state
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -475,6 +513,7 @@ class Store(pulumi.CustomResource):
             endpoint: Optional[pulumi.Input[str]] = None,
             firewall_allow_azure_ips: Optional[pulumi.Input[str]] = None,
             firewall_state: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['StoreIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -492,6 +531,7 @@ class Store(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The Endpoint for the Data Lake Store.
         :param pulumi.Input[str] firewall_allow_azure_ips: are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
         :param pulumi.Input[str] firewall_state: the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
+        :param pulumi.Input[pulumi.InputType['StoreIdentityArgs']] identity: An `identity` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Lake Store.
@@ -507,6 +547,7 @@ class Store(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["firewall_allow_azure_ips"] = firewall_allow_azure_ips
         __props__.__dict__["firewall_state"] = firewall_state
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -553,6 +594,14 @@ class Store(pulumi.CustomResource):
         the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
         """
         return pulumi.get(self, "firewall_state")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.StoreIdentity']]:
+        """
+        An `identity` block defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

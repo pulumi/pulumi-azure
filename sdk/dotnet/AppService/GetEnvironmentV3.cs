@@ -70,13 +70,49 @@ namespace Pulumi.Azure.AppService
     public sealed class GetEnvironmentV3Result
     {
         /// <summary>
+        /// Are new Private Endpoint Connections allowed.
+        /// </summary>
+        public readonly bool AllowNewPrivateEndpointConnections;
+        /// <summary>
         /// A `cluster_setting` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEnvironmentV3ClusterSettingResult> ClusterSettings;
         /// <summary>
+        /// The number of Dedicated Hosts used by this ASEv3.
+        /// </summary>
+        public readonly int DedicatedHostCount;
+        /// <summary>
+        /// the DNS suffix for this App Service Environment V3.
+        /// </summary>
+        public readonly string DnsSuffix;
+        /// <summary>
+        /// The external outbound IP addresses of the App Service Environment V3.
+        /// </summary>
+        public readonly ImmutableArray<string> ExternalInboundIpAddresses;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// An Inbound Network Dependencies block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetEnvironmentV3InboundNetworkDependencyResult> InboundNetworkDependencies;
+        /// <summary>
+        /// The internal outbound IP addresses of the App Service Environment V3.
+        /// </summary>
+        public readonly ImmutableArray<string> InternalInboundIpAddresses;
+        /// <summary>
+        /// The Internal Load Balancing Mode of this ASEv3.
+        /// </summary>
+        public readonly string InternalLoadBalancingMode;
+        /// <summary>
+        /// The number of IP SSL addresses reserved for the App Service Environment V3.
+        /// </summary>
+        public readonly int IpSslAddressCount;
+        /// <summary>
+        /// The list of Outbound IP Addresses of Linux based Apps in this App Service Environment V3.
+        /// </summary>
+        public readonly ImmutableArray<string> LinuxOutboundIpAddresses;
         /// <summary>
         /// The location where the App Service Environment exists.
         /// </summary>
@@ -98,12 +134,35 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags assigned to the v3 App Service Environment.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Outbound addresses of Windows based Apps in this App Service Environment V3.
+        /// </summary>
+        public readonly ImmutableArray<string> WindowsOutboundIpAddresses;
+        public readonly bool ZoneRedundant;
 
         [OutputConstructor]
         private GetEnvironmentV3Result(
+            bool allowNewPrivateEndpointConnections,
+
             ImmutableArray<Outputs.GetEnvironmentV3ClusterSettingResult> clusterSettings,
 
+            int dedicatedHostCount,
+
+            string dnsSuffix,
+
+            ImmutableArray<string> externalInboundIpAddresses,
+
             string id,
+
+            ImmutableArray<Outputs.GetEnvironmentV3InboundNetworkDependencyResult> inboundNetworkDependencies,
+
+            ImmutableArray<string> internalInboundIpAddresses,
+
+            string internalLoadBalancingMode,
+
+            int ipSslAddressCount,
+
+            ImmutableArray<string> linuxOutboundIpAddresses,
 
             string location,
 
@@ -115,16 +174,31 @@ namespace Pulumi.Azure.AppService
 
             string subnetId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            ImmutableArray<string> windowsOutboundIpAddresses,
+
+            bool zoneRedundant)
         {
+            AllowNewPrivateEndpointConnections = allowNewPrivateEndpointConnections;
             ClusterSettings = clusterSettings;
+            DedicatedHostCount = dedicatedHostCount;
+            DnsSuffix = dnsSuffix;
+            ExternalInboundIpAddresses = externalInboundIpAddresses;
             Id = id;
+            InboundNetworkDependencies = inboundNetworkDependencies;
+            InternalInboundIpAddresses = internalInboundIpAddresses;
+            InternalLoadBalancingMode = internalLoadBalancingMode;
+            IpSslAddressCount = ipSslAddressCount;
+            LinuxOutboundIpAddresses = linuxOutboundIpAddresses;
             Location = location;
             Name = name;
             PricingTier = pricingTier;
             ResourceGroupName = resourceGroupName;
             SubnetId = subnetId;
             Tags = tags;
+            WindowsOutboundIpAddresses = windowsOutboundIpAddresses;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

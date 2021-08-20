@@ -216,7 +216,7 @@ class RegistryToken(pulumi.CustomResource):
             resource_group_name=azurerm_resource_group["rg"]["name"],
             actions=[
                 "repositories/repo1/content/read",
-                "repositories/repo1/content/create",
+                "repositories/repo1/content/write",
             ])
         example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
             container_registry_name=azurerm_container_registry["acr"]["name"],
@@ -268,7 +268,7 @@ class RegistryToken(pulumi.CustomResource):
             resource_group_name=azurerm_resource_group["rg"]["name"],
             actions=[
                 "repositories/repo1/content/read",
-                "repositories/repo1/content/create",
+                "repositories/repo1/content/write",
             ])
         example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
             container_registry_name=azurerm_container_registry["acr"]["name"],

@@ -57,6 +57,7 @@ import * as utilities from "../utilities";
  *     protocols: ["NFSv4.1"],
  *     securityStyle: "Unix",
  *     storageQuotaInGb: 100,
+ *     snapshotDirectoryVisible: false,
  *     createFromSnapshotResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
  *     dataProtectionReplication: {
  *         endpointType: "dst",
@@ -152,6 +153,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly serviceLevel!: pulumi.Output<string>;
     /**
+     * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+     */
+    public readonly snapshotDirectoryVisible!: pulumi.Output<boolean | undefined>;
+    /**
      * The maximum Storage Quota allowed for a file system in Gigabytes.
      */
     public readonly storageQuotaInGb!: pulumi.Output<number>;
@@ -193,6 +198,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["securityStyle"] = state ? state.securityStyle : undefined;
             inputs["serviceLevel"] = state ? state.serviceLevel : undefined;
+            inputs["snapshotDirectoryVisible"] = state ? state.snapshotDirectoryVisible : undefined;
             inputs["storageQuotaInGb"] = state ? state.storageQuotaInGb : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -231,6 +237,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["securityStyle"] = args ? args.securityStyle : undefined;
             inputs["serviceLevel"] = args ? args.serviceLevel : undefined;
+            inputs["snapshotDirectoryVisible"] = args ? args.snapshotDirectoryVisible : undefined;
             inputs["storageQuotaInGb"] = args ? args.storageQuotaInGb : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -297,6 +304,10 @@ export interface VolumeState {
      */
     serviceLevel?: pulumi.Input<string>;
     /**
+     * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+     */
+    snapshotDirectoryVisible?: pulumi.Input<boolean>;
+    /**
      * The maximum Storage Quota allowed for a file system in Gigabytes.
      */
     storageQuotaInGb?: pulumi.Input<number>;
@@ -362,6 +373,10 @@ export interface VolumeArgs {
      * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
      */
     serviceLevel: pulumi.Input<string>;
+    /**
+     * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+     */
+    snapshotDirectoryVisible?: pulumi.Input<boolean>;
     /**
      * The maximum Storage Quota allowed for a file system in Gigabytes.
      */

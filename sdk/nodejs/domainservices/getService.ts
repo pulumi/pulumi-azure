@@ -85,6 +85,7 @@ export interface GetServiceResult {
     readonly notifications: outputs.domainservices.GetServiceNotification[];
     readonly replicaSets: outputs.domainservices.GetServiceReplicaSet[];
     readonly resourceGroupName: string;
+    readonly resourceId: string;
     /**
      * A `secureLdap` block as defined below.
      */

@@ -63,6 +63,8 @@ import (
 type TriggerHttpRequest struct {
 	pulumi.CustomResourceState
 
+	// The URL for the workflow trigger
+	CallbackUrl pulumi.StringOutput `pulumi:"callbackUrl"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
 	// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
@@ -110,6 +112,8 @@ func GetTriggerHttpRequest(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TriggerHttpRequest resources.
 type triggerHttpRequestState struct {
+	// The URL for the workflow trigger
+	CallbackUrl *string `pulumi:"callbackUrl"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId *string `pulumi:"logicAppId"`
 	// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
@@ -123,6 +127,8 @@ type triggerHttpRequestState struct {
 }
 
 type TriggerHttpRequestState struct {
+	// The URL for the workflow trigger
+	CallbackUrl pulumi.StringPtrInput
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringPtrInput
 	// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.

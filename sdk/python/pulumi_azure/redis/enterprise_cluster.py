@@ -27,7 +27,7 @@ class EnterpriseClusterArgs:
         :param pulumi.Input[str] location: The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Redis Enterprise Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -107,7 +107,7 @@ class EnterpriseClusterArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+        A mapping of tags which should be assigned to the Redis Enterprise Cluster.
         """
         return pulumi.get(self, "tags")
 
@@ -148,7 +148,7 @@ class _EnterpriseClusterState:
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
         :param pulumi.Input[str] sku_name: The `sku_name` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `sku_name` defines the `name` of the sku, possible values are `Enterprise_E10`, `Enterprise_E20"`, `Enterprise_E50`, `Enterprise_E100`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `sku_name`, possible values for `Enteprise` skus are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` skus are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Redis Enterprise Cluster.
         :param pulumi.Input[str] version: Version of redis the cluster supports, e.g. '6'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
         """
@@ -250,7 +250,7 @@ class _EnterpriseClusterState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+        A mapping of tags which should be assigned to the Redis Enterprise Cluster.
         """
         return pulumi.get(self, "tags")
 
@@ -327,7 +327,7 @@ class EnterpriseCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
         :param pulumi.Input[str] sku_name: The `sku_name` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `sku_name` defines the `name` of the sku, possible values are `Enterprise_E10`, `Enterprise_E20"`, `Enterprise_E50`, `Enterprise_E100`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `sku_name`, possible values for `Enteprise` skus are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` skus are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Redis Enterprise Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
         """
         ...
@@ -439,7 +439,7 @@ class EnterpriseCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
         :param pulumi.Input[str] sku_name: The `sku_name` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `sku_name` defines the `name` of the sku, possible values are `Enterprise_E10`, `Enterprise_E20"`, `Enterprise_E50`, `Enterprise_E100`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `sku_name`, possible values for `Enteprise` skus are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` skus are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Redis Enterprise Cluster.
         :param pulumi.Input[str] version: Version of redis the cluster supports, e.g. '6'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
         """
@@ -510,7 +510,7 @@ class EnterpriseCluster(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+        A mapping of tags which should be assigned to the Redis Enterprise Cluster.
         """
         return pulumi.get(self, "tags")
 

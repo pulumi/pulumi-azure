@@ -208,7 +208,7 @@ class RegistryScopeMap(pulumi.CustomResource):
             resource_group_name=azurerm_resource_group["rg"]["name"],
             actions=[
                 "repositories/repo1/content/read",
-                "repositories/repo1/content/create",
+                "repositories/repo1/content/write",
             ])
         ```
 
@@ -255,7 +255,7 @@ class RegistryScopeMap(pulumi.CustomResource):
             resource_group_name=azurerm_resource_group["rg"]["name"],
             actions=[
                 "repositories/repo1/content/read",
-                "repositories/repo1/content/create",
+                "repositories/repo1/content/write",
             ])
         ```
 

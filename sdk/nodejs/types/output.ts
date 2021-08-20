@@ -1474,7 +1474,7 @@ export namespace appconfiguration {
         /**
          * Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
          */
-        type: string;
+        type?: string;
     }
 
     export interface ConfigurationStorePrimaryReadKey {
@@ -2188,6 +2188,9 @@ export namespace appservice {
          * An `azureBlobStorage` block as defined below.
          */
         azureBlobStorage?: outputs.appservice.AppServiceLogsApplicationLogsAzureBlobStorage;
+        /**
+         * Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+         */
         fileSystemLevel?: string;
     }
 
@@ -2570,6 +2573,21 @@ export namespace appservice {
          * The value for the Cluster Setting.
          */
         value: string;
+    }
+
+    export interface EnvironmentV3InboundNetworkDependency {
+        /**
+         * A short description of the purpose of the network traffic.
+         */
+        description: string;
+        /**
+         * A list of IP addresses that network traffic will originate from in CIDR notation.
+         */
+        ipAddresses: string[];
+        /**
+         * The ports that network traffic will arrive to the App Service Environment V3 on.
+         */
+        ports: string[];
     }
 
     export interface FunctionAppAuthSettings {
@@ -3600,6 +3618,21 @@ export namespace appservice {
          * The value for the Cluster Setting.
          */
         value: string;
+    }
+
+    export interface GetEnvironmentV3InboundNetworkDependency {
+        /**
+         * A short description of the purpose of the network traffic.
+         */
+        description: string;
+        /**
+         * A list of IP addresses that network traffic will originate from in CIDR notation.
+         */
+        ipAddresses: string[];
+        /**
+         * The ports that network traffic will arrive to the App Service Environment V3 on.
+         */
+        ports: string[];
     }
 
     export interface GetFunctionAppConnectionString {
@@ -9260,6 +9293,10 @@ export namespace containerservice {
          */
         type?: string;
         /**
+         * Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+         */
+        ultraSsdEnabled?: boolean;
+        /**
          * A `upgradeSettings` block as documented below.
          */
         upgradeSettings?: outputs.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettings;
@@ -11916,6 +11953,18 @@ export namespace datafactory {
     }
 }
 
+export namespace datalake {
+    export interface StoreIdentity {
+        principalId: string;
+        tenantId: string;
+        /**
+         * The Type of Identity which should be used for this Data Lake Store Account. At this time the only possible value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
+}
+
 export namespace dataprotection {
     export interface BackupPolicyDiskRetentionRule {
         /**
@@ -11998,6 +12047,21 @@ export namespace dataprotection {
          * Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
          */
         type?: string;
+    }
+
+    export interface GetBackupVaultIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of the Backup Vault.
+         */
+        type: string;
     }
 
 }
@@ -13574,7 +13638,7 @@ export namespace eventhub {
         /**
          * The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
          */
-        type: string;
+        type?: string;
     }
 
     export interface EventHubNamespaceNetworkRulesets {
@@ -14413,13 +14477,21 @@ export namespace frontdoor {
          */
         backendPoolName: string;
         /**
+         * Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
+         */
+        cacheDuration?: string;
+        /**
          * Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
          */
         cacheEnabled?: boolean;
         /**
-         * Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+         * Defines cache behaviour in relation to query string parameters. Valid options are `StripAll`, `StripAllExcept`, `StripOnly` or `StripNone`. Defaults to `StripAll`.
          */
         cacheQueryParameterStripDirective?: string;
+        /**
+         * Specify query parameters (array). Works only in combination with `cacheQueryParameterStripDirective` set to `StripAllExcept` or `StripOnly`.
+         */
+        cacheQueryParameters?: string[];
         /**
          * Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
          */
@@ -17827,7 +17899,7 @@ export namespace kusto {
          */
         capacity: number;
         /**
-         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E64i_v3`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`.
+         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E64i_v3`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s`, `Standard_L8s`, `Standard_L16s_v2` and `Standard_L8s_v2`.
          */
         name: string;
     }
@@ -18056,6 +18128,21 @@ export namespace logicapps {
         actionResult: string;
     }
 
+    export interface IntegrationAccountCertificateKeyVaultKey {
+        /**
+         * The name of Key Vault Key.
+         */
+        keyName: string;
+        /**
+         * The ID of the Key Vault.
+         */
+        keyVaultId: string;
+        /**
+         * The version of Key Vault Key.
+         */
+        keyVersion?: string;
+    }
+
     export interface TriggerRecurrenceSchedule {
         /**
          * Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
@@ -18098,6 +18185,51 @@ export namespace machinelearning {
         scaleDownNodesAfterIdleDuration: string;
     }
 
+    export interface ComputeInstanceAssignToUser {
+        /**
+         * User’s AAD Object Id.
+         */
+        objectId?: string;
+        /**
+         * User’s AAD Tenant Id.
+         */
+        tenantId?: string;
+    }
+
+    export interface ComputeInstanceIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
+         */
+        principalId: string;
+        /**
+         * User’s AAD Tenant Id.
+         */
+        tenantId: string;
+        /**
+         * The Type of Identity which should be used for this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Instance to be created.
+         */
+        type: string;
+    }
+
+    export interface ComputeInstanceSsh {
+        /**
+         * Describes the port for connecting through SSH.
+         */
+        port: number;
+        /**
+         * Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+         */
+        publicKey: string;
+        /**
+         * The admin username of this Machine Learning Compute Instance.
+         */
+        username: string;
+    }
+
     export interface GetWorkspaceIdentity {
         principalId: string;
         tenantId: string;
@@ -18125,6 +18257,25 @@ export namespace machinelearning {
          * Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
          */
         overwriteExistingDomain?: boolean;
+    }
+
+    export interface SynapseSparkIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+         */
+        tenantId: string;
+        /**
+         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Synapse Spark to be created.
+         */
+        type: string;
     }
 
     export interface WorkspaceIdentity {
@@ -22832,6 +22983,67 @@ export namespace network {
         publicCertData: string;
     }
 
+    export interface GetVpnGatewayBgpSetting {
+        /**
+         * The ASN of the BGP Speaker.
+         */
+        asn: number;
+        /**
+         * The Address which should be used for the BGP Peering.
+         */
+        bgpPeeringAddress: string;
+        /**
+         * an `instanceBgpPeeringAddress` block as defined below.
+         */
+        instance0BgpPeeringAddresses: outputs.network.GetVpnGatewayBgpSettingInstance0BgpPeeringAddress[];
+        /**
+         * an `instanceBgpPeeringAddress` block as defined below.
+         */
+        instance1BgpPeeringAddresses: outputs.network.GetVpnGatewayBgpSettingInstance1BgpPeeringAddress[];
+        /**
+         * The weight added to Routes learned from this BGP Speaker.
+         */
+        peerWeight: number;
+    }
+
+    export interface GetVpnGatewayBgpSettingInstance0BgpPeeringAddress {
+        /**
+         * A list of custom BGP peering addresses to assigned to this instance.
+         */
+        customIps: string[];
+        /**
+         * The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+         */
+        defaultIps: string[];
+        /**
+         * The pre-defined id of VPN Gateway Ip Configuration.
+         */
+        ipConfigurationId: string;
+        /**
+         * The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+         */
+        tunnelIps: string[];
+    }
+
+    export interface GetVpnGatewayBgpSettingInstance1BgpPeeringAddress {
+        /**
+         * A list of custom BGP peering addresses to assigned to this instance.
+         */
+        customIps: string[];
+        /**
+         * The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+         */
+        defaultIps: string[];
+        /**
+         * The pre-defined id of VPN Gateway Ip Configuration.
+         */
+        ipConfigurationId: string;
+        /**
+         * The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+         */
+        tunnelIps: string[];
+    }
+
     export interface LocalNetworkGatewayBgpSettings {
         /**
          * The BGP speaker's ASN.
@@ -24164,6 +24376,7 @@ export namespace network {
          */
         peeringAddress: string;
     }
+
 }
 
 export namespace notificationhub {
@@ -25861,7 +26074,7 @@ export namespace sql {
          */
         retentionInDays?: number;
         /**
-         * (Optional)  Specifies the access key to use for the auditing storage account.
+         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
          */
         storageAccountAccessKey?: string;
         /**
@@ -25869,7 +26082,7 @@ export namespace sql {
          */
         storageAccountAccessKeyIsSecondary?: boolean;
         /**
-         * (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         * Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: string;
     }
@@ -25887,6 +26100,37 @@ export namespace sql {
          * Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
          */
         type: string;
+    }
+
+    export interface SqlServerThreatDetectionPolicy {
+        /**
+         * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Data_Exfiltration`, `Sql_Injection`, `Sql_Injection_Vulnerability` and `Unsafe_Action"`,.
+         */
+        disabledAlerts?: string[];
+        /**
+         * Should the account administrators be emailed when this alert is triggered?
+         */
+        emailAccountAdmins: boolean;
+        /**
+         * A list of email addresses which alerts should be sent to.
+         */
+        emailAddresses: string[];
+        /**
+         * Specifies the number of days to keep in the Threat Detection audit logs.
+         */
+        retentionDays?: number;
+        /**
+         * The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+         */
+        state?: string;
+        /**
+         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+         */
+        storageAccountAccessKey?: string;
+        /**
+         * Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         */
+        storageEndpoint?: string;
     }
 
 }

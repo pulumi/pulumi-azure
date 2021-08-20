@@ -121,6 +121,8 @@ type KubernetesCluster struct {
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled pulumi.BoolOutput `pulumi:"privateClusterEnabled"`
+	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrOutput `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
 	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
@@ -225,6 +227,8 @@ type kubernetesClusterState struct {
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled *bool `pulumi:"privateClusterEnabled"`
+	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
@@ -295,6 +299,8 @@ type KubernetesClusterState struct {
 	NodeResourceGroup pulumi.StringPtrInput
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled pulumi.BoolPtrInput
+	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
@@ -359,6 +365,8 @@ type kubernetesClusterArgs struct {
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled *bool `pulumi:"privateClusterEnabled"`
+	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// Deprecated: Deprecated in favour of `private_cluster_enabled`
@@ -418,6 +426,8 @@ type KubernetesClusterArgs struct {
 	NodeResourceGroup pulumi.StringPtrInput
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled pulumi.BoolPtrInput
+	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// Deprecated: Deprecated in favour of `private_cluster_enabled`

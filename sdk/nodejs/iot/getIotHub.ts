@@ -59,6 +59,10 @@ export interface GetIotHubArgs {
  */
 export interface GetIotHubResult {
     /**
+     * The Hostname of the IoTHub.
+     */
+    readonly hostname: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

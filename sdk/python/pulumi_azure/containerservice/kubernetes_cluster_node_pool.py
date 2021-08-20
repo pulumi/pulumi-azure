@@ -43,6 +43,7 @@ class KubernetesClusterNodePoolArgs:
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
                  upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None):
         """
@@ -75,6 +76,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
         :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
         """
@@ -132,6 +134,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "spot_max_price", spot_max_price)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if ultra_ssd_enabled is not None:
+            pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
         if upgrade_settings is not None:
             pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if vnet_subnet_id is not None:
@@ -474,6 +478,18 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="ultraSsdEnabled")
+    def ultra_ssd_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+        """
+        return pulumi.get(self, "ultra_ssd_enabled")
+
+    @ultra_ssd_enabled.setter
+    def ultra_ssd_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ultra_ssd_enabled", value)
+
+    @property
     @pulumi.getter(name="upgradeSettings")
     def upgrade_settings(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]:
         """
@@ -528,6 +544,7 @@ class _KubernetesClusterNodePoolState:
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
                  upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None):
@@ -560,6 +577,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
         :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
@@ -618,6 +636,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "spot_max_price", spot_max_price)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if ultra_ssd_enabled is not None:
+            pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
         if upgrade_settings is not None:
             pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if vm_size is not None:
@@ -950,6 +970,18 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="ultraSsdEnabled")
+    def ultra_ssd_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+        """
+        return pulumi.get(self, "ultra_ssd_enabled")
+
+    @ultra_ssd_enabled.setter
+    def ultra_ssd_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ultra_ssd_enabled", value)
+
+    @property
     @pulumi.getter(name="upgradeSettings")
     def upgrade_settings(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]:
         """
@@ -1018,6 +1050,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
                  upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -1060,6 +1093,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
@@ -1121,6 +1155,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
                  upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -1165,6 +1200,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
             __props__.__dict__["spot_max_price"] = spot_max_price
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["ultra_ssd_enabled"] = ultra_ssd_enabled
             __props__.__dict__["upgrade_settings"] = upgrade_settings
             if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
@@ -1207,6 +1243,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
             spot_max_price: Optional[pulumi.Input[float]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
             upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
             vm_size: Optional[pulumi.Input[str]] = None,
             vnet_subnet_id: Optional[pulumi.Input[str]] = None) -> 'KubernetesClusterNodePool':
@@ -1244,6 +1281,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
@@ -1279,6 +1317,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__.__dict__["spot_max_price"] = spot_max_price
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["ultra_ssd_enabled"] = ultra_ssd_enabled
         __props__.__dict__["upgrade_settings"] = upgrade_settings
         __props__.__dict__["vm_size"] = vm_size
         __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
@@ -1499,6 +1538,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="ultraSsdEnabled")
+    def ultra_ssd_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+        """
+        return pulumi.get(self, "ultra_ssd_enabled")
 
     @property
     @pulumi.getter(name="upgradeSettings")

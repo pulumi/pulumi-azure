@@ -11,6 +11,7 @@ export * from "./backupPolicyBlobStorage";
 export * from "./backupPolicyDisk";
 export * from "./backupPolicyPostgresql";
 export * from "./backupVault";
+export * from "./getBackupVault";
 
 // Import resources to register:
 import { BackupInstanceDisk } from "./backupInstanceDisk";

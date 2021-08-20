@@ -100,6 +100,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? Type;
         /// <summary>
+        /// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+        /// </summary>
+        public readonly bool? UltraSsdEnabled;
+        /// <summary>
         /// A `upgrade_settings` block as documented below.
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolUpgradeSettings? UpgradeSettings;
@@ -160,6 +164,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? type,
 
+            bool? ultraSsdEnabled,
+
             Outputs.KubernetesClusterDefaultNodePoolUpgradeSettings? upgradeSettings,
 
             string vmSize,
@@ -189,6 +195,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             ProximityPlacementGroupId = proximityPlacementGroupId;
             Tags = tags;
             Type = type;
+            UltraSsdEnabled = ultraSsdEnabled;
             UpgradeSettings = upgradeSettings;
             VmSize = vmSize;
             VnetSubnetId = vnetSubnetId;

@@ -11,7 +11,11 @@ from .. import _utilities
 __all__ = [
     'ComputeClusterIdentity',
     'ComputeClusterScaleSettings',
+    'ComputeInstanceAssignToUser',
+    'ComputeInstanceIdentity',
+    'ComputeInstanceSsh',
     'InferenceClusterSsl',
+    'SynapseSparkIdentity',
     'WorkspaceIdentity',
     'GetWorkspaceIdentityResult',
 ]
@@ -131,6 +135,190 @@ class ComputeClusterScaleSettings(dict):
 
 
 @pulumi.output_type
+class ComputeInstanceAssignToUser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeInstanceAssignToUser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeInstanceAssignToUser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeInstanceAssignToUser.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str object_id: User’s AAD Object Id.
+        :param str tenant_id: User’s AAD Tenant Id.
+        """
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        User’s AAD Object Id.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        User’s AAD Tenant Id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class ComputeInstanceIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeInstanceIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeInstanceIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeInstanceIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The Type of Identity which should be used for this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
+        :param str tenant_id: User’s AAD Tenant Id.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Type of Identity which should be used for this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Instance to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        User’s AAD Tenant Id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class ComputeInstanceSsh(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicKey":
+            suggest = "public_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeInstanceSsh. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeInstanceSsh.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeInstanceSsh.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 public_key: str,
+                 port: Optional[int] = None,
+                 username: Optional[str] = None):
+        """
+        :param str public_key: Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+        :param int port: Describes the port for connecting through SSH.
+        :param str username: The admin username of this Machine Learning Compute Instance.
+        """
+        pulumi.set(__self__, "public_key", public_key)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> str:
+        """
+        Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+        """
+        return pulumi.get(self, "public_key")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        Describes the port for connecting through SSH.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The admin username of this Machine Learning Compute Instance.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
 class InferenceClusterSsl(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -214,6 +402,81 @@ class InferenceClusterSsl(dict):
         Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "overwrite_existing_domain")
+
+
+@pulumi.output_type
+class SynapseSparkIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SynapseSparkIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SynapseSparkIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SynapseSparkIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Synapse Spark to be created.
+        :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
+        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Synapse Spark to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of User Managed Identity ID's which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

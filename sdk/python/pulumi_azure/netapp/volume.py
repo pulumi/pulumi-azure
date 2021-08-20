@@ -29,6 +29,7 @@ class VolumeArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
+                 snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Volume resource.
@@ -46,6 +47,7 @@ class VolumeArgs:
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+        :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -69,6 +71,8 @@ class VolumeArgs:
             pulumi.set(__self__, "protocols", protocols)
         if security_style is not None:
             pulumi.set(__self__, "security_style", security_style)
+        if snapshot_directory_visible is not None:
+            pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -241,6 +245,18 @@ class VolumeArgs:
         pulumi.set(self, "security_style", value)
 
     @property
+    @pulumi.getter(name="snapshotDirectoryVisible")
+    def snapshot_directory_visible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        """
+        return pulumi.get(self, "snapshot_directory_visible")
+
+    @snapshot_directory_visible.setter
+    def snapshot_directory_visible(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "snapshot_directory_visible", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -268,6 +284,7 @@ class _VolumeState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
+                 snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
                  storage_quota_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -286,6 +303,7 @@ class _VolumeState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
         :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -315,6 +333,8 @@ class _VolumeState:
             pulumi.set(__self__, "security_style", security_style)
         if service_level is not None:
             pulumi.set(__self__, "service_level", service_level)
+        if snapshot_directory_visible is not None:
+            pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
         if storage_quota_in_gb is not None:
             pulumi.set(__self__, "storage_quota_in_gb", storage_quota_in_gb)
         if subnet_id is not None:
@@ -469,6 +489,18 @@ class _VolumeState:
         pulumi.set(self, "service_level", value)
 
     @property
+    @pulumi.getter(name="snapshotDirectoryVisible")
+    def snapshot_directory_visible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        """
+        return pulumi.get(self, "snapshot_directory_visible")
+
+    @snapshot_directory_visible.setter
+    def snapshot_directory_visible(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "snapshot_directory_visible", value)
+
+    @property
     @pulumi.getter(name="storageQuotaInGb")
     def storage_quota_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
@@ -533,6 +565,7 @@ class Volume(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
+                 snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
                  storage_quota_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -586,6 +619,7 @@ class Volume(pulumi.CustomResource):
             protocols=["NFSv4.1"],
             security_style="Unix",
             storage_quota_in_gb=100,
+            snapshot_directory_visible=False,
             create_from_snapshot_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
             data_protection_replication=azure.netapp.VolumeDataProtectionReplicationArgs(
                 endpoint_type="dst",
@@ -616,6 +650,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
         :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -675,6 +710,7 @@ class Volume(pulumi.CustomResource):
             protocols=["NFSv4.1"],
             security_style="Unix",
             storage_quota_in_gb=100,
+            snapshot_directory_visible=False,
             create_from_snapshot_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
             data_protection_replication=azure.netapp.VolumeDataProtectionReplicationArgs(
                 endpoint_type="dst",
@@ -718,6 +754,7 @@ class Volume(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
+                 snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
                  storage_quota_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -753,6 +790,7 @@ class Volume(pulumi.CustomResource):
             if service_level is None and not opts.urn:
                 raise TypeError("Missing required property 'service_level'")
             __props__.__dict__["service_level"] = service_level
+            __props__.__dict__["snapshot_directory_visible"] = snapshot_directory_visible
             if storage_quota_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_quota_in_gb'")
             __props__.__dict__["storage_quota_in_gb"] = storage_quota_in_gb
@@ -786,6 +824,7 @@ class Volume(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             security_style: Optional[pulumi.Input[str]] = None,
             service_level: Optional[pulumi.Input[str]] = None,
+            snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
             storage_quota_in_gb: Optional[pulumi.Input[int]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -809,6 +848,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
         :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -830,6 +870,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["security_style"] = security_style
         __props__.__dict__["service_level"] = service_level
+        __props__.__dict__["snapshot_directory_visible"] = snapshot_directory_visible
         __props__.__dict__["storage_quota_in_gb"] = storage_quota_in_gb
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
@@ -931,6 +972,14 @@ class Volume(pulumi.CustomResource):
         The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
         """
         return pulumi.get(self, "service_level")
+
+    @property
+    @pulumi.getter(name="snapshotDirectoryVisible")
+    def snapshot_directory_visible(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        """
+        return pulumi.get(self, "snapshot_directory_visible")
 
     @property
     @pulumi.getter(name="storageQuotaInGb")

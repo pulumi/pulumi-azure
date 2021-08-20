@@ -6,8 +6,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .compute_cluster import *
+from .compute_instance import *
 from .get_workspace import *
 from .inference_cluster import *
+from .synapse_spark import *
 from .workspace import *
 from ._inputs import *
 from . import outputs

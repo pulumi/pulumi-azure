@@ -95,6 +95,7 @@ import (
 // 			},
 // 			SecurityStyle:                pulumi.String("Unix"),
 // 			StorageQuotaInGb:             pulumi.Int(100),
+// 			SnapshotDirectoryVisible:     pulumi.Bool(false),
 // 			CreateFromSnapshotResourceId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1"),
 // 			DataProtectionReplication: &netapp.VolumeDataProtectionReplicationArgs{
 // 				EndpointType:           pulumi.String("dst"),
@@ -145,6 +146,8 @@ type Volume struct {
 	SecurityStyle pulumi.StringOutput `pulumi:"securityStyle"`
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
 	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
+	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+	SnapshotDirectoryVisible pulumi.BoolPtrOutput `pulumi:"snapshotDirectoryVisible"`
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
 	StorageQuotaInGb pulumi.IntOutput `pulumi:"storageQuotaInGb"`
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
@@ -229,6 +232,8 @@ type volumeState struct {
 	SecurityStyle *string `pulumi:"securityStyle"`
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
 	ServiceLevel *string `pulumi:"serviceLevel"`
+	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
 	StorageQuotaInGb *int `pulumi:"storageQuotaInGb"`
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
@@ -264,6 +269,8 @@ type VolumeState struct {
 	SecurityStyle pulumi.StringPtrInput
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
 	ServiceLevel pulumi.StringPtrInput
+	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+	SnapshotDirectoryVisible pulumi.BoolPtrInput
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
 	StorageQuotaInGb pulumi.IntPtrInput
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
@@ -301,6 +308,8 @@ type volumeArgs struct {
 	SecurityStyle *string `pulumi:"securityStyle"`
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
 	ServiceLevel string `pulumi:"serviceLevel"`
+	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
 	StorageQuotaInGb int `pulumi:"storageQuotaInGb"`
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
@@ -335,6 +344,8 @@ type VolumeArgs struct {
 	SecurityStyle pulumi.StringPtrInput
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
 	ServiceLevel pulumi.StringInput
+	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+	SnapshotDirectoryVisible pulumi.BoolPtrInput
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
 	StorageQuotaInGb pulumi.IntInput
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.

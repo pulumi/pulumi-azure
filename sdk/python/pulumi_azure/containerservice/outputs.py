@@ -1970,6 +1970,8 @@ class KubernetesClusterDefaultNodePool(dict):
             suggest = "os_disk_type"
         elif key == "proximityPlacementGroupId":
             suggest = "proximity_placement_group_id"
+        elif key == "ultraSsdEnabled":
+            suggest = "ultra_ssd_enabled"
         elif key == "upgradeSettings":
             suggest = "upgrade_settings"
         elif key == "vnetSubnetId":
@@ -2011,6 +2013,7 @@ class KubernetesClusterDefaultNodePool(dict):
                  proximity_placement_group_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  type: Optional[str] = None,
+                 ultra_ssd_enabled: Optional[bool] = None,
                  upgrade_settings: Optional['outputs.KubernetesClusterDefaultNodePoolUpgradeSettings'] = None,
                  vnet_subnet_id: Optional[str] = None):
         """
@@ -2036,6 +2039,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param Mapping[str, str] tags: A mapping of tags to assign to the Node Pool.
         :param str type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+        :param bool ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
         :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs' upgrade_settings: A `upgrade_settings` block as documented below.
         :param str vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
         """
@@ -2085,6 +2089,8 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if ultra_ssd_enabled is not None:
+            pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
         if upgrade_settings is not None:
             pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if vnet_subnet_id is not None:
@@ -2275,6 +2281,14 @@ class KubernetesClusterDefaultNodePool(dict):
         The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="ultraSsdEnabled")
+    def ultra_ssd_enabled(self) -> Optional[bool]:
+        """
+        Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+        """
+        return pulumi.get(self, "ultra_ssd_enabled")
 
     @property
     @pulumi.getter(name="upgradeSettings")

@@ -58,6 +58,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterReverseProxyCertificateArgs'] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         :param pulumi.Input['ClusterReverseProxyCertificateCommonNamesArgs'] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_policy: A `upgrade_policy` block as defined below.
         """
         pulumi.set(__self__, "management_endpoint", management_endpoint)
         pulumi.set(__self__, "node_types", node_types)
@@ -339,6 +340,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="upgradePolicy")
     def upgrade_policy(self) -> Optional[pulumi.Input['ClusterUpgradePolicyArgs']]:
+        """
+        A `upgrade_policy` block as defined below.
+        """
         return pulumi.get(self, "upgrade_policy")
 
     @upgrade_policy.setter
@@ -393,6 +397,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterReverseProxyCertificateCommonNamesArgs'] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
+        :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_policy: A `upgrade_policy` block as defined below.
         :param pulumi.Input[str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
         """
         if add_on_features is not None:
@@ -683,6 +688,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="upgradePolicy")
     def upgrade_policy(self) -> Optional[pulumi.Input['ClusterUpgradePolicyArgs']]:
+        """
+        A `upgrade_policy` block as defined below.
+        """
         return pulumi.get(self, "upgrade_policy")
 
     @upgrade_policy.setter
@@ -785,6 +793,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
+        :param pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']] upgrade_policy: A `upgrade_policy` block as defined below.
         :param pulumi.Input[str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
         """
         ...
@@ -969,6 +978,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
+        :param pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']] upgrade_policy: A `upgrade_policy` block as defined below.
         :param pulumi.Input[str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1162,6 +1172,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="upgradePolicy")
     def upgrade_policy(self) -> pulumi.Output[Optional['outputs.ClusterUpgradePolicy']]:
+        """
+        A `upgrade_policy` block as defined below.
+        """
         return pulumi.get(self, "upgrade_policy")
 
     @property

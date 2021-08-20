@@ -2094,7 +2094,8 @@ func (o AppServiceLogsPtrOutput) HttpLogs() AppServiceLogsHttpLogsPtrOutput {
 type AppServiceLogsApplicationLogs struct {
 	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage *AppServiceLogsApplicationLogsAzureBlobStorage `pulumi:"azureBlobStorage"`
-	FileSystemLevel  *string                                        `pulumi:"fileSystemLevel"`
+	// Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+	FileSystemLevel *string `pulumi:"fileSystemLevel"`
 }
 
 // AppServiceLogsApplicationLogsInput is an input type that accepts AppServiceLogsApplicationLogsArgs and AppServiceLogsApplicationLogsOutput values.
@@ -2111,7 +2112,8 @@ type AppServiceLogsApplicationLogsInput interface {
 type AppServiceLogsApplicationLogsArgs struct {
 	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage AppServiceLogsApplicationLogsAzureBlobStoragePtrInput `pulumi:"azureBlobStorage"`
-	FileSystemLevel  pulumi.StringPtrInput                                 `pulumi:"fileSystemLevel"`
+	// Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+	FileSystemLevel pulumi.StringPtrInput `pulumi:"fileSystemLevel"`
 }
 
 func (AppServiceLogsApplicationLogsArgs) ElementType() reflect.Type {
@@ -2198,6 +2200,7 @@ func (o AppServiceLogsApplicationLogsOutput) AzureBlobStorage() AppServiceLogsAp
 	}).(AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput)
 }
 
+// Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
 func (o AppServiceLogsApplicationLogsOutput) FileSystemLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceLogsApplicationLogs) *string { return v.FileSystemLevel }).(pulumi.StringPtrOutput)
 }
@@ -2230,6 +2233,7 @@ func (o AppServiceLogsApplicationLogsPtrOutput) AzureBlobStorage() AppServiceLog
 	}).(AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput)
 }
 
+// Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
 func (o AppServiceLogsApplicationLogsPtrOutput) FileSystemLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppServiceLogsApplicationLogs) *string {
 		if v == nil {
@@ -5159,6 +5163,121 @@ func (o EnvironmentV3ClusterSettingArrayOutput) Index(i pulumi.IntInput) Environ
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentV3ClusterSetting {
 		return vs[0].([]EnvironmentV3ClusterSetting)[vs[1].(int)]
 	}).(EnvironmentV3ClusterSettingOutput)
+}
+
+type EnvironmentV3InboundNetworkDependency struct {
+	// A short description of the purpose of the network traffic.
+	Description *string `pulumi:"description"`
+	// A list of IP addresses that network traffic will originate from in CIDR notation.
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// The ports that network traffic will arrive to the App Service Environment V3 on.
+	Ports []string `pulumi:"ports"`
+}
+
+// EnvironmentV3InboundNetworkDependencyInput is an input type that accepts EnvironmentV3InboundNetworkDependencyArgs and EnvironmentV3InboundNetworkDependencyOutput values.
+// You can construct a concrete instance of `EnvironmentV3InboundNetworkDependencyInput` via:
+//
+//          EnvironmentV3InboundNetworkDependencyArgs{...}
+type EnvironmentV3InboundNetworkDependencyInput interface {
+	pulumi.Input
+
+	ToEnvironmentV3InboundNetworkDependencyOutput() EnvironmentV3InboundNetworkDependencyOutput
+	ToEnvironmentV3InboundNetworkDependencyOutputWithContext(context.Context) EnvironmentV3InboundNetworkDependencyOutput
+}
+
+type EnvironmentV3InboundNetworkDependencyArgs struct {
+	// A short description of the purpose of the network traffic.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A list of IP addresses that network traffic will originate from in CIDR notation.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+	// The ports that network traffic will arrive to the App Service Environment V3 on.
+	Ports pulumi.StringArrayInput `pulumi:"ports"`
+}
+
+func (EnvironmentV3InboundNetworkDependencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentV3InboundNetworkDependency)(nil)).Elem()
+}
+
+func (i EnvironmentV3InboundNetworkDependencyArgs) ToEnvironmentV3InboundNetworkDependencyOutput() EnvironmentV3InboundNetworkDependencyOutput {
+	return i.ToEnvironmentV3InboundNetworkDependencyOutputWithContext(context.Background())
+}
+
+func (i EnvironmentV3InboundNetworkDependencyArgs) ToEnvironmentV3InboundNetworkDependencyOutputWithContext(ctx context.Context) EnvironmentV3InboundNetworkDependencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentV3InboundNetworkDependencyOutput)
+}
+
+// EnvironmentV3InboundNetworkDependencyArrayInput is an input type that accepts EnvironmentV3InboundNetworkDependencyArray and EnvironmentV3InboundNetworkDependencyArrayOutput values.
+// You can construct a concrete instance of `EnvironmentV3InboundNetworkDependencyArrayInput` via:
+//
+//          EnvironmentV3InboundNetworkDependencyArray{ EnvironmentV3InboundNetworkDependencyArgs{...} }
+type EnvironmentV3InboundNetworkDependencyArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentV3InboundNetworkDependencyArrayOutput() EnvironmentV3InboundNetworkDependencyArrayOutput
+	ToEnvironmentV3InboundNetworkDependencyArrayOutputWithContext(context.Context) EnvironmentV3InboundNetworkDependencyArrayOutput
+}
+
+type EnvironmentV3InboundNetworkDependencyArray []EnvironmentV3InboundNetworkDependencyInput
+
+func (EnvironmentV3InboundNetworkDependencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentV3InboundNetworkDependency)(nil)).Elem()
+}
+
+func (i EnvironmentV3InboundNetworkDependencyArray) ToEnvironmentV3InboundNetworkDependencyArrayOutput() EnvironmentV3InboundNetworkDependencyArrayOutput {
+	return i.ToEnvironmentV3InboundNetworkDependencyArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentV3InboundNetworkDependencyArray) ToEnvironmentV3InboundNetworkDependencyArrayOutputWithContext(ctx context.Context) EnvironmentV3InboundNetworkDependencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentV3InboundNetworkDependencyArrayOutput)
+}
+
+type EnvironmentV3InboundNetworkDependencyOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentV3InboundNetworkDependencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentV3InboundNetworkDependency)(nil)).Elem()
+}
+
+func (o EnvironmentV3InboundNetworkDependencyOutput) ToEnvironmentV3InboundNetworkDependencyOutput() EnvironmentV3InboundNetworkDependencyOutput {
+	return o
+}
+
+func (o EnvironmentV3InboundNetworkDependencyOutput) ToEnvironmentV3InboundNetworkDependencyOutputWithContext(ctx context.Context) EnvironmentV3InboundNetworkDependencyOutput {
+	return o
+}
+
+// A short description of the purpose of the network traffic.
+func (o EnvironmentV3InboundNetworkDependencyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentV3InboundNetworkDependency) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A list of IP addresses that network traffic will originate from in CIDR notation.
+func (o EnvironmentV3InboundNetworkDependencyOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EnvironmentV3InboundNetworkDependency) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The ports that network traffic will arrive to the App Service Environment V3 on.
+func (o EnvironmentV3InboundNetworkDependencyOutput) Ports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EnvironmentV3InboundNetworkDependency) []string { return v.Ports }).(pulumi.StringArrayOutput)
+}
+
+type EnvironmentV3InboundNetworkDependencyArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentV3InboundNetworkDependencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentV3InboundNetworkDependency)(nil)).Elem()
+}
+
+func (o EnvironmentV3InboundNetworkDependencyArrayOutput) ToEnvironmentV3InboundNetworkDependencyArrayOutput() EnvironmentV3InboundNetworkDependencyArrayOutput {
+	return o
+}
+
+func (o EnvironmentV3InboundNetworkDependencyArrayOutput) ToEnvironmentV3InboundNetworkDependencyArrayOutputWithContext(ctx context.Context) EnvironmentV3InboundNetworkDependencyArrayOutput {
+	return o
+}
+
+func (o EnvironmentV3InboundNetworkDependencyArrayOutput) Index(i pulumi.IntInput) EnvironmentV3InboundNetworkDependencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentV3InboundNetworkDependency {
+		return vs[0].([]EnvironmentV3InboundNetworkDependency)[vs[1].(int)]
+	}).(EnvironmentV3InboundNetworkDependencyOutput)
 }
 
 type FunctionAppAuthSettings struct {
@@ -17069,6 +17188,121 @@ func (o GetEnvironmentV3ClusterSettingArrayOutput) Index(i pulumi.IntInput) GetE
 	}).(GetEnvironmentV3ClusterSettingOutput)
 }
 
+type GetEnvironmentV3InboundNetworkDependency struct {
+	// A short description of the purpose of the network traffic.
+	Description string `pulumi:"description"`
+	// A list of IP addresses that network traffic will originate from in CIDR notation.
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// The ports that network traffic will arrive to the App Service Environment V3 on.
+	Ports []string `pulumi:"ports"`
+}
+
+// GetEnvironmentV3InboundNetworkDependencyInput is an input type that accepts GetEnvironmentV3InboundNetworkDependencyArgs and GetEnvironmentV3InboundNetworkDependencyOutput values.
+// You can construct a concrete instance of `GetEnvironmentV3InboundNetworkDependencyInput` via:
+//
+//          GetEnvironmentV3InboundNetworkDependencyArgs{...}
+type GetEnvironmentV3InboundNetworkDependencyInput interface {
+	pulumi.Input
+
+	ToGetEnvironmentV3InboundNetworkDependencyOutput() GetEnvironmentV3InboundNetworkDependencyOutput
+	ToGetEnvironmentV3InboundNetworkDependencyOutputWithContext(context.Context) GetEnvironmentV3InboundNetworkDependencyOutput
+}
+
+type GetEnvironmentV3InboundNetworkDependencyArgs struct {
+	// A short description of the purpose of the network traffic.
+	Description pulumi.StringInput `pulumi:"description"`
+	// A list of IP addresses that network traffic will originate from in CIDR notation.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+	// The ports that network traffic will arrive to the App Service Environment V3 on.
+	Ports pulumi.StringArrayInput `pulumi:"ports"`
+}
+
+func (GetEnvironmentV3InboundNetworkDependencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnvironmentV3InboundNetworkDependency)(nil)).Elem()
+}
+
+func (i GetEnvironmentV3InboundNetworkDependencyArgs) ToGetEnvironmentV3InboundNetworkDependencyOutput() GetEnvironmentV3InboundNetworkDependencyOutput {
+	return i.ToGetEnvironmentV3InboundNetworkDependencyOutputWithContext(context.Background())
+}
+
+func (i GetEnvironmentV3InboundNetworkDependencyArgs) ToGetEnvironmentV3InboundNetworkDependencyOutputWithContext(ctx context.Context) GetEnvironmentV3InboundNetworkDependencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentV3InboundNetworkDependencyOutput)
+}
+
+// GetEnvironmentV3InboundNetworkDependencyArrayInput is an input type that accepts GetEnvironmentV3InboundNetworkDependencyArray and GetEnvironmentV3InboundNetworkDependencyArrayOutput values.
+// You can construct a concrete instance of `GetEnvironmentV3InboundNetworkDependencyArrayInput` via:
+//
+//          GetEnvironmentV3InboundNetworkDependencyArray{ GetEnvironmentV3InboundNetworkDependencyArgs{...} }
+type GetEnvironmentV3InboundNetworkDependencyArrayInput interface {
+	pulumi.Input
+
+	ToGetEnvironmentV3InboundNetworkDependencyArrayOutput() GetEnvironmentV3InboundNetworkDependencyArrayOutput
+	ToGetEnvironmentV3InboundNetworkDependencyArrayOutputWithContext(context.Context) GetEnvironmentV3InboundNetworkDependencyArrayOutput
+}
+
+type GetEnvironmentV3InboundNetworkDependencyArray []GetEnvironmentV3InboundNetworkDependencyInput
+
+func (GetEnvironmentV3InboundNetworkDependencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEnvironmentV3InboundNetworkDependency)(nil)).Elem()
+}
+
+func (i GetEnvironmentV3InboundNetworkDependencyArray) ToGetEnvironmentV3InboundNetworkDependencyArrayOutput() GetEnvironmentV3InboundNetworkDependencyArrayOutput {
+	return i.ToGetEnvironmentV3InboundNetworkDependencyArrayOutputWithContext(context.Background())
+}
+
+func (i GetEnvironmentV3InboundNetworkDependencyArray) ToGetEnvironmentV3InboundNetworkDependencyArrayOutputWithContext(ctx context.Context) GetEnvironmentV3InboundNetworkDependencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentV3InboundNetworkDependencyArrayOutput)
+}
+
+type GetEnvironmentV3InboundNetworkDependencyOutput struct{ *pulumi.OutputState }
+
+func (GetEnvironmentV3InboundNetworkDependencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnvironmentV3InboundNetworkDependency)(nil)).Elem()
+}
+
+func (o GetEnvironmentV3InboundNetworkDependencyOutput) ToGetEnvironmentV3InboundNetworkDependencyOutput() GetEnvironmentV3InboundNetworkDependencyOutput {
+	return o
+}
+
+func (o GetEnvironmentV3InboundNetworkDependencyOutput) ToGetEnvironmentV3InboundNetworkDependencyOutputWithContext(ctx context.Context) GetEnvironmentV3InboundNetworkDependencyOutput {
+	return o
+}
+
+// A short description of the purpose of the network traffic.
+func (o GetEnvironmentV3InboundNetworkDependencyOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentV3InboundNetworkDependency) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// A list of IP addresses that network traffic will originate from in CIDR notation.
+func (o GetEnvironmentV3InboundNetworkDependencyOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEnvironmentV3InboundNetworkDependency) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The ports that network traffic will arrive to the App Service Environment V3 on.
+func (o GetEnvironmentV3InboundNetworkDependencyOutput) Ports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEnvironmentV3InboundNetworkDependency) []string { return v.Ports }).(pulumi.StringArrayOutput)
+}
+
+type GetEnvironmentV3InboundNetworkDependencyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEnvironmentV3InboundNetworkDependencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEnvironmentV3InboundNetworkDependency)(nil)).Elem()
+}
+
+func (o GetEnvironmentV3InboundNetworkDependencyArrayOutput) ToGetEnvironmentV3InboundNetworkDependencyArrayOutput() GetEnvironmentV3InboundNetworkDependencyArrayOutput {
+	return o
+}
+
+func (o GetEnvironmentV3InboundNetworkDependencyArrayOutput) ToGetEnvironmentV3InboundNetworkDependencyArrayOutputWithContext(ctx context.Context) GetEnvironmentV3InboundNetworkDependencyArrayOutput {
+	return o
+}
+
+func (o GetEnvironmentV3InboundNetworkDependencyArrayOutput) Index(i pulumi.IntInput) GetEnvironmentV3InboundNetworkDependencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEnvironmentV3InboundNetworkDependency {
+		return vs[0].([]GetEnvironmentV3InboundNetworkDependency)[vs[1].(int)]
+	}).(GetEnvironmentV3InboundNetworkDependencyOutput)
+}
+
 type GetFunctionAppConnectionString struct {
 	// The name of the Function App resource.
 	Name string `pulumi:"name"`
@@ -18348,6 +18582,8 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentClusterSettingArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentV3ClusterSettingOutput{})
 	pulumi.RegisterOutputType(EnvironmentV3ClusterSettingArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentV3InboundNetworkDependencyOutput{})
+	pulumi.RegisterOutputType(EnvironmentV3InboundNetworkDependencyArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppAuthSettingsOutput{})
 	pulumi.RegisterOutputType(FunctionAppAuthSettingsPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppAuthSettingsActiveDirectoryOutput{})
@@ -18477,6 +18713,8 @@ func init() {
 	pulumi.RegisterOutputType(GetCertificateOrderCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentV3ClusterSettingOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentV3ClusterSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetEnvironmentV3InboundNetworkDependencyOutput{})
+	pulumi.RegisterOutputType(GetEnvironmentV3InboundNetworkDependencyArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppConnectionStringOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppConnectionStringArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppIdentityOutput{})

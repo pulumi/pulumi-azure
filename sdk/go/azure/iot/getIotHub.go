@@ -54,6 +54,8 @@ type GetIotHubArgs struct {
 
 // A collection of values returned by getIotHub.
 type GetIotHubResult struct {
+	// The Hostname of the IoTHub.
+	Hostname string `pulumi:"hostname"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string            `pulumi:"id"`
 	Name              string            `pulumi:"name"`

@@ -23,8 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:machinelearning/computeCluster:ComputeCluster":
 		r = &ComputeCluster{}
+	case "azure:machinelearning/computeInstance:ComputeInstance":
+		r = &ComputeInstance{}
 	case "azure:machinelearning/inferenceCluster:InferenceCluster":
 		r = &InferenceCluster{}
+	case "azure:machinelearning/synapseSpark:SynapseSpark":
+		r = &SynapseSpark{}
 	case "azure:machinelearning/workspace:Workspace":
 		r = &Workspace{}
 	default:
@@ -47,7 +51,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"machinelearning/computeInstance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"machinelearning/inferenceCluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"machinelearning/synapseSpark",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -54,13 +54,49 @@ export interface GetEnvironmentV3Args {
  */
 export interface GetEnvironmentV3Result {
     /**
+     * Are new Private Endpoint Connections allowed.
+     */
+    readonly allowNewPrivateEndpointConnections: boolean;
+    /**
      * A `clusterSetting` block as defined below.
      */
     readonly clusterSettings: outputs.appservice.GetEnvironmentV3ClusterSetting[];
     /**
+     * The number of Dedicated Hosts used by this ASEv3.
+     */
+    readonly dedicatedHostCount: number;
+    /**
+     * the DNS suffix for this App Service Environment V3.
+     */
+    readonly dnsSuffix: string;
+    /**
+     * The external outbound IP addresses of the App Service Environment V3.
+     */
+    readonly externalInboundIpAddresses: string[];
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * An Inbound Network Dependencies block as defined below.
+     */
+    readonly inboundNetworkDependencies: outputs.appservice.GetEnvironmentV3InboundNetworkDependency[];
+    /**
+     * The internal outbound IP addresses of the App Service Environment V3.
+     */
+    readonly internalInboundIpAddresses: string[];
+    /**
+     * The Internal Load Balancing Mode of this ASEv3.
+     */
+    readonly internalLoadBalancingMode: string;
+    /**
+     * The number of IP SSL addresses reserved for the App Service Environment V3.
+     */
+    readonly ipSslAddressCount: number;
+    /**
+     * The list of Outbound IP Addresses of Linux based Apps in this App Service Environment V3.
+     */
+    readonly linuxOutboundIpAddresses: string[];
     /**
      * The location where the App Service Environment exists.
      */
@@ -82,4 +118,9 @@ export interface GetEnvironmentV3Result {
      * A mapping of tags assigned to the v3 App Service Environment.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * Outbound addresses of Windows based Apps in this App Service Environment V3.
+     */
+    readonly windowsOutboundIpAddresses: string[];
+    readonly zoneRedundant: boolean;
 }

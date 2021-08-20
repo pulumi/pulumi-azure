@@ -183,6 +183,9 @@ namespace Pulumi.Azure.ServiceFabric
         [Output("upgradeMode")]
         public Output<string> UpgradeMode { get; private set; } = null!;
 
+        /// <summary>
+        /// A `upgrade_policy` block as defined below.
+        /// </summary>
         [Output("upgradePolicy")]
         public Output<Outputs.ClusterUpgradePolicy?> UpgradePolicy { get; private set; } = null!;
 
@@ -388,6 +391,9 @@ namespace Pulumi.Azure.ServiceFabric
         [Input("upgradeMode", required: true)]
         public Input<string> UpgradeMode { get; set; } = null!;
 
+        /// <summary>
+        /// A `upgrade_policy` block as defined below.
+        /// </summary>
         [Input("upgradePolicy")]
         public Input<Inputs.ClusterUpgradePolicyArgs>? UpgradePolicy { get; set; }
 
@@ -560,6 +566,9 @@ namespace Pulumi.Azure.ServiceFabric
         [Input("upgradeMode")]
         public Input<string>? UpgradeMode { get; set; }
 
+        /// <summary>
+        /// A `upgrade_policy` block as defined below.
+        /// </summary>
         [Input("upgradePolicy")]
         public Input<Inputs.ClusterUpgradePolicyGetArgs>? UpgradePolicy { get; set; }
 

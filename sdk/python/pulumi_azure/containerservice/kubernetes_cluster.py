@@ -36,6 +36,7 @@ class KubernetesClusterArgs:
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None,
                  role_based_access_control: Optional[pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs']] = None,
@@ -65,6 +66,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
         :param pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs'] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
@@ -112,6 +114,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
         if private_cluster_enabled is not None:
             pulumi.set(__self__, "private_cluster_enabled", private_cluster_enabled)
+        if private_cluster_public_fqdn_enabled is not None:
+            pulumi.set(__self__, "private_cluster_public_fqdn_enabled", private_cluster_public_fqdn_enabled)
         if private_dns_zone_id is not None:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if private_link_enabled is not None:
@@ -380,6 +384,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "private_cluster_enabled", value)
 
     @property
+    @pulumi.getter(name="privateClusterPublicFqdnEnabled")
+    def private_cluster_public_fqdn_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+        """
+        return pulumi.get(self, "private_cluster_public_fqdn_enabled")
+
+    @private_cluster_public_fqdn_enabled.setter
+    def private_cluster_public_fqdn_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_cluster_public_fqdn_enabled", value)
+
+    @property
     @pulumi.getter(name="privateDnsZoneId")
     def private_dns_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -489,6 +505,7 @@ class _KubernetesClusterState:
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  private_fqdn: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None,
@@ -524,6 +541,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -583,6 +601,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
         if private_cluster_enabled is not None:
             pulumi.set(__self__, "private_cluster_enabled", private_cluster_enabled)
+        if private_cluster_public_fqdn_enabled is not None:
+            pulumi.set(__self__, "private_cluster_public_fqdn_enabled", private_cluster_public_fqdn_enabled)
         if private_dns_zone_id is not None:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if private_fqdn is not None:
@@ -903,6 +923,18 @@ class _KubernetesClusterState:
         pulumi.set(self, "private_cluster_enabled", value)
 
     @property
+    @pulumi.getter(name="privateClusterPublicFqdnEnabled")
+    def private_cluster_public_fqdn_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+        """
+        return pulumi.get(self, "private_cluster_public_fqdn_enabled")
+
+    @private_cluster_public_fqdn_enabled.setter
+    def private_cluster_public_fqdn_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_cluster_public_fqdn_enabled", value)
+
+    @property
     @pulumi.getter(name="privateDnsZoneId")
     def private_dns_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1033,6 +1065,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1102,6 +1135,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
@@ -1190,6 +1224,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1232,6 +1267,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_resource_group"] = node_resource_group
             __props__.__dict__["private_cluster_enabled"] = private_cluster_enabled
+            __props__.__dict__["private_cluster_public_fqdn_enabled"] = private_cluster_public_fqdn_enabled
             __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
             if private_link_enabled is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `private_cluster_enabled`""", DeprecationWarning)
@@ -1286,6 +1322,7 @@ class KubernetesCluster(pulumi.CustomResource):
             network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
             node_resource_group: Optional[pulumi.Input[str]] = None,
             private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+            private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
             private_dns_zone_id: Optional[pulumi.Input[str]] = None,
             private_fqdn: Optional[pulumi.Input[str]] = None,
             private_link_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1326,6 +1363,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -1364,6 +1402,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["network_profile"] = network_profile
         __props__.__dict__["node_resource_group"] = node_resource_group
         __props__.__dict__["private_cluster_enabled"] = private_cluster_enabled
+        __props__.__dict__["private_cluster_public_fqdn_enabled"] = private_cluster_public_fqdn_enabled
         __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
         __props__.__dict__["private_fqdn"] = private_fqdn
         __props__.__dict__["private_link_enabled"] = private_link_enabled
@@ -1571,6 +1610,14 @@ class KubernetesCluster(pulumi.CustomResource):
         Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_cluster_enabled")
+
+    @property
+    @pulumi.getter(name="privateClusterPublicFqdnEnabled")
+    def private_cluster_public_fqdn_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+        """
+        return pulumi.get(self, "private_cluster_public_fqdn_enabled")
 
     @property
     @pulumi.getter(name="privateDnsZoneId")

@@ -1126,11 +1126,11 @@ type SqlServerExtendedAuditingPolicy struct {
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// (Optional) Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
-	// (Optional)  Specifies the access key to use for the auditing storage account.
+	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+	// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
@@ -1150,11 +1150,11 @@ type SqlServerExtendedAuditingPolicyArgs struct {
 	LogMonitoringEnabled pulumi.BoolPtrInput `pulumi:"logMonitoringEnabled"`
 	// (Optional) Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
-	// (Optional)  Specifies the access key to use for the auditing storage account.
+	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
 	// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+	// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
 }
 
@@ -1245,7 +1245,7 @@ func (o SqlServerExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOu
 	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// (Optional)  Specifies the access key to use for the auditing storage account.
+// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 func (o SqlServerExtendedAuditingPolicyOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
@@ -1255,7 +1255,7 @@ func (o SqlServerExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondar
 	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 func (o SqlServerExtendedAuditingPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -1298,7 +1298,7 @@ func (o SqlServerExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Optional)  Specifies the access key to use for the auditing storage account.
+// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *string {
 		if v == nil {
@@ -1318,7 +1318,7 @@ func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecon
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *string {
 		if v == nil {
@@ -1497,6 +1497,251 @@ func (o SqlServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SqlServerThreatDetectionPolicy struct {
+	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Data_Exfiltration`, `Sql_Injection`, `Sql_Injection_Vulnerability` and `Unsafe_Action"`,.
+	DisabledAlerts []string `pulumi:"disabledAlerts"`
+	// Should the account administrators be emailed when this alert is triggered?
+	EmailAccountAdmins *bool `pulumi:"emailAccountAdmins"`
+	// A list of email addresses which alerts should be sent to.
+	EmailAddresses []string `pulumi:"emailAddresses"`
+	// Specifies the number of days to keep in the Threat Detection audit logs.
+	RetentionDays *int `pulumi:"retentionDays"`
+	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+	State *string `pulumi:"state"`
+	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
+	// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+	StorageEndpoint *string `pulumi:"storageEndpoint"`
+}
+
+// SqlServerThreatDetectionPolicyInput is an input type that accepts SqlServerThreatDetectionPolicyArgs and SqlServerThreatDetectionPolicyOutput values.
+// You can construct a concrete instance of `SqlServerThreatDetectionPolicyInput` via:
+//
+//          SqlServerThreatDetectionPolicyArgs{...}
+type SqlServerThreatDetectionPolicyInput interface {
+	pulumi.Input
+
+	ToSqlServerThreatDetectionPolicyOutput() SqlServerThreatDetectionPolicyOutput
+	ToSqlServerThreatDetectionPolicyOutputWithContext(context.Context) SqlServerThreatDetectionPolicyOutput
+}
+
+type SqlServerThreatDetectionPolicyArgs struct {
+	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Data_Exfiltration`, `Sql_Injection`, `Sql_Injection_Vulnerability` and `Unsafe_Action"`,.
+	DisabledAlerts pulumi.StringArrayInput `pulumi:"disabledAlerts"`
+	// Should the account administrators be emailed when this alert is triggered?
+	EmailAccountAdmins pulumi.BoolPtrInput `pulumi:"emailAccountAdmins"`
+	// A list of email addresses which alerts should be sent to.
+	EmailAddresses pulumi.StringArrayInput `pulumi:"emailAddresses"`
+	// Specifies the number of days to keep in the Threat Detection audit logs.
+	RetentionDays pulumi.IntPtrInput `pulumi:"retentionDays"`
+	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
+	// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
+}
+
+func (SqlServerThreatDetectionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServerThreatDetectionPolicy)(nil)).Elem()
+}
+
+func (i SqlServerThreatDetectionPolicyArgs) ToSqlServerThreatDetectionPolicyOutput() SqlServerThreatDetectionPolicyOutput {
+	return i.ToSqlServerThreatDetectionPolicyOutputWithContext(context.Background())
+}
+
+func (i SqlServerThreatDetectionPolicyArgs) ToSqlServerThreatDetectionPolicyOutputWithContext(ctx context.Context) SqlServerThreatDetectionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerThreatDetectionPolicyOutput)
+}
+
+func (i SqlServerThreatDetectionPolicyArgs) ToSqlServerThreatDetectionPolicyPtrOutput() SqlServerThreatDetectionPolicyPtrOutput {
+	return i.ToSqlServerThreatDetectionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i SqlServerThreatDetectionPolicyArgs) ToSqlServerThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) SqlServerThreatDetectionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerThreatDetectionPolicyOutput).ToSqlServerThreatDetectionPolicyPtrOutputWithContext(ctx)
+}
+
+// SqlServerThreatDetectionPolicyPtrInput is an input type that accepts SqlServerThreatDetectionPolicyArgs, SqlServerThreatDetectionPolicyPtr and SqlServerThreatDetectionPolicyPtrOutput values.
+// You can construct a concrete instance of `SqlServerThreatDetectionPolicyPtrInput` via:
+//
+//          SqlServerThreatDetectionPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlServerThreatDetectionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToSqlServerThreatDetectionPolicyPtrOutput() SqlServerThreatDetectionPolicyPtrOutput
+	ToSqlServerThreatDetectionPolicyPtrOutputWithContext(context.Context) SqlServerThreatDetectionPolicyPtrOutput
+}
+
+type sqlServerThreatDetectionPolicyPtrType SqlServerThreatDetectionPolicyArgs
+
+func SqlServerThreatDetectionPolicyPtr(v *SqlServerThreatDetectionPolicyArgs) SqlServerThreatDetectionPolicyPtrInput {
+	return (*sqlServerThreatDetectionPolicyPtrType)(v)
+}
+
+func (*sqlServerThreatDetectionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlServerThreatDetectionPolicy)(nil)).Elem()
+}
+
+func (i *sqlServerThreatDetectionPolicyPtrType) ToSqlServerThreatDetectionPolicyPtrOutput() SqlServerThreatDetectionPolicyPtrOutput {
+	return i.ToSqlServerThreatDetectionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlServerThreatDetectionPolicyPtrType) ToSqlServerThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) SqlServerThreatDetectionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerThreatDetectionPolicyPtrOutput)
+}
+
+type SqlServerThreatDetectionPolicyOutput struct{ *pulumi.OutputState }
+
+func (SqlServerThreatDetectionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServerThreatDetectionPolicy)(nil)).Elem()
+}
+
+func (o SqlServerThreatDetectionPolicyOutput) ToSqlServerThreatDetectionPolicyOutput() SqlServerThreatDetectionPolicyOutput {
+	return o
+}
+
+func (o SqlServerThreatDetectionPolicyOutput) ToSqlServerThreatDetectionPolicyOutputWithContext(ctx context.Context) SqlServerThreatDetectionPolicyOutput {
+	return o
+}
+
+func (o SqlServerThreatDetectionPolicyOutput) ToSqlServerThreatDetectionPolicyPtrOutput() SqlServerThreatDetectionPolicyPtrOutput {
+	return o.ToSqlServerThreatDetectionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o SqlServerThreatDetectionPolicyOutput) ToSqlServerThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) SqlServerThreatDetectionPolicyPtrOutput {
+	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) *SqlServerThreatDetectionPolicy {
+		return &v
+	}).(SqlServerThreatDetectionPolicyPtrOutput)
+}
+
+// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Data_Exfiltration`, `Sql_Injection`, `Sql_Injection_Vulnerability` and `Unsafe_Action"`,.
+func (o SqlServerThreatDetectionPolicyOutput) DisabledAlerts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
+}
+
+// Should the account administrators be emailed when this alert is triggered?
+func (o SqlServerThreatDetectionPolicyOutput) EmailAccountAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) *bool { return v.EmailAccountAdmins }).(pulumi.BoolPtrOutput)
+}
+
+// A list of email addresses which alerts should be sent to.
+func (o SqlServerThreatDetectionPolicyOutput) EmailAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) []string { return v.EmailAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the number of days to keep in the Threat Detection audit logs.
+func (o SqlServerThreatDetectionPolicyOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+func (o SqlServerThreatDetectionPolicyOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+func (o SqlServerThreatDetectionPolicyOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+func (o SqlServerThreatDetectionPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type SqlServerThreatDetectionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlServerThreatDetectionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlServerThreatDetectionPolicy)(nil)).Elem()
+}
+
+func (o SqlServerThreatDetectionPolicyPtrOutput) ToSqlServerThreatDetectionPolicyPtrOutput() SqlServerThreatDetectionPolicyPtrOutput {
+	return o
+}
+
+func (o SqlServerThreatDetectionPolicyPtrOutput) ToSqlServerThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) SqlServerThreatDetectionPolicyPtrOutput {
+	return o
+}
+
+func (o SqlServerThreatDetectionPolicyPtrOutput) Elem() SqlServerThreatDetectionPolicyOutput {
+	return o.ApplyT(func(v *SqlServerThreatDetectionPolicy) SqlServerThreatDetectionPolicy { return *v }).(SqlServerThreatDetectionPolicyOutput)
+}
+
+// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Data_Exfiltration`, `Sql_Injection`, `Sql_Injection_Vulnerability` and `Unsafe_Action"`,.
+func (o SqlServerThreatDetectionPolicyPtrOutput) DisabledAlerts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SqlServerThreatDetectionPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DisabledAlerts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Should the account administrators be emailed when this alert is triggered?
+func (o SqlServerThreatDetectionPolicyPtrOutput) EmailAccountAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SqlServerThreatDetectionPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EmailAccountAdmins
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of email addresses which alerts should be sent to.
+func (o SqlServerThreatDetectionPolicyPtrOutput) EmailAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SqlServerThreatDetectionPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the number of days to keep in the Threat Detection audit logs.
+func (o SqlServerThreatDetectionPolicyPtrOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlServerThreatDetectionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+func (o SqlServerThreatDetectionPolicyPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServerThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+func (o SqlServerThreatDetectionPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServerThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountAccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+func (o SqlServerThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServerThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetServerIdentity struct {
 	// The ID of the Principal (Client) in Azure Active Directory.
 	PrincipalId string `pulumi:"principalId"`
@@ -1629,6 +1874,8 @@ func init() {
 	pulumi.RegisterOutputType(SqlServerExtendedAuditingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SqlServerIdentityOutput{})
 	pulumi.RegisterOutputType(SqlServerIdentityPtrOutput{})
+	pulumi.RegisterOutputType(SqlServerThreatDetectionPolicyOutput{})
+	pulumi.RegisterOutputType(SqlServerThreatDetectionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityArrayOutput{})
 }

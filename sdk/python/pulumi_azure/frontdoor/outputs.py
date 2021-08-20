@@ -1400,10 +1400,14 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
         suggest = None
         if key == "backendPoolName":
             suggest = "backend_pool_name"
+        elif key == "cacheDuration":
+            suggest = "cache_duration"
         elif key == "cacheEnabled":
             suggest = "cache_enabled"
         elif key == "cacheQueryParameterStripDirective":
             suggest = "cache_query_parameter_strip_directive"
+        elif key == "cacheQueryParameters":
+            suggest = "cache_query_parameters"
         elif key == "cacheUseDynamicCompression":
             suggest = "cache_use_dynamic_compression"
         elif key == "customForwardingPath":
@@ -1424,24 +1428,32 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
 
     def __init__(__self__, *,
                  backend_pool_name: str,
+                 cache_duration: Optional[str] = None,
                  cache_enabled: Optional[bool] = None,
                  cache_query_parameter_strip_directive: Optional[str] = None,
+                 cache_query_parameters: Optional[Sequence[str]] = None,
                  cache_use_dynamic_compression: Optional[bool] = None,
                  custom_forwarding_path: Optional[str] = None,
                  forwarding_protocol: Optional[str] = None):
         """
         :param str backend_pool_name: Specifies the name of the Backend Pool to forward the incoming traffic to.
+        :param str cache_duration: Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
         :param bool cache_enabled: Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
-        :param str cache_query_parameter_strip_directive: Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        :param str cache_query_parameter_strip_directive: Defines cache behaviour in relation to query string parameters. Valid options are `StripAll`, `StripAllExcept`, `StripOnly` or `StripNone`. Defaults to `StripAll`.
+        :param Sequence[str] cache_query_parameters: Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
         :param bool cache_use_dynamic_compression: Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
         :param str custom_forwarding_path: Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
         :param str forwarding_protocol: Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
         """
         pulumi.set(__self__, "backend_pool_name", backend_pool_name)
+        if cache_duration is not None:
+            pulumi.set(__self__, "cache_duration", cache_duration)
         if cache_enabled is not None:
             pulumi.set(__self__, "cache_enabled", cache_enabled)
         if cache_query_parameter_strip_directive is not None:
             pulumi.set(__self__, "cache_query_parameter_strip_directive", cache_query_parameter_strip_directive)
+        if cache_query_parameters is not None:
+            pulumi.set(__self__, "cache_query_parameters", cache_query_parameters)
         if cache_use_dynamic_compression is not None:
             pulumi.set(__self__, "cache_use_dynamic_compression", cache_use_dynamic_compression)
         if custom_forwarding_path is not None:
@@ -1458,6 +1470,14 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
         return pulumi.get(self, "backend_pool_name")
 
     @property
+    @pulumi.getter(name="cacheDuration")
+    def cache_duration(self) -> Optional[str]:
+        """
+        Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+        """
+        return pulumi.get(self, "cache_duration")
+
+    @property
     @pulumi.getter(name="cacheEnabled")
     def cache_enabled(self) -> Optional[bool]:
         """
@@ -1469,9 +1489,17 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
     @pulumi.getter(name="cacheQueryParameterStripDirective")
     def cache_query_parameter_strip_directive(self) -> Optional[str]:
         """
-        Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        Defines cache behaviour in relation to query string parameters. Valid options are `StripAll`, `StripAllExcept`, `StripOnly` or `StripNone`. Defaults to `StripAll`.
         """
         return pulumi.get(self, "cache_query_parameter_strip_directive")
+
+    @property
+    @pulumi.getter(name="cacheQueryParameters")
+    def cache_query_parameters(self) -> Optional[Sequence[str]]:
+        """
+        Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
+        """
+        return pulumi.get(self, "cache_query_parameters")
 
     @property
     @pulumi.getter(name="cacheUseDynamicCompression")

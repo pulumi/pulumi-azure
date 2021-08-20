@@ -19,7 +19,10 @@ class GetIotHubResult:
     """
     A collection of values returned by getIotHub.
     """
-    def __init__(__self__, id=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, hostname=None, id=None, name=None, resource_group_name=None, tags=None):
+        if hostname and not isinstance(hostname, str):
+            raise TypeError("Expected argument 'hostname' to be a str")
+        pulumi.set(__self__, "hostname", hostname)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,6 +35,14 @@ class GetIotHubResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> str:
+        """
+        The Hostname of the IoTHub.
+        """
+        return pulumi.get(self, "hostname")
 
     @property
     @pulumi.getter
@@ -63,6 +74,7 @@ class AwaitableGetIotHubResult(GetIotHubResult):
         if False:
             yield self
         return GetIotHubResult(
+            hostname=self.hostname,
             id=self.id,
             name=self.name,
             resource_group_name=self.resource_group_name,
@@ -103,6 +115,7 @@ def get_iot_hub(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:iot/getIotHub:getIotHub', __args__, opts=opts, typ=GetIotHubResult).value
 
     return AwaitableGetIotHubResult(
+        hostname=__ret__.hostname,
         id=__ret__.id,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,

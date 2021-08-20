@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Sql.Outputs
         /// </summary>
         public readonly int? RetentionInDays;
         /// <summary>
-        /// (Optional)  Specifies the access key to use for the auditing storage account.
+        /// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         /// </summary>
         public readonly string? StorageAccountAccessKey;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Sql.Outputs
         /// </summary>
         public readonly bool? StorageAccountAccessKeyIsSecondary;
         /// <summary>
-        /// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        /// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         /// </summary>
         public readonly string? StorageEndpoint;
 

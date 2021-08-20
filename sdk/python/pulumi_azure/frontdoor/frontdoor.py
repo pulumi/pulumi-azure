@@ -40,7 +40,7 @@ class FrontdoorArgs:
         :param pulumi.Input[int] backend_pools_send_receive_timeout_seconds: Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        :param pulumi.Input[str] location: The `location` argument is deprecated and is now always set to `global`.
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -191,7 +191,7 @@ class FrontdoorArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        The `location` argument is deprecated and is now always set to `global`.
         """
         return pulumi.get(self, "location")
 
@@ -264,7 +264,7 @@ class _FrontdoorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] frontend_endpoints_map: The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
         :param pulumi.Input[str] header_frontdoor_id: The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
         :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        :param pulumi.Input[str] location: The `location` argument is deprecated and is now always set to `global`.
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]] routing_rules: A `routing_rule` block as defined below.
@@ -498,7 +498,7 @@ class _FrontdoorState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        The `location` argument is deprecated and is now always set to `global`.
         """
         return pulumi.get(self, "location")
 
@@ -604,7 +604,6 @@ class Frontdoor(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
-            location="EastUS2",
             resource_group_name=example_resource_group.name,
             enforce_backend_pools_certificate_name_check=False,
             routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
@@ -661,7 +660,7 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFrontendEndpointArgs']]]] frontend_endpoints: A `frontend_endpoint` block as defined below.
         :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        :param pulumi.Input[str] location: The `location` argument is deprecated and is now always set to `global`.
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorRoutingRuleArgs']]]] routing_rules: A `routing_rule` block as defined below.
@@ -691,7 +690,6 @@ class Frontdoor(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
-            location="EastUS2",
             resource_group_name=example_resource_group.name,
             enforce_backend_pools_certificate_name_check=False,
             routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
@@ -868,7 +866,7 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] frontend_endpoints_map: The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
         :param pulumi.Input[str] header_frontdoor_id: The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
         :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        :param pulumi.Input[str] location: The `location` argument is deprecated and is now always set to `global`.
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorRoutingRuleArgs']]]] routing_rules: A `routing_rule` block as defined below.
@@ -1023,7 +1021,7 @@ class Frontdoor(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        The `location` argument is deprecated and is now always set to `global`.
         """
         return pulumi.get(self, "location")
 

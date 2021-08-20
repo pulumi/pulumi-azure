@@ -24,7 +24,7 @@ namespace Pulumi.Azure.AppConfiguration.Outputs
         /// <summary>
         /// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private ConfigurationStoreIdentity(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.AppConfiguration.Outputs
 
             string? tenantId,
 
-            string type)
+            string? type)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

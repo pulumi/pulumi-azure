@@ -20,7 +20,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_name=None, filtered_sync_enabled=None, id=None, location=None, name=None, notifications=None, replica_sets=None, resource_group_name=None, secure_ldaps=None, securities=None, sku=None, sync_owner=None, tags=None, tenant_id=None, version=None):
+    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_name=None, filtered_sync_enabled=None, id=None, location=None, name=None, notifications=None, replica_sets=None, resource_group_name=None, resource_id=None, secure_ldaps=None, securities=None, sku=None, sync_owner=None, tags=None, tenant_id=None, version=None):
         if deployment_id and not isinstance(deployment_id, str):
             raise TypeError("Expected argument 'deployment_id' to be a str")
         pulumi.set(__self__, "deployment_id", deployment_id)
@@ -51,6 +51,9 @@ class GetServiceResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if resource_id and not isinstance(resource_id, str):
+            raise TypeError("Expected argument 'resource_id' to be a str")
+        pulumi.set(__self__, "resource_id", resource_id)
         if secure_ldaps and not isinstance(secure_ldaps, list):
             raise TypeError("Expected argument 'secure_ldaps' to be a list")
         pulumi.set(__self__, "secure_ldaps", secure_ldaps)
@@ -145,6 +148,11 @@ class GetServiceResult:
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        return pulumi.get(self, "resource_id")
+
+    @property
     @pulumi.getter(name="secureLdaps")
     def secure_ldaps(self) -> Sequence['outputs.GetServiceSecureLdapResult']:
         """
@@ -208,6 +216,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             notifications=self.notifications,
             replica_sets=self.replica_sets,
             resource_group_name=self.resource_group_name,
+            resource_id=self.resource_id,
             secure_ldaps=self.secure_ldaps,
             securities=self.securities,
             sku=self.sku,
@@ -259,6 +268,7 @@ def get_service(name: Optional[str] = None,
         notifications=__ret__.notifications,
         replica_sets=__ret__.replica_sets,
         resource_group_name=__ret__.resource_group_name,
+        resource_id=__ret__.resource_id,
         secure_ldaps=__ret__.secure_ldaps,
         securities=__ret__.securities,
         sku=__ret__.sku,

@@ -17,6 +17,7 @@ __all__ = [
     'FailoverGroupReadonlyEndpointFailoverPolicyArgs',
     'SqlServerExtendedAuditingPolicyArgs',
     'SqlServerIdentityArgs',
+    'SqlServerThreatDetectionPolicyArgs',
 ]
 
 @pulumi.input_type
@@ -474,9 +475,9 @@ class SqlServerExtendedAuditingPolicyArgs:
         """
         :param pulumi.Input[bool] log_monitoring_enabled: (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
         :param pulumi.Input[int] retention_in_days: (Optional) Specifies the number of days to retain logs for in the storage account.
-        :param pulumi.Input[str] storage_account_access_key: (Optional)  Specifies the access key to use for the auditing storage account.
+        :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        :param pulumi.Input[str] storage_endpoint: (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
         if log_monitoring_enabled is not None:
             pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
@@ -517,7 +518,7 @@ class SqlServerExtendedAuditingPolicyArgs:
     @pulumi.getter(name="storageAccountAccessKey")
     def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional)  Specifies the access key to use for the auditing storage account.
+        Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         """
         return pulumi.get(self, "storage_account_access_key")
 
@@ -541,7 +542,7 @@ class SqlServerExtendedAuditingPolicyArgs:
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
         return pulumi.get(self, "storage_endpoint")
 
@@ -602,5 +603,124 @@ class SqlServerIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class SqlServerThreatDetectionPolicyArgs:
+    def __init__(__self__, *,
+                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 email_account_admins: Optional[pulumi.Input[bool]] = None,
+                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 retention_days: Optional[pulumi.Input[int]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 storage_account_access_key: Optional[pulumi.Input[str]] = None,
+                 storage_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Data_Exfiltration`, `Sql_Injection`, `Sql_Injection_Vulnerability` and `Unsafe_Action"`,.
+        :param pulumi.Input[bool] email_account_admins: Should the account administrators be emailed when this alert is triggered?
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: A list of email addresses which alerts should be sent to.
+        :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
+        :param pulumi.Input[str] state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+        :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+        :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        """
+        if disabled_alerts is not None:
+            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
+        if email_account_admins is not None:
+            pulumi.set(__self__, "email_account_admins", email_account_admins)
+        if email_addresses is not None:
+            pulumi.set(__self__, "email_addresses", email_addresses)
+        if retention_days is not None:
+            pulumi.set(__self__, "retention_days", retention_days)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if storage_account_access_key is not None:
+            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+        if storage_endpoint is not None:
+            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+
+    @property
+    @pulumi.getter(name="disabledAlerts")
+    def disabled_alerts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Data_Exfiltration`, `Sql_Injection`, `Sql_Injection_Vulnerability` and `Unsafe_Action"`,.
+        """
+        return pulumi.get(self, "disabled_alerts")
+
+    @disabled_alerts.setter
+    def disabled_alerts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "disabled_alerts", value)
+
+    @property
+    @pulumi.getter(name="emailAccountAdmins")
+    def email_account_admins(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the account administrators be emailed when this alert is triggered?
+        """
+        return pulumi.get(self, "email_account_admins")
+
+    @email_account_admins.setter
+    def email_account_admins(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "email_account_admins", value)
+
+    @property
+    @pulumi.getter(name="emailAddresses")
+    def email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of email addresses which alerts should be sent to.
+        """
+        return pulumi.get(self, "email_addresses")
+
+    @email_addresses.setter
+    def email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "email_addresses", value)
+
+    @property
+    @pulumi.getter(name="retentionDays")
+    def retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days to keep in the Threat Detection audit logs.
+        """
+        return pulumi.get(self, "retention_days")
+
+    @retention_days.setter
+    def retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_days", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="storageAccountAccessKey")
+    def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+        """
+        return pulumi.get(self, "storage_account_access_key")
+
+    @storage_account_access_key.setter
+    def storage_account_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_access_key", value)
+
+    @property
+    @pulumi.getter(name="storageEndpoint")
+    def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        """
+        return pulumi.get(self, "storage_endpoint")
+
+    @storage_endpoint.setter
+    def storage_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_endpoint", value)
 
 

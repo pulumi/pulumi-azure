@@ -87,6 +87,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A list of property columns to add to the Event Hub output.
+        /// </summary>
+        [Output("propertyColumns")]
+        public Output<ImmutableArray<string>> PropertyColumns { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -180,6 +186,18 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("propertyColumns")]
+        private InputList<string>? _propertyColumns;
+
+        /// <summary>
+        /// A list of property columns to add to the Event Hub output.
+        /// </summary>
+        public InputList<string> PropertyColumns
+        {
+            get => _propertyColumns ?? (_propertyColumns = new InputList<string>());
+            set => _propertyColumns = value;
+        }
+
         /// <summary>
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -234,6 +252,18 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("propertyColumns")]
+        private InputList<string>? _propertyColumns;
+
+        /// <summary>
+        /// A list of property columns to add to the Event Hub output.
+        /// </summary>
+        public InputList<string> PropertyColumns
+        {
+            get => _propertyColumns ?? (_propertyColumns = new InputList<string>());
+            set => _propertyColumns = value;
+        }
 
         /// <summary>
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.

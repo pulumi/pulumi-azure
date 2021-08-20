@@ -4334,6 +4334,8 @@ type KubernetesClusterDefaultNodePool struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
 	Type *string `pulumi:"type"`
+	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings *KubernetesClusterDefaultNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machine, such as `Standard_DS2_v2`.
@@ -4398,6 +4400,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machine, such as `Standard_DS2_v2`.
@@ -4598,6 +4602,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) Tags() pulumi.StringMapOutput {
 // The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
 func (o KubernetesClusterDefaultNodePoolOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+func (o KubernetesClusterDefaultNodePoolOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A `upgradeSettings` block as documented below.
@@ -4861,6 +4870,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Type() pulumi.StringPtrOutput
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UltraSsdEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A `upgradeSettings` block as documented below.

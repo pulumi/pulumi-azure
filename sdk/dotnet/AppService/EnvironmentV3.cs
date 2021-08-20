@@ -26,10 +26,64 @@ namespace Pulumi.Azure.AppService
     public partial class EnvironmentV3 : Pulumi.CustomResource
     {
         /// <summary>
+        /// Should new Private Endpoint Connections be allowed. Defaults to `true`.
+        /// </summary>
+        [Output("allowNewPrivateEndpointConnections")]
+        public Output<bool?> AllowNewPrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// Zero or more `cluster_setting` blocks as defined below.
         /// </summary>
         [Output("clusterSettings")]
         public Output<ImmutableArray<Outputs.EnvironmentV3ClusterSetting>> ClusterSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("dedicatedHostCount")]
+        public Output<int?> DedicatedHostCount { get; private set; } = null!;
+
+        /// <summary>
+        /// the DNS suffix for this App Service Environment V3.
+        /// </summary>
+        [Output("dnsSuffix")]
+        public Output<string> DnsSuffix { get; private set; } = null!;
+
+        /// <summary>
+        /// The external outbound IP addresses of the App Service Environment V3.
+        /// </summary>
+        [Output("externalInboundIpAddresses")]
+        public Output<ImmutableArray<string>> ExternalInboundIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// An Inbound Network Dependencies block as defined below.
+        /// </summary>
+        [Output("inboundNetworkDependencies")]
+        public Output<ImmutableArray<Outputs.EnvironmentV3InboundNetworkDependency>> InboundNetworkDependencies { get; private set; } = null!;
+
+        /// <summary>
+        /// The internal outbound IP addresses of the App Service Environment V3.
+        /// </summary>
+        [Output("internalInboundIpAddresses")]
+        public Output<ImmutableArray<string>> InternalInboundIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+        /// </summary>
+        [Output("internalLoadBalancingMode")]
+        public Output<string?> InternalLoadBalancingMode { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of IP SSL addresses reserved for the App Service Environment V3.
+        /// </summary>
+        [Output("ipSslAddressCount")]
+        public Output<int> IpSslAddressCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Outbound addresses of Linux based Apps in this App Service Environment V3
+        /// </summary>
+        [Output("linuxOutboundIpAddresses")]
+        public Output<ImmutableArray<string>> LinuxOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
         /// The location where the App Service Environment exists.
@@ -62,10 +116,19 @@ namespace Pulumi.Azure.AppService
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Outbound addresses of Windows based Apps in this App Service Environment V3.
+        /// </summary>
+        [Output("windowsOutboundIpAddresses")]
+        public Output<ImmutableArray<string>> WindowsOutboundIpAddresses { get; private set; } = null!;
+
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
 
 
         /// <summary>
@@ -113,6 +176,12 @@ namespace Pulumi.Azure.AppService
 
     public sealed class EnvironmentV3Args : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should new Private Endpoint Connections be allowed. Defaults to `true`.
+        /// </summary>
+        [Input("allowNewPrivateEndpointConnections")]
+        public Input<bool>? AllowNewPrivateEndpointConnections { get; set; }
+
         [Input("clusterSettings")]
         private InputList<Inputs.EnvironmentV3ClusterSettingArgs>? _clusterSettings;
 
@@ -124,6 +193,18 @@ namespace Pulumi.Azure.AppService
             get => _clusterSettings ?? (_clusterSettings = new InputList<Inputs.EnvironmentV3ClusterSettingArgs>());
             set => _clusterSettings = value;
         }
+
+        /// <summary>
+        /// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("dedicatedHostCount")]
+        public Input<int>? DedicatedHostCount { get; set; }
+
+        /// <summary>
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+        /// </summary>
+        [Input("internalLoadBalancingMode")]
+        public Input<string>? InternalLoadBalancingMode { get; set; }
 
         /// <summary>
         /// The name of the App Service Environment. Changing this forces a new resource to be created.
@@ -147,13 +228,16 @@ namespace Pulumi.Azure.AppService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public EnvironmentV3Args()
         {
@@ -162,6 +246,12 @@ namespace Pulumi.Azure.AppService
 
     public sealed class EnvironmentV3State : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should new Private Endpoint Connections be allowed. Defaults to `true`.
+        /// </summary>
+        [Input("allowNewPrivateEndpointConnections")]
+        public Input<bool>? AllowNewPrivateEndpointConnections { get; set; }
+
         [Input("clusterSettings")]
         private InputList<Inputs.EnvironmentV3ClusterSettingGetArgs>? _clusterSettings;
 
@@ -172,6 +262,78 @@ namespace Pulumi.Azure.AppService
         {
             get => _clusterSettings ?? (_clusterSettings = new InputList<Inputs.EnvironmentV3ClusterSettingGetArgs>());
             set => _clusterSettings = value;
+        }
+
+        /// <summary>
+        /// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("dedicatedHostCount")]
+        public Input<int>? DedicatedHostCount { get; set; }
+
+        /// <summary>
+        /// the DNS suffix for this App Service Environment V3.
+        /// </summary>
+        [Input("dnsSuffix")]
+        public Input<string>? DnsSuffix { get; set; }
+
+        [Input("externalInboundIpAddresses")]
+        private InputList<string>? _externalInboundIpAddresses;
+
+        /// <summary>
+        /// The external outbound IP addresses of the App Service Environment V3.
+        /// </summary>
+        public InputList<string> ExternalInboundIpAddresses
+        {
+            get => _externalInboundIpAddresses ?? (_externalInboundIpAddresses = new InputList<string>());
+            set => _externalInboundIpAddresses = value;
+        }
+
+        [Input("inboundNetworkDependencies")]
+        private InputList<Inputs.EnvironmentV3InboundNetworkDependencyGetArgs>? _inboundNetworkDependencies;
+
+        /// <summary>
+        /// An Inbound Network Dependencies block as defined below.
+        /// </summary>
+        public InputList<Inputs.EnvironmentV3InboundNetworkDependencyGetArgs> InboundNetworkDependencies
+        {
+            get => _inboundNetworkDependencies ?? (_inboundNetworkDependencies = new InputList<Inputs.EnvironmentV3InboundNetworkDependencyGetArgs>());
+            set => _inboundNetworkDependencies = value;
+        }
+
+        [Input("internalInboundIpAddresses")]
+        private InputList<string>? _internalInboundIpAddresses;
+
+        /// <summary>
+        /// The internal outbound IP addresses of the App Service Environment V3.
+        /// </summary>
+        public InputList<string> InternalInboundIpAddresses
+        {
+            get => _internalInboundIpAddresses ?? (_internalInboundIpAddresses = new InputList<string>());
+            set => _internalInboundIpAddresses = value;
+        }
+
+        /// <summary>
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+        /// </summary>
+        [Input("internalLoadBalancingMode")]
+        public Input<string>? InternalLoadBalancingMode { get; set; }
+
+        /// <summary>
+        /// The number of IP SSL addresses reserved for the App Service Environment V3.
+        /// </summary>
+        [Input("ipSslAddressCount")]
+        public Input<int>? IpSslAddressCount { get; set; }
+
+        [Input("linuxOutboundIpAddresses")]
+        private InputList<string>? _linuxOutboundIpAddresses;
+
+        /// <summary>
+        /// Outbound addresses of Linux based Apps in this App Service Environment V3
+        /// </summary>
+        public InputList<string> LinuxOutboundIpAddresses
+        {
+            get => _linuxOutboundIpAddresses ?? (_linuxOutboundIpAddresses = new InputList<string>());
+            set => _linuxOutboundIpAddresses = value;
         }
 
         /// <summary>
@@ -208,13 +370,28 @@ namespace Pulumi.Azure.AppService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("windowsOutboundIpAddresses")]
+        private InputList<string>? _windowsOutboundIpAddresses;
+
+        /// <summary>
+        /// Outbound addresses of Windows based Apps in this App Service Environment V3.
+        /// </summary>
+        public InputList<string> WindowsOutboundIpAddresses
+        {
+            get => _windowsOutboundIpAddresses ?? (_windowsOutboundIpAddresses = new InputList<string>());
+            set => _windowsOutboundIpAddresses = value;
+        }
+
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public EnvironmentV3State()
         {

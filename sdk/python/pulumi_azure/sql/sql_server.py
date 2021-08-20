@@ -24,7 +24,8 @@ class SqlServerArgs:
                  identity: Optional[pulumi.Input['SqlServerIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']] = None):
         """
         The set of arguments for constructing a SqlServer resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
@@ -37,6 +38,7 @@ class SqlServerArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['SqlServerThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         """
         pulumi.set(__self__, "administrator_login", administrator_login)
         pulumi.set(__self__, "administrator_login_password", administrator_login_password)
@@ -57,6 +59,8 @@ class SqlServerArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if threat_detection_policy is not None:
+            pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -178,6 +182,18 @@ class SqlServerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="threatDetectionPolicy")
+    def threat_detection_policy(self) -> Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']]:
+        """
+        Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        """
+        return pulumi.get(self, "threat_detection_policy")
+
+    @threat_detection_policy.setter
+    def threat_detection_policy(self, value: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']]):
+        pulumi.set(self, "threat_detection_policy", value)
+
 
 @pulumi.input_type
 class _SqlServerState:
@@ -192,6 +208,7 @@ class _SqlServerState:
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SqlServer resources.
@@ -205,6 +222,7 @@ class _SqlServerState:
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['SqlServerThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         """
         if administrator_login is not None:
@@ -230,6 +248,8 @@ class _SqlServerState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if threat_detection_policy is not None:
+            pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -354,6 +374,18 @@ class _SqlServerState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="threatDetectionPolicy")
+    def threat_detection_policy(self) -> Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']]:
+        """
+        Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        """
+        return pulumi.get(self, "threat_detection_policy")
+
+    @threat_detection_policy.setter
+    def threat_detection_policy(self, value: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']]):
+        pulumi.set(self, "threat_detection_policy", value)
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -380,6 +412,7 @@ class SqlServer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -435,6 +468,7 @@ class SqlServer(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         """
         ...
@@ -509,6 +543,7 @@ class SqlServer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -540,6 +575,7 @@ class SqlServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["threat_detection_policy"] = threat_detection_policy
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
@@ -564,6 +600,7 @@ class SqlServer(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArgs']]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'SqlServer':
         """
         Get an existing SqlServer resource's state with the given name, id, and optional extra
@@ -582,6 +619,7 @@ class SqlServer(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -598,6 +636,7 @@ class SqlServer(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["threat_detection_policy"] = threat_detection_policy
         __props__.__dict__["version"] = version
         return SqlServer(resource_name, opts=opts, __props__=__props__)
 
@@ -680,6 +719,14 @@ class SqlServer(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="threatDetectionPolicy")
+    def threat_detection_policy(self) -> pulumi.Output['outputs.SqlServerThreatDetectionPolicy']:
+        """
+        Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        """
+        return pulumi.get(self, "threat_detection_policy")
 
     @property
     @pulumi.getter

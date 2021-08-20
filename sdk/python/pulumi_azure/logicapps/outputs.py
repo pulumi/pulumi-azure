@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'ActionHttpRunAfter',
+    'IntegrationAccountCertificateKeyVaultKey',
     'TriggerRecurrenceSchedule',
 ]
 
@@ -59,6 +60,68 @@ class ActionHttpRunAfter(dict):
         Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
         """
         return pulumi.get(self, "action_result")
+
+
+@pulumi.output_type
+class IntegrationAccountCertificateKeyVaultKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "keyVaultId":
+            suggest = "key_vault_id"
+        elif key == "keyVersion":
+            suggest = "key_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountCertificateKeyVaultKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationAccountCertificateKeyVaultKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationAccountCertificateKeyVaultKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_name: str,
+                 key_vault_id: str,
+                 key_version: Optional[str] = None):
+        """
+        :param str key_name: The name of Key Vault Key.
+        :param str key_vault_id: The ID of the Key Vault.
+        :param str key_version: The version of Key Vault Key.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The name of Key Vault Key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        """
+        The ID of the Key Vault.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[str]:
+        """
+        The version of Key Vault Key.
+        """
+        return pulumi.get(self, "key_version")
 
 
 @pulumi.output_type

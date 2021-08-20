@@ -120,6 +120,10 @@ export class SqlServer extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     */
+    public readonly threatDetectionPolicy!: pulumi.Output<outputs.sql.SqlServerThreatDetectionPolicy>;
+    /**
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */
     public readonly version!: pulumi.Output<string>;
@@ -147,6 +151,7 @@ export class SqlServer extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SqlServerArgs | undefined;
@@ -171,6 +176,7 @@ export class SqlServer extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
         }
@@ -228,6 +234,10 @@ export interface SqlServerState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     */
+    threatDetectionPolicy?: pulumi.Input<inputs.sql.SqlServerThreatDetectionPolicy>;
+    /**
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */
     version?: pulumi.Input<string>;
@@ -275,6 +285,10 @@ export interface SqlServerArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     */
+    threatDetectionPolicy?: pulumi.Input<inputs.sql.SqlServerThreatDetectionPolicy>;
     /**
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */

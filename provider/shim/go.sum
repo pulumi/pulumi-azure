@@ -51,6 +51,8 @@ github.com/Azure/azure-sdk-for-go v47.1.0+incompatible/go.mod h1:9XXNKU+eRnpl9mo
 github.com/Azure/azure-sdk-for-go v51.2.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-sdk-for-go v56.0.0+incompatible h1:jp/df9XKIJYtf4HIVA9cgmVbQpp12lxk73pcHvDsgDE=
 github.com/Azure/azure-sdk-for-go v56.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
+github.com/Azure/azure-sdk-for-go v56.2.0+incompatible h1:2GrG1JkTSMqLquy1pqVsjeRJhNtZLjss2+rx8ogZXx4=
+github.com/Azure/azure-sdk-for-go v56.2.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/go-autorest v14.2.0+incompatible h1:V5VMDjClD3GiElqLWO7mz2MxNAK/vTfRHdAubSIPRgs=
 github.com/Azure/go-autorest v14.2.0+incompatible/go.mod h1:r+4oMnoxhatjLLJ6zxSWATqVooLgysK6ZNox3g/xq24=
 github.com/Azure/go-autorest/autorest v0.11.3/go.mod h1:JFgpikqFJ/MleTTxwepExTKnFUKKszPS8UavbQYUMuw=
@@ -449,6 +451,12 @@ github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4 h1:gQz4mCb
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210816152520-1595a32ecf34 h1:6r5RCm+Dg5ddrLaXa2sZurnW7mWBBWDIEGJ3ApWKp84=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210816152520-1595a32ecf34/go.mod h1:V0YssdU8lgMT2MNub/a6UFGimP+ro6q4ZEtftrivgMM=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210820105724-d036083985ec h1:pnqnwpw68d7RWx14Un5pvuoulWRQEGznTOHLeh/IbqQ=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210820105724-d036083985ec/go.mod h1:ds4VW4dxb4eKtNvVavmMNSaXICAc7pNAKrFTbRPjoj4=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210820120018-d1d755dffc74 h1:OttJFRFay9NJcmhVF+ce46p34y8/Y1HrXnIWixQ0WQM=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210820120018-d1d755dffc74/go.mod h1:ds4VW4dxb4eKtNvVavmMNSaXICAc7pNAKrFTbRPjoj4=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210820131451-90e237ed4f54 h1:jfuuPTz8Y865TCqowd/FRJsA2e7Istl3j7YcEgdS004=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210820131451-90e237ed4f54/go.mod h1:ds4VW4dxb4eKtNvVavmMNSaXICAc7pNAKrFTbRPjoj4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=
