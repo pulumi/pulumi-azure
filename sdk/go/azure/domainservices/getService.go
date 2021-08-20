@@ -70,6 +70,7 @@ type LookupServiceResult struct {
 	Notifications     []GetServiceNotification `pulumi:"notifications"`
 	ReplicaSets       []GetServiceReplicaSet   `pulumi:"replicaSets"`
 	ResourceGroupName string                   `pulumi:"resourceGroupName"`
+	ResourceId        string                   `pulumi:"resourceId"`
 	// A `secureLdap` block as defined below.
 	SecureLdaps []GetServiceSecureLdap `pulumi:"secureLdaps"`
 	// A `security` block as defined below.

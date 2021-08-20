@@ -15,6 +15,7 @@ __all__ = [
     'BackupPolicyPostgresqlRetentionRule',
     'BackupPolicyPostgresqlRetentionRuleCriteria',
     'BackupVaultIdentity',
+    'GetBackupVaultIdentityResult',
 ]
 
 @pulumi.output_type
@@ -305,6 +306,46 @@ class BackupVaultIdentity(dict):
     def type(self) -> Optional[str]:
         """
         Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetBackupVaultIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
+        :param str type: Specifies the identity type of the Backup Vault.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the identity type of the Backup Vault.
         """
         return pulumi.get(self, "type")
 

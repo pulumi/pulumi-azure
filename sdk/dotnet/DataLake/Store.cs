@@ -80,6 +80,12 @@ namespace Pulumi.Azure.DataLake
         public Output<string?> FirewallState { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.StoreIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -180,6 +186,12 @@ namespace Pulumi.Azure.DataLake
         public Input<string>? FirewallState { get; set; }
 
         /// <summary>
+        /// An `identity` block defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.StoreIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -251,6 +263,12 @@ namespace Pulumi.Azure.DataLake
         /// </summary>
         [Input("firewallState")]
         public Input<string>? FirewallState { get; set; }
+
+        /// <summary>
+        /// An `identity` block defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.StoreIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

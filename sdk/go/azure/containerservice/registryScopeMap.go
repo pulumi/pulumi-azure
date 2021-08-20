@@ -48,7 +48,7 @@ import (
 // 			ResourceGroupName:     pulumi.Any(azurerm_resource_group.Rg.Name),
 // 			Actions: pulumi.StringArray{
 // 				pulumi.String("repositories/repo1/content/read"),
-// 				pulumi.String("repositories/repo1/content/create"),
+// 				pulumi.String("repositories/repo1/content/write"),
 // 			},
 // 		})
 // 		if err != nil {

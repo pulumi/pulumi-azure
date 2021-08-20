@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'ActionHttpRunAfterArgs',
+    'IntegrationAccountCertificateKeyVaultKeyArgs',
     'TriggerRecurrenceScheduleArgs',
 ]
 
@@ -48,6 +49,59 @@ class ActionHttpRunAfterArgs:
     @action_result.setter
     def action_result(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_result", value)
+
+
+@pulumi.input_type
+class IntegrationAccountCertificateKeyVaultKeyArgs:
+    def __init__(__self__, *,
+                 key_name: pulumi.Input[str],
+                 key_vault_id: pulumi.Input[str],
+                 key_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key_name: The name of Key Vault Key.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
+        :param pulumi.Input[str] key_version: The version of Key Vault Key.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[str]:
+        """
+        The name of Key Vault Key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Key Vault.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Key Vault Key.
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_version", value)
 
 
 @pulumi.input_type

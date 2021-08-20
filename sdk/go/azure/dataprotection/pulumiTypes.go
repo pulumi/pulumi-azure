@@ -569,6 +569,121 @@ func (o BackupVaultIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetBackupVaultIdentity struct {
+	// The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
+	TenantId string `pulumi:"tenantId"`
+	// Specifies the identity type of the Backup Vault.
+	Type string `pulumi:"type"`
+}
+
+// GetBackupVaultIdentityInput is an input type that accepts GetBackupVaultIdentityArgs and GetBackupVaultIdentityOutput values.
+// You can construct a concrete instance of `GetBackupVaultIdentityInput` via:
+//
+//          GetBackupVaultIdentityArgs{...}
+type GetBackupVaultIdentityInput interface {
+	pulumi.Input
+
+	ToGetBackupVaultIdentityOutput() GetBackupVaultIdentityOutput
+	ToGetBackupVaultIdentityOutputWithContext(context.Context) GetBackupVaultIdentityOutput
+}
+
+type GetBackupVaultIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Specifies the identity type of the Backup Vault.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetBackupVaultIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBackupVaultIdentity)(nil)).Elem()
+}
+
+func (i GetBackupVaultIdentityArgs) ToGetBackupVaultIdentityOutput() GetBackupVaultIdentityOutput {
+	return i.ToGetBackupVaultIdentityOutputWithContext(context.Background())
+}
+
+func (i GetBackupVaultIdentityArgs) ToGetBackupVaultIdentityOutputWithContext(ctx context.Context) GetBackupVaultIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBackupVaultIdentityOutput)
+}
+
+// GetBackupVaultIdentityArrayInput is an input type that accepts GetBackupVaultIdentityArray and GetBackupVaultIdentityArrayOutput values.
+// You can construct a concrete instance of `GetBackupVaultIdentityArrayInput` via:
+//
+//          GetBackupVaultIdentityArray{ GetBackupVaultIdentityArgs{...} }
+type GetBackupVaultIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetBackupVaultIdentityArrayOutput() GetBackupVaultIdentityArrayOutput
+	ToGetBackupVaultIdentityArrayOutputWithContext(context.Context) GetBackupVaultIdentityArrayOutput
+}
+
+type GetBackupVaultIdentityArray []GetBackupVaultIdentityInput
+
+func (GetBackupVaultIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBackupVaultIdentity)(nil)).Elem()
+}
+
+func (i GetBackupVaultIdentityArray) ToGetBackupVaultIdentityArrayOutput() GetBackupVaultIdentityArrayOutput {
+	return i.ToGetBackupVaultIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetBackupVaultIdentityArray) ToGetBackupVaultIdentityArrayOutputWithContext(ctx context.Context) GetBackupVaultIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBackupVaultIdentityArrayOutput)
+}
+
+type GetBackupVaultIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetBackupVaultIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBackupVaultIdentity)(nil)).Elem()
+}
+
+func (o GetBackupVaultIdentityOutput) ToGetBackupVaultIdentityOutput() GetBackupVaultIdentityOutput {
+	return o
+}
+
+func (o GetBackupVaultIdentityOutput) ToGetBackupVaultIdentityOutputWithContext(ctx context.Context) GetBackupVaultIdentityOutput {
+	return o
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
+func (o GetBackupVaultIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackupVaultIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
+func (o GetBackupVaultIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackupVaultIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Specifies the identity type of the Backup Vault.
+func (o GetBackupVaultIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackupVaultIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetBackupVaultIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBackupVaultIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBackupVaultIdentity)(nil)).Elem()
+}
+
+func (o GetBackupVaultIdentityArrayOutput) ToGetBackupVaultIdentityArrayOutput() GetBackupVaultIdentityArrayOutput {
+	return o
+}
+
+func (o GetBackupVaultIdentityArrayOutput) ToGetBackupVaultIdentityArrayOutputWithContext(ctx context.Context) GetBackupVaultIdentityArrayOutput {
+	return o
+}
+
+func (o GetBackupVaultIdentityArrayOutput) Index(i pulumi.IntInput) GetBackupVaultIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBackupVaultIdentity {
+		return vs[0].([]GetBackupVaultIdentity)[vs[1].(int)]
+	}).(GetBackupVaultIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleArrayOutput{})
@@ -578,4 +693,6 @@ func init() {
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleCriteriaOutput{})
 	pulumi.RegisterOutputType(BackupVaultIdentityOutput{})
 	pulumi.RegisterOutputType(BackupVaultIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GetBackupVaultIdentityOutput{})
+	pulumi.RegisterOutputType(GetBackupVaultIdentityArrayOutput{})
 }

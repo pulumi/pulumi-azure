@@ -99,6 +99,7 @@ class TriggerHttpRequestArgs:
 @pulumi.input_type
 class _TriggerHttpRequestState:
     def __init__(__self__, *,
+                 callback_url: Optional[pulumi.Input[str]] = None,
                  logic_app_id: Optional[pulumi.Input[str]] = None,
                  method: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -106,12 +107,15 @@ class _TriggerHttpRequestState:
                  schema: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TriggerHttpRequest resources.
+        :param pulumi.Input[str] callback_url: The URL for the workflow trigger
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] method: Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
         :param pulumi.Input[str] name: Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] relative_path: Specifies the Relative Path used for this Request.
         :param pulumi.Input[str] schema: A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
         """
+        if callback_url is not None:
+            pulumi.set(__self__, "callback_url", callback_url)
         if logic_app_id is not None:
             pulumi.set(__self__, "logic_app_id", logic_app_id)
         if method is not None:
@@ -122,6 +126,18 @@ class _TriggerHttpRequestState:
             pulumi.set(__self__, "relative_path", relative_path)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="callbackUrl")
+    def callback_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL for the workflow trigger
+        """
+        return pulumi.get(self, "callback_url")
+
+    @callback_url.setter
+    def callback_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "callback_url", value)
 
     @property
     @pulumi.getter(name="logicAppId")
@@ -318,6 +334,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["callback_url"] = None
         super(TriggerHttpRequest, __self__).__init__(
             'azure:logicapps/triggerHttpRequest:TriggerHttpRequest',
             resource_name,
@@ -328,6 +345,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            callback_url: Optional[pulumi.Input[str]] = None,
             logic_app_id: Optional[pulumi.Input[str]] = None,
             method: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -340,6 +358,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] callback_url: The URL for the workflow trigger
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] method: Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
         :param pulumi.Input[str] name: Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
@@ -350,12 +369,21 @@ class TriggerHttpRequest(pulumi.CustomResource):
 
         __props__ = _TriggerHttpRequestState.__new__(_TriggerHttpRequestState)
 
+        __props__.__dict__["callback_url"] = callback_url
         __props__.__dict__["logic_app_id"] = logic_app_id
         __props__.__dict__["method"] = method
         __props__.__dict__["name"] = name
         __props__.__dict__["relative_path"] = relative_path
         __props__.__dict__["schema"] = schema
         return TriggerHttpRequest(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="callbackUrl")
+    def callback_url(self) -> pulumi.Output[str]:
+        """
+        The URL for the workflow trigger
+        """
+        return pulumi.get(self, "callback_url")
 
     @property
     @pulumi.getter(name="logicAppId")

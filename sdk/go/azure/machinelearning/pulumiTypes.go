@@ -339,6 +339,513 @@ func (o ComputeClusterScaleSettingsPtrOutput) ScaleDownNodesAfterIdleDuration() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type ComputeInstanceAssignToUser struct {
+	// User’s AAD Object Id.
+	ObjectId *string `pulumi:"objectId"`
+	// User’s AAD Tenant Id.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ComputeInstanceAssignToUserInput is an input type that accepts ComputeInstanceAssignToUserArgs and ComputeInstanceAssignToUserOutput values.
+// You can construct a concrete instance of `ComputeInstanceAssignToUserInput` via:
+//
+//          ComputeInstanceAssignToUserArgs{...}
+type ComputeInstanceAssignToUserInput interface {
+	pulumi.Input
+
+	ToComputeInstanceAssignToUserOutput() ComputeInstanceAssignToUserOutput
+	ToComputeInstanceAssignToUserOutputWithContext(context.Context) ComputeInstanceAssignToUserOutput
+}
+
+type ComputeInstanceAssignToUserArgs struct {
+	// User’s AAD Object Id.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// User’s AAD Tenant Id.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ComputeInstanceAssignToUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceAssignToUser)(nil)).Elem()
+}
+
+func (i ComputeInstanceAssignToUserArgs) ToComputeInstanceAssignToUserOutput() ComputeInstanceAssignToUserOutput {
+	return i.ToComputeInstanceAssignToUserOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceAssignToUserArgs) ToComputeInstanceAssignToUserOutputWithContext(ctx context.Context) ComputeInstanceAssignToUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceAssignToUserOutput)
+}
+
+func (i ComputeInstanceAssignToUserArgs) ToComputeInstanceAssignToUserPtrOutput() ComputeInstanceAssignToUserPtrOutput {
+	return i.ToComputeInstanceAssignToUserPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceAssignToUserArgs) ToComputeInstanceAssignToUserPtrOutputWithContext(ctx context.Context) ComputeInstanceAssignToUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceAssignToUserOutput).ToComputeInstanceAssignToUserPtrOutputWithContext(ctx)
+}
+
+// ComputeInstanceAssignToUserPtrInput is an input type that accepts ComputeInstanceAssignToUserArgs, ComputeInstanceAssignToUserPtr and ComputeInstanceAssignToUserPtrOutput values.
+// You can construct a concrete instance of `ComputeInstanceAssignToUserPtrInput` via:
+//
+//          ComputeInstanceAssignToUserArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeInstanceAssignToUserPtrInput interface {
+	pulumi.Input
+
+	ToComputeInstanceAssignToUserPtrOutput() ComputeInstanceAssignToUserPtrOutput
+	ToComputeInstanceAssignToUserPtrOutputWithContext(context.Context) ComputeInstanceAssignToUserPtrOutput
+}
+
+type computeInstanceAssignToUserPtrType ComputeInstanceAssignToUserArgs
+
+func ComputeInstanceAssignToUserPtr(v *ComputeInstanceAssignToUserArgs) ComputeInstanceAssignToUserPtrInput {
+	return (*computeInstanceAssignToUserPtrType)(v)
+}
+
+func (*computeInstanceAssignToUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceAssignToUser)(nil)).Elem()
+}
+
+func (i *computeInstanceAssignToUserPtrType) ToComputeInstanceAssignToUserPtrOutput() ComputeInstanceAssignToUserPtrOutput {
+	return i.ToComputeInstanceAssignToUserPtrOutputWithContext(context.Background())
+}
+
+func (i *computeInstanceAssignToUserPtrType) ToComputeInstanceAssignToUserPtrOutputWithContext(ctx context.Context) ComputeInstanceAssignToUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceAssignToUserPtrOutput)
+}
+
+type ComputeInstanceAssignToUserOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceAssignToUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceAssignToUser)(nil)).Elem()
+}
+
+func (o ComputeInstanceAssignToUserOutput) ToComputeInstanceAssignToUserOutput() ComputeInstanceAssignToUserOutput {
+	return o
+}
+
+func (o ComputeInstanceAssignToUserOutput) ToComputeInstanceAssignToUserOutputWithContext(ctx context.Context) ComputeInstanceAssignToUserOutput {
+	return o
+}
+
+func (o ComputeInstanceAssignToUserOutput) ToComputeInstanceAssignToUserPtrOutput() ComputeInstanceAssignToUserPtrOutput {
+	return o.ToComputeInstanceAssignToUserPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeInstanceAssignToUserOutput) ToComputeInstanceAssignToUserPtrOutputWithContext(ctx context.Context) ComputeInstanceAssignToUserPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceAssignToUser) *ComputeInstanceAssignToUser {
+		return &v
+	}).(ComputeInstanceAssignToUserPtrOutput)
+}
+
+// User’s AAD Object Id.
+func (o ComputeInstanceAssignToUserOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceAssignToUser) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// User’s AAD Tenant Id.
+func (o ComputeInstanceAssignToUserOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceAssignToUser) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ComputeInstanceAssignToUserPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceAssignToUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceAssignToUser)(nil)).Elem()
+}
+
+func (o ComputeInstanceAssignToUserPtrOutput) ToComputeInstanceAssignToUserPtrOutput() ComputeInstanceAssignToUserPtrOutput {
+	return o
+}
+
+func (o ComputeInstanceAssignToUserPtrOutput) ToComputeInstanceAssignToUserPtrOutputWithContext(ctx context.Context) ComputeInstanceAssignToUserPtrOutput {
+	return o
+}
+
+func (o ComputeInstanceAssignToUserPtrOutput) Elem() ComputeInstanceAssignToUserOutput {
+	return o.ApplyT(func(v *ComputeInstanceAssignToUser) ComputeInstanceAssignToUser { return *v }).(ComputeInstanceAssignToUserOutput)
+}
+
+// User’s AAD Object Id.
+func (o ComputeInstanceAssignToUserPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceAssignToUser) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// User’s AAD Tenant Id.
+func (o ComputeInstanceAssignToUserPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceAssignToUser) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeInstanceIdentity struct {
+	// A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
+	PrincipalId *string `pulumi:"principalId"`
+	// User’s AAD Tenant Id.
+	TenantId *string `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Instance to be created.
+	Type string `pulumi:"type"`
+}
+
+// ComputeInstanceIdentityInput is an input type that accepts ComputeInstanceIdentityArgs and ComputeInstanceIdentityOutput values.
+// You can construct a concrete instance of `ComputeInstanceIdentityInput` via:
+//
+//          ComputeInstanceIdentityArgs{...}
+type ComputeInstanceIdentityInput interface {
+	pulumi.Input
+
+	ToComputeInstanceIdentityOutput() ComputeInstanceIdentityOutput
+	ToComputeInstanceIdentityOutputWithContext(context.Context) ComputeInstanceIdentityOutput
+}
+
+type ComputeInstanceIdentityArgs struct {
+	// A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// User’s AAD Tenant Id.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Instance to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ComputeInstanceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceIdentity)(nil)).Elem()
+}
+
+func (i ComputeInstanceIdentityArgs) ToComputeInstanceIdentityOutput() ComputeInstanceIdentityOutput {
+	return i.ToComputeInstanceIdentityOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceIdentityArgs) ToComputeInstanceIdentityOutputWithContext(ctx context.Context) ComputeInstanceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceIdentityOutput)
+}
+
+func (i ComputeInstanceIdentityArgs) ToComputeInstanceIdentityPtrOutput() ComputeInstanceIdentityPtrOutput {
+	return i.ToComputeInstanceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceIdentityArgs) ToComputeInstanceIdentityPtrOutputWithContext(ctx context.Context) ComputeInstanceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceIdentityOutput).ToComputeInstanceIdentityPtrOutputWithContext(ctx)
+}
+
+// ComputeInstanceIdentityPtrInput is an input type that accepts ComputeInstanceIdentityArgs, ComputeInstanceIdentityPtr and ComputeInstanceIdentityPtrOutput values.
+// You can construct a concrete instance of `ComputeInstanceIdentityPtrInput` via:
+//
+//          ComputeInstanceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeInstanceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToComputeInstanceIdentityPtrOutput() ComputeInstanceIdentityPtrOutput
+	ToComputeInstanceIdentityPtrOutputWithContext(context.Context) ComputeInstanceIdentityPtrOutput
+}
+
+type computeInstanceIdentityPtrType ComputeInstanceIdentityArgs
+
+func ComputeInstanceIdentityPtr(v *ComputeInstanceIdentityArgs) ComputeInstanceIdentityPtrInput {
+	return (*computeInstanceIdentityPtrType)(v)
+}
+
+func (*computeInstanceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceIdentity)(nil)).Elem()
+}
+
+func (i *computeInstanceIdentityPtrType) ToComputeInstanceIdentityPtrOutput() ComputeInstanceIdentityPtrOutput {
+	return i.ToComputeInstanceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *computeInstanceIdentityPtrType) ToComputeInstanceIdentityPtrOutputWithContext(ctx context.Context) ComputeInstanceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceIdentityPtrOutput)
+}
+
+type ComputeInstanceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceIdentity)(nil)).Elem()
+}
+
+func (o ComputeInstanceIdentityOutput) ToComputeInstanceIdentityOutput() ComputeInstanceIdentityOutput {
+	return o
+}
+
+func (o ComputeInstanceIdentityOutput) ToComputeInstanceIdentityOutputWithContext(ctx context.Context) ComputeInstanceIdentityOutput {
+	return o
+}
+
+func (o ComputeInstanceIdentityOutput) ToComputeInstanceIdentityPtrOutput() ComputeInstanceIdentityPtrOutput {
+	return o.ToComputeInstanceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeInstanceIdentityOutput) ToComputeInstanceIdentityPtrOutputWithContext(ctx context.Context) ComputeInstanceIdentityPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceIdentity) *ComputeInstanceIdentity {
+		return &v
+	}).(ComputeInstanceIdentityPtrOutput)
+}
+
+// A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+func (o ComputeInstanceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ComputeInstanceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
+func (o ComputeInstanceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// User’s AAD Tenant Id.
+func (o ComputeInstanceIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Instance to be created.
+func (o ComputeInstanceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ComputeInstanceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceIdentity)(nil)).Elem()
+}
+
+func (o ComputeInstanceIdentityPtrOutput) ToComputeInstanceIdentityPtrOutput() ComputeInstanceIdentityPtrOutput {
+	return o
+}
+
+func (o ComputeInstanceIdentityPtrOutput) ToComputeInstanceIdentityPtrOutputWithContext(ctx context.Context) ComputeInstanceIdentityPtrOutput {
+	return o
+}
+
+func (o ComputeInstanceIdentityPtrOutput) Elem() ComputeInstanceIdentityOutput {
+	return o.ApplyT(func(v *ComputeInstanceIdentity) ComputeInstanceIdentity { return *v }).(ComputeInstanceIdentityOutput)
+}
+
+// A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+func (o ComputeInstanceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ComputeInstanceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
+func (o ComputeInstanceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// User’s AAD Tenant Id.
+func (o ComputeInstanceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Instance to be created.
+func (o ComputeInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeInstanceSsh struct {
+	// Describes the port for connecting through SSH.
+	Port *int `pulumi:"port"`
+	// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+	PublicKey string `pulumi:"publicKey"`
+	// The admin username of this Machine Learning Compute Instance.
+	Username *string `pulumi:"username"`
+}
+
+// ComputeInstanceSshInput is an input type that accepts ComputeInstanceSshArgs and ComputeInstanceSshOutput values.
+// You can construct a concrete instance of `ComputeInstanceSshInput` via:
+//
+//          ComputeInstanceSshArgs{...}
+type ComputeInstanceSshInput interface {
+	pulumi.Input
+
+	ToComputeInstanceSshOutput() ComputeInstanceSshOutput
+	ToComputeInstanceSshOutputWithContext(context.Context) ComputeInstanceSshOutput
+}
+
+type ComputeInstanceSshArgs struct {
+	// Describes the port for connecting through SSH.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+	PublicKey pulumi.StringInput `pulumi:"publicKey"`
+	// The admin username of this Machine Learning Compute Instance.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (ComputeInstanceSshArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceSsh)(nil)).Elem()
+}
+
+func (i ComputeInstanceSshArgs) ToComputeInstanceSshOutput() ComputeInstanceSshOutput {
+	return i.ToComputeInstanceSshOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceSshArgs) ToComputeInstanceSshOutputWithContext(ctx context.Context) ComputeInstanceSshOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceSshOutput)
+}
+
+func (i ComputeInstanceSshArgs) ToComputeInstanceSshPtrOutput() ComputeInstanceSshPtrOutput {
+	return i.ToComputeInstanceSshPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceSshArgs) ToComputeInstanceSshPtrOutputWithContext(ctx context.Context) ComputeInstanceSshPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceSshOutput).ToComputeInstanceSshPtrOutputWithContext(ctx)
+}
+
+// ComputeInstanceSshPtrInput is an input type that accepts ComputeInstanceSshArgs, ComputeInstanceSshPtr and ComputeInstanceSshPtrOutput values.
+// You can construct a concrete instance of `ComputeInstanceSshPtrInput` via:
+//
+//          ComputeInstanceSshArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeInstanceSshPtrInput interface {
+	pulumi.Input
+
+	ToComputeInstanceSshPtrOutput() ComputeInstanceSshPtrOutput
+	ToComputeInstanceSshPtrOutputWithContext(context.Context) ComputeInstanceSshPtrOutput
+}
+
+type computeInstanceSshPtrType ComputeInstanceSshArgs
+
+func ComputeInstanceSshPtr(v *ComputeInstanceSshArgs) ComputeInstanceSshPtrInput {
+	return (*computeInstanceSshPtrType)(v)
+}
+
+func (*computeInstanceSshPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceSsh)(nil)).Elem()
+}
+
+func (i *computeInstanceSshPtrType) ToComputeInstanceSshPtrOutput() ComputeInstanceSshPtrOutput {
+	return i.ToComputeInstanceSshPtrOutputWithContext(context.Background())
+}
+
+func (i *computeInstanceSshPtrType) ToComputeInstanceSshPtrOutputWithContext(ctx context.Context) ComputeInstanceSshPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceSshPtrOutput)
+}
+
+type ComputeInstanceSshOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceSshOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceSsh)(nil)).Elem()
+}
+
+func (o ComputeInstanceSshOutput) ToComputeInstanceSshOutput() ComputeInstanceSshOutput {
+	return o
+}
+
+func (o ComputeInstanceSshOutput) ToComputeInstanceSshOutputWithContext(ctx context.Context) ComputeInstanceSshOutput {
+	return o
+}
+
+func (o ComputeInstanceSshOutput) ToComputeInstanceSshPtrOutput() ComputeInstanceSshPtrOutput {
+	return o.ToComputeInstanceSshPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeInstanceSshOutput) ToComputeInstanceSshPtrOutputWithContext(ctx context.Context) ComputeInstanceSshPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceSsh) *ComputeInstanceSsh {
+		return &v
+	}).(ComputeInstanceSshPtrOutput)
+}
+
+// Describes the port for connecting through SSH.
+func (o ComputeInstanceSshOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceSsh) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+func (o ComputeInstanceSshOutput) PublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceSsh) string { return v.PublicKey }).(pulumi.StringOutput)
+}
+
+// The admin username of this Machine Learning Compute Instance.
+func (o ComputeInstanceSshOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceSsh) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type ComputeInstanceSshPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceSshPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceSsh)(nil)).Elem()
+}
+
+func (o ComputeInstanceSshPtrOutput) ToComputeInstanceSshPtrOutput() ComputeInstanceSshPtrOutput {
+	return o
+}
+
+func (o ComputeInstanceSshPtrOutput) ToComputeInstanceSshPtrOutputWithContext(ctx context.Context) ComputeInstanceSshPtrOutput {
+	return o
+}
+
+func (o ComputeInstanceSshPtrOutput) Elem() ComputeInstanceSshOutput {
+	return o.ApplyT(func(v *ComputeInstanceSsh) ComputeInstanceSsh { return *v }).(ComputeInstanceSshOutput)
+}
+
+// Describes the port for connecting through SSH.
+func (o ComputeInstanceSshPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceSsh) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+func (o ComputeInstanceSshPtrOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceSsh) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PublicKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The admin username of this Machine Learning Compute Instance.
+func (o ComputeInstanceSshPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceSsh) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
 type InferenceClusterSsl struct {
 	// The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Cert *string `pulumi:"cert"`
@@ -544,6 +1051,194 @@ func (o InferenceClusterSslPtrOutput) OverwriteExistingDomain() pulumi.BoolPtrOu
 		}
 		return v.OverwriteExistingDomain
 	}).(pulumi.BoolPtrOutput)
+}
+
+type SynapseSparkIdentity struct {
+	// A list of User Managed Identity ID's which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+	TenantId *string `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Synapse Spark to be created.
+	Type string `pulumi:"type"`
+}
+
+// SynapseSparkIdentityInput is an input type that accepts SynapseSparkIdentityArgs and SynapseSparkIdentityOutput values.
+// You can construct a concrete instance of `SynapseSparkIdentityInput` via:
+//
+//          SynapseSparkIdentityArgs{...}
+type SynapseSparkIdentityInput interface {
+	pulumi.Input
+
+	ToSynapseSparkIdentityOutput() SynapseSparkIdentityOutput
+	ToSynapseSparkIdentityOutputWithContext(context.Context) SynapseSparkIdentityOutput
+}
+
+type SynapseSparkIdentityArgs struct {
+	// A list of User Managed Identity ID's which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Synapse Spark to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SynapseSparkIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SynapseSparkIdentity)(nil)).Elem()
+}
+
+func (i SynapseSparkIdentityArgs) ToSynapseSparkIdentityOutput() SynapseSparkIdentityOutput {
+	return i.ToSynapseSparkIdentityOutputWithContext(context.Background())
+}
+
+func (i SynapseSparkIdentityArgs) ToSynapseSparkIdentityOutputWithContext(ctx context.Context) SynapseSparkIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SynapseSparkIdentityOutput)
+}
+
+func (i SynapseSparkIdentityArgs) ToSynapseSparkIdentityPtrOutput() SynapseSparkIdentityPtrOutput {
+	return i.ToSynapseSparkIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i SynapseSparkIdentityArgs) ToSynapseSparkIdentityPtrOutputWithContext(ctx context.Context) SynapseSparkIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SynapseSparkIdentityOutput).ToSynapseSparkIdentityPtrOutputWithContext(ctx)
+}
+
+// SynapseSparkIdentityPtrInput is an input type that accepts SynapseSparkIdentityArgs, SynapseSparkIdentityPtr and SynapseSparkIdentityPtrOutput values.
+// You can construct a concrete instance of `SynapseSparkIdentityPtrInput` via:
+//
+//          SynapseSparkIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type SynapseSparkIdentityPtrInput interface {
+	pulumi.Input
+
+	ToSynapseSparkIdentityPtrOutput() SynapseSparkIdentityPtrOutput
+	ToSynapseSparkIdentityPtrOutputWithContext(context.Context) SynapseSparkIdentityPtrOutput
+}
+
+type synapseSparkIdentityPtrType SynapseSparkIdentityArgs
+
+func SynapseSparkIdentityPtr(v *SynapseSparkIdentityArgs) SynapseSparkIdentityPtrInput {
+	return (*synapseSparkIdentityPtrType)(v)
+}
+
+func (*synapseSparkIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SynapseSparkIdentity)(nil)).Elem()
+}
+
+func (i *synapseSparkIdentityPtrType) ToSynapseSparkIdentityPtrOutput() SynapseSparkIdentityPtrOutput {
+	return i.ToSynapseSparkIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *synapseSparkIdentityPtrType) ToSynapseSparkIdentityPtrOutputWithContext(ctx context.Context) SynapseSparkIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SynapseSparkIdentityPtrOutput)
+}
+
+type SynapseSparkIdentityOutput struct{ *pulumi.OutputState }
+
+func (SynapseSparkIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SynapseSparkIdentity)(nil)).Elem()
+}
+
+func (o SynapseSparkIdentityOutput) ToSynapseSparkIdentityOutput() SynapseSparkIdentityOutput {
+	return o
+}
+
+func (o SynapseSparkIdentityOutput) ToSynapseSparkIdentityOutputWithContext(ctx context.Context) SynapseSparkIdentityOutput {
+	return o
+}
+
+func (o SynapseSparkIdentityOutput) ToSynapseSparkIdentityPtrOutput() SynapseSparkIdentityPtrOutput {
+	return o.ToSynapseSparkIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o SynapseSparkIdentityOutput) ToSynapseSparkIdentityPtrOutputWithContext(ctx context.Context) SynapseSparkIdentityPtrOutput {
+	return o.ApplyT(func(v SynapseSparkIdentity) *SynapseSparkIdentity {
+		return &v
+	}).(SynapseSparkIdentityPtrOutput)
+}
+
+// A list of User Managed Identity ID's which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
+func (o SynapseSparkIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SynapseSparkIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+func (o SynapseSparkIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SynapseSparkIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+func (o SynapseSparkIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SynapseSparkIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Synapse Spark to be created.
+func (o SynapseSparkIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SynapseSparkIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SynapseSparkIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (SynapseSparkIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SynapseSparkIdentity)(nil)).Elem()
+}
+
+func (o SynapseSparkIdentityPtrOutput) ToSynapseSparkIdentityPtrOutput() SynapseSparkIdentityPtrOutput {
+	return o
+}
+
+func (o SynapseSparkIdentityPtrOutput) ToSynapseSparkIdentityPtrOutputWithContext(ctx context.Context) SynapseSparkIdentityPtrOutput {
+	return o
+}
+
+func (o SynapseSparkIdentityPtrOutput) Elem() SynapseSparkIdentityOutput {
+	return o.ApplyT(func(v *SynapseSparkIdentity) SynapseSparkIdentity { return *v }).(SynapseSparkIdentityOutput)
+}
+
+// A list of User Managed Identity ID's which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
+func (o SynapseSparkIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SynapseSparkIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+func (o SynapseSparkIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SynapseSparkIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+func (o SynapseSparkIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SynapseSparkIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Synapse Spark to be created.
+func (o SynapseSparkIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SynapseSparkIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type WorkspaceIdentity struct {
@@ -826,8 +1521,16 @@ func init() {
 	pulumi.RegisterOutputType(ComputeClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ComputeClusterScaleSettingsOutput{})
 	pulumi.RegisterOutputType(ComputeClusterScaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceAssignToUserOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceAssignToUserPtrOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceIdentityOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceSshOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceSshPtrOutput{})
 	pulumi.RegisterOutputType(InferenceClusterSslOutput{})
 	pulumi.RegisterOutputType(InferenceClusterSslPtrOutput{})
+	pulumi.RegisterOutputType(SynapseSparkIdentityOutput{})
+	pulumi.RegisterOutputType(SynapseSparkIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityOutput{})

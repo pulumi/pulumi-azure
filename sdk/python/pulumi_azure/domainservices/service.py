@@ -203,6 +203,7 @@ class _ServiceState:
                  name: Optional[pulumi.Input[str]] = None,
                  notifications: Optional[pulumi.Input['ServiceNotificationsArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
                  secure_ldap: Optional[pulumi.Input['ServiceSecureLdapArgs']] = None,
                  security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -220,6 +221,7 @@ class _ServiceState:
         :param pulumi.Input[str] name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input['ServiceNotificationsArgs'] notifications: A `notifications` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_id: The Azure resource ID for the domain service.
         :param pulumi.Input['ServiceSecureLdapArgs'] secure_ldap: A `secure_ldap` block as defined below.
         :param pulumi.Input['ServiceSecurityArgs'] security: A `security` block as defined below.
         :param pulumi.Input[str] sku: The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
@@ -241,6 +243,8 @@ class _ServiceState:
             pulumi.set(__self__, "notifications", notifications)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
         if secure_ldap is not None:
             pulumi.set(__self__, "secure_ldap", secure_ldap)
         if security is not None:
@@ -351,6 +355,18 @@ class _ServiceState:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure resource ID for the domain service.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
     @property
     @pulumi.getter(name="secureLdap")
@@ -541,6 +557,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["deployment_id"] = None
+            __props__.__dict__["resource_id"] = None
             __props__.__dict__["sync_owner"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["version"] = None
@@ -562,6 +579,7 @@ class Service(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             notifications: Optional[pulumi.Input[pulumi.InputType['ServiceNotificationsArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            resource_id: Optional[pulumi.Input[str]] = None,
             secure_ldap: Optional[pulumi.Input[pulumi.InputType['ServiceSecureLdapArgs']]] = None,
             security: Optional[pulumi.Input[pulumi.InputType['ServiceSecurityArgs']]] = None,
             sku: Optional[pulumi.Input[str]] = None,
@@ -584,6 +602,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ServiceNotificationsArgs']] notifications: A `notifications` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_id: The Azure resource ID for the domain service.
         :param pulumi.Input[pulumi.InputType['ServiceSecureLdapArgs']] secure_ldap: A `secure_ldap` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceSecurityArgs']] security: A `security` block as defined below.
         :param pulumi.Input[str] sku: The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
@@ -601,6 +620,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["notifications"] = notifications
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["secure_ldap"] = secure_ldap
         __props__.__dict__["security"] = security
         __props__.__dict__["sku"] = sku
@@ -673,6 +693,14 @@ class Service(pulumi.CustomResource):
         The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Output[str]:
+        """
+        The Azure resource ID for the domain service.
+        """
+        return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="secureLdap")

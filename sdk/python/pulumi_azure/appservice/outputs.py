@@ -38,6 +38,7 @@ __all__ = [
     'CertificateOrderCertificate',
     'EnvironmentClusterSetting',
     'EnvironmentV3ClusterSetting',
+    'EnvironmentV3InboundNetworkDependency',
     'FunctionAppAuthSettings',
     'FunctionAppAuthSettingsActiveDirectory',
     'FunctionAppAuthSettingsFacebook',
@@ -104,6 +105,7 @@ __all__ = [
     'GetAppServiceSourceControlResult',
     'GetCertificateOrderCertificateResult',
     'GetEnvironmentV3ClusterSettingResult',
+    'GetEnvironmentV3InboundNetworkDependencyResult',
     'GetFunctionAppConnectionStringResult',
     'GetFunctionAppIdentityResult',
     'GetFunctionAppSiteConfigResult',
@@ -986,6 +988,7 @@ class AppServiceLogsApplicationLogs(dict):
                  file_system_level: Optional[str] = None):
         """
         :param 'AppServiceLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param str file_system_level: Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -1003,6 +1006,9 @@ class AppServiceLogsApplicationLogs(dict):
     @property
     @pulumi.getter(name="fileSystemLevel")
     def file_system_level(self) -> Optional[str]:
+        """
+        Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+        """
         return pulumi.get(self, "file_system_level")
 
 
@@ -2428,6 +2434,66 @@ class EnvironmentV3ClusterSetting(dict):
         The value for the Cluster Setting.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EnvironmentV3InboundNetworkDependency(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentV3InboundNetworkDependency. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentV3InboundNetworkDependency.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentV3InboundNetworkDependency.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 ip_addresses: Optional[Sequence[str]] = None,
+                 ports: Optional[Sequence[str]] = None):
+        """
+        :param str description: A short description of the purpose of the network traffic.
+        :param Sequence[str] ip_addresses: A list of IP addresses that network traffic will originate from in CIDR notation.
+        :param Sequence[str] ports: The ports that network traffic will arrive to the App Service Environment V3 on.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A short description of the purpose of the network traffic.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        A list of IP addresses that network traffic will originate from in CIDR notation.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[Sequence[str]]:
+        """
+        The ports that network traffic will arrive to the App Service Environment V3 on.
+        """
+        return pulumi.get(self, "ports")
 
 
 @pulumi.output_type
@@ -7932,6 +7998,46 @@ class GetEnvironmentV3ClusterSettingResult(dict):
         The value for the Cluster Setting.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetEnvironmentV3InboundNetworkDependencyResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 ip_addresses: Sequence[str],
+                 ports: Sequence[str]):
+        """
+        :param str description: A short description of the purpose of the network traffic.
+        :param Sequence[str] ip_addresses: A list of IP addresses that network traffic will originate from in CIDR notation.
+        :param Sequence[str] ports: The ports that network traffic will arrive to the App Service Environment V3 on.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        pulumi.set(__self__, "ports", ports)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        A short description of the purpose of the network traffic.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        """
+        A list of IP addresses that network traffic will originate from in CIDR notation.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Sequence[str]:
+        """
+        The ports that network traffic will arrive to the App Service Environment V3 on.
+        """
+        return pulumi.get(self, "ports")
 
 
 @pulumi.output_type

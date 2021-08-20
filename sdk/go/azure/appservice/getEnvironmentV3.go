@@ -52,10 +52,28 @@ type LookupEnvironmentV3Args struct {
 
 // A collection of values returned by getEnvironmentV3.
 type LookupEnvironmentV3Result struct {
+	// Are new Private Endpoint Connections allowed.
+	AllowNewPrivateEndpointConnections bool `pulumi:"allowNewPrivateEndpointConnections"`
 	// A `clusterSetting` block as defined below.
 	ClusterSettings []GetEnvironmentV3ClusterSetting `pulumi:"clusterSettings"`
+	// The number of Dedicated Hosts used by this ASEv3.
+	DedicatedHostCount int `pulumi:"dedicatedHostCount"`
+	// the DNS suffix for this App Service Environment V3.
+	DnsSuffix string `pulumi:"dnsSuffix"`
+	// The external outbound IP addresses of the App Service Environment V3.
+	ExternalInboundIpAddresses []string `pulumi:"externalInboundIpAddresses"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// An Inbound Network Dependencies block as defined below.
+	InboundNetworkDependencies []GetEnvironmentV3InboundNetworkDependency `pulumi:"inboundNetworkDependencies"`
+	// The internal outbound IP addresses of the App Service Environment V3.
+	InternalInboundIpAddresses []string `pulumi:"internalInboundIpAddresses"`
+	// The Internal Load Balancing Mode of this ASEv3.
+	InternalLoadBalancingMode string `pulumi:"internalLoadBalancingMode"`
+	// The number of IP SSL addresses reserved for the App Service Environment V3.
+	IpSslAddressCount int `pulumi:"ipSslAddressCount"`
+	// The list of Outbound IP Addresses of Linux based Apps in this App Service Environment V3.
+	LinuxOutboundIpAddresses []string `pulumi:"linuxOutboundIpAddresses"`
 	// The location where the App Service Environment exists.
 	Location string `pulumi:"location"`
 	// The name of the Cluster Setting.
@@ -67,4 +85,7 @@ type LookupEnvironmentV3Result struct {
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags assigned to the v3 App Service Environment.
 	Tags map[string]string `pulumi:"tags"`
+	// Outbound addresses of Windows based Apps in this App Service Environment V3.
+	WindowsOutboundIpAddresses []string `pulumi:"windowsOutboundIpAddresses"`
+	ZoneRedundant              bool     `pulumi:"zoneRedundant"`
 }

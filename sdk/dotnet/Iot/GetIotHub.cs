@@ -82,6 +82,10 @@ namespace Pulumi.Azure.Iot
     public sealed class GetIotHubResult
     {
         /// <summary>
+        /// The Hostname of the IoTHub.
+        /// </summary>
+        public readonly string Hostname;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -91,6 +95,8 @@ namespace Pulumi.Azure.Iot
 
         [OutputConstructor]
         private GetIotHubResult(
+            string hostname,
+
             string id,
 
             string name,
@@ -99,6 +105,7 @@ namespace Pulumi.Azure.Iot
 
             ImmutableDictionary<string, string>? tags)
         {
+            Hostname = hostname;
             Id = id;
             Name = name;
             ResourceGroupName = resourceGroupName;

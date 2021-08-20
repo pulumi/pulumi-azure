@@ -26,7 +26,7 @@ builds:
   - linux
   ldflags:
   - -X github.com/pulumi/pulumi-azure/provider/v4/pkg/version.Version={{.Tag}}
-  - -X github.com/terraform-providers/terraform-provider-azurerm/version.ProviderVersion={{.Tag}}
+  - -X github.com/hashicorp/terraform-provider-azurerm/version.ProviderVersion={{.Tag}}
   main: ./cmd/pulumi-resource-azure/
 changelog:
   skip: true

@@ -12,3 +12,5 @@ from .store import *
 from .store_file import *
 from .store_firewall_rule import *
 from .store_virtual_network_rule import *
+from ._inputs import *
+from . import outputs

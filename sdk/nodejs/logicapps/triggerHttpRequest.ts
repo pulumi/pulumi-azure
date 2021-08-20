@@ -69,6 +69,10 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
     }
 
     /**
+     * The URL for the workflow trigger
+     */
+    public /*out*/ readonly callbackUrl!: pulumi.Output<string>;
+    /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
     public readonly logicAppId!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerHttpRequestState | undefined;
+            inputs["callbackUrl"] = state ? state.callbackUrl : undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;
             inputs["method"] = state ? state.method : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -120,6 +125,7 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["relativePath"] = args ? args.relativePath : undefined;
             inputs["schema"] = args ? args.schema : undefined;
+            inputs["callbackUrl"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -132,6 +138,10 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TriggerHttpRequest resources.
  */
 export interface TriggerHttpRequestState {
+    /**
+     * The URL for the workflow trigger
+     */
+    callbackUrl?: pulumi.Input<string>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */

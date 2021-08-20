@@ -61,6 +61,12 @@ namespace Pulumi.Azure.LogicApps
     public partial class TriggerHttpRequest : Pulumi.CustomResource
     {
         /// <summary>
+        /// The URL for the workflow trigger
+        /// </summary>
+        [Output("callbackUrl")]
+        public Output<string> CallbackUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         /// </summary>
         [Output("logicAppId")]
@@ -173,6 +179,12 @@ namespace Pulumi.Azure.LogicApps
 
     public sealed class TriggerHttpRequestState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL for the workflow trigger
+        /// </summary>
+        [Input("callbackUrl")]
+        public Input<string>? CallbackUrl { get; set; }
+
         /// <summary>
         /// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         /// </summary>

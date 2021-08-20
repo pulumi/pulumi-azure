@@ -168,6 +168,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? Type { get; set; }
 
         /// <summary>
+        /// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+        /// </summary>
+        [Input("ultraSsdEnabled")]
+        public Input<bool>? UltraSsdEnabled { get; set; }
+
+        /// <summary>
         /// A `upgrade_settings` block as documented below.
         /// </summary>
         [Input("upgradeSettings")]

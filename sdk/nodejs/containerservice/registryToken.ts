@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group.rg.name,
  *     actions: [
  *         "repositories/repo1/content/read",
- *         "repositories/repo1/content/create",
+ *         "repositories/repo1/content/write",
  *     ],
  * });
  * const exampleRegistryToken = new azure.containerservice.RegistryToken("exampleRegistryToken", {

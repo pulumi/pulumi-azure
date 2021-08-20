@@ -116,6 +116,175 @@ func (o ActionHttpRunAfterArrayOutput) Index(i pulumi.IntInput) ActionHttpRunAft
 	}).(ActionHttpRunAfterOutput)
 }
 
+type IntegrationAccountCertificateKeyVaultKey struct {
+	// The name of Key Vault Key.
+	KeyName string `pulumi:"keyName"`
+	// The ID of the Key Vault.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// The version of Key Vault Key.
+	KeyVersion *string `pulumi:"keyVersion"`
+}
+
+// IntegrationAccountCertificateKeyVaultKeyInput is an input type that accepts IntegrationAccountCertificateKeyVaultKeyArgs and IntegrationAccountCertificateKeyVaultKeyOutput values.
+// You can construct a concrete instance of `IntegrationAccountCertificateKeyVaultKeyInput` via:
+//
+//          IntegrationAccountCertificateKeyVaultKeyArgs{...}
+type IntegrationAccountCertificateKeyVaultKeyInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountCertificateKeyVaultKeyOutput() IntegrationAccountCertificateKeyVaultKeyOutput
+	ToIntegrationAccountCertificateKeyVaultKeyOutputWithContext(context.Context) IntegrationAccountCertificateKeyVaultKeyOutput
+}
+
+type IntegrationAccountCertificateKeyVaultKeyArgs struct {
+	// The name of Key Vault Key.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The ID of the Key Vault.
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	// The version of Key Vault Key.
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+}
+
+func (IntegrationAccountCertificateKeyVaultKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountCertificateKeyVaultKey)(nil)).Elem()
+}
+
+func (i IntegrationAccountCertificateKeyVaultKeyArgs) ToIntegrationAccountCertificateKeyVaultKeyOutput() IntegrationAccountCertificateKeyVaultKeyOutput {
+	return i.ToIntegrationAccountCertificateKeyVaultKeyOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountCertificateKeyVaultKeyArgs) ToIntegrationAccountCertificateKeyVaultKeyOutputWithContext(ctx context.Context) IntegrationAccountCertificateKeyVaultKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCertificateKeyVaultKeyOutput)
+}
+
+func (i IntegrationAccountCertificateKeyVaultKeyArgs) ToIntegrationAccountCertificateKeyVaultKeyPtrOutput() IntegrationAccountCertificateKeyVaultKeyPtrOutput {
+	return i.ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountCertificateKeyVaultKeyArgs) ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(ctx context.Context) IntegrationAccountCertificateKeyVaultKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCertificateKeyVaultKeyOutput).ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountCertificateKeyVaultKeyPtrInput is an input type that accepts IntegrationAccountCertificateKeyVaultKeyArgs, IntegrationAccountCertificateKeyVaultKeyPtr and IntegrationAccountCertificateKeyVaultKeyPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountCertificateKeyVaultKeyPtrInput` via:
+//
+//          IntegrationAccountCertificateKeyVaultKeyArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationAccountCertificateKeyVaultKeyPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountCertificateKeyVaultKeyPtrOutput() IntegrationAccountCertificateKeyVaultKeyPtrOutput
+	ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(context.Context) IntegrationAccountCertificateKeyVaultKeyPtrOutput
+}
+
+type integrationAccountCertificateKeyVaultKeyPtrType IntegrationAccountCertificateKeyVaultKeyArgs
+
+func IntegrationAccountCertificateKeyVaultKeyPtr(v *IntegrationAccountCertificateKeyVaultKeyArgs) IntegrationAccountCertificateKeyVaultKeyPtrInput {
+	return (*integrationAccountCertificateKeyVaultKeyPtrType)(v)
+}
+
+func (*integrationAccountCertificateKeyVaultKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountCertificateKeyVaultKey)(nil)).Elem()
+}
+
+func (i *integrationAccountCertificateKeyVaultKeyPtrType) ToIntegrationAccountCertificateKeyVaultKeyPtrOutput() IntegrationAccountCertificateKeyVaultKeyPtrOutput {
+	return i.ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountCertificateKeyVaultKeyPtrType) ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(ctx context.Context) IntegrationAccountCertificateKeyVaultKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCertificateKeyVaultKeyPtrOutput)
+}
+
+type IntegrationAccountCertificateKeyVaultKeyOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountCertificateKeyVaultKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountCertificateKeyVaultKey)(nil)).Elem()
+}
+
+func (o IntegrationAccountCertificateKeyVaultKeyOutput) ToIntegrationAccountCertificateKeyVaultKeyOutput() IntegrationAccountCertificateKeyVaultKeyOutput {
+	return o
+}
+
+func (o IntegrationAccountCertificateKeyVaultKeyOutput) ToIntegrationAccountCertificateKeyVaultKeyOutputWithContext(ctx context.Context) IntegrationAccountCertificateKeyVaultKeyOutput {
+	return o
+}
+
+func (o IntegrationAccountCertificateKeyVaultKeyOutput) ToIntegrationAccountCertificateKeyVaultKeyPtrOutput() IntegrationAccountCertificateKeyVaultKeyPtrOutput {
+	return o.ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountCertificateKeyVaultKeyOutput) ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(ctx context.Context) IntegrationAccountCertificateKeyVaultKeyPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountCertificateKeyVaultKey) *IntegrationAccountCertificateKeyVaultKey {
+		return &v
+	}).(IntegrationAccountCertificateKeyVaultKeyPtrOutput)
+}
+
+// The name of Key Vault Key.
+func (o IntegrationAccountCertificateKeyVaultKeyOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountCertificateKeyVaultKey) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault.
+func (o IntegrationAccountCertificateKeyVaultKeyOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountCertificateKeyVaultKey) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+// The version of Key Vault Key.
+func (o IntegrationAccountCertificateKeyVaultKeyOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountCertificateKeyVaultKey) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAccountCertificateKeyVaultKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountCertificateKeyVaultKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountCertificateKeyVaultKey)(nil)).Elem()
+}
+
+func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) ToIntegrationAccountCertificateKeyVaultKeyPtrOutput() IntegrationAccountCertificateKeyVaultKeyPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(ctx context.Context) IntegrationAccountCertificateKeyVaultKeyPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) Elem() IntegrationAccountCertificateKeyVaultKeyOutput {
+	return o.ApplyT(func(v *IntegrationAccountCertificateKeyVaultKey) IntegrationAccountCertificateKeyVaultKey { return *v }).(IntegrationAccountCertificateKeyVaultKeyOutput)
+}
+
+// The name of Key Vault Key.
+func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountCertificateKeyVaultKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault.
+func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountCertificateKeyVaultKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of Key Vault Key.
+func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountCertificateKeyVaultKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 type TriggerRecurrenceSchedule struct {
 	// Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
 	AtTheseHours []int `pulumi:"atTheseHours"`
@@ -288,6 +457,8 @@ func (o TriggerRecurrenceSchedulePtrOutput) OnTheseDays() pulumi.StringArrayOutp
 func init() {
 	pulumi.RegisterOutputType(ActionHttpRunAfterOutput{})
 	pulumi.RegisterOutputType(ActionHttpRunAfterArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountCertificateKeyVaultKeyOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountCertificateKeyVaultKeyPtrOutput{})
 	pulumi.RegisterOutputType(TriggerRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(TriggerRecurrenceSchedulePtrOutput{})
 }

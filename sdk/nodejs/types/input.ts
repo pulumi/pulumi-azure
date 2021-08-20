@@ -1312,7 +1312,7 @@ export namespace appconfiguration {
         /**
          * Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
          */
-        type: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
     }
 
     export interface ConfigurationStorePrimaryReadKey {
@@ -1803,6 +1803,9 @@ export namespace appservice {
          * An `azureBlobStorage` block as defined below.
          */
         azureBlobStorage?: pulumi.Input<inputs.appservice.AppServiceLogsApplicationLogsAzureBlobStorage>;
+        /**
+         * Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+         */
         fileSystemLevel?: pulumi.Input<string>;
     }
 
@@ -2185,6 +2188,21 @@ export namespace appservice {
          * The value for the Cluster Setting.
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentV3InboundNetworkDependency {
+        /**
+         * A short description of the purpose of the network traffic.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A list of IP addresses that network traffic will originate from in CIDR notation.
+         */
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ports that network traffic will arrive to the App Service Environment V3 on.
+         */
+        ports?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface FunctionAppAuthSettings {
@@ -7413,6 +7431,10 @@ export namespace containerservice {
          */
         type?: pulumi.Input<string>;
         /**
+         * Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+         */
+        ultraSsdEnabled?: pulumi.Input<boolean>;
+        /**
          * A `upgradeSettings` block as documented below.
          */
         upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettings>;
@@ -9873,6 +9895,17 @@ export namespace datafactory {
     }
 }
 
+export namespace datalake {
+    export interface StoreIdentity {
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Identity which should be used for this Data Lake Store Account. At this time the only possible value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+}
+
 export namespace dataprotection {
     export interface BackupPolicyDiskRetentionRule {
         /**
@@ -9956,6 +9989,7 @@ export namespace dataprotection {
          */
         type?: pulumi.Input<string>;
     }
+
 }
 
 export namespace datashare {
@@ -11367,7 +11401,7 @@ export namespace eventhub {
         /**
          * The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
          */
-        type: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
     }
 
     export interface EventHubNamespaceNetworkRulesets {
@@ -12206,13 +12240,21 @@ export namespace frontdoor {
          */
         backendPoolName: pulumi.Input<string>;
         /**
+         * Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
+         */
+        cacheDuration?: pulumi.Input<string>;
+        /**
          * Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
          */
         cacheEnabled?: pulumi.Input<boolean>;
         /**
-         * Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+         * Defines cache behaviour in relation to query string parameters. Valid options are `StripAll`, `StripAllExcept`, `StripOnly` or `StripNone`. Defaults to `StripAll`.
          */
         cacheQueryParameterStripDirective?: pulumi.Input<string>;
+        /**
+         * Specify query parameters (array). Works only in combination with `cacheQueryParameterStripDirective` set to `StripAllExcept` or `StripOnly`.
+         */
+        cacheQueryParameters?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
          */
@@ -15380,7 +15422,7 @@ export namespace kusto {
          */
         capacity?: pulumi.Input<number>;
         /**
-         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E64i_v3`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`.
+         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E64i_v3`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s`, `Standard_L8s`, `Standard_L16s_v2` and `Standard_L8s_v2`.
          */
         name: pulumi.Input<string>;
     }
@@ -15548,6 +15590,21 @@ export namespace logicapps {
         actionResult: pulumi.Input<string>;
     }
 
+    export interface IntegrationAccountCertificateKeyVaultKey {
+        /**
+         * The name of Key Vault Key.
+         */
+        keyName: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault.
+         */
+        keyVaultId: pulumi.Input<string>;
+        /**
+         * The version of Key Vault Key.
+         */
+        keyVersion?: pulumi.Input<string>;
+    }
+
     export interface TriggerRecurrenceSchedule {
         /**
          * Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
@@ -15589,6 +15646,51 @@ export namespace machinelearning {
         scaleDownNodesAfterIdleDuration: pulumi.Input<string>;
     }
 
+    export interface ComputeInstanceAssignToUser {
+        /**
+         * User’s AAD Object Id.
+         */
+        objectId?: pulumi.Input<string>;
+        /**
+         * User’s AAD Tenant Id.
+         */
+        tenantId?: pulumi.Input<string>;
+    }
+
+    export interface ComputeInstanceIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * User’s AAD Tenant Id.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Identity which should be used for this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Instance to be created.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ComputeInstanceSsh {
+        /**
+         * Describes the port for connecting through SSH.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+         */
+        publicKey: pulumi.Input<string>;
+        /**
+         * The admin username of this Machine Learning Compute Instance.
+         */
+        username?: pulumi.Input<string>;
+    }
+
     export interface InferenceClusterSsl {
         /**
          * The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -15610,6 +15712,25 @@ export namespace machinelearning {
          * Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
          */
         overwriteExistingDomain?: pulumi.Input<boolean>;
+    }
+
+    export interface SynapseSparkIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Synapse Spark to be created.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface WorkspaceIdentity {
@@ -20702,6 +20823,7 @@ export namespace network {
          */
         peeringAddress: pulumi.Input<string>;
     }
+
 }
 
 export namespace notificationhub {
@@ -22058,7 +22180,7 @@ export namespace sql {
          */
         retentionInDays?: pulumi.Input<number>;
         /**
-         * (Optional)  Specifies the access key to use for the auditing storage account.
+         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
          */
         storageAccountAccessKey?: pulumi.Input<string>;
         /**
@@ -22066,7 +22188,7 @@ export namespace sql {
          */
         storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
         /**
-         * (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         * Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: pulumi.Input<string>;
     }
@@ -22084,6 +22206,37 @@ export namespace sql {
          * Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface SqlServerThreatDetectionPolicy {
+        /**
+         * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Data_Exfiltration`, `Sql_Injection`, `Sql_Injection_Vulnerability` and `Unsafe_Action"`,.
+         */
+        disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Should the account administrators be emailed when this alert is triggered?
+         */
+        emailAccountAdmins?: pulumi.Input<boolean>;
+        /**
+         * A list of email addresses which alerts should be sent to.
+         */
+        emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the number of days to keep in the Threat Detection audit logs.
+         */
+        retentionDays?: pulumi.Input<number>;
+        /**
+         * The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+         */
+        state?: pulumi.Input<string>;
+        /**
+         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+         */
+        storageAccountAccessKey?: pulumi.Input<string>;
+        /**
+         * Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         */
+        storageEndpoint?: pulumi.Input<string>;
     }
 }
 

@@ -25,8 +25,26 @@ import (
 type EnvironmentV3 struct {
 	pulumi.CustomResourceState
 
+	// Should new Private Endpoint Connections be allowed. Defaults to `true`.
+	AllowNewPrivateEndpointConnections pulumi.BoolPtrOutput `pulumi:"allowNewPrivateEndpointConnections"`
 	// Zero or more `clusterSetting` blocks as defined below.
 	ClusterSettings EnvironmentV3ClusterSettingArrayOutput `pulumi:"clusterSettings"`
+	// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+	DedicatedHostCount pulumi.IntPtrOutput `pulumi:"dedicatedHostCount"`
+	// the DNS suffix for this App Service Environment V3.
+	DnsSuffix pulumi.StringOutput `pulumi:"dnsSuffix"`
+	// The external outbound IP addresses of the App Service Environment V3.
+	ExternalInboundIpAddresses pulumi.StringArrayOutput `pulumi:"externalInboundIpAddresses"`
+	// An Inbound Network Dependencies block as defined below.
+	InboundNetworkDependencies EnvironmentV3InboundNetworkDependencyArrayOutput `pulumi:"inboundNetworkDependencies"`
+	// The internal outbound IP addresses of the App Service Environment V3.
+	InternalInboundIpAddresses pulumi.StringArrayOutput `pulumi:"internalInboundIpAddresses"`
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+	InternalLoadBalancingMode pulumi.StringPtrOutput `pulumi:"internalLoadBalancingMode"`
+	// The number of IP SSL addresses reserved for the App Service Environment V3.
+	IpSslAddressCount pulumi.IntOutput `pulumi:"ipSslAddressCount"`
+	// Outbound addresses of Linux based Apps in this App Service Environment V3
+	LinuxOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"linuxOutboundIpAddresses"`
 	// The location where the App Service Environment exists.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
@@ -37,8 +55,11 @@ type EnvironmentV3 struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Outbound addresses of Windows based Apps in this App Service Environment V3.
+	WindowsOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"windowsOutboundIpAddresses"`
+	ZoneRedundant              pulumi.BoolPtrOutput     `pulumi:"zoneRedundant"`
 }
 
 // NewEnvironmentV3 registers a new resource with the given unique name, arguments, and options.
@@ -76,8 +97,26 @@ func GetEnvironmentV3(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnvironmentV3 resources.
 type environmentV3State struct {
+	// Should new Private Endpoint Connections be allowed. Defaults to `true`.
+	AllowNewPrivateEndpointConnections *bool `pulumi:"allowNewPrivateEndpointConnections"`
 	// Zero or more `clusterSetting` blocks as defined below.
 	ClusterSettings []EnvironmentV3ClusterSetting `pulumi:"clusterSettings"`
+	// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+	DedicatedHostCount *int `pulumi:"dedicatedHostCount"`
+	// the DNS suffix for this App Service Environment V3.
+	DnsSuffix *string `pulumi:"dnsSuffix"`
+	// The external outbound IP addresses of the App Service Environment V3.
+	ExternalInboundIpAddresses []string `pulumi:"externalInboundIpAddresses"`
+	// An Inbound Network Dependencies block as defined below.
+	InboundNetworkDependencies []EnvironmentV3InboundNetworkDependency `pulumi:"inboundNetworkDependencies"`
+	// The internal outbound IP addresses of the App Service Environment V3.
+	InternalInboundIpAddresses []string `pulumi:"internalInboundIpAddresses"`
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
+	// The number of IP SSL addresses reserved for the App Service Environment V3.
+	IpSslAddressCount *int `pulumi:"ipSslAddressCount"`
+	// Outbound addresses of Linux based Apps in this App Service Environment V3
+	LinuxOutboundIpAddresses []string `pulumi:"linuxOutboundIpAddresses"`
 	// The location where the App Service Environment exists.
 	Location *string `pulumi:"location"`
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
@@ -88,13 +127,34 @@ type environmentV3State struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
+	// Outbound addresses of Windows based Apps in this App Service Environment V3.
+	WindowsOutboundIpAddresses []string `pulumi:"windowsOutboundIpAddresses"`
+	ZoneRedundant              *bool    `pulumi:"zoneRedundant"`
 }
 
 type EnvironmentV3State struct {
+	// Should new Private Endpoint Connections be allowed. Defaults to `true`.
+	AllowNewPrivateEndpointConnections pulumi.BoolPtrInput
 	// Zero or more `clusterSetting` blocks as defined below.
 	ClusterSettings EnvironmentV3ClusterSettingArrayInput
+	// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+	DedicatedHostCount pulumi.IntPtrInput
+	// the DNS suffix for this App Service Environment V3.
+	DnsSuffix pulumi.StringPtrInput
+	// The external outbound IP addresses of the App Service Environment V3.
+	ExternalInboundIpAddresses pulumi.StringArrayInput
+	// An Inbound Network Dependencies block as defined below.
+	InboundNetworkDependencies EnvironmentV3InboundNetworkDependencyArrayInput
+	// The internal outbound IP addresses of the App Service Environment V3.
+	InternalInboundIpAddresses pulumi.StringArrayInput
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+	InternalLoadBalancingMode pulumi.StringPtrInput
+	// The number of IP SSL addresses reserved for the App Service Environment V3.
+	IpSslAddressCount pulumi.IntPtrInput
+	// Outbound addresses of Linux based Apps in this App Service Environment V3
+	LinuxOutboundIpAddresses pulumi.StringArrayInput
 	// The location where the App Service Environment exists.
 	Location pulumi.StringPtrInput
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
@@ -105,8 +165,11 @@ type EnvironmentV3State struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
+	// Outbound addresses of Windows based Apps in this App Service Environment V3.
+	WindowsOutboundIpAddresses pulumi.StringArrayInput
+	ZoneRedundant              pulumi.BoolPtrInput
 }
 
 func (EnvironmentV3State) ElementType() reflect.Type {
@@ -114,30 +177,44 @@ func (EnvironmentV3State) ElementType() reflect.Type {
 }
 
 type environmentV3Args struct {
+	// Should new Private Endpoint Connections be allowed. Defaults to `true`.
+	AllowNewPrivateEndpointConnections *bool `pulumi:"allowNewPrivateEndpointConnections"`
 	// Zero or more `clusterSetting` blocks as defined below.
 	ClusterSettings []EnvironmentV3ClusterSetting `pulumi:"clusterSettings"`
+	// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+	DedicatedHostCount *int `pulumi:"dedicatedHostCount"`
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	Tags          map[string]string `pulumi:"tags"`
+	ZoneRedundant *bool             `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a EnvironmentV3 resource.
 type EnvironmentV3Args struct {
+	// Should new Private Endpoint Connections be allowed. Defaults to `true`.
+	AllowNewPrivateEndpointConnections pulumi.BoolPtrInput
 	// Zero or more `clusterSetting` blocks as defined below.
 	ClusterSettings EnvironmentV3ClusterSettingArrayInput
+	// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+	DedicatedHostCount pulumi.IntPtrInput
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+	InternalLoadBalancingMode pulumi.StringPtrInput
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	Tags          pulumi.StringMapInput
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (EnvironmentV3Args) ElementType() reflect.Type {

@@ -91,6 +91,8 @@ type OutputEventHub struct {
 	EventhubName pulumi.StringOutput `pulumi:"eventhubName"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of property columns to add to the Event Hub output.
+	PropertyColumns pulumi.StringArrayOutput `pulumi:"propertyColumns"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
@@ -159,6 +161,8 @@ type outputEventHubState struct {
 	EventhubName *string `pulumi:"eventhubName"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A list of property columns to add to the Event Hub output.
+	PropertyColumns []string `pulumi:"propertyColumns"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
@@ -178,6 +182,8 @@ type OutputEventHubState struct {
 	EventhubName pulumi.StringPtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A list of property columns to add to the Event Hub output.
+	PropertyColumns pulumi.StringArrayInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `serialization` block as defined below.
@@ -201,6 +207,8 @@ type outputEventHubArgs struct {
 	EventhubName string `pulumi:"eventhubName"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A list of property columns to add to the Event Hub output.
+	PropertyColumns []string `pulumi:"propertyColumns"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
@@ -221,6 +229,8 @@ type OutputEventHubArgs struct {
 	EventhubName pulumi.StringInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A list of property columns to add to the Event Hub output.
+	PropertyColumns pulumi.StringArrayInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `serialization` block as defined below.

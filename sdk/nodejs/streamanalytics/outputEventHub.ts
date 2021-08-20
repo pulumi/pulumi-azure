@@ -91,6 +91,10 @@ export class OutputEventHub extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A list of property columns to add to the Event Hub output.
+     */
+    public readonly propertyColumns!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -130,6 +134,7 @@ export class OutputEventHub extends pulumi.CustomResource {
             const state = argsOrState as OutputEventHubState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["propertyColumns"] = state ? state.propertyColumns : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serialization"] = state ? state.serialization : undefined;
             inputs["servicebusNamespace"] = state ? state.servicebusNamespace : undefined;
@@ -161,6 +166,7 @@ export class OutputEventHub extends pulumi.CustomResource {
             }
             inputs["eventhubName"] = args ? args.eventhubName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["propertyColumns"] = args ? args.propertyColumns : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serialization"] = args ? args.serialization : undefined;
             inputs["servicebusNamespace"] = args ? args.servicebusNamespace : undefined;
@@ -187,6 +193,10 @@ export interface OutputEventHubState {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A list of property columns to add to the Event Hub output.
+     */
+    propertyColumns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
@@ -225,6 +235,10 @@ export interface OutputEventHubArgs {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A list of property columns to add to the Event Hub output.
+     */
+    propertyColumns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */

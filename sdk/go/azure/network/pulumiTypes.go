@@ -23343,6 +23343,391 @@ func (o GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput
 	}).(GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput)
 }
 
+type GetVpnGatewayBgpSetting struct {
+	// The ASN of the BGP Speaker.
+	Asn int `pulumi:"asn"`
+	// The Address which should be used for the BGP Peering.
+	BgpPeeringAddress string `pulumi:"bgpPeeringAddress"`
+	// an `instanceBgpPeeringAddress` block as defined below.
+	Instance0BgpPeeringAddresses []GetVpnGatewayBgpSettingInstance0BgpPeeringAddress `pulumi:"instance0BgpPeeringAddresses"`
+	// an `instanceBgpPeeringAddress` block as defined below.
+	Instance1BgpPeeringAddresses []GetVpnGatewayBgpSettingInstance1BgpPeeringAddress `pulumi:"instance1BgpPeeringAddresses"`
+	// The weight added to Routes learned from this BGP Speaker.
+	PeerWeight int `pulumi:"peerWeight"`
+}
+
+// GetVpnGatewayBgpSettingInput is an input type that accepts GetVpnGatewayBgpSettingArgs and GetVpnGatewayBgpSettingOutput values.
+// You can construct a concrete instance of `GetVpnGatewayBgpSettingInput` via:
+//
+//          GetVpnGatewayBgpSettingArgs{...}
+type GetVpnGatewayBgpSettingInput interface {
+	pulumi.Input
+
+	ToGetVpnGatewayBgpSettingOutput() GetVpnGatewayBgpSettingOutput
+	ToGetVpnGatewayBgpSettingOutputWithContext(context.Context) GetVpnGatewayBgpSettingOutput
+}
+
+type GetVpnGatewayBgpSettingArgs struct {
+	// The ASN of the BGP Speaker.
+	Asn pulumi.IntInput `pulumi:"asn"`
+	// The Address which should be used for the BGP Peering.
+	BgpPeeringAddress pulumi.StringInput `pulumi:"bgpPeeringAddress"`
+	// an `instanceBgpPeeringAddress` block as defined below.
+	Instance0BgpPeeringAddresses GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayInput `pulumi:"instance0BgpPeeringAddresses"`
+	// an `instanceBgpPeeringAddress` block as defined below.
+	Instance1BgpPeeringAddresses GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayInput `pulumi:"instance1BgpPeeringAddresses"`
+	// The weight added to Routes learned from this BGP Speaker.
+	PeerWeight pulumi.IntInput `pulumi:"peerWeight"`
+}
+
+func (GetVpnGatewayBgpSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnGatewayBgpSetting)(nil)).Elem()
+}
+
+func (i GetVpnGatewayBgpSettingArgs) ToGetVpnGatewayBgpSettingOutput() GetVpnGatewayBgpSettingOutput {
+	return i.ToGetVpnGatewayBgpSettingOutputWithContext(context.Background())
+}
+
+func (i GetVpnGatewayBgpSettingArgs) ToGetVpnGatewayBgpSettingOutputWithContext(ctx context.Context) GetVpnGatewayBgpSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnGatewayBgpSettingOutput)
+}
+
+// GetVpnGatewayBgpSettingArrayInput is an input type that accepts GetVpnGatewayBgpSettingArray and GetVpnGatewayBgpSettingArrayOutput values.
+// You can construct a concrete instance of `GetVpnGatewayBgpSettingArrayInput` via:
+//
+//          GetVpnGatewayBgpSettingArray{ GetVpnGatewayBgpSettingArgs{...} }
+type GetVpnGatewayBgpSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnGatewayBgpSettingArrayOutput() GetVpnGatewayBgpSettingArrayOutput
+	ToGetVpnGatewayBgpSettingArrayOutputWithContext(context.Context) GetVpnGatewayBgpSettingArrayOutput
+}
+
+type GetVpnGatewayBgpSettingArray []GetVpnGatewayBgpSettingInput
+
+func (GetVpnGatewayBgpSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnGatewayBgpSetting)(nil)).Elem()
+}
+
+func (i GetVpnGatewayBgpSettingArray) ToGetVpnGatewayBgpSettingArrayOutput() GetVpnGatewayBgpSettingArrayOutput {
+	return i.ToGetVpnGatewayBgpSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnGatewayBgpSettingArray) ToGetVpnGatewayBgpSettingArrayOutputWithContext(ctx context.Context) GetVpnGatewayBgpSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnGatewayBgpSettingArrayOutput)
+}
+
+type GetVpnGatewayBgpSettingOutput struct{ *pulumi.OutputState }
+
+func (GetVpnGatewayBgpSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnGatewayBgpSetting)(nil)).Elem()
+}
+
+func (o GetVpnGatewayBgpSettingOutput) ToGetVpnGatewayBgpSettingOutput() GetVpnGatewayBgpSettingOutput {
+	return o
+}
+
+func (o GetVpnGatewayBgpSettingOutput) ToGetVpnGatewayBgpSettingOutputWithContext(ctx context.Context) GetVpnGatewayBgpSettingOutput {
+	return o
+}
+
+// The ASN of the BGP Speaker.
+func (o GetVpnGatewayBgpSettingOutput) Asn() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSetting) int { return v.Asn }).(pulumi.IntOutput)
+}
+
+// The Address which should be used for the BGP Peering.
+func (o GetVpnGatewayBgpSettingOutput) BgpPeeringAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSetting) string { return v.BgpPeeringAddress }).(pulumi.StringOutput)
+}
+
+// an `instanceBgpPeeringAddress` block as defined below.
+func (o GetVpnGatewayBgpSettingOutput) Instance0BgpPeeringAddresses() GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSetting) []GetVpnGatewayBgpSettingInstance0BgpPeeringAddress {
+		return v.Instance0BgpPeeringAddresses
+	}).(GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput)
+}
+
+// an `instanceBgpPeeringAddress` block as defined below.
+func (o GetVpnGatewayBgpSettingOutput) Instance1BgpPeeringAddresses() GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSetting) []GetVpnGatewayBgpSettingInstance1BgpPeeringAddress {
+		return v.Instance1BgpPeeringAddresses
+	}).(GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput)
+}
+
+// The weight added to Routes learned from this BGP Speaker.
+func (o GetVpnGatewayBgpSettingOutput) PeerWeight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSetting) int { return v.PeerWeight }).(pulumi.IntOutput)
+}
+
+type GetVpnGatewayBgpSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnGatewayBgpSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnGatewayBgpSetting)(nil)).Elem()
+}
+
+func (o GetVpnGatewayBgpSettingArrayOutput) ToGetVpnGatewayBgpSettingArrayOutput() GetVpnGatewayBgpSettingArrayOutput {
+	return o
+}
+
+func (o GetVpnGatewayBgpSettingArrayOutput) ToGetVpnGatewayBgpSettingArrayOutputWithContext(ctx context.Context) GetVpnGatewayBgpSettingArrayOutput {
+	return o
+}
+
+func (o GetVpnGatewayBgpSettingArrayOutput) Index(i pulumi.IntInput) GetVpnGatewayBgpSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnGatewayBgpSetting {
+		return vs[0].([]GetVpnGatewayBgpSetting)[vs[1].(int)]
+	}).(GetVpnGatewayBgpSettingOutput)
+}
+
+type GetVpnGatewayBgpSettingInstance0BgpPeeringAddress struct {
+	// A list of custom BGP peering addresses to assigned to this instance.
+	CustomIps []string `pulumi:"customIps"`
+	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+	DefaultIps []string `pulumi:"defaultIps"`
+	// The pre-defined id of VPN Gateway Ip Configuration.
+	IpConfigurationId string `pulumi:"ipConfigurationId"`
+	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+	TunnelIps []string `pulumi:"tunnelIps"`
+}
+
+// GetVpnGatewayBgpSettingInstance0BgpPeeringAddressInput is an input type that accepts GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArgs and GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput values.
+// You can construct a concrete instance of `GetVpnGatewayBgpSettingInstance0BgpPeeringAddressInput` via:
+//
+//          GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArgs{...}
+type GetVpnGatewayBgpSettingInstance0BgpPeeringAddressInput interface {
+	pulumi.Input
+
+	ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput() GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput
+	ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutputWithContext(context.Context) GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput
+}
+
+type GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArgs struct {
+	// A list of custom BGP peering addresses to assigned to this instance.
+	CustomIps pulumi.StringArrayInput `pulumi:"customIps"`
+	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+	DefaultIps pulumi.StringArrayInput `pulumi:"defaultIps"`
+	// The pre-defined id of VPN Gateway Ip Configuration.
+	IpConfigurationId pulumi.StringInput `pulumi:"ipConfigurationId"`
+	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+	TunnelIps pulumi.StringArrayInput `pulumi:"tunnelIps"`
+}
+
+func (GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnGatewayBgpSettingInstance0BgpPeeringAddress)(nil)).Elem()
+}
+
+func (i GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArgs) ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput() GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput {
+	return i.ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutputWithContext(context.Background())
+}
+
+func (i GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArgs) ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutputWithContext(ctx context.Context) GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput)
+}
+
+// GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayInput is an input type that accepts GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArray and GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput values.
+// You can construct a concrete instance of `GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayInput` via:
+//
+//          GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArray{ GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArgs{...} }
+type GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput() GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput
+	ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutputWithContext(context.Context) GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput
+}
+
+type GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArray []GetVpnGatewayBgpSettingInstance0BgpPeeringAddressInput
+
+func (GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnGatewayBgpSettingInstance0BgpPeeringAddress)(nil)).Elem()
+}
+
+func (i GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArray) ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput() GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput {
+	return i.ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArray) ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutputWithContext(ctx context.Context) GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput)
+}
+
+type GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput struct{ *pulumi.OutputState }
+
+func (GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnGatewayBgpSettingInstance0BgpPeeringAddress)(nil)).Elem()
+}
+
+func (o GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput) ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput() GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput {
+	return o
+}
+
+func (o GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput) ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutputWithContext(ctx context.Context) GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput {
+	return o
+}
+
+// A list of custom BGP peering addresses to assigned to this instance.
+func (o GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput) CustomIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSettingInstance0BgpPeeringAddress) []string { return v.CustomIps }).(pulumi.StringArrayOutput)
+}
+
+// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+func (o GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput) DefaultIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSettingInstance0BgpPeeringAddress) []string { return v.DefaultIps }).(pulumi.StringArrayOutput)
+}
+
+// The pre-defined id of VPN Gateway Ip Configuration.
+func (o GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput) IpConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSettingInstance0BgpPeeringAddress) string { return v.IpConfigurationId }).(pulumi.StringOutput)
+}
+
+// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+func (o GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput) TunnelIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSettingInstance0BgpPeeringAddress) []string { return v.TunnelIps }).(pulumi.StringArrayOutput)
+}
+
+type GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnGatewayBgpSettingInstance0BgpPeeringAddress)(nil)).Elem()
+}
+
+func (o GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput) ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput() GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput {
+	return o
+}
+
+func (o GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput) ToGetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutputWithContext(ctx context.Context) GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput {
+	return o
+}
+
+func (o GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput) Index(i pulumi.IntInput) GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnGatewayBgpSettingInstance0BgpPeeringAddress {
+		return vs[0].([]GetVpnGatewayBgpSettingInstance0BgpPeeringAddress)[vs[1].(int)]
+	}).(GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput)
+}
+
+type GetVpnGatewayBgpSettingInstance1BgpPeeringAddress struct {
+	// A list of custom BGP peering addresses to assigned to this instance.
+	CustomIps []string `pulumi:"customIps"`
+	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+	DefaultIps []string `pulumi:"defaultIps"`
+	// The pre-defined id of VPN Gateway Ip Configuration.
+	IpConfigurationId string `pulumi:"ipConfigurationId"`
+	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+	TunnelIps []string `pulumi:"tunnelIps"`
+}
+
+// GetVpnGatewayBgpSettingInstance1BgpPeeringAddressInput is an input type that accepts GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArgs and GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput values.
+// You can construct a concrete instance of `GetVpnGatewayBgpSettingInstance1BgpPeeringAddressInput` via:
+//
+//          GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArgs{...}
+type GetVpnGatewayBgpSettingInstance1BgpPeeringAddressInput interface {
+	pulumi.Input
+
+	ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput() GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput
+	ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutputWithContext(context.Context) GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput
+}
+
+type GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArgs struct {
+	// A list of custom BGP peering addresses to assigned to this instance.
+	CustomIps pulumi.StringArrayInput `pulumi:"customIps"`
+	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+	DefaultIps pulumi.StringArrayInput `pulumi:"defaultIps"`
+	// The pre-defined id of VPN Gateway Ip Configuration.
+	IpConfigurationId pulumi.StringInput `pulumi:"ipConfigurationId"`
+	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+	TunnelIps pulumi.StringArrayInput `pulumi:"tunnelIps"`
+}
+
+func (GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnGatewayBgpSettingInstance1BgpPeeringAddress)(nil)).Elem()
+}
+
+func (i GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArgs) ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput() GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput {
+	return i.ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutputWithContext(context.Background())
+}
+
+func (i GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArgs) ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutputWithContext(ctx context.Context) GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput)
+}
+
+// GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayInput is an input type that accepts GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArray and GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput values.
+// You can construct a concrete instance of `GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayInput` via:
+//
+//          GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArray{ GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArgs{...} }
+type GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput() GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput
+	ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutputWithContext(context.Context) GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput
+}
+
+type GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArray []GetVpnGatewayBgpSettingInstance1BgpPeeringAddressInput
+
+func (GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnGatewayBgpSettingInstance1BgpPeeringAddress)(nil)).Elem()
+}
+
+func (i GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArray) ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput() GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput {
+	return i.ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArray) ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutputWithContext(ctx context.Context) GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput)
+}
+
+type GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput struct{ *pulumi.OutputState }
+
+func (GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnGatewayBgpSettingInstance1BgpPeeringAddress)(nil)).Elem()
+}
+
+func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput) ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput() GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput {
+	return o
+}
+
+func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput) ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutputWithContext(ctx context.Context) GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput {
+	return o
+}
+
+// A list of custom BGP peering addresses to assigned to this instance.
+func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput) CustomIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSettingInstance1BgpPeeringAddress) []string { return v.CustomIps }).(pulumi.StringArrayOutput)
+}
+
+// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput) DefaultIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSettingInstance1BgpPeeringAddress) []string { return v.DefaultIps }).(pulumi.StringArrayOutput)
+}
+
+// The pre-defined id of VPN Gateway Ip Configuration.
+func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput) IpConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSettingInstance1BgpPeeringAddress) string { return v.IpConfigurationId }).(pulumi.StringOutput)
+}
+
+// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput) TunnelIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpnGatewayBgpSettingInstance1BgpPeeringAddress) []string { return v.TunnelIps }).(pulumi.StringArrayOutput)
+}
+
+type GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnGatewayBgpSettingInstance1BgpPeeringAddress)(nil)).Elem()
+}
+
+func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput) ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput() GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput {
+	return o
+}
+
+func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput) ToGetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutputWithContext(ctx context.Context) GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput {
+	return o
+}
+
+func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput) Index(i pulumi.IntInput) GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnGatewayBgpSettingInstance1BgpPeeringAddress {
+		return vs[0].([]GetVpnGatewayBgpSettingInstance1BgpPeeringAddress)[vs[1].(int)]
+	}).(GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayAuthenticationCertificateOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayAuthenticationCertificateArrayOutput{})
@@ -23651,4 +24036,10 @@ func init() {
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnGatewayBgpSettingOutput{})
+	pulumi.RegisterOutputType(GetVpnGatewayBgpSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput{})
+	pulumi.RegisterOutputType(GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput{})
+	pulumi.RegisterOutputType(GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput{})
 }

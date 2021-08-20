@@ -16,7 +16,7 @@ type ConfigurationStoreIdentity struct {
 	// The ID of the Azure Active Directory Tenant.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // ConfigurationStoreIdentityInput is an input type that accepts ConfigurationStoreIdentityArgs and ConfigurationStoreIdentityOutput values.
@@ -36,7 +36,7 @@ type ConfigurationStoreIdentityArgs struct {
 	// The ID of the Azure Active Directory Tenant.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ConfigurationStoreIdentityArgs) ElementType() reflect.Type {
@@ -127,8 +127,8 @@ func (o ConfigurationStoreIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
-func (o ConfigurationStoreIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationStoreIdentity) string { return v.Type }).(pulumi.StringOutput)
+func (o ConfigurationStoreIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationStoreIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ConfigurationStoreIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -175,7 +175,7 @@ func (o ConfigurationStoreIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Type
+		return v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

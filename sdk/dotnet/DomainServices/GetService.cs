@@ -99,6 +99,7 @@ namespace Pulumi.Azure.DomainServices
         public readonly ImmutableArray<Outputs.GetServiceNotificationResult> Notifications;
         public readonly ImmutableArray<Outputs.GetServiceReplicaSetResult> ReplicaSets;
         public readonly string ResourceGroupName;
+        public readonly string ResourceId;
         /// <summary>
         /// A `secure_ldap` block as defined below.
         /// </summary>
@@ -141,6 +142,8 @@ namespace Pulumi.Azure.DomainServices
 
             string resourceGroupName,
 
+            string resourceId,
+
             ImmutableArray<Outputs.GetServiceSecureLdapResult> secureLdaps,
 
             ImmutableArray<Outputs.GetServiceSecurityResult> securities,
@@ -165,6 +168,7 @@ namespace Pulumi.Azure.DomainServices
             Notifications = notifications;
             ReplicaSets = replicaSets;
             ResourceGroupName = resourceGroupName;
+            ResourceId = resourceId;
             SecureLdaps = secureLdaps;
             Securities = securities;
             Sku = sku;

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -79,6 +80,10 @@ export class Store extends pulumi.CustomResource {
      */
     public readonly firewallState!: pulumi.Output<string | undefined>;
     /**
+     * An `identity` block defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.datalake.StoreIdentity | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -117,6 +122,7 @@ export class Store extends pulumi.CustomResource {
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["firewallAllowAzureIps"] = state ? state.firewallAllowAzureIps : undefined;
             inputs["firewallState"] = state ? state.firewallState : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -131,6 +137,7 @@ export class Store extends pulumi.CustomResource {
             inputs["encryptionType"] = args ? args.encryptionType : undefined;
             inputs["firewallAllowAzureIps"] = args ? args.firewallAllowAzureIps : undefined;
             inputs["firewallState"] = args ? args.firewallState : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -169,6 +176,10 @@ export interface StoreState {
      * the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
      */
     firewallState?: pulumi.Input<string>;
+    /**
+     * An `identity` block defined below.
+     */
+    identity?: pulumi.Input<inputs.datalake.StoreIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -211,6 +222,10 @@ export interface StoreArgs {
      * the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
      */
     firewallState?: pulumi.Input<string>;
+    /**
+     * An `identity` block defined below.
+     */
+    identity?: pulumi.Input<inputs.datalake.StoreIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

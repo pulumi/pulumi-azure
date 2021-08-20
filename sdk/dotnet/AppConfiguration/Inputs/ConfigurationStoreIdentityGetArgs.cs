@@ -27,8 +27,8 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
         /// <summary>
         /// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public ConfigurationStoreIdentityGetArgs()
         {

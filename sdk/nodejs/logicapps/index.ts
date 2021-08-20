@@ -10,6 +10,8 @@ export * from "./actionHttp";
 export * from "./getIntegrationAccount";
 export * from "./getWorkflow";
 export * from "./integrationAccount";
+export * from "./integrationAccountCertificate";
+export * from "./integrationAccountSession";
 export * from "./interationServiceEnvironment";
 export * from "./triggerCustom";
 export * from "./triggerHttpRequest";
@@ -20,6 +22,8 @@ export * from "./workflow";
 import { ActionCustom } from "./actionCustom";
 import { ActionHttp } from "./actionHttp";
 import { IntegrationAccount } from "./integrationAccount";
+import { IntegrationAccountCertificate } from "./integrationAccountCertificate";
+import { IntegrationAccountSession } from "./integrationAccountSession";
 import { InterationServiceEnvironment } from "./interationServiceEnvironment";
 import { TriggerCustom } from "./triggerCustom";
 import { TriggerHttpRequest } from "./triggerHttpRequest";
@@ -36,6 +40,10 @@ const _module = {
                 return new ActionHttp(name, <any>undefined, { urn })
             case "azure:logicapps/integrationAccount:IntegrationAccount":
                 return new IntegrationAccount(name, <any>undefined, { urn })
+            case "azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate":
+                return new IntegrationAccountCertificate(name, <any>undefined, { urn })
+            case "azure:logicapps/integrationAccountSession:IntegrationAccountSession":
+                return new IntegrationAccountSession(name, <any>undefined, { urn })
             case "azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment":
                 return new InterationServiceEnvironment(name, <any>undefined, { urn })
             case "azure:logicapps/triggerCustom:TriggerCustom":
@@ -54,6 +62,8 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "logicapps/actionCustom", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/actionHttp", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccount", _module)
+pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountCertificate", _module)
+pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountSession", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/interationServiceEnvironment", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/triggerCustom", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/triggerHttpRequest", _module)

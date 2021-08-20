@@ -10,6 +10,8 @@ from .action_http import *
 from .get_integration_account import *
 from .get_workflow import *
 from .integration_account import *
+from .integration_account_certificate import *
+from .integration_account_session import *
 from .interation_service_environment import *
 from .trigger_custom import *
 from .trigger_http_request import *

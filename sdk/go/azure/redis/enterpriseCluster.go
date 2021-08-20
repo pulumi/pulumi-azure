@@ -67,7 +67,7 @@ type EnterpriseCluster struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the sku, possible values are `Enterprise_E10`, `Enterprise_E20"`, `Enterprise_E50`, `Enterprise_E100`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` skus are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` skus are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Version of redis the cluster supports, e.g. '6'.
 	//
@@ -124,7 +124,7 @@ type enterpriseClusterState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the sku, possible values are `Enterprise_E10`, `Enterprise_E20"`, `Enterprise_E50`, `Enterprise_E100`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` skus are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` skus are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
 	SkuName *string `pulumi:"skuName"`
-	// A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// Version of redis the cluster supports, e.g. '6'.
 	//
@@ -147,7 +147,7 @@ type EnterpriseClusterState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the sku, possible values are `Enterprise_E10`, `Enterprise_E20"`, `Enterprise_E50`, `Enterprise_E100`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` skus are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` skus are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
 	SkuName pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags pulumi.StringMapInput
 	// Version of redis the cluster supports, e.g. '6'.
 	//
@@ -172,7 +172,7 @@ type enterpriseClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the sku, possible values are `Enterprise_E10`, `Enterprise_E20"`, `Enterprise_E50`, `Enterprise_E100`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` skus are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` skus are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
 	SkuName string `pulumi:"skuName"`
-	// A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
 	Zones []string `pulumi:"zones"`
@@ -190,7 +190,7 @@ type EnterpriseClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the sku, possible values are `Enterprise_E10`, `Enterprise_E20"`, `Enterprise_E50`, `Enterprise_E100`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` skus are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` skus are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
 	SkuName pulumi.StringInput
-	// A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags pulumi.StringMapInput
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
 	Zones pulumi.StringArrayInput

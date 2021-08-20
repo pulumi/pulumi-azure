@@ -39,6 +39,7 @@ export * from "./identityProviderMicrosoft";
 export * from "./identityProviderTwitter";
 export * from "./logger";
 export * from "./namedValue";
+export * from "./notificationRecipientEmail";
 export * from "./openIdConnectProvider";
 export * from "./policy";
 export * from "./product";
@@ -80,6 +81,7 @@ import { IdentityProviderMicrosoft } from "./identityProviderMicrosoft";
 import { IdentityProviderTwitter } from "./identityProviderTwitter";
 import { Logger } from "./logger";
 import { NamedValue } from "./namedValue";
+import { NotificationRecipientEmail } from "./notificationRecipientEmail";
 import { OpenIdConnectProvider } from "./openIdConnectProvider";
 import { Policy } from "./policy";
 import { Product } from "./product";
@@ -151,6 +153,8 @@ const _module = {
                 return new Logger(name, <any>undefined, { urn })
             case "azure:apimanagement/namedValue:NamedValue":
                 return new NamedValue(name, <any>undefined, { urn })
+            case "azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail":
+                return new NotificationRecipientEmail(name, <any>undefined, { urn })
             case "azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider":
                 return new OpenIdConnectProvider(name, <any>undefined, { urn })
             case "azure:apimanagement/policy:Policy":
@@ -207,6 +211,7 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/identityProviderMi
 pulumi.runtime.registerResourceModule("azure", "apimanagement/identityProviderTwitter", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/logger", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/namedValue", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/notificationRecipientEmail", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/openIdConnectProvider", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/policy", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/product", _module)

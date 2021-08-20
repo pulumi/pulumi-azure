@@ -164,6 +164,9 @@ __all__ = [
     'GetVirtualNetworkGatewayVpnClientConfigurationResult',
     'GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateResult',
     'GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult',
+    'GetVpnGatewayBgpSettingResult',
+    'GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult',
+    'GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult',
 ]
 
 @pulumi.output_type
@@ -11321,5 +11324,169 @@ class GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult(dict):
         The SHA1 thumbprint of the certificate to be revoked.
         """
         return pulumi.get(self, "public_cert_data")
+
+
+@pulumi.output_type
+class GetVpnGatewayBgpSettingResult(dict):
+    def __init__(__self__, *,
+                 asn: int,
+                 bgp_peering_address: str,
+                 instance0_bgp_peering_addresses: Sequence['outputs.GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult'],
+                 instance1_bgp_peering_addresses: Sequence['outputs.GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult'],
+                 peer_weight: int):
+        """
+        :param int asn: The ASN of the BGP Speaker.
+        :param str bgp_peering_address: The Address which should be used for the BGP Peering.
+        :param Sequence['GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArgs'] instance0_bgp_peering_addresses: an `instance_bgp_peering_address` block as defined below.
+        :param Sequence['GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArgs'] instance1_bgp_peering_addresses: an `instance_bgp_peering_address` block as defined below.
+        :param int peer_weight: The weight added to Routes learned from this BGP Speaker.
+        """
+        pulumi.set(__self__, "asn", asn)
+        pulumi.set(__self__, "bgp_peering_address", bgp_peering_address)
+        pulumi.set(__self__, "instance0_bgp_peering_addresses", instance0_bgp_peering_addresses)
+        pulumi.set(__self__, "instance1_bgp_peering_addresses", instance1_bgp_peering_addresses)
+        pulumi.set(__self__, "peer_weight", peer_weight)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> int:
+        """
+        The ASN of the BGP Speaker.
+        """
+        return pulumi.get(self, "asn")
+
+    @property
+    @pulumi.getter(name="bgpPeeringAddress")
+    def bgp_peering_address(self) -> str:
+        """
+        The Address which should be used for the BGP Peering.
+        """
+        return pulumi.get(self, "bgp_peering_address")
+
+    @property
+    @pulumi.getter(name="instance0BgpPeeringAddresses")
+    def instance0_bgp_peering_addresses(self) -> Sequence['outputs.GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult']:
+        """
+        an `instance_bgp_peering_address` block as defined below.
+        """
+        return pulumi.get(self, "instance0_bgp_peering_addresses")
+
+    @property
+    @pulumi.getter(name="instance1BgpPeeringAddresses")
+    def instance1_bgp_peering_addresses(self) -> Sequence['outputs.GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult']:
+        """
+        an `instance_bgp_peering_address` block as defined below.
+        """
+        return pulumi.get(self, "instance1_bgp_peering_addresses")
+
+    @property
+    @pulumi.getter(name="peerWeight")
+    def peer_weight(self) -> int:
+        """
+        The weight added to Routes learned from this BGP Speaker.
+        """
+        return pulumi.get(self, "peer_weight")
+
+
+@pulumi.output_type
+class GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult(dict):
+    def __init__(__self__, *,
+                 custom_ips: Sequence[str],
+                 default_ips: Sequence[str],
+                 ip_configuration_id: str,
+                 tunnel_ips: Sequence[str]):
+        """
+        :param Sequence[str] custom_ips: A list of custom BGP peering addresses to assigned to this instance.
+        :param Sequence[str] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+        :param str ip_configuration_id: The pre-defined id of VPN Gateway Ip Configuration.
+        :param Sequence[str] tunnel_ips: The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+        """
+        pulumi.set(__self__, "custom_ips", custom_ips)
+        pulumi.set(__self__, "default_ips", default_ips)
+        pulumi.set(__self__, "ip_configuration_id", ip_configuration_id)
+        pulumi.set(__self__, "tunnel_ips", tunnel_ips)
+
+    @property
+    @pulumi.getter(name="customIps")
+    def custom_ips(self) -> Sequence[str]:
+        """
+        A list of custom BGP peering addresses to assigned to this instance.
+        """
+        return pulumi.get(self, "custom_ips")
+
+    @property
+    @pulumi.getter(name="defaultIps")
+    def default_ips(self) -> Sequence[str]:
+        """
+        The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+        """
+        return pulumi.get(self, "default_ips")
+
+    @property
+    @pulumi.getter(name="ipConfigurationId")
+    def ip_configuration_id(self) -> str:
+        """
+        The pre-defined id of VPN Gateway Ip Configuration.
+        """
+        return pulumi.get(self, "ip_configuration_id")
+
+    @property
+    @pulumi.getter(name="tunnelIps")
+    def tunnel_ips(self) -> Sequence[str]:
+        """
+        The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+        """
+        return pulumi.get(self, "tunnel_ips")
+
+
+@pulumi.output_type
+class GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult(dict):
+    def __init__(__self__, *,
+                 custom_ips: Sequence[str],
+                 default_ips: Sequence[str],
+                 ip_configuration_id: str,
+                 tunnel_ips: Sequence[str]):
+        """
+        :param Sequence[str] custom_ips: A list of custom BGP peering addresses to assigned to this instance.
+        :param Sequence[str] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+        :param str ip_configuration_id: The pre-defined id of VPN Gateway Ip Configuration.
+        :param Sequence[str] tunnel_ips: The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+        """
+        pulumi.set(__self__, "custom_ips", custom_ips)
+        pulumi.set(__self__, "default_ips", default_ips)
+        pulumi.set(__self__, "ip_configuration_id", ip_configuration_id)
+        pulumi.set(__self__, "tunnel_ips", tunnel_ips)
+
+    @property
+    @pulumi.getter(name="customIps")
+    def custom_ips(self) -> Sequence[str]:
+        """
+        A list of custom BGP peering addresses to assigned to this instance.
+        """
+        return pulumi.get(self, "custom_ips")
+
+    @property
+    @pulumi.getter(name="defaultIps")
+    def default_ips(self) -> Sequence[str]:
+        """
+        The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+        """
+        return pulumi.get(self, "default_ips")
+
+    @property
+    @pulumi.getter(name="ipConfigurationId")
+    def ip_configuration_id(self) -> str:
+        """
+        The pre-defined id of VPN Gateway Ip Configuration.
+        """
+        return pulumi.get(self, "ip_configuration_id")
+
+    @property
+    @pulumi.getter(name="tunnelIps")
+    def tunnel_ips(self) -> Sequence[str]:
+        """
+        The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+        """
+        return pulumi.get(self, "tunnel_ips")
 
 

@@ -100,6 +100,8 @@ type SqlServer struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy SqlServerThreatDetectionPolicyOutput `pulumi:"threatDetectionPolicy"`
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -167,6 +169,8 @@ type sqlServerState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy *SqlServerThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version *string `pulumi:"version"`
 }
@@ -194,6 +198,8 @@ type SqlServerState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy SqlServerThreatDetectionPolicyPtrInput
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version pulumi.StringPtrInput
 }
@@ -223,6 +229,8 @@ type sqlServerArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy *SqlServerThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version string `pulumi:"version"`
 }
@@ -249,6 +257,8 @@ type SqlServerArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy SqlServerThreatDetectionPolicyPtrInput
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version pulumi.StringInput
 }

@@ -443,6 +443,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/notificationRecipientEmail",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail": "NotificationRecipientEmail"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/openIdConnectProvider",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
@@ -3363,6 +3371,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "logicapps/integrationAccountCertificate",
+  "fqn": "pulumi_azure.logicapps",
+  "classes": {
+   "azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate": "IntegrationAccountCertificate"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "logicapps/integrationAccountSession",
+  "fqn": "pulumi_azure.logicapps",
+  "classes": {
+   "azure:logicapps/integrationAccountSession:IntegrationAccountSession": "IntegrationAccountSession"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "logicapps/interationServiceEnvironment",
   "fqn": "pulumi_azure.logicapps",
   "classes": {
@@ -3411,10 +3435,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "machinelearning/computeInstance",
+  "fqn": "pulumi_azure.machinelearning",
+  "classes": {
+   "azure:machinelearning/computeInstance:ComputeInstance": "ComputeInstance"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "machinelearning/inferenceCluster",
   "fqn": "pulumi_azure.machinelearning",
   "classes": {
    "azure:machinelearning/inferenceCluster:InferenceCluster": "InferenceCluster"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "machinelearning/synapseSpark",
+  "fqn": "pulumi_azure.machinelearning",
+  "classes": {
+   "azure:machinelearning/synapseSpark:SynapseSpark": "SynapseSpark"
   }
  },
  {

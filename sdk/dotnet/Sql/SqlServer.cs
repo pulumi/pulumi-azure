@@ -131,6 +131,12 @@ namespace Pulumi.Azure.Sql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        /// </summary>
+        [Output("threatDetectionPolicy")]
+        public Output<Outputs.SqlServerThreatDetectionPolicy> ThreatDetectionPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         /// </summary>
         [Output("version")]
@@ -243,6 +249,12 @@ namespace Pulumi.Azure.Sql
         }
 
         /// <summary>
+        /// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        /// </summary>
+        [Input("threatDetectionPolicy")]
+        public Input<Inputs.SqlServerThreatDetectionPolicyArgs>? ThreatDetectionPolicy { get; set; }
+
+        /// <summary>
         /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         /// </summary>
         [Input("version", required: true)]
@@ -320,6 +332,12 @@ namespace Pulumi.Azure.Sql
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        /// </summary>
+        [Input("threatDetectionPolicy")]
+        public Input<Inputs.SqlServerThreatDetectionPolicyGetArgs>? ThreatDetectionPolicy { get; set; }
 
         /// <summary>
         /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).

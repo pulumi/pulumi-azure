@@ -37,6 +37,8 @@ type Service struct {
 	Notifications ServiceNotificationsOutput `pulumi:"notifications"`
 	// The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The Azure resource ID for the domain service.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// A `secureLdap` block as defined below.
 	SecureLdap ServiceSecureLdapOutput `pulumi:"secureLdap"`
 	// A `security` block as defined below.
@@ -107,6 +109,8 @@ type serviceState struct {
 	Notifications *ServiceNotifications `pulumi:"notifications"`
 	// The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The Azure resource ID for the domain service.
+	ResourceId *string `pulumi:"resourceId"`
 	// A `secureLdap` block as defined below.
 	SecureLdap *ServiceSecureLdap `pulumi:"secureLdap"`
 	// A `security` block as defined below.
@@ -137,6 +141,8 @@ type ServiceState struct {
 	Notifications ServiceNotificationsPtrInput
 	// The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The Azure resource ID for the domain service.
+	ResourceId pulumi.StringPtrInput
 	// A `secureLdap` block as defined below.
 	SecureLdap ServiceSecureLdapPtrInput
 	// A `security` block as defined below.

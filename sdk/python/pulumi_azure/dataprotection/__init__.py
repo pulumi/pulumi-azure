@@ -11,5 +11,6 @@ from .backup_policy_blob_storage import *
 from .backup_policy_disk import *
 from .backup_policy_postgresql import *
 from .backup_vault import *
+from .get_backup_vault import *
 from ._inputs import *
 from . import outputs

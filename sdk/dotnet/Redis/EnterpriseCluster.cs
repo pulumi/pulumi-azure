@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Redis
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+        /// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Redis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+        /// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.Redis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+        /// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
         /// </summary>
         public InputMap<string> Tags
         {

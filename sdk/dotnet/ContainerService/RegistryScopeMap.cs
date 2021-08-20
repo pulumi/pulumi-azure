@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ContainerService
     ///             Actions = 
     ///             {
     ///                 "repositories/repo1/content/read",
-    ///                 "repositories/repo1/content/create",
+    ///                 "repositories/repo1/content/write",
     ///             },
     ///         });
     ///     }

@@ -37,6 +37,7 @@ __all__ = [
     'CertificateOrderCertificateArgs',
     'EnvironmentClusterSettingArgs',
     'EnvironmentV3ClusterSettingArgs',
+    'EnvironmentV3InboundNetworkDependencyArgs',
     'FunctionAppAuthSettingsArgs',
     'FunctionAppAuthSettingsActiveDirectoryArgs',
     'FunctionAppAuthSettingsFacebookArgs',
@@ -915,6 +916,7 @@ class AppServiceLogsApplicationLogsArgs:
                  file_system_level: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['AppServiceLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param pulumi.Input[str] file_system_level: Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -936,6 +938,9 @@ class AppServiceLogsApplicationLogsArgs:
     @property
     @pulumi.getter(name="fileSystemLevel")
     def file_system_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+        """
         return pulumi.get(self, "file_system_level")
 
     @file_system_level.setter
@@ -2376,6 +2381,61 @@ class EnvironmentV3ClusterSettingArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EnvironmentV3InboundNetworkDependencyArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] description: A short description of the purpose of the network traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: A list of IP addresses that network traffic will originate from in CIDR notation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ports: The ports that network traffic will arrive to the App Service Environment V3 on.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short description of the purpose of the network traffic.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IP addresses that network traffic will originate from in CIDR notation.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @ip_addresses.setter
+    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_addresses", value)
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ports that network traffic will arrive to the App Service Environment V3 on.
+        """
+        return pulumi.get(self, "ports")
+
+    @ports.setter
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ports", value)
 
 
 @pulumi.input_type

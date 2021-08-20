@@ -662,27 +662,20 @@ class EventHubNamespaceIdentity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 type: str,
                  principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None):
+                 tenant_id: Optional[str] = None,
+                 type: Optional[str] = None):
         """
-        :param str type: The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
         :param str principal_id: The Client ID of the Service Principal assigned to this EventHub Namespace.
         :param str tenant_id: The ID of the Tenant the Service Principal is assigned in.
+        :param str type: The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
         """
-        pulumi.set(__self__, "type", type)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
-        """
-        return pulumi.get(self, "type")
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -699,6 +692,14 @@ class EventHubNamespaceIdentity(dict):
         The ID of the Tenant the Service Principal is assigned in.
         """
         return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

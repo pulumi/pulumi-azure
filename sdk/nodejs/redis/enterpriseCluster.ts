@@ -82,7 +82,7 @@ export class EnterpriseCluster extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+     * A mapping of tags which should be assigned to the Redis Enterprise Cluster.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface EnterpriseClusterState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+     * A mapping of tags which should be assigned to the Redis Enterprise Cluster.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -212,7 +212,7 @@ export interface EnterpriseClusterArgs {
      */
     skuName: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
+     * A mapping of tags which should be assigned to the Redis Enterprise Cluster.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

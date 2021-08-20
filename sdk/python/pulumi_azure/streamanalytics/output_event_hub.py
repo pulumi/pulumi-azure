@@ -22,7 +22,8 @@ class OutputEventHubArgs:
                  shared_access_policy_key: pulumi.Input[str],
                  shared_access_policy_name: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OutputEventHub resource.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
@@ -33,6 +34,7 @@ class OutputEventHubArgs:
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Event Hub output.
         """
         pulumi.set(__self__, "eventhub_name", eventhub_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -43,6 +45,8 @@ class OutputEventHubArgs:
         pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if property_columns is not None:
+            pulumi.set(__self__, "property_columns", property_columns)
 
     @property
     @pulumi.getter(name="eventhubName")
@@ -140,12 +144,25 @@ class OutputEventHubArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="propertyColumns")
+    def property_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of property columns to add to the Event Hub output.
+        """
+        return pulumi.get(self, "property_columns")
+
+    @property_columns.setter
+    def property_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "property_columns", value)
+
 
 @pulumi.input_type
 class _OutputEventHubState:
     def __init__(__self__, *,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input['OutputEventHubSerializationArgs']] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
@@ -156,6 +173,7 @@ class _OutputEventHubState:
         Input properties used for looking up and filtering OutputEventHub resources.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Event Hub output.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input['OutputEventHubSerializationArgs'] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
@@ -167,6 +185,8 @@ class _OutputEventHubState:
             pulumi.set(__self__, "eventhub_name", eventhub_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if property_columns is not None:
+            pulumi.set(__self__, "property_columns", property_columns)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if serialization is not None:
@@ -203,6 +223,18 @@ class _OutputEventHubState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="propertyColumns")
+    def property_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of property columns to add to the Event Hub output.
+        """
+        return pulumi.get(self, "property_columns")
+
+    @property_columns.setter
+    def property_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "property_columns", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -284,6 +316,7 @@ class OutputEventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']]] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
@@ -337,6 +370,7 @@ class OutputEventHub(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Event Hub output.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
@@ -409,6 +443,7 @@ class OutputEventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']]] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
@@ -431,6 +466,7 @@ class OutputEventHub(pulumi.CustomResource):
                 raise TypeError("Missing required property 'eventhub_name'")
             __props__.__dict__["eventhub_name"] = eventhub_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["property_columns"] = property_columns
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -461,6 +497,7 @@ class OutputEventHub(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             eventhub_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             serialization: Optional[pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']]] = None,
             servicebus_namespace: Optional[pulumi.Input[str]] = None,
@@ -476,6 +513,7 @@ class OutputEventHub(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Event Hub output.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
@@ -489,6 +527,7 @@ class OutputEventHub(pulumi.CustomResource):
 
         __props__.__dict__["eventhub_name"] = eventhub_name
         __props__.__dict__["name"] = name
+        __props__.__dict__["property_columns"] = property_columns
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["serialization"] = serialization
         __props__.__dict__["servicebus_namespace"] = servicebus_namespace
@@ -512,6 +551,14 @@ class OutputEventHub(pulumi.CustomResource):
         The name of the Stream Output. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="propertyColumns")
+    def property_columns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of property columns to add to the Event Hub output.
+        """
+        return pulumi.get(self, "property_columns")
 
     @property
     @pulumi.getter(name="resourceGroupName")

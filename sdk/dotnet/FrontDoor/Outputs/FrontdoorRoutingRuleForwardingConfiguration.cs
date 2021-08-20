@@ -18,13 +18,21 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string BackendPoolName;
         /// <summary>
+        /// Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+        /// </summary>
+        public readonly string? CacheDuration;
+        /// <summary>
         /// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
         /// </summary>
         public readonly bool? CacheEnabled;
         /// <summary>
-        /// Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        /// Defines cache behaviour in relation to query string parameters. Valid options are `StripAll`, `StripAllExcept`, `StripOnly` or `StripNone`. Defaults to `StripAll`.
         /// </summary>
         public readonly string? CacheQueryParameterStripDirective;
+        /// <summary>
+        /// Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
+        /// </summary>
+        public readonly ImmutableArray<string> CacheQueryParameters;
         /// <summary>
         /// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
         /// </summary>
@@ -42,9 +50,13 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         private FrontdoorRoutingRuleForwardingConfiguration(
             string backendPoolName,
 
+            string? cacheDuration,
+
             bool? cacheEnabled,
 
             string? cacheQueryParameterStripDirective,
+
+            ImmutableArray<string> cacheQueryParameters,
 
             bool? cacheUseDynamicCompression,
 
@@ -53,8 +65,10 @@ namespace Pulumi.Azure.FrontDoor.Outputs
             string? forwardingProtocol)
         {
             BackendPoolName = backendPoolName;
+            CacheDuration = cacheDuration;
             CacheEnabled = cacheEnabled;
             CacheQueryParameterStripDirective = cacheQueryParameterStripDirective;
+            CacheQueryParameters = cacheQueryParameters;
             CacheUseDynamicCompression = cacheUseDynamicCompression;
             CustomForwardingPath = customForwardingPath;
             ForwardingProtocol = forwardingProtocol;
