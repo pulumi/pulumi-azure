@@ -30,6 +30,9 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("defaultSslBinding")]
         public Input<bool>? DefaultSslBinding { get; set; }
 
+        [Input("expiry")]
+        public Input<string>? Expiry { get; set; }
+
         /// <summary>
         /// The Hostname to use for the API Proxy Endpoint.
         /// </summary>
@@ -47,6 +50,15 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }
+
+        [Input("sslKeyvaultIdentityClientId")]
+        public Input<string>? SslKeyvaultIdentityClientId { get; set; }
+
+        [Input("subject")]
+        public Input<string>? Subject { get; set; }
+
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
 
         public CustomDomainProxyGetArgs()
         {

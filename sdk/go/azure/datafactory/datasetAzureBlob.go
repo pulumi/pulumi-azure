@@ -83,7 +83,7 @@ type DatasetAzureBlob struct {
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled pulumi.BoolPtrOutput `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicPathEnabled pulumi.BoolPtrOutput `pulumi:"dynamicPathEnabled"`
@@ -151,7 +151,7 @@ type datasetAzureBlobState struct {
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
-	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
@@ -182,7 +182,7 @@ type DatasetAzureBlobState struct {
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
-	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled pulumi.BoolPtrInput
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicPathEnabled pulumi.BoolPtrInput
@@ -217,7 +217,7 @@ type datasetAzureBlobArgs struct {
 	DataFactoryName string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
-	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
@@ -249,7 +249,7 @@ type DatasetAzureBlobArgs struct {
 	DataFactoryName pulumi.StringInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
-	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled pulumi.BoolPtrInput
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicPathEnabled pulumi.BoolPtrInput

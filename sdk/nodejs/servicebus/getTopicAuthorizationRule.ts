@@ -79,6 +79,10 @@ export interface GetTopicAuthorizationRuleResult {
      */
     readonly primaryConnectionString: string;
     /**
+     * The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+     */
+    readonly primaryConnectionStringAlias: string;
+    /**
      * The Primary Key for the ServiceBus Topic authorization Rule.
      */
     readonly primaryKey: string;
@@ -87,6 +91,10 @@ export interface GetTopicAuthorizationRuleResult {
      * The Secondary Connection String for the ServiceBus Topic authorization Rule.
      */
     readonly secondaryConnectionString: string;
+    /**
+     * The alias Secondary Connection String for the ServiceBus Namespace
+     */
+    readonly secondaryConnectionStringAlias: string;
     /**
      * The Secondary Key for the ServiceBus Topic authorization Rule.
      */

@@ -3379,6 +3379,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "logicapps/integrationAccountSchema",
+  "fqn": "pulumi_azure.logicapps",
+  "classes": {
+   "azure:logicapps/integrationAccountSchema:IntegrationAccountSchema": "IntegrationAccountSchema"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "logicapps/integrationAccountSession",
   "fqn": "pulumi_azure.logicapps",
   "classes": {
@@ -4883,10 +4891,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "relay/hybridConnectionAuthorizationRule",
+  "fqn": "pulumi_azure.relay",
+  "classes": {
+   "azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule": "HybridConnectionAuthorizationRule"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "relay/namespace",
   "fqn": "pulumi_azure.relay",
   "classes": {
    "azure:relay/namespace:Namespace": "Namespace"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "relay/namespaceAuthorizationRule",
+  "fqn": "pulumi_azure.relay",
+  "classes": {
+   "azure:relay/namespaceAuthorizationRule:NamespaceAuthorizationRule": "NamespaceAuthorizationRule"
   }
  },
  {

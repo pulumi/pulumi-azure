@@ -234,6 +234,8 @@ type Account struct {
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost pulumi.StringOutput          `pulumi:"secondaryWebHost"`
 	ShareProperties  AccountSharePropertiesOutput `pulumi:"shareProperties"`
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+	SharedAccessKeyEnabled pulumi.BoolPtrOutput `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
 	StaticWebsite AccountStaticWebsitePtrOutput `pulumi:"staticWebsite"`
 	// A mapping of tags to assign to the resource.
@@ -384,6 +386,8 @@ type accountState struct {
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost *string                 `pulumi:"secondaryWebHost"`
 	ShareProperties  *AccountShareProperties `pulumi:"shareProperties"`
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+	SharedAccessKeyEnabled *bool `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// A mapping of tags to assign to the resource.
@@ -497,6 +501,8 @@ type AccountState struct {
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost pulumi.StringPtrInput
 	ShareProperties  AccountSharePropertiesPtrInput
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+	SharedAccessKeyEnabled pulumi.BoolPtrInput
 	// A `staticWebsite` block as defined below.
 	StaticWebsite AccountStaticWebsitePtrInput
 	// A mapping of tags to assign to the resource.
@@ -550,6 +556,8 @@ type accountArgs struct {
 	// A `routing` block as defined below.
 	Routing         *AccountRouting         `pulumi:"routing"`
 	ShareProperties *AccountShareProperties `pulumi:"shareProperties"`
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+	SharedAccessKeyEnabled *bool `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// A mapping of tags to assign to the resource.
@@ -600,6 +608,8 @@ type AccountArgs struct {
 	// A `routing` block as defined below.
 	Routing         AccountRoutingPtrInput
 	ShareProperties AccountSharePropertiesPtrInput
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+	SharedAccessKeyEnabled pulumi.BoolPtrInput
 	// A `staticWebsite` block as defined below.
 	StaticWebsite AccountStaticWebsitePtrInput
 	// A mapping of tags to assign to the resource.

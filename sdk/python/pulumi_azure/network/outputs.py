@@ -58,6 +58,10 @@ __all__ = [
     'FirewallNatRuleCollectionRule',
     'FirewallNetworkRuleCollectionRule',
     'FirewallPolicyDns',
+    'FirewallPolicyIdentity',
+    'FirewallPolicyIntrusionDetection',
+    'FirewallPolicyIntrusionDetectionSignatureOverride',
+    'FirewallPolicyIntrusionDetectionTrafficBypass',
     'FirewallPolicyRuleCollectionGroupApplicationRuleCollection',
     'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule',
     'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol',
@@ -66,6 +70,7 @@ __all__ = [
     'FirewallPolicyRuleCollectionGroupNetworkRuleCollection',
     'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule',
     'FirewallPolicyThreatIntelligenceAllowlist',
+    'FirewallPolicyTlsCertificate',
     'FirewallVirtualHub',
     'LocalNetworkGatewayBgpSettings',
     'NetworkConnectionMonitorDestination',
@@ -4302,6 +4307,7 @@ class FirewallPolicyDns(dict):
                  proxy_enabled: Optional[bool] = None,
                  servers: Optional[Sequence[str]] = None):
         """
+        :param bool network_rule_fqdn_enabled: Should the network rule fqdn be enabled?
         :param bool proxy_enabled: Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
         :param Sequence[str] servers: A list of custom DNS servers' IP addresses.
         """
@@ -4315,6 +4321,9 @@ class FirewallPolicyDns(dict):
     @property
     @pulumi.getter(name="networkRuleFqdnEnabled")
     def network_rule_fqdn_enabled(self) -> Optional[bool]:
+        """
+        Should the network rule fqdn be enabled?
+        """
         return pulumi.get(self, "network_rule_fqdn_enabled")
 
     @property
@@ -4332,6 +4341,292 @@ class FirewallPolicyDns(dict):
         A list of custom DNS servers' IP addresses.
         """
         return pulumi.get(self, "servers")
+
+
+@pulumi.output_type
+class FirewallPolicyIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentityIds":
+            suggest = "user_assigned_identity_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 user_assigned_identity_ids: Optional[Sequence[str]] = None):
+        """
+        :param str type: Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+        :param Sequence[str] user_assigned_identity_ids: Specifies a list of user assigned managed identities.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if user_assigned_identity_ids is not None:
+            pulumi.set(__self__, "user_assigned_identity_ids", user_assigned_identity_ids)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityIds")
+    def user_assigned_identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of user assigned managed identities.
+        """
+        return pulumi.get(self, "user_assigned_identity_ids")
+
+
+@pulumi.output_type
+class FirewallPolicyIntrusionDetection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "signatureOverrides":
+            suggest = "signature_overrides"
+        elif key == "trafficBypasses":
+            suggest = "traffic_bypasses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyIntrusionDetection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyIntrusionDetection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyIntrusionDetection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: Optional[str] = None,
+                 signature_overrides: Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionSignatureOverride']] = None,
+                 traffic_bypasses: Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionTrafficBypass']] = None):
+        """
+        :param str mode: In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+        :param Sequence['FirewallPolicyIntrusionDetectionSignatureOverrideArgs'] signature_overrides: One or more `signature_overrides` blocks as defined below.
+        :param Sequence['FirewallPolicyIntrusionDetectionTrafficBypassArgs'] traffic_bypasses: One or more `traffic_bypass` blocks as defined below.
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if signature_overrides is not None:
+            pulumi.set(__self__, "signature_overrides", signature_overrides)
+        if traffic_bypasses is not None:
+            pulumi.set(__self__, "traffic_bypasses", traffic_bypasses)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="signatureOverrides")
+    def signature_overrides(self) -> Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionSignatureOverride']]:
+        """
+        One or more `signature_overrides` blocks as defined below.
+        """
+        return pulumi.get(self, "signature_overrides")
+
+    @property
+    @pulumi.getter(name="trafficBypasses")
+    def traffic_bypasses(self) -> Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionTrafficBypass']]:
+        """
+        One or more `traffic_bypass` blocks as defined below.
+        """
+        return pulumi.get(self, "traffic_bypasses")
+
+
+@pulumi.output_type
+class FirewallPolicyIntrusionDetectionSignatureOverride(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        :param str id: 12-digit number (id) which identifies your signature.
+        :param str state: state can be any of "Off", "Alert" or "Deny".
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        12-digit number (id) which identifies your signature.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        state can be any of "Off", "Alert" or "Deny".
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class FirewallPolicyIntrusionDetectionTrafficBypass(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "destinationIpGroups":
+            suggest = "destination_ip_groups"
+        elif key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourceIpGroups":
+            suggest = "source_ip_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyIntrusionDetectionTrafficBypass. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyIntrusionDetectionTrafficBypass.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyIntrusionDetectionTrafficBypass.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 protocol: str,
+                 description: Optional[str] = None,
+                 destination_addresses: Optional[Sequence[str]] = None,
+                 destination_ip_groups: Optional[Sequence[str]] = None,
+                 destination_ports: Optional[Sequence[str]] = None,
+                 source_addresses: Optional[Sequence[str]] = None,
+                 source_ip_groups: Optional[Sequence[str]] = None):
+        """
+        :param str name: The name which should be used for this bypass traffic setting.
+        :param str protocol: The protocols any of "ANY", "TCP", "ICMP", "UDP" that shall be bypassed by intrusion detection.
+        :param str description: The description for this bypass traffic setting.
+        :param Sequence[str] destination_addresses: Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
+        :param Sequence[str] destination_ip_groups: Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
+        :param Sequence[str] destination_ports: Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
+        :param Sequence[str] source_addresses: Specifies a list of source addresses that shall be bypassed by intrusion detection.
+        :param Sequence[str] source_ip_groups: Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protocol", protocol)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ip_groups is not None:
+            pulumi.set(__self__, "destination_ip_groups", destination_ip_groups)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ip_groups is not None:
+            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this bypass traffic setting.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The protocols any of "ANY", "TCP", "ICMP", "UDP" that shall be bypassed by intrusion detection.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description for this bypass traffic setting.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @property
+    @pulumi.getter(name="destinationIpGroups")
+    def destination_ip_groups(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
+        """
+        return pulumi.get(self, "destination_ip_groups")
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of source addresses that shall be bypassed by intrusion detection.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @property
+    @pulumi.getter(name="sourceIpGroups")
+    def source_ip_groups(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+        """
+        return pulumi.get(self, "source_ip_groups")
 
 
 @pulumi.output_type
@@ -4915,6 +5210,52 @@ class FirewallPolicyThreatIntelligenceAllowlist(dict):
         A list of IP addresses or IP address ranges that will be skipped for threat detection.
         """
         return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class FirewallPolicyTlsCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultSecretId":
+            suggest = "key_vault_secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyTlsCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyTlsCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyTlsCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_secret_id: str,
+                 name: str):
+        """
+        :param str key_vault_secret_id: The ID of the Key Vault, where the secret or certificate is stored.
+        :param str name: The name of the certificate.
+        """
+        pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> str:
+        """
+        The ID of the Key Vault, where the secret or certificate is stored.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the certificate.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -7064,7 +7405,7 @@ class SubnetDelegationServiceDelegation(dict):
                  name: str,
                  actions: Optional[Sequence[str]] = None):
         """
-        :param str name: The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`,  `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+        :param str name: The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
         :param Sequence[str] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
         """
         pulumi.set(__self__, "name", name)
@@ -7075,7 +7416,7 @@ class SubnetDelegationServiceDelegation(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`,  `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+        The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
         """
         return pulumi.get(self, "name")
 

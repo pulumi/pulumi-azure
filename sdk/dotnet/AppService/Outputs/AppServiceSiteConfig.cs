@@ -123,6 +123,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
         /// <summary>
+        /// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        /// </summary>
+        public readonly bool? VnetRouteAllEnabled;
+        /// <summary>
         /// Should WebSockets be enabled?
         /// </summary>
         public readonly bool? WebsocketsEnabled;
@@ -189,6 +193,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             bool? use32BitWorkerProcess,
 
+            bool? vnetRouteAllEnabled,
+
             bool? websocketsEnabled,
 
             string? windowsFxVersion)
@@ -221,6 +227,7 @@ namespace Pulumi.Azure.AppService.Outputs
             ScmType = scmType;
             ScmUseMainIpRestriction = scmUseMainIpRestriction;
             Use32BitWorkerProcess = use32BitWorkerProcess;
+            VnetRouteAllEnabled = vnetRouteAllEnabled;
             WebsocketsEnabled = websocketsEnabled;
             WindowsFxVersion = windowsFxVersion;
         }

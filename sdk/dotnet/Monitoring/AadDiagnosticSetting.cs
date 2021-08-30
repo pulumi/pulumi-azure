@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.
     /// 
+    /// !&gt; **Authentication** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

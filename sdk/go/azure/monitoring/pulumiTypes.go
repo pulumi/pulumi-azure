@@ -11,7 +11,7 @@ import (
 )
 
 type AadDiagnosticSettingLog struct {
-	// The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `ServicePrincipalSignInLogs`.
+	// The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
 	Category string `pulumi:"category"`
 	// Is this Diagnostic Log enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -31,7 +31,7 @@ type AadDiagnosticSettingLogInput interface {
 }
 
 type AadDiagnosticSettingLogArgs struct {
-	// The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `ServicePrincipalSignInLogs`.
+	// The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
 	Category pulumi.StringInput `pulumi:"category"`
 	// Is this Diagnostic Log enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -90,7 +90,7 @@ func (o AadDiagnosticSettingLogOutput) ToAadDiagnosticSettingLogOutputWithContex
 	return o
 }
 
-// The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `ServicePrincipalSignInLogs`.
+// The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
 func (o AadDiagnosticSettingLogOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v AadDiagnosticSettingLog) string { return v.Category }).(pulumi.StringOutput)
 }
@@ -2450,7 +2450,7 @@ func (o ActionRuleActionGroupConditionMonitorPtrOutput) Values() pulumi.StringAr
 type ActionRuleActionGroupConditionMonitorService struct {
 	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 	Operator string `pulumi:"operator"`
-	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
 	Values []string `pulumi:"values"`
 }
 
@@ -2468,7 +2468,7 @@ type ActionRuleActionGroupConditionMonitorServiceInput interface {
 type ActionRuleActionGroupConditionMonitorServiceArgs struct {
 	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2554,7 +2554,7 @@ func (o ActionRuleActionGroupConditionMonitorServiceOutput) Operator() pulumi.St
 	return o.ApplyT(func(v ActionRuleActionGroupConditionMonitorService) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
 func (o ActionRuleActionGroupConditionMonitorServiceOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActionRuleActionGroupConditionMonitorService) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2589,7 +2589,7 @@ func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) Operator() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
 func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActionRuleActionGroupConditionMonitorService) []string {
 		if v == nil {
@@ -3915,7 +3915,7 @@ func (o ActionRuleSuppressionConditionMonitorPtrOutput) Values() pulumi.StringAr
 type ActionRuleSuppressionConditionMonitorService struct {
 	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 	Operator string `pulumi:"operator"`
-	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
 	Values []string `pulumi:"values"`
 }
 
@@ -3933,7 +3933,7 @@ type ActionRuleSuppressionConditionMonitorServiceInput interface {
 type ActionRuleSuppressionConditionMonitorServiceArgs struct {
 	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4019,7 +4019,7 @@ func (o ActionRuleSuppressionConditionMonitorServiceOutput) Operator() pulumi.St
 	return o.ApplyT(func(v ActionRuleSuppressionConditionMonitorService) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
 func (o ActionRuleSuppressionConditionMonitorServiceOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionConditionMonitorService) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4054,7 +4054,7 @@ func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) Operator() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
 func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActionRuleSuppressionConditionMonitorService) []string {
 		if v == nil {
@@ -6547,6 +6547,8 @@ func (o AutoscaleSettingProfileRuleArrayOutput) Index(i pulumi.IntInput) Autosca
 type AutoscaleSettingProfileRuleMetricTrigger struct {
 	// One or more `dimensions` block as defined below.
 	Dimensions []AutoscaleSettingProfileRuleMetricTriggerDimension `pulumi:"dimensions"`
+	// Whether to enable metric divide by instance count.
+	DivideByInstanceCount *bool `pulumi:"divideByInstanceCount"`
 	// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
 	MetricName string `pulumi:"metricName"`
 	// The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
@@ -6581,6 +6583,8 @@ type AutoscaleSettingProfileRuleMetricTriggerInput interface {
 type AutoscaleSettingProfileRuleMetricTriggerArgs struct {
 	// One or more `dimensions` block as defined below.
 	Dimensions AutoscaleSettingProfileRuleMetricTriggerDimensionArrayInput `pulumi:"dimensions"`
+	// Whether to enable metric divide by instance count.
+	DivideByInstanceCount pulumi.BoolPtrInput `pulumi:"divideByInstanceCount"`
 	// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
@@ -6632,6 +6636,11 @@ func (o AutoscaleSettingProfileRuleMetricTriggerOutput) Dimensions() AutoscaleSe
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) []AutoscaleSettingProfileRuleMetricTriggerDimension {
 		return v.Dimensions
 	}).(AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput)
+}
+
+// Whether to enable metric divide by instance count.
+func (o AutoscaleSettingProfileRuleMetricTriggerOutput) DivideByInstanceCount() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) *bool { return v.DivideByInstanceCount }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.

@@ -64,18 +64,6 @@ namespace Pulumi.Azure.ServiceBus
     public partial class NamespaceDisasterRecoveryConfig : Pulumi.CustomResource
     {
         /// <summary>
-        /// The alias Primary Connection String for the ServiceBus Namespace.
-        /// </summary>
-        [Output("aliasPrimaryConnectionString")]
-        public Output<string> AliasPrimaryConnectionString { get; private set; } = null!;
-
-        /// <summary>
-        /// The alias Secondary Connection String for the ServiceBus Namespace
-        /// </summary>
-        [Output("aliasSecondaryConnectionString")]
-        public Output<string> AliasSecondaryConnectionString { get; private set; } = null!;
-
-        /// <summary>
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         [Output("defaultPrimaryKey")]
@@ -100,10 +88,22 @@ namespace Pulumi.Azure.ServiceBus
         public Output<string> PartnerNamespaceId { get; private set; } = null!;
 
         /// <summary>
+        /// The alias Primary Connection String for the ServiceBus Namespace.
+        /// </summary>
+        [Output("primaryConnectionStringAlias")]
+        public Output<string> PrimaryConnectionStringAlias { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
         /// </summary>
         [Output("primaryNamespaceId")]
         public Output<string> PrimaryNamespaceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The alias Secondary Connection String for the ServiceBus Namespace
+        /// </summary>
+        [Output("secondaryConnectionStringAlias")]
+        public Output<string> SecondaryConnectionStringAlias { get; private set; } = null!;
 
 
         /// <summary>
@@ -177,18 +177,6 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class NamespaceDisasterRecoveryConfigState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The alias Primary Connection String for the ServiceBus Namespace.
-        /// </summary>
-        [Input("aliasPrimaryConnectionString")]
-        public Input<string>? AliasPrimaryConnectionString { get; set; }
-
-        /// <summary>
-        /// The alias Secondary Connection String for the ServiceBus Namespace
-        /// </summary>
-        [Input("aliasSecondaryConnectionString")]
-        public Input<string>? AliasSecondaryConnectionString { get; set; }
-
-        /// <summary>
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         [Input("defaultPrimaryKey")]
@@ -213,10 +201,22 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? PartnerNamespaceId { get; set; }
 
         /// <summary>
+        /// The alias Primary Connection String for the ServiceBus Namespace.
+        /// </summary>
+        [Input("primaryConnectionStringAlias")]
+        public Input<string>? PrimaryConnectionStringAlias { get; set; }
+
+        /// <summary>
         /// The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
         /// </summary>
         [Input("primaryNamespaceId")]
         public Input<string>? PrimaryNamespaceId { get; set; }
+
+        /// <summary>
+        /// The alias Secondary Connection String for the ServiceBus Namespace
+        /// </summary>
+        [Input("secondaryConnectionStringAlias")]
+        public Input<string>? SecondaryConnectionStringAlias { get; set; }
 
         public NamespaceDisasterRecoveryConfigState()
         {

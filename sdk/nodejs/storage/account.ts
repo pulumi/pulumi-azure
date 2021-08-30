@@ -309,6 +309,10 @@ export class Account extends pulumi.CustomResource {
     public /*out*/ readonly secondaryWebHost!: pulumi.Output<string>;
     public readonly shareProperties!: pulumi.Output<outputs.storage.AccountShareProperties>;
     /**
+     * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+     */
+    public readonly sharedAccessKeyEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `staticWebsite` block as defined below.
      */
     public readonly staticWebsite!: pulumi.Output<outputs.storage.AccountStaticWebsite | undefined>;
@@ -383,6 +387,7 @@ export class Account extends pulumi.CustomResource {
             inputs["secondaryWebEndpoint"] = state ? state.secondaryWebEndpoint : undefined;
             inputs["secondaryWebHost"] = state ? state.secondaryWebHost : undefined;
             inputs["shareProperties"] = state ? state.shareProperties : undefined;
+            inputs["sharedAccessKeyEnabled"] = state ? state.sharedAccessKeyEnabled : undefined;
             inputs["staticWebsite"] = state ? state.staticWebsite : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -417,6 +422,7 @@ export class Account extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routing"] = args ? args.routing : undefined;
             inputs["shareProperties"] = args ? args.shareProperties : undefined;
+            inputs["sharedAccessKeyEnabled"] = args ? args.sharedAccessKeyEnabled : undefined;
             inputs["staticWebsite"] = args ? args.staticWebsite : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["primaryAccessKey"] = undefined /*out*/;
@@ -674,6 +680,10 @@ export interface AccountState {
     secondaryWebHost?: pulumi.Input<string>;
     shareProperties?: pulumi.Input<inputs.storage.AccountShareProperties>;
     /**
+     * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+     */
+    sharedAccessKeyEnabled?: pulumi.Input<boolean>;
+    /**
      * A `staticWebsite` block as defined below.
      */
     staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
@@ -769,6 +779,10 @@ export interface AccountArgs {
      */
     routing?: pulumi.Input<inputs.storage.AccountRouting>;
     shareProperties?: pulumi.Input<inputs.storage.AccountShareProperties>;
+    /**
+     * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+     */
+    sharedAccessKeyEnabled?: pulumi.Input<boolean>;
     /**
      * A `staticWebsite` block as defined below.
      */

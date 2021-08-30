@@ -146,6 +146,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("osDiskType")]
         public Input<string>? OsDiskType { get; set; }
 
+        /// <summary>
+        /// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("podSubnetId")]
+        public Input<string>? PodSubnetId { get; set; }
+
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }
 

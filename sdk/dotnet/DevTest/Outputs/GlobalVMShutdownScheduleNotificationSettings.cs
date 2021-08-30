@@ -14,6 +14,10 @@ namespace Pulumi.Azure.DevTest.Outputs
     public sealed class GlobalVMShutdownScheduleNotificationSettings
     {
         /// <summary>
+        /// E-mail address to which the notification will be sent.
+        /// </summary>
+        public readonly string? Email;
+        /// <summary>
         /// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
         /// </summary>
         public readonly bool Enabled;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.DevTest.Outputs
 
         [OutputConstructor]
         private GlobalVMShutdownScheduleNotificationSettings(
+            string? email,
+
             bool enabled,
 
             int? timeInMinutes,
 
             string? webhookUrl)
         {
+            Email = email;
             Enabled = enabled;
             TimeInMinutes = timeInMinutes;
             WebhookUrl = webhookUrl;

@@ -121,7 +121,7 @@ namespace Pulumi.Azure.ContainerService
         /// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("nodeLabels")]
-        public Output<ImmutableDictionary<string, string>?> NodeLabels { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> NodeLabels { get; private set; } = null!;
 
         /// <summary>
         /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
@@ -158,6 +158,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("podSubnetId")]
+        public Output<string?> PodSubnetId { get; private set; } = null!;
 
         /// <summary>
         /// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
@@ -410,6 +416,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? OsType { get; set; }
 
         /// <summary>
+        /// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("podSubnetId")]
+        public Input<string>? PodSubnetId { get; set; }
+
+        /// <summary>
         /// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("priority")]
@@ -625,6 +637,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
+
+        /// <summary>
+        /// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("podSubnetId")]
+        public Input<string>? PodSubnetId { get; set; }
 
         /// <summary>
         /// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.

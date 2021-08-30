@@ -96,6 +96,10 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly string PrimaryConnectionString;
         /// <summary>
+        /// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+        /// </summary>
+        public readonly string PrimaryConnectionStringAlias;
+        /// <summary>
         /// The Primary Key for the ServiceBus Queue authorization Rule.
         /// </summary>
         public readonly string PrimaryKey;
@@ -105,6 +109,10 @@ namespace Pulumi.Azure.ServiceBus
         /// The Secondary Connection String for the ServiceBus Queue authorization Rule.
         /// </summary>
         public readonly string SecondaryConnectionString;
+        /// <summary>
+        /// The alias Secondary Connection String for the ServiceBus Namespace
+        /// </summary>
+        public readonly string SecondaryConnectionStringAlias;
         /// <summary>
         /// The Secondary Key for the ServiceBus Queue authorization Rule.
         /// </summary>
@@ -125,6 +133,8 @@ namespace Pulumi.Azure.ServiceBus
 
             string primaryConnectionString,
 
+            string primaryConnectionStringAlias,
+
             string primaryKey,
 
             string queueName,
@@ -132,6 +142,8 @@ namespace Pulumi.Azure.ServiceBus
             string resourceGroupName,
 
             string secondaryConnectionString,
+
+            string secondaryConnectionStringAlias,
 
             string secondaryKey,
 
@@ -143,10 +155,12 @@ namespace Pulumi.Azure.ServiceBus
             Name = name;
             NamespaceName = namespaceName;
             PrimaryConnectionString = primaryConnectionString;
+            PrimaryConnectionStringAlias = primaryConnectionStringAlias;
             PrimaryKey = primaryKey;
             QueueName = queueName;
             ResourceGroupName = resourceGroupName;
             SecondaryConnectionString = secondaryConnectionString;
+            SecondaryConnectionStringAlias = secondaryConnectionStringAlias;
             SecondaryKey = secondaryKey;
             Send = send;
         }

@@ -39,6 +39,7 @@ class KubernetesClusterNodePoolArgs:
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_disk_type: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
@@ -72,6 +73,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
+        :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
@@ -126,6 +128,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "os_disk_type", os_disk_type)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if pod_subnet_id is not None:
+            pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if proximity_placement_group_id is not None:
@@ -430,6 +434,18 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(self, "os_type", value)
 
     @property
+    @pulumi.getter(name="podSubnetId")
+    def pod_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "pod_subnet_id")
+
+    @pod_subnet_id.setter
+    def pod_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pod_subnet_id", value)
+
+    @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
         """
@@ -540,6 +556,7 @@ class _KubernetesClusterNodePoolState:
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_disk_type: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
@@ -573,6 +590,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
+        :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
@@ -628,6 +646,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "os_disk_type", os_disk_type)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if pod_subnet_id is not None:
+            pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if proximity_placement_group_id is not None:
@@ -922,6 +942,18 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "os_type", value)
 
     @property
+    @pulumi.getter(name="podSubnetId")
+    def pod_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "pod_subnet_id")
+
+    @pod_subnet_id.setter
+    def pod_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pod_subnet_id", value)
+
+    @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1046,6 +1078,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_disk_type: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
@@ -1089,6 +1122,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
+        :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
@@ -1151,6 +1185,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_disk_type: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
@@ -1196,6 +1231,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["os_disk_size_gb"] = os_disk_size_gb
             __props__.__dict__["os_disk_type"] = os_disk_type
             __props__.__dict__["os_type"] = os_type
+            __props__.__dict__["pod_subnet_id"] = pod_subnet_id
             __props__.__dict__["priority"] = priority
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
             __props__.__dict__["spot_max_price"] = spot_max_price
@@ -1239,6 +1275,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             os_disk_size_gb: Optional[pulumi.Input[int]] = None,
             os_disk_type: Optional[pulumi.Input[str]] = None,
             os_type: Optional[pulumi.Input[str]] = None,
+            pod_subnet_id: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[str]] = None,
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
             spot_max_price: Optional[pulumi.Input[float]] = None,
@@ -1277,6 +1314,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
+        :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
@@ -1313,6 +1351,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["os_disk_size_gb"] = os_disk_size_gb
         __props__.__dict__["os_disk_type"] = os_disk_type
         __props__.__dict__["os_type"] = os_type
+        __props__.__dict__["pod_subnet_id"] = pod_subnet_id
         __props__.__dict__["priority"] = priority
         __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__.__dict__["spot_max_price"] = spot_max_price
@@ -1453,7 +1492,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeLabels")
-    def node_labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def node_labels(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
         """
@@ -1506,6 +1545,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
         """
         return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="podSubnetId")
+    def pod_subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "pod_subnet_id")
 
     @property
     @pulumi.getter

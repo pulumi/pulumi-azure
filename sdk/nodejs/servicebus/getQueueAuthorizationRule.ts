@@ -78,6 +78,10 @@ export interface GetQueueAuthorizationRuleResult {
      */
     readonly primaryConnectionString: string;
     /**
+     * The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+     */
+    readonly primaryConnectionStringAlias: string;
+    /**
      * The Primary Key for the ServiceBus Queue authorization Rule.
      */
     readonly primaryKey: string;
@@ -87,6 +91,10 @@ export interface GetQueueAuthorizationRuleResult {
      * The Secondary Connection String for the ServiceBus Queue authorization Rule.
      */
     readonly secondaryConnectionString: string;
+    /**
+     * The alias Secondary Connection String for the ServiceBus Namespace
+     */
+    readonly secondaryConnectionStringAlias: string;
     /**
      * The Secondary Key for the ServiceBus Queue authorization Rule.
      */

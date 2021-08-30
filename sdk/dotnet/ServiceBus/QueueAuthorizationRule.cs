@@ -98,6 +98,12 @@ namespace Pulumi.Azure.ServiceBus
         public Output<string> PrimaryConnectionString { get; private set; } = null!;
 
         /// <summary>
+        /// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+        /// </summary>
+        [Output("primaryConnectionStringAlias")]
+        public Output<string> PrimaryConnectionStringAlias { get; private set; } = null!;
+
+        /// <summary>
         /// The Primary Key for the Authorization Rule.
         /// </summary>
         [Output("primaryKey")]
@@ -120,6 +126,12 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Output("secondaryConnectionString")]
         public Output<string> SecondaryConnectionString { get; private set; } = null!;
+
+        /// <summary>
+        /// The alias Secondary Connection String for the ServiceBus Namespace
+        /// </summary>
+        [Output("secondaryConnectionStringAlias")]
+        public Output<string> SecondaryConnectionStringAlias { get; private set; } = null!;
 
         /// <summary>
         /// The Secondary Key for the Authorization Rule.
@@ -263,6 +275,12 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? PrimaryConnectionString { get; set; }
 
         /// <summary>
+        /// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+        /// </summary>
+        [Input("primaryConnectionStringAlias")]
+        public Input<string>? PrimaryConnectionStringAlias { get; set; }
+
+        /// <summary>
         /// The Primary Key for the Authorization Rule.
         /// </summary>
         [Input("primaryKey")]
@@ -285,6 +303,12 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("secondaryConnectionString")]
         public Input<string>? SecondaryConnectionString { get; set; }
+
+        /// <summary>
+        /// The alias Secondary Connection String for the ServiceBus Namespace
+        /// </summary>
+        [Input("secondaryConnectionStringAlias")]
+        public Input<string>? SecondaryConnectionStringAlias { get; set; }
 
         /// <summary>
         /// The Secondary Key for the Authorization Rule.

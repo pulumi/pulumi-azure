@@ -33,8 +33,6 @@ export interface GetNamespaceDisasterRecoveryConfigArgs {
  * A collection of values returned by getNamespaceDisasterRecoveryConfig.
  */
 export interface GetNamespaceDisasterRecoveryConfigResult {
-    readonly aliasPrimaryConnectionString: string;
-    readonly aliasSecondaryConnectionString: string;
     readonly defaultPrimaryKey: string;
     readonly defaultSecondaryKey: string;
     /**
@@ -44,5 +42,7 @@ export interface GetNamespaceDisasterRecoveryConfigResult {
     readonly name: string;
     readonly namespaceName: string;
     readonly partnerNamespaceId: string;
+    readonly primaryConnectionStringAlias: string;
     readonly resourceGroupName: string;
+    readonly secondaryConnectionStringAlias: string;
 }

@@ -107,6 +107,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
+        public readonly bool? VnetRouteAllEnabled;
         /// <summary>
         /// Should WebSockets be enabled?
         /// </summary>
@@ -171,6 +172,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             bool? use32BitWorkerProcess,
 
+            bool? vnetRouteAllEnabled,
+
             bool? websocketsEnabled,
 
             string? windowsFxVersion)
@@ -203,6 +206,7 @@ namespace Pulumi.Azure.AppService.Outputs
             ScmType = scmType;
             ScmUseMainIpRestriction = scmUseMainIpRestriction;
             Use32BitWorkerProcess = use32BitWorkerProcess;
+            VnetRouteAllEnabled = vnetRouteAllEnabled;
             WebsocketsEnabled = websocketsEnabled;
             WindowsFxVersion = windowsFxVersion;
         }

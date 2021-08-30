@@ -74,10 +74,6 @@ import (
 type NamespaceDisasterRecoveryConfig struct {
 	pulumi.CustomResourceState
 
-	// The alias Primary Connection String for the ServiceBus Namespace.
-	AliasPrimaryConnectionString pulumi.StringOutput `pulumi:"aliasPrimaryConnectionString"`
-	// The alias Secondary Connection String for the ServiceBus Namespace
-	AliasSecondaryConnectionString pulumi.StringOutput `pulumi:"aliasSecondaryConnectionString"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey pulumi.StringOutput `pulumi:"defaultPrimaryKey"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -86,8 +82,12 @@ type NamespaceDisasterRecoveryConfig struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Service Bus Namespace to replicate to.
 	PartnerNamespaceId pulumi.StringOutput `pulumi:"partnerNamespaceId"`
+	// The alias Primary Connection String for the ServiceBus Namespace.
+	PrimaryConnectionStringAlias pulumi.StringOutput `pulumi:"primaryConnectionStringAlias"`
 	// The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
 	PrimaryNamespaceId pulumi.StringOutput `pulumi:"primaryNamespaceId"`
+	// The alias Secondary Connection String for the ServiceBus Namespace
+	SecondaryConnectionStringAlias pulumi.StringOutput `pulumi:"secondaryConnectionStringAlias"`
 }
 
 // NewNamespaceDisasterRecoveryConfig registers a new resource with the given unique name, arguments, and options.
@@ -125,10 +125,6 @@ func GetNamespaceDisasterRecoveryConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamespaceDisasterRecoveryConfig resources.
 type namespaceDisasterRecoveryConfigState struct {
-	// The alias Primary Connection String for the ServiceBus Namespace.
-	AliasPrimaryConnectionString *string `pulumi:"aliasPrimaryConnectionString"`
-	// The alias Secondary Connection String for the ServiceBus Namespace
-	AliasSecondaryConnectionString *string `pulumi:"aliasSecondaryConnectionString"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey *string `pulumi:"defaultPrimaryKey"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -137,15 +133,15 @@ type namespaceDisasterRecoveryConfigState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Service Bus Namespace to replicate to.
 	PartnerNamespaceId *string `pulumi:"partnerNamespaceId"`
+	// The alias Primary Connection String for the ServiceBus Namespace.
+	PrimaryConnectionStringAlias *string `pulumi:"primaryConnectionStringAlias"`
 	// The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
 	PrimaryNamespaceId *string `pulumi:"primaryNamespaceId"`
+	// The alias Secondary Connection String for the ServiceBus Namespace
+	SecondaryConnectionStringAlias *string `pulumi:"secondaryConnectionStringAlias"`
 }
 
 type NamespaceDisasterRecoveryConfigState struct {
-	// The alias Primary Connection String for the ServiceBus Namespace.
-	AliasPrimaryConnectionString pulumi.StringPtrInput
-	// The alias Secondary Connection String for the ServiceBus Namespace
-	AliasSecondaryConnectionString pulumi.StringPtrInput
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey pulumi.StringPtrInput
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -154,8 +150,12 @@ type NamespaceDisasterRecoveryConfigState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Service Bus Namespace to replicate to.
 	PartnerNamespaceId pulumi.StringPtrInput
+	// The alias Primary Connection String for the ServiceBus Namespace.
+	PrimaryConnectionStringAlias pulumi.StringPtrInput
 	// The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
 	PrimaryNamespaceId pulumi.StringPtrInput
+	// The alias Secondary Connection String for the ServiceBus Namespace
+	SecondaryConnectionStringAlias pulumi.StringPtrInput
 }
 
 func (NamespaceDisasterRecoveryConfigState) ElementType() reflect.Type {

@@ -24,6 +24,9 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("certificatePassword")]
         public Input<string>? CertificatePassword { get; set; }
 
+        [Input("expiry")]
+        public Input<string>? Expiry { get; set; }
+
         /// <summary>
         /// The Hostname to use for the corresponding endpoint.
         /// </summary>
@@ -41,6 +44,15 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }
+
+        [Input("sslKeyvaultIdentityClientId")]
+        public Input<string>? SslKeyvaultIdentityClientId { get; set; }
+
+        [Input("subject")]
+        public Input<string>? Subject { get; set; }
+
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
 
         public CustomDomainManagementArgs()
         {

@@ -5455,12 +5455,16 @@ type CustomDomainDeveloperPortal struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	Expiry              *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	NegotiateClientCertificate  *bool   `pulumi:"negotiateClientCertificate"`
+	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
+	Subject                     *string `pulumi:"subject"`
+	Thumbprint                  *string `pulumi:"thumbprint"`
 }
 
 // CustomDomainDeveloperPortalInput is an input type that accepts CustomDomainDeveloperPortalArgs and CustomDomainDeveloperPortalOutput values.
@@ -5479,12 +5483,16 @@ type CustomDomainDeveloperPortalArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+	NegotiateClientCertificate  pulumi.BoolPtrInput   `pulumi:"negotiateClientCertificate"`
+	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
+	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
+	Thumbprint                  pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (CustomDomainDeveloperPortalArgs) ElementType() reflect.Type {
@@ -5548,6 +5556,10 @@ func (o CustomDomainDeveloperPortalOutput) CertificatePassword() pulumi.StringPt
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+func (o CustomDomainDeveloperPortalOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
 // The Hostname to use for the corresponding endpoint.
 func (o CustomDomainDeveloperPortalOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) string { return v.HostName }).(pulumi.StringOutput)
@@ -5561,6 +5573,18 @@ func (o CustomDomainDeveloperPortalOutput) KeyVaultId() pulumi.StringPtrOutput {
 // Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
 func (o CustomDomainDeveloperPortalOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+func (o CustomDomainDeveloperPortalOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainDeveloperPortalOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainDeveloperPortalOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 type CustomDomainDeveloperPortalArrayOutput struct{ *pulumi.OutputState }
@@ -5588,12 +5612,16 @@ type CustomDomainManagement struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	Expiry              *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	NegotiateClientCertificate  *bool   `pulumi:"negotiateClientCertificate"`
+	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
+	Subject                     *string `pulumi:"subject"`
+	Thumbprint                  *string `pulumi:"thumbprint"`
 }
 
 // CustomDomainManagementInput is an input type that accepts CustomDomainManagementArgs and CustomDomainManagementOutput values.
@@ -5612,12 +5640,16 @@ type CustomDomainManagementArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+	NegotiateClientCertificate  pulumi.BoolPtrInput   `pulumi:"negotiateClientCertificate"`
+	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
+	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
+	Thumbprint                  pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (CustomDomainManagementArgs) ElementType() reflect.Type {
@@ -5681,6 +5713,10 @@ func (o CustomDomainManagementOutput) CertificatePassword() pulumi.StringPtrOutp
 	return o.ApplyT(func(v CustomDomainManagement) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+func (o CustomDomainManagementOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainManagement) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
 // The Hostname to use for the corresponding endpoint.
 func (o CustomDomainManagementOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainManagement) string { return v.HostName }).(pulumi.StringOutput)
@@ -5694,6 +5730,18 @@ func (o CustomDomainManagementOutput) KeyVaultId() pulumi.StringPtrOutput {
 // Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
 func (o CustomDomainManagementOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainManagement) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+func (o CustomDomainManagementOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainManagement) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainManagementOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainManagement) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainManagementOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainManagement) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 type CustomDomainManagementArrayOutput struct{ *pulumi.OutputState }
@@ -5721,12 +5769,16 @@ type CustomDomainPortal struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	Expiry              *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	NegotiateClientCertificate  *bool   `pulumi:"negotiateClientCertificate"`
+	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
+	Subject                     *string `pulumi:"subject"`
+	Thumbprint                  *string `pulumi:"thumbprint"`
 }
 
 // CustomDomainPortalInput is an input type that accepts CustomDomainPortalArgs and CustomDomainPortalOutput values.
@@ -5745,12 +5797,16 @@ type CustomDomainPortalArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+	NegotiateClientCertificate  pulumi.BoolPtrInput   `pulumi:"negotiateClientCertificate"`
+	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
+	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
+	Thumbprint                  pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (CustomDomainPortalArgs) ElementType() reflect.Type {
@@ -5814,6 +5870,10 @@ func (o CustomDomainPortalOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+func (o CustomDomainPortalOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainPortal) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
 // The Hostname to use for the corresponding endpoint.
 func (o CustomDomainPortalOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainPortal) string { return v.HostName }).(pulumi.StringOutput)
@@ -5827,6 +5887,18 @@ func (o CustomDomainPortalOutput) KeyVaultId() pulumi.StringPtrOutput {
 // Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
 func (o CustomDomainPortalOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+func (o CustomDomainPortalOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainPortal) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainPortalOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainPortal) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainPortalOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainPortal) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 type CustomDomainPortalArrayOutput struct{ *pulumi.OutputState }
@@ -5855,13 +5927,17 @@ type CustomDomainProxy struct {
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
-	DefaultSslBinding *bool `pulumi:"defaultSslBinding"`
+	DefaultSslBinding *bool   `pulumi:"defaultSslBinding"`
+	Expiry            *string `pulumi:"expiry"`
 	// The Hostname to use for the API Proxy Endpoint.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	NegotiateClientCertificate  *bool   `pulumi:"negotiateClientCertificate"`
+	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
+	Subject                     *string `pulumi:"subject"`
+	Thumbprint                  *string `pulumi:"thumbprint"`
 }
 
 // CustomDomainProxyInput is an input type that accepts CustomDomainProxyArgs and CustomDomainProxyOutput values.
@@ -5881,13 +5957,17 @@ type CustomDomainProxyArgs struct {
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
 	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
-	DefaultSslBinding pulumi.BoolPtrInput `pulumi:"defaultSslBinding"`
+	DefaultSslBinding pulumi.BoolPtrInput   `pulumi:"defaultSslBinding"`
+	Expiry            pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the API Proxy Endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+	NegotiateClientCertificate  pulumi.BoolPtrInput   `pulumi:"negotiateClientCertificate"`
+	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
+	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
+	Thumbprint                  pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (CustomDomainProxyArgs) ElementType() reflect.Type {
@@ -5956,6 +6036,10 @@ func (o CustomDomainProxyOutput) DefaultSslBinding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainProxy) *bool { return v.DefaultSslBinding }).(pulumi.BoolPtrOutput)
 }
 
+func (o CustomDomainProxyOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainProxy) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
 // The Hostname to use for the API Proxy Endpoint.
 func (o CustomDomainProxyOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainProxy) string { return v.HostName }).(pulumi.StringOutput)
@@ -5969,6 +6053,18 @@ func (o CustomDomainProxyOutput) KeyVaultId() pulumi.StringPtrOutput {
 // Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
 func (o CustomDomainProxyOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainProxy) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+func (o CustomDomainProxyOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainProxy) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainProxyOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainProxy) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainProxyOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainProxy) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 type CustomDomainProxyArrayOutput struct{ *pulumi.OutputState }
@@ -5996,12 +6092,16 @@ type CustomDomainScm struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	Expiry              *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	NegotiateClientCertificate  *bool   `pulumi:"negotiateClientCertificate"`
+	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
+	Subject                     *string `pulumi:"subject"`
+	Thumbprint                  *string `pulumi:"thumbprint"`
 }
 
 // CustomDomainScmInput is an input type that accepts CustomDomainScmArgs and CustomDomainScmOutput values.
@@ -6020,12 +6120,16 @@ type CustomDomainScmArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+	NegotiateClientCertificate  pulumi.BoolPtrInput   `pulumi:"negotiateClientCertificate"`
+	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
+	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
+	Thumbprint                  pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (CustomDomainScmArgs) ElementType() reflect.Type {
@@ -6089,6 +6193,10 @@ func (o CustomDomainScmOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+func (o CustomDomainScmOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainScm) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
 // The Hostname to use for the corresponding endpoint.
 func (o CustomDomainScmOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainScm) string { return v.HostName }).(pulumi.StringOutput)
@@ -6102,6 +6210,18 @@ func (o CustomDomainScmOutput) KeyVaultId() pulumi.StringPtrOutput {
 // Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
 func (o CustomDomainScmOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+func (o CustomDomainScmOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainScm) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainScmOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainScm) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainScmOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainScm) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 type CustomDomainScmArrayOutput struct{ *pulumi.OutputState }
@@ -9056,8 +9176,14 @@ type ServiceCertificate struct {
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	// The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
 	EncodedCertificate string `pulumi:"encodedCertificate"`
+	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+	Expiry *string `pulumi:"expiry"`
 	// The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
 	StoreName string `pulumi:"storeName"`
+	// The subject of the certificate.
+	Subject *string `pulumi:"subject"`
+	// The thumbprint of the certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
 }
 
 // ServiceCertificateInput is an input type that accepts ServiceCertificateArgs and ServiceCertificateOutput values.
@@ -9076,8 +9202,14 @@ type ServiceCertificateArgs struct {
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
 	// The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
 	EncodedCertificate pulumi.StringInput `pulumi:"encodedCertificate"`
+	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
 	StoreName pulumi.StringInput `pulumi:"storeName"`
+	// The subject of the certificate.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// The thumbprint of the certificate.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (ServiceCertificateArgs) ElementType() reflect.Type {
@@ -9141,9 +9273,24 @@ func (o ServiceCertificateOutput) EncodedCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceCertificate) string { return v.EncodedCertificate }).(pulumi.StringOutput)
 }
 
+// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+func (o ServiceCertificateOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCertificate) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
 // The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
 func (o ServiceCertificateOutput) StoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceCertificate) string { return v.StoreName }).(pulumi.StringOutput)
+}
+
+// The subject of the certificate.
+func (o ServiceCertificateOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCertificate) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate.
+func (o ServiceCertificateOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCertificate) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 type ServiceCertificateArrayOutput struct{ *pulumi.OutputState }
@@ -9380,12 +9527,20 @@ type ServiceHostnameConfigurationDeveloperPortal struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
+	// The subject of the certificate.
+	Subject *string `pulumi:"subject"`
+	// The thumbprint of the certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
 }
 
 // ServiceHostnameConfigurationDeveloperPortalInput is an input type that accepts ServiceHostnameConfigurationDeveloperPortalArgs and ServiceHostnameConfigurationDeveloperPortalOutput values.
@@ -9404,12 +9559,20 @@ type ServiceHostnameConfigurationDeveloperPortalArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+	// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
+	// The subject of the certificate.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// The thumbprint of the certificate.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (ServiceHostnameConfigurationDeveloperPortalArgs) ElementType() reflect.Type {
@@ -9473,6 +9636,11 @@ func (o ServiceHostnameConfigurationDeveloperPortalOutput) CertificatePassword()
 	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
 // The Hostname to use for the Management API.
 func (o ServiceHostnameConfigurationDeveloperPortalOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) string { return v.HostName }).(pulumi.StringOutput)
@@ -9486,6 +9654,21 @@ func (o ServiceHostnameConfigurationDeveloperPortalOutput) KeyVaultId() pulumi.S
 // Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o ServiceHostnameConfigurationDeveloperPortalOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+// The subject of the certificate.
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate.
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 type ServiceHostnameConfigurationDeveloperPortalArrayOutput struct{ *pulumi.OutputState }
@@ -9513,12 +9696,20 @@ type ServiceHostnameConfigurationManagement struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
+	// The subject of the certificate.
+	Subject *string `pulumi:"subject"`
+	// The thumbprint of the certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
 }
 
 // ServiceHostnameConfigurationManagementInput is an input type that accepts ServiceHostnameConfigurationManagementArgs and ServiceHostnameConfigurationManagementOutput values.
@@ -9537,12 +9728,20 @@ type ServiceHostnameConfigurationManagementArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+	// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
+	// The subject of the certificate.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// The thumbprint of the certificate.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (ServiceHostnameConfigurationManagementArgs) ElementType() reflect.Type {
@@ -9606,6 +9805,11 @@ func (o ServiceHostnameConfigurationManagementOutput) CertificatePassword() pulu
 	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+func (o ServiceHostnameConfigurationManagementOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
 // The Hostname to use for the Management API.
 func (o ServiceHostnameConfigurationManagementOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) string { return v.HostName }).(pulumi.StringOutput)
@@ -9619,6 +9823,21 @@ func (o ServiceHostnameConfigurationManagementOutput) KeyVaultId() pulumi.String
 // Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o ServiceHostnameConfigurationManagementOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+func (o ServiceHostnameConfigurationManagementOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+// The subject of the certificate.
+func (o ServiceHostnameConfigurationManagementOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate.
+func (o ServiceHostnameConfigurationManagementOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 type ServiceHostnameConfigurationManagementArrayOutput struct{ *pulumi.OutputState }
@@ -9646,12 +9865,20 @@ type ServiceHostnameConfigurationPortal struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
+	// The subject of the certificate.
+	Subject *string `pulumi:"subject"`
+	// The thumbprint of the certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
 }
 
 // ServiceHostnameConfigurationPortalInput is an input type that accepts ServiceHostnameConfigurationPortalArgs and ServiceHostnameConfigurationPortalOutput values.
@@ -9670,12 +9897,20 @@ type ServiceHostnameConfigurationPortalArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+	// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
+	// The subject of the certificate.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// The thumbprint of the certificate.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (ServiceHostnameConfigurationPortalArgs) ElementType() reflect.Type {
@@ -9739,6 +9974,11 @@ func (o ServiceHostnameConfigurationPortalOutput) CertificatePassword() pulumi.S
 	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+func (o ServiceHostnameConfigurationPortalOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
 // The Hostname to use for the Management API.
 func (o ServiceHostnameConfigurationPortalOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) string { return v.HostName }).(pulumi.StringOutput)
@@ -9752,6 +9992,21 @@ func (o ServiceHostnameConfigurationPortalOutput) KeyVaultId() pulumi.StringPtrO
 // Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o ServiceHostnameConfigurationPortalOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+func (o ServiceHostnameConfigurationPortalOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+// The subject of the certificate.
+func (o ServiceHostnameConfigurationPortalOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate.
+func (o ServiceHostnameConfigurationPortalOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 type ServiceHostnameConfigurationPortalArrayOutput struct{ *pulumi.OutputState }
@@ -9781,12 +10036,20 @@ type ServiceHostnameConfigurationProxy struct {
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 	DefaultSslBinding *bool `pulumi:"defaultSslBinding"`
+	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
+	// The subject of the certificate.
+	Subject *string `pulumi:"subject"`
+	// The thumbprint of the certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
 }
 
 // ServiceHostnameConfigurationProxyInput is an input type that accepts ServiceHostnameConfigurationProxyArgs and ServiceHostnameConfigurationProxyOutput values.
@@ -9807,12 +10070,20 @@ type ServiceHostnameConfigurationProxyArgs struct {
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
 	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 	DefaultSslBinding pulumi.BoolPtrInput `pulumi:"defaultSslBinding"`
+	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+	// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
+	// The subject of the certificate.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// The thumbprint of the certificate.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (ServiceHostnameConfigurationProxyArgs) ElementType() reflect.Type {
@@ -9881,6 +10152,11 @@ func (o ServiceHostnameConfigurationProxyOutput) DefaultSslBinding() pulumi.Bool
 	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *bool { return v.DefaultSslBinding }).(pulumi.BoolPtrOutput)
 }
 
+// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+func (o ServiceHostnameConfigurationProxyOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
 // The Hostname to use for the Management API.
 func (o ServiceHostnameConfigurationProxyOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) string { return v.HostName }).(pulumi.StringOutput)
@@ -9894,6 +10170,21 @@ func (o ServiceHostnameConfigurationProxyOutput) KeyVaultId() pulumi.StringPtrOu
 // Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o ServiceHostnameConfigurationProxyOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+func (o ServiceHostnameConfigurationProxyOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+// The subject of the certificate.
+func (o ServiceHostnameConfigurationProxyOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate.
+func (o ServiceHostnameConfigurationProxyOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 type ServiceHostnameConfigurationProxyArrayOutput struct{ *pulumi.OutputState }
@@ -9921,12 +10212,20 @@ type ServiceHostnameConfigurationScm struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
+	// The subject of the certificate.
+	Subject *string `pulumi:"subject"`
+	// The thumbprint of the certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
 }
 
 // ServiceHostnameConfigurationScmInput is an input type that accepts ServiceHostnameConfigurationScmArgs and ServiceHostnameConfigurationScmOutput values.
@@ -9945,12 +10244,20 @@ type ServiceHostnameConfigurationScmArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+	// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
+	// The subject of the certificate.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// The thumbprint of the certificate.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (ServiceHostnameConfigurationScmArgs) ElementType() reflect.Type {
@@ -10014,6 +10321,11 @@ func (o ServiceHostnameConfigurationScmOutput) CertificatePassword() pulumi.Stri
 	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+func (o ServiceHostnameConfigurationScmOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
 // The Hostname to use for the Management API.
 func (o ServiceHostnameConfigurationScmOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationScm) string { return v.HostName }).(pulumi.StringOutput)
@@ -10027,6 +10339,21 @@ func (o ServiceHostnameConfigurationScmOutput) KeyVaultId() pulumi.StringPtrOutp
 // Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o ServiceHostnameConfigurationScmOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+func (o ServiceHostnameConfigurationScmOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+// The subject of the certificate.
+func (o ServiceHostnameConfigurationScmOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate.
+func (o ServiceHostnameConfigurationScmOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 type ServiceHostnameConfigurationScmArrayOutput struct{ *pulumi.OutputState }

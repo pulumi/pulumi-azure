@@ -162,6 +162,10 @@ export class Plan extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+     */
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Plan resource with the given unique name, arguments, and options.
@@ -188,6 +192,7 @@ export class Plan extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as PlanArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -207,6 +212,7 @@ export class Plan extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["maximumNumberOfWorkers"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -265,6 +271,10 @@ export interface PlanState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+     */
+    zoneRedundant?: pulumi.Input<boolean>;
 }
 
 /**
@@ -312,4 +322,8 @@ export interface PlanArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+     */
+    zoneRedundant?: pulumi.Input<boolean>;
 }

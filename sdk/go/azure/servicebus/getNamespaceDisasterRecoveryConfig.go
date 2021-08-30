@@ -25,14 +25,14 @@ type LookupNamespaceDisasterRecoveryConfigArgs struct {
 
 // A collection of values returned by getNamespaceDisasterRecoveryConfig.
 type LookupNamespaceDisasterRecoveryConfigResult struct {
-	AliasPrimaryConnectionString   string `pulumi:"aliasPrimaryConnectionString"`
-	AliasSecondaryConnectionString string `pulumi:"aliasSecondaryConnectionString"`
-	DefaultPrimaryKey              string `pulumi:"defaultPrimaryKey"`
-	DefaultSecondaryKey            string `pulumi:"defaultSecondaryKey"`
+	DefaultPrimaryKey   string `pulumi:"defaultPrimaryKey"`
+	DefaultSecondaryKey string `pulumi:"defaultSecondaryKey"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string `pulumi:"id"`
-	Name               string `pulumi:"name"`
-	NamespaceName      string `pulumi:"namespaceName"`
-	PartnerNamespaceId string `pulumi:"partnerNamespaceId"`
-	ResourceGroupName  string `pulumi:"resourceGroupName"`
+	Id                             string `pulumi:"id"`
+	Name                           string `pulumi:"name"`
+	NamespaceName                  string `pulumi:"namespaceName"`
+	PartnerNamespaceId             string `pulumi:"partnerNamespaceId"`
+	PrimaryConnectionStringAlias   string `pulumi:"primaryConnectionStringAlias"`
+	ResourceGroupName              string `pulumi:"resourceGroupName"`
+	SecondaryConnectionStringAlias string `pulumi:"secondaryConnectionStringAlias"`
 }

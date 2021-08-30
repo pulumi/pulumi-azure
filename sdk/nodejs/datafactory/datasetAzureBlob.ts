@@ -90,7 +90,7 @@ export class DatasetAzureBlob extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
      */
     public readonly dynamicFilenameEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -211,7 +211,7 @@ export interface DatasetAzureBlobState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
      */
     dynamicFilenameEnabled?: pulumi.Input<boolean>;
     /**
@@ -273,7 +273,7 @@ export interface DatasetAzureBlobArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
      */
     dynamicFilenameEnabled?: pulumi.Input<boolean>;
     /**

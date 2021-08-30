@@ -31,6 +31,7 @@ import (
 // 			return err
 // 		}
 // 		ctx.Export("addressPrefixes", example.AddressPrefixes)
+// 		ctx.Export("ipv4Cidrs", example.Ipv4Cidrs)
 // 		return nil
 // 	})
 // }
@@ -59,8 +60,12 @@ type GetServiceTagsResult struct {
 	// List of address prefixes for the service type (and optionally a specific region).
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string  `pulumi:"id"`
-	Location       string  `pulumi:"location"`
-	LocationFilter *string `pulumi:"locationFilter"`
-	Service        string  `pulumi:"service"`
+	Id string `pulumi:"id"`
+	// List of IPv4 addresses for the service type (and optionally a specific region)
+	Ipv4Cidrs []string `pulumi:"ipv4Cidrs"`
+	// List of IPv6 addresses for the service type (and optionally a specific region)
+	Ipv6Cidrs      []string `pulumi:"ipv6Cidrs"`
+	Location       string   `pulumi:"location"`
+	LocationFilter *string  `pulumi:"locationFilter"`
+	Service        string   `pulumi:"service"`
 }

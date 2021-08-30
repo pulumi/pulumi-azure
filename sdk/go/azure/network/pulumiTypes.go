@@ -7460,6 +7460,8 @@ func (o FirewallNetworkRuleCollectionRuleArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FirewallPolicyDns struct {
+	// Should the network rule fqdn be enabled?
+	//
 	// Deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
 	NetworkRuleFqdnEnabled *bool `pulumi:"networkRuleFqdnEnabled"`
 	// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
@@ -7480,6 +7482,8 @@ type FirewallPolicyDnsInput interface {
 }
 
 type FirewallPolicyDnsArgs struct {
+	// Should the network rule fqdn be enabled?
+	//
 	// Deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
 	NetworkRuleFqdnEnabled pulumi.BoolPtrInput `pulumi:"networkRuleFqdnEnabled"`
 	// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
@@ -7565,6 +7569,8 @@ func (o FirewallPolicyDnsOutput) ToFirewallPolicyDnsPtrOutputWithContext(ctx con
 	}).(FirewallPolicyDnsPtrOutput)
 }
 
+// Should the network rule fqdn be enabled?
+//
 // Deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
 func (o FirewallPolicyDnsOutput) NetworkRuleFqdnEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyDns) *bool { return v.NetworkRuleFqdnEnabled }).(pulumi.BoolPtrOutput)
@@ -7598,6 +7604,8 @@ func (o FirewallPolicyDnsPtrOutput) Elem() FirewallPolicyDnsOutput {
 	return o.ApplyT(func(v *FirewallPolicyDns) FirewallPolicyDns { return *v }).(FirewallPolicyDnsOutput)
 }
 
+// Should the network rule fqdn be enabled?
+//
 // Deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
 func (o FirewallPolicyDnsPtrOutput) NetworkRuleFqdnEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyDns) *bool {
@@ -7626,6 +7634,624 @@ func (o FirewallPolicyDnsPtrOutput) Servers() pulumi.StringArrayOutput {
 		}
 		return v.Servers
 	}).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyIdentity struct {
+	PrincipalId *string `pulumi:"principalId"`
+	TenantId    *string `pulumi:"tenantId"`
+	// Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+	Type string `pulumi:"type"`
+	// Specifies a list of user assigned managed identities.
+	UserAssignedIdentityIds []string `pulumi:"userAssignedIdentityIds"`
+}
+
+// FirewallPolicyIdentityInput is an input type that accepts FirewallPolicyIdentityArgs and FirewallPolicyIdentityOutput values.
+// You can construct a concrete instance of `FirewallPolicyIdentityInput` via:
+//
+//          FirewallPolicyIdentityArgs{...}
+type FirewallPolicyIdentityInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyIdentityOutput() FirewallPolicyIdentityOutput
+	ToFirewallPolicyIdentityOutputWithContext(context.Context) FirewallPolicyIdentityOutput
+}
+
+type FirewallPolicyIdentityArgs struct {
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies a list of user assigned managed identities.
+	UserAssignedIdentityIds pulumi.StringArrayInput `pulumi:"userAssignedIdentityIds"`
+}
+
+func (FirewallPolicyIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyIdentity)(nil)).Elem()
+}
+
+func (i FirewallPolicyIdentityArgs) ToFirewallPolicyIdentityOutput() FirewallPolicyIdentityOutput {
+	return i.ToFirewallPolicyIdentityOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyIdentityArgs) ToFirewallPolicyIdentityOutputWithContext(ctx context.Context) FirewallPolicyIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyIdentityOutput)
+}
+
+func (i FirewallPolicyIdentityArgs) ToFirewallPolicyIdentityPtrOutput() FirewallPolicyIdentityPtrOutput {
+	return i.ToFirewallPolicyIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyIdentityArgs) ToFirewallPolicyIdentityPtrOutputWithContext(ctx context.Context) FirewallPolicyIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyIdentityOutput).ToFirewallPolicyIdentityPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyIdentityPtrInput is an input type that accepts FirewallPolicyIdentityArgs, FirewallPolicyIdentityPtr and FirewallPolicyIdentityPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyIdentityPtrInput` via:
+//
+//          FirewallPolicyIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallPolicyIdentityPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyIdentityPtrOutput() FirewallPolicyIdentityPtrOutput
+	ToFirewallPolicyIdentityPtrOutputWithContext(context.Context) FirewallPolicyIdentityPtrOutput
+}
+
+type firewallPolicyIdentityPtrType FirewallPolicyIdentityArgs
+
+func FirewallPolicyIdentityPtr(v *FirewallPolicyIdentityArgs) FirewallPolicyIdentityPtrInput {
+	return (*firewallPolicyIdentityPtrType)(v)
+}
+
+func (*firewallPolicyIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyIdentity)(nil)).Elem()
+}
+
+func (i *firewallPolicyIdentityPtrType) ToFirewallPolicyIdentityPtrOutput() FirewallPolicyIdentityPtrOutput {
+	return i.ToFirewallPolicyIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyIdentityPtrType) ToFirewallPolicyIdentityPtrOutputWithContext(ctx context.Context) FirewallPolicyIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyIdentityPtrOutput)
+}
+
+type FirewallPolicyIdentityOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyIdentity)(nil)).Elem()
+}
+
+func (o FirewallPolicyIdentityOutput) ToFirewallPolicyIdentityOutput() FirewallPolicyIdentityOutput {
+	return o
+}
+
+func (o FirewallPolicyIdentityOutput) ToFirewallPolicyIdentityOutputWithContext(ctx context.Context) FirewallPolicyIdentityOutput {
+	return o
+}
+
+func (o FirewallPolicyIdentityOutput) ToFirewallPolicyIdentityPtrOutput() FirewallPolicyIdentityPtrOutput {
+	return o.ToFirewallPolicyIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyIdentityOutput) ToFirewallPolicyIdentityPtrOutputWithContext(ctx context.Context) FirewallPolicyIdentityPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyIdentity) *FirewallPolicyIdentity {
+		return &v
+	}).(FirewallPolicyIdentityPtrOutput)
+}
+func (o FirewallPolicyIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o FirewallPolicyIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+func (o FirewallPolicyIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies a list of user assigned managed identities.
+func (o FirewallPolicyIdentityOutput) UserAssignedIdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyIdentity) []string { return v.UserAssignedIdentityIds }).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyIdentity)(nil)).Elem()
+}
+
+func (o FirewallPolicyIdentityPtrOutput) ToFirewallPolicyIdentityPtrOutput() FirewallPolicyIdentityPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyIdentityPtrOutput) ToFirewallPolicyIdentityPtrOutputWithContext(ctx context.Context) FirewallPolicyIdentityPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyIdentityPtrOutput) Elem() FirewallPolicyIdentityOutput {
+	return o.ApplyT(func(v *FirewallPolicyIdentity) FirewallPolicyIdentity { return *v }).(FirewallPolicyIdentityOutput)
+}
+
+func (o FirewallPolicyIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FirewallPolicyIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+func (o FirewallPolicyIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of user assigned managed identities.
+func (o FirewallPolicyIdentityPtrOutput) UserAssignedIdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyIntrusionDetection struct {
+	// In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+	Mode *string `pulumi:"mode"`
+	// One or more `signatureOverrides` blocks as defined below.
+	SignatureOverrides []FirewallPolicyIntrusionDetectionSignatureOverride `pulumi:"signatureOverrides"`
+	// One or more `trafficBypass` blocks as defined below.
+	TrafficBypasses []FirewallPolicyIntrusionDetectionTrafficBypass `pulumi:"trafficBypasses"`
+}
+
+// FirewallPolicyIntrusionDetectionInput is an input type that accepts FirewallPolicyIntrusionDetectionArgs and FirewallPolicyIntrusionDetectionOutput values.
+// You can construct a concrete instance of `FirewallPolicyIntrusionDetectionInput` via:
+//
+//          FirewallPolicyIntrusionDetectionArgs{...}
+type FirewallPolicyIntrusionDetectionInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyIntrusionDetectionOutput() FirewallPolicyIntrusionDetectionOutput
+	ToFirewallPolicyIntrusionDetectionOutputWithContext(context.Context) FirewallPolicyIntrusionDetectionOutput
+}
+
+type FirewallPolicyIntrusionDetectionArgs struct {
+	// In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// One or more `signatureOverrides` blocks as defined below.
+	SignatureOverrides FirewallPolicyIntrusionDetectionSignatureOverrideArrayInput `pulumi:"signatureOverrides"`
+	// One or more `trafficBypass` blocks as defined below.
+	TrafficBypasses FirewallPolicyIntrusionDetectionTrafficBypassArrayInput `pulumi:"trafficBypasses"`
+}
+
+func (FirewallPolicyIntrusionDetectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyIntrusionDetection)(nil)).Elem()
+}
+
+func (i FirewallPolicyIntrusionDetectionArgs) ToFirewallPolicyIntrusionDetectionOutput() FirewallPolicyIntrusionDetectionOutput {
+	return i.ToFirewallPolicyIntrusionDetectionOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyIntrusionDetectionArgs) ToFirewallPolicyIntrusionDetectionOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyIntrusionDetectionOutput)
+}
+
+func (i FirewallPolicyIntrusionDetectionArgs) ToFirewallPolicyIntrusionDetectionPtrOutput() FirewallPolicyIntrusionDetectionPtrOutput {
+	return i.ToFirewallPolicyIntrusionDetectionPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyIntrusionDetectionArgs) ToFirewallPolicyIntrusionDetectionPtrOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyIntrusionDetectionOutput).ToFirewallPolicyIntrusionDetectionPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyIntrusionDetectionPtrInput is an input type that accepts FirewallPolicyIntrusionDetectionArgs, FirewallPolicyIntrusionDetectionPtr and FirewallPolicyIntrusionDetectionPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyIntrusionDetectionPtrInput` via:
+//
+//          FirewallPolicyIntrusionDetectionArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallPolicyIntrusionDetectionPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyIntrusionDetectionPtrOutput() FirewallPolicyIntrusionDetectionPtrOutput
+	ToFirewallPolicyIntrusionDetectionPtrOutputWithContext(context.Context) FirewallPolicyIntrusionDetectionPtrOutput
+}
+
+type firewallPolicyIntrusionDetectionPtrType FirewallPolicyIntrusionDetectionArgs
+
+func FirewallPolicyIntrusionDetectionPtr(v *FirewallPolicyIntrusionDetectionArgs) FirewallPolicyIntrusionDetectionPtrInput {
+	return (*firewallPolicyIntrusionDetectionPtrType)(v)
+}
+
+func (*firewallPolicyIntrusionDetectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyIntrusionDetection)(nil)).Elem()
+}
+
+func (i *firewallPolicyIntrusionDetectionPtrType) ToFirewallPolicyIntrusionDetectionPtrOutput() FirewallPolicyIntrusionDetectionPtrOutput {
+	return i.ToFirewallPolicyIntrusionDetectionPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyIntrusionDetectionPtrType) ToFirewallPolicyIntrusionDetectionPtrOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyIntrusionDetectionPtrOutput)
+}
+
+type FirewallPolicyIntrusionDetectionOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyIntrusionDetectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyIntrusionDetection)(nil)).Elem()
+}
+
+func (o FirewallPolicyIntrusionDetectionOutput) ToFirewallPolicyIntrusionDetectionOutput() FirewallPolicyIntrusionDetectionOutput {
+	return o
+}
+
+func (o FirewallPolicyIntrusionDetectionOutput) ToFirewallPolicyIntrusionDetectionOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionOutput {
+	return o
+}
+
+func (o FirewallPolicyIntrusionDetectionOutput) ToFirewallPolicyIntrusionDetectionPtrOutput() FirewallPolicyIntrusionDetectionPtrOutput {
+	return o.ToFirewallPolicyIntrusionDetectionPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyIntrusionDetectionOutput) ToFirewallPolicyIntrusionDetectionPtrOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetection) *FirewallPolicyIntrusionDetection {
+		return &v
+	}).(FirewallPolicyIntrusionDetectionPtrOutput)
+}
+
+// In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+func (o FirewallPolicyIntrusionDetectionOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetection) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// One or more `signatureOverrides` blocks as defined below.
+func (o FirewallPolicyIntrusionDetectionOutput) SignatureOverrides() FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetection) []FirewallPolicyIntrusionDetectionSignatureOverride {
+		return v.SignatureOverrides
+	}).(FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput)
+}
+
+// One or more `trafficBypass` blocks as defined below.
+func (o FirewallPolicyIntrusionDetectionOutput) TrafficBypasses() FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetection) []FirewallPolicyIntrusionDetectionTrafficBypass {
+		return v.TrafficBypasses
+	}).(FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput)
+}
+
+type FirewallPolicyIntrusionDetectionPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyIntrusionDetectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyIntrusionDetection)(nil)).Elem()
+}
+
+func (o FirewallPolicyIntrusionDetectionPtrOutput) ToFirewallPolicyIntrusionDetectionPtrOutput() FirewallPolicyIntrusionDetectionPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyIntrusionDetectionPtrOutput) ToFirewallPolicyIntrusionDetectionPtrOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyIntrusionDetectionPtrOutput) Elem() FirewallPolicyIntrusionDetectionOutput {
+	return o.ApplyT(func(v *FirewallPolicyIntrusionDetection) FirewallPolicyIntrusionDetection { return *v }).(FirewallPolicyIntrusionDetectionOutput)
+}
+
+// In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+func (o FirewallPolicyIntrusionDetectionPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyIntrusionDetection) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `signatureOverrides` blocks as defined below.
+func (o FirewallPolicyIntrusionDetectionPtrOutput) SignatureOverrides() FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyIntrusionDetection) []FirewallPolicyIntrusionDetectionSignatureOverride {
+		if v == nil {
+			return nil
+		}
+		return v.SignatureOverrides
+	}).(FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput)
+}
+
+// One or more `trafficBypass` blocks as defined below.
+func (o FirewallPolicyIntrusionDetectionPtrOutput) TrafficBypasses() FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyIntrusionDetection) []FirewallPolicyIntrusionDetectionTrafficBypass {
+		if v == nil {
+			return nil
+		}
+		return v.TrafficBypasses
+	}).(FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput)
+}
+
+type FirewallPolicyIntrusionDetectionSignatureOverride struct {
+	// 12-digit number (id) which identifies your signature.
+	Id *string `pulumi:"id"`
+	// state can be any of "Off", "Alert" or "Deny".
+	State *string `pulumi:"state"`
+}
+
+// FirewallPolicyIntrusionDetectionSignatureOverrideInput is an input type that accepts FirewallPolicyIntrusionDetectionSignatureOverrideArgs and FirewallPolicyIntrusionDetectionSignatureOverrideOutput values.
+// You can construct a concrete instance of `FirewallPolicyIntrusionDetectionSignatureOverrideInput` via:
+//
+//          FirewallPolicyIntrusionDetectionSignatureOverrideArgs{...}
+type FirewallPolicyIntrusionDetectionSignatureOverrideInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyIntrusionDetectionSignatureOverrideOutput() FirewallPolicyIntrusionDetectionSignatureOverrideOutput
+	ToFirewallPolicyIntrusionDetectionSignatureOverrideOutputWithContext(context.Context) FirewallPolicyIntrusionDetectionSignatureOverrideOutput
+}
+
+type FirewallPolicyIntrusionDetectionSignatureOverrideArgs struct {
+	// 12-digit number (id) which identifies your signature.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// state can be any of "Off", "Alert" or "Deny".
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (FirewallPolicyIntrusionDetectionSignatureOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyIntrusionDetectionSignatureOverride)(nil)).Elem()
+}
+
+func (i FirewallPolicyIntrusionDetectionSignatureOverrideArgs) ToFirewallPolicyIntrusionDetectionSignatureOverrideOutput() FirewallPolicyIntrusionDetectionSignatureOverrideOutput {
+	return i.ToFirewallPolicyIntrusionDetectionSignatureOverrideOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyIntrusionDetectionSignatureOverrideArgs) ToFirewallPolicyIntrusionDetectionSignatureOverrideOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionSignatureOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyIntrusionDetectionSignatureOverrideOutput)
+}
+
+// FirewallPolicyIntrusionDetectionSignatureOverrideArrayInput is an input type that accepts FirewallPolicyIntrusionDetectionSignatureOverrideArray and FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyIntrusionDetectionSignatureOverrideArrayInput` via:
+//
+//          FirewallPolicyIntrusionDetectionSignatureOverrideArray{ FirewallPolicyIntrusionDetectionSignatureOverrideArgs{...} }
+type FirewallPolicyIntrusionDetectionSignatureOverrideArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput() FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput
+	ToFirewallPolicyIntrusionDetectionSignatureOverrideArrayOutputWithContext(context.Context) FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput
+}
+
+type FirewallPolicyIntrusionDetectionSignatureOverrideArray []FirewallPolicyIntrusionDetectionSignatureOverrideInput
+
+func (FirewallPolicyIntrusionDetectionSignatureOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyIntrusionDetectionSignatureOverride)(nil)).Elem()
+}
+
+func (i FirewallPolicyIntrusionDetectionSignatureOverrideArray) ToFirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput() FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput {
+	return i.ToFirewallPolicyIntrusionDetectionSignatureOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyIntrusionDetectionSignatureOverrideArray) ToFirewallPolicyIntrusionDetectionSignatureOverrideArrayOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput)
+}
+
+type FirewallPolicyIntrusionDetectionSignatureOverrideOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyIntrusionDetectionSignatureOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyIntrusionDetectionSignatureOverride)(nil)).Elem()
+}
+
+func (o FirewallPolicyIntrusionDetectionSignatureOverrideOutput) ToFirewallPolicyIntrusionDetectionSignatureOverrideOutput() FirewallPolicyIntrusionDetectionSignatureOverrideOutput {
+	return o
+}
+
+func (o FirewallPolicyIntrusionDetectionSignatureOverrideOutput) ToFirewallPolicyIntrusionDetectionSignatureOverrideOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionSignatureOverrideOutput {
+	return o
+}
+
+// 12-digit number (id) which identifies your signature.
+func (o FirewallPolicyIntrusionDetectionSignatureOverrideOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionSignatureOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// state can be any of "Off", "Alert" or "Deny".
+func (o FirewallPolicyIntrusionDetectionSignatureOverrideOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionSignatureOverride) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyIntrusionDetectionSignatureOverride)(nil)).Elem()
+}
+
+func (o FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput) ToFirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput() FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput) ToFirewallPolicyIntrusionDetectionSignatureOverrideArrayOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput) Index(i pulumi.IntInput) FirewallPolicyIntrusionDetectionSignatureOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyIntrusionDetectionSignatureOverride {
+		return vs[0].([]FirewallPolicyIntrusionDetectionSignatureOverride)[vs[1].(int)]
+	}).(FirewallPolicyIntrusionDetectionSignatureOverrideOutput)
+}
+
+type FirewallPolicyIntrusionDetectionTrafficBypass struct {
+	// The description for this bypass traffic setting.
+	Description *string `pulumi:"description"`
+	// Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
+	DestinationIpGroups []string `pulumi:"destinationIpGroups"`
+	// Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
+	DestinationPorts []string `pulumi:"destinationPorts"`
+	// The name which should be used for this bypass traffic setting.
+	Name string `pulumi:"name"`
+	// The protocols any of "ANY", "TCP", "ICMP", "UDP" that shall be bypassed by intrusion detection.
+	Protocol string `pulumi:"protocol"`
+	// Specifies a list of source addresses that shall be bypassed by intrusion detection.
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
+}
+
+// FirewallPolicyIntrusionDetectionTrafficBypassInput is an input type that accepts FirewallPolicyIntrusionDetectionTrafficBypassArgs and FirewallPolicyIntrusionDetectionTrafficBypassOutput values.
+// You can construct a concrete instance of `FirewallPolicyIntrusionDetectionTrafficBypassInput` via:
+//
+//          FirewallPolicyIntrusionDetectionTrafficBypassArgs{...}
+type FirewallPolicyIntrusionDetectionTrafficBypassInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyIntrusionDetectionTrafficBypassOutput() FirewallPolicyIntrusionDetectionTrafficBypassOutput
+	ToFirewallPolicyIntrusionDetectionTrafficBypassOutputWithContext(context.Context) FirewallPolicyIntrusionDetectionTrafficBypassOutput
+}
+
+type FirewallPolicyIntrusionDetectionTrafficBypassArgs struct {
+	// The description for this bypass traffic setting.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	// Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
+	DestinationIpGroups pulumi.StringArrayInput `pulumi:"destinationIpGroups"`
+	// Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
+	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	// The name which should be used for this bypass traffic setting.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The protocols any of "ANY", "TCP", "ICMP", "UDP" that shall be bypassed by intrusion detection.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// Specifies a list of source addresses that shall be bypassed by intrusion detection.
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
+}
+
+func (FirewallPolicyIntrusionDetectionTrafficBypassArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyIntrusionDetectionTrafficBypass)(nil)).Elem()
+}
+
+func (i FirewallPolicyIntrusionDetectionTrafficBypassArgs) ToFirewallPolicyIntrusionDetectionTrafficBypassOutput() FirewallPolicyIntrusionDetectionTrafficBypassOutput {
+	return i.ToFirewallPolicyIntrusionDetectionTrafficBypassOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyIntrusionDetectionTrafficBypassArgs) ToFirewallPolicyIntrusionDetectionTrafficBypassOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionTrafficBypassOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyIntrusionDetectionTrafficBypassOutput)
+}
+
+// FirewallPolicyIntrusionDetectionTrafficBypassArrayInput is an input type that accepts FirewallPolicyIntrusionDetectionTrafficBypassArray and FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyIntrusionDetectionTrafficBypassArrayInput` via:
+//
+//          FirewallPolicyIntrusionDetectionTrafficBypassArray{ FirewallPolicyIntrusionDetectionTrafficBypassArgs{...} }
+type FirewallPolicyIntrusionDetectionTrafficBypassArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyIntrusionDetectionTrafficBypassArrayOutput() FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput
+	ToFirewallPolicyIntrusionDetectionTrafficBypassArrayOutputWithContext(context.Context) FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput
+}
+
+type FirewallPolicyIntrusionDetectionTrafficBypassArray []FirewallPolicyIntrusionDetectionTrafficBypassInput
+
+func (FirewallPolicyIntrusionDetectionTrafficBypassArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyIntrusionDetectionTrafficBypass)(nil)).Elem()
+}
+
+func (i FirewallPolicyIntrusionDetectionTrafficBypassArray) ToFirewallPolicyIntrusionDetectionTrafficBypassArrayOutput() FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput {
+	return i.ToFirewallPolicyIntrusionDetectionTrafficBypassArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyIntrusionDetectionTrafficBypassArray) ToFirewallPolicyIntrusionDetectionTrafficBypassArrayOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput)
+}
+
+type FirewallPolicyIntrusionDetectionTrafficBypassOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyIntrusionDetectionTrafficBypassOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyIntrusionDetectionTrafficBypass)(nil)).Elem()
+}
+
+func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) ToFirewallPolicyIntrusionDetectionTrafficBypassOutput() FirewallPolicyIntrusionDetectionTrafficBypassOutput {
+	return o
+}
+
+func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) ToFirewallPolicyIntrusionDetectionTrafficBypassOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionTrafficBypassOutput {
+	return o
+}
+
+// The description for this bypass traffic setting.
+func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionTrafficBypass) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
+func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionTrafficBypass) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
+func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) DestinationIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionTrafficBypass) []string { return v.DestinationIpGroups }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
+func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionTrafficBypass) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
+}
+
+// The name which should be used for this bypass traffic setting.
+func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionTrafficBypass) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The protocols any of "ANY", "TCP", "ICMP", "UDP" that shall be bypassed by intrusion detection.
+func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionTrafficBypass) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// Specifies a list of source addresses that shall be bypassed by intrusion detection.
+func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionTrafficBypass) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionTrafficBypass) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyIntrusionDetectionTrafficBypass)(nil)).Elem()
+}
+
+func (o FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput) ToFirewallPolicyIntrusionDetectionTrafficBypassArrayOutput() FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput) ToFirewallPolicyIntrusionDetectionTrafficBypassArrayOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput) Index(i pulumi.IntInput) FirewallPolicyIntrusionDetectionTrafficBypassOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyIntrusionDetectionTrafficBypass {
+		return vs[0].([]FirewallPolicyIntrusionDetectionTrafficBypass)[vs[1].(int)]
+	}).(FirewallPolicyIntrusionDetectionTrafficBypassOutput)
 }
 
 type FirewallPolicyRuleCollectionGroupApplicationRuleCollection struct {
@@ -8738,6 +9364,156 @@ func (o FirewallPolicyThreatIntelligenceAllowlistPtrOutput) IpAddresses() pulumi
 		}
 		return v.IpAddresses
 	}).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyTlsCertificate struct {
+	// The ID of the Key Vault, where the secret or certificate is stored.
+	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
+	// The name of the certificate.
+	Name string `pulumi:"name"`
+}
+
+// FirewallPolicyTlsCertificateInput is an input type that accepts FirewallPolicyTlsCertificateArgs and FirewallPolicyTlsCertificateOutput values.
+// You can construct a concrete instance of `FirewallPolicyTlsCertificateInput` via:
+//
+//          FirewallPolicyTlsCertificateArgs{...}
+type FirewallPolicyTlsCertificateInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyTlsCertificateOutput() FirewallPolicyTlsCertificateOutput
+	ToFirewallPolicyTlsCertificateOutputWithContext(context.Context) FirewallPolicyTlsCertificateOutput
+}
+
+type FirewallPolicyTlsCertificateArgs struct {
+	// The ID of the Key Vault, where the secret or certificate is stored.
+	KeyVaultSecretId pulumi.StringInput `pulumi:"keyVaultSecretId"`
+	// The name of the certificate.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (FirewallPolicyTlsCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (i FirewallPolicyTlsCertificateArgs) ToFirewallPolicyTlsCertificateOutput() FirewallPolicyTlsCertificateOutput {
+	return i.ToFirewallPolicyTlsCertificateOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyTlsCertificateArgs) ToFirewallPolicyTlsCertificateOutputWithContext(ctx context.Context) FirewallPolicyTlsCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyTlsCertificateOutput)
+}
+
+func (i FirewallPolicyTlsCertificateArgs) ToFirewallPolicyTlsCertificatePtrOutput() FirewallPolicyTlsCertificatePtrOutput {
+	return i.ToFirewallPolicyTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyTlsCertificateArgs) ToFirewallPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) FirewallPolicyTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyTlsCertificateOutput).ToFirewallPolicyTlsCertificatePtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyTlsCertificatePtrInput is an input type that accepts FirewallPolicyTlsCertificateArgs, FirewallPolicyTlsCertificatePtr and FirewallPolicyTlsCertificatePtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyTlsCertificatePtrInput` via:
+//
+//          FirewallPolicyTlsCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallPolicyTlsCertificatePtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyTlsCertificatePtrOutput() FirewallPolicyTlsCertificatePtrOutput
+	ToFirewallPolicyTlsCertificatePtrOutputWithContext(context.Context) FirewallPolicyTlsCertificatePtrOutput
+}
+
+type firewallPolicyTlsCertificatePtrType FirewallPolicyTlsCertificateArgs
+
+func FirewallPolicyTlsCertificatePtr(v *FirewallPolicyTlsCertificateArgs) FirewallPolicyTlsCertificatePtrInput {
+	return (*firewallPolicyTlsCertificatePtrType)(v)
+}
+
+func (*firewallPolicyTlsCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (i *firewallPolicyTlsCertificatePtrType) ToFirewallPolicyTlsCertificatePtrOutput() FirewallPolicyTlsCertificatePtrOutput {
+	return i.ToFirewallPolicyTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyTlsCertificatePtrType) ToFirewallPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) FirewallPolicyTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyTlsCertificatePtrOutput)
+}
+
+type FirewallPolicyTlsCertificateOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyTlsCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (o FirewallPolicyTlsCertificateOutput) ToFirewallPolicyTlsCertificateOutput() FirewallPolicyTlsCertificateOutput {
+	return o
+}
+
+func (o FirewallPolicyTlsCertificateOutput) ToFirewallPolicyTlsCertificateOutputWithContext(ctx context.Context) FirewallPolicyTlsCertificateOutput {
+	return o
+}
+
+func (o FirewallPolicyTlsCertificateOutput) ToFirewallPolicyTlsCertificatePtrOutput() FirewallPolicyTlsCertificatePtrOutput {
+	return o.ToFirewallPolicyTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyTlsCertificateOutput) ToFirewallPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) FirewallPolicyTlsCertificatePtrOutput {
+	return o.ApplyT(func(v FirewallPolicyTlsCertificate) *FirewallPolicyTlsCertificate {
+		return &v
+	}).(FirewallPolicyTlsCertificatePtrOutput)
+}
+
+// The ID of the Key Vault, where the secret or certificate is stored.
+func (o FirewallPolicyTlsCertificateOutput) KeyVaultSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyTlsCertificate) string { return v.KeyVaultSecretId }).(pulumi.StringOutput)
+}
+
+// The name of the certificate.
+func (o FirewallPolicyTlsCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyTlsCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type FirewallPolicyTlsCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyTlsCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (o FirewallPolicyTlsCertificatePtrOutput) ToFirewallPolicyTlsCertificatePtrOutput() FirewallPolicyTlsCertificatePtrOutput {
+	return o
+}
+
+func (o FirewallPolicyTlsCertificatePtrOutput) ToFirewallPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) FirewallPolicyTlsCertificatePtrOutput {
+	return o
+}
+
+func (o FirewallPolicyTlsCertificatePtrOutput) Elem() FirewallPolicyTlsCertificateOutput {
+	return o.ApplyT(func(v *FirewallPolicyTlsCertificate) FirewallPolicyTlsCertificate { return *v }).(FirewallPolicyTlsCertificateOutput)
+}
+
+// The ID of the Key Vault, where the secret or certificate is stored.
+func (o FirewallPolicyTlsCertificatePtrOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyTlsCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the certificate.
+func (o FirewallPolicyTlsCertificatePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyTlsCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type FirewallVirtualHub struct {
@@ -13614,7 +14390,7 @@ func (o SubnetDelegationArrayOutput) Index(i pulumi.IntInput) SubnetDelegationOu
 type SubnetDelegationServiceDelegation struct {
 	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 	Actions []string `pulumi:"actions"`
-	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`,  `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
 	Name string `pulumi:"name"`
 }
 
@@ -13632,7 +14408,7 @@ type SubnetDelegationServiceDelegationInput interface {
 type SubnetDelegationServiceDelegationArgs struct {
 	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`,  `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -13667,7 +14443,7 @@ func (o SubnetDelegationServiceDelegationOutput) Actions() pulumi.StringArrayOut
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`,  `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
 func (o SubnetDelegationServiceDelegationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -23825,6 +24601,14 @@ func init() {
 	pulumi.RegisterOutputType(FirewallNetworkRuleCollectionRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDnsOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDnsPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyIdentityOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyIdentityPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyIntrusionDetectionOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyIntrusionDetectionPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyIntrusionDetectionSignatureOverrideOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyIntrusionDetectionTrafficBypassOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyIntrusionDetectionTrafficBypassArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput{})
@@ -23841,6 +24625,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyThreatIntelligenceAllowlistOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyThreatIntelligenceAllowlistPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyTlsCertificateOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyTlsCertificatePtrOutput{})
 	pulumi.RegisterOutputType(FirewallVirtualHubOutput{})
 	pulumi.RegisterOutputType(FirewallVirtualHubPtrOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayBgpSettingsOutput{})

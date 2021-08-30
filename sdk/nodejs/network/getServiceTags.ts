@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     locationFilter: "northeurope",
  * });
  * export const addressPrefixes = example.then(example => example.addressPrefixes);
+ * export const ipv4Cidrs = example.then(example => example.ipv4Cidrs);
  * ```
  */
 export function getServiceTags(args: GetServiceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTagsResult> {
@@ -67,6 +68,14 @@ export interface GetServiceTagsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * List of IPv4 addresses for the service type (and optionally a specific region)
+     */
+    readonly ipv4Cidrs: string[];
+    /**
+     * List of IPv6 addresses for the service type (and optionally a specific region)
+     */
+    readonly ipv6Cidrs: string[];
     readonly location: string;
     readonly locationFilter?: string;
     readonly service: string;

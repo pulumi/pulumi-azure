@@ -67,13 +67,13 @@ export class FlexibleServerDatabase extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+     * Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Defaults to `UTF8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
-    public readonly charset!: pulumi.Output<string>;
+    public readonly charset!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+     * Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
-    public readonly collation!: pulumi.Output<string>;
+    public readonly collation!: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
@@ -102,12 +102,6 @@ export class FlexibleServerDatabase extends pulumi.CustomResource {
             inputs["serverId"] = state ? state.serverId : undefined;
         } else {
             const args = argsOrState as FlexibleServerDatabaseArgs | undefined;
-            if ((!args || args.charset === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'charset'");
-            }
-            if ((!args || args.collation === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'collation'");
-            }
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
@@ -128,11 +122,11 @@ export class FlexibleServerDatabase extends pulumi.CustomResource {
  */
 export interface FlexibleServerDatabaseState {
     /**
-     * Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+     * Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Defaults to `UTF8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
     charset?: pulumi.Input<string>;
     /**
-     * Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+     * Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
     collation?: pulumi.Input<string>;
     /**
@@ -150,13 +144,13 @@ export interface FlexibleServerDatabaseState {
  */
 export interface FlexibleServerDatabaseArgs {
     /**
-     * Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+     * Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Defaults to `UTF8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
-    charset: pulumi.Input<string>;
+    charset?: pulumi.Input<string>;
     /**
-     * Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+     * Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
-    collation: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */

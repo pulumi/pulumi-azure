@@ -611,14 +611,22 @@ class DatasetAzureBlobSchemaColumnArgs:
 class DatasetBinaryAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] container: The container on the Azure Blob Storage Account hosting the file.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the file in the blob container.
         :param pulumi.Input[str] path: The folder path to the file in the blob container.
         """
         pulumi.set(__self__, "container", container)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
         if path is not None:
@@ -635,6 +643,30 @@ class DatasetBinaryAzureBlobStorageLocationArgs:
     @container.setter
     def container(self, value: pulumi.Input[str]):
         pulumi.set(self, "container", value)
+
+    @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
 
     @property
     @pulumi.getter
@@ -704,15 +736,23 @@ class DatasetBinaryHttpServerLocationArgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[str],
                  path: pulumi.Input[str],
-                 relative_url: pulumi.Input[str]):
+                 relative_url: pulumi.Input[str],
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] filename: The filename of the file on the web server.
         :param pulumi.Input[str] path: The folder path to the file on the web server.
         :param pulumi.Input[str] relative_url: The base URL to the web server hosting the file.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         pulumi.set(__self__, "filename", filename)
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "relative_url", relative_url)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
 
     @property
     @pulumi.getter
@@ -750,18 +790,50 @@ class DatasetBinaryHttpServerLocationArgs:
     def relative_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "relative_url", value)
 
+    @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
+
 
 @pulumi.input_type
 class DatasetBinarySftpServerLocationArgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[str],
-                 path: pulumi.Input[str]):
+                 path: pulumi.Input[str],
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] filename: The filename of the file on the SFTP server.
         :param pulumi.Input[str] path: The folder path to the file on the SFTP server.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         pulumi.set(__self__, "filename", filename)
         pulumi.set(__self__, "path", path)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
 
     @property
     @pulumi.getter
@@ -786,6 +858,30 @@ class DatasetBinarySftpServerLocationArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
 
 
 @pulumi.input_type
@@ -900,14 +996,22 @@ class DatasetDelimitedTextAzureBlobFsLocationArgs:
 class DatasetDelimitedTextAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] container: The container on the Azure Blob Storage Account hosting the file.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the file.
         :param pulumi.Input[str] path: The folder path to the file.
         """
         pulumi.set(__self__, "container", container)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
         if path is not None:
@@ -924,6 +1028,30 @@ class DatasetDelimitedTextAzureBlobStorageLocationArgs:
     @container.setter
     def container(self, value: pulumi.Input[str]):
         pulumi.set(self, "container", value)
+
+    @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
 
     @property
     @pulumi.getter
@@ -955,15 +1083,23 @@ class DatasetDelimitedTextHttpServerLocationArgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[str],
                  path: pulumi.Input[str],
-                 relative_url: pulumi.Input[str]):
+                 relative_url: pulumi.Input[str],
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] filename: The filename of the file on the web server.
         :param pulumi.Input[str] path: The folder path to the file on the web server.
         :param pulumi.Input[str] relative_url: The base URL to the web server hosting the file.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         pulumi.set(__self__, "filename", filename)
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "relative_url", relative_url)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
 
     @property
     @pulumi.getter
@@ -1000,6 +1136,30 @@ class DatasetDelimitedTextHttpServerLocationArgs:
     @relative_url.setter
     def relative_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "relative_url", value)
+
+    @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
 
 
 @pulumi.input_type
@@ -1115,15 +1275,23 @@ class DatasetJsonAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
                  filename: pulumi.Input[str],
-                 path: pulumi.Input[str]):
+                 path: pulumi.Input[str],
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] container: The container on the Azure Blob Storage Account hosting the file.
         :param pulumi.Input[str] filename: The filename of the file on the web server.
         :param pulumi.Input[str] path: The folder path to the file on the web server.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         pulumi.set(__self__, "container", container)
         pulumi.set(__self__, "filename", filename)
         pulumi.set(__self__, "path", path)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
 
     @property
     @pulumi.getter
@@ -1161,21 +1329,53 @@ class DatasetJsonAzureBlobStorageLocationArgs:
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
 
+    @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
+
 
 @pulumi.input_type
 class DatasetJsonHttpServerLocationArgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[str],
                  path: pulumi.Input[str],
-                 relative_url: pulumi.Input[str]):
+                 relative_url: pulumi.Input[str],
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] filename: The filename of the file on the web server.
         :param pulumi.Input[str] path: The folder path to the file on the web server.
         :param pulumi.Input[str] relative_url: The base URL to the web server hosting the file.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         pulumi.set(__self__, "filename", filename)
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "relative_url", relative_url)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
 
     @property
     @pulumi.getter
@@ -1212,6 +1412,30 @@ class DatasetJsonHttpServerLocationArgs:
     @relative_url.setter
     def relative_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "relative_url", value)
+
+    @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
 
 
 @pulumi.input_type
@@ -1327,14 +1551,22 @@ class DatasetParquetAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
                  path: pulumi.Input[str],
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
                  filename: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] container: The container on the Azure Blob Storage Account hosting the file.
         :param pulumi.Input[str] path: The folder path to the file on the web server.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the file on the web server.
         """
         pulumi.set(__self__, "container", container)
         pulumi.set(__self__, "path", path)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
 
@@ -1363,6 +1595,30 @@ class DatasetParquetAzureBlobStorageLocationArgs:
         pulumi.set(self, "path", value)
 
     @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
+
+    @property
     @pulumi.getter
     def filename(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1380,15 +1636,23 @@ class DatasetParquetHttpServerLocationArgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[str],
                  path: pulumi.Input[str],
-                 relative_url: pulumi.Input[str]):
+                 relative_url: pulumi.Input[str],
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] filename: The filename of the file on the web server.
         :param pulumi.Input[str] path: The folder path to the file on the web server.
         :param pulumi.Input[str] relative_url: The base URL to the web server hosting the file.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         pulumi.set(__self__, "filename", filename)
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "relative_url", relative_url)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
 
     @property
     @pulumi.getter
@@ -1425,6 +1689,30 @@ class DatasetParquetHttpServerLocationArgs:
     @relative_url.setter
     def relative_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "relative_url", value)
+
+    @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
 
 
 @pulumi.input_type

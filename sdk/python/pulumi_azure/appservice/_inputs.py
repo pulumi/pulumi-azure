@@ -1144,6 +1144,7 @@ class AppServiceSiteConfigArgs:
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
                  websockets_enabled: Optional[pulumi.Input[bool]] = None,
                  windows_fx_version: Optional[pulumi.Input[str]] = None):
         """
@@ -1174,6 +1175,7 @@ class AppServiceSiteConfigArgs:
         :param pulumi.Input[str] scm_type: The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param pulumi.Input[bool] scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
         :param pulumi.Input[bool] use32_bit_worker_process: Should the App Service run in 32 bit mode, rather than 64 bit mode?
+        :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         :param pulumi.Input[bool] websockets_enabled: Should WebSockets be enabled?
         :param pulumi.Input[str] windows_fx_version: The Windows Docker container image (`DOCKER|<user/image:tag>`)
         """
@@ -1233,6 +1235,8 @@ class AppServiceSiteConfigArgs:
             pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
         if use32_bit_worker_process is not None:
             pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         if websockets_enabled is not None:
             pulumi.set(__self__, "websockets_enabled", websockets_enabled)
         if windows_fx_version is not None:
@@ -1570,6 +1574,18 @@ class AppServiceSiteConfigArgs:
     @use32_bit_worker_process.setter
     def use32_bit_worker_process(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use32_bit_worker_process", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
 
     @property
     @pulumi.getter(name="websocketsEnabled")
@@ -6204,6 +6220,7 @@ class SlotSiteConfigArgs:
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
                  websockets_enabled: Optional[pulumi.Input[bool]] = None,
                  windows_fx_version: Optional[pulumi.Input[str]] = None):
         """
@@ -6287,6 +6304,8 @@ class SlotSiteConfigArgs:
             pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
         if use32_bit_worker_process is not None:
             pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         if websockets_enabled is not None:
             pulumi.set(__self__, "websockets_enabled", websockets_enabled)
         if windows_fx_version is not None:
@@ -6609,6 +6628,15 @@ class SlotSiteConfigArgs:
     @use32_bit_worker_process.setter
     def use32_bit_worker_process(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use32_bit_worker_process", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
 
     @property
     @pulumi.getter(name="websocketsEnabled")

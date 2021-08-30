@@ -99,4 +99,8 @@ export interface GetAppServicePlanResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * App Service Plan perform availability zone balancing.
+     */
+    readonly zoneRedundant: boolean;
 }

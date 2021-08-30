@@ -25,14 +25,18 @@ __all__ = [
 class GlobalVMShutdownScheduleNotificationSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
+                 email: Optional[pulumi.Input[str]] = None,
                  time_in_minutes: Optional[pulumi.Input[int]] = None,
                  webhook_url: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+        :param pulumi.Input[str] email: E-mail address to which the notification will be sent.
         :param pulumi.Input[int] time_in_minutes: Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
         :param pulumi.Input[str] webhook_url: The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
         if time_in_minutes is not None:
             pulumi.set(__self__, "time_in_minutes", time_in_minutes)
         if webhook_url is not None:
@@ -49,6 +53,18 @@ class GlobalVMShutdownScheduleNotificationSettingsArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        E-mail address to which the notification will be sent.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
 
     @property
     @pulumi.getter(name="timeInMinutes")

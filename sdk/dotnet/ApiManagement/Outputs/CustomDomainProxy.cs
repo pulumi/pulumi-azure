@@ -25,6 +25,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
         /// </summary>
         public readonly bool? DefaultSslBinding;
+        public readonly string? Expiry;
         /// <summary>
         /// The Hostname to use for the API Proxy Endpoint.
         /// </summary>
@@ -37,6 +38,9 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
         /// </summary>
         public readonly bool? NegotiateClientCertificate;
+        public readonly string? SslKeyvaultIdentityClientId;
+        public readonly string? Subject;
+        public readonly string? Thumbprint;
 
         [OutputConstructor]
         private CustomDomainProxy(
@@ -46,18 +50,30 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             bool? defaultSslBinding,
 
+            string? expiry,
+
             string hostName,
 
             string? keyVaultId,
 
-            bool? negotiateClientCertificate)
+            bool? negotiateClientCertificate,
+
+            string? sslKeyvaultIdentityClientId,
+
+            string? subject,
+
+            string? thumbprint)
         {
             Certificate = certificate;
             CertificatePassword = certificatePassword;
             DefaultSslBinding = defaultSslBinding;
+            Expiry = expiry;
             HostName = hostName;
             KeyVaultId = keyVaultId;
             NegotiateClientCertificate = negotiateClientCertificate;
+            SslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;
+            Subject = subject;
+            Thumbprint = thumbprint;
         }
     }
 }

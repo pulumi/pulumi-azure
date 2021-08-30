@@ -36,8 +36,6 @@ namespace Pulumi.Azure.ServiceBus
     [OutputType]
     public sealed class GetNamespaceDisasterRecoveryConfigResult
     {
-        public readonly string AliasPrimaryConnectionString;
-        public readonly string AliasSecondaryConnectionString;
         public readonly string DefaultPrimaryKey;
         public readonly string DefaultSecondaryKey;
         /// <summary>
@@ -47,14 +45,12 @@ namespace Pulumi.Azure.ServiceBus
         public readonly string Name;
         public readonly string NamespaceName;
         public readonly string PartnerNamespaceId;
+        public readonly string PrimaryConnectionStringAlias;
         public readonly string ResourceGroupName;
+        public readonly string SecondaryConnectionStringAlias;
 
         [OutputConstructor]
         private GetNamespaceDisasterRecoveryConfigResult(
-            string aliasPrimaryConnectionString,
-
-            string aliasSecondaryConnectionString,
-
             string defaultPrimaryKey,
 
             string defaultSecondaryKey,
@@ -67,17 +63,21 @@ namespace Pulumi.Azure.ServiceBus
 
             string partnerNamespaceId,
 
-            string resourceGroupName)
+            string primaryConnectionStringAlias,
+
+            string resourceGroupName,
+
+            string secondaryConnectionStringAlias)
         {
-            AliasPrimaryConnectionString = aliasPrimaryConnectionString;
-            AliasSecondaryConnectionString = aliasSecondaryConnectionString;
             DefaultPrimaryKey = defaultPrimaryKey;
             DefaultSecondaryKey = defaultSecondaryKey;
             Id = id;
             Name = name;
             NamespaceName = namespaceName;
             PartnerNamespaceId = partnerNamespaceId;
+            PrimaryConnectionStringAlias = primaryConnectionStringAlias;
             ResourceGroupName = resourceGroupName;
+            SecondaryConnectionStringAlias = secondaryConnectionStringAlias;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Pulumi.Azure.AppConfiguration.Outputs
     [OutputType]
     public sealed class ConfigurationStoreIdentity
     {
+        public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The ID of the Principal (Client) in Azure Active Directory.
         /// </summary>
@@ -24,16 +25,19 @@ namespace Pulumi.Azure.AppConfiguration.Outputs
         /// <summary>
         /// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private ConfigurationStoreIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
-            string? type)
+            string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
