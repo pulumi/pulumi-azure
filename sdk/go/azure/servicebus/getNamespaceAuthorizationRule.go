@@ -61,11 +61,15 @@ type LookupNamespaceAuthorizationRuleResult struct {
 	NamespaceName string `pulumi:"namespaceName"`
 	// The primary connection string for the authorization rule.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
+	// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+	PrimaryConnectionStringAlias string `pulumi:"primaryConnectionStringAlias"`
 	// The primary access key for the authorization rule.
 	PrimaryKey        string `pulumi:"primaryKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The secondary connection string for the authorization rule.
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
+	// The alias Secondary Connection String for the ServiceBus Namespace
+	SecondaryConnectionStringAlias string `pulumi:"secondaryConnectionStringAlias"`
 	// The secondary access key for the authorization rule.
 	SecondaryKey string `pulumi:"secondaryKey"`
 }

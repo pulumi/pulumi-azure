@@ -1550,6 +1550,10 @@ func (o DatasetAzureBlobSchemaColumnArrayOutput) Index(i pulumi.IntInput) Datase
 type DatasetBinaryAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The filename of the file in the blob container.
 	Filename *string `pulumi:"filename"`
 	// The folder path to the file in the blob container.
@@ -1570,6 +1574,10 @@ type DatasetBinaryAzureBlobStorageLocationInput interface {
 type DatasetBinaryAzureBlobStorageLocationArgs struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
 	// The filename of the file in the blob container.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 	// The folder path to the file in the blob container.
@@ -1658,6 +1666,16 @@ func (o DatasetBinaryAzureBlobStorageLocationOutput) Container() pulumi.StringOu
 	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinaryAzureBlobStorageLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinaryAzureBlobStorageLocationOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) *bool { return v.DynamicPathEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file in the blob container.
 func (o DatasetBinaryAzureBlobStorageLocationOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) *string { return v.Filename }).(pulumi.StringPtrOutput)
@@ -1694,6 +1712,26 @@ func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) Container() pulumi.Strin
 		}
 		return &v.Container
 	}).(pulumi.StringPtrOutput)
+}
+
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryAzureBlobStorageLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFilenameEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryAzureBlobStorageLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPathEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The filename of the file in the blob container.
@@ -1867,6 +1905,10 @@ func (o DatasetBinaryCompressionPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type DatasetBinaryHttpServerLocation struct {
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the web server.
 	Filename string `pulumi:"filename"`
 	// The folder path to the file on the web server.
@@ -1887,6 +1929,10 @@ type DatasetBinaryHttpServerLocationInput interface {
 }
 
 type DatasetBinaryHttpServerLocationArgs struct {
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the web server.
 	Filename pulumi.StringInput `pulumi:"filename"`
 	// The folder path to the file on the web server.
@@ -1972,6 +2018,16 @@ func (o DatasetBinaryHttpServerLocationOutput) ToDatasetBinaryHttpServerLocation
 	}).(DatasetBinaryHttpServerLocationPtrOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinaryHttpServerLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetBinaryHttpServerLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinaryHttpServerLocationOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetBinaryHttpServerLocation) *bool { return v.DynamicPathEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file on the web server.
 func (o DatasetBinaryHttpServerLocationOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetBinaryHttpServerLocation) string { return v.Filename }).(pulumi.StringOutput)
@@ -2005,6 +2061,26 @@ func (o DatasetBinaryHttpServerLocationPtrOutput) Elem() DatasetBinaryHttpServer
 	return o.ApplyT(func(v *DatasetBinaryHttpServerLocation) DatasetBinaryHttpServerLocation { return *v }).(DatasetBinaryHttpServerLocationOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinaryHttpServerLocationPtrOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryHttpServerLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFilenameEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinaryHttpServerLocationPtrOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryHttpServerLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPathEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file on the web server.
 func (o DatasetBinaryHttpServerLocationPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetBinaryHttpServerLocation) *string {
@@ -2036,6 +2112,10 @@ func (o DatasetBinaryHttpServerLocationPtrOutput) RelativeUrl() pulumi.StringPtr
 }
 
 type DatasetBinarySftpServerLocation struct {
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the SFTP server.
 	Filename string `pulumi:"filename"`
 	// The folder path to the file on the SFTP server.
@@ -2054,6 +2134,10 @@ type DatasetBinarySftpServerLocationInput interface {
 }
 
 type DatasetBinarySftpServerLocationArgs struct {
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the SFTP server.
 	Filename pulumi.StringInput `pulumi:"filename"`
 	// The folder path to the file on the SFTP server.
@@ -2137,6 +2221,16 @@ func (o DatasetBinarySftpServerLocationOutput) ToDatasetBinarySftpServerLocation
 	}).(DatasetBinarySftpServerLocationPtrOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinarySftpServerLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetBinarySftpServerLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinarySftpServerLocationOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetBinarySftpServerLocation) *bool { return v.DynamicPathEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file on the SFTP server.
 func (o DatasetBinarySftpServerLocationOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetBinarySftpServerLocation) string { return v.Filename }).(pulumi.StringOutput)
@@ -2163,6 +2257,26 @@ func (o DatasetBinarySftpServerLocationPtrOutput) ToDatasetBinarySftpServerLocat
 
 func (o DatasetBinarySftpServerLocationPtrOutput) Elem() DatasetBinarySftpServerLocationOutput {
 	return o.ApplyT(func(v *DatasetBinarySftpServerLocation) DatasetBinarySftpServerLocation { return *v }).(DatasetBinarySftpServerLocationOutput)
+}
+
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinarySftpServerLocationPtrOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetBinarySftpServerLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFilenameEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinarySftpServerLocationPtrOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetBinarySftpServerLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPathEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The filename of the file on the SFTP server.
@@ -2472,6 +2586,10 @@ func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) Path() pulumi.StringPt
 type DatasetDelimitedTextAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The filename of the file.
 	Filename *string `pulumi:"filename"`
 	// The folder path to the file.
@@ -2492,6 +2610,10 @@ type DatasetDelimitedTextAzureBlobStorageLocationInput interface {
 type DatasetDelimitedTextAzureBlobStorageLocationArgs struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
 	// The filename of the file.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 	// The folder path to the file.
@@ -2580,6 +2702,16 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Container() pulumi.S
 	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) *bool { return v.DynamicPathEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file.
 func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) *string { return v.Filename }).(pulumi.StringPtrOutput)
@@ -2620,6 +2752,26 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Container() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobStorageLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFilenameEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobStorageLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPathEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file.
 func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobStorageLocation) *string {
@@ -2641,6 +2793,10 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Path() pulumi.Str
 }
 
 type DatasetDelimitedTextHttpServerLocation struct {
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the web server.
 	Filename string `pulumi:"filename"`
 	// The folder path to the file on the web server.
@@ -2661,6 +2817,10 @@ type DatasetDelimitedTextHttpServerLocationInput interface {
 }
 
 type DatasetDelimitedTextHttpServerLocationArgs struct {
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the web server.
 	Filename pulumi.StringInput `pulumi:"filename"`
 	// The folder path to the file on the web server.
@@ -2746,6 +2906,16 @@ func (o DatasetDelimitedTextHttpServerLocationOutput) ToDatasetDelimitedTextHttp
 	}).(DatasetDelimitedTextHttpServerLocationPtrOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextHttpServerLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextHttpServerLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextHttpServerLocationOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextHttpServerLocation) *bool { return v.DynamicPathEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file on the web server.
 func (o DatasetDelimitedTextHttpServerLocationOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetDelimitedTextHttpServerLocation) string { return v.Filename }).(pulumi.StringOutput)
@@ -2777,6 +2947,26 @@ func (o DatasetDelimitedTextHttpServerLocationPtrOutput) ToDatasetDelimitedTextH
 
 func (o DatasetDelimitedTextHttpServerLocationPtrOutput) Elem() DatasetDelimitedTextHttpServerLocationOutput {
 	return o.ApplyT(func(v *DatasetDelimitedTextHttpServerLocation) DatasetDelimitedTextHttpServerLocation { return *v }).(DatasetDelimitedTextHttpServerLocationOutput)
+}
+
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextHttpServerLocationPtrOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetDelimitedTextHttpServerLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFilenameEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextHttpServerLocationPtrOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetDelimitedTextHttpServerLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPathEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The filename of the file on the web server.
@@ -3042,6 +3232,10 @@ func (o DatasetHttpSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetHttp
 type DatasetJsonAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the web server.
 	Filename string `pulumi:"filename"`
 	// The folder path to the file on the web server.
@@ -3062,6 +3256,10 @@ type DatasetJsonAzureBlobStorageLocationInput interface {
 type DatasetJsonAzureBlobStorageLocationArgs struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the web server.
 	Filename pulumi.StringInput `pulumi:"filename"`
 	// The folder path to the file on the web server.
@@ -3150,6 +3348,16 @@ func (o DatasetJsonAzureBlobStorageLocationOutput) Container() pulumi.StringOutp
 	return o.ApplyT(func(v DatasetJsonAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetJsonAzureBlobStorageLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetJsonAzureBlobStorageLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetJsonAzureBlobStorageLocationOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetJsonAzureBlobStorageLocation) *bool { return v.DynamicPathEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file on the web server.
 func (o DatasetJsonAzureBlobStorageLocationOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetJsonAzureBlobStorageLocation) string { return v.Filename }).(pulumi.StringOutput)
@@ -3188,6 +3396,26 @@ func (o DatasetJsonAzureBlobStorageLocationPtrOutput) Container() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetJsonAzureBlobStorageLocationPtrOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetJsonAzureBlobStorageLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFilenameEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetJsonAzureBlobStorageLocationPtrOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetJsonAzureBlobStorageLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPathEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file on the web server.
 func (o DatasetJsonAzureBlobStorageLocationPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetJsonAzureBlobStorageLocation) *string {
@@ -3209,6 +3437,10 @@ func (o DatasetJsonAzureBlobStorageLocationPtrOutput) Path() pulumi.StringPtrOut
 }
 
 type DatasetJsonHttpServerLocation struct {
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the web server.
 	Filename string `pulumi:"filename"`
 	// The folder path to the file on the web server.
@@ -3229,6 +3461,10 @@ type DatasetJsonHttpServerLocationInput interface {
 }
 
 type DatasetJsonHttpServerLocationArgs struct {
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the web server.
 	Filename pulumi.StringInput `pulumi:"filename"`
 	// The folder path to the file on the web server.
@@ -3314,6 +3550,16 @@ func (o DatasetJsonHttpServerLocationOutput) ToDatasetJsonHttpServerLocationPtrO
 	}).(DatasetJsonHttpServerLocationPtrOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetJsonHttpServerLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetJsonHttpServerLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetJsonHttpServerLocationOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetJsonHttpServerLocation) *bool { return v.DynamicPathEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file on the web server.
 func (o DatasetJsonHttpServerLocationOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetJsonHttpServerLocation) string { return v.Filename }).(pulumi.StringOutput)
@@ -3345,6 +3591,26 @@ func (o DatasetJsonHttpServerLocationPtrOutput) ToDatasetJsonHttpServerLocationP
 
 func (o DatasetJsonHttpServerLocationPtrOutput) Elem() DatasetJsonHttpServerLocationOutput {
 	return o.ApplyT(func(v *DatasetJsonHttpServerLocation) DatasetJsonHttpServerLocation { return *v }).(DatasetJsonHttpServerLocationOutput)
+}
+
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetJsonHttpServerLocationPtrOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetJsonHttpServerLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFilenameEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetJsonHttpServerLocationPtrOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetJsonHttpServerLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPathEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The filename of the file on the web server.
@@ -3610,6 +3876,10 @@ func (o DatasetMysqlSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetMys
 type DatasetParquetAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the web server.
 	Filename *string `pulumi:"filename"`
 	// The folder path to the file on the web server.
@@ -3630,6 +3900,10 @@ type DatasetParquetAzureBlobStorageLocationInput interface {
 type DatasetParquetAzureBlobStorageLocationArgs struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the web server.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 	// The folder path to the file on the web server.
@@ -3718,6 +3992,16 @@ func (o DatasetParquetAzureBlobStorageLocationOutput) Container() pulumi.StringO
 	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetAzureBlobStorageLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetAzureBlobStorageLocationOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) *bool { return v.DynamicPathEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file on the web server.
 func (o DatasetParquetAzureBlobStorageLocationOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) *string { return v.Filename }).(pulumi.StringPtrOutput)
@@ -3756,6 +4040,26 @@ func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Container() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetAzureBlobStorageLocationPtrOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobStorageLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFilenameEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetAzureBlobStorageLocationPtrOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobStorageLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPathEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file on the web server.
 func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetParquetAzureBlobStorageLocation) *string {
@@ -3777,6 +4081,10 @@ func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Path() pulumi.StringPtr
 }
 
 type DatasetParquetHttpServerLocation struct {
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the web server.
 	Filename string `pulumi:"filename"`
 	// The folder path to the file on the web server.
@@ -3797,6 +4105,10 @@ type DatasetParquetHttpServerLocationInput interface {
 }
 
 type DatasetParquetHttpServerLocationArgs struct {
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
 	// The filename of the file on the web server.
 	Filename pulumi.StringInput `pulumi:"filename"`
 	// The folder path to the file on the web server.
@@ -3882,6 +4194,16 @@ func (o DatasetParquetHttpServerLocationOutput) ToDatasetParquetHttpServerLocati
 	}).(DatasetParquetHttpServerLocationPtrOutput)
 }
 
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetHttpServerLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetParquetHttpServerLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetHttpServerLocationOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetParquetHttpServerLocation) *bool { return v.DynamicPathEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The filename of the file on the web server.
 func (o DatasetParquetHttpServerLocationOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetParquetHttpServerLocation) string { return v.Filename }).(pulumi.StringOutput)
@@ -3913,6 +4235,26 @@ func (o DatasetParquetHttpServerLocationPtrOutput) ToDatasetParquetHttpServerLoc
 
 func (o DatasetParquetHttpServerLocationPtrOutput) Elem() DatasetParquetHttpServerLocationOutput {
 	return o.ApplyT(func(v *DatasetParquetHttpServerLocation) DatasetParquetHttpServerLocation { return *v }).(DatasetParquetHttpServerLocationOutput)
+}
+
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetHttpServerLocationPtrOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetHttpServerLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFilenameEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetHttpServerLocationPtrOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetHttpServerLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPathEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The filename of the file on the web server.

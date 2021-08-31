@@ -12,6 +12,14 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
 
     public sealed class ConfigurationStoreIdentityArgs : Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The ID of the Principal (Client) in Azure Active Directory.
         /// </summary>
@@ -27,8 +35,8 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
         /// <summary>
         /// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public ConfigurationStoreIdentityArgs()
         {

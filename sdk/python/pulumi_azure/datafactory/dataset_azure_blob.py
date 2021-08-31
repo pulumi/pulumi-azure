@@ -37,7 +37,7 @@ class DatasetAzureBlobArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
-        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the Azure Blob.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -148,7 +148,7 @@ class DatasetAzureBlobArgs:
     @pulumi.getter(name="dynamicFilenameEnabled")
     def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
@@ -264,7 +264,7 @@ class _DatasetAzureBlobState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
-        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the Azure Blob.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -356,7 +356,7 @@ class _DatasetAzureBlobState:
     @pulumi.getter(name="dynamicFilenameEnabled")
     def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
@@ -534,7 +534,7 @@ class DatasetAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
-        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the Azure Blob.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -682,7 +682,7 @@ class DatasetAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
-        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the Azure Blob.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -749,7 +749,7 @@ class DatasetAzureBlob(pulumi.CustomResource):
     @pulumi.getter(name="dynamicFilenameEnabled")
     def dynamic_filename_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 

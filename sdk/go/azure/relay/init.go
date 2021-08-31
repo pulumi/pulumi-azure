@@ -23,8 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:relay/hybridConnection:HybridConnection":
 		r = &HybridConnection{}
+	case "azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule":
+		r = &HybridConnectionAuthorizationRule{}
 	case "azure:relay/namespace:Namespace":
 		r = &Namespace{}
+	case "azure:relay/namespaceAuthorizationRule:NamespaceAuthorizationRule":
+		r = &NamespaceAuthorizationRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -45,7 +49,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"relay/hybridConnectionAuthorizationRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"relay/namespace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"relay/namespaceAuthorizationRule",
 		&module{version},
 	)
 }

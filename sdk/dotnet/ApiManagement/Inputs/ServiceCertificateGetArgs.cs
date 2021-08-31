@@ -25,10 +25,28 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string> EncodedCertificate { get; set; } = null!;
 
         /// <summary>
+        /// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+        /// </summary>
+        [Input("expiry")]
+        public Input<string>? Expiry { get; set; }
+
+        /// <summary>
         /// The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
         /// </summary>
         [Input("storeName", required: true)]
         public Input<string> StoreName { get; set; } = null!;
+
+        /// <summary>
+        /// The subject of the certificate.
+        /// </summary>
+        [Input("subject")]
+        public Input<string>? Subject { get; set; }
+
+        /// <summary>
+        /// The thumbprint of the certificate.
+        /// </summary>
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
 
         public ServiceCertificateGetArgs()
         {

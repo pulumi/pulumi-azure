@@ -11,12 +11,13 @@ import (
 )
 
 type ConfigurationStoreIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the Principal (Client) in Azure Active Directory.
 	PrincipalId *string `pulumi:"principalId"`
 	// The ID of the Azure Active Directory Tenant.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ConfigurationStoreIdentityInput is an input type that accepts ConfigurationStoreIdentityArgs and ConfigurationStoreIdentityOutput values.
@@ -31,12 +32,13 @@ type ConfigurationStoreIdentityInput interface {
 }
 
 type ConfigurationStoreIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the Principal (Client) in Azure Active Directory.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The ID of the Azure Active Directory Tenant.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ConfigurationStoreIdentityArgs) ElementType() reflect.Type {
@@ -115,6 +117,9 @@ func (o ConfigurationStoreIdentityOutput) ToConfigurationStoreIdentityPtrOutputW
 		return &v
 	}).(ConfigurationStoreIdentityPtrOutput)
 }
+func (o ConfigurationStoreIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationStoreIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
 
 // The ID of the Principal (Client) in Azure Active Directory.
 func (o ConfigurationStoreIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
@@ -127,8 +132,8 @@ func (o ConfigurationStoreIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
-func (o ConfigurationStoreIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationStoreIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ConfigurationStoreIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationStoreIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ConfigurationStoreIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -147,6 +152,15 @@ func (o ConfigurationStoreIdentityPtrOutput) ToConfigurationStoreIdentityPtrOutp
 
 func (o ConfigurationStoreIdentityPtrOutput) Elem() ConfigurationStoreIdentityOutput {
 	return o.ApplyT(func(v *ConfigurationStoreIdentity) ConfigurationStoreIdentity { return *v }).(ConfigurationStoreIdentityOutput)
+}
+
+func (o ConfigurationStoreIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationStoreIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The ID of the Principal (Client) in Azure Active Directory.
@@ -175,7 +189,7 @@ func (o ConfigurationStoreIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

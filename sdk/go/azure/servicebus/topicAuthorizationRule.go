@@ -86,12 +86,16 @@ type TopicAuthorizationRule struct {
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The Primary Connection String for the ServiceBus Topic authorization Rule.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
+	// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+	PrimaryConnectionStringAlias pulumi.StringOutput `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the ServiceBus Topic authorization Rule.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
 	// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the ServiceBus Topic authorization Rule.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
+	// The alias Secondary Connection String for the ServiceBus Namespace
+	SecondaryConnectionStringAlias pulumi.StringOutput `pulumi:"secondaryConnectionStringAlias"`
 	// The Secondary Key for the ServiceBus Topic authorization Rule.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
@@ -154,12 +158,16 @@ type topicAuthorizationRuleState struct {
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The Primary Connection String for the ServiceBus Topic authorization Rule.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
+	// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+	PrimaryConnectionStringAlias *string `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the ServiceBus Topic authorization Rule.
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the ServiceBus Topic authorization Rule.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
+	// The alias Secondary Connection String for the ServiceBus Namespace
+	SecondaryConnectionStringAlias *string `pulumi:"secondaryConnectionStringAlias"`
 	// The Secondary Key for the ServiceBus Topic authorization Rule.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
@@ -179,12 +187,16 @@ type TopicAuthorizationRuleState struct {
 	NamespaceName pulumi.StringPtrInput
 	// The Primary Connection String for the ServiceBus Topic authorization Rule.
 	PrimaryConnectionString pulumi.StringPtrInput
+	// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+	PrimaryConnectionStringAlias pulumi.StringPtrInput
 	// The Primary Key for the ServiceBus Topic authorization Rule.
 	PrimaryKey pulumi.StringPtrInput
 	// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Connection String for the ServiceBus Topic authorization Rule.
 	SecondaryConnectionString pulumi.StringPtrInput
+	// The alias Secondary Connection String for the ServiceBus Namespace
+	SecondaryConnectionStringAlias pulumi.StringPtrInput
 	// The Secondary Key for the ServiceBus Topic authorization Rule.
 	SecondaryKey pulumi.StringPtrInput
 	// Grants send access to this this Authorization Rule. Defaults to `false`.

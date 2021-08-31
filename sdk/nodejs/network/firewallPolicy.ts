@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * networks can be imported using the `resource id`, e.g.
+ * Firewall Policies can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:network/firewallPolicy:FirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/firewallPolicies/policy1
@@ -73,6 +73,14 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly firewalls!: pulumi.Output<string[]>;
     /**
+     * An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+     */
+    public readonly identity!: pulumi.Output<outputs.network.FirewallPolicyIdentity | undefined>;
+    /**
+     * A `intrusionDetection` block as defined below.
+     */
+    public readonly intrusionDetection!: pulumi.Output<outputs.network.FirewallPolicyIntrusionDetection | undefined>;
+    /**
      * The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -93,7 +101,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly ruleCollectionGroups!: pulumi.Output<string[]>;
     /**
-     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -108,6 +116,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      * The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
      */
     public readonly threatIntelligenceMode!: pulumi.Output<string | undefined>;
+    /**
+     * A `tlsCertificate` block as defined below.
+     */
+    public readonly tlsCertificate!: pulumi.Output<outputs.network.FirewallPolicyTlsCertificate | undefined>;
 
     /**
      * Create a FirewallPolicy resource with the given unique name, arguments, and options.
@@ -126,6 +138,8 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["childPolicies"] = state ? state.childPolicies : undefined;
             inputs["dns"] = state ? state.dns : undefined;
             inputs["firewalls"] = state ? state.firewalls : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
+            inputs["intrusionDetection"] = state ? state.intrusionDetection : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["privateIpRanges"] = state ? state.privateIpRanges : undefined;
@@ -135,6 +149,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["threatIntelligenceAllowlist"] = state ? state.threatIntelligenceAllowlist : undefined;
             inputs["threatIntelligenceMode"] = state ? state.threatIntelligenceMode : undefined;
+            inputs["tlsCertificate"] = state ? state.tlsCertificate : undefined;
         } else {
             const args = argsOrState as FirewallPolicyArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -142,6 +157,8 @@ export class FirewallPolicy extends pulumi.CustomResource {
             }
             inputs["basePolicyId"] = args ? args.basePolicyId : undefined;
             inputs["dns"] = args ? args.dns : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
+            inputs["intrusionDetection"] = args ? args.intrusionDetection : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["privateIpRanges"] = args ? args.privateIpRanges : undefined;
@@ -150,6 +167,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threatIntelligenceAllowlist"] = args ? args.threatIntelligenceAllowlist : undefined;
             inputs["threatIntelligenceMode"] = args ? args.threatIntelligenceMode : undefined;
+            inputs["tlsCertificate"] = args ? args.tlsCertificate : undefined;
             inputs["childPolicies"] = undefined /*out*/;
             inputs["firewalls"] = undefined /*out*/;
             inputs["ruleCollectionGroups"] = undefined /*out*/;
@@ -182,6 +200,14 @@ export interface FirewallPolicyState {
      */
     firewalls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+     */
+    identity?: pulumi.Input<inputs.network.FirewallPolicyIdentity>;
+    /**
+     * A `intrusionDetection` block as defined below.
+     */
+    intrusionDetection?: pulumi.Input<inputs.network.FirewallPolicyIntrusionDetection>;
+    /**
      * The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
     location?: pulumi.Input<string>;
@@ -202,7 +228,7 @@ export interface FirewallPolicyState {
      */
     ruleCollectionGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -217,6 +243,10 @@ export interface FirewallPolicyState {
      * The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
      */
     threatIntelligenceMode?: pulumi.Input<string>;
+    /**
+     * A `tlsCertificate` block as defined below.
+     */
+    tlsCertificate?: pulumi.Input<inputs.network.FirewallPolicyTlsCertificate>;
 }
 
 /**
@@ -231,6 +261,14 @@ export interface FirewallPolicyArgs {
      * A `dns` block as defined below.
      */
     dns?: pulumi.Input<inputs.network.FirewallPolicyDns>;
+    /**
+     * An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+     */
+    identity?: pulumi.Input<inputs.network.FirewallPolicyIdentity>;
+    /**
+     * A `intrusionDetection` block as defined below.
+     */
+    intrusionDetection?: pulumi.Input<inputs.network.FirewallPolicyIntrusionDetection>;
     /**
      * The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
@@ -248,7 +286,7 @@ export interface FirewallPolicyArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -263,4 +301,8 @@ export interface FirewallPolicyArgs {
      * The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
      */
     threatIntelligenceMode?: pulumi.Input<string>;
+    /**
+     * A `tlsCertificate` block as defined below.
+     */
+    tlsCertificate?: pulumi.Input<inputs.network.FirewallPolicyTlsCertificate>;
 }

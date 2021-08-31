@@ -4328,7 +4328,9 @@ type KubernetesClusterDefaultNodePool struct {
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
-	OsDiskType                *string `pulumi:"osDiskType"`
+	OsDiskType *string `pulumi:"osDiskType"`
+	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+	PodSubnetId               *string `pulumi:"podSubnetId"`
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags map[string]string `pulumi:"tags"`
@@ -4394,7 +4396,9 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
-	OsDiskType                pulumi.StringPtrInput `pulumi:"osDiskType"`
+	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
+	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+	PodSubnetId               pulumi.StringPtrInput `pulumi:"podSubnetId"`
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -4588,6 +4592,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) OsDiskSizeGb() pulumi.IntPtrOutp
 // The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolOutput) PodSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.PodSubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {
@@ -4840,6 +4849,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtr
 			return nil
 		}
 		return v.OsDiskType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) PodSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PodSubnetId
 	}).(pulumi.StringPtrOutput)
 }
 

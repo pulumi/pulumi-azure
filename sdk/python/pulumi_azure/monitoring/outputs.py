@@ -117,7 +117,7 @@ class AadDiagnosticSettingLog(dict):
                  retention_policy: 'outputs.AadDiagnosticSettingLogRetentionPolicy',
                  enabled: Optional[bool] = None):
         """
-        :param str category: The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `ServicePrincipalSignInLogs`.
+        :param str category: The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
         :param 'AadDiagnosticSettingLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
         :param bool enabled: Is this Diagnostic Log enabled? Defaults to `true`.
         """
@@ -130,7 +130,7 @@ class AadDiagnosticSettingLog(dict):
     @pulumi.getter
     def category(self) -> str:
         """
-        The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `ServicePrincipalSignInLogs`.
+        The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
         """
         return pulumi.get(self, "category")
 
@@ -1194,7 +1194,7 @@ class ActionRuleActionGroupConditionMonitorService(dict):
                  values: Sequence[str]):
         """
         :param str operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param Sequence[str] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+        :param Sequence[str] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "values", values)
@@ -1211,7 +1211,7 @@ class ActionRuleActionGroupConditionMonitorService(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
         """
         return pulumi.get(self, "values")
 
@@ -1557,7 +1557,7 @@ class ActionRuleSuppressionConditionMonitorService(dict):
                  values: Sequence[str]):
         """
         :param str operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param Sequence[str] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+        :param Sequence[str] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "values", values)
@@ -1574,7 +1574,7 @@ class ActionRuleSuppressionConditionMonitorService(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
         """
         return pulumi.get(self, "values")
 
@@ -2527,6 +2527,8 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
             suggest = "time_grain"
         elif key == "timeWindow":
             suggest = "time_window"
+        elif key == "divideByInstanceCount":
+            suggest = "divide_by_instance_count"
         elif key == "metricNamespace":
             suggest = "metric_namespace"
 
@@ -2551,6 +2553,7 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
                  time_grain: str,
                  time_window: str,
                  dimensions: Optional[Sequence['outputs.AutoscaleSettingProfileRuleMetricTriggerDimension']] = None,
+                 divide_by_instance_count: Optional[bool] = None,
                  metric_namespace: Optional[str] = None):
         """
         :param str metric_name: The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
@@ -2562,6 +2565,7 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
         :param str time_grain: Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
         :param str time_window: Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
         :param Sequence['AutoscaleSettingProfileRuleMetricTriggerDimensionArgs'] dimensions: One or more `dimensions` block as defined below.
+        :param bool divide_by_instance_count: Whether to enable metric divide by instance count.
         :param str metric_namespace: The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -2574,6 +2578,8 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
         pulumi.set(__self__, "time_window", time_window)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if divide_by_instance_count is not None:
+            pulumi.set(__self__, "divide_by_instance_count", divide_by_instance_count)
         if metric_namespace is not None:
             pulumi.set(__self__, "metric_namespace", metric_namespace)
 
@@ -2648,6 +2654,14 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
         One or more `dimensions` block as defined below.
         """
         return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="divideByInstanceCount")
+    def divide_by_instance_count(self) -> Optional[bool]:
+        """
+        Whether to enable metric divide by instance count.
+        """
+        return pulumi.get(self, "divide_by_instance_count")
 
     @property
     @pulumi.getter(name="metricNamespace")

@@ -189,6 +189,8 @@ type Plan struct {
 	Sku PlanSkuOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewPlan registers a new resource with the given unique name, arguments, and options.
@@ -249,6 +251,8 @@ type planState struct {
 	Sku *PlanSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type PlanState struct {
@@ -275,6 +279,8 @@ type PlanState struct {
 	Sku PlanSkuPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (PlanState) ElementType() reflect.Type {
@@ -303,6 +309,8 @@ type planArgs struct {
 	Sku PlanSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a Plan resource.
@@ -328,6 +336,8 @@ type PlanArgs struct {
 	Sku PlanSkuInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (PlanArgs) ElementType() reflect.Type {

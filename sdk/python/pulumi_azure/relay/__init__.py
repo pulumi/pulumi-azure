@@ -6,4 +6,6 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .hybrid_connection import *
+from .hybrid_connection_authorization_rule import *
 from .namespace import *
+from .namespace_authorization_rule import *

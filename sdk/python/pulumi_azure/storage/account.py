@@ -36,6 +36,7 @@ class AccountArgs:
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
                  routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
                  share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
+                 shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -61,6 +62,7 @@ class AccountArgs:
         :param pulumi.Input[bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
+        :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -103,6 +105,8 @@ class AccountArgs:
             pulumi.set(__self__, "routing", routing)
         if share_properties is not None:
             pulumi.set(__self__, "share_properties", share_properties)
+        if shared_access_key_enabled is not None:
+            pulumi.set(__self__, "shared_access_key_enabled", shared_access_key_enabled)
         if static_website is not None:
             pulumi.set(__self__, "static_website", static_website)
         if tags is not None:
@@ -359,6 +363,18 @@ class AccountArgs:
         pulumi.set(self, "share_properties", value)
 
     @property
+    @pulumi.getter(name="sharedAccessKeyEnabled")
+    def shared_access_key_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+        """
+        return pulumi.get(self, "shared_access_key_enabled")
+
+    @shared_access_key_enabled.setter
+    def shared_access_key_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "shared_access_key_enabled", value)
+
+    @property
     @pulumi.getter(name="staticWebsite")
     def static_website(self) -> Optional[pulumi.Input['AccountStaticWebsiteArgs']]:
         """
@@ -439,6 +455,7 @@ class _AccountState:
                  secondary_web_endpoint: Optional[pulumi.Input[str]] = None,
                  secondary_web_host: Optional[pulumi.Input[str]] = None,
                  share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
+                 shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -496,6 +513,7 @@ class _AccountState:
         :param pulumi.Input[str] secondary_table_host: The hostname with port if applicable for table storage in the secondary location.
         :param pulumi.Input[str] secondary_web_endpoint: The endpoint URL for web storage in the secondary location.
         :param pulumi.Input[str] secondary_web_host: The hostname with port if applicable for web storage in the secondary location.
+        :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -605,6 +623,8 @@ class _AccountState:
             pulumi.set(__self__, "secondary_web_host", secondary_web_host)
         if share_properties is not None:
             pulumi.set(__self__, "share_properties", share_properties)
+        if shared_access_key_enabled is not None:
+            pulumi.set(__self__, "shared_access_key_enabled", shared_access_key_enabled)
         if static_website is not None:
             pulumi.set(__self__, "static_website", static_website)
         if tags is not None:
@@ -1245,6 +1265,18 @@ class _AccountState:
         pulumi.set(self, "share_properties", value)
 
     @property
+    @pulumi.getter(name="sharedAccessKeyEnabled")
+    def shared_access_key_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+        """
+        return pulumi.get(self, "shared_access_key_enabled")
+
+    @shared_access_key_enabled.setter
+    def shared_access_key_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "shared_access_key_enabled", value)
+
+    @property
     @pulumi.getter(name="staticWebsite")
     def static_website(self) -> Optional[pulumi.Input['AccountStaticWebsiteArgs']]:
         """
@@ -1295,6 +1327,7 @@ class Account(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
                  share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
+                 shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1382,6 +1415,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountRoutingArgs']] routing: A `routing` block as defined below.
+        :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -1488,6 +1522,7 @@ class Account(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
                  share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
+                 shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1529,6 +1564,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["routing"] = routing
             __props__.__dict__["share_properties"] = share_properties
+            __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
             __props__.__dict__["static_website"] = static_website
             __props__.__dict__["tags"] = tags
             __props__.__dict__["primary_access_key"] = None
@@ -1626,6 +1662,7 @@ class Account(pulumi.CustomResource):
             secondary_web_endpoint: Optional[pulumi.Input[str]] = None,
             secondary_web_host: Optional[pulumi.Input[str]] = None,
             share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
+            shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
             static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Account':
         """
@@ -1688,6 +1725,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_table_host: The hostname with port if applicable for table storage in the secondary location.
         :param pulumi.Input[str] secondary_web_endpoint: The endpoint URL for web storage in the secondary location.
         :param pulumi.Input[str] secondary_web_host: The hostname with port if applicable for web storage in the secondary location.
+        :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -1748,6 +1786,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["secondary_web_endpoint"] = secondary_web_endpoint
         __props__.__dict__["secondary_web_host"] = secondary_web_host
         __props__.__dict__["share_properties"] = share_properties
+        __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
         __props__.__dict__["static_website"] = static_website
         __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
@@ -2173,6 +2212,14 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="shareProperties")
     def share_properties(self) -> pulumi.Output['outputs.AccountShareProperties']:
         return pulumi.get(self, "share_properties")
+
+    @property
+    @pulumi.getter(name="sharedAccessKeyEnabled")
+    def shared_access_key_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+        """
+        return pulumi.get(self, "shared_access_key_enabled")
 
     @property
     @pulumi.getter(name="staticWebsite")

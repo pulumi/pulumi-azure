@@ -434,6 +434,12 @@ namespace Pulumi.Azure.Storage
         public Output<Outputs.AccountShareProperties> ShareProperties { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+        /// </summary>
+        [Output("sharedAccessKeyEnabled")]
+        public Output<bool?> SharedAccessKeyEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `static_website` block as defined below.
         /// </summary>
         [Output("staticWebsite")]
@@ -614,6 +620,12 @@ namespace Pulumi.Azure.Storage
 
         [Input("shareProperties")]
         public Input<Inputs.AccountSharePropertiesArgs>? ShareProperties { get; set; }
+
+        /// <summary>
+        /// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+        /// </summary>
+        [Input("sharedAccessKeyEnabled")]
+        public Input<bool>? SharedAccessKeyEnabled { get; set; }
 
         /// <summary>
         /// A `static_website` block as defined below.
@@ -955,6 +967,12 @@ namespace Pulumi.Azure.Storage
 
         [Input("shareProperties")]
         public Input<Inputs.AccountSharePropertiesGetArgs>? ShareProperties { get; set; }
+
+        /// <summary>
+        /// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
+        /// </summary>
+        [Input("sharedAccessKeyEnabled")]
+        public Input<bool>? SharedAccessKeyEnabled { get; set; }
 
         /// <summary>
         /// A `static_website` block as defined below.

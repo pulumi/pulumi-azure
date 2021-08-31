@@ -1039,6 +1039,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_integration_service_environment": {
 				Tok: azureResource(azureLogicApps, "InterationServiceEnvironment"),
 			},
+			"azurerm_logic_app_integration_account_schema": {Tok: azureResource(azureLogicApps, "IntegrationAccountSchema")},
 
 			// MariaDB
 			"azurerm_mariadb_configuration": {
@@ -1490,8 +1491,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_redis_enterprise_database": {Tok: azureResource(azureRedis, "EnterpriseDatabase")},
 
 			// Relay
-			"azurerm_relay_namespace":         {Tok: azureResource(azureRelay, "Namespace")},
-			"azurerm_relay_hybrid_connection": {Tok: azureResource(azureRelay, "HybridConnection")},
+			"azurerm_relay_namespace":                            {Tok: azureResource(azureRelay, "Namespace")},
+			"azurerm_relay_hybrid_connection":                    {Tok: azureResource(azureRelay, "HybridConnection")},
+			"azurerm_relay_namespace_authorization_rule":         {Tok: azureResource(azureRelay, "NamespaceAuthorizationRule")},
+			"azurerm_relay_hybrid_connection_authorization_rule": {Tok: azureResource(azureRelay, "HybridConnectionAuthorizationRule")},
 
 			// Security Center
 			"azurerm_security_center_contact":                         {Tok: azureResource(azureSecurityCenter, "Contact")},

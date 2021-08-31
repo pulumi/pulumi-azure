@@ -6,11 +6,15 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./hybridConnection";
+export * from "./hybridConnectionAuthorizationRule";
 export * from "./namespace";
+export * from "./namespaceAuthorizationRule";
 
 // Import resources to register:
 import { HybridConnection } from "./hybridConnection";
+import { HybridConnectionAuthorizationRule } from "./hybridConnectionAuthorizationRule";
 import { Namespace } from "./namespace";
+import { NamespaceAuthorizationRule } from "./namespaceAuthorizationRule";
 
 const _module = {
     version: utilities.getVersion(),
@@ -18,12 +22,18 @@ const _module = {
         switch (type) {
             case "azure:relay/hybridConnection:HybridConnection":
                 return new HybridConnection(name, <any>undefined, { urn })
+            case "azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule":
+                return new HybridConnectionAuthorizationRule(name, <any>undefined, { urn })
             case "azure:relay/namespace:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
+            case "azure:relay/namespaceAuthorizationRule:NamespaceAuthorizationRule":
+                return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "relay/hybridConnection", _module)
+pulumi.runtime.registerResourceModule("azure", "relay/hybridConnectionAuthorizationRule", _module)
 pulumi.runtime.registerResourceModule("azure", "relay/namespace", _module)
+pulumi.runtime.registerResourceModule("azure", "relay/namespaceAuthorizationRule", _module)

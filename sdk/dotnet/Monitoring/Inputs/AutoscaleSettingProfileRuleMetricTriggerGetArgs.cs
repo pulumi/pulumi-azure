@@ -25,6 +25,12 @@ namespace Pulumi.Azure.Monitoring.Inputs
         }
 
         /// <summary>
+        /// Whether to enable metric divide by instance count.
+        /// </summary>
+        [Input("divideByInstanceCount")]
+        public Input<bool>? DivideByInstanceCount { get; set; }
+
+        /// <summary>
         /// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
         /// </summary>
         [Input("metricName", required: true)]

@@ -115,6 +115,10 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// App Service Plan perform availability zone balancing.
+        /// </summary>
+        public readonly bool ZoneRedundant;
 
         [OutputConstructor]
         private GetAppServicePlanResult(
@@ -142,7 +146,9 @@ namespace Pulumi.Azure.AppService
 
             Outputs.GetAppServicePlanSkuResult sku,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            bool zoneRedundant)
         {
             AppServiceEnvironmentId = appServiceEnvironmentId;
             Id = id;
@@ -157,6 +163,7 @@ namespace Pulumi.Azure.AppService
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

@@ -21,6 +21,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// The password associated with the certificate provided above.
         /// </summary>
         public readonly string? CertificatePassword;
+        public readonly string? Expiry;
         /// <summary>
         /// The Hostname to use for the corresponding endpoint.
         /// </summary>
@@ -33,6 +34,9 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
         /// </summary>
         public readonly bool? NegotiateClientCertificate;
+        public readonly string? SslKeyvaultIdentityClientId;
+        public readonly string? Subject;
+        public readonly string? Thumbprint;
 
         [OutputConstructor]
         private CustomDomainManagement(
@@ -40,17 +44,29 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string? certificatePassword,
 
+            string? expiry,
+
             string hostName,
 
             string? keyVaultId,
 
-            bool? negotiateClientCertificate)
+            bool? negotiateClientCertificate,
+
+            string? sslKeyvaultIdentityClientId,
+
+            string? subject,
+
+            string? thumbprint)
         {
             Certificate = certificate;
             CertificatePassword = certificatePassword;
+            Expiry = expiry;
             HostName = hostName;
             KeyVaultId = keyVaultId;
             NegotiateClientCertificate = negotiateClientCertificate;
+            SslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;
+            Subject = subject;
+            Thumbprint = thumbprint;
         }
     }
 }

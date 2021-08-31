@@ -22,9 +22,21 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string EncodedCertificate;
         /// <summary>
+        /// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+        /// </summary>
+        public readonly string? Expiry;
+        /// <summary>
         /// The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
         /// </summary>
         public readonly string StoreName;
+        /// <summary>
+        /// The subject of the certificate.
+        /// </summary>
+        public readonly string? Subject;
+        /// <summary>
+        /// The thumbprint of the certificate.
+        /// </summary>
+        public readonly string? Thumbprint;
 
         [OutputConstructor]
         private ServiceCertificate(
@@ -32,11 +44,20 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string encodedCertificate,
 
-            string storeName)
+            string? expiry,
+
+            string storeName,
+
+            string? subject,
+
+            string? thumbprint)
         {
             CertificatePassword = certificatePassword;
             EncodedCertificate = encodedCertificate;
+            Expiry = expiry;
             StoreName = storeName;
+            Subject = subject;
+            Thumbprint = thumbprint;
         }
     }
 }

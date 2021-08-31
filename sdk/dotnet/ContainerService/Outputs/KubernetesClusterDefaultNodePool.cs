@@ -90,6 +90,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? OsDiskType;
+        /// <summary>
+        /// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? PodSubnetId;
         public readonly string? ProximityPlacementGroupId;
         /// <summary>
         /// A mapping of tags to assign to the Node Pool.
@@ -158,6 +162,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? osDiskType,
 
+            string? podSubnetId,
+
             string? proximityPlacementGroupId,
 
             ImmutableDictionary<string, string>? tags,
@@ -192,6 +198,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGb = osDiskSizeGb;
             OsDiskType = osDiskType;
+            PodSubnetId = podSubnetId;
             ProximityPlacementGroupId = proximityPlacementGroupId;
             Tags = tags;
             Type = type;

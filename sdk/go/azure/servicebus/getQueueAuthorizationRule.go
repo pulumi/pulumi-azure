@@ -66,12 +66,16 @@ type LookupQueueAuthorizationRuleResult struct {
 	NamespaceName string `pulumi:"namespaceName"`
 	// The Primary Connection String for the ServiceBus Queue authorization Rule.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
+	// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+	PrimaryConnectionStringAlias string `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the ServiceBus Queue authorization Rule.
 	PrimaryKey        string `pulumi:"primaryKey"`
 	QueueName         string `pulumi:"queueName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the ServiceBus Queue authorization Rule.
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
+	// The alias Secondary Connection String for the ServiceBus Namespace
+	SecondaryConnectionStringAlias string `pulumi:"secondaryConnectionStringAlias"`
 	// The Secondary Key for the ServiceBus Queue authorization Rule.
 	SecondaryKey string `pulumi:"secondaryKey"`
 	Send         bool   `pulumi:"send"`

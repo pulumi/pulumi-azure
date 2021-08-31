@@ -88,6 +88,10 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
+     * The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+     */
+    public /*out*/ readonly primaryConnectionStringAlias!: pulumi.Output<string>;
+    /**
      * The Primary Key for the ServiceBus Namespace authorization Rule.
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
@@ -99,6 +103,10 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * The Secondary Connection String for the ServiceBus Namespace authorization Rule.
      */
     public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    /**
+     * The alias Secondary Connection String for the ServiceBus Namespace
+     */
+    public /*out*/ readonly secondaryConnectionStringAlias!: pulumi.Output<string>;
     /**
      * The Secondary Key for the ServiceBus Namespace authorization Rule.
      */
@@ -126,9 +134,11 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
+            inputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
             inputs["primaryKey"] = state ? state.primaryKey : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
+            inputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
             inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             inputs["send"] = state ? state.send : undefined;
         } else {
@@ -146,8 +156,10 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["send"] = args ? args.send : undefined;
             inputs["primaryConnectionString"] = undefined /*out*/;
+            inputs["primaryConnectionStringAlias"] = undefined /*out*/;
             inputs["primaryKey"] = undefined /*out*/;
             inputs["secondaryConnectionString"] = undefined /*out*/;
+            inputs["secondaryConnectionStringAlias"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -184,6 +196,10 @@ export interface NamespaceAuthorizationRuleState {
      */
     primaryConnectionString?: pulumi.Input<string>;
     /**
+     * The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+     */
+    primaryConnectionStringAlias?: pulumi.Input<string>;
+    /**
      * The Primary Key for the ServiceBus Namespace authorization Rule.
      */
     primaryKey?: pulumi.Input<string>;
@@ -195,6 +211,10 @@ export interface NamespaceAuthorizationRuleState {
      * The Secondary Connection String for the ServiceBus Namespace authorization Rule.
      */
     secondaryConnectionString?: pulumi.Input<string>;
+    /**
+     * The alias Secondary Connection String for the ServiceBus Namespace
+     */
+    secondaryConnectionStringAlias?: pulumi.Input<string>;
     /**
      * The Secondary Key for the ServiceBus Namespace authorization Rule.
      */

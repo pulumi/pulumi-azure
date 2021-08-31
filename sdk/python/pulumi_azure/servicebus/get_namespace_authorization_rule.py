@@ -19,7 +19,7 @@ class GetNamespaceAuthorizationRuleResult:
     """
     A collection of values returned by getNamespaceAuthorizationRule.
     """
-    def __init__(__self__, id=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None):
+    def __init__(__self__, id=None, name=None, namespace_name=None, primary_connection_string=None, primary_connection_string_alias=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_connection_string_alias=None, secondary_key=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,6 +32,9 @@ class GetNamespaceAuthorizationRuleResult:
         if primary_connection_string and not isinstance(primary_connection_string, str):
             raise TypeError("Expected argument 'primary_connection_string' to be a str")
         pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+        if primary_connection_string_alias and not isinstance(primary_connection_string_alias, str):
+            raise TypeError("Expected argument 'primary_connection_string_alias' to be a str")
+        pulumi.set(__self__, "primary_connection_string_alias", primary_connection_string_alias)
         if primary_key and not isinstance(primary_key, str):
             raise TypeError("Expected argument 'primary_key' to be a str")
         pulumi.set(__self__, "primary_key", primary_key)
@@ -41,6 +44,9 @@ class GetNamespaceAuthorizationRuleResult:
         if secondary_connection_string and not isinstance(secondary_connection_string, str):
             raise TypeError("Expected argument 'secondary_connection_string' to be a str")
         pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+        if secondary_connection_string_alias and not isinstance(secondary_connection_string_alias, str):
+            raise TypeError("Expected argument 'secondary_connection_string_alias' to be a str")
+        pulumi.set(__self__, "secondary_connection_string_alias", secondary_connection_string_alias)
         if secondary_key and not isinstance(secondary_key, str):
             raise TypeError("Expected argument 'secondary_key' to be a str")
         pulumi.set(__self__, "secondary_key", secondary_key)
@@ -72,6 +78,14 @@ class GetNamespaceAuthorizationRuleResult:
         return pulumi.get(self, "primary_connection_string")
 
     @property
+    @pulumi.getter(name="primaryConnectionStringAlias")
+    def primary_connection_string_alias(self) -> str:
+        """
+        The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+        """
+        return pulumi.get(self, "primary_connection_string_alias")
+
+    @property
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> str:
         """
@@ -93,6 +107,14 @@ class GetNamespaceAuthorizationRuleResult:
         return pulumi.get(self, "secondary_connection_string")
 
     @property
+    @pulumi.getter(name="secondaryConnectionStringAlias")
+    def secondary_connection_string_alias(self) -> str:
+        """
+        The alias Secondary Connection String for the ServiceBus Namespace
+        """
+        return pulumi.get(self, "secondary_connection_string_alias")
+
+    @property
     @pulumi.getter(name="secondaryKey")
     def secondary_key(self) -> str:
         """
@@ -111,9 +133,11 @@ class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRule
             name=self.name,
             namespace_name=self.namespace_name,
             primary_connection_string=self.primary_connection_string,
+            primary_connection_string_alias=self.primary_connection_string_alias,
             primary_key=self.primary_key,
             resource_group_name=self.resource_group_name,
             secondary_connection_string=self.secondary_connection_string,
+            secondary_connection_string_alias=self.secondary_connection_string_alias,
             secondary_key=self.secondary_key)
 
 
@@ -156,7 +180,9 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
         name=__ret__.name,
         namespace_name=__ret__.namespace_name,
         primary_connection_string=__ret__.primary_connection_string,
+        primary_connection_string_alias=__ret__.primary_connection_string_alias,
         primary_key=__ret__.primary_key,
         resource_group_name=__ret__.resource_group_name,
         secondary_connection_string=__ret__.secondary_connection_string,
+        secondary_connection_string_alias=__ret__.secondary_connection_string_alias,
         secondary_key=__ret__.secondary_key)

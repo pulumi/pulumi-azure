@@ -39,7 +39,7 @@ import (
 //
 // ## Import
 //
-// networks can be imported using the `resource id`, e.g.
+// Firewall Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
 //  $ pulumi import azure:network/firewallPolicy:FirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/firewallPolicies/policy1
@@ -55,6 +55,10 @@ type FirewallPolicy struct {
 	Dns FirewallPolicyDnsPtrOutput `pulumi:"dns"`
 	// A list of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls pulumi.StringArrayOutput `pulumi:"firewalls"`
+	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+	Identity FirewallPolicyIdentityPtrOutput `pulumi:"identity"`
+	// A `intrusionDetection` block as defined below.
+	IntrusionDetection FirewallPolicyIntrusionDetectionPtrOutput `pulumi:"intrusionDetection"`
 	// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
@@ -65,7 +69,7 @@ type FirewallPolicy struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
 	RuleCollectionGroups pulumi.StringArrayOutput `pulumi:"ruleCollectionGroups"`
-	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -73,6 +77,8 @@ type FirewallPolicy struct {
 	ThreatIntelligenceAllowlist FirewallPolicyThreatIntelligenceAllowlistPtrOutput `pulumi:"threatIntelligenceAllowlist"`
 	// The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
 	ThreatIntelligenceMode pulumi.StringPtrOutput `pulumi:"threatIntelligenceMode"`
+	// A `tlsCertificate` block as defined below.
+	TlsCertificate FirewallPolicyTlsCertificatePtrOutput `pulumi:"tlsCertificate"`
 }
 
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
@@ -115,6 +121,10 @@ type firewallPolicyState struct {
 	Dns *FirewallPolicyDns `pulumi:"dns"`
 	// A list of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls []string `pulumi:"firewalls"`
+	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+	Identity *FirewallPolicyIdentity `pulumi:"identity"`
+	// A `intrusionDetection` block as defined below.
+	IntrusionDetection *FirewallPolicyIntrusionDetection `pulumi:"intrusionDetection"`
 	// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
@@ -125,7 +135,7 @@ type firewallPolicyState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
 	RuleCollectionGroups []string `pulumi:"ruleCollectionGroups"`
-	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -133,6 +143,8 @@ type firewallPolicyState struct {
 	ThreatIntelligenceAllowlist *FirewallPolicyThreatIntelligenceAllowlist `pulumi:"threatIntelligenceAllowlist"`
 	// The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
 	ThreatIntelligenceMode *string `pulumi:"threatIntelligenceMode"`
+	// A `tlsCertificate` block as defined below.
+	TlsCertificate *FirewallPolicyTlsCertificate `pulumi:"tlsCertificate"`
 }
 
 type FirewallPolicyState struct {
@@ -144,6 +156,10 @@ type FirewallPolicyState struct {
 	Dns FirewallPolicyDnsPtrInput
 	// A list of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls pulumi.StringArrayInput
+	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+	Identity FirewallPolicyIdentityPtrInput
+	// A `intrusionDetection` block as defined below.
+	IntrusionDetection FirewallPolicyIntrusionDetectionPtrInput
 	// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
@@ -154,7 +170,7 @@ type FirewallPolicyState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
 	RuleCollectionGroups pulumi.StringArrayInput
-	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags pulumi.StringMapInput
@@ -162,6 +178,8 @@ type FirewallPolicyState struct {
 	ThreatIntelligenceAllowlist FirewallPolicyThreatIntelligenceAllowlistPtrInput
 	// The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
 	ThreatIntelligenceMode pulumi.StringPtrInput
+	// A `tlsCertificate` block as defined below.
+	TlsCertificate FirewallPolicyTlsCertificatePtrInput
 }
 
 func (FirewallPolicyState) ElementType() reflect.Type {
@@ -173,6 +191,10 @@ type firewallPolicyArgs struct {
 	BasePolicyId *string `pulumi:"basePolicyId"`
 	// A `dns` block as defined below.
 	Dns *FirewallPolicyDns `pulumi:"dns"`
+	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+	Identity *FirewallPolicyIdentity `pulumi:"identity"`
+	// A `intrusionDetection` block as defined below.
+	IntrusionDetection *FirewallPolicyIntrusionDetection `pulumi:"intrusionDetection"`
 	// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
@@ -181,7 +203,7 @@ type firewallPolicyArgs struct {
 	PrivateIpRanges []string `pulumi:"privateIpRanges"`
 	// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -189,6 +211,8 @@ type firewallPolicyArgs struct {
 	ThreatIntelligenceAllowlist *FirewallPolicyThreatIntelligenceAllowlist `pulumi:"threatIntelligenceAllowlist"`
 	// The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
 	ThreatIntelligenceMode *string `pulumi:"threatIntelligenceMode"`
+	// A `tlsCertificate` block as defined below.
+	TlsCertificate *FirewallPolicyTlsCertificate `pulumi:"tlsCertificate"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
@@ -197,6 +221,10 @@ type FirewallPolicyArgs struct {
 	BasePolicyId pulumi.StringPtrInput
 	// A `dns` block as defined below.
 	Dns FirewallPolicyDnsPtrInput
+	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+	Identity FirewallPolicyIdentityPtrInput
+	// A `intrusionDetection` block as defined below.
+	IntrusionDetection FirewallPolicyIntrusionDetectionPtrInput
 	// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
@@ -205,7 +233,7 @@ type FirewallPolicyArgs struct {
 	PrivateIpRanges pulumi.StringArrayInput
 	// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags pulumi.StringMapInput
@@ -213,6 +241,8 @@ type FirewallPolicyArgs struct {
 	ThreatIntelligenceAllowlist FirewallPolicyThreatIntelligenceAllowlistPtrInput
 	// The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
 	ThreatIntelligenceMode pulumi.StringPtrInput
+	// A `tlsCertificate` block as defined below.
+	TlsCertificate FirewallPolicyTlsCertificatePtrInput
 }
 
 func (FirewallPolicyArgs) ElementType() reflect.Type {

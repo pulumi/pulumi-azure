@@ -2266,6 +2266,8 @@ class CustomDomainDeveloperPortal(dict):
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
             suggest = "negotiate_client_certificate"
+        elif key == "sslKeyvaultIdentityClientId":
+            suggest = "ssl_keyvault_identity_client_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CustomDomainDeveloperPortal. Access the value via the '{suggest}' property getter instead.")
@@ -2282,8 +2284,12 @@ class CustomDomainDeveloperPortal(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
-                 negotiate_client_certificate: Optional[bool] = None):
+                 negotiate_client_certificate: Optional[bool] = None,
+                 ssl_keyvault_identity_client_id: Optional[str] = None,
+                 subject: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the corresponding endpoint.
         :param str certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
@@ -2296,10 +2302,18 @@ class CustomDomainDeveloperPortal(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
             pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if ssl_keyvault_identity_client_id is not None:
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -2326,6 +2340,11 @@ class CustomDomainDeveloperPortal(dict):
         return pulumi.get(self, "certificate_password")
 
     @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        return pulumi.get(self, "expiry")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
@@ -2341,6 +2360,21 @@ class CustomDomainDeveloperPortal(dict):
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
+    @property
+    @pulumi.getter(name="sslKeyvaultIdentityClientId")
+    def ssl_keyvault_identity_client_id(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_keyvault_identity_client_id")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        return pulumi.get(self, "thumbprint")
+
 
 @pulumi.output_type
 class CustomDomainManagement(dict):
@@ -2355,6 +2389,8 @@ class CustomDomainManagement(dict):
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
             suggest = "negotiate_client_certificate"
+        elif key == "sslKeyvaultIdentityClientId":
+            suggest = "ssl_keyvault_identity_client_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CustomDomainManagement. Access the value via the '{suggest}' property getter instead.")
@@ -2371,8 +2407,12 @@ class CustomDomainManagement(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
-                 negotiate_client_certificate: Optional[bool] = None):
+                 negotiate_client_certificate: Optional[bool] = None,
+                 ssl_keyvault_identity_client_id: Optional[str] = None,
+                 subject: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the corresponding endpoint.
         :param str certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
@@ -2385,10 +2425,18 @@ class CustomDomainManagement(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
             pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if ssl_keyvault_identity_client_id is not None:
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -2415,6 +2463,11 @@ class CustomDomainManagement(dict):
         return pulumi.get(self, "certificate_password")
 
     @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        return pulumi.get(self, "expiry")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
@@ -2430,6 +2483,21 @@ class CustomDomainManagement(dict):
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
+    @property
+    @pulumi.getter(name="sslKeyvaultIdentityClientId")
+    def ssl_keyvault_identity_client_id(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_keyvault_identity_client_id")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        return pulumi.get(self, "thumbprint")
+
 
 @pulumi.output_type
 class CustomDomainPortal(dict):
@@ -2444,6 +2512,8 @@ class CustomDomainPortal(dict):
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
             suggest = "negotiate_client_certificate"
+        elif key == "sslKeyvaultIdentityClientId":
+            suggest = "ssl_keyvault_identity_client_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CustomDomainPortal. Access the value via the '{suggest}' property getter instead.")
@@ -2460,8 +2530,12 @@ class CustomDomainPortal(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
-                 negotiate_client_certificate: Optional[bool] = None):
+                 negotiate_client_certificate: Optional[bool] = None,
+                 ssl_keyvault_identity_client_id: Optional[str] = None,
+                 subject: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the corresponding endpoint.
         :param str certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
@@ -2474,10 +2548,18 @@ class CustomDomainPortal(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
             pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if ssl_keyvault_identity_client_id is not None:
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -2504,6 +2586,11 @@ class CustomDomainPortal(dict):
         return pulumi.get(self, "certificate_password")
 
     @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        return pulumi.get(self, "expiry")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
@@ -2518,6 +2605,21 @@ class CustomDomainPortal(dict):
         Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
         """
         return pulumi.get(self, "negotiate_client_certificate")
+
+    @property
+    @pulumi.getter(name="sslKeyvaultIdentityClientId")
+    def ssl_keyvault_identity_client_id(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_keyvault_identity_client_id")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        return pulumi.get(self, "thumbprint")
 
 
 @pulumi.output_type
@@ -2535,6 +2637,8 @@ class CustomDomainProxy(dict):
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
             suggest = "negotiate_client_certificate"
+        elif key == "sslKeyvaultIdentityClientId":
+            suggest = "ssl_keyvault_identity_client_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CustomDomainProxy. Access the value via the '{suggest}' property getter instead.")
@@ -2552,8 +2656,12 @@ class CustomDomainProxy(dict):
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
                  default_ssl_binding: Optional[bool] = None,
+                 expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
-                 negotiate_client_certificate: Optional[bool] = None):
+                 negotiate_client_certificate: Optional[bool] = None,
+                 ssl_keyvault_identity_client_id: Optional[str] = None,
+                 subject: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the API Proxy Endpoint.
         :param str certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
@@ -2569,10 +2677,18 @@ class CustomDomainProxy(dict):
             pulumi.set(__self__, "certificate_password", certificate_password)
         if default_ssl_binding is not None:
             pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
             pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if ssl_keyvault_identity_client_id is not None:
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -2607,6 +2723,11 @@ class CustomDomainProxy(dict):
         return pulumi.get(self, "default_ssl_binding")
 
     @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        return pulumi.get(self, "expiry")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
@@ -2622,6 +2743,21 @@ class CustomDomainProxy(dict):
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
+    @property
+    @pulumi.getter(name="sslKeyvaultIdentityClientId")
+    def ssl_keyvault_identity_client_id(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_keyvault_identity_client_id")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        return pulumi.get(self, "thumbprint")
+
 
 @pulumi.output_type
 class CustomDomainScm(dict):
@@ -2636,6 +2772,8 @@ class CustomDomainScm(dict):
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
             suggest = "negotiate_client_certificate"
+        elif key == "sslKeyvaultIdentityClientId":
+            suggest = "ssl_keyvault_identity_client_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CustomDomainScm. Access the value via the '{suggest}' property getter instead.")
@@ -2652,8 +2790,12 @@ class CustomDomainScm(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
-                 negotiate_client_certificate: Optional[bool] = None):
+                 negotiate_client_certificate: Optional[bool] = None,
+                 ssl_keyvault_identity_client_id: Optional[str] = None,
+                 subject: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the corresponding endpoint.
         :param str certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
@@ -2666,10 +2808,18 @@ class CustomDomainScm(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
             pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if ssl_keyvault_identity_client_id is not None:
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -2696,6 +2846,11 @@ class CustomDomainScm(dict):
         return pulumi.get(self, "certificate_password")
 
     @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        return pulumi.get(self, "expiry")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
@@ -2710,6 +2865,21 @@ class CustomDomainScm(dict):
         Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
         """
         return pulumi.get(self, "negotiate_client_certificate")
+
+    @property
+    @pulumi.getter(name="sslKeyvaultIdentityClientId")
+    def ssl_keyvault_identity_client_id(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_keyvault_identity_client_id")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        return pulumi.get(self, "thumbprint")
 
 
 @pulumi.output_type
@@ -3590,16 +3760,28 @@ class ServiceCertificate(dict):
     def __init__(__self__, *,
                  encoded_certificate: str,
                  store_name: str,
-                 certificate_password: Optional[str] = None):
+                 certificate_password: Optional[str] = None,
+                 expiry: Optional[str] = None,
+                 subject: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
         """
         :param str encoded_certificate: The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
         :param str store_name: The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
         :param str certificate_password: The password for the certificate.
+        :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+        :param str subject: The subject of the certificate.
+        :param str thumbprint: The thumbprint of the certificate.
         """
         pulumi.set(__self__, "encoded_certificate", encoded_certificate)
         pulumi.set(__self__, "store_name", store_name)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="encodedCertificate")
@@ -3624,6 +3806,30 @@ class ServiceCertificate(dict):
         The password for the certificate.
         """
         return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        """
+        The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+        """
+        return pulumi.get(self, "expiry")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        """
+        The subject of the certificate.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
 
 
 @pulumi.output_type
@@ -3723,6 +3929,8 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
             suggest = "negotiate_client_certificate"
+        elif key == "sslKeyvaultIdentityClientId":
+            suggest = "ssl_keyvault_identity_client_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceHostnameConfigurationDeveloperPortal. Access the value via the '{suggest}' property getter instead.")
@@ -3739,24 +3947,40 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
-                 negotiate_client_certificate: Optional[bool] = None):
+                 negotiate_client_certificate: Optional[bool] = None,
+                 ssl_keyvault_identity_client_id: Optional[str] = None,
+                 subject: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
         :param str certificate_password: The password for the certificate.
+        :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        :param str ssl_keyvault_identity_client_id: The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+        :param str subject: The subject of the certificate.
+        :param str thumbprint: The thumbprint of the certificate.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
             pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if ssl_keyvault_identity_client_id is not None:
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -3783,6 +4007,14 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
         return pulumi.get(self, "certificate_password")
 
     @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        """
+        The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+        """
+        return pulumi.get(self, "expiry")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
@@ -3798,6 +4030,30 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
+    @property
+    @pulumi.getter(name="sslKeyvaultIdentityClientId")
+    def ssl_keyvault_identity_client_id(self) -> Optional[str]:
+        """
+        The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+        """
+        return pulumi.get(self, "ssl_keyvault_identity_client_id")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        """
+        The subject of the certificate.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
 
 @pulumi.output_type
 class ServiceHostnameConfigurationManagement(dict):
@@ -3812,6 +4068,8 @@ class ServiceHostnameConfigurationManagement(dict):
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
             suggest = "negotiate_client_certificate"
+        elif key == "sslKeyvaultIdentityClientId":
+            suggest = "ssl_keyvault_identity_client_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceHostnameConfigurationManagement. Access the value via the '{suggest}' property getter instead.")
@@ -3828,24 +4086,40 @@ class ServiceHostnameConfigurationManagement(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
-                 negotiate_client_certificate: Optional[bool] = None):
+                 negotiate_client_certificate: Optional[bool] = None,
+                 ssl_keyvault_identity_client_id: Optional[str] = None,
+                 subject: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: The Base64 Encoded Certificate.
         :param str certificate_password: The password associated with the certificate provided above.
+        :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        :param str ssl_keyvault_identity_client_id: The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+        :param str subject: The subject of the certificate.
+        :param str thumbprint: The thumbprint of the certificate.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
             pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if ssl_keyvault_identity_client_id is not None:
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -3872,6 +4146,14 @@ class ServiceHostnameConfigurationManagement(dict):
         return pulumi.get(self, "certificate_password")
 
     @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        """
+        The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+        """
+        return pulumi.get(self, "expiry")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
@@ -3887,6 +4169,30 @@ class ServiceHostnameConfigurationManagement(dict):
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
+    @property
+    @pulumi.getter(name="sslKeyvaultIdentityClientId")
+    def ssl_keyvault_identity_client_id(self) -> Optional[str]:
+        """
+        The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+        """
+        return pulumi.get(self, "ssl_keyvault_identity_client_id")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        """
+        The subject of the certificate.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
 
 @pulumi.output_type
 class ServiceHostnameConfigurationPortal(dict):
@@ -3901,6 +4207,8 @@ class ServiceHostnameConfigurationPortal(dict):
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
             suggest = "negotiate_client_certificate"
+        elif key == "sslKeyvaultIdentityClientId":
+            suggest = "ssl_keyvault_identity_client_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceHostnameConfigurationPortal. Access the value via the '{suggest}' property getter instead.")
@@ -3917,24 +4225,40 @@ class ServiceHostnameConfigurationPortal(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
-                 negotiate_client_certificate: Optional[bool] = None):
+                 negotiate_client_certificate: Optional[bool] = None,
+                 ssl_keyvault_identity_client_id: Optional[str] = None,
+                 subject: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
         :param str certificate_password: The password for the certificate.
+        :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        :param str ssl_keyvault_identity_client_id: The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+        :param str subject: The subject of the certificate.
+        :param str thumbprint: The thumbprint of the certificate.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
             pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if ssl_keyvault_identity_client_id is not None:
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -3961,6 +4285,14 @@ class ServiceHostnameConfigurationPortal(dict):
         return pulumi.get(self, "certificate_password")
 
     @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        """
+        The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+        """
+        return pulumi.get(self, "expiry")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
@@ -3975,6 +4307,30 @@ class ServiceHostnameConfigurationPortal(dict):
         Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         return pulumi.get(self, "negotiate_client_certificate")
+
+    @property
+    @pulumi.getter(name="sslKeyvaultIdentityClientId")
+    def ssl_keyvault_identity_client_id(self) -> Optional[str]:
+        """
+        The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+        """
+        return pulumi.get(self, "ssl_keyvault_identity_client_id")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        """
+        The subject of the certificate.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
 
 
 @pulumi.output_type
@@ -3992,6 +4348,8 @@ class ServiceHostnameConfigurationProxy(dict):
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
             suggest = "negotiate_client_certificate"
+        elif key == "sslKeyvaultIdentityClientId":
+            suggest = "ssl_keyvault_identity_client_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceHostnameConfigurationProxy. Access the value via the '{suggest}' property getter instead.")
@@ -4009,15 +4367,23 @@ class ServiceHostnameConfigurationProxy(dict):
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
                  default_ssl_binding: Optional[bool] = None,
+                 expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
-                 negotiate_client_certificate: Optional[bool] = None):
+                 negotiate_client_certificate: Optional[bool] = None,
+                 ssl_keyvault_identity_client_id: Optional[str] = None,
+                 subject: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: The Base64 Encoded Certificate.
         :param str certificate_password: The password associated with the certificate provided above.
         :param bool default_ssl_binding: Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
+        :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        :param str ssl_keyvault_identity_client_id: The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+        :param str subject: The subject of the certificate.
+        :param str thumbprint: The thumbprint of the certificate.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
@@ -4026,10 +4392,18 @@ class ServiceHostnameConfigurationProxy(dict):
             pulumi.set(__self__, "certificate_password", certificate_password)
         if default_ssl_binding is not None:
             pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
             pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if ssl_keyvault_identity_client_id is not None:
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -4064,6 +4438,14 @@ class ServiceHostnameConfigurationProxy(dict):
         return pulumi.get(self, "default_ssl_binding")
 
     @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        """
+        The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+        """
+        return pulumi.get(self, "expiry")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
@@ -4079,6 +4461,30 @@ class ServiceHostnameConfigurationProxy(dict):
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
+    @property
+    @pulumi.getter(name="sslKeyvaultIdentityClientId")
+    def ssl_keyvault_identity_client_id(self) -> Optional[str]:
+        """
+        The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+        """
+        return pulumi.get(self, "ssl_keyvault_identity_client_id")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        """
+        The subject of the certificate.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
 
 @pulumi.output_type
 class ServiceHostnameConfigurationScm(dict):
@@ -4093,6 +4499,8 @@ class ServiceHostnameConfigurationScm(dict):
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
             suggest = "negotiate_client_certificate"
+        elif key == "sslKeyvaultIdentityClientId":
+            suggest = "ssl_keyvault_identity_client_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceHostnameConfigurationScm. Access the value via the '{suggest}' property getter instead.")
@@ -4109,24 +4517,40 @@ class ServiceHostnameConfigurationScm(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
-                 negotiate_client_certificate: Optional[bool] = None):
+                 negotiate_client_certificate: Optional[bool] = None,
+                 ssl_keyvault_identity_client_id: Optional[str] = None,
+                 subject: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
         :param str certificate_password: The password for the certificate.
+        :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        :param str ssl_keyvault_identity_client_id: The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+        :param str subject: The subject of the certificate.
+        :param str thumbprint: The thumbprint of the certificate.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
             pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if ssl_keyvault_identity_client_id is not None:
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -4153,6 +4577,14 @@ class ServiceHostnameConfigurationScm(dict):
         return pulumi.get(self, "certificate_password")
 
     @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        """
+        The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+        """
+        return pulumi.get(self, "expiry")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
@@ -4167,6 +4599,30 @@ class ServiceHostnameConfigurationScm(dict):
         Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         return pulumi.get(self, "negotiate_client_certificate")
+
+    @property
+    @pulumi.getter(name="sslKeyvaultIdentityClientId")
+    def ssl_keyvault_identity_client_id(self) -> Optional[str]:
+        """
+        The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+        """
+        return pulumi.get(self, "ssl_keyvault_identity_client_id")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        """
+        The subject of the certificate.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
 
 
 @pulumi.output_type

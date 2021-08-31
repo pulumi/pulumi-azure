@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network
     /// 
     /// ## Import
     /// 
-    /// networks can be imported using the `resource id`, e.g.
+    /// Firewall Policies can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:network/firewallPolicy:FirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/firewallPolicies/policy1
@@ -68,6 +68,18 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> Firewalls { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.FirewallPolicyIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// A `intrusion_detection` block as defined below.
+        /// </summary>
+        [Output("intrusionDetection")]
+        public Output<Outputs.FirewallPolicyIntrusionDetection?> IntrusionDetection { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         /// </summary>
         [Output("location")]
@@ -98,7 +110,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> RuleCollectionGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -120,6 +132,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("threatIntelligenceMode")]
         public Output<string?> ThreatIntelligenceMode { get; private set; } = null!;
+
+        /// <summary>
+        /// A `tls_certificate` block as defined below.
+        /// </summary>
+        [Output("tlsCertificate")]
+        public Output<Outputs.FirewallPolicyTlsCertificate?> TlsCertificate { get; private set; } = null!;
 
 
         /// <summary>
@@ -180,6 +198,18 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.FirewallPolicyDnsArgs>? Dns { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.FirewallPolicyIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// A `intrusion_detection` block as defined below.
+        /// </summary>
+        [Input("intrusionDetection")]
+        public Input<Inputs.FirewallPolicyIntrusionDetectionArgs>? IntrusionDetection { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         /// </summary>
         [Input("location")]
@@ -210,7 +240,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -238,6 +268,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("threatIntelligenceMode")]
         public Input<string>? ThreatIntelligenceMode { get; set; }
+
+        /// <summary>
+        /// A `tls_certificate` block as defined below.
+        /// </summary>
+        [Input("tlsCertificate")]
+        public Input<Inputs.FirewallPolicyTlsCertificateArgs>? TlsCertificate { get; set; }
 
         public FirewallPolicyArgs()
         {
@@ -283,6 +319,18 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
+        /// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.FirewallPolicyIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// A `intrusion_detection` block as defined below.
+        /// </summary>
+        [Input("intrusionDetection")]
+        public Input<Inputs.FirewallPolicyIntrusionDetectionGetArgs>? IntrusionDetection { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         /// </summary>
         [Input("location")]
@@ -325,7 +373,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -353,6 +401,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("threatIntelligenceMode")]
         public Input<string>? ThreatIntelligenceMode { get; set; }
+
+        /// <summary>
+        /// A `tls_certificate` block as defined below.
+        /// </summary>
+        [Input("tlsCertificate")]
+        public Input<Inputs.FirewallPolicyTlsCertificateGetArgs>? TlsCertificate { get; set; }
 
         public FirewallPolicyState()
         {

@@ -2,7 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.74.0 of the AzureRM Terraform Provider
+  * Please note the following breaking changes to some outputs:
+  * `azure.servicebus.NamespaceDisasterRecoveryConfig` has renamed `aliasPrimaryConnectionString` to be `primaryConnectionStringAlias`
+  * `azure.servicebus.NamespaceDisasterRecoveryConfig` has renamed `aliasSecondaryConnectionString` to be `secondaryConnectionStringAlias`
+  * `azure.servicebus.getNamespaceDisasterRecoveryConfig` has renamed `aliasPrimaryConnectionString` to be `primaryConnectionStringAlias`
+  * `azure.servicebus.getNamespaceDisasterRecoveryConfig` has renamed `aliasSecondaryConnectionString` to be `secondaryConnectionStringAlias`
 
 ---
 

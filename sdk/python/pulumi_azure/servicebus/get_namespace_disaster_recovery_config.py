@@ -19,13 +19,7 @@ class GetNamespaceDisasterRecoveryConfigResult:
     """
     A collection of values returned by getNamespaceDisasterRecoveryConfig.
     """
-    def __init__(__self__, alias_primary_connection_string=None, alias_secondary_connection_string=None, default_primary_key=None, default_secondary_key=None, id=None, name=None, namespace_name=None, partner_namespace_id=None, resource_group_name=None):
-        if alias_primary_connection_string and not isinstance(alias_primary_connection_string, str):
-            raise TypeError("Expected argument 'alias_primary_connection_string' to be a str")
-        pulumi.set(__self__, "alias_primary_connection_string", alias_primary_connection_string)
-        if alias_secondary_connection_string and not isinstance(alias_secondary_connection_string, str):
-            raise TypeError("Expected argument 'alias_secondary_connection_string' to be a str")
-        pulumi.set(__self__, "alias_secondary_connection_string", alias_secondary_connection_string)
+    def __init__(__self__, default_primary_key=None, default_secondary_key=None, id=None, name=None, namespace_name=None, partner_namespace_id=None, primary_connection_string_alias=None, resource_group_name=None, secondary_connection_string_alias=None):
         if default_primary_key and not isinstance(default_primary_key, str):
             raise TypeError("Expected argument 'default_primary_key' to be a str")
         pulumi.set(__self__, "default_primary_key", default_primary_key)
@@ -44,19 +38,15 @@ class GetNamespaceDisasterRecoveryConfigResult:
         if partner_namespace_id and not isinstance(partner_namespace_id, str):
             raise TypeError("Expected argument 'partner_namespace_id' to be a str")
         pulumi.set(__self__, "partner_namespace_id", partner_namespace_id)
+        if primary_connection_string_alias and not isinstance(primary_connection_string_alias, str):
+            raise TypeError("Expected argument 'primary_connection_string_alias' to be a str")
+        pulumi.set(__self__, "primary_connection_string_alias", primary_connection_string_alias)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-
-    @property
-    @pulumi.getter(name="aliasPrimaryConnectionString")
-    def alias_primary_connection_string(self) -> str:
-        return pulumi.get(self, "alias_primary_connection_string")
-
-    @property
-    @pulumi.getter(name="aliasSecondaryConnectionString")
-    def alias_secondary_connection_string(self) -> str:
-        return pulumi.get(self, "alias_secondary_connection_string")
+        if secondary_connection_string_alias and not isinstance(secondary_connection_string_alias, str):
+            raise TypeError("Expected argument 'secondary_connection_string_alias' to be a str")
+        pulumi.set(__self__, "secondary_connection_string_alias", secondary_connection_string_alias)
 
     @property
     @pulumi.getter(name="defaultPrimaryKey")
@@ -92,9 +82,19 @@ class GetNamespaceDisasterRecoveryConfigResult:
         return pulumi.get(self, "partner_namespace_id")
 
     @property
+    @pulumi.getter(name="primaryConnectionStringAlias")
+    def primary_connection_string_alias(self) -> str:
+        return pulumi.get(self, "primary_connection_string_alias")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="secondaryConnectionStringAlias")
+    def secondary_connection_string_alias(self) -> str:
+        return pulumi.get(self, "secondary_connection_string_alias")
 
 
 class AwaitableGetNamespaceDisasterRecoveryConfigResult(GetNamespaceDisasterRecoveryConfigResult):
@@ -103,15 +103,15 @@ class AwaitableGetNamespaceDisasterRecoveryConfigResult(GetNamespaceDisasterReco
         if False:
             yield self
         return GetNamespaceDisasterRecoveryConfigResult(
-            alias_primary_connection_string=self.alias_primary_connection_string,
-            alias_secondary_connection_string=self.alias_secondary_connection_string,
             default_primary_key=self.default_primary_key,
             default_secondary_key=self.default_secondary_key,
             id=self.id,
             name=self.name,
             namespace_name=self.namespace_name,
             partner_namespace_id=self.partner_namespace_id,
-            resource_group_name=self.resource_group_name)
+            primary_connection_string_alias=self.primary_connection_string_alias,
+            resource_group_name=self.resource_group_name,
+            secondary_connection_string_alias=self.secondary_connection_string_alias)
 
 
 def get_namespace_disaster_recovery_config(name: Optional[str] = None,
@@ -132,12 +132,12 @@ def get_namespace_disaster_recovery_config(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig', __args__, opts=opts, typ=GetNamespaceDisasterRecoveryConfigResult).value
 
     return AwaitableGetNamespaceDisasterRecoveryConfigResult(
-        alias_primary_connection_string=__ret__.alias_primary_connection_string,
-        alias_secondary_connection_string=__ret__.alias_secondary_connection_string,
         default_primary_key=__ret__.default_primary_key,
         default_secondary_key=__ret__.default_secondary_key,
         id=__ret__.id,
         name=__ret__.name,
         namespace_name=__ret__.namespace_name,
         partner_namespace_id=__ret__.partner_namespace_id,
-        resource_group_name=__ret__.resource_group_name)
+        primary_connection_string_alias=__ret__.primary_connection_string_alias,
+        resource_group_name=__ret__.resource_group_name,
+        secondary_connection_string_alias=__ret__.secondary_connection_string_alias)

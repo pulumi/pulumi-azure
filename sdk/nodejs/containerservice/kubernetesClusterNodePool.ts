@@ -109,7 +109,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
     /**
      * A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
      */
-    public readonly nodeLabels!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly nodeLabels!: pulumi.Output<{[key: string]: string}>;
     /**
      * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
      */
@@ -134,6 +134,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+     */
+    public readonly podSubnetId!: pulumi.Output<string | undefined>;
     /**
      * The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
@@ -203,6 +207,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["osDiskSizeGb"] = state ? state.osDiskSizeGb : undefined;
             inputs["osDiskType"] = state ? state.osDiskType : undefined;
             inputs["osType"] = state ? state.osType : undefined;
+            inputs["podSubnetId"] = state ? state.podSubnetId : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             inputs["spotMaxPrice"] = state ? state.spotMaxPrice : undefined;
@@ -242,6 +247,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["osDiskSizeGb"] = args ? args.osDiskSizeGb : undefined;
             inputs["osDiskType"] = args ? args.osDiskType : undefined;
             inputs["osType"] = args ? args.osType : undefined;
+            inputs["podSubnetId"] = args ? args.podSubnetId : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             inputs["spotMaxPrice"] = args ? args.spotMaxPrice : undefined;
@@ -354,6 +360,10 @@ export interface KubernetesClusterNodePoolState {
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
     osType?: pulumi.Input<string>;
+    /**
+     * The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+     */
+    podSubnetId?: pulumi.Input<string>;
     /**
      * The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
@@ -484,6 +494,10 @@ export interface KubernetesClusterNodePoolArgs {
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
     osType?: pulumi.Input<string>;
+    /**
+     * The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+     */
+    podSubnetId?: pulumi.Input<string>;
     /**
      * The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */

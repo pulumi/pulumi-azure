@@ -196,6 +196,12 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? Use32BitWorkerProcess { get; set; }
 
         /// <summary>
+        /// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        /// </summary>
+        [Input("vnetRouteAllEnabled")]
+        public Input<bool>? VnetRouteAllEnabled { get; set; }
+
+        /// <summary>
         /// Should WebSockets be enabled?
         /// </summary>
         [Input("websocketsEnabled")]

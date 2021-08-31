@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AutoscaleSettingProfileRuleMetricTriggerDimension> Dimensions;
         /// <summary>
+        /// Whether to enable metric divide by instance count.
+        /// </summary>
+        public readonly bool? DivideByInstanceCount;
+        /// <summary>
         /// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
         /// </summary>
         public readonly string MetricName;
@@ -58,6 +62,8 @@ namespace Pulumi.Azure.Monitoring.Outputs
         private AutoscaleSettingProfileRuleMetricTrigger(
             ImmutableArray<Outputs.AutoscaleSettingProfileRuleMetricTriggerDimension> dimensions,
 
+            bool? divideByInstanceCount,
+
             string metricName,
 
             string? metricNamespace,
@@ -77,6 +83,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
             string timeWindow)
         {
             Dimensions = dimensions;
+            DivideByInstanceCount = divideByInstanceCount;
             MetricName = metricName;
             MetricNamespace = metricNamespace;
             MetricResourceId = metricResourceId;

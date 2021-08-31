@@ -33,10 +33,13 @@ namespace Pulumi.Azure.Network
         ///             LocationFilter = "northeurope",
         ///         }));
         ///         this.AddressPrefixes = example.Apply(example =&gt; example.AddressPrefixes);
+        ///         this.Ipv4Cidrs = example.Apply(example =&gt; example.Ipv4Cidrs);
         ///     }
         /// 
         ///     [Output("addressPrefixes")]
         ///     public Output&lt;string&gt; AddressPrefixes { get; set; }
+        ///     [Output("ipv4Cidrs")]
+        ///     public Output&lt;string&gt; Ipv4Cidrs { get; set; }
         /// }
         /// ```
         /// {{% /example %}}
@@ -84,6 +87,14 @@ namespace Pulumi.Azure.Network
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of IPv4 addresses for the service type (and optionally a specific region)
+        /// </summary>
+        public readonly ImmutableArray<string> Ipv4Cidrs;
+        /// <summary>
+        /// List of IPv6 addresses for the service type (and optionally a specific region)
+        /// </summary>
+        public readonly ImmutableArray<string> Ipv6Cidrs;
         public readonly string Location;
         public readonly string? LocationFilter;
         public readonly string Service;
@@ -94,6 +105,10 @@ namespace Pulumi.Azure.Network
 
             string id,
 
+            ImmutableArray<string> ipv4Cidrs,
+
+            ImmutableArray<string> ipv6Cidrs,
+
             string location,
 
             string? locationFilter,
@@ -102,6 +117,8 @@ namespace Pulumi.Azure.Network
         {
             AddressPrefixes = addressPrefixes;
             Id = id;
+            Ipv4Cidrs = ipv4Cidrs;
+            Ipv6Cidrs = ipv6Cidrs;
             Location = location;
             LocationFilter = locationFilter;
             Service = service;

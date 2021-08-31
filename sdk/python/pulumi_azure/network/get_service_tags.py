@@ -19,13 +19,19 @@ class GetServiceTagsResult:
     """
     A collection of values returned by getServiceTags.
     """
-    def __init__(__self__, address_prefixes=None, id=None, location=None, location_filter=None, service=None):
+    def __init__(__self__, address_prefixes=None, id=None, ipv4_cidrs=None, ipv6_cidrs=None, location=None, location_filter=None, service=None):
         if address_prefixes and not isinstance(address_prefixes, list):
             raise TypeError("Expected argument 'address_prefixes' to be a list")
         pulumi.set(__self__, "address_prefixes", address_prefixes)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ipv4_cidrs and not isinstance(ipv4_cidrs, list):
+            raise TypeError("Expected argument 'ipv4_cidrs' to be a list")
+        pulumi.set(__self__, "ipv4_cidrs", ipv4_cidrs)
+        if ipv6_cidrs and not isinstance(ipv6_cidrs, list):
+            raise TypeError("Expected argument 'ipv6_cidrs' to be a list")
+        pulumi.set(__self__, "ipv6_cidrs", ipv6_cidrs)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -53,6 +59,22 @@ class GetServiceTagsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="ipv4Cidrs")
+    def ipv4_cidrs(self) -> Sequence[str]:
+        """
+        List of IPv4 addresses for the service type (and optionally a specific region)
+        """
+        return pulumi.get(self, "ipv4_cidrs")
+
+    @property
+    @pulumi.getter(name="ipv6Cidrs")
+    def ipv6_cidrs(self) -> Sequence[str]:
+        """
+        List of IPv6 addresses for the service type (and optionally a specific region)
+        """
+        return pulumi.get(self, "ipv6_cidrs")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         return pulumi.get(self, "location")
@@ -76,6 +98,8 @@ class AwaitableGetServiceTagsResult(GetServiceTagsResult):
         return GetServiceTagsResult(
             address_prefixes=self.address_prefixes,
             id=self.id,
+            ipv4_cidrs=self.ipv4_cidrs,
+            ipv6_cidrs=self.ipv6_cidrs,
             location=self.location,
             location_filter=self.location_filter,
             service=self.service)
@@ -98,6 +122,7 @@ def get_service_tags(location: Optional[str] = None,
         service="AzureKeyVault",
         location_filter="northeurope")
     pulumi.export("addressPrefixes", example.address_prefixes)
+    pulumi.export("ipv4Cidrs", example.ipv4_cidrs)
     ```
 
 
@@ -118,6 +143,8 @@ def get_service_tags(location: Optional[str] = None,
     return AwaitableGetServiceTagsResult(
         address_prefixes=__ret__.address_prefixes,
         id=__ret__.id,
+        ipv4_cidrs=__ret__.ipv4_cidrs,
+        ipv6_cidrs=__ret__.ipv6_cidrs,
         location=__ret__.location,
         location_filter=__ret__.location_filter,
         service=__ret__.service)

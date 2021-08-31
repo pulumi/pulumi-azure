@@ -91,7 +91,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         /// </summary>
         [Output("dynamicFilenameEnabled")]
         public Output<bool?> DynamicFilenameEnabled { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         /// </summary>
         [Input("dynamicFilenameEnabled")]
         public Input<bool>? DynamicFilenameEnabled { get; set; }
@@ -348,7 +348,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         /// </summary>
         [Input("dynamicFilenameEnabled")]
         public Input<bool>? DynamicFilenameEnabled { get; set; }

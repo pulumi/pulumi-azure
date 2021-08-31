@@ -20,7 +20,7 @@ class GetAppServicePlanResult:
     """
     A collection of values returned by getAppServicePlan.
     """
-    def __init__(__self__, app_service_environment_id=None, id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, app_service_environment_id=None, id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
         if app_service_environment_id and not isinstance(app_service_environment_id, str):
             raise TypeError("Expected argument 'app_service_environment_id' to be a str")
         pulumi.set(__self__, "app_service_environment_id", app_service_environment_id)
@@ -60,6 +60,9 @@ class GetAppServicePlanResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="appServiceEnvironmentId")
@@ -159,6 +162,14 @@ class GetAppServicePlanResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> bool:
+        """
+        App Service Plan perform availability zone balancing.
+        """
+        return pulumi.get(self, "zone_redundant")
+
 
 class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
     # pylint: disable=using-constant-test
@@ -178,7 +189,8 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             reserved=self.reserved,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
-            tags=self.tags)
+            tags=self.tags,
+            zone_redundant=self.zone_redundant)
 
 
 def get_app_service_plan(name: Optional[str] = None,
@@ -224,4 +236,5 @@ def get_app_service_plan(name: Optional[str] = None,
         reserved=__ret__.reserved,
         resource_group_name=__ret__.resource_group_name,
         sku=__ret__.sku,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        zone_redundant=__ret__.zone_redundant)

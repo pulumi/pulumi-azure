@@ -67,27 +67,23 @@ class NamespaceDisasterRecoveryConfigArgs:
 @pulumi.input_type
 class _NamespaceDisasterRecoveryConfigState:
     def __init__(__self__, *,
-                 alias_primary_connection_string: Optional[pulumi.Input[str]] = None,
-                 alias_secondary_connection_string: Optional[pulumi.Input[str]] = None,
                  default_primary_key: Optional[pulumi.Input[str]] = None,
                  default_secondary_key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partner_namespace_id: Optional[pulumi.Input[str]] = None,
-                 primary_namespace_id: Optional[pulumi.Input[str]] = None):
+                 primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
+                 primary_namespace_id: Optional[pulumi.Input[str]] = None,
+                 secondary_connection_string_alias: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NamespaceDisasterRecoveryConfig resources.
-        :param pulumi.Input[str] alias_primary_connection_string: The alias Primary Connection String for the ServiceBus Namespace.
-        :param pulumi.Input[str] alias_secondary_connection_string: The alias Secondary Connection String for the ServiceBus Namespace
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partner_namespace_id: The ID of the Service Bus Namespace to replicate to.
+        :param pulumi.Input[str] primary_connection_string_alias: The alias Primary Connection String for the ServiceBus Namespace.
         :param pulumi.Input[str] primary_namespace_id: The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secondary_connection_string_alias: The alias Secondary Connection String for the ServiceBus Namespace
         """
-        if alias_primary_connection_string is not None:
-            pulumi.set(__self__, "alias_primary_connection_string", alias_primary_connection_string)
-        if alias_secondary_connection_string is not None:
-            pulumi.set(__self__, "alias_secondary_connection_string", alias_secondary_connection_string)
         if default_primary_key is not None:
             pulumi.set(__self__, "default_primary_key", default_primary_key)
         if default_secondary_key is not None:
@@ -96,32 +92,12 @@ class _NamespaceDisasterRecoveryConfigState:
             pulumi.set(__self__, "name", name)
         if partner_namespace_id is not None:
             pulumi.set(__self__, "partner_namespace_id", partner_namespace_id)
+        if primary_connection_string_alias is not None:
+            pulumi.set(__self__, "primary_connection_string_alias", primary_connection_string_alias)
         if primary_namespace_id is not None:
             pulumi.set(__self__, "primary_namespace_id", primary_namespace_id)
-
-    @property
-    @pulumi.getter(name="aliasPrimaryConnectionString")
-    def alias_primary_connection_string(self) -> Optional[pulumi.Input[str]]:
-        """
-        The alias Primary Connection String for the ServiceBus Namespace.
-        """
-        return pulumi.get(self, "alias_primary_connection_string")
-
-    @alias_primary_connection_string.setter
-    def alias_primary_connection_string(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "alias_primary_connection_string", value)
-
-    @property
-    @pulumi.getter(name="aliasSecondaryConnectionString")
-    def alias_secondary_connection_string(self) -> Optional[pulumi.Input[str]]:
-        """
-        The alias Secondary Connection String for the ServiceBus Namespace
-        """
-        return pulumi.get(self, "alias_secondary_connection_string")
-
-    @alias_secondary_connection_string.setter
-    def alias_secondary_connection_string(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "alias_secondary_connection_string", value)
+        if secondary_connection_string_alias is not None:
+            pulumi.set(__self__, "secondary_connection_string_alias", secondary_connection_string_alias)
 
     @property
     @pulumi.getter(name="defaultPrimaryKey")
@@ -172,6 +148,18 @@ class _NamespaceDisasterRecoveryConfigState:
         pulumi.set(self, "partner_namespace_id", value)
 
     @property
+    @pulumi.getter(name="primaryConnectionStringAlias")
+    def primary_connection_string_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alias Primary Connection String for the ServiceBus Namespace.
+        """
+        return pulumi.get(self, "primary_connection_string_alias")
+
+    @primary_connection_string_alias.setter
+    def primary_connection_string_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_connection_string_alias", value)
+
+    @property
     @pulumi.getter(name="primaryNamespaceId")
     def primary_namespace_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -182,6 +170,18 @@ class _NamespaceDisasterRecoveryConfigState:
     @primary_namespace_id.setter
     def primary_namespace_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "primary_namespace_id", value)
+
+    @property
+    @pulumi.getter(name="secondaryConnectionStringAlias")
+    def secondary_connection_string_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alias Secondary Connection String for the ServiceBus Namespace
+        """
+        return pulumi.get(self, "secondary_connection_string_alias")
+
+    @secondary_connection_string_alias.setter
+    def secondary_connection_string_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_connection_string_alias", value)
 
 
 class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
@@ -312,10 +312,10 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             if primary_namespace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_namespace_id'")
             __props__.__dict__["primary_namespace_id"] = primary_namespace_id
-            __props__.__dict__["alias_primary_connection_string"] = None
-            __props__.__dict__["alias_secondary_connection_string"] = None
             __props__.__dict__["default_primary_key"] = None
             __props__.__dict__["default_secondary_key"] = None
+            __props__.__dict__["primary_connection_string_alias"] = None
+            __props__.__dict__["secondary_connection_string_alias"] = None
         super(NamespaceDisasterRecoveryConfig, __self__).__init__(
             'azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig',
             resource_name,
@@ -326,13 +326,13 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alias_primary_connection_string: Optional[pulumi.Input[str]] = None,
-            alias_secondary_connection_string: Optional[pulumi.Input[str]] = None,
             default_primary_key: Optional[pulumi.Input[str]] = None,
             default_secondary_key: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             partner_namespace_id: Optional[pulumi.Input[str]] = None,
-            primary_namespace_id: Optional[pulumi.Input[str]] = None) -> 'NamespaceDisasterRecoveryConfig':
+            primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
+            primary_namespace_id: Optional[pulumi.Input[str]] = None,
+            secondary_connection_string_alias: Optional[pulumi.Input[str]] = None) -> 'NamespaceDisasterRecoveryConfig':
         """
         Get an existing NamespaceDisasterRecoveryConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -340,42 +340,26 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias_primary_connection_string: The alias Primary Connection String for the ServiceBus Namespace.
-        :param pulumi.Input[str] alias_secondary_connection_string: The alias Secondary Connection String for the ServiceBus Namespace
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partner_namespace_id: The ID of the Service Bus Namespace to replicate to.
+        :param pulumi.Input[str] primary_connection_string_alias: The alias Primary Connection String for the ServiceBus Namespace.
         :param pulumi.Input[str] primary_namespace_id: The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secondary_connection_string_alias: The alias Secondary Connection String for the ServiceBus Namespace
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _NamespaceDisasterRecoveryConfigState.__new__(_NamespaceDisasterRecoveryConfigState)
 
-        __props__.__dict__["alias_primary_connection_string"] = alias_primary_connection_string
-        __props__.__dict__["alias_secondary_connection_string"] = alias_secondary_connection_string
         __props__.__dict__["default_primary_key"] = default_primary_key
         __props__.__dict__["default_secondary_key"] = default_secondary_key
         __props__.__dict__["name"] = name
         __props__.__dict__["partner_namespace_id"] = partner_namespace_id
+        __props__.__dict__["primary_connection_string_alias"] = primary_connection_string_alias
         __props__.__dict__["primary_namespace_id"] = primary_namespace_id
+        __props__.__dict__["secondary_connection_string_alias"] = secondary_connection_string_alias
         return NamespaceDisasterRecoveryConfig(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="aliasPrimaryConnectionString")
-    def alias_primary_connection_string(self) -> pulumi.Output[str]:
-        """
-        The alias Primary Connection String for the ServiceBus Namespace.
-        """
-        return pulumi.get(self, "alias_primary_connection_string")
-
-    @property
-    @pulumi.getter(name="aliasSecondaryConnectionString")
-    def alias_secondary_connection_string(self) -> pulumi.Output[str]:
-        """
-        The alias Secondary Connection String for the ServiceBus Namespace
-        """
-        return pulumi.get(self, "alias_secondary_connection_string")
 
     @property
     @pulumi.getter(name="defaultPrimaryKey")
@@ -410,10 +394,26 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         return pulumi.get(self, "partner_namespace_id")
 
     @property
+    @pulumi.getter(name="primaryConnectionStringAlias")
+    def primary_connection_string_alias(self) -> pulumi.Output[str]:
+        """
+        The alias Primary Connection String for the ServiceBus Namespace.
+        """
+        return pulumi.get(self, "primary_connection_string_alias")
+
+    @property
     @pulumi.getter(name="primaryNamespaceId")
     def primary_namespace_id(self) -> pulumi.Output[str]:
         """
         The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "primary_namespace_id")
+
+    @property
+    @pulumi.getter(name="secondaryConnectionStringAlias")
+    def secondary_connection_string_alias(self) -> pulumi.Output[str]:
+        """
+        The alias Secondary Connection String for the ServiceBus Namespace
+        """
+        return pulumi.get(self, "secondary_connection_string_alias")
 

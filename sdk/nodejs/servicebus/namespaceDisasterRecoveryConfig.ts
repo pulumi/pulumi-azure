@@ -71,14 +71,6 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
     }
 
     /**
-     * The alias Primary Connection String for the ServiceBus Namespace.
-     */
-    public /*out*/ readonly aliasPrimaryConnectionString!: pulumi.Output<string>;
-    /**
-     * The alias Secondary Connection String for the ServiceBus Namespace
-     */
-    public /*out*/ readonly aliasSecondaryConnectionString!: pulumi.Output<string>;
-    /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
     public /*out*/ readonly defaultPrimaryKey!: pulumi.Output<string>;
@@ -95,9 +87,17 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
      */
     public readonly partnerNamespaceId!: pulumi.Output<string>;
     /**
+     * The alias Primary Connection String for the ServiceBus Namespace.
+     */
+    public /*out*/ readonly primaryConnectionStringAlias!: pulumi.Output<string>;
+    /**
      * The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
      */
     public readonly primaryNamespaceId!: pulumi.Output<string>;
+    /**
+     * The alias Secondary Connection String for the ServiceBus Namespace
+     */
+    public /*out*/ readonly secondaryConnectionStringAlias!: pulumi.Output<string>;
 
     /**
      * Create a NamespaceDisasterRecoveryConfig resource with the given unique name, arguments, and options.
@@ -112,13 +112,13 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceDisasterRecoveryConfigState | undefined;
-            inputs["aliasPrimaryConnectionString"] = state ? state.aliasPrimaryConnectionString : undefined;
-            inputs["aliasSecondaryConnectionString"] = state ? state.aliasSecondaryConnectionString : undefined;
             inputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
             inputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["partnerNamespaceId"] = state ? state.partnerNamespaceId : undefined;
+            inputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
             inputs["primaryNamespaceId"] = state ? state.primaryNamespaceId : undefined;
+            inputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
         } else {
             const args = argsOrState as NamespaceDisasterRecoveryConfigArgs | undefined;
             if ((!args || args.partnerNamespaceId === undefined) && !opts.urn) {
@@ -130,10 +130,10 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["partnerNamespaceId"] = args ? args.partnerNamespaceId : undefined;
             inputs["primaryNamespaceId"] = args ? args.primaryNamespaceId : undefined;
-            inputs["aliasPrimaryConnectionString"] = undefined /*out*/;
-            inputs["aliasSecondaryConnectionString"] = undefined /*out*/;
             inputs["defaultPrimaryKey"] = undefined /*out*/;
             inputs["defaultSecondaryKey"] = undefined /*out*/;
+            inputs["primaryConnectionStringAlias"] = undefined /*out*/;
+            inputs["secondaryConnectionStringAlias"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -146,14 +146,6 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NamespaceDisasterRecoveryConfig resources.
  */
 export interface NamespaceDisasterRecoveryConfigState {
-    /**
-     * The alias Primary Connection String for the ServiceBus Namespace.
-     */
-    aliasPrimaryConnectionString?: pulumi.Input<string>;
-    /**
-     * The alias Secondary Connection String for the ServiceBus Namespace
-     */
-    aliasSecondaryConnectionString?: pulumi.Input<string>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
@@ -171,9 +163,17 @@ export interface NamespaceDisasterRecoveryConfigState {
      */
     partnerNamespaceId?: pulumi.Input<string>;
     /**
+     * The alias Primary Connection String for the ServiceBus Namespace.
+     */
+    primaryConnectionStringAlias?: pulumi.Input<string>;
+    /**
      * The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
      */
     primaryNamespaceId?: pulumi.Input<string>;
+    /**
+     * The alias Secondary Connection String for the ServiceBus Namespace
+     */
+    secondaryConnectionStringAlias?: pulumi.Input<string>;
 }
 
 /**

@@ -682,6 +682,7 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: pulumi.Input<string>;
+        expiry?: pulumi.Input<string>;
         /**
          * The Hostname to use for the corresponding endpoint.
          */
@@ -694,6 +695,9 @@ export namespace apimanagement {
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
          */
         negotiateClientCertificate?: pulumi.Input<boolean>;
+        sslKeyvaultIdentityClientId?: pulumi.Input<string>;
+        subject?: pulumi.Input<string>;
+        thumbprint?: pulumi.Input<string>;
     }
 
     export interface CustomDomainManagement {
@@ -705,6 +709,7 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: pulumi.Input<string>;
+        expiry?: pulumi.Input<string>;
         /**
          * The Hostname to use for the corresponding endpoint.
          */
@@ -717,6 +722,9 @@ export namespace apimanagement {
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
          */
         negotiateClientCertificate?: pulumi.Input<boolean>;
+        sslKeyvaultIdentityClientId?: pulumi.Input<string>;
+        subject?: pulumi.Input<string>;
+        thumbprint?: pulumi.Input<string>;
     }
 
     export interface CustomDomainPortal {
@@ -728,6 +736,7 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: pulumi.Input<string>;
+        expiry?: pulumi.Input<string>;
         /**
          * The Hostname to use for the corresponding endpoint.
          */
@@ -740,6 +749,9 @@ export namespace apimanagement {
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
          */
         negotiateClientCertificate?: pulumi.Input<boolean>;
+        sslKeyvaultIdentityClientId?: pulumi.Input<string>;
+        subject?: pulumi.Input<string>;
+        thumbprint?: pulumi.Input<string>;
     }
 
     export interface CustomDomainProxy {
@@ -755,6 +767,7 @@ export namespace apimanagement {
          * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
          */
         defaultSslBinding?: pulumi.Input<boolean>;
+        expiry?: pulumi.Input<string>;
         /**
          * The Hostname to use for the API Proxy Endpoint.
          */
@@ -767,6 +780,9 @@ export namespace apimanagement {
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
          */
         negotiateClientCertificate?: pulumi.Input<boolean>;
+        sslKeyvaultIdentityClientId?: pulumi.Input<string>;
+        subject?: pulumi.Input<string>;
+        thumbprint?: pulumi.Input<string>;
     }
 
     export interface CustomDomainScm {
@@ -778,6 +794,7 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: pulumi.Input<string>;
+        expiry?: pulumi.Input<string>;
         /**
          * The Hostname to use for the corresponding endpoint.
          */
@@ -790,6 +807,9 @@ export namespace apimanagement {
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
          */
         negotiateClientCertificate?: pulumi.Input<boolean>;
+        sslKeyvaultIdentityClientId?: pulumi.Input<string>;
+        subject?: pulumi.Input<string>;
+        thumbprint?: pulumi.Input<string>;
     }
 
     export interface DiagnosticBackendRequest {
@@ -988,9 +1008,21 @@ export namespace apimanagement {
          */
         encodedCertificate: pulumi.Input<string>;
         /**
+         * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+         */
+        expiry?: pulumi.Input<string>;
+        /**
          * The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
          */
         storeName: pulumi.Input<string>;
+        /**
+         * The subject of the certificate.
+         */
+        subject?: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate.
+         */
+        thumbprint?: pulumi.Input<string>;
     }
 
     export interface ServiceHostnameConfiguration {
@@ -1026,6 +1058,10 @@ export namespace apimanagement {
          */
         certificatePassword?: pulumi.Input<string>;
         /**
+         * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+         */
+        expiry?: pulumi.Input<string>;
+        /**
          * The Hostname to use for the Management API.
          */
         hostName: pulumi.Input<string>;
@@ -1037,6 +1073,18 @@ export namespace apimanagement {
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: pulumi.Input<boolean>;
+        /**
+         * The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+         */
+        sslKeyvaultIdentityClientId?: pulumi.Input<string>;
+        /**
+         * The subject of the certificate.
+         */
+        subject?: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate.
+         */
+        thumbprint?: pulumi.Input<string>;
     }
 
     export interface ServiceHostnameConfigurationManagement {
@@ -1049,6 +1097,10 @@ export namespace apimanagement {
          */
         certificatePassword?: pulumi.Input<string>;
         /**
+         * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+         */
+        expiry?: pulumi.Input<string>;
+        /**
          * The Hostname to use for the Management API.
          */
         hostName: pulumi.Input<string>;
@@ -1060,6 +1112,18 @@ export namespace apimanagement {
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: pulumi.Input<boolean>;
+        /**
+         * The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+         */
+        sslKeyvaultIdentityClientId?: pulumi.Input<string>;
+        /**
+         * The subject of the certificate.
+         */
+        subject?: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate.
+         */
+        thumbprint?: pulumi.Input<string>;
     }
 
     export interface ServiceHostnameConfigurationPortal {
@@ -1072,6 +1136,10 @@ export namespace apimanagement {
          */
         certificatePassword?: pulumi.Input<string>;
         /**
+         * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+         */
+        expiry?: pulumi.Input<string>;
+        /**
          * The Hostname to use for the Management API.
          */
         hostName: pulumi.Input<string>;
@@ -1083,6 +1151,18 @@ export namespace apimanagement {
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: pulumi.Input<boolean>;
+        /**
+         * The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+         */
+        sslKeyvaultIdentityClientId?: pulumi.Input<string>;
+        /**
+         * The subject of the certificate.
+         */
+        subject?: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate.
+         */
+        thumbprint?: pulumi.Input<string>;
     }
 
     export interface ServiceHostnameConfigurationProxy {
@@ -1099,6 +1179,10 @@ export namespace apimanagement {
          */
         defaultSslBinding?: pulumi.Input<boolean>;
         /**
+         * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+         */
+        expiry?: pulumi.Input<string>;
+        /**
          * The Hostname to use for the Management API.
          */
         hostName: pulumi.Input<string>;
@@ -1110,6 +1194,18 @@ export namespace apimanagement {
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: pulumi.Input<boolean>;
+        /**
+         * The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+         */
+        sslKeyvaultIdentityClientId?: pulumi.Input<string>;
+        /**
+         * The subject of the certificate.
+         */
+        subject?: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate.
+         */
+        thumbprint?: pulumi.Input<string>;
     }
 
     export interface ServiceHostnameConfigurationScm {
@@ -1122,6 +1218,10 @@ export namespace apimanagement {
          */
         certificatePassword?: pulumi.Input<string>;
         /**
+         * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+         */
+        expiry?: pulumi.Input<string>;
+        /**
          * The Hostname to use for the Management API.
          */
         hostName: pulumi.Input<string>;
@@ -1133,6 +1233,18 @@ export namespace apimanagement {
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: pulumi.Input<boolean>;
+        /**
+         * The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+         */
+        sslKeyvaultIdentityClientId?: pulumi.Input<string>;
+        /**
+         * The subject of the certificate.
+         */
+        subject?: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate.
+         */
+        thumbprint?: pulumi.Input<string>;
     }
 
     export interface ServiceIdentity {
@@ -1301,6 +1413,7 @@ export namespace apimanagement {
 
 export namespace appconfiguration {
     export interface ConfigurationStoreIdentity {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The ID of the Principal (Client) in Azure Active Directory.
          */
@@ -1312,7 +1425,7 @@ export namespace appconfiguration {
         /**
          * Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface ConfigurationStorePrimaryReadKey {
@@ -1967,6 +2080,10 @@ export namespace appservice {
          * Should the App Service run in 32 bit mode, rather than 64 bit mode?
          */
         use32BitWorkerProcess?: pulumi.Input<boolean>;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+         */
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
          * Should WebSockets be enabled?
          */
@@ -3282,6 +3399,7 @@ export namespace appservice {
          * Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
          */
         use32BitWorkerProcess?: pulumi.Input<boolean>;
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
          * Should WebSockets be enabled?
          */
@@ -7421,6 +7539,10 @@ export namespace containerservice {
          * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
          */
         osDiskType?: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+         */
+        podSubnetId?: pulumi.Input<string>;
         proximityPlacementGroupId?: pulumi.Input<string>;
         /**
          * A mapping of tags to assign to the Node Pool.
@@ -9100,6 +9222,14 @@ export namespace datafactory {
          */
         container: pulumi.Input<string>;
         /**
+         * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFilenameEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicPathEnabled?: pulumi.Input<boolean>;
+        /**
          * The filename of the file in the blob container.
          */
         filename?: pulumi.Input<string>;
@@ -9122,6 +9252,14 @@ export namespace datafactory {
 
     export interface DatasetBinaryHttpServerLocation {
         /**
+         * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFilenameEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicPathEnabled?: pulumi.Input<boolean>;
+        /**
          * The filename of the file on the web server.
          */
         filename: pulumi.Input<string>;
@@ -9136,6 +9274,14 @@ export namespace datafactory {
     }
 
     export interface DatasetBinarySftpServerLocation {
+        /**
+         * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFilenameEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicPathEnabled?: pulumi.Input<boolean>;
         /**
          * The filename of the file on the SFTP server.
          */
@@ -9182,6 +9328,14 @@ export namespace datafactory {
          */
         container: pulumi.Input<string>;
         /**
+         * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFilenameEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicPathEnabled?: pulumi.Input<boolean>;
+        /**
          * The filename of the file.
          */
         filename?: pulumi.Input<string>;
@@ -9192,6 +9346,14 @@ export namespace datafactory {
     }
 
     export interface DatasetDelimitedTextHttpServerLocation {
+        /**
+         * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFilenameEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicPathEnabled?: pulumi.Input<boolean>;
         /**
          * The filename of the file on the web server.
          */
@@ -9242,6 +9404,14 @@ export namespace datafactory {
          */
         container: pulumi.Input<string>;
         /**
+         * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFilenameEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicPathEnabled?: pulumi.Input<boolean>;
+        /**
          * The filename of the file on the web server.
          */
         filename: pulumi.Input<string>;
@@ -9252,6 +9422,14 @@ export namespace datafactory {
     }
 
     export interface DatasetJsonHttpServerLocation {
+        /**
+         * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFilenameEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicPathEnabled?: pulumi.Input<boolean>;
         /**
          * The filename of the file on the web server.
          */
@@ -9302,6 +9480,14 @@ export namespace datafactory {
          */
         container: pulumi.Input<string>;
         /**
+         * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFilenameEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicPathEnabled?: pulumi.Input<boolean>;
+        /**
          * The filename of the file on the web server.
          */
         filename?: pulumi.Input<string>;
@@ -9312,6 +9498,14 @@ export namespace datafactory {
     }
 
     export interface DatasetParquetHttpServerLocation {
+        /**
+         * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFilenameEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicPathEnabled?: pulumi.Input<boolean>;
         /**
          * The filename of the file on the web server.
          */
@@ -10055,6 +10249,10 @@ export namespace desktopvirtualization {
 
 export namespace devtest {
     export interface GlobalVMShutdownScheduleNotificationSettings {
+        /**
+         * E-mail address to which the notification will be sent.
+         */
+        email?: pulumi.Input<string>;
         /**
          * Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
          */
@@ -16608,7 +16806,7 @@ export namespace mediaservices {
 export namespace monitoring {
     export interface AadDiagnosticSettingLog {
         /**
-         * The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `ServicePrincipalSignInLogs`.
+         * The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
          */
         category: pulumi.Input<string>;
         /**
@@ -16914,7 +17112,7 @@ export namespace monitoring {
          */
         operator: pulumi.Input<string>;
         /**
-         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -17033,7 +17231,7 @@ export namespace monitoring {
          */
         operator: pulumi.Input<string>;
         /**
-         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -17311,6 +17509,10 @@ export namespace monitoring {
          * One or more `dimensions` block as defined below.
          */
         dimensions?: pulumi.Input<pulumi.Input<inputs.monitoring.AutoscaleSettingProfileRuleMetricTriggerDimension>[]>;
+        /**
+         * Whether to enable metric divide by instance count.
+         */
+        divideByInstanceCount?: pulumi.Input<boolean>;
         /**
          * The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
          */
@@ -19283,6 +19485,8 @@ export namespace network {
 
     export interface FirewallPolicyDns {
         /**
+         * Should the network rule fqdn be enabled?
+         *
          * @deprecated This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
          */
         networkRuleFqdnEnabled?: pulumi.Input<boolean>;
@@ -19294,6 +19498,80 @@ export namespace network {
          * A list of custom DNS servers' IP addresses.
          */
         servers?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FirewallPolicyIdentity {
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Specifies a list of user assigned managed identities.
+         */
+        userAssignedIdentityIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FirewallPolicyIntrusionDetection {
+        /**
+         * In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+         */
+        mode?: pulumi.Input<string>;
+        /**
+         * One or more `signatureOverrides` blocks as defined below.
+         */
+        signatureOverrides?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyIntrusionDetectionSignatureOverride>[]>;
+        /**
+         * One or more `trafficBypass` blocks as defined below.
+         */
+        trafficBypasses?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyIntrusionDetectionTrafficBypass>[]>;
+    }
+
+    export interface FirewallPolicyIntrusionDetectionSignatureOverride {
+        /**
+         * 12-digit number (id) which identifies your signature.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * state can be any of "Off", "Alert" or "Deny".
+         */
+        state?: pulumi.Input<string>;
+    }
+
+    export interface FirewallPolicyIntrusionDetectionTrafficBypass {
+        /**
+         * The description for this bypass traffic setting.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
+         */
+        destinationAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
+         */
+        destinationIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
+         */
+        destinationPorts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name which should be used for this bypass traffic setting.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The protocols any of "ANY", "TCP", "ICMP", "UDP" that shall be bypassed by intrusion detection.
+         */
+        protocol: pulumi.Input<string>;
+        /**
+         * Specifies a list of source addresses that shall be bypassed by intrusion detection.
+         */
+        sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+         */
+        sourceIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface FirewallPolicyRuleCollectionGroupApplicationRuleCollection {
@@ -19470,6 +19748,17 @@ export namespace network {
          * A list of IP addresses or IP address ranges that will be skipped for threat detection.
          */
         ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FirewallPolicyTlsCertificate {
+        /**
+         * The ID of the Key Vault, where the secret or certificate is stored.
+         */
+        keyVaultSecretId: pulumi.Input<string>;
+        /**
+         * The name of the certificate.
+         */
+        name: pulumi.Input<string>;
     }
 
     export interface FirewallVirtualHub {
@@ -20061,7 +20350,7 @@ export namespace network {
          */
         actions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`,  `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+         * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
          */
         name: pulumi.Input<string>;
     }

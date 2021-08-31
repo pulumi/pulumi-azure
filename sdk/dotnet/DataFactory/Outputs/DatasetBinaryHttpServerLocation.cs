@@ -14,6 +14,14 @@ namespace Pulumi.Azure.DataFactory.Outputs
     public sealed class DatasetBinaryHttpServerLocation
     {
         /// <summary>
+        /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        public readonly bool? DynamicFilenameEnabled;
+        /// <summary>
+        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        public readonly bool? DynamicPathEnabled;
+        /// <summary>
         /// The filename of the file on the web server.
         /// </summary>
         public readonly string Filename;
@@ -28,12 +36,18 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
         [OutputConstructor]
         private DatasetBinaryHttpServerLocation(
+            bool? dynamicFilenameEnabled,
+
+            bool? dynamicPathEnabled,
+
             string filename,
 
             string path,
 
             string relativeUrl)
         {
+            DynamicFilenameEnabled = dynamicFilenameEnabled;
+            DynamicPathEnabled = dynamicPathEnabled;
             Filename = filename;
             Path = path;
             RelativeUrl = relativeUrl;

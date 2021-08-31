@@ -13,6 +13,12 @@ namespace Pulumi.Azure.DevTest.Inputs
     public sealed class GlobalVMShutdownScheduleNotificationSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// E-mail address to which the notification will be sent.
+        /// </summary>
+        [Input("email")]
+        public Input<string>? Email { get; set; }
+
+        /// <summary>
         /// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
         /// </summary>
         [Input("enabled", required: true)]

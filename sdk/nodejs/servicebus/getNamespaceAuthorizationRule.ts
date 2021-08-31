@@ -70,6 +70,10 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly primaryConnectionString: string;
     /**
+     * The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+     */
+    readonly primaryConnectionStringAlias: string;
+    /**
      * The primary access key for the authorization rule.
      */
     readonly primaryKey: string;
@@ -78,6 +82,10 @@ export interface GetNamespaceAuthorizationRuleResult {
      * The secondary connection string for the authorization rule.
      */
     readonly secondaryConnectionString: string;
+    /**
+     * The alias Secondary Connection String for the ServiceBus Namespace
+     */
+    readonly secondaryConnectionStringAlias: string;
     /**
      * The secondary access key for the authorization rule.
      */

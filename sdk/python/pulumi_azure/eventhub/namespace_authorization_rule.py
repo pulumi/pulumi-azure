@@ -120,9 +120,11 @@ class _NamespaceAuthorizationRuleState:
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  primary_connection_string: Optional[pulumi.Input[str]] = None,
+                 primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_connection_string: Optional[pulumi.Input[str]] = None,
+                 secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[bool]] = None):
         """
@@ -132,9 +134,11 @@ class _NamespaceAuthorizationRuleState:
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_connection_string: The Primary Connection String for the ServiceBus Namespace authorization Rule.
+        :param pulumi.Input[str] primary_connection_string_alias: The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
         :param pulumi.Input[str] primary_key: The Primary Key for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string: The Secondary Connection String for the ServiceBus Namespace authorization Rule.
+        :param pulumi.Input[str] secondary_connection_string_alias: The alias Secondary Connection String for the ServiceBus Namespace
         :param pulumi.Input[str] secondary_key: The Secondary Key for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         """
@@ -148,12 +152,16 @@ class _NamespaceAuthorizationRuleState:
             pulumi.set(__self__, "namespace_name", namespace_name)
         if primary_connection_string is not None:
             pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+        if primary_connection_string_alias is not None:
+            pulumi.set(__self__, "primary_connection_string_alias", primary_connection_string_alias)
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_connection_string is not None:
             pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+        if secondary_connection_string_alias is not None:
+            pulumi.set(__self__, "secondary_connection_string_alias", secondary_connection_string_alias)
         if secondary_key is not None:
             pulumi.set(__self__, "secondary_key", secondary_key)
         if send is not None:
@@ -220,6 +228,18 @@ class _NamespaceAuthorizationRuleState:
         pulumi.set(self, "primary_connection_string", value)
 
     @property
+    @pulumi.getter(name="primaryConnectionStringAlias")
+    def primary_connection_string_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+        """
+        return pulumi.get(self, "primary_connection_string_alias")
+
+    @primary_connection_string_alias.setter
+    def primary_connection_string_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_connection_string_alias", value)
+
+    @property
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -254,6 +274,18 @@ class _NamespaceAuthorizationRuleState:
     @secondary_connection_string.setter
     def secondary_connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secondary_connection_string", value)
+
+    @property
+    @pulumi.getter(name="secondaryConnectionStringAlias")
+    def secondary_connection_string_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alias Secondary Connection String for the ServiceBus Namespace
+        """
+        return pulumi.get(self, "secondary_connection_string_alias")
+
+    @secondary_connection_string_alias.setter
+    def secondary_connection_string_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_connection_string_alias", value)
 
     @property
     @pulumi.getter(name="secondaryKey")
@@ -423,8 +455,10 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["send"] = send
             __props__.__dict__["primary_connection_string"] = None
+            __props__.__dict__["primary_connection_string_alias"] = None
             __props__.__dict__["primary_key"] = None
             __props__.__dict__["secondary_connection_string"] = None
+            __props__.__dict__["secondary_connection_string_alias"] = None
             __props__.__dict__["secondary_key"] = None
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule',
@@ -441,9 +475,11 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
             primary_connection_string: Optional[pulumi.Input[str]] = None,
+            primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_connection_string: Optional[pulumi.Input[str]] = None,
+            secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
             secondary_key: Optional[pulumi.Input[str]] = None,
             send: Optional[pulumi.Input[bool]] = None) -> 'NamespaceAuthorizationRule':
         """
@@ -458,9 +494,11 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_connection_string: The Primary Connection String for the ServiceBus Namespace authorization Rule.
+        :param pulumi.Input[str] primary_connection_string_alias: The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
         :param pulumi.Input[str] primary_key: The Primary Key for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string: The Secondary Connection String for the ServiceBus Namespace authorization Rule.
+        :param pulumi.Input[str] secondary_connection_string_alias: The alias Secondary Connection String for the ServiceBus Namespace
         :param pulumi.Input[str] secondary_key: The Secondary Key for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         """
@@ -473,9 +511,11 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["namespace_name"] = namespace_name
         __props__.__dict__["primary_connection_string"] = primary_connection_string
+        __props__.__dict__["primary_connection_string_alias"] = primary_connection_string_alias
         __props__.__dict__["primary_key"] = primary_key
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secondary_connection_string"] = secondary_connection_string
+        __props__.__dict__["secondary_connection_string_alias"] = secondary_connection_string_alias
         __props__.__dict__["secondary_key"] = secondary_key
         __props__.__dict__["send"] = send
         return NamespaceAuthorizationRule(resource_name, opts=opts, __props__=__props__)
@@ -521,6 +561,14 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         return pulumi.get(self, "primary_connection_string")
 
     @property
+    @pulumi.getter(name="primaryConnectionStringAlias")
+    def primary_connection_string_alias(self) -> pulumi.Output[str]:
+        """
+        The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+        """
+        return pulumi.get(self, "primary_connection_string_alias")
+
+    @property
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> pulumi.Output[str]:
         """
@@ -543,6 +591,14 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         The Secondary Connection String for the ServiceBus Namespace authorization Rule.
         """
         return pulumi.get(self, "secondary_connection_string")
+
+    @property
+    @pulumi.getter(name="secondaryConnectionStringAlias")
+    def secondary_connection_string_alias(self) -> pulumi.Output[str]:
+        """
+        The alias Secondary Connection String for the ServiceBus Namespace
+        """
+        return pulumi.get(self, "secondary_connection_string_alias")
 
     @property
     @pulumi.getter(name="secondaryKey")

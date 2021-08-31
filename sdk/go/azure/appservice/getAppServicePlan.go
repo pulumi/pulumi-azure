@@ -76,4 +76,6 @@ type GetAppServicePlanResult struct {
 	Sku GetAppServicePlanSku `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// App Service Plan perform availability zone balancing.
+	ZoneRedundant bool `pulumi:"zoneRedundant"`
 }

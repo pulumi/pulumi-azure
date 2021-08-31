@@ -19,6 +19,18 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string> Container { get; set; } = null!;
 
         /// <summary>
+        /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        [Input("dynamicFilenameEnabled")]
+        public Input<bool>? DynamicFilenameEnabled { get; set; }
+
+        /// <summary>
+        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        [Input("dynamicPathEnabled")]
+        public Input<bool>? DynamicPathEnabled { get; set; }
+
+        /// <summary>
         /// The filename of the file in the blob container.
         /// </summary>
         [Input("filename")]

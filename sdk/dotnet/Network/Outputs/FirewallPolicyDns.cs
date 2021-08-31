@@ -13,6 +13,9 @@ namespace Pulumi.Azure.Network.Outputs
     [OutputType]
     public sealed class FirewallPolicyDns
     {
+        /// <summary>
+        /// Should the network rule fqdn be enabled?
+        /// </summary>
         public readonly bool? NetworkRuleFqdnEnabled;
         /// <summary>
         /// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
