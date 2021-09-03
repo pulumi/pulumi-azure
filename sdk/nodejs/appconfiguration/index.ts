@@ -5,16 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./configurationKey";
 export * from "./configurationStore";
 export * from "./getConfigurationStore";
 
 // Import resources to register:
+import { ConfigurationKey } from "./configurationKey";
 import { ConfigurationStore } from "./configurationStore";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:appconfiguration/configurationKey:ConfigurationKey":
+                return new ConfigurationKey(name, <any>undefined, { urn })
             case "azure:appconfiguration/configurationStore:ConfigurationStore":
                 return new ConfigurationStore(name, <any>undefined, { urn })
             default:
@@ -22,4 +26,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "appconfiguration/configurationKey", _module)
 pulumi.runtime.registerResourceModule("azure", "appconfiguration/configurationStore", _module)

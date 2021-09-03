@@ -285,6 +285,112 @@ func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) KeyVersion() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type IntegrationAccountPartnerBusinessIdentity struct {
+	// The authenticating body that provides unique business identities to organizations.
+	Qualifier string `pulumi:"qualifier"`
+	// The value that identifies the documents that your logic apps receive.
+	Value string `pulumi:"value"`
+}
+
+// IntegrationAccountPartnerBusinessIdentityInput is an input type that accepts IntegrationAccountPartnerBusinessIdentityArgs and IntegrationAccountPartnerBusinessIdentityOutput values.
+// You can construct a concrete instance of `IntegrationAccountPartnerBusinessIdentityInput` via:
+//
+//          IntegrationAccountPartnerBusinessIdentityArgs{...}
+type IntegrationAccountPartnerBusinessIdentityInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountPartnerBusinessIdentityOutput() IntegrationAccountPartnerBusinessIdentityOutput
+	ToIntegrationAccountPartnerBusinessIdentityOutputWithContext(context.Context) IntegrationAccountPartnerBusinessIdentityOutput
+}
+
+type IntegrationAccountPartnerBusinessIdentityArgs struct {
+	// The authenticating body that provides unique business identities to organizations.
+	Qualifier pulumi.StringInput `pulumi:"qualifier"`
+	// The value that identifies the documents that your logic apps receive.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IntegrationAccountPartnerBusinessIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountPartnerBusinessIdentity)(nil)).Elem()
+}
+
+func (i IntegrationAccountPartnerBusinessIdentityArgs) ToIntegrationAccountPartnerBusinessIdentityOutput() IntegrationAccountPartnerBusinessIdentityOutput {
+	return i.ToIntegrationAccountPartnerBusinessIdentityOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountPartnerBusinessIdentityArgs) ToIntegrationAccountPartnerBusinessIdentityOutputWithContext(ctx context.Context) IntegrationAccountPartnerBusinessIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerBusinessIdentityOutput)
+}
+
+// IntegrationAccountPartnerBusinessIdentityArrayInput is an input type that accepts IntegrationAccountPartnerBusinessIdentityArray and IntegrationAccountPartnerBusinessIdentityArrayOutput values.
+// You can construct a concrete instance of `IntegrationAccountPartnerBusinessIdentityArrayInput` via:
+//
+//          IntegrationAccountPartnerBusinessIdentityArray{ IntegrationAccountPartnerBusinessIdentityArgs{...} }
+type IntegrationAccountPartnerBusinessIdentityArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountPartnerBusinessIdentityArrayOutput() IntegrationAccountPartnerBusinessIdentityArrayOutput
+	ToIntegrationAccountPartnerBusinessIdentityArrayOutputWithContext(context.Context) IntegrationAccountPartnerBusinessIdentityArrayOutput
+}
+
+type IntegrationAccountPartnerBusinessIdentityArray []IntegrationAccountPartnerBusinessIdentityInput
+
+func (IntegrationAccountPartnerBusinessIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountPartnerBusinessIdentity)(nil)).Elem()
+}
+
+func (i IntegrationAccountPartnerBusinessIdentityArray) ToIntegrationAccountPartnerBusinessIdentityArrayOutput() IntegrationAccountPartnerBusinessIdentityArrayOutput {
+	return i.ToIntegrationAccountPartnerBusinessIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountPartnerBusinessIdentityArray) ToIntegrationAccountPartnerBusinessIdentityArrayOutputWithContext(ctx context.Context) IntegrationAccountPartnerBusinessIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerBusinessIdentityArrayOutput)
+}
+
+type IntegrationAccountPartnerBusinessIdentityOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountPartnerBusinessIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountPartnerBusinessIdentity)(nil)).Elem()
+}
+
+func (o IntegrationAccountPartnerBusinessIdentityOutput) ToIntegrationAccountPartnerBusinessIdentityOutput() IntegrationAccountPartnerBusinessIdentityOutput {
+	return o
+}
+
+func (o IntegrationAccountPartnerBusinessIdentityOutput) ToIntegrationAccountPartnerBusinessIdentityOutputWithContext(ctx context.Context) IntegrationAccountPartnerBusinessIdentityOutput {
+	return o
+}
+
+// The authenticating body that provides unique business identities to organizations.
+func (o IntegrationAccountPartnerBusinessIdentityOutput) Qualifier() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountPartnerBusinessIdentity) string { return v.Qualifier }).(pulumi.StringOutput)
+}
+
+// The value that identifies the documents that your logic apps receive.
+func (o IntegrationAccountPartnerBusinessIdentityOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountPartnerBusinessIdentity) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IntegrationAccountPartnerBusinessIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountPartnerBusinessIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountPartnerBusinessIdentity)(nil)).Elem()
+}
+
+func (o IntegrationAccountPartnerBusinessIdentityArrayOutput) ToIntegrationAccountPartnerBusinessIdentityArrayOutput() IntegrationAccountPartnerBusinessIdentityArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountPartnerBusinessIdentityArrayOutput) ToIntegrationAccountPartnerBusinessIdentityArrayOutputWithContext(ctx context.Context) IntegrationAccountPartnerBusinessIdentityArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountPartnerBusinessIdentityArrayOutput) Index(i pulumi.IntInput) IntegrationAccountPartnerBusinessIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAccountPartnerBusinessIdentity {
+		return vs[0].([]IntegrationAccountPartnerBusinessIdentity)[vs[1].(int)]
+	}).(IntegrationAccountPartnerBusinessIdentityOutput)
+}
+
 type TriggerRecurrenceSchedule struct {
 	// Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
 	AtTheseHours []int `pulumi:"atTheseHours"`
@@ -459,6 +565,8 @@ func init() {
 	pulumi.RegisterOutputType(ActionHttpRunAfterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountCertificateKeyVaultKeyOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountCertificateKeyVaultKeyPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountPartnerBusinessIdentityOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountPartnerBusinessIdentityArrayOutput{})
 	pulumi.RegisterOutputType(TriggerRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(TriggerRecurrenceSchedulePtrOutput{})
 }

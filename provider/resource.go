@@ -645,7 +645,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// Cognitive
-			"azurerm_cognitive_account": {Tok: azureResource(azureCognitive, "Account")},
+			"azurerm_cognitive_account":                      {Tok: azureResource(azureCognitive, "Account")},
+			"azurerm_cognitive_account_customer_managed_key": {Tok: azureResource(azureCognitive, "AccountCustomerManagedKey")},
 
 			// Compute
 			"azurerm_availability_set": {
@@ -1039,7 +1040,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_integration_service_environment": {
 				Tok: azureResource(azureLogicApps, "InterationServiceEnvironment"),
 			},
-			"azurerm_logic_app_integration_account_schema": {Tok: azureResource(azureLogicApps, "IntegrationAccountSchema")},
+			"azurerm_logic_app_integration_account_schema":  {Tok: azureResource(azureLogicApps, "IntegrationAccountSchema")},
+			"azurerm_logic_app_integration_account_partner": {Tok: azureResource(azureLogicApps, "IntegrationAccountPartner")},
+			"azurerm_logic_app_integration_account_map":     {Tok: azureResource(azureLogicApps, "IntegrationAccountMap")},
 
 			// MariaDB
 			"azurerm_mariadb_configuration": {
@@ -1750,7 +1753,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_netapp_snapshot": {Tok: azureResource(azureNetapp, "Snapshot")},
 
 			//AppConfiguration
-			"azurerm_app_configuration": {Tok: azureResource(azureAppConfiguration, "ConfigurationStore")},
+			"azurerm_app_configuration":     {Tok: azureResource(azureAppConfiguration, "ConfigurationStore")},
+			"azurerm_app_configuration_key": {Tok: azureResource(azureAppConfiguration, "ConfigurationKey")},
 
 			// Backup
 			"azurerm_backup_container_storage_account": {Tok: azureResource(azureBackup, "ContainerStorageAccount")},
@@ -1982,6 +1986,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_client_config":                     {Tok: azureDataSource(azureCore, "getClientConfig")},
 			"azurerm_container_registry":                {Tok: azureDataSource(azureContainerService, "getRegistry")},
 			"azurerm_cosmosdb_account":                  {Tok: azureDataSource(azureCosmosDB, "getAccount")},
+			"azurerm_cosmosdb_mongo_database":           {Tok: azureDataSource(azureCosmosDB, "getMongoDatabase")},
 			"azurerm_data_lake_store":                   {Tok: azureDataSource(azureDatalake, "getStore")},
 			"azurerm_data_protection_backup_vault":      {Tok: azureDataSource(azureDataProtection, "getBackupVault")},
 			"azurerm_data_share_account":                {Tok: azureDataSource(azureDataShare, "getAccount")},

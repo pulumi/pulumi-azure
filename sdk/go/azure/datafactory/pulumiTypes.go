@@ -7848,6 +7848,158 @@ func (o LinkedCustomServiceIntegrationRuntimePtrOutput) Parameters() pulumi.Stri
 	}).(pulumi.StringMapOutput)
 }
 
+type LinkedServiceAzureBlobStorageKeyVaultSasToken struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores the sas token.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceAzureBlobStorageKeyVaultSasTokenInput is an input type that accepts LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs and LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureBlobStorageKeyVaultSasTokenInput` via:
+//
+//          LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{...}
+type LinkedServiceAzureBlobStorageKeyVaultSasTokenInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput
+	ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutputWithContext(context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput
+}
+
+type LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores the sas token.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureBlobStorageKeyVaultSasToken)(nil)).Elem()
+}
+
+func (i LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput {
+	return i.ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput)
+}
+
+func (i LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
+	return i.ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput).ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrInput is an input type that accepts LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs, LinkedServiceAzureBlobStorageKeyVaultSasTokenPtr and LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrInput` via:
+//
+//          LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput
+	ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput
+}
+
+type linkedServiceAzureBlobStorageKeyVaultSasTokenPtrType LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs
+
+func LinkedServiceAzureBlobStorageKeyVaultSasTokenPtr(v *LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrInput {
+	return (*linkedServiceAzureBlobStorageKeyVaultSasTokenPtrType)(v)
+}
+
+func (*linkedServiceAzureBlobStorageKeyVaultSasTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureBlobStorageKeyVaultSasToken)(nil)).Elem()
+}
+
+func (i *linkedServiceAzureBlobStorageKeyVaultSasTokenPtrType) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
+	return i.ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceAzureBlobStorageKeyVaultSasTokenPtrType) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput)
+}
+
+type LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureBlobStorageKeyVaultSasToken)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput {
+	return o
+}
+
+func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput {
+	return o
+}
+
+func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
+	return o.ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureBlobStorageKeyVaultSasToken) *LinkedServiceAzureBlobStorageKeyVaultSasToken {
+		return &v
+	}).(LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureBlobStorageKeyVaultSasToken) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores the sas token.
+func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureBlobStorageKeyVaultSasToken) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureBlobStorageKeyVaultSasToken)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) Elem() LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureBlobStorageKeyVaultSasToken) LinkedServiceAzureBlobStorageKeyVaultSasToken {
+		return *v
+	}).(LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureBlobStorageKeyVaultSasToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores the sas token.
+func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureBlobStorageKeyVaultSasToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinkedServiceAzureDatabricksInstancePool struct {
 	// Spark version of a the cluster.
 	ClusterVersion string `pulumi:"clusterVersion"`
@@ -8639,6 +8791,156 @@ func (o LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput) LinkedServiceNam
 // Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
 func (o LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureFileStorageKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+type LinkedServiceAzureFunctionKeyVaultKey struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores the system key of the Azure Function.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceAzureFunctionKeyVaultKeyInput is an input type that accepts LinkedServiceAzureFunctionKeyVaultKeyArgs and LinkedServiceAzureFunctionKeyVaultKeyOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureFunctionKeyVaultKeyInput` via:
+//
+//          LinkedServiceAzureFunctionKeyVaultKeyArgs{...}
+type LinkedServiceAzureFunctionKeyVaultKeyInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureFunctionKeyVaultKeyOutput() LinkedServiceAzureFunctionKeyVaultKeyOutput
+	ToLinkedServiceAzureFunctionKeyVaultKeyOutputWithContext(context.Context) LinkedServiceAzureFunctionKeyVaultKeyOutput
+}
+
+type LinkedServiceAzureFunctionKeyVaultKeyArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores the system key of the Azure Function.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceAzureFunctionKeyVaultKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureFunctionKeyVaultKey)(nil)).Elem()
+}
+
+func (i LinkedServiceAzureFunctionKeyVaultKeyArgs) ToLinkedServiceAzureFunctionKeyVaultKeyOutput() LinkedServiceAzureFunctionKeyVaultKeyOutput {
+	return i.ToLinkedServiceAzureFunctionKeyVaultKeyOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureFunctionKeyVaultKeyArgs) ToLinkedServiceAzureFunctionKeyVaultKeyOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionKeyVaultKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFunctionKeyVaultKeyOutput)
+}
+
+func (i LinkedServiceAzureFunctionKeyVaultKeyArgs) ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutput() LinkedServiceAzureFunctionKeyVaultKeyPtrOutput {
+	return i.ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureFunctionKeyVaultKeyArgs) ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionKeyVaultKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFunctionKeyVaultKeyOutput).ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceAzureFunctionKeyVaultKeyPtrInput is an input type that accepts LinkedServiceAzureFunctionKeyVaultKeyArgs, LinkedServiceAzureFunctionKeyVaultKeyPtr and LinkedServiceAzureFunctionKeyVaultKeyPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureFunctionKeyVaultKeyPtrInput` via:
+//
+//          LinkedServiceAzureFunctionKeyVaultKeyArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceAzureFunctionKeyVaultKeyPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutput() LinkedServiceAzureFunctionKeyVaultKeyPtrOutput
+	ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutputWithContext(context.Context) LinkedServiceAzureFunctionKeyVaultKeyPtrOutput
+}
+
+type linkedServiceAzureFunctionKeyVaultKeyPtrType LinkedServiceAzureFunctionKeyVaultKeyArgs
+
+func LinkedServiceAzureFunctionKeyVaultKeyPtr(v *LinkedServiceAzureFunctionKeyVaultKeyArgs) LinkedServiceAzureFunctionKeyVaultKeyPtrInput {
+	return (*linkedServiceAzureFunctionKeyVaultKeyPtrType)(v)
+}
+
+func (*linkedServiceAzureFunctionKeyVaultKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureFunctionKeyVaultKey)(nil)).Elem()
+}
+
+func (i *linkedServiceAzureFunctionKeyVaultKeyPtrType) ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutput() LinkedServiceAzureFunctionKeyVaultKeyPtrOutput {
+	return i.ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceAzureFunctionKeyVaultKeyPtrType) ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionKeyVaultKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFunctionKeyVaultKeyPtrOutput)
+}
+
+type LinkedServiceAzureFunctionKeyVaultKeyOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureFunctionKeyVaultKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureFunctionKeyVaultKey)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureFunctionKeyVaultKeyOutput) ToLinkedServiceAzureFunctionKeyVaultKeyOutput() LinkedServiceAzureFunctionKeyVaultKeyOutput {
+	return o
+}
+
+func (o LinkedServiceAzureFunctionKeyVaultKeyOutput) ToLinkedServiceAzureFunctionKeyVaultKeyOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionKeyVaultKeyOutput {
+	return o
+}
+
+func (o LinkedServiceAzureFunctionKeyVaultKeyOutput) ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutput() LinkedServiceAzureFunctionKeyVaultKeyPtrOutput {
+	return o.ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceAzureFunctionKeyVaultKeyOutput) ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionKeyVaultKeyPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureFunctionKeyVaultKey) *LinkedServiceAzureFunctionKeyVaultKey {
+		return &v
+	}).(LinkedServiceAzureFunctionKeyVaultKeyPtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceAzureFunctionKeyVaultKeyOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureFunctionKeyVaultKey) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores the system key of the Azure Function.
+func (o LinkedServiceAzureFunctionKeyVaultKeyOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureFunctionKeyVaultKey) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceAzureFunctionKeyVaultKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureFunctionKeyVaultKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureFunctionKeyVaultKey)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureFunctionKeyVaultKeyPtrOutput) ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutput() LinkedServiceAzureFunctionKeyVaultKeyPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureFunctionKeyVaultKeyPtrOutput) ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionKeyVaultKeyPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureFunctionKeyVaultKeyPtrOutput) Elem() LinkedServiceAzureFunctionKeyVaultKeyOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureFunctionKeyVaultKey) LinkedServiceAzureFunctionKeyVaultKey { return *v }).(LinkedServiceAzureFunctionKeyVaultKeyOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceAzureFunctionKeyVaultKeyPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureFunctionKeyVaultKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores the system key of the Azure Function.
+func (o LinkedServiceAzureFunctionKeyVaultKeyPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureFunctionKeyVaultKey) *string {
 		if v == nil {
 			return nil
 		}
@@ -10799,6 +11101,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisVnetIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(LinkedCustomServiceIntegrationRuntimeOutput{})
 	pulumi.RegisterOutputType(LinkedCustomServiceIntegrationRuntimePtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksInstancePoolOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksInstancePoolPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksKeyVaultPasswordOutput{})
@@ -10807,6 +11111,8 @@ func init() {
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksNewClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFileStorageKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureFunctionKeyVaultKeyOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureFunctionKeyVaultKeyPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput{})

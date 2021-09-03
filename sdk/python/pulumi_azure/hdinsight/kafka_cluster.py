@@ -27,6 +27,7 @@ class KafkaClusterArgs:
                  monitor: Optional[pulumi.Input['KafkaClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rest_proxy: Optional[pulumi.Input['KafkaClusterRestProxyArgs']] = None,
+                 security_profile: Optional[pulumi.Input['KafkaClusterSecurityProfileArgs']] = None,
                  storage_account_gen2: Optional[pulumi.Input['KafkaClusterStorageAccountGen2Args']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -45,6 +46,7 @@ class KafkaClusterArgs:
         :param pulumi.Input['KafkaClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterRestProxyArgs'] rest_proxy: A `rest_proxy` block as defined below.
+        :param pulumi.Input['KafkaClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input['KafkaClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Kafka Cluster.
@@ -68,6 +70,8 @@ class KafkaClusterArgs:
             pulumi.set(__self__, "name", name)
         if rest_proxy is not None:
             pulumi.set(__self__, "rest_proxy", rest_proxy)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if storage_account_gen2 is not None:
             pulumi.set(__self__, "storage_account_gen2", storage_account_gen2)
         if storage_accounts is not None:
@@ -222,6 +226,18 @@ class KafkaClusterArgs:
         pulumi.set(self, "rest_proxy", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['KafkaClusterSecurityProfileArgs']]:
+        """
+        A `security_profile` block as defined below.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['KafkaClusterSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
     @pulumi.getter(name="storageAccountGen2")
     def storage_account_gen2(self) -> Optional[pulumi.Input['KafkaClusterStorageAccountGen2Args']]:
         """
@@ -286,6 +302,7 @@ class _KafkaClusterState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rest_proxy: Optional[pulumi.Input['KafkaClusterRestProxyArgs']] = None,
                  roles: Optional[pulumi.Input['KafkaClusterRolesArgs']] = None,
+                 security_profile: Optional[pulumi.Input['KafkaClusterSecurityProfileArgs']] = None,
                  ssh_endpoint: Optional[pulumi.Input[str]] = None,
                  storage_account_gen2: Optional[pulumi.Input['KafkaClusterStorageAccountGen2Args']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStorageAccountArgs']]]] = None,
@@ -307,6 +324,7 @@ class _KafkaClusterState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterRestProxyArgs'] rest_proxy: A `rest_proxy` block as defined below.
         :param pulumi.Input['KafkaClusterRolesArgs'] roles: A `roles` block as defined below.
+        :param pulumi.Input['KafkaClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
         :param pulumi.Input['KafkaClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
@@ -340,6 +358,8 @@ class _KafkaClusterState:
             pulumi.set(__self__, "rest_proxy", rest_proxy)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if ssh_endpoint is not None:
             pulumi.set(__self__, "ssh_endpoint", ssh_endpoint)
         if storage_account_gen2 is not None:
@@ -510,6 +530,18 @@ class _KafkaClusterState:
         pulumi.set(self, "roles", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['KafkaClusterSecurityProfileArgs']]:
+        """
+        A `security_profile` block as defined below.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['KafkaClusterSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
     @pulumi.getter(name="sshEndpoint")
     def ssh_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -598,6 +630,7 @@ class KafkaCluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rest_proxy: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['KafkaClusterSecurityProfileArgs']]] = None,
                  storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -682,6 +715,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']] rest_proxy: A `rest_proxy` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']] roles: A `roles` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KafkaClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Kafka Cluster.
@@ -785,6 +819,7 @@ class KafkaCluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rest_proxy: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['KafkaClusterSecurityProfileArgs']]] = None,
                  storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -823,6 +858,7 @@ class KafkaCluster(pulumi.CustomResource):
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
+            __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["storage_account_gen2"] = storage_account_gen2
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
@@ -856,6 +892,7 @@ class KafkaCluster(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             rest_proxy: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']]] = None,
             roles: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']]] = None,
+            security_profile: Optional[pulumi.Input[pulumi.InputType['KafkaClusterSecurityProfileArgs']]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
             storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountArgs']]]]] = None,
@@ -882,6 +919,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']] rest_proxy: A `rest_proxy` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']] roles: A `roles` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KafkaClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
         :param pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
@@ -906,6 +944,7 @@ class KafkaCluster(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["rest_proxy"] = rest_proxy
         __props__.__dict__["roles"] = roles
+        __props__.__dict__["security_profile"] = security_profile
         __props__.__dict__["ssh_endpoint"] = ssh_endpoint
         __props__.__dict__["storage_account_gen2"] = storage_account_gen2
         __props__.__dict__["storage_accounts"] = storage_accounts
@@ -1017,6 +1056,14 @@ class KafkaCluster(pulumi.CustomResource):
         A `roles` block as defined below.
         """
         return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> pulumi.Output[Optional['outputs.KafkaClusterSecurityProfile']]:
+        """
+        A `security_profile` block as defined below.
+        """
+        return pulumi.get(self, "security_profile")
 
     @property
     @pulumi.getter(name="sshEndpoint")

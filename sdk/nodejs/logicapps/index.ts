@@ -11,6 +11,8 @@ export * from "./getIntegrationAccount";
 export * from "./getWorkflow";
 export * from "./integrationAccount";
 export * from "./integrationAccountCertificate";
+export * from "./integrationAccountMap";
+export * from "./integrationAccountPartner";
 export * from "./integrationAccountSchema";
 export * from "./integrationAccountSession";
 export * from "./interationServiceEnvironment";
@@ -24,6 +26,8 @@ import { ActionCustom } from "./actionCustom";
 import { ActionHttp } from "./actionHttp";
 import { IntegrationAccount } from "./integrationAccount";
 import { IntegrationAccountCertificate } from "./integrationAccountCertificate";
+import { IntegrationAccountMap } from "./integrationAccountMap";
+import { IntegrationAccountPartner } from "./integrationAccountPartner";
 import { IntegrationAccountSchema } from "./integrationAccountSchema";
 import { IntegrationAccountSession } from "./integrationAccountSession";
 import { InterationServiceEnvironment } from "./interationServiceEnvironment";
@@ -44,6 +48,10 @@ const _module = {
                 return new IntegrationAccount(name, <any>undefined, { urn })
             case "azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate":
                 return new IntegrationAccountCertificate(name, <any>undefined, { urn })
+            case "azure:logicapps/integrationAccountMap:IntegrationAccountMap":
+                return new IntegrationAccountMap(name, <any>undefined, { urn })
+            case "azure:logicapps/integrationAccountPartner:IntegrationAccountPartner":
+                return new IntegrationAccountPartner(name, <any>undefined, { urn })
             case "azure:logicapps/integrationAccountSchema:IntegrationAccountSchema":
                 return new IntegrationAccountSchema(name, <any>undefined, { urn })
             case "azure:logicapps/integrationAccountSession:IntegrationAccountSession":
@@ -67,6 +75,8 @@ pulumi.runtime.registerResourceModule("azure", "logicapps/actionCustom", _module
 pulumi.runtime.registerResourceModule("azure", "logicapps/actionHttp", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccount", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountCertificate", _module)
+pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountMap", _module)
+pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountPartner", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountSchema", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountSession", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/interationServiceEnvironment", _module)

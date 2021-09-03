@@ -452,6 +452,12 @@ func (o PolicySetDefinitionPolicyDefinitionReferenceArrayOutput) Index(i pulumi.
 }
 
 type VirtualMachineConfigurationAssignmentConfiguration struct {
+	// The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
+	AssignmentType *string `pulumi:"assignmentType"`
+	// The content hash for the Guest Configuration package.
+	ContentHash *string `pulumi:"contentHash"`
+	// The content URI where the Guest Configuration package is stored.
+	ContentUri *string `pulumi:"contentUri"`
 	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
 	Name string `pulumi:"name"`
 	// One or more `parameter` blocks which define what configuration parameters and values against.
@@ -472,6 +478,12 @@ type VirtualMachineConfigurationAssignmentConfigurationInput interface {
 }
 
 type VirtualMachineConfigurationAssignmentConfigurationArgs struct {
+	// The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
+	AssignmentType pulumi.StringPtrInput `pulumi:"assignmentType"`
+	// The content hash for the Guest Configuration package.
+	ContentHash pulumi.StringPtrInput `pulumi:"contentHash"`
+	// The content URI where the Guest Configuration package is stored.
+	ContentUri pulumi.StringPtrInput `pulumi:"contentUri"`
 	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
 	Name pulumi.StringInput `pulumi:"name"`
 	// One or more `parameter` blocks which define what configuration parameters and values against.
@@ -557,6 +569,21 @@ func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ToVirtualMachi
 	}).(VirtualMachineConfigurationAssignmentConfigurationPtrOutput)
 }
 
+// The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
+func (o VirtualMachineConfigurationAssignmentConfigurationOutput) AssignmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) *string { return v.AssignmentType }).(pulumi.StringPtrOutput)
+}
+
+// The content hash for the Guest Configuration package.
+func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ContentHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) *string { return v.ContentHash }).(pulumi.StringPtrOutput)
+}
+
+// The content URI where the Guest Configuration package is stored.
+func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ContentUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) *string { return v.ContentUri }).(pulumi.StringPtrOutput)
+}
+
 // The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
 func (o VirtualMachineConfigurationAssignmentConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) string { return v.Name }).(pulumi.StringOutput)
@@ -592,6 +619,36 @@ func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) Elem() Virt
 	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) VirtualMachineConfigurationAssignmentConfiguration {
 		return *v
 	}).(VirtualMachineConfigurationAssignmentConfigurationOutput)
+}
+
+// The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
+func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) AssignmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssignmentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content hash for the Guest Configuration package.
+func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ContentHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content URI where the Guest Configuration package is stored.
+func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ContentUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentUri
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.

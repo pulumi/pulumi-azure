@@ -126,6 +126,8 @@ type HBaseCluster struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles HBaseClusterRolesOutput `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile HBaseClusterSecurityProfilePtrOutput `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
 	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
 	// A `storageAccountGen2` block as defined below.
@@ -206,6 +208,8 @@ type hbaseClusterState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles *HBaseClusterRoles `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile *HBaseClusterSecurityProfile `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
 	SshEndpoint *string `pulumi:"sshEndpoint"`
 	// A `storageAccountGen2` block as defined below.
@@ -240,6 +244,8 @@ type HBaseClusterState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
 	Roles HBaseClusterRolesPtrInput
+	// A `securityProfile` block as defined below.
+	SecurityProfile HBaseClusterSecurityProfilePtrInput
 	// The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
 	SshEndpoint pulumi.StringPtrInput
 	// A `storageAccountGen2` block as defined below.
@@ -276,6 +282,8 @@ type hbaseClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles HBaseClusterRoles `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile *HBaseClusterSecurityProfile `pulumi:"securityProfile"`
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 *HBaseClusterStorageAccountGen2 `pulumi:"storageAccountGen2"`
 	// One or more `storageAccount` block as defined below.
@@ -307,6 +315,8 @@ type HBaseClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.
 	Roles HBaseClusterRolesInput
+	// A `securityProfile` block as defined below.
+	SecurityProfile HBaseClusterSecurityProfilePtrInput
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 HBaseClusterStorageAccountGen2PtrInput
 	// One or more `storageAccount` block as defined below.

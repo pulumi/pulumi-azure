@@ -13,6 +13,24 @@ namespace Pulumi.Azure.Policy.Inputs
     public sealed class VirtualMachineConfigurationAssignmentConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
+        /// </summary>
+        [Input("assignmentType")]
+        public Input<string>? AssignmentType { get; set; }
+
+        /// <summary>
+        /// The content hash for the Guest Configuration package.
+        /// </summary>
+        [Input("contentHash")]
+        public Input<string>? ContentHash { get; set; }
+
+        /// <summary>
+        /// The content URI where the Guest Configuration package is stored.
+        /// </summary>
+        [Input("contentUri")]
+        public Input<string>? ContentUri { get; set; }
+
+        /// <summary>
         /// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         /// </summary>
         [Input("name", required: true)]

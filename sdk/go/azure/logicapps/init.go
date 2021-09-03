@@ -29,6 +29,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IntegrationAccount{}
 	case "azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate":
 		r = &IntegrationAccountCertificate{}
+	case "azure:logicapps/integrationAccountMap:IntegrationAccountMap":
+		r = &IntegrationAccountMap{}
+	case "azure:logicapps/integrationAccountPartner:IntegrationAccountPartner":
+		r = &IntegrationAccountPartner{}
 	case "azure:logicapps/integrationAccountSchema:IntegrationAccountSchema":
 		r = &IntegrationAccountSchema{}
 	case "azure:logicapps/integrationAccountSession:IntegrationAccountSession":
@@ -74,6 +78,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"logicapps/integrationAccountCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"logicapps/integrationAccountMap",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"logicapps/integrationAccountPartner",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

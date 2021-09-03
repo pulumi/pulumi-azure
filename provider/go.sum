@@ -85,6 +85,8 @@ github.com/Azure/azure-sdk-for-go v56.0.0+incompatible h1:jp/df9XKIJYtf4HIVA9cgm
 github.com/Azure/azure-sdk-for-go v56.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-sdk-for-go v56.2.0+incompatible h1:2GrG1JkTSMqLquy1pqVsjeRJhNtZLjss2+rx8ogZXx4=
 github.com/Azure/azure-sdk-for-go v56.2.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
+github.com/Azure/azure-sdk-for-go v57.0.0+incompatible h1:isVki3PbIFrwKvKdVP1byxo73/pt+Nn174YxW1k4PNw=
+github.com/Azure/azure-sdk-for-go v57.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-service-bus-go v0.10.11 h1:GBg2mcLQA3af+w+ZuYhiAv58OWSVmQYWcds4nro8Xko=
 github.com/Azure/azure-service-bus-go v0.10.11/go.mod h1:AWw9eTTWZVZyvgpPahD1ybz3a8/vT3GsJDS8KYex55U=
 github.com/Azure/azure-storage-blob-go v0.13.0 h1:lgWHvFh+UYBNVQLFHXkvul2f6yOPA9PIH82RTG2cSwc=
@@ -917,6 +919,8 @@ github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210820131451-90e237ed4f
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210820131451-90e237ed4f54/go.mod h1:ds4VW4dxb4eKtNvVavmMNSaXICAc7pNAKrFTbRPjoj4=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210830141019-a2e4946383ba h1:g9/ITBLnrhBLVdcHQqiVZ6G4Ewey5HgwWlROQtL/WcQ=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210830141019-a2e4946383ba/go.mod h1:VLJ/9CMbel6rUZdgXp/6KQKKBmBbDQH+09JrJllpC50=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210903140112-f2c02605b399 h1:qIZuF0X3/w8P6cHy/VqrtyI5prCma8lmBfbj2WS/YvE=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210903140112-f2c02605b399/go.mod h1:AzSxem45GcQ0pDiLu7gn1geTImL5s7/X6ClPH3g9Vpw=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=

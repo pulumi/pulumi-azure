@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
+// Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.
 //
 // ## Example Usage
 //
@@ -78,8 +78,10 @@ type LinkedServiceAzureFunction struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
-	// The system key of the Azure Function.
-	Key pulumi.StringOutput `pulumi:"key"`
+	// The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
+	Key pulumi.StringPtrOutput `pulumi:"key"`
+	// A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
+	KeyVaultKey LinkedServiceAzureFunctionKeyVaultKeyPtrOutput `pulumi:"keyVaultKey"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
 	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -100,9 +102,6 @@ func NewLinkedServiceAzureFunction(ctx *pulumi.Context,
 
 	if args.DataFactoryName == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
-	if args.Key == nil {
-		return nil, errors.New("invalid value for required argument 'Key'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -142,8 +141,10 @@ type linkedServiceAzureFunctionState struct {
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
-	// The system key of the Azure Function.
+	// The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
 	Key *string `pulumi:"key"`
+	// A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
+	KeyVaultKey *LinkedServiceAzureFunctionKeyVaultKey `pulumi:"keyVaultKey"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
 	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -166,8 +167,10 @@ type LinkedServiceAzureFunctionState struct {
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
-	// The system key of the Azure Function.
+	// The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
 	Key pulumi.StringPtrInput
+	// A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
+	KeyVaultKey LinkedServiceAzureFunctionKeyVaultKeyPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
 	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
@@ -194,8 +197,10 @@ type linkedServiceAzureFunctionArgs struct {
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
-	// The system key of the Azure Function.
-	Key string `pulumi:"key"`
+	// The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
+	Key *string `pulumi:"key"`
+	// A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
+	KeyVaultKey *LinkedServiceAzureFunctionKeyVaultKey `pulumi:"keyVaultKey"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
 	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -219,8 +224,10 @@ type LinkedServiceAzureFunctionArgs struct {
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
-	// The system key of the Azure Function.
-	Key pulumi.StringInput
+	// The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
+	Key pulumi.StringPtrInput
+	// A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
+	KeyVaultKey LinkedServiceAzureFunctionKeyVaultKeyPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
 	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput

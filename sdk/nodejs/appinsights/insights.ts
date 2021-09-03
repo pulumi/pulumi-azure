@@ -110,6 +110,10 @@ export class Insights extends pulumi.CustomResource {
      */
     public /*out*/ readonly instrumentationKey!: pulumi.Output<string>;
     /**
+     * Disable Non-Azure AD based Auth. Defaults to `false`.
+     */
+    public readonly localAuthenticationDisabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -160,6 +164,7 @@ export class Insights extends pulumi.CustomResource {
             inputs["dailyDataCapNotificationsDisabled"] = state ? state.dailyDataCapNotificationsDisabled : undefined;
             inputs["disableIpMasking"] = state ? state.disableIpMasking : undefined;
             inputs["instrumentationKey"] = state ? state.instrumentationKey : undefined;
+            inputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -179,6 +184,7 @@ export class Insights extends pulumi.CustomResource {
             inputs["dailyDataCapInGb"] = args ? args.dailyDataCapInGb : undefined;
             inputs["dailyDataCapNotificationsDisabled"] = args ? args.dailyDataCapNotificationsDisabled : undefined;
             inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
+            inputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -229,6 +235,10 @@ export interface InsightsState {
      * The Instrumentation Key for this Application Insights component. (Sensitive)
      */
     instrumentationKey?: pulumi.Input<string>;
+    /**
+     * Disable Non-Azure AD based Auth. Defaults to `false`.
+     */
+    localAuthenticationDisabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -281,6 +291,10 @@ export interface InsightsArgs {
      * By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
      */
     disableIpMasking?: pulumi.Input<boolean>;
+    /**
+     * Disable Non-Azure AD based Auth. Defaults to `false`.
+     */
+    localAuthenticationDisabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

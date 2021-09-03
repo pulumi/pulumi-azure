@@ -46,6 +46,54 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// }
     /// ```
+    /// ### With SAS Uri And SAS Token.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var testFactory = new Azure.DataFactory.Factory("testFactory", new Azure.DataFactory.FactoryArgs
+    ///         {
+    ///             Location = testResourceGroup.Location,
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///         });
+    ///         var testKeyVault = new Azure.KeyVault.KeyVault("testKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = testResourceGroup.Location,
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "standard",
+    ///         });
+    ///         var testLinkedServiceKeyVault = new Azure.DataFactory.LinkedServiceKeyVault("testLinkedServiceKeyVault", new Azure.DataFactory.LinkedServiceKeyVaultArgs
+    ///         {
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             DataFactoryName = testFactory.Name,
+    ///             KeyVaultId = testKeyVault.Id,
+    ///         });
+    ///         var testLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage", new Azure.DataFactory.LinkedServiceAzureBlobStorageArgs
+    ///         {
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             DataFactoryName = testFactory.Name,
+    ///             SasUri = "https://storageaccountname.blob.core.windows.net",
+    ///             KeyVaultSasToken = new Azure.DataFactory.Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs
+    ///             {
+    ///                 LinkedServiceName = testLinkedServiceKeyVault.Name,
+    ///                 SecretName = "secret",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -93,6 +141,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("integrationRuntimeName")]
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
+
+        /// <summary>
+        /// A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        /// </summary>
+        [Output("keyVaultSasToken")]
+        public Output<Outputs.LinkedServiceAzureBlobStorageKeyVaultSasToken?> KeyVaultSasToken { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -243,6 +297,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
+        /// A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        /// </summary>
+        [Input("keyVaultSasToken")]
+        public Input<Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs>? KeyVaultSasToken { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Input("name")]
@@ -356,6 +416,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
+
+        /// <summary>
+        /// A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        /// </summary>
+        [Input("keyVaultSasToken")]
+        public Input<Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenGetArgs>? KeyVaultSasToken { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.

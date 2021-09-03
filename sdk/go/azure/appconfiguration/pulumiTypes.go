@@ -11,12 +11,13 @@ import (
 )
 
 type ConfigurationStoreIdentity struct {
+	// A list of IDs for User Assigned Managed Identity resources to be assigned.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the Principal (Client) in Azure Active Directory.
 	PrincipalId *string `pulumi:"principalId"`
 	// The ID of the Azure Active Directory Tenant.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -32,12 +33,13 @@ type ConfigurationStoreIdentityInput interface {
 }
 
 type ConfigurationStoreIdentityArgs struct {
+	// A list of IDs for User Assigned Managed Identity resources to be assigned.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the Principal (Client) in Azure Active Directory.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The ID of the Azure Active Directory Tenant.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -117,6 +119,8 @@ func (o ConfigurationStoreIdentityOutput) ToConfigurationStoreIdentityPtrOutputW
 		return &v
 	}).(ConfigurationStoreIdentityPtrOutput)
 }
+
+// A list of IDs for User Assigned Managed Identity resources to be assigned.
 func (o ConfigurationStoreIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationStoreIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -131,7 +135,7 @@ func (o ConfigurationStoreIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationStoreIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o ConfigurationStoreIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationStoreIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -154,6 +158,7 @@ func (o ConfigurationStoreIdentityPtrOutput) Elem() ConfigurationStoreIdentityOu
 	return o.ApplyT(func(v *ConfigurationStoreIdentity) ConfigurationStoreIdentity { return *v }).(ConfigurationStoreIdentityOutput)
 }
 
+// A list of IDs for User Assigned Managed Identity resources to be assigned.
 func (o ConfigurationStoreIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationStoreIdentity) []string {
 		if v == nil {
@@ -183,7 +188,7 @@ func (o ConfigurationStoreIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o ConfigurationStoreIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStoreIdentity) *string {
 		if v == nil {

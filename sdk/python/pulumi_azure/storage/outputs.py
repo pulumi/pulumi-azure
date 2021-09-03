@@ -387,7 +387,7 @@ class AccountBlobPropertiesCorsRule(dict):
                  max_age_in_seconds: int):
         """
         :param Sequence[str] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
-        :param Sequence[str] allowed_methods: A list of http headers that are allowed to be executed by the origin. Valid options are
+        :param Sequence[str] allowed_methods: A list of http methods that are allowed to be executed by the origin. Valid options are
                `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         :param Sequence[str] allowed_origins: A list of origin domains that will be allowed by CORS.
         :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
@@ -411,7 +411,7 @@ class AccountBlobPropertiesCorsRule(dict):
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Sequence[str]:
         """
-        A list of http headers that are allowed to be executed by the origin. Valid options are
+        A list of http methods that are allowed to be executed by the origin. Valid options are
         `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         """
         return pulumi.get(self, "allowed_methods")
@@ -882,7 +882,7 @@ class AccountQueuePropertiesCorsRule(dict):
                  max_age_in_seconds: int):
         """
         :param Sequence[str] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
-        :param Sequence[str] allowed_methods: A list of http headers that are allowed to be executed by the origin. Valid options are
+        :param Sequence[str] allowed_methods: A list of http methods that are allowed to be executed by the origin. Valid options are
                `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         :param Sequence[str] allowed_origins: A list of origin domains that will be allowed by CORS.
         :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
@@ -906,7 +906,7 @@ class AccountQueuePropertiesCorsRule(dict):
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Sequence[str]:
         """
-        A list of http headers that are allowed to be executed by the origin. Valid options are
+        A list of http methods that are allowed to be executed by the origin. Valid options are
         `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         """
         return pulumi.get(self, "allowed_methods")
@@ -1319,7 +1319,7 @@ class AccountSharePropertiesCorsRule(dict):
                  max_age_in_seconds: int):
         """
         :param Sequence[str] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
-        :param Sequence[str] allowed_methods: A list of http headers that are allowed to be executed by the origin. Valid options are
+        :param Sequence[str] allowed_methods: A list of http methods that are allowed to be executed by the origin. Valid options are
                `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         :param Sequence[str] allowed_origins: A list of origin domains that will be allowed by CORS.
         :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
@@ -1343,7 +1343,7 @@ class AccountSharePropertiesCorsRule(dict):
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Sequence[str]:
         """
-        A list of http headers that are allowed to be executed by the origin. Valid options are
+        A list of http methods that are allowed to be executed by the origin. Valid options are
         `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         """
         return pulumi.get(self, "allowed_methods")

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory
 {
     /// <summary>
-    /// Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
+    /// Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.
     /// 
     /// ## Example Usage
     /// 
@@ -90,10 +90,16 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
         /// <summary>
-        /// The system key of the Azure Function.
+        /// The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
         /// </summary>
         [Output("key")]
-        public Output<string> Key { get; private set; } = null!;
+        public Output<string?> Key { get; private set; } = null!;
+
+        /// <summary>
+        /// A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+        /// </summary>
+        [Output("keyVaultKey")]
+        public Output<Outputs.LinkedServiceAzureFunctionKeyVaultKey?> KeyVaultKey { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
@@ -209,10 +215,16 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
-        /// The system key of the Azure Function.
+        /// The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
         /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
+        [Input("key")]
+        public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+        /// </summary>
+        [Input("keyVaultKey")]
+        public Input<Inputs.LinkedServiceAzureFunctionKeyVaultKeyArgs>? KeyVaultKey { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
@@ -295,10 +307,16 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
-        /// The system key of the Azure Function.
+        /// The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+        /// </summary>
+        [Input("keyVaultKey")]
+        public Input<Inputs.LinkedServiceAzureFunctionKeyVaultKeyGetArgs>? KeyVaultKey { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data

@@ -23,6 +23,7 @@ __all__ = [
     'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
     'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
     'HBaseClusterRolesZookeeperNodeArgs',
+    'HBaseClusterSecurityProfileArgs',
     'HBaseClusterStorageAccountArgs',
     'HBaseClusterStorageAccountGen2Args',
     'HadoopClusterComponentVersionArgs',
@@ -43,6 +44,7 @@ __all__ = [
     'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
     'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
     'HadoopClusterRolesZookeeperNodeArgs',
+    'HadoopClusterSecurityProfileArgs',
     'HadoopClusterStorageAccountArgs',
     'HadoopClusterStorageAccountGen2Args',
     'InteractiveQueryClusterComponentVersionArgs',
@@ -61,6 +63,7 @@ __all__ = [
     'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
     'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
     'InteractiveQueryClusterRolesZookeeperNodeArgs',
+    'InteractiveQueryClusterSecurityProfileArgs',
     'InteractiveQueryClusterStorageAccountArgs',
     'InteractiveQueryClusterStorageAccountGen2Args',
     'KafkaClusterComponentVersionArgs',
@@ -76,6 +79,7 @@ __all__ = [
     'KafkaClusterRolesKafkaManagementNodeArgs',
     'KafkaClusterRolesWorkerNodeArgs',
     'KafkaClusterRolesZookeeperNodeArgs',
+    'KafkaClusterSecurityProfileArgs',
     'KafkaClusterStorageAccountArgs',
     'KafkaClusterStorageAccountGen2Args',
     'MLServicesClusterGatewayArgs',
@@ -108,6 +112,7 @@ __all__ = [
     'SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
     'SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
     'SparkClusterRolesZookeeperNodeArgs',
+    'SparkClusterSecurityProfileArgs',
     'SparkClusterStorageAccountArgs',
     'SparkClusterStorageAccountGen2Args',
     'StormClusterComponentVersionArgs',
@@ -1010,6 +1015,119 @@ class HBaseClusterRolesZookeeperNodeArgs:
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class HBaseClusterSecurityProfileArgs:
+    def __init__(__self__, *,
+                 aadds_resource_id: pulumi.Input[str],
+                 domain_name: pulumi.Input[str],
+                 domain_user_password: pulumi.Input[str],
+                 domain_username: pulumi.Input[str],
+                 ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 msi_resource_id: pulumi.Input[str],
+                 cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] aadds_resource_id: The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_name: The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_user_password: The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_username: The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ldaps_urls: A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] msi_resource_id: The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_users_group_dns: A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "aadds_resource_id", aadds_resource_id)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "domain_user_password", domain_user_password)
+        pulumi.set(__self__, "domain_username", domain_username)
+        pulumi.set(__self__, "ldaps_urls", ldaps_urls)
+        pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        if cluster_users_group_dns is not None:
+            pulumi.set(__self__, "cluster_users_group_dns", cluster_users_group_dns)
+
+    @property
+    @pulumi.getter(name="aaddsResourceId")
+    def aadds_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "aadds_resource_id")
+
+    @aadds_resource_id.setter
+    def aadds_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aadds_resource_id", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="domainUserPassword")
+    def domain_user_password(self) -> pulumi.Input[str]:
+        """
+        The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_user_password")
+
+    @domain_user_password.setter
+    def domain_user_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_user_password", value)
+
+    @property
+    @pulumi.getter(name="domainUsername")
+    def domain_username(self) -> pulumi.Input[str]:
+        """
+        The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_username")
+
+    @domain_username.setter
+    def domain_username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_username", value)
+
+    @property
+    @pulumi.getter(name="ldapsUrls")
+    def ldaps_urls(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ldaps_urls")
+
+    @ldaps_urls.setter
+    def ldaps_urls(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "ldaps_urls", value)
+
+    @property
+    @pulumi.getter(name="msiResourceId")
+    def msi_resource_id(self) -> pulumi.Input[str]:
+        """
+        The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "msi_resource_id")
+
+    @msi_resource_id.setter
+    def msi_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "msi_resource_id", value)
+
+    @property
+    @pulumi.getter(name="clusterUsersGroupDns")
+    def cluster_users_group_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_users_group_dns")
+
+    @cluster_users_group_dns.setter
+    def cluster_users_group_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cluster_users_group_dns", value)
 
 
 @pulumi.input_type
@@ -2217,6 +2335,119 @@ class HadoopClusterRolesZookeeperNodeArgs:
 
 
 @pulumi.input_type
+class HadoopClusterSecurityProfileArgs:
+    def __init__(__self__, *,
+                 aadds_resource_id: pulumi.Input[str],
+                 domain_name: pulumi.Input[str],
+                 domain_user_password: pulumi.Input[str],
+                 domain_username: pulumi.Input[str],
+                 ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 msi_resource_id: pulumi.Input[str],
+                 cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] aadds_resource_id: The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_name: The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_user_password: The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_username: The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ldaps_urls: A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] msi_resource_id: The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_users_group_dns: A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "aadds_resource_id", aadds_resource_id)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "domain_user_password", domain_user_password)
+        pulumi.set(__self__, "domain_username", domain_username)
+        pulumi.set(__self__, "ldaps_urls", ldaps_urls)
+        pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        if cluster_users_group_dns is not None:
+            pulumi.set(__self__, "cluster_users_group_dns", cluster_users_group_dns)
+
+    @property
+    @pulumi.getter(name="aaddsResourceId")
+    def aadds_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "aadds_resource_id")
+
+    @aadds_resource_id.setter
+    def aadds_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aadds_resource_id", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="domainUserPassword")
+    def domain_user_password(self) -> pulumi.Input[str]:
+        """
+        The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_user_password")
+
+    @domain_user_password.setter
+    def domain_user_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_user_password", value)
+
+    @property
+    @pulumi.getter(name="domainUsername")
+    def domain_username(self) -> pulumi.Input[str]:
+        """
+        The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_username")
+
+    @domain_username.setter
+    def domain_username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_username", value)
+
+    @property
+    @pulumi.getter(name="ldapsUrls")
+    def ldaps_urls(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ldaps_urls")
+
+    @ldaps_urls.setter
+    def ldaps_urls(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "ldaps_urls", value)
+
+    @property
+    @pulumi.getter(name="msiResourceId")
+    def msi_resource_id(self) -> pulumi.Input[str]:
+        """
+        The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "msi_resource_id")
+
+    @msi_resource_id.setter
+    def msi_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "msi_resource_id", value)
+
+    @property
+    @pulumi.getter(name="clusterUsersGroupDns")
+    def cluster_users_group_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_users_group_dns")
+
+    @cluster_users_group_dns.setter
+    def cluster_users_group_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cluster_users_group_dns", value)
+
+
+@pulumi.input_type
 class HadoopClusterStorageAccountArgs:
     def __init__(__self__, *,
                  is_default: pulumi.Input[bool],
@@ -3310,6 +3541,119 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
 
 
 @pulumi.input_type
+class InteractiveQueryClusterSecurityProfileArgs:
+    def __init__(__self__, *,
+                 aadds_resource_id: pulumi.Input[str],
+                 domain_name: pulumi.Input[str],
+                 domain_user_password: pulumi.Input[str],
+                 domain_username: pulumi.Input[str],
+                 ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 msi_resource_id: pulumi.Input[str],
+                 cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] aadds_resource_id: The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_name: The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_user_password: The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_username: The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ldaps_urls: A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] msi_resource_id: The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_users_group_dns: A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "aadds_resource_id", aadds_resource_id)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "domain_user_password", domain_user_password)
+        pulumi.set(__self__, "domain_username", domain_username)
+        pulumi.set(__self__, "ldaps_urls", ldaps_urls)
+        pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        if cluster_users_group_dns is not None:
+            pulumi.set(__self__, "cluster_users_group_dns", cluster_users_group_dns)
+
+    @property
+    @pulumi.getter(name="aaddsResourceId")
+    def aadds_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "aadds_resource_id")
+
+    @aadds_resource_id.setter
+    def aadds_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aadds_resource_id", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="domainUserPassword")
+    def domain_user_password(self) -> pulumi.Input[str]:
+        """
+        The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_user_password")
+
+    @domain_user_password.setter
+    def domain_user_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_user_password", value)
+
+    @property
+    @pulumi.getter(name="domainUsername")
+    def domain_username(self) -> pulumi.Input[str]:
+        """
+        The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_username")
+
+    @domain_username.setter
+    def domain_username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_username", value)
+
+    @property
+    @pulumi.getter(name="ldapsUrls")
+    def ldaps_urls(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ldaps_urls")
+
+    @ldaps_urls.setter
+    def ldaps_urls(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "ldaps_urls", value)
+
+    @property
+    @pulumi.getter(name="msiResourceId")
+    def msi_resource_id(self) -> pulumi.Input[str]:
+        """
+        The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "msi_resource_id")
+
+    @msi_resource_id.setter
+    def msi_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "msi_resource_id", value)
+
+    @property
+    @pulumi.getter(name="clusterUsersGroupDns")
+    def cluster_users_group_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_users_group_dns")
+
+    @cluster_users_group_dns.setter
+    def cluster_users_group_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cluster_users_group_dns", value)
+
+
+@pulumi.input_type
 class InteractiveQueryClusterStorageAccountArgs:
     def __init__(__self__, *,
                  is_default: pulumi.Input[bool],
@@ -4340,6 +4684,119 @@ class KafkaClusterRolesZookeeperNodeArgs:
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class KafkaClusterSecurityProfileArgs:
+    def __init__(__self__, *,
+                 aadds_resource_id: pulumi.Input[str],
+                 domain_name: pulumi.Input[str],
+                 domain_user_password: pulumi.Input[str],
+                 domain_username: pulumi.Input[str],
+                 ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 msi_resource_id: pulumi.Input[str],
+                 cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] aadds_resource_id: The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_name: The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_user_password: The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_username: The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ldaps_urls: A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] msi_resource_id: The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_users_group_dns: A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "aadds_resource_id", aadds_resource_id)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "domain_user_password", domain_user_password)
+        pulumi.set(__self__, "domain_username", domain_username)
+        pulumi.set(__self__, "ldaps_urls", ldaps_urls)
+        pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        if cluster_users_group_dns is not None:
+            pulumi.set(__self__, "cluster_users_group_dns", cluster_users_group_dns)
+
+    @property
+    @pulumi.getter(name="aaddsResourceId")
+    def aadds_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "aadds_resource_id")
+
+    @aadds_resource_id.setter
+    def aadds_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aadds_resource_id", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="domainUserPassword")
+    def domain_user_password(self) -> pulumi.Input[str]:
+        """
+        The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_user_password")
+
+    @domain_user_password.setter
+    def domain_user_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_user_password", value)
+
+    @property
+    @pulumi.getter(name="domainUsername")
+    def domain_username(self) -> pulumi.Input[str]:
+        """
+        The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_username")
+
+    @domain_username.setter
+    def domain_username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_username", value)
+
+    @property
+    @pulumi.getter(name="ldapsUrls")
+    def ldaps_urls(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ldaps_urls")
+
+    @ldaps_urls.setter
+    def ldaps_urls(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "ldaps_urls", value)
+
+    @property
+    @pulumi.getter(name="msiResourceId")
+    def msi_resource_id(self) -> pulumi.Input[str]:
+        """
+        The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "msi_resource_id")
+
+    @msi_resource_id.setter
+    def msi_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "msi_resource_id", value)
+
+    @property
+    @pulumi.getter(name="clusterUsersGroupDns")
+    def cluster_users_group_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_users_group_dns")
+
+    @cluster_users_group_dns.setter
+    def cluster_users_group_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cluster_users_group_dns", value)
 
 
 @pulumi.input_type
@@ -6665,6 +7122,119 @@ class SparkClusterRolesZookeeperNodeArgs:
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class SparkClusterSecurityProfileArgs:
+    def __init__(__self__, *,
+                 aadds_resource_id: pulumi.Input[str],
+                 domain_name: pulumi.Input[str],
+                 domain_user_password: pulumi.Input[str],
+                 domain_username: pulumi.Input[str],
+                 ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 msi_resource_id: pulumi.Input[str],
+                 cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] aadds_resource_id: The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_name: The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_user_password: The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] domain_username: The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ldaps_urls: A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] msi_resource_id: The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_users_group_dns: A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "aadds_resource_id", aadds_resource_id)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "domain_user_password", domain_user_password)
+        pulumi.set(__self__, "domain_username", domain_username)
+        pulumi.set(__self__, "ldaps_urls", ldaps_urls)
+        pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        if cluster_users_group_dns is not None:
+            pulumi.set(__self__, "cluster_users_group_dns", cluster_users_group_dns)
+
+    @property
+    @pulumi.getter(name="aaddsResourceId")
+    def aadds_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "aadds_resource_id")
+
+    @aadds_resource_id.setter
+    def aadds_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aadds_resource_id", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="domainUserPassword")
+    def domain_user_password(self) -> pulumi.Input[str]:
+        """
+        The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_user_password")
+
+    @domain_user_password.setter
+    def domain_user_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_user_password", value)
+
+    @property
+    @pulumi.getter(name="domainUsername")
+    def domain_username(self) -> pulumi.Input[str]:
+        """
+        The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_username")
+
+    @domain_username.setter
+    def domain_username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_username", value)
+
+    @property
+    @pulumi.getter(name="ldapsUrls")
+    def ldaps_urls(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ldaps_urls")
+
+    @ldaps_urls.setter
+    def ldaps_urls(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "ldaps_urls", value)
+
+    @property
+    @pulumi.getter(name="msiResourceId")
+    def msi_resource_id(self) -> pulumi.Input[str]:
+        """
+        The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "msi_resource_id")
+
+    @msi_resource_id.setter
+    def msi_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "msi_resource_id", value)
+
+    @property
+    @pulumi.getter(name="clusterUsersGroupDns")
+    def cluster_users_group_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_users_group_dns")
+
+    @cluster_users_group_dns.setter
+    def cluster_users_group_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cluster_users_group_dns", value)
 
 
 @pulumi.input_type

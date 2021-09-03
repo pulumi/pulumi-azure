@@ -135,6 +135,12 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> InstrumentationKey { get; private set; } = null!;
 
         /// <summary>
+        /// Disable Non-Azure AD based Auth. Defaults to `false`.
+        /// </summary>
+        [Output("localAuthenticationDisabled")]
+        public Output<bool?> LocalAuthenticationDisabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -249,6 +255,12 @@ namespace Pulumi.Azure.AppInsights
         public Input<bool>? DisableIpMasking { get; set; }
 
         /// <summary>
+        /// Disable Non-Azure AD based Auth. Defaults to `false`.
+        /// </summary>
+        [Input("localAuthenticationDisabled")]
+        public Input<bool>? LocalAuthenticationDisabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -346,6 +358,12 @@ namespace Pulumi.Azure.AppInsights
         /// </summary>
         [Input("instrumentationKey")]
         public Input<string>? InstrumentationKey { get; set; }
+
+        /// <summary>
+        /// Disable Non-Azure AD based Auth. Defaults to `false`.
+        /// </summary>
+        [Input("localAuthenticationDisabled")]
+        public Input<bool>? LocalAuthenticationDisabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

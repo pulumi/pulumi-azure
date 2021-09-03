@@ -130,6 +130,8 @@ type InteractiveQueryCluster struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles InteractiveQueryClusterRolesOutput `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile InteractiveQueryClusterSecurityProfilePtrOutput `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
 	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
 	// A `storageAccountGen2` block as defined below.
@@ -214,6 +216,8 @@ type interactiveQueryClusterState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles *InteractiveQueryClusterRoles `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile *InteractiveQueryClusterSecurityProfile `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
 	SshEndpoint *string `pulumi:"sshEndpoint"`
 	// A `storageAccountGen2` block as defined below.
@@ -252,6 +256,8 @@ type InteractiveQueryClusterState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
 	Roles InteractiveQueryClusterRolesPtrInput
+	// A `securityProfile` block as defined below.
+	SecurityProfile InteractiveQueryClusterSecurityProfilePtrInput
 	// The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
 	SshEndpoint pulumi.StringPtrInput
 	// A `storageAccountGen2` block as defined below.
@@ -292,6 +298,8 @@ type interactiveQueryClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles InteractiveQueryClusterRoles `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile *InteractiveQueryClusterSecurityProfile `pulumi:"securityProfile"`
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 *InteractiveQueryClusterStorageAccountGen2 `pulumi:"storageAccountGen2"`
 	// One or more `storageAccount` block as defined below.
@@ -327,6 +335,8 @@ type InteractiveQueryClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.
 	Roles InteractiveQueryClusterRolesInput
+	// A `securityProfile` block as defined below.
+	SecurityProfile InteractiveQueryClusterSecurityProfilePtrInput
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 InteractiveQueryClusterStorageAccountGen2PtrInput
 	// One or more `storageAccount` block as defined below.

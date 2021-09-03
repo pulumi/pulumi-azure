@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:cognitive/account:Account":
 		r = &Account{}
+	case "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey":
+		r = &AccountCustomerManagedKey{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cognitive/account",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cognitive/accountCustomerManagedKey",
 		&module{version},
 	)
 }

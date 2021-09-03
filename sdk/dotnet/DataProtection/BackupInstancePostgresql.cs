@@ -14,70 +14,6 @@ namespace Pulumi.Azure.DataProtection
     /// 
     /// &gt; **Note**: Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/en-us/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.PostgreSql.Server("exampleServer", new Azure.PostgreSql.ServerArgs
-    ///         {
-    ///             Location = azurerm_resource_group.Example.Location,
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///             SkuName = "B_Gen5_2",
-    ///             StorageMb = 5120,
-    ///             BackupRetentionDays = 7,
-    ///             GeoRedundantBackupEnabled = false,
-    ///             AutoGrowEnabled = true,
-    ///             AdministratorLogin = "psqladminun",
-    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             Version = "9.5",
-    ///             SslEnforcementEnabled = true,
-    ///         });
-    ///         var exampleDatabase = new Azure.PostgreSql.Database("exampleDatabase", new Azure.PostgreSql.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             Charset = "UTF8",
-    ///             Collation = "English_United States.1252",
-    ///         });
-    ///         var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new Azure.DataProtection.BackupVaultArgs
-    ///         {
-    ///             ResourceGroupName = rg.Name,
-    ///             Location = rg.Location,
-    ///             DatastoreType = "VaultStore",
-    ///             Redundancy = "LocallyRedundant",
-    ///         });
-    ///         var exampleBackupPolicyPostgresql = new Azure.DataProtection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql", new Azure.DataProtection.BackupPolicyPostgresqlArgs
-    ///         {
-    ///             ResourceGroupName = rg.Name,
-    ///             VaultName = exampleBackupVault.Name,
-    ///             BackupRepeatingTimeIntervals = 
-    ///             {
-    ///                 "R/2021-05-23T02:30:00+00:00/P1W",
-    ///             },
-    ///             DefaultRetentionDuration = "P4M",
-    ///         });
-    ///         var exampleBackupInstancePostgresql = new Azure.DataProtection.BackupInstancePostgresql("exampleBackupInstancePostgresql", new Azure.DataProtection.BackupInstancePostgresqlArgs
-    ///         {
-    ///             Location = rg.Location,
-    ///             VaultId = exampleBackupVault.Id,
-    ///             DatabaseId = exampleDatabase.Id,
-    ///             BackupPolicyId = exampleBackupPolicyPostgresql.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Backup Instance PostgreSQL can be imported using the `resource id`, e.g.
@@ -94,6 +30,12 @@ namespace Pulumi.Azure.DataProtection
         /// </summary>
         [Output("backupPolicyId")]
         public Output<string> BackupPolicyId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID or versionless ID of the key vault secret which stores the connection string of the database.
+        /// </summary>
+        [Output("databaseCredentialKeyVaultSecretId")]
+        public Output<string?> DatabaseCredentialKeyVaultSecretId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
@@ -172,6 +114,12 @@ namespace Pulumi.Azure.DataProtection
         public Input<string> BackupPolicyId { get; set; } = null!;
 
         /// <summary>
+        /// The ID or versionless ID of the key vault secret which stores the connection string of the database.
+        /// </summary>
+        [Input("databaseCredentialKeyVaultSecretId")]
+        public Input<string>? DatabaseCredentialKeyVaultSecretId { get; set; }
+
+        /// <summary>
         /// The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         /// </summary>
         [Input("databaseId", required: true)]
@@ -207,6 +155,12 @@ namespace Pulumi.Azure.DataProtection
         /// </summary>
         [Input("backupPolicyId")]
         public Input<string>? BackupPolicyId { get; set; }
+
+        /// <summary>
+        /// The ID or versionless ID of the key vault secret which stores the connection string of the database.
+        /// </summary>
+        [Input("databaseCredentialKeyVaultSecretId")]
+        public Input<string>? DatabaseCredentialKeyVaultSecretId { get; set; }
 
         /// <summary>
         /// The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.

@@ -15,85 +15,6 @@ import (
 //
 // > **Note**: Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/en-us/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/dataprotection"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/postgresql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
-// 			Location:                   pulumi.Any(azurerm_resource_group.Example.Location),
-// 			ResourceGroupName:          pulumi.Any(azurerm_resource_group.Example.Name),
-// 			SkuName:                    pulumi.String("B_Gen5_2"),
-// 			StorageMb:                  pulumi.Int(5120),
-// 			BackupRetentionDays:        pulumi.Int(7),
-// 			GeoRedundantBackupEnabled:  pulumi.Bool(false),
-// 			AutoGrowEnabled:            pulumi.Bool(true),
-// 			AdministratorLogin:         pulumi.String("psqladminun"),
-// 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-// 			Version:                    pulumi.String("9.5"),
-// 			SslEnforcementEnabled:      pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDatabase, err := postgresql.NewDatabase(ctx, "exampleDatabase", &postgresql.DatabaseArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
-// 			ServerName:        exampleServer.Name,
-// 			Charset:           pulumi.String("UTF8"),
-// 			Collation:         pulumi.String("English_United States.1252"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
-// 			ResourceGroupName: rg.Name,
-// 			Location:          rg.Location,
-// 			DatastoreType:     pulumi.String("VaultStore"),
-// 			Redundancy:        pulumi.String("LocallyRedundant"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBackupPolicyPostgresql, err := dataprotection.NewBackupPolicyPostgresql(ctx, "exampleBackupPolicyPostgresql", &dataprotection.BackupPolicyPostgresqlArgs{
-// 			ResourceGroupName: rg.Name,
-// 			VaultName:         exampleBackupVault.Name,
-// 			BackupRepeatingTimeIntervals: pulumi.StringArray{
-// 				pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
-// 			},
-// 			DefaultRetentionDuration: pulumi.String("P4M"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dataprotection.NewBackupInstancePostgresql(ctx, "exampleBackupInstancePostgresql", &dataprotection.BackupInstancePostgresqlArgs{
-// 			Location:       rg.Location,
-// 			VaultId:        exampleBackupVault.ID(),
-// 			DatabaseId:     exampleDatabase.ID(),
-// 			BackupPolicyId: exampleBackupPolicyPostgresql.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // Backup Instance PostgreSQL can be imported using the `resource id`, e.g.
@@ -106,6 +27,8 @@ type BackupInstancePostgresql struct {
 
 	// The ID of the Backup Policy.
 	BackupPolicyId pulumi.StringOutput `pulumi:"backupPolicyId"`
+	// The ID or versionless ID of the key vault secret which stores the connection string of the database.
+	DatabaseCredentialKeyVaultSecretId pulumi.StringPtrOutput `pulumi:"databaseCredentialKeyVaultSecretId"`
 	// The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
 	DatabaseId pulumi.StringOutput `pulumi:"databaseId"`
 	// The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
@@ -156,6 +79,8 @@ func GetBackupInstancePostgresql(ctx *pulumi.Context,
 type backupInstancePostgresqlState struct {
 	// The ID of the Backup Policy.
 	BackupPolicyId *string `pulumi:"backupPolicyId"`
+	// The ID or versionless ID of the key vault secret which stores the connection string of the database.
+	DatabaseCredentialKeyVaultSecretId *string `pulumi:"databaseCredentialKeyVaultSecretId"`
 	// The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
 	DatabaseId *string `pulumi:"databaseId"`
 	// The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
@@ -169,6 +94,8 @@ type backupInstancePostgresqlState struct {
 type BackupInstancePostgresqlState struct {
 	// The ID of the Backup Policy.
 	BackupPolicyId pulumi.StringPtrInput
+	// The ID or versionless ID of the key vault secret which stores the connection string of the database.
+	DatabaseCredentialKeyVaultSecretId pulumi.StringPtrInput
 	// The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
 	DatabaseId pulumi.StringPtrInput
 	// The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
@@ -186,6 +113,8 @@ func (BackupInstancePostgresqlState) ElementType() reflect.Type {
 type backupInstancePostgresqlArgs struct {
 	// The ID of the Backup Policy.
 	BackupPolicyId string `pulumi:"backupPolicyId"`
+	// The ID or versionless ID of the key vault secret which stores the connection string of the database.
+	DatabaseCredentialKeyVaultSecretId *string `pulumi:"databaseCredentialKeyVaultSecretId"`
 	// The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
 	DatabaseId string `pulumi:"databaseId"`
 	// The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
@@ -200,6 +129,8 @@ type backupInstancePostgresqlArgs struct {
 type BackupInstancePostgresqlArgs struct {
 	// The ID of the Backup Policy.
 	BackupPolicyId pulumi.StringInput
+	// The ID or versionless ID of the key vault secret which stores the connection string of the database.
+	DatabaseCredentialKeyVaultSecretId pulumi.StringPtrInput
 	// The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
 	DatabaseId pulumi.StringInput
 	// The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
