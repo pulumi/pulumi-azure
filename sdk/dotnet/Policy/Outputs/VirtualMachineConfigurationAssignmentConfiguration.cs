@@ -14,6 +14,18 @@ namespace Pulumi.Azure.Policy.Outputs
     public sealed class VirtualMachineConfigurationAssignmentConfiguration
     {
         /// <summary>
+        /// The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
+        /// </summary>
+        public readonly string? AssignmentType;
+        /// <summary>
+        /// The content hash for the Guest Configuration package.
+        /// </summary>
+        public readonly string? ContentHash;
+        /// <summary>
+        /// The content URI where the Guest Configuration package is stored.
+        /// </summary>
+        public readonly string? ContentUri;
+        /// <summary>
         /// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         /// </summary>
         public readonly string Name;
@@ -28,12 +40,21 @@ namespace Pulumi.Azure.Policy.Outputs
 
         [OutputConstructor]
         private VirtualMachineConfigurationAssignmentConfiguration(
+            string? assignmentType,
+
+            string? contentHash,
+
+            string? contentUri,
+
             string name,
 
             ImmutableArray<Outputs.VirtualMachineConfigurationAssignmentConfigurationParameter> parameters,
 
             string? version)
         {
+            AssignmentType = assignmentType;
+            ContentHash = contentHash;
+            ContentUri = contentUri;
             Name = name;
             Parameters = parameters;
             Version = version;

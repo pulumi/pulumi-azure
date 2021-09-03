@@ -9,6 +9,7 @@ export * from "./account";
 export * from "./cassandraKeyspace";
 export * from "./cassandraTable";
 export * from "./getAccount";
+export * from "./getMongoDatabase";
 export * from "./gremlinDatabase";
 export * from "./gremlinGraph";
 export * from "./mongoCollection";

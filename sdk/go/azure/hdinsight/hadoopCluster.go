@@ -128,6 +128,8 @@ type HadoopCluster struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles HadoopClusterRolesOutput `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile HadoopClusterSecurityProfilePtrOutput `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster.
 	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
 	// A `storageAccountGen2` block as defined below.
@@ -210,6 +212,8 @@ type hadoopClusterState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles *HadoopClusterRoles `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile *HadoopClusterSecurityProfile `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster.
 	SshEndpoint *string `pulumi:"sshEndpoint"`
 	// A `storageAccountGen2` block as defined below.
@@ -246,6 +250,8 @@ type HadoopClusterState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
 	Roles HadoopClusterRolesPtrInput
+	// A `securityProfile` block as defined below.
+	SecurityProfile HadoopClusterSecurityProfilePtrInput
 	// The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster.
 	SshEndpoint pulumi.StringPtrInput
 	// A `storageAccountGen2` block as defined below.
@@ -284,6 +290,8 @@ type hadoopClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles HadoopClusterRoles `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile *HadoopClusterSecurityProfile `pulumi:"securityProfile"`
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 *HadoopClusterStorageAccountGen2 `pulumi:"storageAccountGen2"`
 	// One or more `storageAccount` block as defined below.
@@ -317,6 +325,8 @@ type HadoopClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.
 	Roles HadoopClusterRolesInput
+	// A `securityProfile` block as defined below.
+	SecurityProfile HadoopClusterSecurityProfilePtrInput
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 HadoopClusterStorageAccountGen2PtrInput
 	// One or more `storageAccount` block as defined below.

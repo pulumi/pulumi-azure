@@ -27,6 +27,7 @@ class SparkClusterArgs:
                  monitor: Optional[pulumi.Input['SparkClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['SparkClusterNetworkArgs']] = None,
+                 security_profile: Optional[pulumi.Input['SparkClusterSecurityProfileArgs']] = None,
                  storage_account_gen2: Optional[pulumi.Input['SparkClusterStorageAccountGen2Args']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -45,6 +46,7 @@ class SparkClusterArgs:
         :param pulumi.Input['SparkClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterNetworkArgs'] network: A `network` block as defined below.
+        :param pulumi.Input['SparkClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input['SparkClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Spark Cluster.
@@ -67,6 +69,8 @@ class SparkClusterArgs:
             pulumi.set(__self__, "name", name)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if storage_account_gen2 is not None:
             pulumi.set(__self__, "storage_account_gen2", storage_account_gen2)
         if storage_accounts is not None:
@@ -221,6 +225,18 @@ class SparkClusterArgs:
         pulumi.set(self, "network", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['SparkClusterSecurityProfileArgs']]:
+        """
+        A `security_profile` block as defined below.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['SparkClusterSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
     @pulumi.getter(name="storageAccountGen2")
     def storage_account_gen2(self) -> Optional[pulumi.Input['SparkClusterStorageAccountGen2Args']]:
         """
@@ -281,6 +297,7 @@ class _SparkClusterState:
                  network: Optional[pulumi.Input['SparkClusterNetworkArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input['SparkClusterRolesArgs']] = None,
+                 security_profile: Optional[pulumi.Input['SparkClusterSecurityProfileArgs']] = None,
                  ssh_endpoint: Optional[pulumi.Input[str]] = None,
                  storage_account_gen2: Optional[pulumi.Input['SparkClusterStorageAccountGen2Args']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]] = None,
@@ -301,6 +318,7 @@ class _SparkClusterState:
         :param pulumi.Input['SparkClusterNetworkArgs'] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterRolesArgs'] roles: A `roles` block as defined below.
+        :param pulumi.Input['SparkClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
         :param pulumi.Input['SparkClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
@@ -331,6 +349,8 @@ class _SparkClusterState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if ssh_endpoint is not None:
             pulumi.set(__self__, "ssh_endpoint", ssh_endpoint)
         if storage_account_gen2 is not None:
@@ -489,6 +509,18 @@ class _SparkClusterState:
         pulumi.set(self, "roles", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['SparkClusterSecurityProfileArgs']]:
+        """
+        A `security_profile` block as defined below.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['SparkClusterSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
     @pulumi.getter(name="sshEndpoint")
     def ssh_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -574,6 +606,7 @@ class SparkCluster(pulumi.CustomResource):
                  network: Optional[pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['SparkClusterSecurityProfileArgs']]] = None,
                  storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['SparkClusterStorageAccountGen2Args']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SparkClusterStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -657,6 +690,7 @@ class SparkCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']] roles: A `roles` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SparkClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['SparkClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SparkClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Spark Cluster.
@@ -758,6 +792,7 @@ class SparkCluster(pulumi.CustomResource):
                  network: Optional[pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['SparkClusterSecurityProfileArgs']]] = None,
                  storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['SparkClusterStorageAccountGen2Args']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SparkClusterStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -796,6 +831,7 @@ class SparkCluster(pulumi.CustomResource):
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
+            __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["storage_account_gen2"] = storage_account_gen2
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
@@ -827,6 +863,7 @@ class SparkCluster(pulumi.CustomResource):
             network: Optional[pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']]] = None,
+            security_profile: Optional[pulumi.Input[pulumi.InputType['SparkClusterSecurityProfileArgs']]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
             storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['SparkClusterStorageAccountGen2Args']]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SparkClusterStorageAccountArgs']]]]] = None,
@@ -852,6 +889,7 @@ class SparkCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']] roles: A `roles` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SparkClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
         :param pulumi.Input[pulumi.InputType['SparkClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SparkClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
@@ -874,6 +912,7 @@ class SparkCluster(pulumi.CustomResource):
         __props__.__dict__["network"] = network
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["roles"] = roles
+        __props__.__dict__["security_profile"] = security_profile
         __props__.__dict__["ssh_endpoint"] = ssh_endpoint
         __props__.__dict__["storage_account_gen2"] = storage_account_gen2
         __props__.__dict__["storage_accounts"] = storage_accounts
@@ -977,6 +1016,14 @@ class SparkCluster(pulumi.CustomResource):
         A `roles` block as defined below.
         """
         return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> pulumi.Output[Optional['outputs.SparkClusterSecurityProfile']]:
+        """
+        A `security_profile` block as defined below.
+        """
+        return pulumi.get(self, "security_profile")
 
     @property
     @pulumi.getter(name="sshEndpoint")

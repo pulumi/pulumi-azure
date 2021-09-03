@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'ActionHttpRunAfterArgs',
     'IntegrationAccountCertificateKeyVaultKeyArgs',
+    'IntegrationAccountPartnerBusinessIdentityArgs',
     'TriggerRecurrenceScheduleArgs',
 ]
 
@@ -102,6 +103,43 @@ class IntegrationAccountCertificateKeyVaultKeyArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
+class IntegrationAccountPartnerBusinessIdentityArgs:
+    def __init__(__self__, *,
+                 qualifier: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] qualifier: The authenticating body that provides unique business identities to organizations.
+        :param pulumi.Input[str] value: The value that identifies the documents that your logic apps receive.
+        """
+        pulumi.set(__self__, "qualifier", qualifier)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def qualifier(self) -> pulumi.Input[str]:
+        """
+        The authenticating body that provides unique business identities to organizations.
+        """
+        return pulumi.get(self, "qualifier")
+
+    @qualifier.setter
+    def qualifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "qualifier", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value that identifies the documents that your logic apps receive.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

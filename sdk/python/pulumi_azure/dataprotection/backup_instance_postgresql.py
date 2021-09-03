@@ -16,6 +16,7 @@ class BackupInstancePostgresqlArgs:
                  backup_policy_id: pulumi.Input[str],
                  database_id: pulumi.Input[str],
                  vault_id: pulumi.Input[str],
+                 database_credential_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -23,12 +24,15 @@ class BackupInstancePostgresqlArgs:
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[str] database_id: The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
+        :param pulumi.Input[str] database_credential_key_vault_secret_id: The ID or versionless ID of the key vault secret which stores the connection string of the database.
         :param pulumi.Input[str] location: The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
         """
         pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         pulumi.set(__self__, "database_id", database_id)
         pulumi.set(__self__, "vault_id", vault_id)
+        if database_credential_key_vault_secret_id is not None:
+            pulumi.set(__self__, "database_credential_key_vault_secret_id", database_credential_key_vault_secret_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -71,6 +75,18 @@ class BackupInstancePostgresqlArgs:
         pulumi.set(self, "vault_id", value)
 
     @property
+    @pulumi.getter(name="databaseCredentialKeyVaultSecretId")
+    def database_credential_key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID or versionless ID of the key vault secret which stores the connection string of the database.
+        """
+        return pulumi.get(self, "database_credential_key_vault_secret_id")
+
+    @database_credential_key_vault_secret_id.setter
+    def database_credential_key_vault_secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_credential_key_vault_secret_id", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -99,6 +115,7 @@ class BackupInstancePostgresqlArgs:
 class _BackupInstancePostgresqlState:
     def __init__(__self__, *,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
+                 database_credential_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  database_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -106,6 +123,7 @@ class _BackupInstancePostgresqlState:
         """
         Input properties used for looking up and filtering BackupInstancePostgresql resources.
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy.
+        :param pulumi.Input[str] database_credential_key_vault_secret_id: The ID or versionless ID of the key vault secret which stores the connection string of the database.
         :param pulumi.Input[str] database_id: The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[str] location: The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
@@ -113,6 +131,8 @@ class _BackupInstancePostgresqlState:
         """
         if backup_policy_id is not None:
             pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        if database_credential_key_vault_secret_id is not None:
+            pulumi.set(__self__, "database_credential_key_vault_secret_id", database_credential_key_vault_secret_id)
         if database_id is not None:
             pulumi.set(__self__, "database_id", database_id)
         if location is not None:
@@ -133,6 +153,18 @@ class _BackupInstancePostgresqlState:
     @backup_policy_id.setter
     def backup_policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "backup_policy_id", value)
+
+    @property
+    @pulumi.getter(name="databaseCredentialKeyVaultSecretId")
+    def database_credential_key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID or versionless ID of the key vault secret which stores the connection string of the database.
+        """
+        return pulumi.get(self, "database_credential_key_vault_secret_id")
+
+    @database_credential_key_vault_secret_id.setter
+    def database_credential_key_vault_secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_credential_key_vault_secret_id", value)
 
     @property
     @pulumi.getter(name="databaseId")
@@ -189,6 +221,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
+                 database_credential_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  database_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -198,47 +231,6 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         Manages a Backup Instance to back up PostgreSQL.
 
         > **Note**: Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/en-us/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
-        example_server = azure.postgresql.Server("exampleServer",
-            location=azurerm_resource_group["example"]["location"],
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            sku_name="B_Gen5_2",
-            storage_mb=5120,
-            backup_retention_days=7,
-            geo_redundant_backup_enabled=False,
-            auto_grow_enabled=True,
-            administrator_login="psqladminun",
-            administrator_login_password="H@Sh1CoR3!",
-            version="9.5",
-            ssl_enforcement_enabled=True)
-        example_database = azure.postgresql.Database("exampleDatabase",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            server_name=example_server.name,
-            charset="UTF8",
-            collation="English_United States.1252")
-        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=rg.name,
-            location=rg.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql",
-            resource_group_name=rg.name,
-            vault_name=example_backup_vault.name,
-            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
-            default_retention_duration="P4M")
-        example_backup_instance_postgresql = azure.dataprotection.BackupInstancePostgresql("exampleBackupInstancePostgresql",
-            location=rg.location,
-            vault_id=example_backup_vault.id,
-            database_id=example_database.id,
-            backup_policy_id=example_backup_policy_postgresql.id)
-        ```
 
         ## Import
 
@@ -251,6 +243,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy.
+        :param pulumi.Input[str] database_credential_key_vault_secret_id: The ID or versionless ID of the key vault secret which stores the connection string of the database.
         :param pulumi.Input[str] database_id: The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[str] location: The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
@@ -266,47 +259,6 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         Manages a Backup Instance to back up PostgreSQL.
 
         > **Note**: Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/en-us/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
-        example_server = azure.postgresql.Server("exampleServer",
-            location=azurerm_resource_group["example"]["location"],
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            sku_name="B_Gen5_2",
-            storage_mb=5120,
-            backup_retention_days=7,
-            geo_redundant_backup_enabled=False,
-            auto_grow_enabled=True,
-            administrator_login="psqladminun",
-            administrator_login_password="H@Sh1CoR3!",
-            version="9.5",
-            ssl_enforcement_enabled=True)
-        example_database = azure.postgresql.Database("exampleDatabase",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            server_name=example_server.name,
-            charset="UTF8",
-            collation="English_United States.1252")
-        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=rg.name,
-            location=rg.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql",
-            resource_group_name=rg.name,
-            vault_name=example_backup_vault.name,
-            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
-            default_retention_duration="P4M")
-        example_backup_instance_postgresql = azure.dataprotection.BackupInstancePostgresql("exampleBackupInstancePostgresql",
-            location=rg.location,
-            vault_id=example_backup_vault.id,
-            database_id=example_database.id,
-            backup_policy_id=example_backup_policy_postgresql.id)
-        ```
 
         ## Import
 
@@ -332,6 +284,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
+                 database_credential_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  database_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -351,6 +304,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             if backup_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_policy_id'")
             __props__.__dict__["backup_policy_id"] = backup_policy_id
+            __props__.__dict__["database_credential_key_vault_secret_id"] = database_credential_key_vault_secret_id
             if database_id is None and not opts.urn:
                 raise TypeError("Missing required property 'database_id'")
             __props__.__dict__["database_id"] = database_id
@@ -370,6 +324,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             backup_policy_id: Optional[pulumi.Input[str]] = None,
+            database_credential_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
             database_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -382,6 +337,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy.
+        :param pulumi.Input[str] database_credential_key_vault_secret_id: The ID or versionless ID of the key vault secret which stores the connection string of the database.
         :param pulumi.Input[str] database_id: The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[str] location: The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
@@ -392,6 +348,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         __props__ = _BackupInstancePostgresqlState.__new__(_BackupInstancePostgresqlState)
 
         __props__.__dict__["backup_policy_id"] = backup_policy_id
+        __props__.__dict__["database_credential_key_vault_secret_id"] = database_credential_key_vault_secret_id
         __props__.__dict__["database_id"] = database_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -405,6 +362,14 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         The ID of the Backup Policy.
         """
         return pulumi.get(self, "backup_policy_id")
+
+    @property
+    @pulumi.getter(name="databaseCredentialKeyVaultSecretId")
+    def database_credential_key_vault_secret_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID or versionless ID of the key vault secret which stores the connection string of the database.
+        """
+        return pulumi.get(self, "database_credential_key_vault_secret_id")
 
     @property
     @pulumi.getter(name="databaseId")

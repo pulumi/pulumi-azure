@@ -1413,6 +1413,9 @@ export namespace apimanagement {
 
 export namespace appconfiguration {
     export interface ConfigurationStoreIdentity {
+        /**
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The ID of the Principal (Client) in Azure Active Directory.
@@ -1423,7 +1426,7 @@ export namespace appconfiguration {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -9889,6 +9892,17 @@ export namespace datafactory {
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
+    export interface LinkedServiceAzureBlobStorageKeyVaultSasToken {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores the sas token.
+         */
+        secretName: pulumi.Input<string>;
+    }
+
     export interface LinkedServiceAzureDatabricksInstancePool {
         /**
          * Spark version of a the cluster.
@@ -9969,6 +9983,17 @@ export namespace datafactory {
         linkedServiceName: pulumi.Input<string>;
         /**
          * Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+         */
+        secretName: pulumi.Input<string>;
+    }
+
+    export interface LinkedServiceAzureFunctionKeyVaultKey {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores the system key of the Azure Function.
          */
         secretName: pulumi.Input<string>;
     }
@@ -12746,6 +12771,37 @@ export namespace hdinsight {
         vmSize: pulumi.Input<string>;
     }
 
+    export interface HBaseClusterSecurityProfile {
+        /**
+         * The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+         */
+        aaddsResourceId: pulumi.Input<string>;
+        /**
+         * A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+         */
+        clusterUsersGroupDns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainName: pulumi.Input<string>;
+        /**
+         * The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUserPassword: pulumi.Input<string>;
+        /**
+         * The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUsername: pulumi.Input<string>;
+        /**
+         * A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+         */
+        ldapsUrls: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+         */
+        msiResourceId: pulumi.Input<string>;
+    }
+
     export interface HBaseClusterStorageAccount {
         /**
          * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -13086,6 +13142,37 @@ export namespace hdinsight {
         vmSize: pulumi.Input<string>;
     }
 
+    export interface HadoopClusterSecurityProfile {
+        /**
+         * The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+         */
+        aaddsResourceId: pulumi.Input<string>;
+        /**
+         * A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+         */
+        clusterUsersGroupDns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainName: pulumi.Input<string>;
+        /**
+         * The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUserPassword: pulumi.Input<string>;
+        /**
+         * The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUsername: pulumi.Input<string>;
+        /**
+         * A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+         */
+        ldapsUrls: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+         */
+        msiResourceId: pulumi.Input<string>;
+    }
+
     export interface HadoopClusterStorageAccount {
         /**
          * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -13393,6 +13480,37 @@ export namespace hdinsight {
         vmSize: pulumi.Input<string>;
     }
 
+    export interface InteractiveQueryClusterSecurityProfile {
+        /**
+         * The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+         */
+        aaddsResourceId: pulumi.Input<string>;
+        /**
+         * A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+         */
+        clusterUsersGroupDns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainName: pulumi.Input<string>;
+        /**
+         * The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUserPassword: pulumi.Input<string>;
+        /**
+         * The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUsername: pulumi.Input<string>;
+        /**
+         * A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+         */
+        ldapsUrls: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+         */
+        msiResourceId: pulumi.Input<string>;
+    }
+
     export interface InteractiveQueryClusterStorageAccount {
         /**
          * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -13680,6 +13798,37 @@ export namespace hdinsight {
          * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
+    }
+
+    export interface KafkaClusterSecurityProfile {
+        /**
+         * The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+         */
+        aaddsResourceId: pulumi.Input<string>;
+        /**
+         * A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+         */
+        clusterUsersGroupDns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainName: pulumi.Input<string>;
+        /**
+         * The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUserPassword: pulumi.Input<string>;
+        /**
+         * The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUsername: pulumi.Input<string>;
+        /**
+         * A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+         */
+        ldapsUrls: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+         */
+        msiResourceId: pulumi.Input<string>;
     }
 
     export interface KafkaClusterStorageAccount {
@@ -14328,6 +14477,37 @@ export namespace hdinsight {
          * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
+    }
+
+    export interface SparkClusterSecurityProfile {
+        /**
+         * The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+         */
+        aaddsResourceId: pulumi.Input<string>;
+        /**
+         * A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+         */
+        clusterUsersGroupDns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainName: pulumi.Input<string>;
+        /**
+         * The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUserPassword: pulumi.Input<string>;
+        /**
+         * The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUsername: pulumi.Input<string>;
+        /**
+         * A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+         */
+        ldapsUrls: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+         */
+        msiResourceId: pulumi.Input<string>;
     }
 
     export interface SparkClusterStorageAccount {
@@ -15801,6 +15981,17 @@ export namespace logicapps {
          * The version of Key Vault Key.
          */
         keyVersion?: pulumi.Input<string>;
+    }
+
+    export interface IntegrationAccountPartnerBusinessIdentity {
+        /**
+         * The authenticating body that provides unique business identities to organizations.
+         */
+        qualifier: pulumi.Input<string>;
+        /**
+         * The value that identifies the documents that your logic apps receive.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface TriggerRecurrenceSchedule {
@@ -21231,6 +21422,18 @@ export namespace policy {
 
     export interface VirtualMachineConfigurationAssignmentConfiguration {
         /**
+         * The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
+         */
+        assignmentType?: pulumi.Input<string>;
+        /**
+         * The content hash for the Guest Configuration package.
+         */
+        contentHash?: pulumi.Input<string>;
+        /**
+         * The content URI where the Guest Configuration package is stored.
+         */
+        contentUri?: pulumi.Input<string>;
+        /**
          * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
          */
         name: pulumi.Input<string>;
@@ -22612,7 +22815,7 @@ export namespace storage {
          */
         allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of http headers that are allowed to be executed by the origin. Valid options are
+         * A list of http methods that are allowed to be executed by the origin. Valid options are
          * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
@@ -22738,7 +22941,7 @@ export namespace storage {
          */
         allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of http headers that are allowed to be executed by the origin. Valid options are
+         * A list of http methods that are allowed to be executed by the origin. Valid options are
          * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
@@ -22853,7 +23056,7 @@ export namespace storage {
          */
         allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of http headers that are allowed to be executed by the origin. Valid options are
+         * A list of http methods that are allowed to be executed by the origin. Valid options are
          * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;

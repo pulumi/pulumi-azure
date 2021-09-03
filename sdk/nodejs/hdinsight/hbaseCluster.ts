@@ -141,6 +141,10 @@ export class HBaseCluster extends pulumi.CustomResource {
      */
     public readonly roles!: pulumi.Output<outputs.hdinsight.HBaseClusterRoles>;
     /**
+     * A `securityProfile` block as defined below.
+     */
+    public readonly securityProfile!: pulumi.Output<outputs.hdinsight.HBaseClusterSecurityProfile | undefined>;
+    /**
      * The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
      */
     public /*out*/ readonly sshEndpoint!: pulumi.Output<string>;
@@ -185,6 +189,7 @@ export class HBaseCluster extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["roles"] = state ? state.roles : undefined;
+            inputs["securityProfile"] = state ? state.securityProfile : undefined;
             inputs["sshEndpoint"] = state ? state.sshEndpoint : undefined;
             inputs["storageAccountGen2"] = state ? state.storageAccountGen2 : undefined;
             inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
@@ -220,6 +225,7 @@ export class HBaseCluster extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
+            inputs["securityProfile"] = args ? args.securityProfile : undefined;
             inputs["storageAccountGen2"] = args ? args.storageAccountGen2 : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -279,6 +285,10 @@ export interface HBaseClusterState {
      * A `roles` block as defined below.
      */
     roles?: pulumi.Input<inputs.hdinsight.HBaseClusterRoles>;
+    /**
+     * A `securityProfile` block as defined below.
+     */
+    securityProfile?: pulumi.Input<inputs.hdinsight.HBaseClusterSecurityProfile>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
      */
@@ -342,6 +352,10 @@ export interface HBaseClusterArgs {
      * A `roles` block as defined below.
      */
     roles: pulumi.Input<inputs.hdinsight.HBaseClusterRoles>;
+    /**
+     * A `securityProfile` block as defined below.
+     */
+    securityProfile?: pulumi.Input<inputs.hdinsight.HBaseClusterSecurityProfile>;
     /**
      * A `storageAccountGen2` block as defined below.
      */

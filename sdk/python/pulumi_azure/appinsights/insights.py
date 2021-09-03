@@ -18,6 +18,7 @@ class InsightsArgs:
                  daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
                  daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -32,6 +33,7 @@ class InsightsArgs:
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
                new resource to be created.
@@ -48,6 +50,8 @@ class InsightsArgs:
             pulumi.set(__self__, "daily_data_cap_notifications_disabled", daily_data_cap_notifications_disabled)
         if disable_ip_masking is not None:
             pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
+        if local_authentication_disabled is not None:
+            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -121,6 +125,18 @@ class InsightsArgs:
     @disable_ip_masking.setter
     def disable_ip_masking(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_ip_masking", value)
+
+    @property
+    @pulumi.getter(name="localAuthenticationDisabled")
+    def local_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable Non-Azure AD based Auth. Defaults to `false`.
+        """
+        return pulumi.get(self, "local_authentication_disabled")
+
+    @local_authentication_disabled.setter
+    def local_authentication_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_authentication_disabled", value)
 
     @property
     @pulumi.getter
@@ -206,6 +222,7 @@ class _InsightsState:
                  daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
                  instrumentation_key: Optional[pulumi.Input[str]] = None,
+                 local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -222,6 +239,7 @@ class _InsightsState:
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
         :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
+        :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
                new resource to be created.
@@ -246,6 +264,8 @@ class _InsightsState:
             pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
         if instrumentation_key is not None:
             pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+        if local_authentication_disabled is not None:
+            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -346,6 +366,18 @@ class _InsightsState:
         pulumi.set(self, "instrumentation_key", value)
 
     @property
+    @pulumi.getter(name="localAuthenticationDisabled")
+    def local_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable Non-Azure AD based Auth. Defaults to `false`.
+        """
+        return pulumi.get(self, "local_authentication_disabled")
+
+    @local_authentication_disabled.setter
+    def local_authentication_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_authentication_disabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -441,6 +473,7 @@ class Insights(pulumi.CustomResource):
                  daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
                  daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -501,6 +534,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
                new resource to be created.
@@ -582,6 +616,7 @@ class Insights(pulumi.CustomResource):
                  daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
                  daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -607,6 +642,7 @@ class Insights(pulumi.CustomResource):
             __props__.__dict__["daily_data_cap_in_gb"] = daily_data_cap_in_gb
             __props__.__dict__["daily_data_cap_notifications_disabled"] = daily_data_cap_notifications_disabled
             __props__.__dict__["disable_ip_masking"] = disable_ip_masking
+            __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -636,6 +672,7 @@ class Insights(pulumi.CustomResource):
             daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
             disable_ip_masking: Optional[pulumi.Input[bool]] = None,
             instrumentation_key: Optional[pulumi.Input[str]] = None,
+            local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -657,6 +694,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
         :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
+        :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
                new resource to be created.
@@ -678,6 +716,7 @@ class Insights(pulumi.CustomResource):
         __props__.__dict__["daily_data_cap_notifications_disabled"] = daily_data_cap_notifications_disabled
         __props__.__dict__["disable_ip_masking"] = disable_ip_masking
         __props__.__dict__["instrumentation_key"] = instrumentation_key
+        __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -742,6 +781,14 @@ class Insights(pulumi.CustomResource):
         The Instrumentation Key for this Application Insights component. (Sensitive)
         """
         return pulumi.get(self, "instrumentation_key")
+
+    @property
+    @pulumi.getter(name="localAuthenticationDisabled")
+    def local_authentication_disabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Disable Non-Azure AD based Auth. Defaults to `false`.
+        """
+        return pulumi.get(self, "local_authentication_disabled")
 
     @property
     @pulumi.getter

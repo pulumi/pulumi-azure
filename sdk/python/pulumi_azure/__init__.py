@@ -547,6 +547,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appconfiguration/configurationKey",
+  "fqn": "pulumi_azure.appconfiguration",
+  "classes": {
+   "azure:appconfiguration/configurationKey:ConfigurationKey": "ConfigurationKey"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appconfiguration/configurationStore",
   "fqn": "pulumi_azure.appconfiguration",
   "classes": {
@@ -1223,6 +1231,14 @@ _utilities.register(
   "fqn": "pulumi_azure.cognitive",
   "classes": {
    "azure:cognitive/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountCustomerManagedKey",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey": "AccountCustomerManagedKey"
   }
  },
  {
@@ -3375,6 +3391,22 @@ _utilities.register(
   "fqn": "pulumi_azure.logicapps",
   "classes": {
    "azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate": "IntegrationAccountCertificate"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "logicapps/integrationAccountMap",
+  "fqn": "pulumi_azure.logicapps",
+  "classes": {
+   "azure:logicapps/integrationAccountMap:IntegrationAccountMap": "IntegrationAccountMap"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "logicapps/integrationAccountPartner",
+  "fqn": "pulumi_azure.logicapps",
+  "classes": {
+   "azure:logicapps/integrationAccountPartner:IntegrationAccountPartner": "IntegrationAccountPartner"
   }
  },
  {

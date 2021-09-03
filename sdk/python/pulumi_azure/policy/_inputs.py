@@ -250,14 +250,26 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
 class VirtualMachineConfigurationAssignmentConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 assignment_type: Optional[pulumi.Input[str]] = None,
+                 content_hash: Optional[pulumi.Input[str]] = None,
+                 content_uri: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+        :param pulumi.Input[str] assignment_type: The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
+        :param pulumi.Input[str] content_hash: The content hash for the Guest Configuration package.
+        :param pulumi.Input[str] content_uri: The content URI where the Guest Configuration package is stored.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]] parameters: One or more `parameter` blocks which define what configuration parameters and values against.
         :param pulumi.Input[str] version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
         pulumi.set(__self__, "name", name)
+        if assignment_type is not None:
+            pulumi.set(__self__, "assignment_type", assignment_type)
+        if content_hash is not None:
+            pulumi.set(__self__, "content_hash", content_hash)
+        if content_uri is not None:
+            pulumi.set(__self__, "content_uri", content_uri)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if version is not None:
@@ -274,6 +286,42 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="assignmentType")
+    def assignment_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
+        """
+        return pulumi.get(self, "assignment_type")
+
+    @assignment_type.setter
+    def assignment_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "assignment_type", value)
+
+    @property
+    @pulumi.getter(name="contentHash")
+    def content_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content hash for the Guest Configuration package.
+        """
+        return pulumi.get(self, "content_hash")
+
+    @content_hash.setter
+    def content_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_hash", value)
+
+    @property
+    @pulumi.getter(name="contentUri")
+    def content_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content URI where the Guest Configuration package is stored.
+        """
+        return pulumi.get(self, "content_uri")
+
+    @content_uri.setter
+    def content_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_uri", value)
 
     @property
     @pulumi.getter

@@ -133,6 +133,8 @@ type KafkaCluster struct {
 	RestProxy KafkaClusterRestProxyPtrOutput `pulumi:"restProxy"`
 	// A `roles` block as defined below.
 	Roles KafkaClusterRolesOutput `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile KafkaClusterSecurityProfilePtrOutput `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
 	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
 	// A `storageAccountGen2` block as defined below.
@@ -220,6 +222,8 @@ type kafkaClusterState struct {
 	RestProxy *KafkaClusterRestProxy `pulumi:"restProxy"`
 	// A `roles` block as defined below.
 	Roles *KafkaClusterRoles `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile *KafkaClusterSecurityProfile `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
 	SshEndpoint *string `pulumi:"sshEndpoint"`
 	// A `storageAccountGen2` block as defined below.
@@ -261,6 +265,8 @@ type KafkaClusterState struct {
 	RestProxy KafkaClusterRestProxyPtrInput
 	// A `roles` block as defined below.
 	Roles KafkaClusterRolesPtrInput
+	// A `securityProfile` block as defined below.
+	SecurityProfile KafkaClusterSecurityProfilePtrInput
 	// The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
 	SshEndpoint pulumi.StringPtrInput
 	// A `storageAccountGen2` block as defined below.
@@ -302,6 +308,8 @@ type kafkaClusterArgs struct {
 	RestProxy *KafkaClusterRestProxy `pulumi:"restProxy"`
 	// A `roles` block as defined below.
 	Roles KafkaClusterRoles `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile *KafkaClusterSecurityProfile `pulumi:"securityProfile"`
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 *KafkaClusterStorageAccountGen2 `pulumi:"storageAccountGen2"`
 	// One or more `storageAccount` block as defined below.
@@ -338,6 +346,8 @@ type KafkaClusterArgs struct {
 	RestProxy KafkaClusterRestProxyPtrInput
 	// A `roles` block as defined below.
 	Roles KafkaClusterRolesInput
+	// A `securityProfile` block as defined below.
+	SecurityProfile KafkaClusterSecurityProfilePtrInput
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 KafkaClusterStorageAccountGen2PtrInput
 	// One or more `storageAccount` block as defined below.

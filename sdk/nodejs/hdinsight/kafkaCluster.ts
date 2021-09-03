@@ -154,6 +154,10 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public readonly roles!: pulumi.Output<outputs.hdinsight.KafkaClusterRoles>;
     /**
+     * A `securityProfile` block as defined below.
+     */
+    public readonly securityProfile!: pulumi.Output<outputs.hdinsight.KafkaClusterSecurityProfile | undefined>;
+    /**
      * The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
      */
     public /*out*/ readonly sshEndpoint!: pulumi.Output<string>;
@@ -204,6 +208,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["restProxy"] = state ? state.restProxy : undefined;
             inputs["roles"] = state ? state.roles : undefined;
+            inputs["securityProfile"] = state ? state.securityProfile : undefined;
             inputs["sshEndpoint"] = state ? state.sshEndpoint : undefined;
             inputs["storageAccountGen2"] = state ? state.storageAccountGen2 : undefined;
             inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
@@ -241,6 +246,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["restProxy"] = args ? args.restProxy : undefined;
             inputs["roles"] = args ? args.roles : undefined;
+            inputs["securityProfile"] = args ? args.securityProfile : undefined;
             inputs["storageAccountGen2"] = args ? args.storageAccountGen2 : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -313,6 +319,10 @@ export interface KafkaClusterState {
      * A `roles` block as defined below.
      */
     roles?: pulumi.Input<inputs.hdinsight.KafkaClusterRoles>;
+    /**
+     * A `securityProfile` block as defined below.
+     */
+    securityProfile?: pulumi.Input<inputs.hdinsight.KafkaClusterSecurityProfile>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
      */
@@ -387,6 +397,10 @@ export interface KafkaClusterArgs {
      * A `roles` block as defined below.
      */
     roles: pulumi.Input<inputs.hdinsight.KafkaClusterRoles>;
+    /**
+     * A `securityProfile` block as defined below.
+     */
+    securityProfile?: pulumi.Input<inputs.hdinsight.KafkaClusterSecurityProfile>;
     /**
      * A `storageAccountGen2` block as defined below.
      */

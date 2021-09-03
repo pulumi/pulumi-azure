@@ -6,10 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./account";
+export * from "./accountCustomerManagedKey";
 export * from "./getAccount";
 
 // Import resources to register:
 import { Account } from "./account";
+import { AccountCustomerManagedKey } from "./accountCustomerManagedKey";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +19,12 @@ const _module = {
         switch (type) {
             case "azure:cognitive/account:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey":
+                return new AccountCustomerManagedKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "cognitive/account", _module)
+pulumi.runtime.registerResourceModule("azure", "cognitive/accountCustomerManagedKey", _module)

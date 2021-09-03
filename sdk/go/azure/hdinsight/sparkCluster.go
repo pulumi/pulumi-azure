@@ -130,6 +130,8 @@ type SparkCluster struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles SparkClusterRolesOutput `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile SparkClusterSecurityProfilePtrOutput `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
 	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
 	// A `storageAccountGen2` block as defined below.
@@ -214,6 +216,8 @@ type sparkClusterState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles *SparkClusterRoles `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile *SparkClusterSecurityProfile `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
 	SshEndpoint *string `pulumi:"sshEndpoint"`
 	// A `storageAccountGen2` block as defined below.
@@ -252,6 +256,8 @@ type SparkClusterState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
 	Roles SparkClusterRolesPtrInput
+	// A `securityProfile` block as defined below.
+	SecurityProfile SparkClusterSecurityProfilePtrInput
 	// The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
 	SshEndpoint pulumi.StringPtrInput
 	// A `storageAccountGen2` block as defined below.
@@ -292,6 +298,8 @@ type sparkClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles SparkClusterRoles `pulumi:"roles"`
+	// A `securityProfile` block as defined below.
+	SecurityProfile *SparkClusterSecurityProfile `pulumi:"securityProfile"`
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 *SparkClusterStorageAccountGen2 `pulumi:"storageAccountGen2"`
 	// One or more `storageAccount` block as defined below.
@@ -327,6 +335,8 @@ type SparkClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.
 	Roles SparkClusterRolesInput
+	// A `securityProfile` block as defined below.
+	SecurityProfile SparkClusterSecurityProfilePtrInput
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 SparkClusterStorageAccountGen2PtrInput
 	// One or more `storageAccount` block as defined below.

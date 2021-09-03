@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'ActionHttpRunAfter',
     'IntegrationAccountCertificateKeyVaultKey',
+    'IntegrationAccountPartnerBusinessIdentity',
     'TriggerRecurrenceSchedule',
 ]
 
@@ -122,6 +123,35 @@ class IntegrationAccountCertificateKeyVaultKey(dict):
         The version of Key Vault Key.
         """
         return pulumi.get(self, "key_version")
+
+
+@pulumi.output_type
+class IntegrationAccountPartnerBusinessIdentity(dict):
+    def __init__(__self__, *,
+                 qualifier: str,
+                 value: str):
+        """
+        :param str qualifier: The authenticating body that provides unique business identities to organizations.
+        :param str value: The value that identifies the documents that your logic apps receive.
+        """
+        pulumi.set(__self__, "qualifier", qualifier)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def qualifier(self) -> str:
+        """
+        The authenticating body that provides unique business identities to organizations.
+        """
+        return pulumi.get(self, "qualifier")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value that identifies the documents that your logic apps receive.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -115,6 +115,8 @@ type Insights struct {
 	DisableIpMasking pulumi.BoolPtrOutput `pulumi:"disableIpMasking"`
 	// The Instrumentation Key for this Application Insights component. (Sensitive)
 	InstrumentationKey pulumi.StringOutput `pulumi:"instrumentationKey"`
+	// Disable Non-Azure AD based Auth. Defaults to `false`.
+	LocalAuthenticationDisabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Application Insights component. Changing this forces a
@@ -182,6 +184,8 @@ type insightsState struct {
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
 	// The Instrumentation Key for this Application Insights component. (Sensitive)
 	InstrumentationKey *string `pulumi:"instrumentationKey"`
+	// Disable Non-Azure AD based Auth. Defaults to `false`.
+	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Application Insights component. Changing this forces a
@@ -215,6 +219,8 @@ type InsightsState struct {
 	DisableIpMasking pulumi.BoolPtrInput
 	// The Instrumentation Key for this Application Insights component. (Sensitive)
 	InstrumentationKey pulumi.StringPtrInput
+	// Disable Non-Azure AD based Auth. Defaults to `false`.
+	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Application Insights component. Changing this forces a
@@ -246,6 +252,8 @@ type insightsArgs struct {
 	DailyDataCapNotificationsDisabled *bool `pulumi:"dailyDataCapNotificationsDisabled"`
 	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
+	// Disable Non-Azure AD based Auth. Defaults to `false`.
+	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Application Insights component. Changing this forces a
@@ -274,6 +282,8 @@ type InsightsArgs struct {
 	DailyDataCapNotificationsDisabled pulumi.BoolPtrInput
 	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
 	DisableIpMasking pulumi.BoolPtrInput
+	// Disable Non-Azure AD based Auth. Defaults to `false`.
+	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Application Insights component. Changing this forces a

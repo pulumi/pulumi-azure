@@ -1575,6 +1575,9 @@ export namespace apimanagement {
 
 export namespace appconfiguration {
     export interface ConfigurationStoreIdentity {
+        /**
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         */
         identityIds?: string[];
         /**
          * The ID of the Principal (Client) in Azure Active Directory.
@@ -1585,7 +1588,7 @@ export namespace appconfiguration {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -11948,6 +11951,17 @@ export namespace datafactory {
         parameters?: {[key: string]: string};
     }
 
+    export interface LinkedServiceAzureBlobStorageKeyVaultSasToken {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores the sas token.
+         */
+        secretName: string;
+    }
+
     export interface LinkedServiceAzureDatabricksInstancePool {
         /**
          * Spark version of a the cluster.
@@ -12028,6 +12042,17 @@ export namespace datafactory {
         linkedServiceName: string;
         /**
          * Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+         */
+        secretName: string;
+    }
+
+    export interface LinkedServiceAzureFunctionKeyVaultKey {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores the system key of the Azure Function.
          */
         secretName: string;
     }
@@ -15000,6 +15025,37 @@ export namespace hdinsight {
         vmSize: string;
     }
 
+    export interface HBaseClusterSecurityProfile {
+        /**
+         * The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+         */
+        aaddsResourceId: string;
+        /**
+         * A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+         */
+        clusterUsersGroupDns?: string[];
+        /**
+         * The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainName: string;
+        /**
+         * The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUserPassword: string;
+        /**
+         * The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUsername: string;
+        /**
+         * A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+         */
+        ldapsUrls: string[];
+        /**
+         * The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+         */
+        msiResourceId: string;
+    }
+
     export interface HBaseClusterStorageAccount {
         /**
          * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -15340,6 +15396,37 @@ export namespace hdinsight {
         vmSize: string;
     }
 
+    export interface HadoopClusterSecurityProfile {
+        /**
+         * The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+         */
+        aaddsResourceId: string;
+        /**
+         * A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+         */
+        clusterUsersGroupDns?: string[];
+        /**
+         * The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainName: string;
+        /**
+         * The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUserPassword: string;
+        /**
+         * The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUsername: string;
+        /**
+         * A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+         */
+        ldapsUrls: string[];
+        /**
+         * The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+         */
+        msiResourceId: string;
+    }
+
     export interface HadoopClusterStorageAccount {
         /**
          * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -15647,6 +15734,37 @@ export namespace hdinsight {
         vmSize: string;
     }
 
+    export interface InteractiveQueryClusterSecurityProfile {
+        /**
+         * The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+         */
+        aaddsResourceId: string;
+        /**
+         * A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+         */
+        clusterUsersGroupDns?: string[];
+        /**
+         * The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainName: string;
+        /**
+         * The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUserPassword: string;
+        /**
+         * The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUsername: string;
+        /**
+         * A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+         */
+        ldapsUrls: string[];
+        /**
+         * The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+         */
+        msiResourceId: string;
+    }
+
     export interface InteractiveQueryClusterStorageAccount {
         /**
          * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -15934,6 +16052,37 @@ export namespace hdinsight {
          * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         vmSize: string;
+    }
+
+    export interface KafkaClusterSecurityProfile {
+        /**
+         * The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+         */
+        aaddsResourceId: string;
+        /**
+         * A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+         */
+        clusterUsersGroupDns?: string[];
+        /**
+         * The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainName: string;
+        /**
+         * The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUserPassword: string;
+        /**
+         * The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUsername: string;
+        /**
+         * A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+         */
+        ldapsUrls: string[];
+        /**
+         * The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+         */
+        msiResourceId: string;
     }
 
     export interface KafkaClusterStorageAccount {
@@ -16584,6 +16733,37 @@ export namespace hdinsight {
         vmSize: string;
     }
 
+    export interface SparkClusterSecurityProfile {
+        /**
+         * The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+         */
+        aaddsResourceId: string;
+        /**
+         * A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+         */
+        clusterUsersGroupDns?: string[];
+        /**
+         * The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainName: string;
+        /**
+         * The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUserPassword: string;
+        /**
+         * The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+         */
+        domainUsername: string;
+        /**
+         * A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+         */
+        ldapsUrls: string[];
+        /**
+         * The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+         */
+        msiResourceId: string;
+    }
+
     export interface SparkClusterStorageAccount {
         /**
          * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -16845,7 +17025,6 @@ export namespace hdinsight {
          */
         storageContainerId: string;
     }
-
 }
 
 export namespace healthcare {
@@ -18340,6 +18519,17 @@ export namespace logicapps {
          * The version of Key Vault Key.
          */
         keyVersion?: string;
+    }
+
+    export interface IntegrationAccountPartnerBusinessIdentity {
+        /**
+         * The authenticating body that provides unique business identities to organizations.
+         */
+        qualifier: string;
+        /**
+         * The value that identifies the documents that your logic apps receive.
+         */
+        value: string;
     }
 
     export interface TriggerRecurrenceSchedule {
@@ -24870,6 +25060,18 @@ export namespace policy {
 
     export interface VirtualMachineConfigurationAssignmentConfiguration {
         /**
+         * The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
+         */
+        assignmentType?: string;
+        /**
+         * The content hash for the Guest Configuration package.
+         */
+        contentHash?: string;
+        /**
+         * The content URI where the Guest Configuration package is stored.
+         */
+        contentUri?: string;
+        /**
          * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
          */
         name: string;
@@ -26508,7 +26710,7 @@ export namespace storage {
          */
         allowedHeaders: string[];
         /**
-         * A list of http headers that are allowed to be executed by the origin. Valid options are
+         * A list of http methods that are allowed to be executed by the origin. Valid options are
          * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: string[];
@@ -26634,7 +26836,7 @@ export namespace storage {
          */
         allowedHeaders: string[];
         /**
-         * A list of http headers that are allowed to be executed by the origin. Valid options are
+         * A list of http methods that are allowed to be executed by the origin. Valid options are
          * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: string[];
@@ -26749,7 +26951,7 @@ export namespace storage {
          */
         allowedHeaders: string[];
         /**
-         * A list of http headers that are allowed to be executed by the origin. Valid options are
+         * A list of http methods that are allowed to be executed by the origin. Valid options are
          * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: string[];

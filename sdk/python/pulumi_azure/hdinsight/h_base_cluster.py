@@ -25,6 +25,7 @@ class HBaseClusterArgs:
                  metastores: Optional[pulumi.Input['HBaseClusterMetastoresArgs']] = None,
                  monitor: Optional[pulumi.Input['HBaseClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 security_profile: Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']] = None,
                  storage_account_gen2: Optional[pulumi.Input['HBaseClusterStorageAccountGen2Args']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -41,6 +42,7 @@ class HBaseClusterArgs:
         :param pulumi.Input['HBaseClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
         :param pulumi.Input['HBaseClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input['HBaseClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input['HBaseClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight HBase Cluster.
@@ -59,6 +61,8 @@ class HBaseClusterArgs:
             pulumi.set(__self__, "monitor", monitor)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if storage_account_gen2 is not None:
             pulumi.set(__self__, "storage_account_gen2", storage_account_gen2)
         if storage_accounts is not None:
@@ -189,6 +193,18 @@ class HBaseClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']]:
+        """
+        A `security_profile` block as defined below.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
     @pulumi.getter(name="storageAccountGen2")
     def storage_account_gen2(self) -> Optional[pulumi.Input['HBaseClusterStorageAccountGen2Args']]:
         """
@@ -247,6 +263,7 @@ class _HBaseClusterState:
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input['HBaseClusterRolesArgs']] = None,
+                 security_profile: Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']] = None,
                  ssh_endpoint: Optional[pulumi.Input[str]] = None,
                  storage_account_gen2: Optional[pulumi.Input['HBaseClusterStorageAccountGen2Args']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]] = None,
@@ -265,6 +282,7 @@ class _HBaseClusterState:
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['HBaseClusterRolesArgs'] roles: A `roles` block as defined below.
+        :param pulumi.Input['HBaseClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
         :param pulumi.Input['HBaseClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
@@ -291,6 +309,8 @@ class _HBaseClusterState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if ssh_endpoint is not None:
             pulumi.set(__self__, "ssh_endpoint", ssh_endpoint)
         if storage_account_gen2 is not None:
@@ -425,6 +445,18 @@ class _HBaseClusterState:
         pulumi.set(self, "roles", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']]:
+        """
+        A `security_profile` block as defined below.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
     @pulumi.getter(name="sshEndpoint")
     def ssh_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -508,6 +540,7 @@ class HBaseCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']]] = None,
                  storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountGen2Args']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -589,6 +622,7 @@ class HBaseCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']] roles: A `roles` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight HBase Cluster.
@@ -688,6 +722,7 @@ class HBaseCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']]] = None,
                  storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountGen2Args']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -724,6 +759,7 @@ class HBaseCluster(pulumi.CustomResource):
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
+            __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["storage_account_gen2"] = storage_account_gen2
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
@@ -753,6 +789,7 @@ class HBaseCluster(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']]] = None,
+            security_profile: Optional[pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
             storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountGen2Args']]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountArgs']]]]] = None,
@@ -776,6 +813,7 @@ class HBaseCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']] roles: A `roles` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
         :param pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
@@ -796,6 +834,7 @@ class HBaseCluster(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["roles"] = roles
+        __props__.__dict__["security_profile"] = security_profile
         __props__.__dict__["ssh_endpoint"] = ssh_endpoint
         __props__.__dict__["storage_account_gen2"] = storage_account_gen2
         __props__.__dict__["storage_accounts"] = storage_accounts
@@ -883,6 +922,14 @@ class HBaseCluster(pulumi.CustomResource):
         A `roles` block as defined below.
         """
         return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> pulumi.Output[Optional['outputs.HBaseClusterSecurityProfile']]:
+        """
+        A `security_profile` block as defined below.
+        """
+        return pulumi.get(self, "security_profile")
 
     @property
     @pulumi.getter(name="sshEndpoint")

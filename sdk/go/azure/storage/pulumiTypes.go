@@ -775,7 +775,7 @@ func (o AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) Days() pul
 type AccountBlobPropertiesCorsRule struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// A list of http headers that are allowed to be executed by the origin. Valid options are
+	// A list of http methods that are allowed to be executed by the origin. Valid options are
 	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
@@ -800,7 +800,7 @@ type AccountBlobPropertiesCorsRuleInput interface {
 type AccountBlobPropertiesCorsRuleArgs struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// A list of http headers that are allowed to be executed by the origin. Valid options are
+	// A list of http methods that are allowed to be executed by the origin. Valid options are
 	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
@@ -867,7 +867,7 @@ func (o AccountBlobPropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArray
 	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// A list of http headers that are allowed to be executed by the origin. Valid options are
+// A list of http methods that are allowed to be executed by the origin. Valid options are
 // `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountBlobPropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
@@ -1993,7 +1993,7 @@ func (o AccountQueuePropertiesPtrOutput) MinuteMetrics() AccountQueuePropertiesM
 type AccountQueuePropertiesCorsRule struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// A list of http headers that are allowed to be executed by the origin. Valid options are
+	// A list of http methods that are allowed to be executed by the origin. Valid options are
 	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
@@ -2018,7 +2018,7 @@ type AccountQueuePropertiesCorsRuleInput interface {
 type AccountQueuePropertiesCorsRuleArgs struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// A list of http headers that are allowed to be executed by the origin. Valid options are
+	// A list of http methods that are allowed to be executed by the origin. Valid options are
 	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
@@ -2085,7 +2085,7 @@ func (o AccountQueuePropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArra
 	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// A list of http headers that are allowed to be executed by the origin. Valid options are
+// A list of http methods that are allowed to be executed by the origin. Valid options are
 // `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountQueuePropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
@@ -3050,7 +3050,7 @@ func (o AccountSharePropertiesPtrOutput) Smb() AccountSharePropertiesSmbPtrOutpu
 type AccountSharePropertiesCorsRule struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// A list of http headers that are allowed to be executed by the origin. Valid options are
+	// A list of http methods that are allowed to be executed by the origin. Valid options are
 	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
@@ -3075,7 +3075,7 @@ type AccountSharePropertiesCorsRuleInput interface {
 type AccountSharePropertiesCorsRuleArgs struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// A list of http headers that are allowed to be executed by the origin. Valid options are
+	// A list of http methods that are allowed to be executed by the origin. Valid options are
 	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
@@ -3142,7 +3142,7 @@ func (o AccountSharePropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArra
 	return o.ApplyT(func(v AccountSharePropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// A list of http headers that are allowed to be executed by the origin. Valid options are
+// A list of http methods that are allowed to be executed by the origin. Valid options are
 // `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountSharePropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountSharePropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)

@@ -49,7 +49,8 @@ class ConfigurationStoreIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[str] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         :param str principal_id: The ID of the Principal (Client) in Azure Active Directory.
         :param str tenant_id: The ID of the Azure Active Directory Tenant.
         """
@@ -65,13 +66,16 @@ class ConfigurationStoreIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of IDs for User Assigned Managed Identity resources to be assigned.
+        """
         return pulumi.get(self, "identity_ids")
 
     @property

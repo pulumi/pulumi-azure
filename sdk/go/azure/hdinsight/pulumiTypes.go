@@ -2515,6 +2515,251 @@ func (o HBaseClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type HBaseClusterSecurityProfile struct {
+	// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+	AaddsResourceId string `pulumi:"aaddsResourceId"`
+	// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+	ClusterUsersGroupDns []string `pulumi:"clusterUsersGroupDns"`
+	// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainName string `pulumi:"domainName"`
+	// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUserPassword string `pulumi:"domainUserPassword"`
+	// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUsername string `pulumi:"domainUsername"`
+	// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+	LdapsUrls []string `pulumi:"ldapsUrls"`
+	// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+	MsiResourceId string `pulumi:"msiResourceId"`
+}
+
+// HBaseClusterSecurityProfileInput is an input type that accepts HBaseClusterSecurityProfileArgs and HBaseClusterSecurityProfileOutput values.
+// You can construct a concrete instance of `HBaseClusterSecurityProfileInput` via:
+//
+//          HBaseClusterSecurityProfileArgs{...}
+type HBaseClusterSecurityProfileInput interface {
+	pulumi.Input
+
+	ToHBaseClusterSecurityProfileOutput() HBaseClusterSecurityProfileOutput
+	ToHBaseClusterSecurityProfileOutputWithContext(context.Context) HBaseClusterSecurityProfileOutput
+}
+
+type HBaseClusterSecurityProfileArgs struct {
+	// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+	AaddsResourceId pulumi.StringInput `pulumi:"aaddsResourceId"`
+	// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+	ClusterUsersGroupDns pulumi.StringArrayInput `pulumi:"clusterUsersGroupDns"`
+	// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUserPassword pulumi.StringInput `pulumi:"domainUserPassword"`
+	// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUsername pulumi.StringInput `pulumi:"domainUsername"`
+	// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+	LdapsUrls pulumi.StringArrayInput `pulumi:"ldapsUrls"`
+	// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+	MsiResourceId pulumi.StringInput `pulumi:"msiResourceId"`
+}
+
+func (HBaseClusterSecurityProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterSecurityProfile)(nil)).Elem()
+}
+
+func (i HBaseClusterSecurityProfileArgs) ToHBaseClusterSecurityProfileOutput() HBaseClusterSecurityProfileOutput {
+	return i.ToHBaseClusterSecurityProfileOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterSecurityProfileArgs) ToHBaseClusterSecurityProfileOutputWithContext(ctx context.Context) HBaseClusterSecurityProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterSecurityProfileOutput)
+}
+
+func (i HBaseClusterSecurityProfileArgs) ToHBaseClusterSecurityProfilePtrOutput() HBaseClusterSecurityProfilePtrOutput {
+	return i.ToHBaseClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterSecurityProfileArgs) ToHBaseClusterSecurityProfilePtrOutputWithContext(ctx context.Context) HBaseClusterSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterSecurityProfileOutput).ToHBaseClusterSecurityProfilePtrOutputWithContext(ctx)
+}
+
+// HBaseClusterSecurityProfilePtrInput is an input type that accepts HBaseClusterSecurityProfileArgs, HBaseClusterSecurityProfilePtr and HBaseClusterSecurityProfilePtrOutput values.
+// You can construct a concrete instance of `HBaseClusterSecurityProfilePtrInput` via:
+//
+//          HBaseClusterSecurityProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type HBaseClusterSecurityProfilePtrInput interface {
+	pulumi.Input
+
+	ToHBaseClusterSecurityProfilePtrOutput() HBaseClusterSecurityProfilePtrOutput
+	ToHBaseClusterSecurityProfilePtrOutputWithContext(context.Context) HBaseClusterSecurityProfilePtrOutput
+}
+
+type hbaseClusterSecurityProfilePtrType HBaseClusterSecurityProfileArgs
+
+func HBaseClusterSecurityProfilePtr(v *HBaseClusterSecurityProfileArgs) HBaseClusterSecurityProfilePtrInput {
+	return (*hbaseClusterSecurityProfilePtrType)(v)
+}
+
+func (*hbaseClusterSecurityProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterSecurityProfile)(nil)).Elem()
+}
+
+func (i *hbaseClusterSecurityProfilePtrType) ToHBaseClusterSecurityProfilePtrOutput() HBaseClusterSecurityProfilePtrOutput {
+	return i.ToHBaseClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *hbaseClusterSecurityProfilePtrType) ToHBaseClusterSecurityProfilePtrOutputWithContext(ctx context.Context) HBaseClusterSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterSecurityProfilePtrOutput)
+}
+
+type HBaseClusterSecurityProfileOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterSecurityProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterSecurityProfile)(nil)).Elem()
+}
+
+func (o HBaseClusterSecurityProfileOutput) ToHBaseClusterSecurityProfileOutput() HBaseClusterSecurityProfileOutput {
+	return o
+}
+
+func (o HBaseClusterSecurityProfileOutput) ToHBaseClusterSecurityProfileOutputWithContext(ctx context.Context) HBaseClusterSecurityProfileOutput {
+	return o
+}
+
+func (o HBaseClusterSecurityProfileOutput) ToHBaseClusterSecurityProfilePtrOutput() HBaseClusterSecurityProfilePtrOutput {
+	return o.ToHBaseClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (o HBaseClusterSecurityProfileOutput) ToHBaseClusterSecurityProfilePtrOutputWithContext(ctx context.Context) HBaseClusterSecurityProfilePtrOutput {
+	return o.ApplyT(func(v HBaseClusterSecurityProfile) *HBaseClusterSecurityProfile {
+		return &v
+	}).(HBaseClusterSecurityProfilePtrOutput)
+}
+
+// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfileOutput) AaddsResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterSecurityProfile) string { return v.AaddsResourceId }).(pulumi.StringOutput)
+}
+
+// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfileOutput) ClusterUsersGroupDns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HBaseClusterSecurityProfile) []string { return v.ClusterUsersGroupDns }).(pulumi.StringArrayOutput)
+}
+
+// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfileOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterSecurityProfile) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfileOutput) DomainUserPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterSecurityProfile) string { return v.DomainUserPassword }).(pulumi.StringOutput)
+}
+
+// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfileOutput) DomainUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterSecurityProfile) string { return v.DomainUsername }).(pulumi.StringOutput)
+}
+
+// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfileOutput) LdapsUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HBaseClusterSecurityProfile) []string { return v.LdapsUrls }).(pulumi.StringArrayOutput)
+}
+
+// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfileOutput) MsiResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterSecurityProfile) string { return v.MsiResourceId }).(pulumi.StringOutput)
+}
+
+type HBaseClusterSecurityProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterSecurityProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterSecurityProfile)(nil)).Elem()
+}
+
+func (o HBaseClusterSecurityProfilePtrOutput) ToHBaseClusterSecurityProfilePtrOutput() HBaseClusterSecurityProfilePtrOutput {
+	return o
+}
+
+func (o HBaseClusterSecurityProfilePtrOutput) ToHBaseClusterSecurityProfilePtrOutputWithContext(ctx context.Context) HBaseClusterSecurityProfilePtrOutput {
+	return o
+}
+
+func (o HBaseClusterSecurityProfilePtrOutput) Elem() HBaseClusterSecurityProfileOutput {
+	return o.ApplyT(func(v *HBaseClusterSecurityProfile) HBaseClusterSecurityProfile { return *v }).(HBaseClusterSecurityProfileOutput)
+}
+
+// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfilePtrOutput) AaddsResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AaddsResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfilePtrOutput) ClusterUsersGroupDns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HBaseClusterSecurityProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterUsersGroupDns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfilePtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfilePtrOutput) DomainUserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainUserPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfilePtrOutput) DomainUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfilePtrOutput) LdapsUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HBaseClusterSecurityProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LdapsUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+func (o HBaseClusterSecurityProfilePtrOutput) MsiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MsiResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 type HBaseClusterStorageAccount struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	IsDefault bool `pulumi:"isDefault"`
@@ -5942,6 +6187,251 @@ func (o HadoopClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type HadoopClusterSecurityProfile struct {
+	// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+	AaddsResourceId string `pulumi:"aaddsResourceId"`
+	// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+	ClusterUsersGroupDns []string `pulumi:"clusterUsersGroupDns"`
+	// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainName string `pulumi:"domainName"`
+	// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUserPassword string `pulumi:"domainUserPassword"`
+	// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUsername string `pulumi:"domainUsername"`
+	// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+	LdapsUrls []string `pulumi:"ldapsUrls"`
+	// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+	MsiResourceId string `pulumi:"msiResourceId"`
+}
+
+// HadoopClusterSecurityProfileInput is an input type that accepts HadoopClusterSecurityProfileArgs and HadoopClusterSecurityProfileOutput values.
+// You can construct a concrete instance of `HadoopClusterSecurityProfileInput` via:
+//
+//          HadoopClusterSecurityProfileArgs{...}
+type HadoopClusterSecurityProfileInput interface {
+	pulumi.Input
+
+	ToHadoopClusterSecurityProfileOutput() HadoopClusterSecurityProfileOutput
+	ToHadoopClusterSecurityProfileOutputWithContext(context.Context) HadoopClusterSecurityProfileOutput
+}
+
+type HadoopClusterSecurityProfileArgs struct {
+	// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+	AaddsResourceId pulumi.StringInput `pulumi:"aaddsResourceId"`
+	// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+	ClusterUsersGroupDns pulumi.StringArrayInput `pulumi:"clusterUsersGroupDns"`
+	// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUserPassword pulumi.StringInput `pulumi:"domainUserPassword"`
+	// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUsername pulumi.StringInput `pulumi:"domainUsername"`
+	// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+	LdapsUrls pulumi.StringArrayInput `pulumi:"ldapsUrls"`
+	// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+	MsiResourceId pulumi.StringInput `pulumi:"msiResourceId"`
+}
+
+func (HadoopClusterSecurityProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterSecurityProfile)(nil)).Elem()
+}
+
+func (i HadoopClusterSecurityProfileArgs) ToHadoopClusterSecurityProfileOutput() HadoopClusterSecurityProfileOutput {
+	return i.ToHadoopClusterSecurityProfileOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterSecurityProfileArgs) ToHadoopClusterSecurityProfileOutputWithContext(ctx context.Context) HadoopClusterSecurityProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterSecurityProfileOutput)
+}
+
+func (i HadoopClusterSecurityProfileArgs) ToHadoopClusterSecurityProfilePtrOutput() HadoopClusterSecurityProfilePtrOutput {
+	return i.ToHadoopClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterSecurityProfileArgs) ToHadoopClusterSecurityProfilePtrOutputWithContext(ctx context.Context) HadoopClusterSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterSecurityProfileOutput).ToHadoopClusterSecurityProfilePtrOutputWithContext(ctx)
+}
+
+// HadoopClusterSecurityProfilePtrInput is an input type that accepts HadoopClusterSecurityProfileArgs, HadoopClusterSecurityProfilePtr and HadoopClusterSecurityProfilePtrOutput values.
+// You can construct a concrete instance of `HadoopClusterSecurityProfilePtrInput` via:
+//
+//          HadoopClusterSecurityProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type HadoopClusterSecurityProfilePtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterSecurityProfilePtrOutput() HadoopClusterSecurityProfilePtrOutput
+	ToHadoopClusterSecurityProfilePtrOutputWithContext(context.Context) HadoopClusterSecurityProfilePtrOutput
+}
+
+type hadoopClusterSecurityProfilePtrType HadoopClusterSecurityProfileArgs
+
+func HadoopClusterSecurityProfilePtr(v *HadoopClusterSecurityProfileArgs) HadoopClusterSecurityProfilePtrInput {
+	return (*hadoopClusterSecurityProfilePtrType)(v)
+}
+
+func (*hadoopClusterSecurityProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterSecurityProfile)(nil)).Elem()
+}
+
+func (i *hadoopClusterSecurityProfilePtrType) ToHadoopClusterSecurityProfilePtrOutput() HadoopClusterSecurityProfilePtrOutput {
+	return i.ToHadoopClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterSecurityProfilePtrType) ToHadoopClusterSecurityProfilePtrOutputWithContext(ctx context.Context) HadoopClusterSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterSecurityProfilePtrOutput)
+}
+
+type HadoopClusterSecurityProfileOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterSecurityProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterSecurityProfile)(nil)).Elem()
+}
+
+func (o HadoopClusterSecurityProfileOutput) ToHadoopClusterSecurityProfileOutput() HadoopClusterSecurityProfileOutput {
+	return o
+}
+
+func (o HadoopClusterSecurityProfileOutput) ToHadoopClusterSecurityProfileOutputWithContext(ctx context.Context) HadoopClusterSecurityProfileOutput {
+	return o
+}
+
+func (o HadoopClusterSecurityProfileOutput) ToHadoopClusterSecurityProfilePtrOutput() HadoopClusterSecurityProfilePtrOutput {
+	return o.ToHadoopClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterSecurityProfileOutput) ToHadoopClusterSecurityProfilePtrOutputWithContext(ctx context.Context) HadoopClusterSecurityProfilePtrOutput {
+	return o.ApplyT(func(v HadoopClusterSecurityProfile) *HadoopClusterSecurityProfile {
+		return &v
+	}).(HadoopClusterSecurityProfilePtrOutput)
+}
+
+// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfileOutput) AaddsResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterSecurityProfile) string { return v.AaddsResourceId }).(pulumi.StringOutput)
+}
+
+// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfileOutput) ClusterUsersGroupDns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HadoopClusterSecurityProfile) []string { return v.ClusterUsersGroupDns }).(pulumi.StringArrayOutput)
+}
+
+// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfileOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterSecurityProfile) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfileOutput) DomainUserPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterSecurityProfile) string { return v.DomainUserPassword }).(pulumi.StringOutput)
+}
+
+// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfileOutput) DomainUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterSecurityProfile) string { return v.DomainUsername }).(pulumi.StringOutput)
+}
+
+// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfileOutput) LdapsUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HadoopClusterSecurityProfile) []string { return v.LdapsUrls }).(pulumi.StringArrayOutput)
+}
+
+// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfileOutput) MsiResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterSecurityProfile) string { return v.MsiResourceId }).(pulumi.StringOutput)
+}
+
+type HadoopClusterSecurityProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterSecurityProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterSecurityProfile)(nil)).Elem()
+}
+
+func (o HadoopClusterSecurityProfilePtrOutput) ToHadoopClusterSecurityProfilePtrOutput() HadoopClusterSecurityProfilePtrOutput {
+	return o
+}
+
+func (o HadoopClusterSecurityProfilePtrOutput) ToHadoopClusterSecurityProfilePtrOutputWithContext(ctx context.Context) HadoopClusterSecurityProfilePtrOutput {
+	return o
+}
+
+func (o HadoopClusterSecurityProfilePtrOutput) Elem() HadoopClusterSecurityProfileOutput {
+	return o.ApplyT(func(v *HadoopClusterSecurityProfile) HadoopClusterSecurityProfile { return *v }).(HadoopClusterSecurityProfileOutput)
+}
+
+// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfilePtrOutput) AaddsResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AaddsResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfilePtrOutput) ClusterUsersGroupDns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HadoopClusterSecurityProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterUsersGroupDns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfilePtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfilePtrOutput) DomainUserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainUserPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfilePtrOutput) DomainUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfilePtrOutput) LdapsUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HadoopClusterSecurityProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LdapsUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+func (o HadoopClusterSecurityProfilePtrOutput) MsiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MsiResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 type HadoopClusterStorageAccount struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	IsDefault bool `pulumi:"isDefault"`
@@ -9076,6 +9566,251 @@ func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type InteractiveQueryClusterSecurityProfile struct {
+	// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+	AaddsResourceId string `pulumi:"aaddsResourceId"`
+	// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+	ClusterUsersGroupDns []string `pulumi:"clusterUsersGroupDns"`
+	// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainName string `pulumi:"domainName"`
+	// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUserPassword string `pulumi:"domainUserPassword"`
+	// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUsername string `pulumi:"domainUsername"`
+	// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+	LdapsUrls []string `pulumi:"ldapsUrls"`
+	// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+	MsiResourceId string `pulumi:"msiResourceId"`
+}
+
+// InteractiveQueryClusterSecurityProfileInput is an input type that accepts InteractiveQueryClusterSecurityProfileArgs and InteractiveQueryClusterSecurityProfileOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterSecurityProfileInput` via:
+//
+//          InteractiveQueryClusterSecurityProfileArgs{...}
+type InteractiveQueryClusterSecurityProfileInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterSecurityProfileOutput() InteractiveQueryClusterSecurityProfileOutput
+	ToInteractiveQueryClusterSecurityProfileOutputWithContext(context.Context) InteractiveQueryClusterSecurityProfileOutput
+}
+
+type InteractiveQueryClusterSecurityProfileArgs struct {
+	// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+	AaddsResourceId pulumi.StringInput `pulumi:"aaddsResourceId"`
+	// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+	ClusterUsersGroupDns pulumi.StringArrayInput `pulumi:"clusterUsersGroupDns"`
+	// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUserPassword pulumi.StringInput `pulumi:"domainUserPassword"`
+	// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUsername pulumi.StringInput `pulumi:"domainUsername"`
+	// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+	LdapsUrls pulumi.StringArrayInput `pulumi:"ldapsUrls"`
+	// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+	MsiResourceId pulumi.StringInput `pulumi:"msiResourceId"`
+}
+
+func (InteractiveQueryClusterSecurityProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterSecurityProfile)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterSecurityProfileArgs) ToInteractiveQueryClusterSecurityProfileOutput() InteractiveQueryClusterSecurityProfileOutput {
+	return i.ToInteractiveQueryClusterSecurityProfileOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterSecurityProfileArgs) ToInteractiveQueryClusterSecurityProfileOutputWithContext(ctx context.Context) InteractiveQueryClusterSecurityProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterSecurityProfileOutput)
+}
+
+func (i InteractiveQueryClusterSecurityProfileArgs) ToInteractiveQueryClusterSecurityProfilePtrOutput() InteractiveQueryClusterSecurityProfilePtrOutput {
+	return i.ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterSecurityProfileArgs) ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterSecurityProfileOutput).ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(ctx)
+}
+
+// InteractiveQueryClusterSecurityProfilePtrInput is an input type that accepts InteractiveQueryClusterSecurityProfileArgs, InteractiveQueryClusterSecurityProfilePtr and InteractiveQueryClusterSecurityProfilePtrOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterSecurityProfilePtrInput` via:
+//
+//          InteractiveQueryClusterSecurityProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type InteractiveQueryClusterSecurityProfilePtrInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterSecurityProfilePtrOutput() InteractiveQueryClusterSecurityProfilePtrOutput
+	ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(context.Context) InteractiveQueryClusterSecurityProfilePtrOutput
+}
+
+type interactiveQueryClusterSecurityProfilePtrType InteractiveQueryClusterSecurityProfileArgs
+
+func InteractiveQueryClusterSecurityProfilePtr(v *InteractiveQueryClusterSecurityProfileArgs) InteractiveQueryClusterSecurityProfilePtrInput {
+	return (*interactiveQueryClusterSecurityProfilePtrType)(v)
+}
+
+func (*interactiveQueryClusterSecurityProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterSecurityProfile)(nil)).Elem()
+}
+
+func (i *interactiveQueryClusterSecurityProfilePtrType) ToInteractiveQueryClusterSecurityProfilePtrOutput() InteractiveQueryClusterSecurityProfilePtrOutput {
+	return i.ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *interactiveQueryClusterSecurityProfilePtrType) ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterSecurityProfilePtrOutput)
+}
+
+type InteractiveQueryClusterSecurityProfileOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterSecurityProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterSecurityProfile)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterSecurityProfileOutput) ToInteractiveQueryClusterSecurityProfileOutput() InteractiveQueryClusterSecurityProfileOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterSecurityProfileOutput) ToInteractiveQueryClusterSecurityProfileOutputWithContext(ctx context.Context) InteractiveQueryClusterSecurityProfileOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterSecurityProfileOutput) ToInteractiveQueryClusterSecurityProfilePtrOutput() InteractiveQueryClusterSecurityProfilePtrOutput {
+	return o.ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (o InteractiveQueryClusterSecurityProfileOutput) ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterSecurityProfilePtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterSecurityProfile) *InteractiveQueryClusterSecurityProfile {
+		return &v
+	}).(InteractiveQueryClusterSecurityProfilePtrOutput)
+}
+
+// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfileOutput) AaddsResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterSecurityProfile) string { return v.AaddsResourceId }).(pulumi.StringOutput)
+}
+
+// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfileOutput) ClusterUsersGroupDns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterSecurityProfile) []string { return v.ClusterUsersGroupDns }).(pulumi.StringArrayOutput)
+}
+
+// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfileOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterSecurityProfile) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfileOutput) DomainUserPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterSecurityProfile) string { return v.DomainUserPassword }).(pulumi.StringOutput)
+}
+
+// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfileOutput) DomainUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterSecurityProfile) string { return v.DomainUsername }).(pulumi.StringOutput)
+}
+
+// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfileOutput) LdapsUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterSecurityProfile) []string { return v.LdapsUrls }).(pulumi.StringArrayOutput)
+}
+
+// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfileOutput) MsiResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterSecurityProfile) string { return v.MsiResourceId }).(pulumi.StringOutput)
+}
+
+type InteractiveQueryClusterSecurityProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterSecurityProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterSecurityProfile)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterSecurityProfilePtrOutput) ToInteractiveQueryClusterSecurityProfilePtrOutput() InteractiveQueryClusterSecurityProfilePtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterSecurityProfilePtrOutput) ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterSecurityProfilePtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterSecurityProfilePtrOutput) Elem() InteractiveQueryClusterSecurityProfileOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterSecurityProfile) InteractiveQueryClusterSecurityProfile { return *v }).(InteractiveQueryClusterSecurityProfileOutput)
+}
+
+// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfilePtrOutput) AaddsResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AaddsResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfilePtrOutput) ClusterUsersGroupDns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterSecurityProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterUsersGroupDns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfilePtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfilePtrOutput) DomainUserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainUserPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfilePtrOutput) DomainUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfilePtrOutput) LdapsUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterSecurityProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LdapsUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterSecurityProfilePtrOutput) MsiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MsiResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 type InteractiveQueryClusterStorageAccount struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	IsDefault bool `pulumi:"isDefault"`
@@ -11857,6 +12592,251 @@ func (o KafkaClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput
 			return nil
 		}
 		return &v.VmSize
+	}).(pulumi.StringPtrOutput)
+}
+
+type KafkaClusterSecurityProfile struct {
+	// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+	AaddsResourceId string `pulumi:"aaddsResourceId"`
+	// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+	ClusterUsersGroupDns []string `pulumi:"clusterUsersGroupDns"`
+	// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainName string `pulumi:"domainName"`
+	// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUserPassword string `pulumi:"domainUserPassword"`
+	// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUsername string `pulumi:"domainUsername"`
+	// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+	LdapsUrls []string `pulumi:"ldapsUrls"`
+	// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+	MsiResourceId string `pulumi:"msiResourceId"`
+}
+
+// KafkaClusterSecurityProfileInput is an input type that accepts KafkaClusterSecurityProfileArgs and KafkaClusterSecurityProfileOutput values.
+// You can construct a concrete instance of `KafkaClusterSecurityProfileInput` via:
+//
+//          KafkaClusterSecurityProfileArgs{...}
+type KafkaClusterSecurityProfileInput interface {
+	pulumi.Input
+
+	ToKafkaClusterSecurityProfileOutput() KafkaClusterSecurityProfileOutput
+	ToKafkaClusterSecurityProfileOutputWithContext(context.Context) KafkaClusterSecurityProfileOutput
+}
+
+type KafkaClusterSecurityProfileArgs struct {
+	// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+	AaddsResourceId pulumi.StringInput `pulumi:"aaddsResourceId"`
+	// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+	ClusterUsersGroupDns pulumi.StringArrayInput `pulumi:"clusterUsersGroupDns"`
+	// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUserPassword pulumi.StringInput `pulumi:"domainUserPassword"`
+	// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUsername pulumi.StringInput `pulumi:"domainUsername"`
+	// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+	LdapsUrls pulumi.StringArrayInput `pulumi:"ldapsUrls"`
+	// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+	MsiResourceId pulumi.StringInput `pulumi:"msiResourceId"`
+}
+
+func (KafkaClusterSecurityProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterSecurityProfile)(nil)).Elem()
+}
+
+func (i KafkaClusterSecurityProfileArgs) ToKafkaClusterSecurityProfileOutput() KafkaClusterSecurityProfileOutput {
+	return i.ToKafkaClusterSecurityProfileOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterSecurityProfileArgs) ToKafkaClusterSecurityProfileOutputWithContext(ctx context.Context) KafkaClusterSecurityProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterSecurityProfileOutput)
+}
+
+func (i KafkaClusterSecurityProfileArgs) ToKafkaClusterSecurityProfilePtrOutput() KafkaClusterSecurityProfilePtrOutput {
+	return i.ToKafkaClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterSecurityProfileArgs) ToKafkaClusterSecurityProfilePtrOutputWithContext(ctx context.Context) KafkaClusterSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterSecurityProfileOutput).ToKafkaClusterSecurityProfilePtrOutputWithContext(ctx)
+}
+
+// KafkaClusterSecurityProfilePtrInput is an input type that accepts KafkaClusterSecurityProfileArgs, KafkaClusterSecurityProfilePtr and KafkaClusterSecurityProfilePtrOutput values.
+// You can construct a concrete instance of `KafkaClusterSecurityProfilePtrInput` via:
+//
+//          KafkaClusterSecurityProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type KafkaClusterSecurityProfilePtrInput interface {
+	pulumi.Input
+
+	ToKafkaClusterSecurityProfilePtrOutput() KafkaClusterSecurityProfilePtrOutput
+	ToKafkaClusterSecurityProfilePtrOutputWithContext(context.Context) KafkaClusterSecurityProfilePtrOutput
+}
+
+type kafkaClusterSecurityProfilePtrType KafkaClusterSecurityProfileArgs
+
+func KafkaClusterSecurityProfilePtr(v *KafkaClusterSecurityProfileArgs) KafkaClusterSecurityProfilePtrInput {
+	return (*kafkaClusterSecurityProfilePtrType)(v)
+}
+
+func (*kafkaClusterSecurityProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterSecurityProfile)(nil)).Elem()
+}
+
+func (i *kafkaClusterSecurityProfilePtrType) ToKafkaClusterSecurityProfilePtrOutput() KafkaClusterSecurityProfilePtrOutput {
+	return i.ToKafkaClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClusterSecurityProfilePtrType) ToKafkaClusterSecurityProfilePtrOutputWithContext(ctx context.Context) KafkaClusterSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterSecurityProfilePtrOutput)
+}
+
+type KafkaClusterSecurityProfileOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterSecurityProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterSecurityProfile)(nil)).Elem()
+}
+
+func (o KafkaClusterSecurityProfileOutput) ToKafkaClusterSecurityProfileOutput() KafkaClusterSecurityProfileOutput {
+	return o
+}
+
+func (o KafkaClusterSecurityProfileOutput) ToKafkaClusterSecurityProfileOutputWithContext(ctx context.Context) KafkaClusterSecurityProfileOutput {
+	return o
+}
+
+func (o KafkaClusterSecurityProfileOutput) ToKafkaClusterSecurityProfilePtrOutput() KafkaClusterSecurityProfilePtrOutput {
+	return o.ToKafkaClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClusterSecurityProfileOutput) ToKafkaClusterSecurityProfilePtrOutputWithContext(ctx context.Context) KafkaClusterSecurityProfilePtrOutput {
+	return o.ApplyT(func(v KafkaClusterSecurityProfile) *KafkaClusterSecurityProfile {
+		return &v
+	}).(KafkaClusterSecurityProfilePtrOutput)
+}
+
+// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfileOutput) AaddsResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterSecurityProfile) string { return v.AaddsResourceId }).(pulumi.StringOutput)
+}
+
+// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfileOutput) ClusterUsersGroupDns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KafkaClusterSecurityProfile) []string { return v.ClusterUsersGroupDns }).(pulumi.StringArrayOutput)
+}
+
+// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfileOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterSecurityProfile) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfileOutput) DomainUserPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterSecurityProfile) string { return v.DomainUserPassword }).(pulumi.StringOutput)
+}
+
+// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfileOutput) DomainUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterSecurityProfile) string { return v.DomainUsername }).(pulumi.StringOutput)
+}
+
+// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfileOutput) LdapsUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KafkaClusterSecurityProfile) []string { return v.LdapsUrls }).(pulumi.StringArrayOutput)
+}
+
+// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfileOutput) MsiResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterSecurityProfile) string { return v.MsiResourceId }).(pulumi.StringOutput)
+}
+
+type KafkaClusterSecurityProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterSecurityProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterSecurityProfile)(nil)).Elem()
+}
+
+func (o KafkaClusterSecurityProfilePtrOutput) ToKafkaClusterSecurityProfilePtrOutput() KafkaClusterSecurityProfilePtrOutput {
+	return o
+}
+
+func (o KafkaClusterSecurityProfilePtrOutput) ToKafkaClusterSecurityProfilePtrOutputWithContext(ctx context.Context) KafkaClusterSecurityProfilePtrOutput {
+	return o
+}
+
+func (o KafkaClusterSecurityProfilePtrOutput) Elem() KafkaClusterSecurityProfileOutput {
+	return o.ApplyT(func(v *KafkaClusterSecurityProfile) KafkaClusterSecurityProfile { return *v }).(KafkaClusterSecurityProfileOutput)
+}
+
+// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfilePtrOutput) AaddsResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AaddsResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfilePtrOutput) ClusterUsersGroupDns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KafkaClusterSecurityProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterUsersGroupDns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfilePtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfilePtrOutput) DomainUserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainUserPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfilePtrOutput) DomainUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfilePtrOutput) LdapsUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KafkaClusterSecurityProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LdapsUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+func (o KafkaClusterSecurityProfilePtrOutput) MsiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MsiResourceId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -17851,6 +18831,251 @@ func (o SparkClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type SparkClusterSecurityProfile struct {
+	// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+	AaddsResourceId string `pulumi:"aaddsResourceId"`
+	// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+	ClusterUsersGroupDns []string `pulumi:"clusterUsersGroupDns"`
+	// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainName string `pulumi:"domainName"`
+	// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUserPassword string `pulumi:"domainUserPassword"`
+	// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUsername string `pulumi:"domainUsername"`
+	// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+	LdapsUrls []string `pulumi:"ldapsUrls"`
+	// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+	MsiResourceId string `pulumi:"msiResourceId"`
+}
+
+// SparkClusterSecurityProfileInput is an input type that accepts SparkClusterSecurityProfileArgs and SparkClusterSecurityProfileOutput values.
+// You can construct a concrete instance of `SparkClusterSecurityProfileInput` via:
+//
+//          SparkClusterSecurityProfileArgs{...}
+type SparkClusterSecurityProfileInput interface {
+	pulumi.Input
+
+	ToSparkClusterSecurityProfileOutput() SparkClusterSecurityProfileOutput
+	ToSparkClusterSecurityProfileOutputWithContext(context.Context) SparkClusterSecurityProfileOutput
+}
+
+type SparkClusterSecurityProfileArgs struct {
+	// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+	AaddsResourceId pulumi.StringInput `pulumi:"aaddsResourceId"`
+	// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+	ClusterUsersGroupDns pulumi.StringArrayInput `pulumi:"clusterUsersGroupDns"`
+	// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUserPassword pulumi.StringInput `pulumi:"domainUserPassword"`
+	// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+	DomainUsername pulumi.StringInput `pulumi:"domainUsername"`
+	// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+	LdapsUrls pulumi.StringArrayInput `pulumi:"ldapsUrls"`
+	// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+	MsiResourceId pulumi.StringInput `pulumi:"msiResourceId"`
+}
+
+func (SparkClusterSecurityProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterSecurityProfile)(nil)).Elem()
+}
+
+func (i SparkClusterSecurityProfileArgs) ToSparkClusterSecurityProfileOutput() SparkClusterSecurityProfileOutput {
+	return i.ToSparkClusterSecurityProfileOutputWithContext(context.Background())
+}
+
+func (i SparkClusterSecurityProfileArgs) ToSparkClusterSecurityProfileOutputWithContext(ctx context.Context) SparkClusterSecurityProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterSecurityProfileOutput)
+}
+
+func (i SparkClusterSecurityProfileArgs) ToSparkClusterSecurityProfilePtrOutput() SparkClusterSecurityProfilePtrOutput {
+	return i.ToSparkClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i SparkClusterSecurityProfileArgs) ToSparkClusterSecurityProfilePtrOutputWithContext(ctx context.Context) SparkClusterSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterSecurityProfileOutput).ToSparkClusterSecurityProfilePtrOutputWithContext(ctx)
+}
+
+// SparkClusterSecurityProfilePtrInput is an input type that accepts SparkClusterSecurityProfileArgs, SparkClusterSecurityProfilePtr and SparkClusterSecurityProfilePtrOutput values.
+// You can construct a concrete instance of `SparkClusterSecurityProfilePtrInput` via:
+//
+//          SparkClusterSecurityProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkClusterSecurityProfilePtrInput interface {
+	pulumi.Input
+
+	ToSparkClusterSecurityProfilePtrOutput() SparkClusterSecurityProfilePtrOutput
+	ToSparkClusterSecurityProfilePtrOutputWithContext(context.Context) SparkClusterSecurityProfilePtrOutput
+}
+
+type sparkClusterSecurityProfilePtrType SparkClusterSecurityProfileArgs
+
+func SparkClusterSecurityProfilePtr(v *SparkClusterSecurityProfileArgs) SparkClusterSecurityProfilePtrInput {
+	return (*sparkClusterSecurityProfilePtrType)(v)
+}
+
+func (*sparkClusterSecurityProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterSecurityProfile)(nil)).Elem()
+}
+
+func (i *sparkClusterSecurityProfilePtrType) ToSparkClusterSecurityProfilePtrOutput() SparkClusterSecurityProfilePtrOutput {
+	return i.ToSparkClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *sparkClusterSecurityProfilePtrType) ToSparkClusterSecurityProfilePtrOutputWithContext(ctx context.Context) SparkClusterSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterSecurityProfilePtrOutput)
+}
+
+type SparkClusterSecurityProfileOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterSecurityProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterSecurityProfile)(nil)).Elem()
+}
+
+func (o SparkClusterSecurityProfileOutput) ToSparkClusterSecurityProfileOutput() SparkClusterSecurityProfileOutput {
+	return o
+}
+
+func (o SparkClusterSecurityProfileOutput) ToSparkClusterSecurityProfileOutputWithContext(ctx context.Context) SparkClusterSecurityProfileOutput {
+	return o
+}
+
+func (o SparkClusterSecurityProfileOutput) ToSparkClusterSecurityProfilePtrOutput() SparkClusterSecurityProfilePtrOutput {
+	return o.ToSparkClusterSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (o SparkClusterSecurityProfileOutput) ToSparkClusterSecurityProfilePtrOutputWithContext(ctx context.Context) SparkClusterSecurityProfilePtrOutput {
+	return o.ApplyT(func(v SparkClusterSecurityProfile) *SparkClusterSecurityProfile {
+		return &v
+	}).(SparkClusterSecurityProfilePtrOutput)
+}
+
+// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfileOutput) AaddsResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterSecurityProfile) string { return v.AaddsResourceId }).(pulumi.StringOutput)
+}
+
+// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfileOutput) ClusterUsersGroupDns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SparkClusterSecurityProfile) []string { return v.ClusterUsersGroupDns }).(pulumi.StringArrayOutput)
+}
+
+// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfileOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterSecurityProfile) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfileOutput) DomainUserPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterSecurityProfile) string { return v.DomainUserPassword }).(pulumi.StringOutput)
+}
+
+// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfileOutput) DomainUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterSecurityProfile) string { return v.DomainUsername }).(pulumi.StringOutput)
+}
+
+// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfileOutput) LdapsUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SparkClusterSecurityProfile) []string { return v.LdapsUrls }).(pulumi.StringArrayOutput)
+}
+
+// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfileOutput) MsiResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterSecurityProfile) string { return v.MsiResourceId }).(pulumi.StringOutput)
+}
+
+type SparkClusterSecurityProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterSecurityProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterSecurityProfile)(nil)).Elem()
+}
+
+func (o SparkClusterSecurityProfilePtrOutput) ToSparkClusterSecurityProfilePtrOutput() SparkClusterSecurityProfilePtrOutput {
+	return o
+}
+
+func (o SparkClusterSecurityProfilePtrOutput) ToSparkClusterSecurityProfilePtrOutputWithContext(ctx context.Context) SparkClusterSecurityProfilePtrOutput {
+	return o
+}
+
+func (o SparkClusterSecurityProfilePtrOutput) Elem() SparkClusterSecurityProfileOutput {
+	return o.ApplyT(func(v *SparkClusterSecurityProfile) SparkClusterSecurityProfile { return *v }).(SparkClusterSecurityProfileOutput)
+}
+
+// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfilePtrOutput) AaddsResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AaddsResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfilePtrOutput) ClusterUsersGroupDns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SparkClusterSecurityProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterUsersGroupDns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfilePtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfilePtrOutput) DomainUserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainUserPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfilePtrOutput) DomainUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfilePtrOutput) LdapsUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SparkClusterSecurityProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LdapsUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+func (o SparkClusterSecurityProfilePtrOutput) MsiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MsiResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 type SparkClusterStorageAccount struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	IsDefault bool `pulumi:"isDefault"`
@@ -20497,6 +21722,8 @@ func init() {
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesZookeeperNodePtrOutput{})
+	pulumi.RegisterOutputType(HBaseClusterSecurityProfileOutput{})
+	pulumi.RegisterOutputType(HBaseClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterStorageAccountOutput{})
 	pulumi.RegisterOutputType(HBaseClusterStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(HBaseClusterStorageAccountGen2Output{})
@@ -20537,6 +21764,8 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesZookeeperNodePtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterSecurityProfileOutput{})
+	pulumi.RegisterOutputType(HadoopClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterStorageAccountOutput{})
 	pulumi.RegisterOutputType(HadoopClusterStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterStorageAccountGen2Output{})
@@ -20573,6 +21802,8 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesZookeeperNodePtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterSecurityProfileOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountGen2Output{})
@@ -20603,6 +21834,8 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesZookeeperNodePtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterSecurityProfileOutput{})
+	pulumi.RegisterOutputType(KafkaClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterStorageAccountOutput{})
 	pulumi.RegisterOutputType(KafkaClusterStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterStorageAccountGen2Output{})
@@ -20667,6 +21900,8 @@ func init() {
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesZookeeperNodePtrOutput{})
+	pulumi.RegisterOutputType(SparkClusterSecurityProfileOutput{})
+	pulumi.RegisterOutputType(SparkClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterStorageAccountOutput{})
 	pulumi.RegisterOutputType(SparkClusterStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(SparkClusterStorageAccountGen2Output{})

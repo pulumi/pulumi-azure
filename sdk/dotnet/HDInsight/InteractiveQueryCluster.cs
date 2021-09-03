@@ -175,6 +175,12 @@ namespace Pulumi.Azure.HDInsight
         public Output<Outputs.InteractiveQueryClusterRoles> Roles { get; private set; } = null!;
 
         /// <summary>
+        /// A `security_profile` block as defined below.
+        /// </summary>
+        [Output("securityProfile")]
+        public Output<Outputs.InteractiveQueryClusterSecurityProfile?> SecurityProfile { get; private set; } = null!;
+
+        /// <summary>
         /// The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
         /// </summary>
         [Output("sshEndpoint")]
@@ -320,6 +326,12 @@ namespace Pulumi.Azure.HDInsight
         public Input<Inputs.InteractiveQueryClusterRolesArgs> Roles { get; set; } = null!;
 
         /// <summary>
+        /// A `security_profile` block as defined below.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.InteractiveQueryClusterSecurityProfileArgs>? SecurityProfile { get; set; }
+
+        /// <summary>
         /// A `storage_account_gen2` block as defined below.
         /// </summary>
         [Input("storageAccountGen2")]
@@ -436,6 +448,12 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("roles")]
         public Input<Inputs.InteractiveQueryClusterRolesGetArgs>? Roles { get; set; }
+
+        /// <summary>
+        /// A `security_profile` block as defined below.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.InteractiveQueryClusterSecurityProfileGetArgs>? SecurityProfile { get; set; }
 
         /// <summary>
         /// The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.

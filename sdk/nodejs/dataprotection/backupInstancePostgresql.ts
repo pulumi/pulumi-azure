@@ -9,52 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note**: Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/en-us/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
- * const exampleServer = new azure.postgresql.Server("exampleServer", {
- *     location: azurerm_resource_group.example.location,
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     skuName: "B_Gen5_2",
- *     storageMb: 5120,
- *     backupRetentionDays: 7,
- *     geoRedundantBackupEnabled: false,
- *     autoGrowEnabled: true,
- *     administratorLogin: "psqladminun",
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     version: "9.5",
- *     sslEnforcementEnabled: true,
- * });
- * const exampleDatabase = new azure.postgresql.Database("exampleDatabase", {
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     serverName: exampleServer.name,
- *     charset: "UTF8",
- *     collation: "English_United States.1252",
- * });
- * const exampleBackupVault = new azure.dataprotection.BackupVault("exampleBackupVault", {
- *     resourceGroupName: rg.name,
- *     location: rg.location,
- *     datastoreType: "VaultStore",
- *     redundancy: "LocallyRedundant",
- * });
- * const exampleBackupPolicyPostgresql = new azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql", {
- *     resourceGroupName: rg.name,
- *     vaultName: exampleBackupVault.name,
- *     backupRepeatingTimeIntervals: ["R/2021-05-23T02:30:00+00:00/P1W"],
- *     defaultRetentionDuration: "P4M",
- * });
- * const exampleBackupInstancePostgresql = new azure.dataprotection.BackupInstancePostgresql("exampleBackupInstancePostgresql", {
- *     location: rg.location,
- *     vaultId: exampleBackupVault.id,
- *     databaseId: exampleDatabase.id,
- *     backupPolicyId: exampleBackupPolicyPostgresql.id,
- * });
- * ```
- *
  * ## Import
  *
  * Backup Instance PostgreSQL can be imported using the `resource id`, e.g.
@@ -96,6 +50,10 @@ export class BackupInstancePostgresql extends pulumi.CustomResource {
      */
     public readonly backupPolicyId!: pulumi.Output<string>;
     /**
+     * The ID or versionless ID of the key vault secret which stores the connection string of the database.
+     */
+    public readonly databaseCredentialKeyVaultSecretId!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
      */
     public readonly databaseId!: pulumi.Output<string>;
@@ -126,6 +84,7 @@ export class BackupInstancePostgresql extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BackupInstancePostgresqlState | undefined;
             inputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
+            inputs["databaseCredentialKeyVaultSecretId"] = state ? state.databaseCredentialKeyVaultSecretId : undefined;
             inputs["databaseId"] = state ? state.databaseId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -142,6 +101,7 @@ export class BackupInstancePostgresql extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vaultId'");
             }
             inputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
+            inputs["databaseCredentialKeyVaultSecretId"] = args ? args.databaseCredentialKeyVaultSecretId : undefined;
             inputs["databaseId"] = args ? args.databaseId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -162,6 +122,10 @@ export interface BackupInstancePostgresqlState {
      * The ID of the Backup Policy.
      */
     backupPolicyId?: pulumi.Input<string>;
+    /**
+     * The ID or versionless ID of the key vault secret which stores the connection string of the database.
+     */
+    databaseCredentialKeyVaultSecretId?: pulumi.Input<string>;
     /**
      * The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
      */
@@ -188,6 +152,10 @@ export interface BackupInstancePostgresqlArgs {
      * The ID of the Backup Policy.
      */
     backupPolicyId: pulumi.Input<string>;
+    /**
+     * The ID or versionless ID of the key vault secret which stores the connection string of the database.
+     */
+    databaseCredentialKeyVaultSecretId?: pulumi.Input<string>;
     /**
      * The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
      */

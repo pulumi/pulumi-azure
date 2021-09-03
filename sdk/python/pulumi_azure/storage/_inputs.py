@@ -342,7 +342,7 @@ class AccountBlobPropertiesCorsRuleArgs:
                  max_age_in_seconds: pulumi.Input[int]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: A list of http headers that are allowed to be executed by the origin. Valid options are
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: A list of http methods that are allowed to be executed by the origin. Valid options are
                `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origin domains that will be allowed by CORS.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exposed_headers: A list of response headers that are exposed to CORS clients.
@@ -370,7 +370,7 @@ class AccountBlobPropertiesCorsRuleArgs:
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of http headers that are allowed to be executed by the origin. Valid options are
+        A list of http methods that are allowed to be executed by the origin. Valid options are
         `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         """
         return pulumi.get(self, "allowed_methods")
@@ -792,7 +792,7 @@ class AccountQueuePropertiesCorsRuleArgs:
                  max_age_in_seconds: pulumi.Input[int]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: A list of http headers that are allowed to be executed by the origin. Valid options are
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: A list of http methods that are allowed to be executed by the origin. Valid options are
                `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origin domains that will be allowed by CORS.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exposed_headers: A list of response headers that are exposed to CORS clients.
@@ -820,7 +820,7 @@ class AccountQueuePropertiesCorsRuleArgs:
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of http headers that are allowed to be executed by the origin. Valid options are
+        A list of http methods that are allowed to be executed by the origin. Valid options are
         `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         """
         return pulumi.get(self, "allowed_methods")
@@ -1207,7 +1207,7 @@ class AccountSharePropertiesCorsRuleArgs:
                  max_age_in_seconds: pulumi.Input[int]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: A list of http headers that are allowed to be executed by the origin. Valid options are
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: A list of http methods that are allowed to be executed by the origin. Valid options are
                `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origin domains that will be allowed by CORS.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exposed_headers: A list of response headers that are exposed to CORS clients.
@@ -1235,7 +1235,7 @@ class AccountSharePropertiesCorsRuleArgs:
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of http headers that are allowed to be executed by the origin. Valid options are
+        A list of http methods that are allowed to be executed by the origin. Valid options are
         `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         """
         return pulumi.get(self, "allowed_methods")
