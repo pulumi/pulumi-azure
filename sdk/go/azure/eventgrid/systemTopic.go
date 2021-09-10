@@ -69,6 +69,8 @@ import (
 type SystemTopic struct {
 	pulumi.CustomResourceState
 
+	// An `identity` block as defined below.
+	Identity SystemTopicIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Metric ARM Resource ID of the Event Grid System Topic.
@@ -130,6 +132,8 @@ func GetSystemTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SystemTopic resources.
 type systemTopicState struct {
+	// An `identity` block as defined below.
+	Identity *SystemTopicIdentity `pulumi:"identity"`
 	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
 	Location *string `pulumi:"location"`
 	// The Metric ARM Resource ID of the Event Grid System Topic.
@@ -148,6 +152,8 @@ type systemTopicState struct {
 }
 
 type SystemTopicState struct {
+	// An `identity` block as defined below.
+	Identity SystemTopicIdentityPtrInput
 	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
 	Location pulumi.StringPtrInput
 	// The Metric ARM Resource ID of the Event Grid System Topic.
@@ -170,6 +176,8 @@ func (SystemTopicState) ElementType() reflect.Type {
 }
 
 type systemTopicArgs struct {
+	// An `identity` block as defined below.
+	Identity *SystemTopicIdentity `pulumi:"identity"`
 	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
@@ -187,6 +195,8 @@ type systemTopicArgs struct {
 
 // The set of arguments for constructing a SystemTopic resource.
 type SystemTopicArgs struct {
+	// An `identity` block as defined below.
+	Identity SystemTopicIdentityPtrInput
 	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.

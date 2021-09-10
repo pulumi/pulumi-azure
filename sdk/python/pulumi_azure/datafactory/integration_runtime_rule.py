@@ -15,6 +15,7 @@ class IntegrationRuntimeRuleArgs:
     def __init__(__self__, *,
                  data_factory_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 cleanup_enabled: Optional[pulumi.Input[bool]] = None,
                  compute_type: Optional[pulumi.Input[str]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class IntegrationRuntimeRuleArgs:
         The set of arguments for constructing a IntegrationRuntimeRule resource.
         :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] cleanup_enabled: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
         :param pulumi.Input[str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         :param pulumi.Input[str] description: Integration runtime description.
@@ -36,6 +38,8 @@ class IntegrationRuntimeRuleArgs:
         """
         pulumi.set(__self__, "data_factory_name", data_factory_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cleanup_enabled is not None:
+            pulumi.set(__self__, "cleanup_enabled", cleanup_enabled)
         if compute_type is not None:
             pulumi.set(__self__, "compute_type", compute_type)
         if core_count is not None:
@@ -74,6 +78,18 @@ class IntegrationRuntimeRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="cleanupEnabled")
+    def cleanup_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+        """
+        return pulumi.get(self, "cleanup_enabled")
+
+    @cleanup_enabled.setter
+    def cleanup_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cleanup_enabled", value)
 
     @property
     @pulumi.getter(name="computeType")
@@ -163,6 +179,7 @@ class IntegrationRuntimeRuleArgs:
 @pulumi.input_type
 class _IntegrationRuntimeRuleState:
     def __init__(__self__, *,
+                 cleanup_enabled: Optional[pulumi.Input[bool]] = None,
                  compute_type: Optional[pulumi.Input[str]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
@@ -174,6 +191,7 @@ class _IntegrationRuntimeRuleState:
                  virtual_network_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeRule resources.
+        :param pulumi.Input[bool] cleanup_enabled: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
         :param pulumi.Input[str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
@@ -184,6 +202,8 @@ class _IntegrationRuntimeRuleState:
         :param pulumi.Input[int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         :param pulumi.Input[bool] virtual_network_enabled: Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
         """
+        if cleanup_enabled is not None:
+            pulumi.set(__self__, "cleanup_enabled", cleanup_enabled)
         if compute_type is not None:
             pulumi.set(__self__, "compute_type", compute_type)
         if core_count is not None:
@@ -202,6 +222,18 @@ class _IntegrationRuntimeRuleState:
             pulumi.set(__self__, "time_to_live_min", time_to_live_min)
         if virtual_network_enabled is not None:
             pulumi.set(__self__, "virtual_network_enabled", virtual_network_enabled)
+
+    @property
+    @pulumi.getter(name="cleanupEnabled")
+    def cleanup_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+        """
+        return pulumi.get(self, "cleanup_enabled")
+
+    @cleanup_enabled.setter
+    def cleanup_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cleanup_enabled", value)
 
     @property
     @pulumi.getter(name="computeType")
@@ -317,6 +349,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cleanup_enabled: Optional[pulumi.Input[bool]] = None,
                  compute_type: Optional[pulumi.Input[str]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
@@ -356,6 +389,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] cleanup_enabled: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
         :param pulumi.Input[str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
@@ -414,6 +448,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cleanup_enabled: Optional[pulumi.Input[bool]] = None,
                  compute_type: Optional[pulumi.Input[str]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
@@ -435,6 +470,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationRuntimeRuleArgs.__new__(IntegrationRuntimeRuleArgs)
 
+            __props__.__dict__["cleanup_enabled"] = cleanup_enabled
             __props__.__dict__["compute_type"] = compute_type
             __props__.__dict__["core_count"] = core_count
             if data_factory_name is None and not opts.urn:
@@ -458,6 +494,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            cleanup_enabled: Optional[pulumi.Input[bool]] = None,
             compute_type: Optional[pulumi.Input[str]] = None,
             core_count: Optional[pulumi.Input[int]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
@@ -474,6 +511,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] cleanup_enabled: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
         :param pulumi.Input[str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
@@ -488,6 +526,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
 
         __props__ = _IntegrationRuntimeRuleState.__new__(_IntegrationRuntimeRuleState)
 
+        __props__.__dict__["cleanup_enabled"] = cleanup_enabled
         __props__.__dict__["compute_type"] = compute_type
         __props__.__dict__["core_count"] = core_count
         __props__.__dict__["data_factory_name"] = data_factory_name
@@ -498,6 +537,14 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         __props__.__dict__["time_to_live_min"] = time_to_live_min
         __props__.__dict__["virtual_network_enabled"] = virtual_network_enabled
         return IntegrationRuntimeRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="cleanupEnabled")
+    def cleanup_enabled(self) -> pulumi.Output[bool]:
+        """
+        Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+        """
+        return pulumi.get(self, "cleanup_enabled")
 
     @property
     @pulumi.getter(name="computeType")

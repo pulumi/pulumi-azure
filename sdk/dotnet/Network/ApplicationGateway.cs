@@ -290,10 +290,22 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.ApplicationGatewaySslPolicy>> SslPolicies { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `ssl_profile` blocks as defined below.
+        /// </summary>
+        [Output("sslProfiles")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewaySslProfile>> SslProfiles { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `trusted_client_certificate` blocks as defined below.
+        /// </summary>
+        [Output("trustedClientCertificates")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayTrustedClientCertificate>> TrustedClientCertificates { get; private set; } = null!;
 
         /// <summary>
         /// One or more `trusted_root_certificate` blocks as defined below.
@@ -581,6 +593,18 @@ namespace Pulumi.Azure.Network
             set => _sslPolicies = value;
         }
 
+        [Input("sslProfiles")]
+        private InputList<Inputs.ApplicationGatewaySslProfileArgs>? _sslProfiles;
+
+        /// <summary>
+        /// One or more `ssl_profile` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewaySslProfileArgs> SslProfiles
+        {
+            get => _sslProfiles ?? (_sslProfiles = new InputList<Inputs.ApplicationGatewaySslProfileArgs>());
+            set => _sslProfiles = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -591,6 +615,18 @@ namespace Pulumi.Azure.Network
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("trustedClientCertificates")]
+        private InputList<Inputs.ApplicationGatewayTrustedClientCertificateArgs>? _trustedClientCertificates;
+
+        /// <summary>
+        /// One or more `trusted_client_certificate` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayTrustedClientCertificateArgs> TrustedClientCertificates
+        {
+            get => _trustedClientCertificates ?? (_trustedClientCertificates = new InputList<Inputs.ApplicationGatewayTrustedClientCertificateArgs>());
+            set => _trustedClientCertificates = value;
         }
 
         [Input("trustedRootCertificates")]
@@ -858,6 +894,18 @@ namespace Pulumi.Azure.Network
             set => _sslPolicies = value;
         }
 
+        [Input("sslProfiles")]
+        private InputList<Inputs.ApplicationGatewaySslProfileGetArgs>? _sslProfiles;
+
+        /// <summary>
+        /// One or more `ssl_profile` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewaySslProfileGetArgs> SslProfiles
+        {
+            get => _sslProfiles ?? (_sslProfiles = new InputList<Inputs.ApplicationGatewaySslProfileGetArgs>());
+            set => _sslProfiles = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -868,6 +916,18 @@ namespace Pulumi.Azure.Network
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("trustedClientCertificates")]
+        private InputList<Inputs.ApplicationGatewayTrustedClientCertificateGetArgs>? _trustedClientCertificates;
+
+        /// <summary>
+        /// One or more `trusted_client_certificate` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayTrustedClientCertificateGetArgs> TrustedClientCertificates
+        {
+            get => _trustedClientCertificates ?? (_trustedClientCertificates = new InputList<Inputs.ApplicationGatewayTrustedClientCertificateGetArgs>());
+            set => _trustedClientCertificates = value;
         }
 
         [Input("trustedRootCertificates")]

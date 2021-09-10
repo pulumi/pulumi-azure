@@ -12,6 +12,24 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description which should be used for this rule.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        [Input("destinationAddresses")]
+        private InputList<string>? _destinationAddresses;
+
+        /// <summary>
+        /// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        /// </summary>
+        public InputList<string> DestinationAddresses
+        {
+            get => _destinationAddresses ?? (_destinationAddresses = new InputList<string>());
+            set => _destinationAddresses = value;
+        }
+
         [Input("destinationFqdnTags")]
         private InputList<string>? _destinationFqdnTags;
 
@@ -36,13 +54,25 @@ namespace Pulumi.Azure.Network.Inputs
             set => _destinationFqdns = value;
         }
 
+        [Input("destinationUrls")]
+        private InputList<string>? _destinationUrls;
+
+        /// <summary>
+        /// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+        /// </summary>
+        public InputList<string> DestinationUrls
+        {
+            get => _destinationUrls ?? (_destinationUrls = new InputList<string>());
+            set => _destinationUrls = value;
+        }
+
         /// <summary>
         /// The name which should be used for this rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("protocols", required: true)]
+        [Input("protocols")]
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolGetArgs>? _protocols;
 
         /// <summary>
@@ -76,6 +106,24 @@ namespace Pulumi.Azure.Network.Inputs
         {
             get => _sourceIpGroups ?? (_sourceIpGroups = new InputList<string>());
             set => _sourceIpGroups = value;
+        }
+
+        /// <summary>
+        /// Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+        /// </summary>
+        [Input("terminateTls")]
+        public Input<bool>? TerminateTls { get; set; }
+
+        [Input("webCategories")]
+        private InputList<string>? _webCategories;
+
+        /// <summary>
+        /// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+        /// </summary>
+        public InputList<string> WebCategories
+        {
+            get => _webCategories ?? (_webCategories = new InputList<string>());
+            set => _webCategories = value;
         }
 
         public FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleGetArgs()

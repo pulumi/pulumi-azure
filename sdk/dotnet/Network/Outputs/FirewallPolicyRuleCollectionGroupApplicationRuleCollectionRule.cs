@@ -14,6 +14,14 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule
     {
         /// <summary>
+        /// The description which should be used for this rule.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        /// </summary>
+        public readonly ImmutableArray<string> DestinationAddresses;
+        /// <summary>
         /// Specifies a list of destination FQDN tags.
         /// </summary>
         public readonly ImmutableArray<string> DestinationFqdnTags;
@@ -21,6 +29,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// Specifies a list of destination FQDNs.
         /// </summary>
         public readonly ImmutableArray<string> DestinationFqdns;
+        /// <summary>
+        /// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+        /// </summary>
+        public readonly ImmutableArray<string> DestinationUrls;
         /// <summary>
         /// The name which should be used for this rule.
         /// </summary>
@@ -37,12 +49,26 @@ namespace Pulumi.Azure.Network.Outputs
         /// Specifies a list of source IP groups.
         /// </summary>
         public readonly ImmutableArray<string> SourceIpGroups;
+        /// <summary>
+        /// Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+        /// </summary>
+        public readonly bool? TerminateTls;
+        /// <summary>
+        /// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+        /// </summary>
+        public readonly ImmutableArray<string> WebCategories;
 
         [OutputConstructor]
         private FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(
+            string? description,
+
+            ImmutableArray<string> destinationAddresses,
+
             ImmutableArray<string> destinationFqdnTags,
 
             ImmutableArray<string> destinationFqdns,
+
+            ImmutableArray<string> destinationUrls,
 
             string name,
 
@@ -50,14 +76,23 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> sourceAddresses,
 
-            ImmutableArray<string> sourceIpGroups)
+            ImmutableArray<string> sourceIpGroups,
+
+            bool? terminateTls,
+
+            ImmutableArray<string> webCategories)
         {
+            Description = description;
+            DestinationAddresses = destinationAddresses;
             DestinationFqdnTags = destinationFqdnTags;
             DestinationFqdns = destinationFqdns;
+            DestinationUrls = destinationUrls;
             Name = name;
             Protocols = protocols;
             SourceAddresses = sourceAddresses;
             SourceIpGroups = sourceIpGroups;
+            TerminateTls = terminateTls;
+            WebCategories = webCategories;
         }
     }
 }

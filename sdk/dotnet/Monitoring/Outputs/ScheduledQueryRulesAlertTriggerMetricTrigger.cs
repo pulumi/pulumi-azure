@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string MetricTriggerType;
         /// <summary>
-        /// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+        /// Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
         /// </summary>
         public readonly string Operator;
         /// <summary>

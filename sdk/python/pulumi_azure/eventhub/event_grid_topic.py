@@ -16,6 +16,7 @@ __all__ = ['EventGridTopicArgs', 'EventGridTopic']
 class EventGridTopicArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['EventGridTopicIdentityArgs']] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs']] = None,
                  input_mapping_fields: Optional[pulumi.Input['EventGridTopicInputMappingFieldsArgs']] = None,
@@ -27,6 +28,7 @@ class EventGridTopicArgs:
         """
         The set of arguments for constructing a EventGridTopic resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
+        :param pulumi.Input['EventGridTopicIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input['EventGridTopicInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below.
@@ -37,6 +39,8 @@ class EventGridTopicArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules is not None:
             pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
         if input_mapping_default_values is not None:
@@ -65,6 +69,18 @@ class EventGridTopicArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['EventGridTopicIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['EventGridTopicIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="inboundIpRules")
@@ -167,6 +183,7 @@ class EventGridTopicArgs:
 class _EventGridTopicState:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['EventGridTopicIdentityArgs']] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs']] = None,
                  input_mapping_fields: Optional[pulumi.Input['EventGridTopicInputMappingFieldsArgs']] = None,
@@ -181,6 +198,7 @@ class _EventGridTopicState:
         """
         Input properties used for looking up and filtering EventGridTopic resources.
         :param pulumi.Input[str] endpoint: The Endpoint associated with the EventGrid Topic.
+        :param pulumi.Input['EventGridTopicIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input['EventGridTopicInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below.
@@ -195,6 +213,8 @@ class _EventGridTopicState:
         """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules is not None:
             pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
         if input_mapping_default_values is not None:
@@ -229,6 +249,18 @@ class _EventGridTopicState:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['EventGridTopicIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['EventGridTopicIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="inboundIpRules")
@@ -373,6 +405,7 @@ class EventGridTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['EventGridTopicIdentityArgs']]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArgs']]]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']]] = None,
                  input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']]] = None,
@@ -413,6 +446,7 @@ class EventGridTopic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['EventGridTopicIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below.
@@ -472,6 +506,7 @@ class EventGridTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['EventGridTopicIdentityArgs']]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArgs']]]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']]] = None,
                  input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']]] = None,
@@ -494,6 +529,7 @@ class EventGridTopic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventGridTopicArgs.__new__(EventGridTopicArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
             __props__.__dict__["input_mapping_fields"] = input_mapping_fields
@@ -519,6 +555,7 @@ class EventGridTopic(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['EventGridTopicIdentityArgs']]] = None,
             inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArgs']]]]] = None,
             input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']]] = None,
             input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']]] = None,
@@ -538,6 +575,7 @@ class EventGridTopic(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint: The Endpoint associated with the EventGrid Topic.
+        :param pulumi.Input[pulumi.InputType['EventGridTopicIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below.
@@ -555,6 +593,7 @@ class EventGridTopic(pulumi.CustomResource):
         __props__ = _EventGridTopicState.__new__(_EventGridTopicState)
 
         __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
         __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
         __props__.__dict__["input_mapping_fields"] = input_mapping_fields
@@ -575,6 +614,14 @@ class EventGridTopic(pulumi.CustomResource):
         The Endpoint associated with the EventGrid Topic.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.EventGridTopicIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="inboundIpRules")

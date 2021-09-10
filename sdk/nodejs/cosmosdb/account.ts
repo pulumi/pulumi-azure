@@ -160,6 +160,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
+     * Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+     */
+    public readonly localAuthenticationDisabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -270,6 +274,7 @@ export class Account extends pulumi.CustomResource {
             inputs["isVirtualNetworkFilterEnabled"] = state ? state.isVirtualNetworkFilterEnabled : undefined;
             inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             inputs["kind"] = state ? state.kind : undefined;
+            inputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["mongoServerVersion"] = state ? state.mongoServerVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -319,6 +324,7 @@ export class Account extends pulumi.CustomResource {
             inputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
             inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             inputs["kind"] = args ? args.kind : undefined;
+            inputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["mongoServerVersion"] = args ? args.mongoServerVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -421,6 +427,10 @@ export interface AccountState {
      * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      */
     kind?: pulumi.Input<string>;
+    /**
+     * Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+     */
+    localAuthenticationDisabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -567,6 +577,10 @@ export interface AccountArgs {
      * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      */
     kind?: pulumi.Input<string>;
+    /**
+     * Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+     */
+    localAuthenticationDisabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

@@ -93,6 +93,18 @@ namespace Pulumi.Azure.EventGrid
         public Output<Outputs.SystemTopicEventSubscriptionAzureFunctionEndpoint?> AzureFunctionEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// A `dead_letter_identity` block as defined below.
+        /// </summary>
+        [Output("deadLetterIdentity")]
+        public Output<Outputs.SystemTopicEventSubscriptionDeadLetterIdentity?> DeadLetterIdentity { get; private set; } = null!;
+
+        /// <summary>
+        /// A `delivery_identity` block as defined below.
+        /// </summary>
+        [Output("deliveryIdentity")]
+        public Output<Outputs.SystemTopicEventSubscriptionDeliveryIdentity?> DeliveryIdentity { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventDeliverySchema")]
@@ -253,6 +265,18 @@ namespace Pulumi.Azure.EventGrid
         public Input<Inputs.SystemTopicEventSubscriptionAzureFunctionEndpointArgs>? AzureFunctionEndpoint { get; set; }
 
         /// <summary>
+        /// A `dead_letter_identity` block as defined below.
+        /// </summary>
+        [Input("deadLetterIdentity")]
+        public Input<Inputs.SystemTopicEventSubscriptionDeadLetterIdentityArgs>? DeadLetterIdentity { get; set; }
+
+        /// <summary>
+        /// A `delivery_identity` block as defined below.
+        /// </summary>
+        [Input("deliveryIdentity")]
+        public Input<Inputs.SystemTopicEventSubscriptionDeliveryIdentityArgs>? DeliveryIdentity { get; set; }
+
+        /// <summary>
         /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventDeliverySchema")]
@@ -384,6 +408,18 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("azureFunctionEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionAzureFunctionEndpointGetArgs>? AzureFunctionEndpoint { get; set; }
+
+        /// <summary>
+        /// A `dead_letter_identity` block as defined below.
+        /// </summary>
+        [Input("deadLetterIdentity")]
+        public Input<Inputs.SystemTopicEventSubscriptionDeadLetterIdentityGetArgs>? DeadLetterIdentity { get; set; }
+
+        /// <summary>
+        /// A `delivery_identity` block as defined below.
+        /// </summary>
+        [Input("deliveryIdentity")]
+        public Input<Inputs.SystemTopicEventSubscriptionDeliveryIdentityGetArgs>? DeliveryIdentity { get; set; }
 
         /// <summary>
         /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.

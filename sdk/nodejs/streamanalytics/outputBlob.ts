@@ -85,6 +85,14 @@ export class OutputBlob extends pulumi.CustomResource {
     }
 
     /**
+     * The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
+     */
+    public readonly batchMaxWaitTime!: pulumi.Output<string | undefined>;
+    /**
+     * The minimum number of rows per batch (must be between `0` and `10000`).
+     */
+    public readonly batchMinRows!: pulumi.Output<number | undefined>;
+    /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
     public readonly dateFormat!: pulumi.Output<string>;
@@ -138,6 +146,8 @@ export class OutputBlob extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputBlobState | undefined;
+            inputs["batchMaxWaitTime"] = state ? state.batchMaxWaitTime : undefined;
+            inputs["batchMinRows"] = state ? state.batchMinRows : undefined;
             inputs["dateFormat"] = state ? state.dateFormat : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["pathPattern"] = state ? state.pathPattern : undefined;
@@ -177,6 +187,8 @@ export class OutputBlob extends pulumi.CustomResource {
             if ((!args || args.timeFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeFormat'");
             }
+            inputs["batchMaxWaitTime"] = args ? args.batchMaxWaitTime : undefined;
+            inputs["batchMinRows"] = args ? args.batchMinRows : undefined;
             inputs["dateFormat"] = args ? args.dateFormat : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["pathPattern"] = args ? args.pathPattern : undefined;
@@ -199,6 +211,14 @@ export class OutputBlob extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OutputBlob resources.
  */
 export interface OutputBlobState {
+    /**
+     * The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
+     */
+    batchMaxWaitTime?: pulumi.Input<string>;
+    /**
+     * The minimum number of rows per batch (must be between `0` and `10000`).
+     */
+    batchMinRows?: pulumi.Input<number>;
     /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
@@ -245,6 +265,14 @@ export interface OutputBlobState {
  * The set of arguments for constructing a OutputBlob resource.
  */
 export interface OutputBlobArgs {
+    /**
+     * The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
+     */
+    batchMaxWaitTime?: pulumi.Input<string>;
+    /**
+     * The minimum number of rows per batch (must be between `0` and `10000`).
+     */
+    batchMinRows?: pulumi.Input<number>;
     /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */

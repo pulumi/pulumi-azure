@@ -12,6 +12,8 @@ export * from "./failoverGroup";
 export * from "./firewallRule";
 export * from "./getDatabase";
 export * from "./getServer";
+export * from "./managedDatabase";
+export * from "./managedInstance";
 export * from "./sqlServer";
 export * from "./virtualNetworkRule";
 
@@ -21,6 +23,8 @@ import { Database } from "./database";
 import { ElasticPool } from "./elasticPool";
 import { FailoverGroup } from "./failoverGroup";
 import { FirewallRule } from "./firewallRule";
+import { ManagedDatabase } from "./managedDatabase";
+import { ManagedInstance } from "./managedInstance";
 import { SqlServer } from "./sqlServer";
 import { VirtualNetworkRule } from "./virtualNetworkRule";
 
@@ -38,6 +42,10 @@ const _module = {
                 return new FailoverGroup(name, <any>undefined, { urn })
             case "azure:sql/firewallRule:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
+            case "azure:sql/managedDatabase:ManagedDatabase":
+                return new ManagedDatabase(name, <any>undefined, { urn })
+            case "azure:sql/managedInstance:ManagedInstance":
+                return new ManagedInstance(name, <any>undefined, { urn })
             case "azure:sql/sqlServer:SqlServer":
                 return new SqlServer(name, <any>undefined, { urn })
             case "azure:sql/virtualNetworkRule:VirtualNetworkRule":
@@ -52,5 +60,7 @@ pulumi.runtime.registerResourceModule("azure", "sql/database", _module)
 pulumi.runtime.registerResourceModule("azure", "sql/elasticPool", _module)
 pulumi.runtime.registerResourceModule("azure", "sql/failoverGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "sql/firewallRule", _module)
+pulumi.runtime.registerResourceModule("azure", "sql/managedDatabase", _module)
+pulumi.runtime.registerResourceModule("azure", "sql/managedInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "sql/sqlServer", _module)
 pulumi.runtime.registerResourceModule("azure", "sql/virtualNetworkRule", _module)

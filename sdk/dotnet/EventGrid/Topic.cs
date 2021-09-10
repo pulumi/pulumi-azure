@@ -60,6 +60,12 @@ namespace Pulumi.Azure.EventGrid
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.TopicIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `inbound_ip_rule` blocks as defined below.
         /// </summary>
         [Output("inboundIpRules")]
@@ -175,6 +181,12 @@ namespace Pulumi.Azure.EventGrid
 
     public sealed class TopicArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.TopicIdentityArgs>? Identity { get; set; }
+
         [Input("inboundIpRules")]
         private InputList<Inputs.TopicInboundIpRuleArgs>? _inboundIpRules;
 
@@ -253,6 +265,12 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.TopicIdentityGetArgs>? Identity { get; set; }
 
         [Input("inboundIpRules")]
         private InputList<Inputs.TopicInboundIpRuleGetArgs>? _inboundIpRules;

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+        /// The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         /// </summary>
         [Input("firewallPolicyId")]
         public Input<string>? FirewallPolicyId { get; set; }
@@ -107,6 +107,18 @@ namespace Pulumi.Azure.Network.Inputs
         /// </summary>
         [Input("sslCertificateName")]
         public Input<string>? SslCertificateName { get; set; }
+
+        /// <summary>
+        /// The ID of the associated SSL Certificate.
+        /// </summary>
+        [Input("sslProfileId")]
+        public Input<string>? SslProfileId { get; set; }
+
+        /// <summary>
+        /// The name of the associated SSL Profile which should be used for this HTTP Listener.
+        /// </summary>
+        [Input("sslProfileName")]
+        public Input<string>? SslProfileName { get; set; }
 
         public ApplicationGatewayHttpListenerArgs()
         {

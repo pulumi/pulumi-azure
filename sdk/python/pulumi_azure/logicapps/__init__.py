@@ -10,6 +10,9 @@ from .action_http import *
 from .get_integration_account import *
 from .get_workflow import *
 from .integration_account import *
+from .integration_account_agreement import *
+from .integration_account_assembly import *
+from .integration_account_batch_configuration import *
 from .integration_account_certificate import *
 from .integration_account_map import *
 from .integration_account_partner import *

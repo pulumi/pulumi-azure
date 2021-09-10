@@ -92,6 +92,10 @@ type SystemTopicEventSubscription struct {
 	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrOutput `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput `pulumi:"azureFunctionEndpoint"`
+	// A `deadLetterIdentity` block as defined below.
+	DeadLetterIdentity SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput `pulumi:"deadLetterIdentity"`
+	// A `deliveryIdentity` block as defined below.
+	DeliveryIdentity SystemTopicEventSubscriptionDeliveryIdentityPtrOutput `pulumi:"deliveryIdentity"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
 	// Specifies the id where the Event Hub is located.
@@ -167,6 +171,10 @@ type systemTopicEventSubscriptionState struct {
 	AdvancedFilteringOnArraysEnabled *bool `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *SystemTopicEventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
+	// A `deadLetterIdentity` block as defined below.
+	DeadLetterIdentity *SystemTopicEventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
+	// A `deliveryIdentity` block as defined below.
+	DeliveryIdentity *SystemTopicEventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// Specifies the id where the Event Hub is located.
@@ -208,6 +216,10 @@ type SystemTopicEventSubscriptionState struct {
 	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrInput
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint SystemTopicEventSubscriptionAzureFunctionEndpointPtrInput
+	// A `deadLetterIdentity` block as defined below.
+	DeadLetterIdentity SystemTopicEventSubscriptionDeadLetterIdentityPtrInput
+	// A `deliveryIdentity` block as defined below.
+	DeliveryIdentity SystemTopicEventSubscriptionDeliveryIdentityPtrInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
 	// Specifies the id where the Event Hub is located.
@@ -253,6 +265,10 @@ type systemTopicEventSubscriptionArgs struct {
 	AdvancedFilteringOnArraysEnabled *bool `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *SystemTopicEventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
+	// A `deadLetterIdentity` block as defined below.
+	DeadLetterIdentity *SystemTopicEventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
+	// A `deliveryIdentity` block as defined below.
+	DeliveryIdentity *SystemTopicEventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// Specifies the id where the Event Hub is located.
@@ -295,6 +311,10 @@ type SystemTopicEventSubscriptionArgs struct {
 	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrInput
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint SystemTopicEventSubscriptionAzureFunctionEndpointPtrInput
+	// A `deadLetterIdentity` block as defined below.
+	DeadLetterIdentity SystemTopicEventSubscriptionDeadLetterIdentityPtrInput
+	// A `deliveryIdentity` block as defined below.
+	DeliveryIdentity SystemTopicEventSubscriptionDeliveryIdentityPtrInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
 	// Specifies the id where the Event Hub is located.

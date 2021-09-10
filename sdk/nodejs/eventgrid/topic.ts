@@ -67,6 +67,10 @@ export class Topic extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.eventgrid.TopicIdentity | undefined>;
+    /**
      * One or more `inboundIpRule` blocks as defined below.
      */
     public readonly inboundIpRules!: pulumi.Output<outputs.eventgrid.TopicInboundIpRule[] | undefined>;
@@ -125,6 +129,7 @@ export class Topic extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TopicState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["inboundIpRules"] = state ? state.inboundIpRules : undefined;
             inputs["inputMappingDefaultValues"] = state ? state.inputMappingDefaultValues : undefined;
             inputs["inputMappingFields"] = state ? state.inputMappingFields : undefined;
@@ -141,6 +146,7 @@ export class Topic extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             inputs["inputMappingDefaultValues"] = args ? args.inputMappingDefaultValues : undefined;
             inputs["inputMappingFields"] = args ? args.inputMappingFields : undefined;
@@ -171,6 +177,10 @@ export interface TopicState {
      * The Endpoint associated with the EventGrid Topic.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.eventgrid.TopicIdentity>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
@@ -221,6 +231,10 @@ export interface TopicState {
  * The set of arguments for constructing a Topic resource.
  */
 export interface TopicArgs {
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.eventgrid.TopicIdentity>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */

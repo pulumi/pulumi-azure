@@ -18,23 +18,30 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PublicIps;
         /// <summary>
+        /// id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        /// </summary>
+        public readonly string? SubnetId;
+        /// <summary>
         /// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         /// </summary>
-        public readonly string SubnetName;
+        public readonly string? SubnetName;
         /// <summary>
         /// ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
         /// </summary>
-        public readonly string VnetId;
+        public readonly string? VnetId;
 
         [OutputConstructor]
         private IntegrationRuntimeSsisVnetIntegration(
             ImmutableArray<string> publicIps,
 
-            string subnetName,
+            string? subnetId,
 
-            string vnetId)
+            string? subnetName,
+
+            string? vnetId)
         {
             PublicIps = publicIps;
+            SubnetId = subnetId;
             SubnetName = subnetName;
             VnetId = vnetId;
         }

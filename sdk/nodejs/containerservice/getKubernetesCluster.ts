@@ -85,11 +85,11 @@ export interface GetKubernetesClusterResult {
      */
     readonly identities: outputs.containerservice.GetKubernetesClusterIdentity[];
     /**
-     * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+     * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
      */
     readonly kubeAdminConfigRaw: string;
     /**
-     * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+     * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
      */
     readonly kubeAdminConfigs: outputs.containerservice.GetKubernetesClusterKubeAdminConfig[];
     /**

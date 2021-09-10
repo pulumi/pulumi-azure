@@ -75,6 +75,8 @@ __all__ = [
     'LinkedServiceSynapseKeyVaultPassword',
     'TriggerBlobEventPipeline',
     'TriggerCustomEventPipeline',
+    'TriggerScheduleSchedule',
+    'TriggerScheduleScheduleMonthly',
     'TriggerTumblingWindowPipeline',
     'TriggerTumblingWindowRetry',
     'TriggerTumblingWindowTriggerDependency',
@@ -2866,12 +2868,14 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "subnetName":
+        if key == "publicIps":
+            suggest = "public_ips"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "subnetName":
             suggest = "subnet_name"
         elif key == "vnetId":
             suggest = "vnet_id"
-        elif key == "publicIps":
-            suggest = "public_ips"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisVnetIntegration. Access the value via the '{suggest}' property getter instead.")
@@ -2885,34 +2889,24 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 subnet_name: str,
-                 vnet_id: str,
-                 public_ips: Optional[Sequence[str]] = None):
+                 public_ips: Optional[Sequence[str]] = None,
+                 subnet_id: Optional[str] = None,
+                 subnet_name: Optional[str] = None,
+                 vnet_id: Optional[str] = None):
         """
+        :param Sequence[str] public_ips: Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
+        :param str subnet_id: id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         :param str subnet_name: Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         :param str vnet_id: ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
-        :param Sequence[str] public_ips: Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
         """
-        pulumi.set(__self__, "subnet_name", subnet_name)
-        pulumi.set(__self__, "vnet_id", vnet_id)
         if public_ips is not None:
             pulumi.set(__self__, "public_ips", public_ips)
-
-    @property
-    @pulumi.getter(name="subnetName")
-    def subnet_name(self) -> str:
-        """
-        Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
-        """
-        return pulumi.get(self, "subnet_name")
-
-    @property
-    @pulumi.getter(name="vnetId")
-    def vnet_id(self) -> str:
-        """
-        ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
-        """
-        return pulumi.get(self, "vnet_id")
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if subnet_name is not None:
+            pulumi.set(__self__, "subnet_name", subnet_name)
+        if vnet_id is not None:
+            pulumi.set(__self__, "vnet_id", vnet_id)
 
     @property
     @pulumi.getter(name="publicIps")
@@ -2921,6 +2915,30 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
         Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
         """
         return pulumi.get(self, "public_ips")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="subnetName")
+    def subnet_name(self) -> Optional[str]:
+        """
+        Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        """
+        return pulumi.get(self, "subnet_name")
+
+    @property
+    @pulumi.getter(name="vnetId")
+    def vnet_id(self) -> Optional[str]:
+        """
+        ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        """
+        return pulumi.get(self, "vnet_id")
 
 
 @pulumi.output_type
@@ -3756,6 +3774,122 @@ class TriggerCustomEventPipeline(dict):
         The Data Factory Pipeline parameters that the trigger will act on.
         """
         return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class TriggerScheduleSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysOfMonths":
+            suggest = "days_of_months"
+        elif key == "daysOfWeeks":
+            suggest = "days_of_weeks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerScheduleSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerScheduleSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerScheduleSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_of_months: Optional[Sequence[int]] = None,
+                 days_of_weeks: Optional[Sequence[str]] = None,
+                 hours: Optional[Sequence[int]] = None,
+                 minutes: Optional[Sequence[int]] = None,
+                 monthlies: Optional[Sequence['outputs.TriggerScheduleScheduleMonthly']] = None):
+        """
+        :param Sequence[int] days_of_months: Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
+        :param Sequence[str] days_of_weeks: Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
+        :param Sequence[int] hours: Hours of the day on which the trigger is scheduled.
+        :param Sequence[int] minutes: Minutes of the hour on which the trigger is scheduled.
+        :param Sequence['TriggerScheduleScheduleMonthlyArgs'] monthlies: A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+        """
+        if days_of_months is not None:
+            pulumi.set(__self__, "days_of_months", days_of_months)
+        if days_of_weeks is not None:
+            pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if monthlies is not None:
+            pulumi.set(__self__, "monthlies", monthlies)
+
+    @property
+    @pulumi.getter(name="daysOfMonths")
+    def days_of_months(self) -> Optional[Sequence[int]]:
+        """
+        Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
+        """
+        return pulumi.get(self, "days_of_months")
+
+    @property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> Optional[Sequence[str]]:
+        """
+        Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @property
+    @pulumi.getter
+    def hours(self) -> Optional[Sequence[int]]:
+        """
+        Hours of the day on which the trigger is scheduled.
+        """
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[Sequence[int]]:
+        """
+        Minutes of the hour on which the trigger is scheduled.
+        """
+        return pulumi.get(self, "minutes")
+
+    @property
+    @pulumi.getter
+    def monthlies(self) -> Optional[Sequence['outputs.TriggerScheduleScheduleMonthly']]:
+        """
+        A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+        """
+        return pulumi.get(self, "monthlies")
+
+
+@pulumi.output_type
+class TriggerScheduleScheduleMonthly(dict):
+    def __init__(__self__, *,
+                 weekday: str,
+                 week: Optional[int] = None):
+        """
+        :param str weekday: The day of the week on which the trigger runs. For example, a `monthly` property with a `weekday` value of `Sunday` means every Sunday of the month.
+        :param int week: The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
+        """
+        pulumi.set(__self__, "weekday", weekday)
+        if week is not None:
+            pulumi.set(__self__, "week", week)
+
+    @property
+    @pulumi.getter
+    def weekday(self) -> str:
+        """
+        The day of the week on which the trigger runs. For example, a `monthly` property with a `weekday` value of `Sunday` means every Sunday of the month.
+        """
+        return pulumi.get(self, "weekday")
+
+    @property
+    @pulumi.getter
+    def week(self) -> Optional[int]:
+        """
+        The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
+        """
+        return pulumi.get(self, "week")
 
 
 @pulumi.output_type

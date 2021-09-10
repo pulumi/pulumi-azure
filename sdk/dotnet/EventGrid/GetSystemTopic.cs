@@ -62,6 +62,12 @@ namespace Pulumi.Azure.EventGrid
     public partial class GetSystemTopic : Pulumi.CustomResource
     {
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.GetSystemTopicIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
         /// </summary>
         [Output("location")]
@@ -151,6 +157,12 @@ namespace Pulumi.Azure.EventGrid
     public sealed class GetSystemTopicArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.GetSystemTopicIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
         /// </summary>
         [Input("location")]
@@ -200,6 +212,12 @@ namespace Pulumi.Azure.EventGrid
 
     public sealed class GetSystemTopicState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.GetSystemTopicIdentityGetArgs>? Identity { get; set; }
+
         /// <summary>
         /// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
         /// </summary>

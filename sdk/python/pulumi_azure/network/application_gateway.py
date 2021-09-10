@@ -37,7 +37,9 @@ class ApplicationGatewayArgs:
                  rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]] = None,
                  ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]]] = None,
                  ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]]] = None,
+                 ssl_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]]] = None,
                  trusted_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]]] = None,
                  url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]] = None,
                  waf_configuration: Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']] = None,
@@ -66,7 +68,9 @@ class ApplicationGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]] ssl_policies: a `ssl policy` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input['ApplicationGatewayWafConfigurationArgs'] waf_configuration: A `waf_configuration` block as defined below.
@@ -107,8 +111,12 @@ class ApplicationGatewayArgs:
             pulumi.set(__self__, "ssl_certificates", ssl_certificates)
         if ssl_policies is not None:
             pulumi.set(__self__, "ssl_policies", ssl_policies)
+        if ssl_profiles is not None:
+            pulumi.set(__self__, "ssl_profiles", ssl_profiles)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if trusted_client_certificates is not None:
+            pulumi.set(__self__, "trusted_client_certificates", trusted_client_certificates)
         if trusted_root_certificates is not None:
             pulumi.set(__self__, "trusted_root_certificates", trusted_root_certificates)
         if url_path_maps is not None:
@@ -383,6 +391,18 @@ class ApplicationGatewayArgs:
         pulumi.set(self, "ssl_policies", value)
 
     @property
+    @pulumi.getter(name="sslProfiles")
+    def ssl_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]]]:
+        """
+        One or more `ssl_profile` blocks as defined below.
+        """
+        return pulumi.get(self, "ssl_profiles")
+
+    @ssl_profiles.setter
+    def ssl_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]]]):
+        pulumi.set(self, "ssl_profiles", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -393,6 +413,18 @@ class ApplicationGatewayArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="trustedClientCertificates")
+    def trusted_client_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]]]:
+        """
+        One or more `trusted_client_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "trusted_client_certificates")
+
+    @trusted_client_certificates.setter
+    def trusted_client_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]]]):
+        pulumi.set(self, "trusted_client_certificates", value)
 
     @property
     @pulumi.getter(name="trustedRootCertificates")
@@ -468,7 +500,9 @@ class _ApplicationGatewayState:
                  sku: Optional[pulumi.Input['ApplicationGatewaySkuArgs']] = None,
                  ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]]] = None,
                  ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]]] = None,
+                 ssl_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]]] = None,
                  trusted_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]]] = None,
                  url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]] = None,
                  waf_configuration: Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']] = None,
@@ -497,7 +531,9 @@ class _ApplicationGatewayState:
         :param pulumi.Input['ApplicationGatewaySkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]] ssl_policies: a `ssl policy` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input['ApplicationGatewayWafConfigurationArgs'] waf_configuration: A `waf_configuration` block as defined below.
@@ -547,8 +583,12 @@ class _ApplicationGatewayState:
             pulumi.set(__self__, "ssl_certificates", ssl_certificates)
         if ssl_policies is not None:
             pulumi.set(__self__, "ssl_policies", ssl_policies)
+        if ssl_profiles is not None:
+            pulumi.set(__self__, "ssl_profiles", ssl_profiles)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if trusted_client_certificates is not None:
+            pulumi.set(__self__, "trusted_client_certificates", trusted_client_certificates)
         if trusted_root_certificates is not None:
             pulumi.set(__self__, "trusted_root_certificates", trusted_root_certificates)
         if url_path_maps is not None:
@@ -823,6 +863,18 @@ class _ApplicationGatewayState:
         pulumi.set(self, "ssl_policies", value)
 
     @property
+    @pulumi.getter(name="sslProfiles")
+    def ssl_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]]]:
+        """
+        One or more `ssl_profile` blocks as defined below.
+        """
+        return pulumi.get(self, "ssl_profiles")
+
+    @ssl_profiles.setter
+    def ssl_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]]]):
+        pulumi.set(self, "ssl_profiles", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -833,6 +885,18 @@ class _ApplicationGatewayState:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="trustedClientCertificates")
+    def trusted_client_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]]]:
+        """
+        One or more `trusted_client_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "trusted_client_certificates")
+
+    @trusted_client_certificates.setter
+    def trusted_client_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]]]):
+        pulumi.set(self, "trusted_client_certificates", value)
 
     @property
     @pulumi.getter(name="trustedRootCertificates")
@@ -910,7 +974,9 @@ class ApplicationGateway(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']]] = None,
                  ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]]] = None,
                  ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]]]] = None,
+                 ssl_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]]] = None,
                  trusted_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedRootCertificateArgs']]]]] = None,
                  url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]]] = None,
                  waf_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayWafConfigurationArgs']]] = None,
@@ -1027,7 +1093,9 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]]] ssl_policies: a `ssl policy` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedRootCertificateArgs']]]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayWafConfigurationArgs']] waf_configuration: A `waf_configuration` block as defined below.
@@ -1163,7 +1231,9 @@ class ApplicationGateway(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']]] = None,
                  ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]]] = None,
                  ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]]]] = None,
+                 ssl_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]]] = None,
                  trusted_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedRootCertificateArgs']]]]] = None,
                  url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]]] = None,
                  waf_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayWafConfigurationArgs']]] = None,
@@ -1220,7 +1290,9 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["ssl_certificates"] = ssl_certificates
             __props__.__dict__["ssl_policies"] = ssl_policies
+            __props__.__dict__["ssl_profiles"] = ssl_profiles
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["trusted_client_certificates"] = trusted_client_certificates
             __props__.__dict__["trusted_root_certificates"] = trusted_root_certificates
             __props__.__dict__["url_path_maps"] = url_path_maps
             __props__.__dict__["waf_configuration"] = waf_configuration
@@ -1257,7 +1329,9 @@ class ApplicationGateway(pulumi.CustomResource):
             sku: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']]] = None,
             ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]]] = None,
             ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]]]] = None,
+            ssl_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            trusted_client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]]] = None,
             trusted_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedRootCertificateArgs']]]]] = None,
             url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]]] = None,
             waf_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayWafConfigurationArgs']]] = None,
@@ -1291,7 +1365,9 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]]] ssl_policies: a `ssl policy` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedRootCertificateArgs']]]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayWafConfigurationArgs']] waf_configuration: A `waf_configuration` block as defined below.
@@ -1323,7 +1399,9 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__.__dict__["sku"] = sku
         __props__.__dict__["ssl_certificates"] = ssl_certificates
         __props__.__dict__["ssl_policies"] = ssl_policies
+        __props__.__dict__["ssl_profiles"] = ssl_profiles
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["trusted_client_certificates"] = trusted_client_certificates
         __props__.__dict__["trusted_root_certificates"] = trusted_root_certificates
         __props__.__dict__["url_path_maps"] = url_path_maps
         __props__.__dict__["waf_configuration"] = waf_configuration
@@ -1507,12 +1585,28 @@ class ApplicationGateway(pulumi.CustomResource):
         return pulumi.get(self, "ssl_policies")
 
     @property
+    @pulumi.getter(name="sslProfiles")
+    def ssl_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewaySslProfile']]]:
+        """
+        One or more `ssl_profile` blocks as defined below.
+        """
+        return pulumi.get(self, "ssl_profiles")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trustedClientCertificates")
+    def trusted_client_certificates(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayTrustedClientCertificate']]]:
+        """
+        One or more `trusted_client_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "trusted_client_certificates")
 
     @property
     @pulumi.getter(name="trustedRootCertificates")

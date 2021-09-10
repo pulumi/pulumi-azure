@@ -44,6 +44,10 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
+     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+     */
+    public readonly appServicePlanId!: pulumi.Output<string | undefined>;
+    /**
      * The expiration date for the certificate.
      */
     public /*out*/ readonly expirationDate!: pulumi.Output<string>;
@@ -56,9 +60,11 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostNames!: pulumi.Output<string[]>;
     /**
-     * Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+     * The ID of the the App Service Environment where the certificate is in use.
+     *
+     * @deprecated This property has been deprecated and replaced with `app_service_plan_id`
      */
-    public readonly hostingEnvironmentProfileId!: pulumi.Output<string | undefined>;
+    public readonly hostingEnvironmentProfileId!: pulumi.Output<string>;
     /**
      * The issue date for the certificate.
      */
@@ -114,6 +120,7 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
+            inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             inputs["expirationDate"] = state ? state.expirationDate : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
             inputs["hostNames"] = state ? state.hostNames : undefined;
@@ -134,6 +141,7 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
             inputs["hostingEnvironmentProfileId"] = args ? args.hostingEnvironmentProfileId : undefined;
             inputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -162,6 +170,10 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateState {
     /**
+     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+     */
+    appServicePlanId?: pulumi.Input<string>;
+    /**
      * The expiration date for the certificate.
      */
     expirationDate?: pulumi.Input<string>;
@@ -174,7 +186,9 @@ export interface CertificateState {
      */
     hostNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+     * The ID of the the App Service Environment where the certificate is in use.
+     *
+     * @deprecated This property has been deprecated and replaced with `app_service_plan_id`
      */
     hostingEnvironmentProfileId?: pulumi.Input<string>;
     /**
@@ -225,7 +239,13 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     /**
-     * Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+     */
+    appServicePlanId?: pulumi.Input<string>;
+    /**
+     * The ID of the the App Service Environment where the certificate is in use.
+     *
+     * @deprecated This property has been deprecated and replaced with `app_service_plan_id`
      */
     hostingEnvironmentProfileId?: pulumi.Input<string>;
     /**

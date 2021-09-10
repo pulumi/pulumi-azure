@@ -58,6 +58,12 @@ namespace Pulumi.Azure.EventGrid
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.DomainIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `inbound_ip_rule` blocks as defined below.
         /// </summary>
         [Output("inboundIpRules")]
@@ -173,6 +179,12 @@ namespace Pulumi.Azure.EventGrid
 
     public sealed class DomainArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.DomainIdentityArgs>? Identity { get; set; }
+
         [Input("inboundIpRules")]
         private InputList<Inputs.DomainInboundIpRuleArgs>? _inboundIpRules;
 
@@ -251,6 +263,12 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.DomainIdentityGetArgs>? Identity { get; set; }
 
         [Input("inboundIpRules")]
         private InputList<Inputs.DomainInboundIpRuleGetArgs>? _inboundIpRules;

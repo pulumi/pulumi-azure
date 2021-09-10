@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./backupInstanceBlogStorage";
 export * from "./backupInstanceDisk";
 export * from "./backupInstancePostgresql";
 export * from "./backupPolicyBlobStorage";
@@ -14,6 +15,7 @@ export * from "./backupVault";
 export * from "./getBackupVault";
 
 // Import resources to register:
+import { BackupInstanceBlogStorage } from "./backupInstanceBlogStorage";
 import { BackupInstanceDisk } from "./backupInstanceDisk";
 import { BackupInstancePostgresql } from "./backupInstancePostgresql";
 import { BackupPolicyBlobStorage } from "./backupPolicyBlobStorage";
@@ -25,6 +27,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage":
+                return new BackupInstanceBlogStorage(name, <any>undefined, { urn })
             case "azure:dataprotection/backupInstanceDisk:BackupInstanceDisk":
                 return new BackupInstanceDisk(name, <any>undefined, { urn })
             case "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql":
@@ -42,6 +46,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceBlogStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstancePostgresql", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyBlobStorage", _module)

@@ -31,6 +31,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FailoverGroup{}
 	case "azure:sql/firewallRule:FirewallRule":
 		r = &FirewallRule{}
+	case "azure:sql/managedDatabase:ManagedDatabase":
+		r = &ManagedDatabase{}
+	case "azure:sql/managedInstance:ManagedInstance":
+		r = &ManagedInstance{}
 	case "azure:sql/sqlServer:SqlServer":
 		r = &SqlServer{}
 	case "azure:sql/virtualNetworkRule:VirtualNetworkRule":
@@ -71,6 +75,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sql/firewallRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sql/managedDatabase",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sql/managedInstance",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -154,6 +154,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> OsDiskType { get; private set; } = null!;
 
         /// <summary>
+        /// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("osSku")]
+        public Output<string?> OsSku { get; private set; } = null!;
+
+        /// <summary>
         /// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
         /// </summary>
         [Output("osType")]
@@ -410,6 +416,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? OsDiskType { get; set; }
 
         /// <summary>
+        /// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("osSku")]
+        public Input<string>? OsSku { get; set; }
+
+        /// <summary>
         /// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
         /// </summary>
         [Input("osType")]
@@ -631,6 +643,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("osDiskType")]
         public Input<string>? OsDiskType { get; set; }
+
+        /// <summary>
+        /// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("osSku")]
+        public Input<string>? OsSku { get; set; }
 
         /// <summary>
         /// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.

@@ -171,7 +171,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="kubeAdminConfigRaw")
     def kube_admin_config_raw(self) -> str:
         """
-        Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
         """
         return pulumi.get(self, "kube_admin_config_raw")
 
@@ -179,7 +179,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="kubeAdminConfigs")
     def kube_admin_configs(self) -> Sequence['outputs.GetKubernetesClusterKubeAdminConfigResult']:
         """
-        A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
         """
         return pulumi.get(self, "kube_admin_configs")
 

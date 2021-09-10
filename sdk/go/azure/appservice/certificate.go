@@ -23,14 +23,18 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
+	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	AppServicePlanId pulumi.StringPtrOutput `pulumi:"appServicePlanId"`
 	// The expiration date for the certificate.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
 	// The friendly name of the certificate.
 	FriendlyName pulumi.StringOutput `pulumi:"friendlyName"`
 	// List of host names the certificate applies to.
 	HostNames pulumi.StringArrayOutput `pulumi:"hostNames"`
-	// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
-	HostingEnvironmentProfileId pulumi.StringPtrOutput `pulumi:"hostingEnvironmentProfileId"`
+	// The ID of the the App Service Environment where the certificate is in use.
+	//
+	// Deprecated: This property has been deprecated and replaced with `app_service_plan_id`
+	HostingEnvironmentProfileId pulumi.StringOutput `pulumi:"hostingEnvironmentProfileId"`
 	// The issue date for the certificate.
 	IssueDate pulumi.StringOutput `pulumi:"issueDate"`
 	// The name of the certificate issuer.
@@ -86,13 +90,17 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
+	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	AppServicePlanId *string `pulumi:"appServicePlanId"`
 	// The expiration date for the certificate.
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// The friendly name of the certificate.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// List of host names the certificate applies to.
 	HostNames []string `pulumi:"hostNames"`
-	// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	// The ID of the the App Service Environment where the certificate is in use.
+	//
+	// Deprecated: This property has been deprecated and replaced with `app_service_plan_id`
 	HostingEnvironmentProfileId *string `pulumi:"hostingEnvironmentProfileId"`
 	// The issue date for the certificate.
 	IssueDate *string `pulumi:"issueDate"`
@@ -118,13 +126,17 @@ type certificateState struct {
 }
 
 type CertificateState struct {
+	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	AppServicePlanId pulumi.StringPtrInput
 	// The expiration date for the certificate.
 	ExpirationDate pulumi.StringPtrInput
 	// The friendly name of the certificate.
 	FriendlyName pulumi.StringPtrInput
 	// List of host names the certificate applies to.
 	HostNames pulumi.StringArrayInput
-	// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	// The ID of the the App Service Environment where the certificate is in use.
+	//
+	// Deprecated: This property has been deprecated and replaced with `app_service_plan_id`
 	HostingEnvironmentProfileId pulumi.StringPtrInput
 	// The issue date for the certificate.
 	IssueDate pulumi.StringPtrInput
@@ -154,7 +166,11 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	AppServicePlanId *string `pulumi:"appServicePlanId"`
+	// The ID of the the App Service Environment where the certificate is in use.
+	//
+	// Deprecated: This property has been deprecated and replaced with `app_service_plan_id`
 	HostingEnvironmentProfileId *string `pulumi:"hostingEnvironmentProfileId"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
@@ -173,7 +189,11 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	AppServicePlanId pulumi.StringPtrInput
+	// The ID of the the App Service Environment where the certificate is in use.
+	//
+	// Deprecated: This property has been deprecated and replaced with `app_service_plan_id`
 	HostingEnvironmentProfileId pulumi.StringPtrInput
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
 	KeyVaultSecretId pulumi.StringPtrInput

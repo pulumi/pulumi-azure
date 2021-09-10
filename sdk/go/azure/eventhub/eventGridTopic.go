@@ -63,6 +63,8 @@ type EventGridTopic struct {
 
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// An `identity` block as defined below.
+	Identity EventGridTopicIdentityPtrOutput `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules EventGridTopicInboundIpRuleArrayOutput `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
@@ -121,6 +123,8 @@ func GetEventGridTopic(ctx *pulumi.Context,
 type eventGridTopicState struct {
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint *string `pulumi:"endpoint"`
+	// An `identity` block as defined below.
+	Identity *EventGridTopicIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules []EventGridTopicInboundIpRule `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
@@ -148,6 +152,8 @@ type eventGridTopicState struct {
 type EventGridTopicState struct {
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity EventGridTopicIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules EventGridTopicInboundIpRuleArrayInput
 	// A `inputMappingDefaultValues` block as defined below.
@@ -177,6 +183,8 @@ func (EventGridTopicState) ElementType() reflect.Type {
 }
 
 type eventGridTopicArgs struct {
+	// An `identity` block as defined below.
+	Identity *EventGridTopicIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules []EventGridTopicInboundIpRule `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
@@ -199,6 +207,8 @@ type eventGridTopicArgs struct {
 
 // The set of arguments for constructing a EventGridTopic resource.
 type EventGridTopicArgs struct {
+	// An `identity` block as defined below.
+	Identity EventGridTopicIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules EventGridTopicInboundIpRuleArrayInput
 	// A `inputMappingDefaultValues` block as defined below.

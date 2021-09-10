@@ -62,6 +62,8 @@ import (
 type IntegrationRuntimeRule struct {
 	pulumi.CustomResourceState
 
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+	CleanupEnabled pulumi.BoolOutput `pulumi:"cleanupEnabled"`
 	// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
 	ComputeType pulumi.StringPtrOutput `pulumi:"computeType"`
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
@@ -117,6 +119,8 @@ func GetIntegrationRuntimeRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationRuntimeRule resources.
 type integrationRuntimeRuleState struct {
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+	CleanupEnabled *bool `pulumi:"cleanupEnabled"`
 	// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
 	ComputeType *string `pulumi:"computeType"`
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
@@ -138,6 +142,8 @@ type integrationRuntimeRuleState struct {
 }
 
 type IntegrationRuntimeRuleState struct {
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+	CleanupEnabled pulumi.BoolPtrInput
 	// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
 	ComputeType pulumi.StringPtrInput
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
@@ -163,6 +169,8 @@ func (IntegrationRuntimeRuleState) ElementType() reflect.Type {
 }
 
 type integrationRuntimeRuleArgs struct {
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+	CleanupEnabled *bool `pulumi:"cleanupEnabled"`
 	// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
 	ComputeType *string `pulumi:"computeType"`
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
@@ -185,6 +193,8 @@ type integrationRuntimeRuleArgs struct {
 
 // The set of arguments for constructing a IntegrationRuntimeRule resource.
 type IntegrationRuntimeRuleArgs struct {
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+	CleanupEnabled pulumi.BoolPtrInput
 	// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
 	ComputeType pulumi.StringPtrInput
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.

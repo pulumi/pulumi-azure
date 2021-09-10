@@ -9406,6 +9406,10 @@ export namespace containerservice {
          */
         osDiskType?: string;
         /**
+         * OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+         */
+        osSku?: string;
+        /**
          * The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
          */
         podSubnetId?: string;
@@ -11931,13 +11935,17 @@ export namespace datafactory {
          */
         publicIps?: string[];
         /**
+         * id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+         */
+        subnetId?: string;
+        /**
          * Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
          */
-        subnetName: string;
+        subnetName?: string;
         /**
          * ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
          */
-        vnetId: string;
+        vnetId?: string;
     }
 
     export interface LinkedCustomServiceIntegrationRuntime {
@@ -12154,6 +12162,40 @@ export namespace datafactory {
          * The Data Factory Pipeline parameters that the trigger will act on.
          */
         parameters?: {[key: string]: string};
+    }
+
+    export interface TriggerScheduleSchedule {
+        /**
+         * Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
+         */
+        daysOfMonths?: number[];
+        /**
+         * Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
+         */
+        daysOfWeeks?: string[];
+        /**
+         * Hours of the day on which the trigger is scheduled.
+         */
+        hours?: number[];
+        /**
+         * Minutes of the hour on which the trigger is scheduled.
+         */
+        minutes?: number[];
+        /**
+         * A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+         */
+        monthlies?: outputs.datafactory.TriggerScheduleScheduleMonthly[];
+    }
+
+    export interface TriggerScheduleScheduleMonthly {
+        /**
+         * The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
+         */
+        week?: number;
+        /**
+         * The day of the week on which the trigger runs. For example, a `monthly` property with a `weekday` value of `Sunday` means every Sunday of the month.
+         */
+        weekday: string;
     }
 
     export interface TriggerTumblingWindowPipeline {
@@ -12835,6 +12877,25 @@ export namespace domainservices {
 }
 
 export namespace eventgrid {
+    export interface DomainIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+         */
+        principalId: string;
+        /**
+         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of Event Grid Domain. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         */
+        type: string;
+    }
+
     export interface DomainInboundIpRule {
         /**
          * The action to take when the rule is matched. Possible values are `Allow`.
@@ -13183,6 +13244,20 @@ export namespace eventgrid {
         preferredBatchSizeInKilobytes?: number;
     }
 
+    export interface EventSubscriptionDeadLetterIdentity {
+        /**
+         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
+    export interface EventSubscriptionDeliveryIdentity {
+        /**
+         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
     export interface EventSubscriptionEventhubEndpoint {
         /**
          * Specifies the id of the eventhub where the Event Subscription will receive events.
@@ -13270,6 +13345,78 @@ export namespace eventgrid {
          * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: string;
+    }
+
+    export interface GetDomainInboundIpRule {
+        /**
+         * The action to take when the rule is matched. Possible values are `Allow`.
+         */
+        action?: string;
+        /**
+         * The ip mask (CIDR) to match on.
+         */
+        ipMask: string;
+    }
+
+    export interface GetDomainInputMappingDefaultValue {
+        /**
+         * Specifies the default data version of the EventGrid Event associated with the domain.
+         */
+        dataVersion: string;
+        /**
+         * Specifies the default event type of the EventGrid Event associated with the domain.
+         */
+        eventType: string;
+        /**
+         * Specifies the default subject of the EventGrid Event associated with the domain.
+         */
+        subject: string;
+    }
+
+    export interface GetDomainInputMappingField {
+        /**
+         * Specifies the default data version of the EventGrid Event associated with the domain.
+         */
+        dataVersion: string;
+        /**
+         * Specifies the event time of the EventGrid Event associated with the domain.
+         */
+        eventTime: string;
+        /**
+         * Specifies the default event type of the EventGrid Event associated with the domain.
+         */
+        eventType: string;
+        /**
+         * Specifies the id of the EventGrid Event associated with the domain.
+         */
+        id: string;
+        /**
+         * Specifies the default subject of the EventGrid Event associated with the domain.
+         */
+        subject: string;
+        /**
+         * Specifies the topic of the EventGrid Event associated with the domain.
+         */
+        topic: string;
+    }
+
+    export interface GetSystemTopicIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+         */
+        principalId: string;
+        /**
+         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         */
+        type: string;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilter {
@@ -13567,6 +13714,20 @@ export namespace eventgrid {
         preferredBatchSizeInKilobytes?: number;
     }
 
+    export interface SystemTopicEventSubscriptionDeadLetterIdentity {
+        /**
+         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
+    export interface SystemTopicEventSubscriptionDeliveryIdentity {
+        /**
+         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
     export interface SystemTopicEventSubscriptionRetryPolicy {
         /**
          * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
@@ -13642,6 +13803,44 @@ export namespace eventgrid {
         url: string;
     }
 
+    export interface SystemTopicIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+         */
+        principalId: string;
+        /**
+         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         */
+        type: string;
+    }
+
+    export interface TopicIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+         */
+        principalId: string;
+        /**
+         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of Event Grid Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         */
+        type: string;
+    }
+
     export interface TopicInboundIpRule {
         /**
          * The action to take when the rule is matched. Possible values are `Allow`.
@@ -13698,6 +13897,25 @@ export namespace eventgrid {
 }
 
 export namespace eventhub {
+    export interface DomainIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+         */
+        principalId: string;
+        /**
+         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of Event Grid Domain. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         */
+        type: string;
+    }
+
     export interface DomainInboundIpRule {
         /**
          * The action to take when the rule is matched. Possible values are `Allow`.
@@ -13749,6 +13967,25 @@ export namespace eventhub {
          * Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
          */
         topic?: string;
+    }
+
+    export interface EventGridTopicIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+         */
+        principalId: string;
+        /**
+         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of Event Grid Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         */
+        type: string;
     }
 
     export interface EventGridTopicInboundIpRule {
@@ -14199,6 +14436,20 @@ export namespace eventhub {
          * Preferred batch size in Kilobytes.
          */
         preferredBatchSizeInKilobytes?: number;
+    }
+
+    export interface EventSubscriptionDeadLetterIdentity {
+        /**
+         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
+    export interface EventSubscriptionDeliveryIdentity {
+        /**
+         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+         */
+        type: string;
     }
 
     export interface EventSubscriptionEventhubEndpoint {
@@ -18506,6 +18757,104 @@ export namespace logicapps {
         actionResult: string;
     }
 
+    export interface IntegrationAccountAgreementGuestIdentity {
+        /**
+         * The authenticating body that provides unique guest identities to organizations.
+         */
+        qualifier: string;
+        /**
+         * The value that identifies the documents that your logic apps receive.
+         */
+        value: string;
+    }
+
+    export interface IntegrationAccountAgreementHostIdentity {
+        /**
+         * The authenticating body that provides unique host identities to organizations.
+         */
+        qualifier: string;
+        /**
+         * The value that identifies the documents that your logic apps receive.
+         */
+        value: string;
+    }
+
+    export interface IntegrationAccountBatchConfigurationReleaseCriteria {
+        /**
+         * The batch size in bytes for the Logic App Integration Batch Configuration.
+         */
+        batchSize?: number;
+        /**
+         * The message count for the Logic App Integration Batch Configuration.
+         */
+        messageCount?: number;
+        /**
+         * A `recurrence` block as documented below.
+         */
+        recurrence?: outputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence;
+    }
+
+    export interface IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
+        /**
+         * The end time of the schedule, formatted as an RFC3339 string.
+         */
+        endTime?: string;
+        /**
+         * The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+         */
+        frequency: string;
+        /**
+         * The number of `frequency`s between runs.
+         */
+        interval: number;
+        /**
+         * A `schedule` block as documented below.
+         */
+        schedule?: outputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule;
+        /**
+         * The start time of the schedule, formatted as an RFC3339 string.
+         */
+        startTime?: string;
+        /**
+         * The timezone of the start/end time.
+         */
+        timeZone?: string;
+    }
+
+    export interface IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule {
+        /**
+         * A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
+         */
+        hours?: number[];
+        /**
+         * A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+         */
+        minutes?: number[];
+        /**
+         * A list of days of the month that the job should execute on.
+         */
+        monthDays?: number[];
+        /**
+         * A `monthly` block as documented below.
+         */
+        monthlies?: outputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly[];
+        /**
+         * A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+         */
+        weekDays?: string[];
+    }
+
+    export interface IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly {
+        /**
+         * The occurrence of the week within the month.
+         */
+        week: number;
+        /**
+         * The day of the occurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+         */
+        weekday: string;
+    }
+
     export interface IntegrationAccountCertificateKeyVaultKey {
         /**
          * The name of Key Vault Key.
@@ -20845,7 +21194,7 @@ export namespace monitoring {
          */
         metricTrigger?: outputs.monitoring.ScheduledQueryRulesAlertTriggerMetricTrigger;
         /**
-         * Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+         * Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
          */
         operator: string;
         /**
@@ -20864,7 +21213,7 @@ export namespace monitoring {
          */
         metricTriggerType: string;
         /**
-         * Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+         * Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
          */
         operator: string;
         /**
@@ -21705,7 +22054,7 @@ export namespace network {
          */
         customErrorConfigurations?: outputs.network.ApplicationGatewayHttpListenerCustomErrorConfiguration[];
         /**
-         * The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+         * The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
          */
         firewallPolicyId?: string;
         /**
@@ -21756,6 +22105,14 @@ export namespace network {
          * The name of the associated SSL Certificate which should be used for this HTTP Listener.
          */
         sslCertificateName?: string;
+        /**
+         * The ID of the associated SSL Certificate.
+         */
+        sslProfileId: string;
+        /**
+         * The name of the associated SSL Profile which should be used for this HTTP Listener.
+         */
+        sslProfileName?: string;
     }
 
     export interface ApplicationGatewayHttpListenerCustomErrorConfiguration {
@@ -22103,6 +22460,68 @@ export namespace network {
          * The Type of the Policy. Possible values are `Predefined` and `Custom`.
          */
         policyType?: string;
+    }
+
+    export interface ApplicationGatewaySslProfile {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of the SSL Profile that is unique within this Application Gateway.
+         */
+        name: string;
+        /**
+         * a `ssl policy` block as defined below.
+         */
+        sslPolicies?: outputs.network.ApplicationGatewaySslProfileSslPolicy[];
+        /**
+         * The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+         */
+        trustedClientCertificateNames?: string[];
+        /**
+         * Should client certificate issuer DN be verified?  Defaults to `false`.
+         */
+        verifyClientCertIssuerDn?: boolean;
+    }
+
+    export interface ApplicationGatewaySslProfileSslPolicy {
+        /**
+         * A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+         */
+        cipherSuites?: string[];
+        /**
+         * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         */
+        disabledProtocols?: string[];
+        /**
+         * The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         */
+        minProtocolVersion?: string;
+        /**
+         * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
+         * are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+         */
+        policyName?: string;
+        /**
+         * The Type of the Policy. Possible values are `Predefined` and `Custom`.
+         */
+        policyType?: string;
+    }
+
+    export interface ApplicationGatewayTrustedClientCertificate {
+        /**
+         * The base-64 encoded certificate.
+         */
+        data: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of the Trusted Client Certificate that is unique within this Application Gateway.
+         */
+        name: string;
     }
 
     export interface ApplicationGatewayTrustedRootCertificate {
@@ -22729,6 +23148,14 @@ export namespace network {
 
     export interface FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule {
         /**
+         * The description which should be used for this rule.
+         */
+        description?: string;
+        /**
+         * Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+         */
+        destinationAddresses?: string[];
+        /**
          * Specifies a list of destination FQDN tags.
          */
         destinationFqdnTags?: string[];
@@ -22737,13 +23164,17 @@ export namespace network {
          */
         destinationFqdns?: string[];
         /**
+         * Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
+         */
+        destinationUrls?: string[];
+        /**
          * The name which should be used for this rule.
          */
         name: string;
         /**
          * Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
          */
-        protocols: outputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol[];
+        protocols?: outputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol[];
         /**
          * Specifies a list of source IP addresses (including CIDR and `*`).
          */
@@ -22752,6 +23183,14 @@ export namespace network {
          * Specifies a list of source IP groups.
          */
         sourceIpGroups?: string[];
+        /**
+         * Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+         */
+        terminateTls?: boolean;
+        /**
+         * Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+         */
+        webCategories?: string[];
     }
 
     export interface FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol {
@@ -24409,20 +24848,14 @@ export namespace network {
         /**
          * The client id of the Azure VPN application.
          * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
-         * This setting is incompatible with the use of
-         * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
          */
         aadAudience?: string;
         /**
          * The STS url for your tenant
-         * This setting is incompatible with the use of
-         * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
          */
         aadIssuer?: string;
         /**
          * AzureAD Tenant URL
-         * This setting is incompatible with the use of
-         * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
          */
         aadTenant?: string;
         /**
@@ -24433,31 +24866,28 @@ export namespace network {
         addressSpaces: string[];
         /**
          * The address of the Radius server.
-         * This setting is incompatible with the use of
-         * `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
          */
         radiusServerAddress?: string;
         /**
          * The secret used by the Radius server.
-         * This setting is incompatible with the use of
-         * `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
          */
         radiusServerSecret?: string;
         /**
          * One or more `revokedCertificate` blocks which
          * are defined below.
-         * This setting is incompatible with the use of
-         * `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
          */
         revokedCertificates?: outputs.network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate[];
         /**
          * One or more `rootCertificate` blocks which are
          * defined below. These root certificates are used to sign the client certificate
          * used by the VPN clients to connect to the gateway.
-         * This setting is incompatible with the use of
-         * `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
          */
         rootCertificates?: outputs.network.VirtualNetworkGatewayVpnClientConfigurationRootCertificate[];
+        /**
+         * List of the vpn authentication types for the virtual network gateway.
+         * The supported values are `AAD`, `Radius` and `Certificate`.
+         */
+        vpnAuthTypes: string[];
         /**
          * List of the protocols supported by the vpn client.
          * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
@@ -27555,7 +27985,7 @@ export namespace streamanalytics {
          */
         format?: string;
         /**
-         * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+         * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
          */
         type: string;
     }
@@ -27771,6 +28201,10 @@ export namespace synapse {
          * Specifies the root folder within the repository. Set to `/` for the top level.
          */
         rootFolder: string;
+        /**
+         * the ID of the tenant for the Azure DevOps account.
+         */
+        tenantId?: string;
     }
 
     export interface WorkspaceGithubRepo {

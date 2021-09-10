@@ -25,16 +25,22 @@ namespace Pulumi.Azure.DataFactory.Inputs
         }
 
         /// <summary>
+        /// id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
+
+        /// <summary>
         /// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         /// </summary>
-        [Input("subnetName", required: true)]
-        public Input<string> SubnetName { get; set; } = null!;
+        [Input("subnetName")]
+        public Input<string>? SubnetName { get; set; }
 
         /// <summary>
         /// ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
         /// </summary>
-        [Input("vnetId", required: true)]
-        public Input<string> VnetId { get; set; } = null!;
+        [Input("vnetId")]
+        public Input<string>? VnetId { get; set; }
 
         public IntegrationRuntimeSsisVnetIntegrationArgs()
         {
