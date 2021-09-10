@@ -77,6 +77,18 @@ namespace Pulumi.Azure.StreamAnalytics
     public partial class OutputBlob : Pulumi.CustomResource
     {
         /// <summary>
+        /// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
+        /// </summary>
+        [Output("batchMaxWaitTime")]
+        public Output<string?> BatchMaxWaitTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The minimum number of rows per batch (must be between `0` and `10000`).
+        /// </summary>
+        [Output("batchMinRows")]
+        public Output<double?> BatchMinRows { get; private set; } = null!;
+
+        /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         /// </summary>
         [Output("dateFormat")]
@@ -183,6 +195,18 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class OutputBlobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
+        /// </summary>
+        [Input("batchMaxWaitTime")]
+        public Input<string>? BatchMaxWaitTime { get; set; }
+
+        /// <summary>
+        /// The minimum number of rows per batch (must be between `0` and `10000`).
+        /// </summary>
+        [Input("batchMinRows")]
+        public Input<double>? BatchMinRows { get; set; }
+
+        /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         /// </summary>
         [Input("dateFormat", required: true)]
@@ -249,6 +273,18 @@ namespace Pulumi.Azure.StreamAnalytics
 
     public sealed class OutputBlobState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
+        /// </summary>
+        [Input("batchMaxWaitTime")]
+        public Input<string>? BatchMaxWaitTime { get; set; }
+
+        /// <summary>
+        /// The minimum number of rows per batch (must be between `0` and `10000`).
+        /// </summary>
+        [Input("batchMinRows")]
+        public Input<double>? BatchMinRows { get; set; }
+
         /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         /// </summary>

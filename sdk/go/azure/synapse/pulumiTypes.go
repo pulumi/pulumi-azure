@@ -771,6 +771,8 @@ type WorkspaceAzureDevopsRepo struct {
 	RepositoryName string `pulumi:"repositoryName"`
 	// Specifies the root folder within the repository. Set to `/` for the top level.
 	RootFolder string `pulumi:"rootFolder"`
+	// the ID of the tenant for the Azure DevOps account.
+	TenantId *string `pulumi:"tenantId"`
 }
 
 // WorkspaceAzureDevopsRepoInput is an input type that accepts WorkspaceAzureDevopsRepoArgs and WorkspaceAzureDevopsRepoOutput values.
@@ -795,6 +797,8 @@ type WorkspaceAzureDevopsRepoArgs struct {
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 	// Specifies the root folder within the repository. Set to `/` for the top level.
 	RootFolder pulumi.StringInput `pulumi:"rootFolder"`
+	// the ID of the tenant for the Azure DevOps account.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (WorkspaceAzureDevopsRepoArgs) ElementType() reflect.Type {
@@ -899,6 +903,11 @@ func (o WorkspaceAzureDevopsRepoOutput) RootFolder() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceAzureDevopsRepo) string { return v.RootFolder }).(pulumi.StringOutput)
 }
 
+// the ID of the tenant for the Azure DevOps account.
+func (o WorkspaceAzureDevopsRepoOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceAzureDevopsRepo) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceAzureDevopsRepoPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceAzureDevopsRepoPtrOutput) ElementType() reflect.Type {
@@ -964,6 +973,16 @@ func (o WorkspaceAzureDevopsRepoPtrOutput) RootFolder() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.RootFolder
+	}).(pulumi.StringPtrOutput)
+}
+
+// the ID of the tenant for the Azure DevOps account.
+func (o WorkspaceAzureDevopsRepoPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceAzureDevopsRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 

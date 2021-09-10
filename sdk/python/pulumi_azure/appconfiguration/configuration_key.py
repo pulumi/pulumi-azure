@@ -430,6 +430,12 @@ class ConfigurationKey(pulumi.CustomResource):
          $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/label1
         ```
 
+         If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
+
+        ```sh
+         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/%00
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -517,6 +523,12 @@ class ConfigurationKey(pulumi.CustomResource):
 
         ```sh
          $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/label1
+        ```
+
+         If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
+
+        ```sh
+         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/%00
         ```
 
         :param str resource_name: The name of the resource.

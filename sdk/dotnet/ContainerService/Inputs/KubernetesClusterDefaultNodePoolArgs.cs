@@ -147,6 +147,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? OsDiskType { get; set; }
 
         /// <summary>
+        /// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("osSku")]
+        public Input<string>? OsSku { get; set; }
+
+        /// <summary>
         /// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("podSubnetId")]

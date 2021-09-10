@@ -3506,7 +3506,7 @@ class ScheduledQueryRulesAlertTrigger(dict):
                  threshold: float,
                  metric_trigger: Optional['outputs.ScheduledQueryRulesAlertTriggerMetricTrigger'] = None):
         """
-        :param str operator: Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+        :param str operator: Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
         :param float threshold: Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
         :param 'ScheduledQueryRulesAlertTriggerMetricTriggerArgs' metric_trigger: A `metric_trigger` block as defined above. Trigger condition for metric query rule.
         """
@@ -3519,7 +3519,7 @@ class ScheduledQueryRulesAlertTrigger(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+        Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
         """
         return pulumi.get(self, "operator")
 
@@ -3569,7 +3569,7 @@ class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
         """
         :param str metric_column: Evaluation of metric on a particular column.
         :param str metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'.
-        :param str operator: Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+        :param str operator: Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
         :param float threshold: The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
         """
         pulumi.set(__self__, "metric_column", metric_column)
@@ -3597,7 +3597,7 @@ class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+        Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
         """
         return pulumi.get(self, "operator")
 

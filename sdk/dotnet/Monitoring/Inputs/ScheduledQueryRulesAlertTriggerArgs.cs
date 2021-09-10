@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<Inputs.ScheduledQueryRulesAlertTriggerMetricTriggerArgs>? MetricTrigger { get; set; }
 
         /// <summary>
-        /// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+        /// Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
         /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;

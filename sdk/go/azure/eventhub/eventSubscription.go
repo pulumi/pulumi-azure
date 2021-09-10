@@ -86,6 +86,10 @@ type EventSubscription struct {
 	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrOutput `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint EventSubscriptionAzureFunctionEndpointPtrOutput `pulumi:"azureFunctionEndpoint"`
+	// A `deadLetterIdentity` block as defined below.
+	DeadLetterIdentity EventSubscriptionDeadLetterIdentityPtrOutput `pulumi:"deadLetterIdentity"`
+	// A `deliveryIdentity` block as defined below.
+	DeliveryIdentity EventSubscriptionDeliveryIdentityPtrOutput `pulumi:"deliveryIdentity"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
 	// A `eventhubEndpoint` block as defined below.
@@ -168,6 +172,10 @@ type eventSubscriptionState struct {
 	AdvancedFilteringOnArraysEnabled *bool `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *EventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
+	// A `deadLetterIdentity` block as defined below.
+	DeadLetterIdentity *EventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
+	// A `deliveryIdentity` block as defined below.
+	DeliveryIdentity *EventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// A `eventhubEndpoint` block as defined below.
@@ -219,6 +227,10 @@ type EventSubscriptionState struct {
 	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrInput
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint EventSubscriptionAzureFunctionEndpointPtrInput
+	// A `deadLetterIdentity` block as defined below.
+	DeadLetterIdentity EventSubscriptionDeadLetterIdentityPtrInput
+	// A `deliveryIdentity` block as defined below.
+	DeliveryIdentity EventSubscriptionDeliveryIdentityPtrInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
 	// A `eventhubEndpoint` block as defined below.
@@ -274,6 +286,10 @@ type eventSubscriptionArgs struct {
 	AdvancedFilteringOnArraysEnabled *bool `pulumi:"advancedFilteringOnArraysEnabled"`
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *EventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
+	// A `deadLetterIdentity` block as defined below.
+	DeadLetterIdentity *EventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
+	// A `deliveryIdentity` block as defined below.
+	DeliveryIdentity *EventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// A `eventhubEndpoint` block as defined below.
@@ -326,6 +342,10 @@ type EventSubscriptionArgs struct {
 	AdvancedFilteringOnArraysEnabled pulumi.BoolPtrInput
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint EventSubscriptionAzureFunctionEndpointPtrInput
+	// A `deadLetterIdentity` block as defined below.
+	DeadLetterIdentity EventSubscriptionDeadLetterIdentityPtrInput
+	// A `deliveryIdentity` block as defined below.
+	DeliveryIdentity EventSubscriptionDeliveryIdentityPtrInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
 	// A `eventhubEndpoint` block as defined below.

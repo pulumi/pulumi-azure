@@ -1374,7 +1374,7 @@ func (o ApplicationGatewayGatewayIpConfigurationArrayOutput) Index(i pulumi.IntI
 type ApplicationGatewayHttpListener struct {
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations []ApplicationGatewayHttpListenerCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
-	// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+	// The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
 	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
 	// The ID of the associated Frontend Configuration.
 	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
@@ -1400,6 +1400,10 @@ type ApplicationGatewayHttpListener struct {
 	SslCertificateId *string `pulumi:"sslCertificateId"`
 	// The name of the associated SSL Certificate which should be used for this HTTP Listener.
 	SslCertificateName *string `pulumi:"sslCertificateName"`
+	// The ID of the associated SSL Certificate.
+	SslProfileId *string `pulumi:"sslProfileId"`
+	// The name of the associated SSL Profile which should be used for this HTTP Listener.
+	SslProfileName *string `pulumi:"sslProfileName"`
 }
 
 // ApplicationGatewayHttpListenerInput is an input type that accepts ApplicationGatewayHttpListenerArgs and ApplicationGatewayHttpListenerOutput values.
@@ -1416,7 +1420,7 @@ type ApplicationGatewayHttpListenerInput interface {
 type ApplicationGatewayHttpListenerArgs struct {
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput `pulumi:"customErrorConfigurations"`
-	// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+	// The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
 	FirewallPolicyId pulumi.StringPtrInput `pulumi:"firewallPolicyId"`
 	// The ID of the associated Frontend Configuration.
 	FrontendIpConfigurationId pulumi.StringPtrInput `pulumi:"frontendIpConfigurationId"`
@@ -1442,6 +1446,10 @@ type ApplicationGatewayHttpListenerArgs struct {
 	SslCertificateId pulumi.StringPtrInput `pulumi:"sslCertificateId"`
 	// The name of the associated SSL Certificate which should be used for this HTTP Listener.
 	SslCertificateName pulumi.StringPtrInput `pulumi:"sslCertificateName"`
+	// The ID of the associated SSL Certificate.
+	SslProfileId pulumi.StringPtrInput `pulumi:"sslProfileId"`
+	// The name of the associated SSL Profile which should be used for this HTTP Listener.
+	SslProfileName pulumi.StringPtrInput `pulumi:"sslProfileName"`
 }
 
 func (ApplicationGatewayHttpListenerArgs) ElementType() reflect.Type {
@@ -1502,7 +1510,7 @@ func (o ApplicationGatewayHttpListenerOutput) CustomErrorConfigurations() Applic
 	}).(ApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput)
 }
 
-// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+// The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
 func (o ApplicationGatewayHttpListenerOutput) FirewallPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.FirewallPolicyId }).(pulumi.StringPtrOutput)
 }
@@ -1565,6 +1573,16 @@ func (o ApplicationGatewayHttpListenerOutput) SslCertificateId() pulumi.StringPt
 // The name of the associated SSL Certificate which should be used for this HTTP Listener.
 func (o ApplicationGatewayHttpListenerOutput) SslCertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.SslCertificateName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the associated SSL Certificate.
+func (o ApplicationGatewayHttpListenerOutput) SslProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.SslProfileId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the associated SSL Profile which should be used for this HTTP Listener.
+func (o ApplicationGatewayHttpListenerOutput) SslProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.SslProfileName }).(pulumi.StringPtrOutput)
 }
 
 type ApplicationGatewayHttpListenerArrayOutput struct{ *pulumi.OutputState }
@@ -3805,6 +3823,390 @@ func (o ApplicationGatewaySslPolicyArrayOutput) Index(i pulumi.IntInput) Applica
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewaySslPolicy {
 		return vs[0].([]ApplicationGatewaySslPolicy)[vs[1].(int)]
 	}).(ApplicationGatewaySslPolicyOutput)
+}
+
+type ApplicationGatewaySslProfile struct {
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the SSL Profile that is unique within this Application Gateway.
+	Name string `pulumi:"name"`
+	// a `ssl policy` block as defined below.
+	SslPolicies []ApplicationGatewaySslProfileSslPolicy `pulumi:"sslPolicies"`
+	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+	TrustedClientCertificateNames []string `pulumi:"trustedClientCertificateNames"`
+	// Should client certificate issuer DN be verified?  Defaults to `false`.
+	VerifyClientCertIssuerDn *bool `pulumi:"verifyClientCertIssuerDn"`
+}
+
+// ApplicationGatewaySslProfileInput is an input type that accepts ApplicationGatewaySslProfileArgs and ApplicationGatewaySslProfileOutput values.
+// You can construct a concrete instance of `ApplicationGatewaySslProfileInput` via:
+//
+//          ApplicationGatewaySslProfileArgs{...}
+type ApplicationGatewaySslProfileInput interface {
+	pulumi.Input
+
+	ToApplicationGatewaySslProfileOutput() ApplicationGatewaySslProfileOutput
+	ToApplicationGatewaySslProfileOutputWithContext(context.Context) ApplicationGatewaySslProfileOutput
+}
+
+type ApplicationGatewaySslProfileArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the SSL Profile that is unique within this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// a `ssl policy` block as defined below.
+	SslPolicies ApplicationGatewaySslProfileSslPolicyArrayInput `pulumi:"sslPolicies"`
+	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+	TrustedClientCertificateNames pulumi.StringArrayInput `pulumi:"trustedClientCertificateNames"`
+	// Should client certificate issuer DN be verified?  Defaults to `false`.
+	VerifyClientCertIssuerDn pulumi.BoolPtrInput `pulumi:"verifyClientCertIssuerDn"`
+}
+
+func (ApplicationGatewaySslProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewaySslProfile)(nil)).Elem()
+}
+
+func (i ApplicationGatewaySslProfileArgs) ToApplicationGatewaySslProfileOutput() ApplicationGatewaySslProfileOutput {
+	return i.ToApplicationGatewaySslProfileOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewaySslProfileArgs) ToApplicationGatewaySslProfileOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslProfileOutput)
+}
+
+// ApplicationGatewaySslProfileArrayInput is an input type that accepts ApplicationGatewaySslProfileArray and ApplicationGatewaySslProfileArrayOutput values.
+// You can construct a concrete instance of `ApplicationGatewaySslProfileArrayInput` via:
+//
+//          ApplicationGatewaySslProfileArray{ ApplicationGatewaySslProfileArgs{...} }
+type ApplicationGatewaySslProfileArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewaySslProfileArrayOutput() ApplicationGatewaySslProfileArrayOutput
+	ToApplicationGatewaySslProfileArrayOutputWithContext(context.Context) ApplicationGatewaySslProfileArrayOutput
+}
+
+type ApplicationGatewaySslProfileArray []ApplicationGatewaySslProfileInput
+
+func (ApplicationGatewaySslProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewaySslProfile)(nil)).Elem()
+}
+
+func (i ApplicationGatewaySslProfileArray) ToApplicationGatewaySslProfileArrayOutput() ApplicationGatewaySslProfileArrayOutput {
+	return i.ToApplicationGatewaySslProfileArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewaySslProfileArray) ToApplicationGatewaySslProfileArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslProfileArrayOutput)
+}
+
+type ApplicationGatewaySslProfileOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewaySslProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewaySslProfile)(nil)).Elem()
+}
+
+func (o ApplicationGatewaySslProfileOutput) ToApplicationGatewaySslProfileOutput() ApplicationGatewaySslProfileOutput {
+	return o
+}
+
+func (o ApplicationGatewaySslProfileOutput) ToApplicationGatewaySslProfileOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileOutput {
+	return o
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewaySslProfileOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SSL Profile that is unique within this Application Gateway.
+func (o ApplicationGatewaySslProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// a `ssl policy` block as defined below.
+func (o ApplicationGatewaySslProfileOutput) SslPolicies() ApplicationGatewaySslProfileSslPolicyArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfile) []ApplicationGatewaySslProfileSslPolicy { return v.SslPolicies }).(ApplicationGatewaySslProfileSslPolicyArrayOutput)
+}
+
+// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+func (o ApplicationGatewaySslProfileOutput) TrustedClientCertificateNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfile) []string { return v.TrustedClientCertificateNames }).(pulumi.StringArrayOutput)
+}
+
+// Should client certificate issuer DN be verified?  Defaults to `false`.
+func (o ApplicationGatewaySslProfileOutput) VerifyClientCertIssuerDn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfile) *bool { return v.VerifyClientCertIssuerDn }).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationGatewaySslProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewaySslProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewaySslProfile)(nil)).Elem()
+}
+
+func (o ApplicationGatewaySslProfileArrayOutput) ToApplicationGatewaySslProfileArrayOutput() ApplicationGatewaySslProfileArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewaySslProfileArrayOutput) ToApplicationGatewaySslProfileArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewaySslProfileArrayOutput) Index(i pulumi.IntInput) ApplicationGatewaySslProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewaySslProfile {
+		return vs[0].([]ApplicationGatewaySslProfile)[vs[1].(int)]
+	}).(ApplicationGatewaySslProfileOutput)
+}
+
+type ApplicationGatewaySslProfileSslPolicy struct {
+	// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+	CipherSuites []string `pulumi:"cipherSuites"`
+	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+	DisabledProtocols []string `pulumi:"disabledProtocols"`
+	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+	MinProtocolVersion *string `pulumi:"minProtocolVersion"`
+	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
+	// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+	PolicyName *string `pulumi:"policyName"`
+	// The Type of the Policy. Possible values are `Predefined` and `Custom`.
+	PolicyType *string `pulumi:"policyType"`
+}
+
+// ApplicationGatewaySslProfileSslPolicyInput is an input type that accepts ApplicationGatewaySslProfileSslPolicyArgs and ApplicationGatewaySslProfileSslPolicyOutput values.
+// You can construct a concrete instance of `ApplicationGatewaySslProfileSslPolicyInput` via:
+//
+//          ApplicationGatewaySslProfileSslPolicyArgs{...}
+type ApplicationGatewaySslProfileSslPolicyInput interface {
+	pulumi.Input
+
+	ToApplicationGatewaySslProfileSslPolicyOutput() ApplicationGatewaySslProfileSslPolicyOutput
+	ToApplicationGatewaySslProfileSslPolicyOutputWithContext(context.Context) ApplicationGatewaySslProfileSslPolicyOutput
+}
+
+type ApplicationGatewaySslProfileSslPolicyArgs struct {
+	// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+	CipherSuites pulumi.StringArrayInput `pulumi:"cipherSuites"`
+	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+	DisabledProtocols pulumi.StringArrayInput `pulumi:"disabledProtocols"`
+	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+	MinProtocolVersion pulumi.StringPtrInput `pulumi:"minProtocolVersion"`
+	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
+	// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
+	// The Type of the Policy. Possible values are `Predefined` and `Custom`.
+	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
+}
+
+func (ApplicationGatewaySslProfileSslPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewaySslProfileSslPolicy)(nil)).Elem()
+}
+
+func (i ApplicationGatewaySslProfileSslPolicyArgs) ToApplicationGatewaySslProfileSslPolicyOutput() ApplicationGatewaySslProfileSslPolicyOutput {
+	return i.ToApplicationGatewaySslProfileSslPolicyOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewaySslProfileSslPolicyArgs) ToApplicationGatewaySslProfileSslPolicyOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileSslPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslProfileSslPolicyOutput)
+}
+
+// ApplicationGatewaySslProfileSslPolicyArrayInput is an input type that accepts ApplicationGatewaySslProfileSslPolicyArray and ApplicationGatewaySslProfileSslPolicyArrayOutput values.
+// You can construct a concrete instance of `ApplicationGatewaySslProfileSslPolicyArrayInput` via:
+//
+//          ApplicationGatewaySslProfileSslPolicyArray{ ApplicationGatewaySslProfileSslPolicyArgs{...} }
+type ApplicationGatewaySslProfileSslPolicyArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewaySslProfileSslPolicyArrayOutput() ApplicationGatewaySslProfileSslPolicyArrayOutput
+	ToApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(context.Context) ApplicationGatewaySslProfileSslPolicyArrayOutput
+}
+
+type ApplicationGatewaySslProfileSslPolicyArray []ApplicationGatewaySslProfileSslPolicyInput
+
+func (ApplicationGatewaySslProfileSslPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewaySslProfileSslPolicy)(nil)).Elem()
+}
+
+func (i ApplicationGatewaySslProfileSslPolicyArray) ToApplicationGatewaySslProfileSslPolicyArrayOutput() ApplicationGatewaySslProfileSslPolicyArrayOutput {
+	return i.ToApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewaySslProfileSslPolicyArray) ToApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileSslPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslProfileSslPolicyArrayOutput)
+}
+
+type ApplicationGatewaySslProfileSslPolicyOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewaySslProfileSslPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewaySslProfileSslPolicy)(nil)).Elem()
+}
+
+func (o ApplicationGatewaySslProfileSslPolicyOutput) ToApplicationGatewaySslProfileSslPolicyOutput() ApplicationGatewaySslProfileSslPolicyOutput {
+	return o
+}
+
+func (o ApplicationGatewaySslProfileSslPolicyOutput) ToApplicationGatewaySslProfileSslPolicyOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileSslPolicyOutput {
+	return o
+}
+
+// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+func (o ApplicationGatewaySslProfileSslPolicyOutput) CipherSuites() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfileSslPolicy) []string { return v.CipherSuites }).(pulumi.StringArrayOutput)
+}
+
+// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+func (o ApplicationGatewaySslProfileSslPolicyOutput) DisabledProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfileSslPolicy) []string { return v.DisabledProtocols }).(pulumi.StringArrayOutput)
+}
+
+// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+func (o ApplicationGatewaySslProfileSslPolicyOutput) MinProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfileSslPolicy) *string { return v.MinProtocolVersion }).(pulumi.StringPtrOutput)
+}
+
+// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
+// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+func (o ApplicationGatewaySslProfileSslPolicyOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfileSslPolicy) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
+// The Type of the Policy. Possible values are `Predefined` and `Custom`.
+func (o ApplicationGatewaySslProfileSslPolicyOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfileSslPolicy) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationGatewaySslProfileSslPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewaySslProfileSslPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewaySslProfileSslPolicy)(nil)).Elem()
+}
+
+func (o ApplicationGatewaySslProfileSslPolicyArrayOutput) ToApplicationGatewaySslProfileSslPolicyArrayOutput() ApplicationGatewaySslProfileSslPolicyArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewaySslProfileSslPolicyArrayOutput) ToApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileSslPolicyArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewaySslProfileSslPolicyArrayOutput) Index(i pulumi.IntInput) ApplicationGatewaySslProfileSslPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewaySslProfileSslPolicy {
+		return vs[0].([]ApplicationGatewaySslProfileSslPolicy)[vs[1].(int)]
+	}).(ApplicationGatewaySslProfileSslPolicyOutput)
+}
+
+type ApplicationGatewayTrustedClientCertificate struct {
+	// The base-64 encoded certificate.
+	Data string `pulumi:"data"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Trusted Client Certificate that is unique within this Application Gateway.
+	Name string `pulumi:"name"`
+}
+
+// ApplicationGatewayTrustedClientCertificateInput is an input type that accepts ApplicationGatewayTrustedClientCertificateArgs and ApplicationGatewayTrustedClientCertificateOutput values.
+// You can construct a concrete instance of `ApplicationGatewayTrustedClientCertificateInput` via:
+//
+//          ApplicationGatewayTrustedClientCertificateArgs{...}
+type ApplicationGatewayTrustedClientCertificateInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayTrustedClientCertificateOutput() ApplicationGatewayTrustedClientCertificateOutput
+	ToApplicationGatewayTrustedClientCertificateOutputWithContext(context.Context) ApplicationGatewayTrustedClientCertificateOutput
+}
+
+type ApplicationGatewayTrustedClientCertificateArgs struct {
+	// The base-64 encoded certificate.
+	Data pulumi.StringInput `pulumi:"data"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the Trusted Client Certificate that is unique within this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ApplicationGatewayTrustedClientCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayTrustedClientCertificate)(nil)).Elem()
+}
+
+func (i ApplicationGatewayTrustedClientCertificateArgs) ToApplicationGatewayTrustedClientCertificateOutput() ApplicationGatewayTrustedClientCertificateOutput {
+	return i.ToApplicationGatewayTrustedClientCertificateOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayTrustedClientCertificateArgs) ToApplicationGatewayTrustedClientCertificateOutputWithContext(ctx context.Context) ApplicationGatewayTrustedClientCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayTrustedClientCertificateOutput)
+}
+
+// ApplicationGatewayTrustedClientCertificateArrayInput is an input type that accepts ApplicationGatewayTrustedClientCertificateArray and ApplicationGatewayTrustedClientCertificateArrayOutput values.
+// You can construct a concrete instance of `ApplicationGatewayTrustedClientCertificateArrayInput` via:
+//
+//          ApplicationGatewayTrustedClientCertificateArray{ ApplicationGatewayTrustedClientCertificateArgs{...} }
+type ApplicationGatewayTrustedClientCertificateArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayTrustedClientCertificateArrayOutput() ApplicationGatewayTrustedClientCertificateArrayOutput
+	ToApplicationGatewayTrustedClientCertificateArrayOutputWithContext(context.Context) ApplicationGatewayTrustedClientCertificateArrayOutput
+}
+
+type ApplicationGatewayTrustedClientCertificateArray []ApplicationGatewayTrustedClientCertificateInput
+
+func (ApplicationGatewayTrustedClientCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayTrustedClientCertificate)(nil)).Elem()
+}
+
+func (i ApplicationGatewayTrustedClientCertificateArray) ToApplicationGatewayTrustedClientCertificateArrayOutput() ApplicationGatewayTrustedClientCertificateArrayOutput {
+	return i.ToApplicationGatewayTrustedClientCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayTrustedClientCertificateArray) ToApplicationGatewayTrustedClientCertificateArrayOutputWithContext(ctx context.Context) ApplicationGatewayTrustedClientCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayTrustedClientCertificateArrayOutput)
+}
+
+type ApplicationGatewayTrustedClientCertificateOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayTrustedClientCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayTrustedClientCertificate)(nil)).Elem()
+}
+
+func (o ApplicationGatewayTrustedClientCertificateOutput) ToApplicationGatewayTrustedClientCertificateOutput() ApplicationGatewayTrustedClientCertificateOutput {
+	return o
+}
+
+func (o ApplicationGatewayTrustedClientCertificateOutput) ToApplicationGatewayTrustedClientCertificateOutputWithContext(ctx context.Context) ApplicationGatewayTrustedClientCertificateOutput {
+	return o
+}
+
+// The base-64 encoded certificate.
+func (o ApplicationGatewayTrustedClientCertificateOutput) Data() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayTrustedClientCertificate) string { return v.Data }).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayTrustedClientCertificateOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayTrustedClientCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Trusted Client Certificate that is unique within this Application Gateway.
+func (o ApplicationGatewayTrustedClientCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayTrustedClientCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ApplicationGatewayTrustedClientCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayTrustedClientCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayTrustedClientCertificate)(nil)).Elem()
+}
+
+func (o ApplicationGatewayTrustedClientCertificateArrayOutput) ToApplicationGatewayTrustedClientCertificateArrayOutput() ApplicationGatewayTrustedClientCertificateArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayTrustedClientCertificateArrayOutput) ToApplicationGatewayTrustedClientCertificateArrayOutputWithContext(ctx context.Context) ApplicationGatewayTrustedClientCertificateArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayTrustedClientCertificateArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayTrustedClientCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayTrustedClientCertificate {
+		return vs[0].([]ApplicationGatewayTrustedClientCertificate)[vs[1].(int)]
+	}).(ApplicationGatewayTrustedClientCertificateOutput)
 }
 
 type ApplicationGatewayTrustedRootCertificate struct {
@@ -8381,10 +8783,16 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput) I
 }
 
 type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule struct {
+	// The description which should be used for this rule.
+	Description *string `pulumi:"description"`
+	// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
 	// Specifies a list of destination FQDN tags.
 	DestinationFqdnTags []string `pulumi:"destinationFqdnTags"`
 	// Specifies a list of destination FQDNs.
 	DestinationFqdns []string `pulumi:"destinationFqdns"`
+	// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
+	DestinationUrls []string `pulumi:"destinationUrls"`
 	// The name which should be used for this rule.
 	Name string `pulumi:"name"`
 	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
@@ -8393,6 +8801,10 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule struct {
 	SourceAddresses []string `pulumi:"sourceAddresses"`
 	// Specifies a list of source IP groups.
 	SourceIpGroups []string `pulumi:"sourceIpGroups"`
+	// Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+	TerminateTls *bool `pulumi:"terminateTls"`
+	// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+	WebCategories []string `pulumi:"webCategories"`
 }
 
 // FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleInput is an input type that accepts FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs and FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput values.
@@ -8407,10 +8819,16 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleInput interfa
 }
 
 type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs struct {
+	// The description which should be used for this rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
 	// Specifies a list of destination FQDN tags.
 	DestinationFqdnTags pulumi.StringArrayInput `pulumi:"destinationFqdnTags"`
 	// Specifies a list of destination FQDNs.
 	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
+	// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
+	DestinationUrls pulumi.StringArrayInput `pulumi:"destinationUrls"`
 	// The name which should be used for this rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
@@ -8419,6 +8837,10 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs struct {
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
 	// Specifies a list of source IP groups.
 	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
+	// Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+	TerminateTls pulumi.BoolPtrInput `pulumi:"terminateTls"`
+	// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+	WebCategories pulumi.StringArrayInput `pulumi:"webCategories"`
 }
 
 func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs) ElementType() reflect.Type {
@@ -8472,6 +8894,18 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) To
 	return o
 }
 
+// The description which should be used for this rule.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
+		return v.DestinationAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
 // Specifies a list of destination FQDN tags.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) DestinationFqdnTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
@@ -8483,6 +8917,13 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) De
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) DestinationFqdns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
 		return v.DestinationFqdns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) DestinationUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
+		return v.DestinationUrls
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -8509,6 +8950,18 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) So
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
 		return v.SourceIpGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) TerminateTls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) *bool { return v.TerminateTls }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) WebCategories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
+		return v.WebCategories
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -17237,40 +17690,29 @@ func (o VirtualNetworkGatewayIpConfigurationArrayOutput) Index(i pulumi.IntInput
 type VirtualNetworkGatewayVpnClientConfiguration struct {
 	// The client id of the Azure VPN application.
 	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
-	// This setting is incompatible with the use of
-	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 	AadAudience *string `pulumi:"aadAudience"`
 	// The STS url for your tenant
-	// This setting is incompatible with the use of
-	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 	AadIssuer *string `pulumi:"aadIssuer"`
 	// AzureAD Tenant URL
-	// This setting is incompatible with the use of
-	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 	AadTenant *string `pulumi:"aadTenant"`
 	// The address space out of which ip addresses for
 	// vpn clients will be taken. You can provide more than one address space, e.g.
 	// in CIDR notation.
 	AddressSpaces []string `pulumi:"addressSpaces"`
 	// The address of the Radius server.
-	// This setting is incompatible with the use of
-	// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 	RadiusServerAddress *string `pulumi:"radiusServerAddress"`
 	// The secret used by the Radius server.
-	// This setting is incompatible with the use of
-	// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 	RadiusServerSecret *string `pulumi:"radiusServerSecret"`
 	// One or more `revokedCertificate` blocks which
 	// are defined below.
-	// This setting is incompatible with the use of
-	// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 	RevokedCertificates []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate `pulumi:"revokedCertificates"`
 	// One or more `rootCertificate` blocks which are
 	// defined below. These root certificates are used to sign the client certificate
 	// used by the VPN clients to connect to the gateway.
-	// This setting is incompatible with the use of
-	// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 	RootCertificates []VirtualNetworkGatewayVpnClientConfigurationRootCertificate `pulumi:"rootCertificates"`
+	// List of the vpn authentication types for the virtual network gateway.
+	// The supported values are `AAD`, `Radius` and `Certificate`.
+	VpnAuthTypes []string `pulumi:"vpnAuthTypes"`
 	// List of the protocols supported by the vpn client.
 	// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
 	// Values `SSTP` and `IkeV2` are incompatible with the use of
@@ -17292,40 +17734,29 @@ type VirtualNetworkGatewayVpnClientConfigurationInput interface {
 type VirtualNetworkGatewayVpnClientConfigurationArgs struct {
 	// The client id of the Azure VPN application.
 	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
-	// This setting is incompatible with the use of
-	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 	AadAudience pulumi.StringPtrInput `pulumi:"aadAudience"`
 	// The STS url for your tenant
-	// This setting is incompatible with the use of
-	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 	AadIssuer pulumi.StringPtrInput `pulumi:"aadIssuer"`
 	// AzureAD Tenant URL
-	// This setting is incompatible with the use of
-	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 	AadTenant pulumi.StringPtrInput `pulumi:"aadTenant"`
 	// The address space out of which ip addresses for
 	// vpn clients will be taken. You can provide more than one address space, e.g.
 	// in CIDR notation.
 	AddressSpaces pulumi.StringArrayInput `pulumi:"addressSpaces"`
 	// The address of the Radius server.
-	// This setting is incompatible with the use of
-	// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 	RadiusServerAddress pulumi.StringPtrInput `pulumi:"radiusServerAddress"`
 	// The secret used by the Radius server.
-	// This setting is incompatible with the use of
-	// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 	RadiusServerSecret pulumi.StringPtrInput `pulumi:"radiusServerSecret"`
 	// One or more `revokedCertificate` blocks which
 	// are defined below.
-	// This setting is incompatible with the use of
-	// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 	RevokedCertificates VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayInput `pulumi:"revokedCertificates"`
 	// One or more `rootCertificate` blocks which are
 	// defined below. These root certificates are used to sign the client certificate
 	// used by the VPN clients to connect to the gateway.
-	// This setting is incompatible with the use of
-	// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 	RootCertificates VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput `pulumi:"rootCertificates"`
+	// List of the vpn authentication types for the virtual network gateway.
+	// The supported values are `AAD`, `Radius` and `Certificate`.
+	VpnAuthTypes pulumi.StringArrayInput `pulumi:"vpnAuthTypes"`
 	// List of the protocols supported by the vpn client.
 	// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
 	// Values `SSTP` and `IkeV2` are incompatible with the use of
@@ -17412,22 +17843,16 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) ToVirtualNetworkGatew
 
 // The client id of the Azure VPN application.
 // See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
-// This setting is incompatible with the use of
-// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AadAudience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.AadAudience }).(pulumi.StringPtrOutput)
 }
 
 // The STS url for your tenant
-// This setting is incompatible with the use of
-// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AadIssuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.AadIssuer }).(pulumi.StringPtrOutput)
 }
 
 // AzureAD Tenant URL
-// This setting is incompatible with the use of
-// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AadTenant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.AadTenant }).(pulumi.StringPtrOutput)
 }
@@ -17440,23 +17865,17 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AddressSpaces() pulum
 }
 
 // The address of the Radius server.
-// This setting is incompatible with the use of
-// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.RadiusServerAddress }).(pulumi.StringPtrOutput)
 }
 
 // The secret used by the Radius server.
-// This setting is incompatible with the use of
-// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.RadiusServerSecret }).(pulumi.StringPtrOutput)
 }
 
 // One or more `revokedCertificate` blocks which
 // are defined below.
-// This setting is incompatible with the use of
-// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RevokedCertificates() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
 		return v.RevokedCertificates
@@ -17466,12 +17885,16 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RevokedCertificates()
 // One or more `rootCertificate` blocks which are
 // defined below. These root certificates are used to sign the client certificate
 // used by the VPN clients to connect to the gateway.
-// This setting is incompatible with the use of
-// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RootCertificates() VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
 		return v.RootCertificates
 	}).(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput)
+}
+
+// List of the vpn authentication types for the virtual network gateway.
+// The supported values are `AAD`, `Radius` and `Certificate`.
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) VpnAuthTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []string { return v.VpnAuthTypes }).(pulumi.StringArrayOutput)
 }
 
 // List of the protocols supported by the vpn client.
@@ -17504,8 +17927,6 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) Elem() VirtualNetw
 
 // The client id of the Azure VPN application.
 // See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
-// This setting is incompatible with the use of
-// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AadAudience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
 		if v == nil {
@@ -17516,8 +17937,6 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AadAudience() pulu
 }
 
 // The STS url for your tenant
-// This setting is incompatible with the use of
-// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AadIssuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
 		if v == nil {
@@ -17528,8 +17947,6 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AadIssuer() pulumi
 }
 
 // AzureAD Tenant URL
-// This setting is incompatible with the use of
-// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AadTenant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
 		if v == nil {
@@ -17552,8 +17969,6 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AddressSpaces() pu
 }
 
 // The address of the Radius server.
-// This setting is incompatible with the use of
-// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
 		if v == nil {
@@ -17564,8 +17979,6 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerAddres
 }
 
 // The secret used by the Radius server.
-// This setting is incompatible with the use of
-// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
 		if v == nil {
@@ -17577,8 +17990,6 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerSecret
 
 // One or more `revokedCertificate` blocks which
 // are defined below.
-// This setting is incompatible with the use of
-// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RevokedCertificates() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
 		if v == nil {
@@ -17591,8 +18002,6 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RevokedCertificate
 // One or more `rootCertificate` blocks which are
 // defined below. These root certificates are used to sign the client certificate
 // used by the VPN clients to connect to the gateway.
-// This setting is incompatible with the use of
-// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RootCertificates() VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
 		if v == nil {
@@ -17600,6 +18009,17 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RootCertificates()
 		}
 		return v.RootCertificates
 	}).(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput)
+}
+
+// List of the vpn authentication types for the virtual network gateway.
+// The supported values are `AAD`, `Radius` and `Certificate`.
+func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) VpnAuthTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VpnAuthTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of the protocols supported by the vpn client.
@@ -24557,6 +24977,12 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewaySslCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySslPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySslPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewaySslProfileOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewaySslProfileArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewaySslProfileSslPolicyOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewaySslProfileSslPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayTrustedClientCertificateOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayTrustedClientCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayTrustedRootCertificateOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayTrustedRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayUrlPathMapOutput{})

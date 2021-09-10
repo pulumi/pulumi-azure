@@ -193,6 +193,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
+        /// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+        /// </summary>
+        [Output("localAuthenticationDisabled")]
+        public Output<bool?> LocalAuthenticationDisabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -449,6 +455,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Kind { get; set; }
 
         /// <summary>
+        /// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+        /// </summary>
+        [Input("localAuthenticationDisabled")]
+        public Input<bool>? LocalAuthenticationDisabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -652,6 +664,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
+
+        /// <summary>
+        /// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+        /// </summary>
+        [Input("localAuthenticationDisabled")]
+        public Input<bool>? LocalAuthenticationDisabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

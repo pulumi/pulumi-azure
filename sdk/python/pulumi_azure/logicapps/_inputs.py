@@ -10,6 +10,12 @@ from .. import _utilities
 
 __all__ = [
     'ActionHttpRunAfterArgs',
+    'IntegrationAccountAgreementGuestIdentityArgs',
+    'IntegrationAccountAgreementHostIdentityArgs',
+    'IntegrationAccountBatchConfigurationReleaseCriteriaArgs',
+    'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs',
+    'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs',
+    'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs',
     'IntegrationAccountCertificateKeyVaultKeyArgs',
     'IntegrationAccountPartnerBusinessIdentityArgs',
     'TriggerRecurrenceScheduleArgs',
@@ -50,6 +56,360 @@ class ActionHttpRunAfterArgs:
     @action_result.setter
     def action_result(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_result", value)
+
+
+@pulumi.input_type
+class IntegrationAccountAgreementGuestIdentityArgs:
+    def __init__(__self__, *,
+                 qualifier: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] qualifier: The authenticating body that provides unique guest identities to organizations.
+        :param pulumi.Input[str] value: The value that identifies the documents that your logic apps receive.
+        """
+        pulumi.set(__self__, "qualifier", qualifier)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def qualifier(self) -> pulumi.Input[str]:
+        """
+        The authenticating body that provides unique guest identities to organizations.
+        """
+        return pulumi.get(self, "qualifier")
+
+    @qualifier.setter
+    def qualifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "qualifier", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value that identifies the documents that your logic apps receive.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class IntegrationAccountAgreementHostIdentityArgs:
+    def __init__(__self__, *,
+                 qualifier: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] qualifier: The authenticating body that provides unique host identities to organizations.
+        :param pulumi.Input[str] value: The value that identifies the documents that your logic apps receive.
+        """
+        pulumi.set(__self__, "qualifier", qualifier)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def qualifier(self) -> pulumi.Input[str]:
+        """
+        The authenticating body that provides unique host identities to organizations.
+        """
+        return pulumi.get(self, "qualifier")
+
+    @qualifier.setter
+    def qualifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "qualifier", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value that identifies the documents that your logic apps receive.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class IntegrationAccountBatchConfigurationReleaseCriteriaArgs:
+    def __init__(__self__, *,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 message_count: Optional[pulumi.Input[int]] = None,
+                 recurrence: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']] = None):
+        """
+        :param pulumi.Input[int] batch_size: The batch size in bytes for the Logic App Integration Batch Configuration.
+        :param pulumi.Input[int] message_count: The message count for the Logic App Integration Batch Configuration.
+        :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs'] recurrence: A `recurrence` block as documented below.
+        """
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if message_count is not None:
+            pulumi.set(__self__, "message_count", message_count)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The batch size in bytes for the Logic App Integration Batch Configuration.
+        """
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="messageCount")
+    def message_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The message count for the Logic App Integration Batch Configuration.
+        """
+        return pulumi.get(self, "message_count")
+
+    @message_count.setter
+    def message_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "message_count", value)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']]:
+        """
+        A `recurrence` block as documented below.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']]):
+        pulumi.set(self, "recurrence", value)
+
+
+@pulumi.input_type
+class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs:
+    def __init__(__self__, *,
+                 frequency: pulumi.Input[str],
+                 interval: pulumi.Input[int],
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] frequency: The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+        :param pulumi.Input[int] interval: The number of `frequency`s between runs.
+        :param pulumi.Input[str] end_time: The end time of the schedule, formatted as an RFC3339 string.
+        :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs'] schedule: A `schedule` block as documented below.
+        :param pulumi.Input[str] start_time: The start time of the schedule, formatted as an RFC3339 string.
+        :param pulumi.Input[str] time_zone: The timezone of the start/end time.
+        """
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "interval", interval)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> pulumi.Input[str]:
+        """
+        The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[int]:
+        """
+        The number of `frequency`s between runs.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[int]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The end time of the schedule, formatted as an RFC3339 string.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']]:
+        """
+        A `schedule` block as documented below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The start time of the schedule, formatted as an RFC3339 string.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timezone of the start/end time.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs:
+    def __init__(__self__, *,
+                 hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]] = None,
+                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] hours: A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] minutes: A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] month_days: A list of days of the month that the job should execute on.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]] monthlies: A `monthly` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if month_days is not None:
+            pulumi.set(__self__, "month_days", month_days)
+        if monthlies is not None:
+            pulumi.set(__self__, "monthlies", monthlies)
+        if week_days is not None:
+            pulumi.set(__self__, "week_days", week_days)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
+        """
+        return pulumi.get(self, "hours")
+
+    @hours.setter
+    def hours(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "hours", value)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+        """
+        return pulumi.get(self, "minutes")
+
+    @minutes.setter
+    def minutes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "minutes", value)
+
+    @property
+    @pulumi.getter(name="monthDays")
+    def month_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        A list of days of the month that the job should execute on.
+        """
+        return pulumi.get(self, "month_days")
+
+    @month_days.setter
+    def month_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "month_days", value)
+
+    @property
+    @pulumi.getter
+    def monthlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]]:
+        """
+        A `monthly` block as documented below.
+        """
+        return pulumi.get(self, "monthlies")
+
+    @monthlies.setter
+    def monthlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]]):
+        pulumi.set(self, "monthlies", value)
+
+    @property
+    @pulumi.getter(name="weekDays")
+    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+        return pulumi.get(self, "week_days")
+
+    @week_days.setter
+    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "week_days", value)
+
+
+@pulumi.input_type
+class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs:
+    def __init__(__self__, *,
+                 week: pulumi.Input[int],
+                 weekday: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] week: The occurrence of the week within the month.
+        :param pulumi.Input[str] weekday: The day of the occurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+        pulumi.set(__self__, "week", week)
+        pulumi.set(__self__, "weekday", weekday)
+
+    @property
+    @pulumi.getter
+    def week(self) -> pulumi.Input[int]:
+        """
+        The occurrence of the week within the month.
+        """
+        return pulumi.get(self, "week")
+
+    @week.setter
+    def week(self, value: pulumi.Input[int]):
+        pulumi.set(self, "week", value)
+
+    @property
+    @pulumi.getter
+    def weekday(self) -> pulumi.Input[str]:
+        """
+        The day of the occurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+        return pulumi.get(self, "weekday")
+
+    @weekday.setter
+    def weekday(self, value: pulumi.Input[str]):
+        pulumi.set(self, "weekday", value)
 
 
 @pulumi.input_type

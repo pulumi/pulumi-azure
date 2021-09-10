@@ -125,6 +125,8 @@ type Account struct {
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
+	// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+	LocalAuthenticationDisabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
@@ -242,6 +244,8 @@ type accountState struct {
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
+	// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
@@ -319,6 +323,8 @@ type AccountState struct {
 	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
+	// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
@@ -396,6 +402,8 @@ type accountArgs struct {
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
+	// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
@@ -450,6 +458,8 @@ type AccountArgs struct {
 	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
+	// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.

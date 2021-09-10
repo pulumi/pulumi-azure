@@ -128,7 +128,7 @@ class OutputBlobSerializationArgs:
                  field_delimiter: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+        :param pulumi.Input[str] type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         :param pulumi.Input[str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
         :param pulumi.Input[str] field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
         :param pulumi.Input[str] format: Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
@@ -145,7 +145,7 @@ class OutputBlobSerializationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+        The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         """
         return pulumi.get(self, "type")
 

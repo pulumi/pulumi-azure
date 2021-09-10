@@ -59,6 +59,8 @@ type Domain struct {
 
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// An `identity` block as defined below.
+	Identity DomainIdentityPtrOutput `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules DomainInboundIpRuleArrayOutput `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
@@ -123,6 +125,8 @@ func GetDomain(ctx *pulumi.Context,
 type domainState struct {
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint *string `pulumi:"endpoint"`
+	// An `identity` block as defined below.
+	Identity *DomainIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules []DomainInboundIpRule `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
@@ -150,6 +154,8 @@ type domainState struct {
 type DomainState struct {
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity DomainIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules DomainInboundIpRuleArrayInput
 	// A `inputMappingDefaultValues` block as defined below.
@@ -179,6 +185,8 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
+	// An `identity` block as defined below.
+	Identity *DomainIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules []DomainInboundIpRule `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
@@ -201,6 +209,8 @@ type domainArgs struct {
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
+	// An `identity` block as defined below.
+	Identity DomainIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules DomainInboundIpRuleArrayInput
 	// A `inputMappingDefaultValues` block as defined below.

@@ -62,6 +62,10 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
     }
 
     /**
+     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+     */
+    public readonly cleanupEnabled!: pulumi.Output<boolean>;
+    /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      */
     public readonly computeType!: pulumi.Output<string | undefined>;
@@ -111,6 +115,7 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeRuleState | undefined;
+            inputs["cleanupEnabled"] = state ? state.cleanupEnabled : undefined;
             inputs["computeType"] = state ? state.computeType : undefined;
             inputs["coreCount"] = state ? state.coreCount : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
@@ -128,6 +133,7 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["cleanupEnabled"] = args ? args.cleanupEnabled : undefined;
             inputs["computeType"] = args ? args.computeType : undefined;
             inputs["coreCount"] = args ? args.coreCount : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
@@ -149,6 +155,10 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IntegrationRuntimeRule resources.
  */
 export interface IntegrationRuntimeRuleState {
+    /**
+     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+     */
+    cleanupEnabled?: pulumi.Input<boolean>;
     /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      */
@@ -191,6 +201,10 @@ export interface IntegrationRuntimeRuleState {
  * The set of arguments for constructing a IntegrationRuntimeRule resource.
  */
 export interface IntegrationRuntimeRuleArgs {
+    /**
+     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+     */
+    cleanupEnabled?: pulumi.Input<boolean>;
     /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      */

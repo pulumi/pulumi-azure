@@ -111,7 +111,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> ObjectId { get; private set; } = null!;
 
         /// <summary>
-        /// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        /// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         /// </summary>
         [Output("secretPermissions")]
         public Output<ImmutableArray<string>> SecretPermissions { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<string>? _secretPermissions;
 
         /// <summary>
-        /// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        /// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         /// </summary>
         public InputList<string> SecretPermissions
         {
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<string>? _secretPermissions;
 
         /// <summary>
-        /// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        /// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         /// </summary>
         public InputList<string> SecretPermissions
         {

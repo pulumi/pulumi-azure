@@ -24,6 +24,12 @@ namespace Pulumi.Azure.AppService
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("appServicePlanId")]
+        public Output<string?> AppServicePlanId { get; private set; } = null!;
+
+        /// <summary>
         /// The expiration date for the certificate.
         /// </summary>
         [Output("expirationDate")]
@@ -42,10 +48,10 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> HostNames { get; private set; } = null!;
 
         /// <summary>
-        /// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        /// The ID of the the App Service Environment where the certificate is in use.
         /// </summary>
         [Output("hostingEnvironmentProfileId")]
-        public Output<string?> HostingEnvironmentProfileId { get; private set; } = null!;
+        public Output<string> HostingEnvironmentProfileId { get; private set; } = null!;
 
         /// <summary>
         /// The issue date for the certificate.
@@ -157,7 +163,13 @@ namespace Pulumi.Azure.AppService
     public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        /// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("appServicePlanId")]
+        public Input<string>? AppServicePlanId { get; set; }
+
+        /// <summary>
+        /// The ID of the the App Service Environment where the certificate is in use.
         /// </summary>
         [Input("hostingEnvironmentProfileId")]
         public Input<string>? HostingEnvironmentProfileId { get; set; }
@@ -214,6 +226,12 @@ namespace Pulumi.Azure.AppService
     public sealed class CertificateState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("appServicePlanId")]
+        public Input<string>? AppServicePlanId { get; set; }
+
+        /// <summary>
         /// The expiration date for the certificate.
         /// </summary>
         [Input("expirationDate")]
@@ -238,7 +256,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        /// The ID of the the App Service Environment where the certificate is in use.
         /// </summary>
         [Input("hostingEnvironmentProfileId")]
         public Input<string>? HostingEnvironmentProfileId { get; set; }

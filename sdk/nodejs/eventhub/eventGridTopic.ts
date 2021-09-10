@@ -70,6 +70,10 @@ export class EventGridTopic extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.eventhub.EventGridTopicIdentity | undefined>;
+    /**
      * One or more `inboundIpRule` blocks as defined below.
      */
     public readonly inboundIpRules!: pulumi.Output<outputs.eventhub.EventGridTopicInboundIpRule[] | undefined>;
@@ -131,6 +135,7 @@ export class EventGridTopic extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EventGridTopicState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["inboundIpRules"] = state ? state.inboundIpRules : undefined;
             inputs["inputMappingDefaultValues"] = state ? state.inputMappingDefaultValues : undefined;
             inputs["inputMappingFields"] = state ? state.inputMappingFields : undefined;
@@ -147,6 +152,7 @@ export class EventGridTopic extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             inputs["inputMappingDefaultValues"] = args ? args.inputMappingDefaultValues : undefined;
             inputs["inputMappingFields"] = args ? args.inputMappingFields : undefined;
@@ -175,6 +181,10 @@ export interface EventGridTopicState {
      * The Endpoint associated with the EventGrid Topic.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.eventhub.EventGridTopicIdentity>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
@@ -225,6 +235,10 @@ export interface EventGridTopicState {
  * The set of arguments for constructing a EventGridTopic resource.
  */
 export interface EventGridTopicArgs {
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.eventhub.EventGridTopicIdentity>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */

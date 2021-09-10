@@ -33,6 +33,10 @@ namespace Pulumi.Azure.Synapse.Outputs
         /// Specifies the root folder within the repository. Set to `/` for the top level.
         /// </summary>
         public readonly string RootFolder;
+        /// <summary>
+        /// the ID of the tenant for the Azure DevOps account.
+        /// </summary>
+        public readonly string? TenantId;
 
         [OutputConstructor]
         private WorkspaceAzureDevopsRepo(
@@ -44,13 +48,16 @@ namespace Pulumi.Azure.Synapse.Outputs
 
             string repositoryName,
 
-            string rootFolder)
+            string rootFolder,
+
+            string? tenantId)
         {
             AccountName = accountName;
             BranchName = branchName;
             ProjectName = projectName;
             RepositoryName = repositoryName;
             RootFolder = rootFolder;
+            TenantId = tenantId;
         }
     }
 }

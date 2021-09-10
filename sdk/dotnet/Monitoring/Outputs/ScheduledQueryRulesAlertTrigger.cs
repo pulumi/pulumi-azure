@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly Outputs.ScheduledQueryRulesAlertTriggerMetricTrigger? MetricTrigger;
         /// <summary>
-        /// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+        /// Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
         /// </summary>
         public readonly string Operator;
         /// <summary>

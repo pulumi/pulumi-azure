@@ -8696,7 +8696,7 @@ func (o ScheduledQueryRulesAlertActionPtrOutput) EmailSubject() pulumi.StringPtr
 type ScheduledQueryRulesAlertTrigger struct {
 	// A `metricTrigger` block as defined above. Trigger condition for metric query rule.
 	MetricTrigger *ScheduledQueryRulesAlertTriggerMetricTrigger `pulumi:"metricTrigger"`
-	// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+	// Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
 	Operator string `pulumi:"operator"`
 	// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
 	Threshold float64 `pulumi:"threshold"`
@@ -8716,7 +8716,7 @@ type ScheduledQueryRulesAlertTriggerInput interface {
 type ScheduledQueryRulesAlertTriggerArgs struct {
 	// A `metricTrigger` block as defined above. Trigger condition for metric query rule.
 	MetricTrigger ScheduledQueryRulesAlertTriggerMetricTriggerPtrInput `pulumi:"metricTrigger"`
-	// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+	// Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
@@ -8806,7 +8806,7 @@ func (o ScheduledQueryRulesAlertTriggerOutput) MetricTrigger() ScheduledQueryRul
 	}).(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput)
 }
 
-// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+// Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
 func (o ScheduledQueryRulesAlertTriggerOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -8844,7 +8844,7 @@ func (o ScheduledQueryRulesAlertTriggerPtrOutput) MetricTrigger() ScheduledQuery
 	}).(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput)
 }
 
-// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+// Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
 func (o ScheduledQueryRulesAlertTriggerPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertTrigger) *string {
 		if v == nil {
@@ -8869,7 +8869,7 @@ type ScheduledQueryRulesAlertTriggerMetricTrigger struct {
 	MetricColumn string `pulumi:"metricColumn"`
 	// Metric Trigger Type - 'Consecutive' or 'Total'.
 	MetricTriggerType string `pulumi:"metricTriggerType"`
-	// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+	// Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
 	Operator string `pulumi:"operator"`
 	// The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
 	Threshold float64 `pulumi:"threshold"`
@@ -8891,7 +8891,7 @@ type ScheduledQueryRulesAlertTriggerMetricTriggerArgs struct {
 	MetricColumn pulumi.StringInput `pulumi:"metricColumn"`
 	// Metric Trigger Type - 'Consecutive' or 'Total'.
 	MetricTriggerType pulumi.StringInput `pulumi:"metricTriggerType"`
-	// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+	// Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
@@ -8984,7 +8984,7 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) MetricTriggerType() 
 	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.MetricTriggerType }).(pulumi.StringOutput)
 }
 
-// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+// Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
 func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -9034,7 +9034,7 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) MetricTriggerType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+// Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
 func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertTriggerMetricTrigger) *string {
 		if v == nil {

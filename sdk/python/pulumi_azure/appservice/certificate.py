@@ -14,6 +14,7 @@ __all__ = ['CertificateArgs', 'Certificate']
 class CertificateArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -24,7 +25,8 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] hosting_environment_profile_id: Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] hosting_environment_profile_id: The ID of the the App Service Environment where the certificate is in use.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
@@ -32,6 +34,11 @@ class CertificateArgs:
         :param pulumi.Input[str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if app_service_plan_id is not None:
+            pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
+        if hosting_environment_profile_id is not None:
+            warnings.warn("""This property has been deprecated and replaced with `app_service_plan_id`""", DeprecationWarning)
+            pulumi.log.warn("""hosting_environment_profile_id is deprecated: This property has been deprecated and replaced with `app_service_plan_id`""")
         if hosting_environment_profile_id is not None:
             pulumi.set(__self__, "hosting_environment_profile_id", hosting_environment_profile_id)
         if key_vault_secret_id is not None:
@@ -60,10 +67,22 @@ class CertificateArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="appServicePlanId")
+    def app_service_plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "app_service_plan_id")
+
+    @app_service_plan_id.setter
+    def app_service_plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_service_plan_id", value)
+
+    @property
     @pulumi.getter(name="hostingEnvironmentProfileId")
     def hosting_environment_profile_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        The ID of the the App Service Environment where the certificate is in use.
         """
         return pulumi.get(self, "hosting_environment_profile_id")
 
@@ -144,6 +163,7 @@ class CertificateArgs:
 @pulumi.input_type
 class _CertificateState:
     def __init__(__self__, *,
+                 app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -161,10 +181,11 @@ class _CertificateState:
                  thumbprint: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+        :param pulumi.Input[str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] expiration_date: The expiration date for the certificate.
         :param pulumi.Input[str] friendly_name: The friendly name of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: List of host names the certificate applies to.
-        :param pulumi.Input[str] hosting_environment_profile_id: Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] hosting_environment_profile_id: The ID of the the App Service Environment where the certificate is in use.
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
@@ -176,12 +197,17 @@ class _CertificateState:
         :param pulumi.Input[str] subject_name: The subject name of the certificate.
         :param pulumi.Input[str] thumbprint: The thumbprint for the certificate.
         """
+        if app_service_plan_id is not None:
+            pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
         if expiration_date is not None:
             pulumi.set(__self__, "expiration_date", expiration_date)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if host_names is not None:
             pulumi.set(__self__, "host_names", host_names)
+        if hosting_environment_profile_id is not None:
+            warnings.warn("""This property has been deprecated and replaced with `app_service_plan_id`""", DeprecationWarning)
+            pulumi.log.warn("""hosting_environment_profile_id is deprecated: This property has been deprecated and replaced with `app_service_plan_id`""")
         if hosting_environment_profile_id is not None:
             pulumi.set(__self__, "hosting_environment_profile_id", hosting_environment_profile_id)
         if issue_date is not None:
@@ -206,6 +232,18 @@ class _CertificateState:
             pulumi.set(__self__, "tags", tags)
         if thumbprint is not None:
             pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="appServicePlanId")
+    def app_service_plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "app_service_plan_id")
+
+    @app_service_plan_id.setter
+    def app_service_plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_service_plan_id", value)
 
     @property
     @pulumi.getter(name="expirationDate")
@@ -247,7 +285,7 @@ class _CertificateState:
     @pulumi.getter(name="hostingEnvironmentProfileId")
     def hosting_environment_profile_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        The ID of the the App Service Environment where the certificate is in use.
         """
         return pulumi.get(self, "hosting_environment_profile_id")
 
@@ -390,6 +428,7 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -412,7 +451,8 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] hosting_environment_profile_id: Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] hosting_environment_profile_id: The ID of the the App Service Environment where the certificate is in use.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
@@ -452,6 +492,7 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -472,6 +513,10 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateArgs.__new__(CertificateArgs)
 
+            __props__.__dict__["app_service_plan_id"] = app_service_plan_id
+            if hosting_environment_profile_id is not None and not opts.urn:
+                warnings.warn("""This property has been deprecated and replaced with `app_service_plan_id`""", DeprecationWarning)
+                pulumi.log.warn("""hosting_environment_profile_id is deprecated: This property has been deprecated and replaced with `app_service_plan_id`""")
             __props__.__dict__["hosting_environment_profile_id"] = hosting_environment_profile_id
             __props__.__dict__["key_vault_secret_id"] = key_vault_secret_id
             __props__.__dict__["location"] = location
@@ -499,6 +544,7 @@ class Certificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_plan_id: Optional[pulumi.Input[str]] = None,
             expiration_date: Optional[pulumi.Input[str]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
             host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -521,10 +567,11 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] expiration_date: The expiration date for the certificate.
         :param pulumi.Input[str] friendly_name: The friendly name of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: List of host names the certificate applies to.
-        :param pulumi.Input[str] hosting_environment_profile_id: Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] hosting_environment_profile_id: The ID of the the App Service Environment where the certificate is in use.
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
@@ -540,6 +587,7 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = _CertificateState.__new__(_CertificateState)
 
+        __props__.__dict__["app_service_plan_id"] = app_service_plan_id
         __props__.__dict__["expiration_date"] = expiration_date
         __props__.__dict__["friendly_name"] = friendly_name
         __props__.__dict__["host_names"] = host_names
@@ -556,6 +604,14 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["thumbprint"] = thumbprint
         return Certificate(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="appServicePlanId")
+    def app_service_plan_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "app_service_plan_id")
 
     @property
     @pulumi.getter(name="expirationDate")
@@ -583,9 +639,9 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostingEnvironmentProfileId")
-    def hosting_environment_profile_id(self) -> pulumi.Output[Optional[str]]:
+    def hosting_environment_profile_id(self) -> pulumi.Output[str]:
         """
-        Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        The ID of the the App Service Environment where the certificate is in use.
         """
         return pulumi.get(self, "hosting_environment_profile_id")
 

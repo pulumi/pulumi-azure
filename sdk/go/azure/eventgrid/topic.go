@@ -61,6 +61,8 @@ type Topic struct {
 
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// An `identity` block as defined below.
+	Identity TopicIdentityPtrOutput `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules TopicInboundIpRuleArrayOutput `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
@@ -125,6 +127,8 @@ func GetTopic(ctx *pulumi.Context,
 type topicState struct {
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint *string `pulumi:"endpoint"`
+	// An `identity` block as defined below.
+	Identity *TopicIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules []TopicInboundIpRule `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
@@ -152,6 +156,8 @@ type topicState struct {
 type TopicState struct {
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity TopicIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules TopicInboundIpRuleArrayInput
 	// A `inputMappingDefaultValues` block as defined below.
@@ -181,6 +187,8 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
+	// An `identity` block as defined below.
+	Identity *TopicIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules []TopicInboundIpRule `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
@@ -203,6 +211,8 @@ type topicArgs struct {
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
+	// An `identity` block as defined below.
+	Identity TopicIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules TopicInboundIpRuleArrayInput
 	// A `inputMappingDefaultValues` block as defined below.

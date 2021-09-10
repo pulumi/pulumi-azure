@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -76,11 +77,15 @@ export class TriggerSchedule extends pulumi.CustomResource {
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
+     * The Schedule Trigger's description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
     public readonly endTime!: pulumi.Output<string | undefined>;
     /**
-     * The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
+     * The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
      */
     public readonly frequency!: pulumi.Output<string | undefined>;
     /**
@@ -104,6 +109,10 @@ export class TriggerSchedule extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
+     */
+    public readonly schedule!: pulumi.Output<outputs.datafactory.TriggerScheduleSchedule | undefined>;
+    /**
      * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
     public readonly startTime!: pulumi.Output<string>;
@@ -123,6 +132,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
             const state = argsOrState as TriggerScheduleState | undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            inputs["description"] = state ? state.description : undefined;
             inputs["endTime"] = state ? state.endTime : undefined;
             inputs["frequency"] = state ? state.frequency : undefined;
             inputs["interval"] = state ? state.interval : undefined;
@@ -130,6 +140,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
             inputs["pipelineName"] = state ? state.pipelineName : undefined;
             inputs["pipelineParameters"] = state ? state.pipelineParameters : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["schedule"] = state ? state.schedule : undefined;
             inputs["startTime"] = state ? state.startTime : undefined;
         } else {
             const args = argsOrState as TriggerScheduleArgs | undefined;
@@ -144,6 +155,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
             }
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["endTime"] = args ? args.endTime : undefined;
             inputs["frequency"] = args ? args.frequency : undefined;
             inputs["interval"] = args ? args.interval : undefined;
@@ -151,6 +163,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
             inputs["pipelineName"] = args ? args.pipelineName : undefined;
             inputs["pipelineParameters"] = args ? args.pipelineParameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["schedule"] = args ? args.schedule : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
         }
         if (!opts.version) {
@@ -173,11 +186,15 @@ export interface TriggerScheduleState {
      */
     dataFactoryName?: pulumi.Input<string>;
     /**
+     * The Schedule Trigger's description.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
     endTime?: pulumi.Input<string>;
     /**
-     * The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
+     * The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
      */
     frequency?: pulumi.Input<string>;
     /**
@@ -201,6 +218,10 @@ export interface TriggerScheduleState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
+     */
+    schedule?: pulumi.Input<inputs.datafactory.TriggerScheduleSchedule>;
+    /**
      * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
     startTime?: pulumi.Input<string>;
@@ -219,11 +240,15 @@ export interface TriggerScheduleArgs {
      */
     dataFactoryName: pulumi.Input<string>;
     /**
+     * The Schedule Trigger's description.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
     endTime?: pulumi.Input<string>;
     /**
-     * The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
+     * The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
      */
     frequency?: pulumi.Input<string>;
     /**
@@ -246,6 +271,10 @@ export interface TriggerScheduleArgs {
      * The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
+     */
+    schedule?: pulumi.Input<inputs.datafactory.TriggerScheduleSchedule>;
     /**
      * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */

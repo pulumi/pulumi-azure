@@ -90,6 +90,14 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
      */
     public readonly azureFunctionEndpoint!: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionAzureFunctionEndpoint | undefined>;
     /**
+     * A `deadLetterIdentity` block as defined below.
+     */
+    public readonly deadLetterIdentity!: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionDeadLetterIdentity | undefined>;
+    /**
+     * A `deliveryIdentity` block as defined below.
+     */
+    public readonly deliveryIdentity!: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionDeliveryIdentity | undefined>;
+    /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
     public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
@@ -170,6 +178,8 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             inputs["advancedFilter"] = state ? state.advancedFilter : undefined;
             inputs["advancedFilteringOnArraysEnabled"] = state ? state.advancedFilteringOnArraysEnabled : undefined;
             inputs["azureFunctionEndpoint"] = state ? state.azureFunctionEndpoint : undefined;
+            inputs["deadLetterIdentity"] = state ? state.deadLetterIdentity : undefined;
+            inputs["deliveryIdentity"] = state ? state.deliveryIdentity : undefined;
             inputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
             inputs["eventhubEndpointId"] = state ? state.eventhubEndpointId : undefined;
             inputs["expirationTimeUtc"] = state ? state.expirationTimeUtc : undefined;
@@ -197,6 +207,8 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             inputs["advancedFilter"] = args ? args.advancedFilter : undefined;
             inputs["advancedFilteringOnArraysEnabled"] = args ? args.advancedFilteringOnArraysEnabled : undefined;
             inputs["azureFunctionEndpoint"] = args ? args.azureFunctionEndpoint : undefined;
+            inputs["deadLetterIdentity"] = args ? args.deadLetterIdentity : undefined;
+            inputs["deliveryIdentity"] = args ? args.deliveryIdentity : undefined;
             inputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
             inputs["eventhubEndpointId"] = args ? args.eventhubEndpointId : undefined;
             inputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
@@ -237,6 +249,14 @@ export interface SystemTopicEventSubscriptionState {
      * An `azureFunctionEndpoint` block as defined below.
      */
     azureFunctionEndpoint?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAzureFunctionEndpoint>;
+    /**
+     * A `deadLetterIdentity` block as defined below.
+     */
+    deadLetterIdentity?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeadLetterIdentity>;
+    /**
+     * A `deliveryIdentity` block as defined below.
+     */
+    deliveryIdentity?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryIdentity>;
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
@@ -319,6 +339,14 @@ export interface SystemTopicEventSubscriptionArgs {
      * An `azureFunctionEndpoint` block as defined below.
      */
     azureFunctionEndpoint?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAzureFunctionEndpoint>;
+    /**
+     * A `deadLetterIdentity` block as defined below.
+     */
+    deadLetterIdentity?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeadLetterIdentity>;
+    /**
+     * A `deliveryIdentity` block as defined below.
+     */
+    deliveryIdentity?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryIdentity>;
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */

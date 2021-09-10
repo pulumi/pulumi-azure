@@ -100,7 +100,7 @@ type AccessPolicy struct {
 	// be unique for the list of access policies. Changing this forces a new resource
 	// to be created.
 	ObjectId pulumi.StringOutput `pulumi:"objectId"`
-	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 	SecretPermissions pulumi.StringArrayOutput `pulumi:"secretPermissions"`
 	// List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
 	StoragePermissions pulumi.StringArrayOutput `pulumi:"storagePermissions"`
@@ -162,7 +162,7 @@ type accessPolicyState struct {
 	// be unique for the list of access policies. Changing this forces a new resource
 	// to be created.
 	ObjectId *string `pulumi:"objectId"`
-	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 	SecretPermissions []string `pulumi:"secretPermissions"`
 	// List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
 	StoragePermissions []string `pulumi:"storagePermissions"`
@@ -187,7 +187,7 @@ type AccessPolicyState struct {
 	// be unique for the list of access policies. Changing this forces a new resource
 	// to be created.
 	ObjectId pulumi.StringPtrInput
-	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 	SecretPermissions pulumi.StringArrayInput
 	// List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
 	StoragePermissions pulumi.StringArrayInput
@@ -216,7 +216,7 @@ type accessPolicyArgs struct {
 	// be unique for the list of access policies. Changing this forces a new resource
 	// to be created.
 	ObjectId string `pulumi:"objectId"`
-	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 	SecretPermissions []string `pulumi:"secretPermissions"`
 	// List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
 	StoragePermissions []string `pulumi:"storagePermissions"`
@@ -242,7 +242,7 @@ type AccessPolicyArgs struct {
 	// be unique for the list of access policies. Changing this forces a new resource
 	// to be created.
 	ObjectId pulumi.StringInput
-	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 	SecretPermissions pulumi.StringArrayInput
 	// List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
 	StoragePermissions pulumi.StringArrayInput

@@ -414,7 +414,7 @@ type OutputBlobSerialization struct {
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
 	// Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 	Format *string `pulumi:"format"`
-	// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+	// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
 	Type string `pulumi:"type"`
 }
 
@@ -436,7 +436,7 @@ type OutputBlobSerializationArgs struct {
 	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
 	// Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 	Format pulumi.StringPtrInput `pulumi:"format"`
-	// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+	// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -532,7 +532,7 @@ func (o OutputBlobSerializationOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutputBlobSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
 func (o OutputBlobSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OutputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -585,7 +585,7 @@ func (o OutputBlobSerializationPtrOutput) Format() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
 func (o OutputBlobSerializationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OutputBlobSerialization) *string {
 		if v == nil {

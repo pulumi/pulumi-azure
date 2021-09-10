@@ -35,7 +35,7 @@ class AccessPolicyArgs:
         :param pulumi.Input[str] application_id: The object ID of an Application in Azure Active Directory.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_permissions: List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_permissions: List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_permissions: List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_permissions: List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_permissions: List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         """
         pulumi.set(__self__, "key_vault_id", key_vault_id)
@@ -134,7 +134,7 @@ class AccessPolicyArgs:
     @pulumi.getter(name="secretPermissions")
     def secret_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         """
         return pulumi.get(self, "secret_permissions")
 
@@ -177,7 +177,7 @@ class _AccessPolicyState:
                group in the Azure Active Directory tenant for the vault. The object ID must
                be unique for the list of access policies. Changing this forces a new resource
                to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_permissions: List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_permissions: List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_permissions: List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used
                for authenticating requests to the key vault. Changing this forces a new resource
@@ -268,7 +268,7 @@ class _AccessPolicyState:
     @pulumi.getter(name="secretPermissions")
     def secret_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         """
         return pulumi.get(self, "secret_permissions")
 
@@ -372,7 +372,7 @@ class AccessPolicy(pulumi.CustomResource):
                group in the Azure Active Directory tenant for the vault. The object ID must
                be unique for the list of access policies. Changing this forces a new resource
                to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_permissions: List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_permissions: List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_permissions: List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used
                for authenticating requests to the key vault. Changing this forces a new resource
@@ -511,7 +511,7 @@ class AccessPolicy(pulumi.CustomResource):
                group in the Azure Active Directory tenant for the vault. The object ID must
                be unique for the list of access policies. Changing this forces a new resource
                to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_permissions: List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_permissions: List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_permissions: List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used
                for authenticating requests to the key vault. Changing this forces a new resource
@@ -579,7 +579,7 @@ class AccessPolicy(pulumi.CustomResource):
     @pulumi.getter(name="secretPermissions")
     def secret_permissions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         """
         return pulumi.get(self, "secret_permissions")
 

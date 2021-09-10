@@ -1968,6 +1968,8 @@ class KubernetesClusterDefaultNodePool(dict):
             suggest = "os_disk_size_gb"
         elif key == "osDiskType":
             suggest = "os_disk_type"
+        elif key == "osSku":
+            suggest = "os_sku"
         elif key == "podSubnetId":
             suggest = "pod_subnet_id"
         elif key == "proximityPlacementGroupId":
@@ -2012,6 +2014,7 @@ class KubernetesClusterDefaultNodePool(dict):
                  orchestrator_version: Optional[str] = None,
                  os_disk_size_gb: Optional[int] = None,
                  os_disk_type: Optional[str] = None,
+                 os_sku: Optional[str] = None,
                  pod_subnet_id: Optional[str] = None,
                  proximity_placement_group_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
@@ -2040,6 +2043,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         :param int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         :param str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+        :param str os_sku: OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
         :param str pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param Mapping[str, str] tags: A mapping of tags to assign to the Node Pool.
         :param str type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
@@ -2087,6 +2091,8 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
         if os_disk_type is not None:
             pulumi.set(__self__, "os_disk_type", os_disk_type)
+        if os_sku is not None:
+            pulumi.set(__self__, "os_sku", os_sku)
         if pod_subnet_id is not None:
             pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
         if proximity_placement_group_id is not None:
@@ -2266,6 +2272,14 @@ class KubernetesClusterDefaultNodePool(dict):
         The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_disk_type")
+
+    @property
+    @pulumi.getter(name="osSku")
+    def os_sku(self) -> Optional[str]:
+        """
+        OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "os_sku")
 
     @property
     @pulumi.getter(name="podSubnetId")

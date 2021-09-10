@@ -32,6 +32,7 @@ class AccountArgs:
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -59,6 +60,7 @@ class AccountArgs:
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -98,6 +100,8 @@ class AccountArgs:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if local_authentication_disabled is not None:
+            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mongo_server_version is not None:
@@ -320,6 +324,18 @@ class AccountArgs:
         pulumi.set(self, "kind", value)
 
     @property
+    @pulumi.getter(name="localAuthenticationDisabled")
+    def local_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+        """
+        return pulumi.get(self, "local_authentication_disabled")
+
+    @local_authentication_disabled.setter
+    def local_authentication_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_authentication_disabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -436,6 +452,7 @@ class _AccountState:
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -475,6 +492,7 @@ class _AccountState:
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -526,6 +544,8 @@ class _AccountState:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if local_authentication_disabled is not None:
+            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mongo_server_version is not None:
@@ -784,6 +804,18 @@ class _AccountState:
         pulumi.set(self, "kind", value)
 
     @property
+    @pulumi.getter(name="localAuthenticationDisabled")
+    def local_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+        """
+        return pulumi.get(self, "local_authentication_disabled")
+
+    @local_authentication_disabled.setter
+    def local_authentication_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_authentication_disabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1032,6 +1064,7 @@ class Account(pulumi.CustomResource):
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1116,6 +1149,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -1219,6 +1253,7 @@ class Account(pulumi.CustomResource):
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1260,6 +1295,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             __props__.__dict__["kind"] = kind
+            __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
             __props__.__dict__["location"] = location
             __props__.__dict__["mongo_server_version"] = mongo_server_version
             __props__.__dict__["name"] = name
@@ -1313,6 +1349,7 @@ class Account(pulumi.CustomResource):
             is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
+            local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mongo_server_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1357,6 +1394,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -1395,6 +1433,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         __props__.__dict__["kind"] = kind
+        __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
         __props__.__dict__["location"] = location
         __props__.__dict__["mongo_server_version"] = mongo_server_version
         __props__.__dict__["name"] = name
@@ -1552,6 +1591,14 @@ class Account(pulumi.CustomResource):
         Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="localAuthenticationDisabled")
+    def local_authentication_disabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
+        """
+        return pulumi.get(self, "local_authentication_disabled")
 
     @property
     @pulumi.getter

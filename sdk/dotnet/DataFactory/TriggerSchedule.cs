@@ -73,13 +73,19 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> DataFactoryName { get; private set; } = null!;
 
         /// <summary>
+        /// The Schedule Trigger's description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// The time the Schedule Trigger should end. The time will be represented in UTC.
         /// </summary>
         [Output("endTime")]
         public Output<string?> EndTime { get; private set; } = null!;
 
         /// <summary>
-        /// The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
+        /// The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
         /// </summary>
         [Output("frequency")]
         public Output<string?> Frequency { get; private set; } = null!;
@@ -113,6 +119,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
+        /// </summary>
+        [Output("schedule")]
+        public Output<Outputs.TriggerScheduleSchedule?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
@@ -185,13 +197,19 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> DataFactoryName { get; set; } = null!;
 
         /// <summary>
+        /// The Schedule Trigger's description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The time the Schedule Trigger should end. The time will be represented in UTC.
         /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
-        /// The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
+        /// The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
         /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }
@@ -233,6 +251,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
+        /// </summary>
+        [Input("schedule")]
+        public Input<Inputs.TriggerScheduleScheduleArgs>? Schedule { get; set; }
+
+        /// <summary>
         /// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         /// </summary>
         [Input("startTime")]
@@ -264,13 +288,19 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
+        /// The Schedule Trigger's description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The time the Schedule Trigger should end. The time will be represented in UTC.
         /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
-        /// The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
+        /// The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
         /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }
@@ -310,6 +340,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
+        /// </summary>
+        [Input("schedule")]
+        public Input<Inputs.TriggerScheduleScheduleGetArgs>? Schedule { get; set; }
 
         /// <summary>
         /// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.

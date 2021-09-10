@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./domain";
 export * from "./domainTopic";
 export * from "./eventSubscription";
+export * from "./getDomain";
 export * from "./getDomainTopic";
 export * from "./getSystemTopic";
 export * from "./getTopic";

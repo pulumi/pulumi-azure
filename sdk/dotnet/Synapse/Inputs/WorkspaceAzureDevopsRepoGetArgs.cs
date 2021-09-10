@@ -42,6 +42,12 @@ namespace Pulumi.Azure.Synapse.Inputs
         [Input("rootFolder", required: true)]
         public Input<string> RootFolder { get; set; } = null!;
 
+        /// <summary>
+        /// the ID of the tenant for the Azure DevOps account.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
         public WorkspaceAzureDevopsRepoGetArgs()
         {
         }

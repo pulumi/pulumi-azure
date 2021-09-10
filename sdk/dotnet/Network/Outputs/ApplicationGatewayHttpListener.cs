@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerCustomErrorConfiguration> CustomErrorConfigurations;
         /// <summary>
-        /// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+        /// The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         /// </summary>
         public readonly string? FirewallPolicyId;
         /// <summary>
@@ -69,6 +69,14 @@ namespace Pulumi.Azure.Network.Outputs
         /// The name of the associated SSL Certificate which should be used for this HTTP Listener.
         /// </summary>
         public readonly string? SslCertificateName;
+        /// <summary>
+        /// The ID of the associated SSL Certificate.
+        /// </summary>
+        public readonly string? SslProfileId;
+        /// <summary>
+        /// The name of the associated SSL Profile which should be used for this HTTP Listener.
+        /// </summary>
+        public readonly string? SslProfileName;
 
         [OutputConstructor]
         private ApplicationGatewayHttpListener(
@@ -98,7 +106,11 @@ namespace Pulumi.Azure.Network.Outputs
 
             string? sslCertificateId,
 
-            string? sslCertificateName)
+            string? sslCertificateName,
+
+            string? sslProfileId,
+
+            string? sslProfileName)
         {
             CustomErrorConfigurations = customErrorConfigurations;
             FirewallPolicyId = firewallPolicyId;
@@ -114,6 +126,8 @@ namespace Pulumi.Azure.Network.Outputs
             RequireSni = requireSni;
             SslCertificateId = sslCertificateId;
             SslCertificateName = sslCertificateName;
+            SslProfileId = sslProfileId;
+            SslProfileName = sslProfileName;
         }
     }
 }

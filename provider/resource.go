@@ -834,12 +834,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_lake_store_virtual_network_rule": {Tok: azureResource(azureDatalake, "StoreVirtualNetworkRule")},
 
 			// Data Protection
-			"azurerm_data_protection_backup_vault":               {Tok: azureResource(azureDataProtection, "BackupVault")},
-			"azurerm_data_protection_backup_policy_postgresql":   {Tok: azureResource(azureDataProtection, "BackupPolicyPostgresql")},
-			"azurerm_data_protection_backup_instance_postgresql": {Tok: azureResource(azureDataProtection, "BackupInstancePostgresql")},
-			"azurerm_data_protection_backup_policy_disk":         {Tok: azureResource(azureDataProtection, "BackupPolicyDisk")},
-			"azurerm_data_protection_backup_policy_blob_storage": {Tok: azureResource(azureDataProtection, "BackupPolicyBlobStorage")},
-			"azurerm_data_protection_backup_instance_disk":       {Tok: azureResource(azureDataProtection, "BackupInstanceDisk")},
+			"azurerm_data_protection_backup_vault":                 {Tok: azureResource(azureDataProtection, "BackupVault")},
+			"azurerm_data_protection_backup_policy_postgresql":     {Tok: azureResource(azureDataProtection, "BackupPolicyPostgresql")},
+			"azurerm_data_protection_backup_instance_postgresql":   {Tok: azureResource(azureDataProtection, "BackupInstancePostgresql")},
+			"azurerm_data_protection_backup_policy_disk":           {Tok: azureResource(azureDataProtection, "BackupPolicyDisk")},
+			"azurerm_data_protection_backup_policy_blob_storage":   {Tok: azureResource(azureDataProtection, "BackupPolicyBlobStorage")},
+			"azurerm_data_protection_backup_instance_disk":         {Tok: azureResource(azureDataProtection, "BackupInstanceDisk")},
+			"azurerm_data_protection_backup_instance_blob_storage": {Tok: azureResource(azureDataProtection, "BackupInstanceBlogStorage")},
 
 			// DataShare
 			"azurerm_data_share_account": {Tok: azureResource(azureDataShare, "Account")},
@@ -1040,9 +1041,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_integration_service_environment": {
 				Tok: azureResource(azureLogicApps, "InterationServiceEnvironment"),
 			},
-			"azurerm_logic_app_integration_account_schema":  {Tok: azureResource(azureLogicApps, "IntegrationAccountSchema")},
-			"azurerm_logic_app_integration_account_partner": {Tok: azureResource(azureLogicApps, "IntegrationAccountPartner")},
-			"azurerm_logic_app_integration_account_map":     {Tok: azureResource(azureLogicApps, "IntegrationAccountMap")},
+			"azurerm_logic_app_integration_account_schema":    {Tok: azureResource(azureLogicApps, "IntegrationAccountSchema")},
+			"azurerm_logic_app_integration_account_partner":   {Tok: azureResource(azureLogicApps, "IntegrationAccountPartner")},
+			"azurerm_logic_app_integration_account_map":       {Tok: azureResource(azureLogicApps, "IntegrationAccountMap")},
+			"azurerm_logic_app_integration_account_assembly":  {Tok: azureResource(azureLogicApps, "IntegrationAccountAssembly")},
+			"azurerm_logic_app_integration_account_agreement": {Tok: azureResource(azureLogicApps, "IntegrationAccountAgreement")},
+			"azurerm_logic_app_integration_account_batch_configuration": {
+				Tok: azureResource(azureLogicApps, "IntegrationAccountBatchConfiguration"),
+			},
 
 			// MariaDB
 			"azurerm_mariadb_configuration": {
@@ -1282,6 +1288,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_sql_active_directory_administrator": {Tok: azureResource(azureSQL, "ActiveDirectoryAdministrator")},
+			"azurerm_sql_managed_database":               {Tok: azureResource(azureSQL, "ManagedDatabase")},
+			"azurerm_sql_managed_instance":               {Tok: azureResource(azureSQL, "ManagedInstance")},
 
 			// Network
 			"azurerm_virtual_network": {
@@ -2173,6 +2181,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iothub_dps":                  {Tok: azureDataSource(azureIot, "getDps")},
 			"azurerm_eventgrid_topic":             {Tok: azureDataSource(azureEventGrid, "getTopic")},
 			"azurerm_eventgrid_domain_topic":      {Tok: azureDataSource(azureEventGrid, "getDomainTopic")},
+			"azurerm_eventgrid_domain":            {Tok: azureDataSource(azureEventGrid, "getDomain")},
 			"azurerm_disk_encryption_set":         {Tok: azureDataSource(azureCompute, "getDiskEncryptionSet")},
 			"azurerm_dedicated_host_group":        {Tok: azureDataSource(azureCompute, "getDedicatedHostGroup")},
 			"azurerm_dedicated_host":              {Tok: azureDataSource(azureCompute, "getDedicatedHost")},

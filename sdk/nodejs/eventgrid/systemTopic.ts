@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -68,6 +69,10 @@ export class SystemTopic extends pulumi.CustomResource {
     }
 
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.eventgrid.SystemTopicIdentity | undefined>;
+    /**
      * The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -110,6 +115,7 @@ export class SystemTopic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SystemTopicState | undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["metricArmResourceId"] = state ? state.metricArmResourceId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -128,6 +134,7 @@ export class SystemTopic extends pulumi.CustomResource {
             if ((!args || args.topicType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicType'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -149,6 +156,10 @@ export class SystemTopic extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SystemTopic resources.
  */
 export interface SystemTopicState {
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.eventgrid.SystemTopicIdentity>;
     /**
      * The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
      */
@@ -184,6 +195,10 @@ export interface SystemTopicState {
  * The set of arguments for constructing a SystemTopic resource.
  */
 export interface SystemTopicArgs {
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.eventgrid.SystemTopicIdentity>;
     /**
      * The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
      */

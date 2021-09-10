@@ -10,6 +10,9 @@ export * from "./actionHttp";
 export * from "./getIntegrationAccount";
 export * from "./getWorkflow";
 export * from "./integrationAccount";
+export * from "./integrationAccountAgreement";
+export * from "./integrationAccountAssembly";
+export * from "./integrationAccountBatchConfiguration";
 export * from "./integrationAccountCertificate";
 export * from "./integrationAccountMap";
 export * from "./integrationAccountPartner";
@@ -25,6 +28,9 @@ export * from "./workflow";
 import { ActionCustom } from "./actionCustom";
 import { ActionHttp } from "./actionHttp";
 import { IntegrationAccount } from "./integrationAccount";
+import { IntegrationAccountAgreement } from "./integrationAccountAgreement";
+import { IntegrationAccountAssembly } from "./integrationAccountAssembly";
+import { IntegrationAccountBatchConfiguration } from "./integrationAccountBatchConfiguration";
 import { IntegrationAccountCertificate } from "./integrationAccountCertificate";
 import { IntegrationAccountMap } from "./integrationAccountMap";
 import { IntegrationAccountPartner } from "./integrationAccountPartner";
@@ -46,6 +52,12 @@ const _module = {
                 return new ActionHttp(name, <any>undefined, { urn })
             case "azure:logicapps/integrationAccount:IntegrationAccount":
                 return new IntegrationAccount(name, <any>undefined, { urn })
+            case "azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement":
+                return new IntegrationAccountAgreement(name, <any>undefined, { urn })
+            case "azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly":
+                return new IntegrationAccountAssembly(name, <any>undefined, { urn })
+            case "azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration":
+                return new IntegrationAccountBatchConfiguration(name, <any>undefined, { urn })
             case "azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate":
                 return new IntegrationAccountCertificate(name, <any>undefined, { urn })
             case "azure:logicapps/integrationAccountMap:IntegrationAccountMap":
@@ -74,6 +86,9 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "logicapps/actionCustom", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/actionHttp", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccount", _module)
+pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountAgreement", _module)
+pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountAssembly", _module)
+pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountBatchConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountMap", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountPartner", _module)

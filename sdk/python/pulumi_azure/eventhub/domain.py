@@ -16,6 +16,7 @@ __all__ = ['DomainArgs', 'Domain']
 class DomainArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['DomainIdentityArgs']] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']] = None,
                  input_mapping_fields: Optional[pulumi.Input['DomainInputMappingFieldsArgs']] = None,
@@ -27,6 +28,7 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
+        :param pulumi.Input['DomainIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input['DomainInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input['DomainInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below.
@@ -37,6 +39,8 @@ class DomainArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules is not None:
             pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
         if input_mapping_default_values is not None:
@@ -65,6 +69,18 @@ class DomainArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['DomainIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['DomainIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="inboundIpRules")
@@ -167,6 +183,7 @@ class DomainArgs:
 class _DomainState:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['DomainIdentityArgs']] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']] = None,
                  input_mapping_fields: Optional[pulumi.Input['DomainInputMappingFieldsArgs']] = None,
@@ -181,6 +198,7 @@ class _DomainState:
         """
         Input properties used for looking up and filtering Domain resources.
         :param pulumi.Input[str] endpoint: The Endpoint associated with the EventGrid Domain.
+        :param pulumi.Input['DomainIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input['DomainInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input['DomainInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below.
@@ -195,6 +213,8 @@ class _DomainState:
         """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules is not None:
             pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
         if input_mapping_default_values is not None:
@@ -229,6 +249,18 @@ class _DomainState:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['DomainIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['DomainIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="inboundIpRules")
@@ -373,6 +405,7 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DomainIdentityArgs']]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']]] = None,
                  input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']]] = None,
@@ -411,6 +444,7 @@ class Domain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DomainIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below.
@@ -468,6 +502,7 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DomainIdentityArgs']]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']]] = None,
                  input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']]] = None,
@@ -490,6 +525,7 @@ class Domain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainArgs.__new__(DomainArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
             __props__.__dict__["input_mapping_fields"] = input_mapping_fields
@@ -515,6 +551,7 @@ class Domain(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['DomainIdentityArgs']]] = None,
             inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]]] = None,
             input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']]] = None,
             input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']]] = None,
@@ -534,6 +571,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint: The Endpoint associated with the EventGrid Domain.
+        :param pulumi.Input[pulumi.InputType['DomainIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below.
@@ -551,6 +589,7 @@ class Domain(pulumi.CustomResource):
         __props__ = _DomainState.__new__(_DomainState)
 
         __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
         __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
         __props__.__dict__["input_mapping_fields"] = input_mapping_fields
@@ -571,6 +610,14 @@ class Domain(pulumi.CustomResource):
         The Endpoint associated with the EventGrid Domain.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.DomainIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="inboundIpRules")

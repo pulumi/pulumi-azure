@@ -1984,6 +1984,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_disk_type: Optional[pulumi.Input[str]] = None,
+                 os_sku: Optional[pulumi.Input[str]] = None,
                  pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -2012,6 +2013,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         :param pulumi.Input[int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] os_sku: OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Node Pool.
         :param pulumi.Input[str] type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
@@ -2059,6 +2061,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
         if os_disk_type is not None:
             pulumi.set(__self__, "os_disk_type", os_disk_type)
+        if os_sku is not None:
+            pulumi.set(__self__, "os_sku", os_sku)
         if pod_subnet_id is not None:
             pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
         if proximity_placement_group_id is not None:
@@ -2322,6 +2326,18 @@ class KubernetesClusterDefaultNodePoolArgs:
     @os_disk_type.setter
     def os_disk_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "os_disk_type", value)
+
+    @property
+    @pulumi.getter(name="osSku")
+    def os_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "os_sku")
+
+    @os_sku.setter
+    def os_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_sku", value)
 
     @property
     @pulumi.getter(name="podSubnetId")

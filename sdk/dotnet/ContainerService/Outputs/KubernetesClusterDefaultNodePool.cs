@@ -91,6 +91,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? OsDiskType;
         /// <summary>
+        /// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? OsSku;
+        /// <summary>
         /// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PodSubnetId;
@@ -162,6 +166,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? osDiskType,
 
+            string? osSku,
+
             string? podSubnetId,
 
             string? proximityPlacementGroupId,
@@ -198,6 +204,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGb = osDiskSizeGb;
             OsDiskType = osDiskType;
+            OsSku = osSku;
             PodSubnetId = podSubnetId;
             ProximityPlacementGroupId = proximityPlacementGroupId;
             Tags = tags;

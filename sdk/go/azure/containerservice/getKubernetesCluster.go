@@ -67,9 +67,9 @@ type LookupKubernetesClusterResult struct {
 	Id string `pulumi:"id"`
 	// A `identity` block as documented below.
 	Identities []GetKubernetesClusterIdentity `pulumi:"identities"`
-	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
 	KubeAdminConfigRaw string `pulumi:"kubeAdminConfigRaw"`
-	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
 	KubeAdminConfigs []GetKubernetesClusterKubeAdminConfig `pulumi:"kubeAdminConfigs"`
 	// Base64 encoded Kubernetes configuration.
 	KubeConfigRaw string `pulumi:"kubeConfigRaw"`

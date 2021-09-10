@@ -35,6 +35,9 @@ __all__ = [
     'ApplicationGatewaySkuArgs',
     'ApplicationGatewaySslCertificateArgs',
     'ApplicationGatewaySslPolicyArgs',
+    'ApplicationGatewaySslProfileArgs',
+    'ApplicationGatewaySslProfileSslPolicyArgs',
+    'ApplicationGatewayTrustedClientCertificateArgs',
     'ApplicationGatewayTrustedRootCertificateArgs',
     'ApplicationGatewayUrlPathMapArgs',
     'ApplicationGatewayUrlPathMapPathRuleArgs',
@@ -900,14 +903,16 @@ class ApplicationGatewayHttpListenerArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  require_sni: Optional[pulumi.Input[bool]] = None,
                  ssl_certificate_id: Optional[pulumi.Input[str]] = None,
-                 ssl_certificate_name: Optional[pulumi.Input[str]] = None):
+                 ssl_certificate_name: Optional[pulumi.Input[str]] = None,
+                 ssl_profile_id: Optional[pulumi.Input[str]] = None,
+                 ssl_profile_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] frontend_ip_configuration_name: The Name of the Frontend IP Configuration used for this HTTP Listener.
         :param pulumi.Input[str] frontend_port_name: The Name of the Frontend Port use for this HTTP Listener.
         :param pulumi.Input[str] name: The Name of the HTTP Listener.
         :param pulumi.Input[str] protocol: The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
-        :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+        :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         :param pulumi.Input[str] frontend_ip_configuration_id: The ID of the associated Frontend Configuration.
         :param pulumi.Input[str] frontend_port_id: The ID of the associated Frontend Port.
         :param pulumi.Input[str] host_name: The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
@@ -916,6 +921,8 @@ class ApplicationGatewayHttpListenerArgs:
         :param pulumi.Input[bool] require_sni: Should Server Name Indication be Required? Defaults to `false`.
         :param pulumi.Input[str] ssl_certificate_id: The ID of the associated SSL Certificate.
         :param pulumi.Input[str] ssl_certificate_name: The name of the associated SSL Certificate which should be used for this HTTP Listener.
+        :param pulumi.Input[str] ssl_profile_id: The ID of the associated SSL Certificate.
+        :param pulumi.Input[str] ssl_profile_name: The name of the associated SSL Profile which should be used for this HTTP Listener.
         """
         pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
         pulumi.set(__self__, "frontend_port_name", frontend_port_name)
@@ -941,6 +948,10 @@ class ApplicationGatewayHttpListenerArgs:
             pulumi.set(__self__, "ssl_certificate_id", ssl_certificate_id)
         if ssl_certificate_name is not None:
             pulumi.set(__self__, "ssl_certificate_name", ssl_certificate_name)
+        if ssl_profile_id is not None:
+            pulumi.set(__self__, "ssl_profile_id", ssl_profile_id)
+        if ssl_profile_name is not None:
+            pulumi.set(__self__, "ssl_profile_name", ssl_profile_name)
 
     @property
     @pulumi.getter(name="frontendIpConfigurationName")
@@ -1006,7 +1017,7 @@ class ApplicationGatewayHttpListenerArgs:
     @pulumi.getter(name="firewallPolicyId")
     def firewall_policy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+        The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         """
         return pulumi.get(self, "firewall_policy_id")
 
@@ -1109,6 +1120,30 @@ class ApplicationGatewayHttpListenerArgs:
     @ssl_certificate_name.setter
     def ssl_certificate_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ssl_certificate_name", value)
+
+    @property
+    @pulumi.getter(name="sslProfileId")
+    def ssl_profile_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated SSL Certificate.
+        """
+        return pulumi.get(self, "ssl_profile_id")
+
+    @ssl_profile_id.setter
+    def ssl_profile_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_profile_id", value)
+
+    @property
+    @pulumi.getter(name="sslProfileName")
+    def ssl_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the associated SSL Profile which should be used for this HTTP Listener.
+        """
+        return pulumi.get(self, "ssl_profile_name")
+
+    @ssl_profile_name.setter
+    def ssl_profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_profile_name", value)
 
 
 @pulumi.input_type
@@ -2402,6 +2437,234 @@ class ApplicationGatewaySslPolicyArgs:
     @policy_type.setter
     def policy_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_type", value)
+
+
+@pulumi.input_type
+class ApplicationGatewaySslProfileArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]]] = None,
+                 trusted_client_certificate_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 verify_client_cert_issuer_dn: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the SSL Profile that is unique within this Application Gateway.
+        :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]] ssl_policies: a `ssl policy` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_client_certificate_names: The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+        :param pulumi.Input[bool] verify_client_cert_issuer_dn: Should client certificate issuer DN be verified?  Defaults to `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ssl_policies is not None:
+            pulumi.set(__self__, "ssl_policies", ssl_policies)
+        if trusted_client_certificate_names is not None:
+            pulumi.set(__self__, "trusted_client_certificate_names", trusted_client_certificate_names)
+        if verify_client_cert_issuer_dn is not None:
+            pulumi.set(__self__, "verify_client_cert_issuer_dn", verify_client_cert_issuer_dn)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the SSL Profile that is unique within this Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Rewrite Rule Set
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="sslPolicies")
+    def ssl_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]]]:
+        """
+        a `ssl policy` block as defined below.
+        """
+        return pulumi.get(self, "ssl_policies")
+
+    @ssl_policies.setter
+    def ssl_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]]]):
+        pulumi.set(self, "ssl_policies", value)
+
+    @property
+    @pulumi.getter(name="trustedClientCertificateNames")
+    def trusted_client_certificate_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+        """
+        return pulumi.get(self, "trusted_client_certificate_names")
+
+    @trusted_client_certificate_names.setter
+    def trusted_client_certificate_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "trusted_client_certificate_names", value)
+
+    @property
+    @pulumi.getter(name="verifyClientCertIssuerDn")
+    def verify_client_cert_issuer_dn(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should client certificate issuer DN be verified?  Defaults to `false`.
+        """
+        return pulumi.get(self, "verify_client_cert_issuer_dn")
+
+    @verify_client_cert_issuer_dn.setter
+    def verify_client_cert_issuer_dn(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "verify_client_cert_issuer_dn", value)
+
+
+@pulumi.input_type
+class ApplicationGatewaySslProfileSslPolicyArgs:
+    def __init__(__self__, *,
+                 cipher_suites: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 disabled_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 min_protocol_version: Optional[pulumi.Input[str]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
+                 policy_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cipher_suites: A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        :param pulumi.Input[str] min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        :param pulumi.Input[str] policy_name: The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
+               are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+        :param pulumi.Input[str] policy_type: The Type of the Policy. Possible values are `Predefined` and `Custom`.
+        """
+        if cipher_suites is not None:
+            pulumi.set(__self__, "cipher_suites", cipher_suites)
+        if disabled_protocols is not None:
+            pulumi.set(__self__, "disabled_protocols", disabled_protocols)
+        if min_protocol_version is not None:
+            pulumi.set(__self__, "min_protocol_version", min_protocol_version)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+
+    @property
+    @pulumi.getter(name="cipherSuites")
+    def cipher_suites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+        """
+        return pulumi.get(self, "cipher_suites")
+
+    @cipher_suites.setter
+    def cipher_suites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cipher_suites", value)
+
+    @property
+    @pulumi.getter(name="disabledProtocols")
+    def disabled_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        """
+        return pulumi.get(self, "disabled_protocols")
+
+    @disabled_protocols.setter
+    def disabled_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "disabled_protocols", value)
+
+    @property
+    @pulumi.getter(name="minProtocolVersion")
+    def min_protocol_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        """
+        return pulumi.get(self, "min_protocol_version")
+
+    @min_protocol_version.setter
+    def min_protocol_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min_protocol_version", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
+        are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Type of the Policy. Possible values are `Predefined` and `Custom`.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @policy_type.setter
+    def policy_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_type", value)
+
+
+@pulumi.input_type
+class ApplicationGatewayTrustedClientCertificateArgs:
+    def __init__(__self__, *,
+                 data: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] data: The base-64 encoded certificate.
+        :param pulumi.Input[str] name: The name of the Trusted Client Certificate that is unique within this Application Gateway.
+        :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
+        """
+        pulumi.set(__self__, "data", data)
+        pulumi.set(__self__, "name", name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def data(self) -> pulumi.Input[str]:
+        """
+        The base-64 encoded certificate.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Trusted Client Certificate that is unique within this Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Rewrite Rule Set
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -4739,29 +5002,50 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs:
 class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 protocols: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]],
+                 description: Optional[pulumi.Input[str]] = None,
+                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destination_fqdn_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destination_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]] = None,
                  source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 terminate_tls: Optional[pulumi.Input[bool]] = None,
+                 web_categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this rule.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        :param pulumi.Input[str] description: The description which should be used for this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdn_tags: Specifies a list of destination FQDN tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: Specifies a list of destination FQDNs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_urls: Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
+        :param pulumi.Input[bool] terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] web_categories: Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "protocols", protocols)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
         if destination_fqdn_tags is not None:
             pulumi.set(__self__, "destination_fqdn_tags", destination_fqdn_tags)
         if destination_fqdns is not None:
             pulumi.set(__self__, "destination_fqdns", destination_fqdns)
+        if destination_urls is not None:
+            pulumi.set(__self__, "destination_urls", destination_urls)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
         if source_addresses is not None:
             pulumi.set(__self__, "source_addresses", source_addresses)
         if source_ip_groups is not None:
             pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+        if terminate_tls is not None:
+            pulumi.set(__self__, "terminate_tls", terminate_tls)
+        if web_categories is not None:
+            pulumi.set(__self__, "web_categories", web_categories)
 
     @property
     @pulumi.getter
@@ -4777,15 +5061,27 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
 
     @property
     @pulumi.getter
-    def protocols(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]:
+    def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        The description which should be used for this rule.
         """
-        return pulumi.get(self, "protocols")
+        return pulumi.get(self, "description")
 
-    @protocols.setter
-    def protocols(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]):
-        pulumi.set(self, "protocols", value)
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @destination_addresses.setter
+    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_addresses", value)
 
     @property
     @pulumi.getter(name="destinationFqdnTags")
@@ -4812,6 +5108,30 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
         pulumi.set(self, "destination_fqdns", value)
 
     @property
+    @pulumi.getter(name="destinationUrls")
+    def destination_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+        """
+        return pulumi.get(self, "destination_urls")
+
+    @destination_urls.setter
+    def destination_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_urls", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]]:
+        """
+        Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -4834,6 +5154,30 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @source_ip_groups.setter
     def source_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "source_ip_groups", value)
+
+    @property
+    @pulumi.getter(name="terminateTls")
+    def terminate_tls(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+        """
+        return pulumi.get(self, "terminate_tls")
+
+    @terminate_tls.setter
+    def terminate_tls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "terminate_tls", value)
+
+    @property
+    @pulumi.getter(name="webCategories")
+    def web_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+        """
+        return pulumi.get(self, "web_categories")
+
+    @web_categories.setter
+    def web_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "web_categories", value)
 
 
 @pulumi.input_type
@@ -8574,6 +8918,7 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
                  radius_server_secret: Optional[pulumi.Input[str]] = None,
                  revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]] = None,
                  root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]] = None,
+                 vpn_auth_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_client_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space out of which ip addresses for
@@ -8581,29 +8926,17 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
                in CIDR notation.
         :param pulumi.Input[str] aad_audience: The client id of the Azure VPN application.
                See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
-               This setting is incompatible with the use of
-               `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
         :param pulumi.Input[str] aad_issuer: The STS url for your tenant
-               This setting is incompatible with the use of
-               `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
         :param pulumi.Input[str] aad_tenant: AzureAD Tenant URL
-               This setting is incompatible with the use of
-               `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
         :param pulumi.Input[str] radius_server_address: The address of the Radius server.
-               This setting is incompatible with the use of
-               `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         :param pulumi.Input[str] radius_server_secret: The secret used by the Radius server.
-               This setting is incompatible with the use of
-               `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]] revoked_certificates: One or more `revoked_certificate` blocks which
                are defined below.
-               This setting is incompatible with the use of
-               `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]] root_certificates: One or more `root_certificate` blocks which are
                defined below. These root certificates are used to sign the client certificate
                used by the VPN clients to connect to the gateway.
-               This setting is incompatible with the use of
-               `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_auth_types: List of the vpn authentication types for the virtual network gateway.
+               The supported values are `AAD`, `Radius` and `Certificate`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_client_protocols: List of the protocols supported by the vpn client.
                The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
                Values `SSTP` and `IkeV2` are incompatible with the use of
@@ -8624,6 +8957,8 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
             pulumi.set(__self__, "revoked_certificates", revoked_certificates)
         if root_certificates is not None:
             pulumi.set(__self__, "root_certificates", root_certificates)
+        if vpn_auth_types is not None:
+            pulumi.set(__self__, "vpn_auth_types", vpn_auth_types)
         if vpn_client_protocols is not None:
             pulumi.set(__self__, "vpn_client_protocols", vpn_client_protocols)
 
@@ -8647,8 +8982,6 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
         """
         The client id of the Azure VPN application.
         See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
-        This setting is incompatible with the use of
-        `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
         """
         return pulumi.get(self, "aad_audience")
 
@@ -8661,8 +8994,6 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
     def aad_issuer(self) -> Optional[pulumi.Input[str]]:
         """
         The STS url for your tenant
-        This setting is incompatible with the use of
-        `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
         """
         return pulumi.get(self, "aad_issuer")
 
@@ -8675,8 +9006,6 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
     def aad_tenant(self) -> Optional[pulumi.Input[str]]:
         """
         AzureAD Tenant URL
-        This setting is incompatible with the use of
-        `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
         """
         return pulumi.get(self, "aad_tenant")
 
@@ -8689,8 +9018,6 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
     def radius_server_address(self) -> Optional[pulumi.Input[str]]:
         """
         The address of the Radius server.
-        This setting is incompatible with the use of
-        `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         """
         return pulumi.get(self, "radius_server_address")
 
@@ -8703,8 +9030,6 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
     def radius_server_secret(self) -> Optional[pulumi.Input[str]]:
         """
         The secret used by the Radius server.
-        This setting is incompatible with the use of
-        `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         """
         return pulumi.get(self, "radius_server_secret")
 
@@ -8718,8 +9043,6 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
         """
         One or more `revoked_certificate` blocks which
         are defined below.
-        This setting is incompatible with the use of
-        `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         """
         return pulumi.get(self, "revoked_certificates")
 
@@ -8734,14 +9057,25 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
         One or more `root_certificate` blocks which are
         defined below. These root certificates are used to sign the client certificate
         used by the VPN clients to connect to the gateway.
-        This setting is incompatible with the use of
-        `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         """
         return pulumi.get(self, "root_certificates")
 
     @root_certificates.setter
     def root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]]):
         pulumi.set(self, "root_certificates", value)
+
+    @property
+    @pulumi.getter(name="vpnAuthTypes")
+    def vpn_auth_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of the vpn authentication types for the virtual network gateway.
+        The supported values are `AAD`, `Radius` and `Certificate`.
+        """
+        return pulumi.get(self, "vpn_auth_types")
+
+    @vpn_auth_types.setter
+    def vpn_auth_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpn_auth_types", value)
 
     @property
     @pulumi.getter(name="vpnClientProtocols")

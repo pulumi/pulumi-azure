@@ -214,9 +214,17 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly sslPolicies!: pulumi.Output<outputs.network.ApplicationGatewaySslPolicy[]>;
     /**
+     * One or more `sslProfile` blocks as defined below.
+     */
+    public readonly sslProfiles!: pulumi.Output<outputs.network.ApplicationGatewaySslProfile[] | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * One or more `trustedClientCertificate` blocks as defined below.
+     */
+    public readonly trustedClientCertificates!: pulumi.Output<outputs.network.ApplicationGatewayTrustedClientCertificate[] | undefined>;
     /**
      * One or more `trustedRootCertificate` blocks as defined below.
      */
@@ -269,7 +277,9 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["sku"] = state ? state.sku : undefined;
             inputs["sslCertificates"] = state ? state.sslCertificates : undefined;
             inputs["sslPolicies"] = state ? state.sslPolicies : undefined;
+            inputs["sslProfiles"] = state ? state.sslProfiles : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["trustedClientCertificates"] = state ? state.trustedClientCertificates : undefined;
             inputs["trustedRootCertificates"] = state ? state.trustedRootCertificates : undefined;
             inputs["urlPathMaps"] = state ? state.urlPathMaps : undefined;
             inputs["wafConfiguration"] = state ? state.wafConfiguration : undefined;
@@ -325,7 +335,9 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["sslCertificates"] = args ? args.sslCertificates : undefined;
             inputs["sslPolicies"] = args ? args.sslPolicies : undefined;
+            inputs["sslProfiles"] = args ? args.sslProfiles : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["trustedClientCertificates"] = args ? args.trustedClientCertificates : undefined;
             inputs["trustedRootCertificates"] = args ? args.trustedRootCertificates : undefined;
             inputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
             inputs["wafConfiguration"] = args ? args.wafConfiguration : undefined;
@@ -431,9 +443,17 @@ export interface ApplicationGatewayState {
      */
     sslPolicies?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>[]>;
     /**
+     * One or more `sslProfile` blocks as defined below.
+     */
+    sslProfiles?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslProfile>[]>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * One or more `trustedClientCertificate` blocks as defined below.
+     */
+    trustedClientCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayTrustedClientCertificate>[]>;
     /**
      * One or more `trustedRootCertificate` blocks as defined below.
      */
@@ -545,9 +565,17 @@ export interface ApplicationGatewayArgs {
      */
     sslPolicies?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>[]>;
     /**
+     * One or more `sslProfile` blocks as defined below.
+     */
+    sslProfiles?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslProfile>[]>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * One or more `trustedClientCertificate` blocks as defined below.
+     */
+    trustedClientCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayTrustedClientCertificate>[]>;
     /**
      * One or more `trustedRootCertificate` blocks as defined below.
      */

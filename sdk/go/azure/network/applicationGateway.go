@@ -193,8 +193,12 @@ type ApplicationGateway struct {
 	SslCertificates ApplicationGatewaySslCertificateArrayOutput `pulumi:"sslCertificates"`
 	// a `ssl policy` block as defined below.
 	SslPolicies ApplicationGatewaySslPolicyArrayOutput `pulumi:"sslPolicies"`
+	// One or more `sslProfile` blocks as defined below.
+	SslProfiles ApplicationGatewaySslProfileArrayOutput `pulumi:"sslProfiles"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// One or more `trustedClientCertificate` blocks as defined below.
+	TrustedClientCertificates ApplicationGatewayTrustedClientCertificateArrayOutput `pulumi:"trustedClientCertificates"`
 	// One or more `trustedRootCertificate` blocks as defined below.
 	TrustedRootCertificates ApplicationGatewayTrustedRootCertificateArrayOutput `pulumi:"trustedRootCertificates"`
 	// One or more `urlPathMap` blocks as defined below.
@@ -305,8 +309,12 @@ type applicationGatewayState struct {
 	SslCertificates []ApplicationGatewaySslCertificate `pulumi:"sslCertificates"`
 	// a `ssl policy` block as defined below.
 	SslPolicies []ApplicationGatewaySslPolicy `pulumi:"sslPolicies"`
+	// One or more `sslProfile` blocks as defined below.
+	SslProfiles []ApplicationGatewaySslProfile `pulumi:"sslProfiles"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// One or more `trustedClientCertificate` blocks as defined below.
+	TrustedClientCertificates []ApplicationGatewayTrustedClientCertificate `pulumi:"trustedClientCertificates"`
 	// One or more `trustedRootCertificate` blocks as defined below.
 	TrustedRootCertificates []ApplicationGatewayTrustedRootCertificate `pulumi:"trustedRootCertificates"`
 	// One or more `urlPathMap` blocks as defined below.
@@ -362,8 +370,12 @@ type ApplicationGatewayState struct {
 	SslCertificates ApplicationGatewaySslCertificateArrayInput
 	// a `ssl policy` block as defined below.
 	SslPolicies ApplicationGatewaySslPolicyArrayInput
+	// One or more `sslProfile` blocks as defined below.
+	SslProfiles ApplicationGatewaySslProfileArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// One or more `trustedClientCertificate` blocks as defined below.
+	TrustedClientCertificates ApplicationGatewayTrustedClientCertificateArrayInput
 	// One or more `trustedRootCertificate` blocks as defined below.
 	TrustedRootCertificates ApplicationGatewayTrustedRootCertificateArrayInput
 	// One or more `urlPathMap` blocks as defined below.
@@ -423,8 +435,12 @@ type applicationGatewayArgs struct {
 	SslCertificates []ApplicationGatewaySslCertificate `pulumi:"sslCertificates"`
 	// a `ssl policy` block as defined below.
 	SslPolicies []ApplicationGatewaySslPolicy `pulumi:"sslPolicies"`
+	// One or more `sslProfile` blocks as defined below.
+	SslProfiles []ApplicationGatewaySslProfile `pulumi:"sslProfiles"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// One or more `trustedClientCertificate` blocks as defined below.
+	TrustedClientCertificates []ApplicationGatewayTrustedClientCertificate `pulumi:"trustedClientCertificates"`
 	// One or more `trustedRootCertificate` blocks as defined below.
 	TrustedRootCertificates []ApplicationGatewayTrustedRootCertificate `pulumi:"trustedRootCertificates"`
 	// One or more `urlPathMap` blocks as defined below.
@@ -481,8 +497,12 @@ type ApplicationGatewayArgs struct {
 	SslCertificates ApplicationGatewaySslCertificateArrayInput
 	// a `ssl policy` block as defined below.
 	SslPolicies ApplicationGatewaySslPolicyArrayInput
+	// One or more `sslProfile` blocks as defined below.
+	SslProfiles ApplicationGatewaySslProfileArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// One or more `trustedClientCertificate` blocks as defined below.
+	TrustedClientCertificates ApplicationGatewayTrustedClientCertificateArrayInput
 	// One or more `trustedRootCertificate` blocks as defined below.
 	TrustedRootCertificates ApplicationGatewayTrustedRootCertificateArrayInput
 	// One or more `urlPathMap` blocks as defined below.

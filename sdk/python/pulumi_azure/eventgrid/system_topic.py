@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['SystemTopicArgs', 'SystemTopic']
 
@@ -16,6 +18,7 @@ class SystemTopicArgs:
                  resource_group_name: pulumi.Input[str],
                  source_arm_resource_id: pulumi.Input[str],
                  topic_type: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['SystemTopicIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -25,6 +28,7 @@ class SystemTopicArgs:
         :param pulumi.Input[str] source_arm_resource_id: The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[str] topic_type: The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
                , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
+        :param pulumi.Input['SystemTopicIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[str] name: The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Event Grid System Topic.
@@ -32,6 +36,8 @@ class SystemTopicArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
         pulumi.set(__self__, "topic_type", topic_type)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -78,6 +84,18 @@ class SystemTopicArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['SystemTopicIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['SystemTopicIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
@@ -116,6 +134,7 @@ class SystemTopicArgs:
 @pulumi.input_type
 class _SystemTopicState:
     def __init__(__self__, *,
+                 identity: Optional[pulumi.Input['SystemTopicIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metric_arm_resource_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -125,6 +144,7 @@ class _SystemTopicState:
                  topic_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SystemTopic resources.
+        :param pulumi.Input['SystemTopicIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[str] metric_arm_resource_id: The Metric ARM Resource ID of the Event Grid System Topic.
         :param pulumi.Input[str] name: The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
@@ -134,6 +154,8 @@ class _SystemTopicState:
         :param pulumi.Input[str] topic_type: The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
                , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if metric_arm_resource_id is not None:
@@ -148,6 +170,18 @@ class _SystemTopicState:
             pulumi.set(__self__, "tags", tags)
         if topic_type is not None:
             pulumi.set(__self__, "topic_type", topic_type)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['SystemTopicIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['SystemTopicIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -240,6 +274,7 @@ class SystemTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['SystemTopicIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -282,6 +317,7 @@ class SystemTopic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['SystemTopicIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[str] name: The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
@@ -344,6 +380,7 @@ class SystemTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['SystemTopicIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -362,6 +399,7 @@ class SystemTopic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SystemTopicArgs.__new__(SystemTopicArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -387,6 +425,7 @@ class SystemTopic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['SystemTopicIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             metric_arm_resource_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -401,6 +440,7 @@ class SystemTopic(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['SystemTopicIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[str] metric_arm_resource_id: The Metric ARM Resource ID of the Event Grid System Topic.
         :param pulumi.Input[str] name: The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
@@ -414,6 +454,7 @@ class SystemTopic(pulumi.CustomResource):
 
         __props__ = _SystemTopicState.__new__(_SystemTopicState)
 
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["metric_arm_resource_id"] = metric_arm_resource_id
         __props__.__dict__["name"] = name
@@ -422,6 +463,14 @@ class SystemTopic(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["topic_type"] = topic_type
         return SystemTopic(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.SystemTopicIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

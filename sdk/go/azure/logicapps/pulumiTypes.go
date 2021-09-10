@@ -116,6 +116,1034 @@ func (o ActionHttpRunAfterArrayOutput) Index(i pulumi.IntInput) ActionHttpRunAft
 	}).(ActionHttpRunAfterOutput)
 }
 
+type IntegrationAccountAgreementGuestIdentity struct {
+	// The authenticating body that provides unique guest identities to organizations.
+	Qualifier string `pulumi:"qualifier"`
+	// The value that identifies the documents that your logic apps receive.
+	Value string `pulumi:"value"`
+}
+
+// IntegrationAccountAgreementGuestIdentityInput is an input type that accepts IntegrationAccountAgreementGuestIdentityArgs and IntegrationAccountAgreementGuestIdentityOutput values.
+// You can construct a concrete instance of `IntegrationAccountAgreementGuestIdentityInput` via:
+//
+//          IntegrationAccountAgreementGuestIdentityArgs{...}
+type IntegrationAccountAgreementGuestIdentityInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAgreementGuestIdentityOutput() IntegrationAccountAgreementGuestIdentityOutput
+	ToIntegrationAccountAgreementGuestIdentityOutputWithContext(context.Context) IntegrationAccountAgreementGuestIdentityOutput
+}
+
+type IntegrationAccountAgreementGuestIdentityArgs struct {
+	// The authenticating body that provides unique guest identities to organizations.
+	Qualifier pulumi.StringInput `pulumi:"qualifier"`
+	// The value that identifies the documents that your logic apps receive.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IntegrationAccountAgreementGuestIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAgreementGuestIdentity)(nil)).Elem()
+}
+
+func (i IntegrationAccountAgreementGuestIdentityArgs) ToIntegrationAccountAgreementGuestIdentityOutput() IntegrationAccountAgreementGuestIdentityOutput {
+	return i.ToIntegrationAccountAgreementGuestIdentityOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAgreementGuestIdentityArgs) ToIntegrationAccountAgreementGuestIdentityOutputWithContext(ctx context.Context) IntegrationAccountAgreementGuestIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementGuestIdentityOutput)
+}
+
+func (i IntegrationAccountAgreementGuestIdentityArgs) ToIntegrationAccountAgreementGuestIdentityPtrOutput() IntegrationAccountAgreementGuestIdentityPtrOutput {
+	return i.ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAgreementGuestIdentityArgs) ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementGuestIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementGuestIdentityOutput).ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountAgreementGuestIdentityPtrInput is an input type that accepts IntegrationAccountAgreementGuestIdentityArgs, IntegrationAccountAgreementGuestIdentityPtr and IntegrationAccountAgreementGuestIdentityPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountAgreementGuestIdentityPtrInput` via:
+//
+//          IntegrationAccountAgreementGuestIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationAccountAgreementGuestIdentityPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAgreementGuestIdentityPtrOutput() IntegrationAccountAgreementGuestIdentityPtrOutput
+	ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(context.Context) IntegrationAccountAgreementGuestIdentityPtrOutput
+}
+
+type integrationAccountAgreementGuestIdentityPtrType IntegrationAccountAgreementGuestIdentityArgs
+
+func IntegrationAccountAgreementGuestIdentityPtr(v *IntegrationAccountAgreementGuestIdentityArgs) IntegrationAccountAgreementGuestIdentityPtrInput {
+	return (*integrationAccountAgreementGuestIdentityPtrType)(v)
+}
+
+func (*integrationAccountAgreementGuestIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountAgreementGuestIdentity)(nil)).Elem()
+}
+
+func (i *integrationAccountAgreementGuestIdentityPtrType) ToIntegrationAccountAgreementGuestIdentityPtrOutput() IntegrationAccountAgreementGuestIdentityPtrOutput {
+	return i.ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountAgreementGuestIdentityPtrType) ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementGuestIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementGuestIdentityPtrOutput)
+}
+
+type IntegrationAccountAgreementGuestIdentityOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountAgreementGuestIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAgreementGuestIdentity)(nil)).Elem()
+}
+
+func (o IntegrationAccountAgreementGuestIdentityOutput) ToIntegrationAccountAgreementGuestIdentityOutput() IntegrationAccountAgreementGuestIdentityOutput {
+	return o
+}
+
+func (o IntegrationAccountAgreementGuestIdentityOutput) ToIntegrationAccountAgreementGuestIdentityOutputWithContext(ctx context.Context) IntegrationAccountAgreementGuestIdentityOutput {
+	return o
+}
+
+func (o IntegrationAccountAgreementGuestIdentityOutput) ToIntegrationAccountAgreementGuestIdentityPtrOutput() IntegrationAccountAgreementGuestIdentityPtrOutput {
+	return o.ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountAgreementGuestIdentityOutput) ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementGuestIdentityPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAgreementGuestIdentity) *IntegrationAccountAgreementGuestIdentity {
+		return &v
+	}).(IntegrationAccountAgreementGuestIdentityPtrOutput)
+}
+
+// The authenticating body that provides unique guest identities to organizations.
+func (o IntegrationAccountAgreementGuestIdentityOutput) Qualifier() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountAgreementGuestIdentity) string { return v.Qualifier }).(pulumi.StringOutput)
+}
+
+// The value that identifies the documents that your logic apps receive.
+func (o IntegrationAccountAgreementGuestIdentityOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountAgreementGuestIdentity) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IntegrationAccountAgreementGuestIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountAgreementGuestIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountAgreementGuestIdentity)(nil)).Elem()
+}
+
+func (o IntegrationAccountAgreementGuestIdentityPtrOutput) ToIntegrationAccountAgreementGuestIdentityPtrOutput() IntegrationAccountAgreementGuestIdentityPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountAgreementGuestIdentityPtrOutput) ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementGuestIdentityPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountAgreementGuestIdentityPtrOutput) Elem() IntegrationAccountAgreementGuestIdentityOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreementGuestIdentity) IntegrationAccountAgreementGuestIdentity { return *v }).(IntegrationAccountAgreementGuestIdentityOutput)
+}
+
+// The authenticating body that provides unique guest identities to organizations.
+func (o IntegrationAccountAgreementGuestIdentityPtrOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreementGuestIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Qualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value that identifies the documents that your logic apps receive.
+func (o IntegrationAccountAgreementGuestIdentityPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreementGuestIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAccountAgreementHostIdentity struct {
+	// The authenticating body that provides unique host identities to organizations.
+	Qualifier string `pulumi:"qualifier"`
+	// The value that identifies the documents that your logic apps receive.
+	Value string `pulumi:"value"`
+}
+
+// IntegrationAccountAgreementHostIdentityInput is an input type that accepts IntegrationAccountAgreementHostIdentityArgs and IntegrationAccountAgreementHostIdentityOutput values.
+// You can construct a concrete instance of `IntegrationAccountAgreementHostIdentityInput` via:
+//
+//          IntegrationAccountAgreementHostIdentityArgs{...}
+type IntegrationAccountAgreementHostIdentityInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAgreementHostIdentityOutput() IntegrationAccountAgreementHostIdentityOutput
+	ToIntegrationAccountAgreementHostIdentityOutputWithContext(context.Context) IntegrationAccountAgreementHostIdentityOutput
+}
+
+type IntegrationAccountAgreementHostIdentityArgs struct {
+	// The authenticating body that provides unique host identities to organizations.
+	Qualifier pulumi.StringInput `pulumi:"qualifier"`
+	// The value that identifies the documents that your logic apps receive.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IntegrationAccountAgreementHostIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAgreementHostIdentity)(nil)).Elem()
+}
+
+func (i IntegrationAccountAgreementHostIdentityArgs) ToIntegrationAccountAgreementHostIdentityOutput() IntegrationAccountAgreementHostIdentityOutput {
+	return i.ToIntegrationAccountAgreementHostIdentityOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAgreementHostIdentityArgs) ToIntegrationAccountAgreementHostIdentityOutputWithContext(ctx context.Context) IntegrationAccountAgreementHostIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementHostIdentityOutput)
+}
+
+func (i IntegrationAccountAgreementHostIdentityArgs) ToIntegrationAccountAgreementHostIdentityPtrOutput() IntegrationAccountAgreementHostIdentityPtrOutput {
+	return i.ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAgreementHostIdentityArgs) ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementHostIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementHostIdentityOutput).ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountAgreementHostIdentityPtrInput is an input type that accepts IntegrationAccountAgreementHostIdentityArgs, IntegrationAccountAgreementHostIdentityPtr and IntegrationAccountAgreementHostIdentityPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountAgreementHostIdentityPtrInput` via:
+//
+//          IntegrationAccountAgreementHostIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationAccountAgreementHostIdentityPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAgreementHostIdentityPtrOutput() IntegrationAccountAgreementHostIdentityPtrOutput
+	ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(context.Context) IntegrationAccountAgreementHostIdentityPtrOutput
+}
+
+type integrationAccountAgreementHostIdentityPtrType IntegrationAccountAgreementHostIdentityArgs
+
+func IntegrationAccountAgreementHostIdentityPtr(v *IntegrationAccountAgreementHostIdentityArgs) IntegrationAccountAgreementHostIdentityPtrInput {
+	return (*integrationAccountAgreementHostIdentityPtrType)(v)
+}
+
+func (*integrationAccountAgreementHostIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountAgreementHostIdentity)(nil)).Elem()
+}
+
+func (i *integrationAccountAgreementHostIdentityPtrType) ToIntegrationAccountAgreementHostIdentityPtrOutput() IntegrationAccountAgreementHostIdentityPtrOutput {
+	return i.ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountAgreementHostIdentityPtrType) ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementHostIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementHostIdentityPtrOutput)
+}
+
+type IntegrationAccountAgreementHostIdentityOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountAgreementHostIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAgreementHostIdentity)(nil)).Elem()
+}
+
+func (o IntegrationAccountAgreementHostIdentityOutput) ToIntegrationAccountAgreementHostIdentityOutput() IntegrationAccountAgreementHostIdentityOutput {
+	return o
+}
+
+func (o IntegrationAccountAgreementHostIdentityOutput) ToIntegrationAccountAgreementHostIdentityOutputWithContext(ctx context.Context) IntegrationAccountAgreementHostIdentityOutput {
+	return o
+}
+
+func (o IntegrationAccountAgreementHostIdentityOutput) ToIntegrationAccountAgreementHostIdentityPtrOutput() IntegrationAccountAgreementHostIdentityPtrOutput {
+	return o.ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountAgreementHostIdentityOutput) ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementHostIdentityPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAgreementHostIdentity) *IntegrationAccountAgreementHostIdentity {
+		return &v
+	}).(IntegrationAccountAgreementHostIdentityPtrOutput)
+}
+
+// The authenticating body that provides unique host identities to organizations.
+func (o IntegrationAccountAgreementHostIdentityOutput) Qualifier() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountAgreementHostIdentity) string { return v.Qualifier }).(pulumi.StringOutput)
+}
+
+// The value that identifies the documents that your logic apps receive.
+func (o IntegrationAccountAgreementHostIdentityOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountAgreementHostIdentity) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IntegrationAccountAgreementHostIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountAgreementHostIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountAgreementHostIdentity)(nil)).Elem()
+}
+
+func (o IntegrationAccountAgreementHostIdentityPtrOutput) ToIntegrationAccountAgreementHostIdentityPtrOutput() IntegrationAccountAgreementHostIdentityPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountAgreementHostIdentityPtrOutput) ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementHostIdentityPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountAgreementHostIdentityPtrOutput) Elem() IntegrationAccountAgreementHostIdentityOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreementHostIdentity) IntegrationAccountAgreementHostIdentity { return *v }).(IntegrationAccountAgreementHostIdentityOutput)
+}
+
+// The authenticating body that provides unique host identities to organizations.
+func (o IntegrationAccountAgreementHostIdentityPtrOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreementHostIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Qualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value that identifies the documents that your logic apps receive.
+func (o IntegrationAccountAgreementHostIdentityPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreementHostIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteria struct {
+	// The batch size in bytes for the Logic App Integration Batch Configuration.
+	BatchSize *int `pulumi:"batchSize"`
+	// The message count for the Logic App Integration Batch Configuration.
+	MessageCount *int `pulumi:"messageCount"`
+	// A `recurrence` block as documented below.
+	Recurrence *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence `pulumi:"recurrence"`
+}
+
+// IntegrationAccountBatchConfigurationReleaseCriteriaInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaArgs and IntegrationAccountBatchConfigurationReleaseCriteriaOutput values.
+// You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaInput` via:
+//
+//          IntegrationAccountBatchConfigurationReleaseCriteriaArgs{...}
+type IntegrationAccountBatchConfigurationReleaseCriteriaInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaOutput() IntegrationAccountBatchConfigurationReleaseCriteriaOutput
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaOutputWithContext(context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaOutput
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaArgs struct {
+	// The batch size in bytes for the Logic App Integration Batch Configuration.
+	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
+	// The message count for the Logic App Integration Batch Configuration.
+	MessageCount pulumi.IntPtrInput `pulumi:"messageCount"`
+	// A `recurrence` block as documented below.
+	Recurrence IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrInput `pulumi:"recurrence"`
+}
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteria)(nil)).Elem()
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaOutput() IntegrationAccountBatchConfigurationReleaseCriteriaOutput {
+	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaOutput)
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
+	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaOutput).ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaArgs, IntegrationAccountBatchConfigurationReleaseCriteriaPtr and IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput` via:
+//
+//          IntegrationAccountBatchConfigurationReleaseCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput
+}
+
+type integrationAccountBatchConfigurationReleaseCriteriaPtrType IntegrationAccountBatchConfigurationReleaseCriteriaArgs
+
+func IntegrationAccountBatchConfigurationReleaseCriteriaPtr(v *IntegrationAccountBatchConfigurationReleaseCriteriaArgs) IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput {
+	return (*integrationAccountBatchConfigurationReleaseCriteriaPtrType)(v)
+}
+
+func (*integrationAccountBatchConfigurationReleaseCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountBatchConfigurationReleaseCriteria)(nil)).Elem()
+}
+
+func (i *integrationAccountBatchConfigurationReleaseCriteriaPtrType) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
+	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountBatchConfigurationReleaseCriteriaPtrType) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput)
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteria)(nil)).Elem()
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaOutput() IntegrationAccountBatchConfigurationReleaseCriteriaOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
+	return o.ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteria) *IntegrationAccountBatchConfigurationReleaseCriteria {
+		return &v
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput)
+}
+
+// The batch size in bytes for the Logic App Integration Batch Configuration.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteria) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+// The message count for the Logic App Integration Batch Configuration.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) MessageCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteria) *int { return v.MessageCount }).(pulumi.IntPtrOutput)
+}
+
+// A `recurrence` block as documented below.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) Recurrence() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteria) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
+		return v.Recurrence
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput)
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountBatchConfigurationReleaseCriteria)(nil)).Elem()
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) Elem() IntegrationAccountBatchConfigurationReleaseCriteriaOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteria) IntegrationAccountBatchConfigurationReleaseCriteria {
+		return *v
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaOutput)
+}
+
+// The batch size in bytes for the Logic App Integration Batch Configuration.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BatchSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The message count for the Logic App Integration Batch Configuration.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) MessageCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MessageCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// A `recurrence` block as documented below.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) Recurrence() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteria) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
+		if v == nil {
+			return nil
+		}
+		return v.Recurrence
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput)
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence struct {
+	// The end time of the schedule, formatted as an RFC3339 string.
+	EndTime *string `pulumi:"endTime"`
+	// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+	Frequency string `pulumi:"frequency"`
+	// The number of `frequency`s between runs.
+	Interval int `pulumi:"interval"`
+	// A `schedule` block as documented below.
+	Schedule *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule `pulumi:"schedule"`
+	// The start time of the schedule, formatted as an RFC3339 string.
+	StartTime *string `pulumi:"startTime"`
+	// The timezone of the start/end time.
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput values.
+// You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceInput` via:
+//
+//          IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs{...}
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutputWithContext(context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs struct {
+	// The end time of the schedule, formatted as an RFC3339 string.
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+	Frequency pulumi.StringInput `pulumi:"frequency"`
+	// The number of `frequency`s between runs.
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// A `schedule` block as documented below.
+	Schedule IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrInput `pulumi:"schedule"`
+	// The start time of the schedule, formatted as an RFC3339 string.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The timezone of the start/end time.
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence)(nil)).Elem()
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput {
+	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput)
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
+	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput).ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs, IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtr and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrInput` via:
+//
+//          IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput
+}
+
+type integrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrType IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs
+
+func IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtr(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrInput {
+	return (*integrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrType)(v)
+}
+
+func (*integrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence)(nil)).Elem()
+}
+
+func (i *integrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrType) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
+	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrType) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput)
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence)(nil)).Elem()
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
+	return o.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
+		return &v
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput)
+}
+
+// The end time of the schedule, formatted as an RFC3339 string.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) Frequency() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) string { return v.Frequency }).(pulumi.StringOutput)
+}
+
+// The number of `frequency`s between runs.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// A `schedule` block as documented below.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) Schedule() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule {
+		return v.Schedule
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput)
+}
+
+// The start time of the schedule, formatted as an RFC3339 string.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The timezone of the start/end time.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence)(nil)).Elem()
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) Elem() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
+		return *v
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput)
+}
+
+// The end time of the schedule, formatted as an RFC3339 string.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Frequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of `frequency`s between runs.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// A `schedule` block as documented below.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) Schedule() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput)
+}
+
+// The start time of the schedule, formatted as an RFC3339 string.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timezone of the start/end time.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule struct {
+	// A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
+	Hours []int `pulumi:"hours"`
+	// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+	Minutes []int `pulumi:"minutes"`
+	// A list of days of the month that the job should execute on.
+	MonthDays []int `pulumi:"monthDays"`
+	// A `monthly` block as documented below.
+	Monthlies []IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly `pulumi:"monthlies"`
+	// A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+	WeekDays []string `pulumi:"weekDays"`
+}
+
+// IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput values.
+// You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleInput` via:
+//
+//          IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs{...}
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutputWithContext(context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs struct {
+	// A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
+	Hours pulumi.IntArrayInput `pulumi:"hours"`
+	// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
+	// A list of days of the month that the job should execute on.
+	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
+	// A `monthly` block as documented below.
+	Monthlies IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayInput `pulumi:"monthlies"`
+	// A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+}
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule)(nil)).Elem()
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput {
+	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput)
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
+	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput).ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs, IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtr and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrInput` via:
+//
+//          IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput
+}
+
+type integrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrType IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs
+
+func IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtr(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrInput {
+	return (*integrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrType)(v)
+}
+
+func (*integrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule)(nil)).Elem()
+}
+
+func (i *integrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrType) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
+	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrType) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput)
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule)(nil)).Elem()
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
+	return o.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule {
+		return &v
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput)
+}
+
+// A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) Hours() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) []int { return v.Hours }).(pulumi.IntArrayOutput)
+}
+
+// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) Minutes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) []int { return v.Minutes }).(pulumi.IntArrayOutput)
+}
+
+// A list of days of the month that the job should execute on.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) MonthDays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) []int {
+		return v.MonthDays
+	}).(pulumi.IntArrayOutput)
+}
+
+// A `monthly` block as documented below.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) Monthlies() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) []IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly {
+		return v.Monthlies
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput)
+}
+
+// A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) []string {
+		return v.WeekDays
+	}).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule)(nil)).Elem()
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) Elem() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule {
+		return *v
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput)
+}
+
+// A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) Hours() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Hours
+	}).(pulumi.IntArrayOutput)
+}
+
+// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) Minutes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Minutes
+	}).(pulumi.IntArrayOutput)
+}
+
+// A list of days of the month that the job should execute on.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) MonthDays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) []int {
+		if v == nil {
+			return nil
+		}
+		return v.MonthDays
+	}).(pulumi.IntArrayOutput)
+}
+
+// A `monthly` block as documented below.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) Monthlies() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) []IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly {
+		if v == nil {
+			return nil
+		}
+		return v.Monthlies
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput)
+}
+
+// A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeekDays
+	}).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly struct {
+	// The occurrence of the week within the month.
+	Week int `pulumi:"week"`
+	// The day of the occurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+	Weekday string `pulumi:"weekday"`
+}
+
+// IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput values.
+// You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyInput` via:
+//
+//          IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs{...}
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutputWithContext(context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs struct {
+	// The occurrence of the week within the month.
+	Week pulumi.IntInput `pulumi:"week"`
+	// The day of the occurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+	Weekday pulumi.StringInput `pulumi:"weekday"`
+}
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly)(nil)).Elem()
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput {
+	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput)
+}
+
+// IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArray and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput values.
+// You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayInput` via:
+//
+//          IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArray{ IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs{...} }
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput
+	ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutputWithContext(context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArray []IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyInput
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly)(nil)).Elem()
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArray) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput {
+	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArray) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput)
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly)(nil)).Elem()
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput {
+	return o
+}
+
+// The occurrence of the week within the month.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput) Week() pulumi.IntOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly) int {
+		return v.Week
+	}).(pulumi.IntOutput)
+}
+
+// The day of the occurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput) Weekday() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly) string {
+		return v.Weekday
+	}).(pulumi.StringOutput)
+}
+
+type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly)(nil)).Elem()
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput) Index(i pulumi.IntInput) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly {
+		return vs[0].([]IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly)[vs[1].(int)]
+	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput)
+}
+
 type IntegrationAccountCertificateKeyVaultKey struct {
 	// The name of Key Vault Key.
 	KeyName string `pulumi:"keyName"`
@@ -563,6 +1591,18 @@ func (o TriggerRecurrenceSchedulePtrOutput) OnTheseDays() pulumi.StringArrayOutp
 func init() {
 	pulumi.RegisterOutputType(ActionHttpRunAfterOutput{})
 	pulumi.RegisterOutputType(ActionHttpRunAfterArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountAgreementGuestIdentityOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountAgreementGuestIdentityPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountAgreementHostIdentityOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountAgreementHostIdentityPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountCertificateKeyVaultKeyOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountCertificateKeyVaultKeyPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountPartnerBusinessIdentityOutput{})

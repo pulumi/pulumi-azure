@@ -131,6 +131,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly osDiskType!: pulumi.Output<string | undefined>;
     /**
+     * OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+     */
+    public readonly osSku!: pulumi.Output<string | undefined>;
+    /**
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
@@ -206,6 +210,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["orchestratorVersion"] = state ? state.orchestratorVersion : undefined;
             inputs["osDiskSizeGb"] = state ? state.osDiskSizeGb : undefined;
             inputs["osDiskType"] = state ? state.osDiskType : undefined;
+            inputs["osSku"] = state ? state.osSku : undefined;
             inputs["osType"] = state ? state.osType : undefined;
             inputs["podSubnetId"] = state ? state.podSubnetId : undefined;
             inputs["priority"] = state ? state.priority : undefined;
@@ -246,6 +251,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
             inputs["osDiskSizeGb"] = args ? args.osDiskSizeGb : undefined;
             inputs["osDiskType"] = args ? args.osDiskType : undefined;
+            inputs["osSku"] = args ? args.osSku : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["podSubnetId"] = args ? args.podSubnetId : undefined;
             inputs["priority"] = args ? args.priority : undefined;
@@ -356,6 +362,10 @@ export interface KubernetesClusterNodePoolState {
      * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
      */
     osDiskType?: pulumi.Input<string>;
+    /**
+     * OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+     */
+    osSku?: pulumi.Input<string>;
     /**
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
@@ -490,6 +500,10 @@ export interface KubernetesClusterNodePoolArgs {
      * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
      */
     osDiskType?: pulumi.Input<string>;
+    /**
+     * OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+     */
+    osSku?: pulumi.Input<string>;
     /**
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */

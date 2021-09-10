@@ -16,20 +16,14 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// The client id of the Azure VPN application.
         /// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
-        /// This setting is incompatible with the use of
-        /// `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
         /// </summary>
         public readonly string? AadAudience;
         /// <summary>
         /// The STS url for your tenant
-        /// This setting is incompatible with the use of
-        /// `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
         /// </summary>
         public readonly string? AadIssuer;
         /// <summary>
         /// AzureAD Tenant URL
-        /// This setting is incompatible with the use of
-        /// `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
         /// </summary>
         public readonly string? AadTenant;
         /// <summary>
@@ -40,31 +34,28 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly ImmutableArray<string> AddressSpaces;
         /// <summary>
         /// The address of the Radius server.
-        /// This setting is incompatible with the use of
-        /// `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         /// </summary>
         public readonly string? RadiusServerAddress;
         /// <summary>
         /// The secret used by the Radius server.
-        /// This setting is incompatible with the use of
-        /// `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         /// </summary>
         public readonly string? RadiusServerSecret;
         /// <summary>
         /// One or more `revoked_certificate` blocks which
         /// are defined below.
-        /// This setting is incompatible with the use of
-        /// `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> RevokedCertificates;
         /// <summary>
         /// One or more `root_certificate` blocks which are
         /// defined below. These root certificates are used to sign the client certificate
         /// used by the VPN clients to connect to the gateway.
-        /// This setting is incompatible with the use of
-        /// `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate> RootCertificates;
+        /// <summary>
+        /// List of the vpn authentication types for the virtual network gateway.
+        /// The supported values are `AAD`, `Radius` and `Certificate`.
+        /// </summary>
+        public readonly ImmutableArray<string> VpnAuthTypes;
         /// <summary>
         /// List of the protocols supported by the vpn client.
         /// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
@@ -91,6 +82,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates,
 
+            ImmutableArray<string> vpnAuthTypes,
+
             ImmutableArray<string> vpnClientProtocols)
         {
             AadAudience = aadAudience;
@@ -101,6 +94,7 @@ namespace Pulumi.Azure.Network.Outputs
             RadiusServerSecret = radiusServerSecret;
             RevokedCertificates = revokedCertificates;
             RootCertificates = rootCertificates;
+            VpnAuthTypes = vpnAuthTypes;
             VpnClientProtocols = vpnClientProtocols;
         }
     }

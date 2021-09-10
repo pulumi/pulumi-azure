@@ -54,6 +54,12 @@ namespace Pulumi.Azure.DataFactory
     public partial class IntegrationRuntimeRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+        /// </summary>
+        [Output("cleanupEnabled")]
+        public Output<bool> CleanupEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         /// </summary>
         [Output("computeType")]
@@ -154,6 +160,12 @@ namespace Pulumi.Azure.DataFactory
     public sealed class IntegrationRuntimeRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+        /// </summary>
+        [Input("cleanupEnabled")]
+        public Input<bool>? CleanupEnabled { get; set; }
+
+        /// <summary>
         /// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         /// </summary>
         [Input("computeType")]
@@ -214,6 +226,12 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class IntegrationRuntimeRuleState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+        /// </summary>
+        [Input("cleanupEnabled")]
+        public Input<bool>? CleanupEnabled { get; set; }
+
         /// <summary>
         /// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         /// </summary>

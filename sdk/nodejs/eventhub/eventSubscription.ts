@@ -88,6 +88,14 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly azureFunctionEndpoint!: pulumi.Output<outputs.eventhub.EventSubscriptionAzureFunctionEndpoint | undefined>;
     /**
+     * A `deadLetterIdentity` block as defined below.
+     */
+    public readonly deadLetterIdentity!: pulumi.Output<outputs.eventhub.EventSubscriptionDeadLetterIdentity | undefined>;
+    /**
+     * A `deliveryIdentity` block as defined below.
+     */
+    public readonly deliveryIdentity!: pulumi.Output<outputs.eventhub.EventSubscriptionDeliveryIdentity | undefined>;
+    /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
     public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
@@ -185,6 +193,8 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["advancedFilter"] = state ? state.advancedFilter : undefined;
             inputs["advancedFilteringOnArraysEnabled"] = state ? state.advancedFilteringOnArraysEnabled : undefined;
             inputs["azureFunctionEndpoint"] = state ? state.azureFunctionEndpoint : undefined;
+            inputs["deadLetterIdentity"] = state ? state.deadLetterIdentity : undefined;
+            inputs["deliveryIdentity"] = state ? state.deliveryIdentity : undefined;
             inputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
             inputs["eventhubEndpoint"] = state ? state.eventhubEndpoint : undefined;
             inputs["eventhubEndpointId"] = state ? state.eventhubEndpointId : undefined;
@@ -211,6 +221,8 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["advancedFilter"] = args ? args.advancedFilter : undefined;
             inputs["advancedFilteringOnArraysEnabled"] = args ? args.advancedFilteringOnArraysEnabled : undefined;
             inputs["azureFunctionEndpoint"] = args ? args.azureFunctionEndpoint : undefined;
+            inputs["deadLetterIdentity"] = args ? args.deadLetterIdentity : undefined;
+            inputs["deliveryIdentity"] = args ? args.deliveryIdentity : undefined;
             inputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
             inputs["eventhubEndpoint"] = args ? args.eventhubEndpoint : undefined;
             inputs["eventhubEndpointId"] = args ? args.eventhubEndpointId : undefined;
@@ -253,6 +265,14 @@ export interface EventSubscriptionState {
      * An `azureFunctionEndpoint` block as defined below.
      */
     azureFunctionEndpoint?: pulumi.Input<inputs.eventhub.EventSubscriptionAzureFunctionEndpoint>;
+    /**
+     * A `deadLetterIdentity` block as defined below.
+     */
+    deadLetterIdentity?: pulumi.Input<inputs.eventhub.EventSubscriptionDeadLetterIdentity>;
+    /**
+     * A `deliveryIdentity` block as defined below.
+     */
+    deliveryIdentity?: pulumi.Input<inputs.eventhub.EventSubscriptionDeliveryIdentity>;
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
@@ -349,6 +369,14 @@ export interface EventSubscriptionArgs {
      * An `azureFunctionEndpoint` block as defined below.
      */
     azureFunctionEndpoint?: pulumi.Input<inputs.eventhub.EventSubscriptionAzureFunctionEndpoint>;
+    /**
+     * A `deadLetterIdentity` block as defined below.
+     */
+    deadLetterIdentity?: pulumi.Input<inputs.eventhub.EventSubscriptionDeadLetterIdentity>;
+    /**
+     * A `deliveryIdentity` block as defined below.
+     */
+    deliveryIdentity?: pulumi.Input<inputs.eventhub.EventSubscriptionDeliveryIdentity>;
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */

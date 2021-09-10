@@ -103,7 +103,7 @@ export class AccessPolicy extends pulumi.CustomResource {
      */
     public readonly objectId!: pulumi.Output<string>;
     /**
-     * List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+     * List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
      */
     public readonly secretPermissions!: pulumi.Output<string[] | undefined>;
     /**
@@ -194,7 +194,7 @@ export interface AccessPolicyState {
      */
     objectId?: pulumi.Input<string>;
     /**
-     * List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+     * List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
      */
     secretPermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -238,7 +238,7 @@ export interface AccessPolicyArgs {
      */
     objectId: pulumi.Input<string>;
     /**
-     * List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+     * List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
      */
     secretPermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**

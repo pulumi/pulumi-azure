@@ -2195,6 +2195,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "dataprotection/backupInstanceBlogStorage",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage": "BackupInstanceBlogStorage"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "dataprotection/backupInstanceDisk",
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
@@ -3383,6 +3391,30 @@ _utilities.register(
   "fqn": "pulumi_azure.logicapps",
   "classes": {
    "azure:logicapps/integrationAccount:IntegrationAccount": "IntegrationAccount"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "logicapps/integrationAccountAgreement",
+  "fqn": "pulumi_azure.logicapps",
+  "classes": {
+   "azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement": "IntegrationAccountAgreement"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "logicapps/integrationAccountAssembly",
+  "fqn": "pulumi_azure.logicapps",
+  "classes": {
+   "azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly": "IntegrationAccountAssembly"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "logicapps/integrationAccountBatchConfiguration",
+  "fqn": "pulumi_azure.logicapps",
+  "classes": {
+   "azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration": "IntegrationAccountBatchConfiguration"
   }
  },
  {
@@ -5375,6 +5407,22 @@ _utilities.register(
   "fqn": "pulumi_azure.sql",
   "classes": {
    "azure:sql/firewallRule:FirewallRule": "FirewallRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sql/managedDatabase",
+  "fqn": "pulumi_azure.sql",
+  "classes": {
+   "azure:sql/managedDatabase:ManagedDatabase": "ManagedDatabase"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sql/managedInstance",
+  "fqn": "pulumi_azure.sql",
+  "classes": {
+   "azure:sql/managedInstance:ManagedInstance": "ManagedInstance"
   }
  },
  {
