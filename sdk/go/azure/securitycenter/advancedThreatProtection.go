@@ -206,7 +206,7 @@ type AdvancedThreatProtectionArrayInput interface {
 type AdvancedThreatProtectionArray []AdvancedThreatProtectionInput
 
 func (AdvancedThreatProtectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AdvancedThreatProtection)(nil))
+	return reflect.TypeOf((*[]*AdvancedThreatProtection)(nil)).Elem()
 }
 
 func (i AdvancedThreatProtectionArray) ToAdvancedThreatProtectionArrayOutput() AdvancedThreatProtectionArrayOutput {
@@ -231,7 +231,7 @@ type AdvancedThreatProtectionMapInput interface {
 type AdvancedThreatProtectionMap map[string]AdvancedThreatProtectionInput
 
 func (AdvancedThreatProtectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AdvancedThreatProtection)(nil))
+	return reflect.TypeOf((*map[string]*AdvancedThreatProtection)(nil)).Elem()
 }
 
 func (i AdvancedThreatProtectionMap) ToAdvancedThreatProtectionMapOutput() AdvancedThreatProtectionMapOutput {
@@ -242,9 +242,7 @@ func (i AdvancedThreatProtectionMap) ToAdvancedThreatProtectionMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionMapOutput)
 }
 
-type AdvancedThreatProtectionOutput struct {
-	*pulumi.OutputState
-}
+type AdvancedThreatProtectionOutput struct{ *pulumi.OutputState }
 
 func (AdvancedThreatProtectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdvancedThreatProtection)(nil))
@@ -263,14 +261,12 @@ func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionPtrOutput() Ad
 }
 
 func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) AdvancedThreatProtectionPtrOutput {
-	return o.ApplyT(func(v AdvancedThreatProtection) *AdvancedThreatProtection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdvancedThreatProtection) *AdvancedThreatProtection {
 		return &v
 	}).(AdvancedThreatProtectionPtrOutput)
 }
 
-type AdvancedThreatProtectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type AdvancedThreatProtectionPtrOutput struct{ *pulumi.OutputState }
 
 func (AdvancedThreatProtectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AdvancedThreatProtection)(nil))
@@ -282,6 +278,16 @@ func (o AdvancedThreatProtectionPtrOutput) ToAdvancedThreatProtectionPtrOutput()
 
 func (o AdvancedThreatProtectionPtrOutput) ToAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) AdvancedThreatProtectionPtrOutput {
 	return o
+}
+
+func (o AdvancedThreatProtectionPtrOutput) Elem() AdvancedThreatProtectionOutput {
+	return o.ApplyT(func(v *AdvancedThreatProtection) AdvancedThreatProtection {
+		if v != nil {
+			return *v
+		}
+		var ret AdvancedThreatProtection
+		return ret
+	}).(AdvancedThreatProtectionOutput)
 }
 
 type AdvancedThreatProtectionArrayOutput struct{ *pulumi.OutputState }

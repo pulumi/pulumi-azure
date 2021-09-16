@@ -501,7 +501,7 @@ func (o BackupVaultIdentityOutput) ToBackupVaultIdentityPtrOutput() BackupVaultI
 }
 
 func (o BackupVaultIdentityOutput) ToBackupVaultIdentityPtrOutputWithContext(ctx context.Context) BackupVaultIdentityPtrOutput {
-	return o.ApplyT(func(v BackupVaultIdentity) *BackupVaultIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupVaultIdentity) *BackupVaultIdentity {
 		return &v
 	}).(BackupVaultIdentityPtrOutput)
 }
@@ -536,7 +536,13 @@ func (o BackupVaultIdentityPtrOutput) ToBackupVaultIdentityPtrOutputWithContext(
 }
 
 func (o BackupVaultIdentityPtrOutput) Elem() BackupVaultIdentityOutput {
-	return o.ApplyT(func(v *BackupVaultIdentity) BackupVaultIdentity { return *v }).(BackupVaultIdentityOutput)
+	return o.ApplyT(func(v *BackupVaultIdentity) BackupVaultIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret BackupVaultIdentity
+		return ret
+	}).(BackupVaultIdentityOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this Backup Vault.

@@ -292,7 +292,7 @@ type LockArrayInput interface {
 type LockArray []LockInput
 
 func (LockArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Lock)(nil))
+	return reflect.TypeOf((*[]*Lock)(nil)).Elem()
 }
 
 func (i LockArray) ToLockArrayOutput() LockArrayOutput {
@@ -317,7 +317,7 @@ type LockMapInput interface {
 type LockMap map[string]LockInput
 
 func (LockMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Lock)(nil))
+	return reflect.TypeOf((*map[string]*Lock)(nil)).Elem()
 }
 
 func (i LockMap) ToLockMapOutput() LockMapOutput {
@@ -328,9 +328,7 @@ func (i LockMap) ToLockMapOutputWithContext(ctx context.Context) LockMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LockMapOutput)
 }
 
-type LockOutput struct {
-	*pulumi.OutputState
-}
+type LockOutput struct{ *pulumi.OutputState }
 
 func (LockOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Lock)(nil))
@@ -349,14 +347,12 @@ func (o LockOutput) ToLockPtrOutput() LockPtrOutput {
 }
 
 func (o LockOutput) ToLockPtrOutputWithContext(ctx context.Context) LockPtrOutput {
-	return o.ApplyT(func(v Lock) *Lock {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Lock) *Lock {
 		return &v
 	}).(LockPtrOutput)
 }
 
-type LockPtrOutput struct {
-	*pulumi.OutputState
-}
+type LockPtrOutput struct{ *pulumi.OutputState }
 
 func (LockPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Lock)(nil))
@@ -368,6 +364,16 @@ func (o LockPtrOutput) ToLockPtrOutput() LockPtrOutput {
 
 func (o LockPtrOutput) ToLockPtrOutputWithContext(ctx context.Context) LockPtrOutput {
 	return o
+}
+
+func (o LockPtrOutput) Elem() LockOutput {
+	return o.ApplyT(func(v *Lock) Lock {
+		if v != nil {
+			return *v
+		}
+		var ret Lock
+		return ret
+	}).(LockOutput)
 }
 
 type LockArrayOutput struct{ *pulumi.OutputState }

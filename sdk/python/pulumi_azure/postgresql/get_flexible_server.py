@@ -12,6 +12,7 @@ __all__ = [
     'GetFlexibleServerResult',
     'AwaitableGetFlexibleServerResult',
     'get_flexible_server',
+    'get_flexible_server_output',
 ]
 
 @pulumi.output_type
@@ -241,3 +242,28 @@ def get_flexible_server(name: Optional[str] = None,
         storage_mb=__ret__.storage_mb,
         tags=__ret__.tags,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_flexible_server)
+def get_flexible_server_output(name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlexibleServerResult]:
+    """
+    Use this data source to access information about an existing PostgreSQL Flexible Server.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.postgresql.get_flexible_server(name="existing-postgresql-fs",
+        resource_group_name="existing-postgresql-resgroup")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this PostgreSQL Flexible Server.
+    :param str resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server exists.
+    """
+    ...

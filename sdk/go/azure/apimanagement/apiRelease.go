@@ -226,7 +226,7 @@ type ApiReleaseArrayInput interface {
 type ApiReleaseArray []ApiReleaseInput
 
 func (ApiReleaseArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiRelease)(nil))
+	return reflect.TypeOf((*[]*ApiRelease)(nil)).Elem()
 }
 
 func (i ApiReleaseArray) ToApiReleaseArrayOutput() ApiReleaseArrayOutput {
@@ -251,7 +251,7 @@ type ApiReleaseMapInput interface {
 type ApiReleaseMap map[string]ApiReleaseInput
 
 func (ApiReleaseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiRelease)(nil))
+	return reflect.TypeOf((*map[string]*ApiRelease)(nil)).Elem()
 }
 
 func (i ApiReleaseMap) ToApiReleaseMapOutput() ApiReleaseMapOutput {
@@ -262,9 +262,7 @@ func (i ApiReleaseMap) ToApiReleaseMapOutputWithContext(ctx context.Context) Api
 	return pulumi.ToOutputWithContext(ctx, i).(ApiReleaseMapOutput)
 }
 
-type ApiReleaseOutput struct {
-	*pulumi.OutputState
-}
+type ApiReleaseOutput struct{ *pulumi.OutputState }
 
 func (ApiReleaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiRelease)(nil))
@@ -283,14 +281,12 @@ func (o ApiReleaseOutput) ToApiReleasePtrOutput() ApiReleasePtrOutput {
 }
 
 func (o ApiReleaseOutput) ToApiReleasePtrOutputWithContext(ctx context.Context) ApiReleasePtrOutput {
-	return o.ApplyT(func(v ApiRelease) *ApiRelease {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiRelease) *ApiRelease {
 		return &v
 	}).(ApiReleasePtrOutput)
 }
 
-type ApiReleasePtrOutput struct {
-	*pulumi.OutputState
-}
+type ApiReleasePtrOutput struct{ *pulumi.OutputState }
 
 func (ApiReleasePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiRelease)(nil))
@@ -302,6 +298,16 @@ func (o ApiReleasePtrOutput) ToApiReleasePtrOutput() ApiReleasePtrOutput {
 
 func (o ApiReleasePtrOutput) ToApiReleasePtrOutputWithContext(ctx context.Context) ApiReleasePtrOutput {
 	return o
+}
+
+func (o ApiReleasePtrOutput) Elem() ApiReleaseOutput {
+	return o.ApplyT(func(v *ApiRelease) ApiRelease {
+		if v != nil {
+			return *v
+		}
+		var ret ApiRelease
+		return ret
+	}).(ApiReleaseOutput)
 }
 
 type ApiReleaseArrayOutput struct{ *pulumi.OutputState }

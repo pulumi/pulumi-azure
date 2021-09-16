@@ -12,6 +12,7 @@ __all__ = [
     'GetInstanceResult',
     'AwaitableGetInstanceResult',
     'get_instance',
+    'get_instance_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,28 @@ def get_instance(name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_instance)
+def get_instance_output(name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
+    """
+    Use this data source to access information about an existing Digital Twins instance.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.digitaltwins.get_instance(name="existing-digital-twins",
+        resource_group_name="existing-resgroup")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this Digital Twins instance.
+    :param str resource_group_name: The name of the Resource Group where the Digital Twins instance exists.
+    """
+    ...

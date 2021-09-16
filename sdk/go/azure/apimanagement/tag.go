@@ -209,7 +209,7 @@ type TagArrayInput interface {
 type TagArray []TagInput
 
 func (TagArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Tag)(nil))
+	return reflect.TypeOf((*[]*Tag)(nil)).Elem()
 }
 
 func (i TagArray) ToTagArrayOutput() TagArrayOutput {
@@ -234,7 +234,7 @@ type TagMapInput interface {
 type TagMap map[string]TagInput
 
 func (TagMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Tag)(nil))
+	return reflect.TypeOf((*map[string]*Tag)(nil)).Elem()
 }
 
 func (i TagMap) ToTagMapOutput() TagMapOutput {
@@ -245,9 +245,7 @@ func (i TagMap) ToTagMapOutputWithContext(ctx context.Context) TagMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagMapOutput)
 }
 
-type TagOutput struct {
-	*pulumi.OutputState
-}
+type TagOutput struct{ *pulumi.OutputState }
 
 func (TagOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Tag)(nil))
@@ -266,14 +264,12 @@ func (o TagOutput) ToTagPtrOutput() TagPtrOutput {
 }
 
 func (o TagOutput) ToTagPtrOutputWithContext(ctx context.Context) TagPtrOutput {
-	return o.ApplyT(func(v Tag) *Tag {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Tag) *Tag {
 		return &v
 	}).(TagPtrOutput)
 }
 
-type TagPtrOutput struct {
-	*pulumi.OutputState
-}
+type TagPtrOutput struct{ *pulumi.OutputState }
 
 func (TagPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Tag)(nil))
@@ -285,6 +281,16 @@ func (o TagPtrOutput) ToTagPtrOutput() TagPtrOutput {
 
 func (o TagPtrOutput) ToTagPtrOutputWithContext(ctx context.Context) TagPtrOutput {
 	return o
+}
+
+func (o TagPtrOutput) Elem() TagOutput {
+	return o.ApplyT(func(v *Tag) Tag {
+		if v != nil {
+			return *v
+		}
+		var ret Tag
+		return ret
+	}).(TagOutput)
 }
 
 type TagArrayOutput struct{ *pulumi.OutputState }

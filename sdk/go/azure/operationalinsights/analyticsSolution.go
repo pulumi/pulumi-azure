@@ -277,7 +277,7 @@ type AnalyticsSolutionArrayInput interface {
 type AnalyticsSolutionArray []AnalyticsSolutionInput
 
 func (AnalyticsSolutionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AnalyticsSolution)(nil))
+	return reflect.TypeOf((*[]*AnalyticsSolution)(nil)).Elem()
 }
 
 func (i AnalyticsSolutionArray) ToAnalyticsSolutionArrayOutput() AnalyticsSolutionArrayOutput {
@@ -302,7 +302,7 @@ type AnalyticsSolutionMapInput interface {
 type AnalyticsSolutionMap map[string]AnalyticsSolutionInput
 
 func (AnalyticsSolutionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AnalyticsSolution)(nil))
+	return reflect.TypeOf((*map[string]*AnalyticsSolution)(nil)).Elem()
 }
 
 func (i AnalyticsSolutionMap) ToAnalyticsSolutionMapOutput() AnalyticsSolutionMapOutput {
@@ -313,9 +313,7 @@ func (i AnalyticsSolutionMap) ToAnalyticsSolutionMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionMapOutput)
 }
 
-type AnalyticsSolutionOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsSolutionOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AnalyticsSolution)(nil))
@@ -334,14 +332,12 @@ func (o AnalyticsSolutionOutput) ToAnalyticsSolutionPtrOutput() AnalyticsSolutio
 }
 
 func (o AnalyticsSolutionOutput) ToAnalyticsSolutionPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPtrOutput {
-	return o.ApplyT(func(v AnalyticsSolution) *AnalyticsSolution {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsSolution) *AnalyticsSolution {
 		return &v
 	}).(AnalyticsSolutionPtrOutput)
 }
 
-type AnalyticsSolutionPtrOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsSolutionPtrOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AnalyticsSolution)(nil))
@@ -353,6 +349,16 @@ func (o AnalyticsSolutionPtrOutput) ToAnalyticsSolutionPtrOutput() AnalyticsSolu
 
 func (o AnalyticsSolutionPtrOutput) ToAnalyticsSolutionPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPtrOutput {
 	return o
+}
+
+func (o AnalyticsSolutionPtrOutput) Elem() AnalyticsSolutionOutput {
+	return o.ApplyT(func(v *AnalyticsSolution) AnalyticsSolution {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsSolution
+		return ret
+	}).(AnalyticsSolutionOutput)
 }
 
 type AnalyticsSolutionArrayOutput struct{ *pulumi.OutputState }

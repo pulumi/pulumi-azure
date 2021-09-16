@@ -242,7 +242,7 @@ type JobCredentialArrayInput interface {
 type JobCredentialArray []JobCredentialInput
 
 func (JobCredentialArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*JobCredential)(nil))
+	return reflect.TypeOf((*[]*JobCredential)(nil)).Elem()
 }
 
 func (i JobCredentialArray) ToJobCredentialArrayOutput() JobCredentialArrayOutput {
@@ -267,7 +267,7 @@ type JobCredentialMapInput interface {
 type JobCredentialMap map[string]JobCredentialInput
 
 func (JobCredentialMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*JobCredential)(nil))
+	return reflect.TypeOf((*map[string]*JobCredential)(nil)).Elem()
 }
 
 func (i JobCredentialMap) ToJobCredentialMapOutput() JobCredentialMapOutput {
@@ -278,9 +278,7 @@ func (i JobCredentialMap) ToJobCredentialMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(JobCredentialMapOutput)
 }
 
-type JobCredentialOutput struct {
-	*pulumi.OutputState
-}
+type JobCredentialOutput struct{ *pulumi.OutputState }
 
 func (JobCredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobCredential)(nil))
@@ -299,14 +297,12 @@ func (o JobCredentialOutput) ToJobCredentialPtrOutput() JobCredentialPtrOutput {
 }
 
 func (o JobCredentialOutput) ToJobCredentialPtrOutputWithContext(ctx context.Context) JobCredentialPtrOutput {
-	return o.ApplyT(func(v JobCredential) *JobCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobCredential) *JobCredential {
 		return &v
 	}).(JobCredentialPtrOutput)
 }
 
-type JobCredentialPtrOutput struct {
-	*pulumi.OutputState
-}
+type JobCredentialPtrOutput struct{ *pulumi.OutputState }
 
 func (JobCredentialPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**JobCredential)(nil))
@@ -318,6 +314,16 @@ func (o JobCredentialPtrOutput) ToJobCredentialPtrOutput() JobCredentialPtrOutpu
 
 func (o JobCredentialPtrOutput) ToJobCredentialPtrOutputWithContext(ctx context.Context) JobCredentialPtrOutput {
 	return o
+}
+
+func (o JobCredentialPtrOutput) Elem() JobCredentialOutput {
+	return o.ApplyT(func(v *JobCredential) JobCredential {
+		if v != nil {
+			return *v
+		}
+		var ret JobCredential
+		return ret
+	}).(JobCredentialOutput)
 }
 
 type JobCredentialArrayOutput struct{ *pulumi.OutputState }

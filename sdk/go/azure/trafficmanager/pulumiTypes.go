@@ -328,7 +328,7 @@ func (o ProfileDnsConfigOutput) ToProfileDnsConfigPtrOutput() ProfileDnsConfigPt
 }
 
 func (o ProfileDnsConfigOutput) ToProfileDnsConfigPtrOutputWithContext(ctx context.Context) ProfileDnsConfigPtrOutput {
-	return o.ApplyT(func(v ProfileDnsConfig) *ProfileDnsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileDnsConfig) *ProfileDnsConfig {
 		return &v
 	}).(ProfileDnsConfigPtrOutput)
 }
@@ -358,7 +358,13 @@ func (o ProfileDnsConfigPtrOutput) ToProfileDnsConfigPtrOutputWithContext(ctx co
 }
 
 func (o ProfileDnsConfigPtrOutput) Elem() ProfileDnsConfigOutput {
-	return o.ApplyT(func(v *ProfileDnsConfig) ProfileDnsConfig { return *v }).(ProfileDnsConfigOutput)
+	return o.ApplyT(func(v *ProfileDnsConfig) ProfileDnsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProfileDnsConfig
+		return ret
+	}).(ProfileDnsConfigOutput)
 }
 
 // The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
@@ -502,7 +508,7 @@ func (o ProfileMonitorConfigOutput) ToProfileMonitorConfigPtrOutput() ProfileMon
 }
 
 func (o ProfileMonitorConfigOutput) ToProfileMonitorConfigPtrOutputWithContext(ctx context.Context) ProfileMonitorConfigPtrOutput {
-	return o.ApplyT(func(v ProfileMonitorConfig) *ProfileMonitorConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileMonitorConfig) *ProfileMonitorConfig {
 		return &v
 	}).(ProfileMonitorConfigPtrOutput)
 }
@@ -562,7 +568,13 @@ func (o ProfileMonitorConfigPtrOutput) ToProfileMonitorConfigPtrOutputWithContex
 }
 
 func (o ProfileMonitorConfigPtrOutput) Elem() ProfileMonitorConfigOutput {
-	return o.ApplyT(func(v *ProfileMonitorConfig) ProfileMonitorConfig { return *v }).(ProfileMonitorConfigOutput)
+	return o.ApplyT(func(v *ProfileMonitorConfig) ProfileMonitorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProfileMonitorConfig
+		return ret
+	}).(ProfileMonitorConfigOutput)
 }
 
 // One or more `customHeader` blocks as defined below.

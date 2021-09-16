@@ -4,6 +4,9 @@
 package advisor
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,4 +66,62 @@ type GetRecommendationsResult struct {
 	Id string `pulumi:"id"`
 	// One or more `recommendations` blocks as defined below.
 	Recommendations []GetRecommendationsRecommendation `pulumi:"recommendations"`
+}
+
+func GetRecommendationsOutput(ctx *pulumi.Context, args GetRecommendationsOutputArgs, opts ...pulumi.InvokeOption) GetRecommendationsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetRecommendationsResult, error) {
+			args := v.(GetRecommendationsArgs)
+			r, err := GetRecommendations(ctx, &args, opts...)
+			return *r, err
+		}).(GetRecommendationsResultOutput)
+}
+
+// A collection of arguments for invoking getRecommendations.
+type GetRecommendationsOutputArgs struct {
+	// Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
+	FilterByCategories pulumi.StringArrayInput `pulumi:"filterByCategories"`
+	// Specifies a list of resource groups about which the Advisor Recommendations will be listed.
+	FilterByResourceGroups pulumi.StringArrayInput `pulumi:"filterByResourceGroups"`
+}
+
+func (GetRecommendationsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecommendationsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRecommendations.
+type GetRecommendationsResultOutput struct{ *pulumi.OutputState }
+
+func (GetRecommendationsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecommendationsResult)(nil)).Elem()
+}
+
+func (o GetRecommendationsResultOutput) ToGetRecommendationsResultOutput() GetRecommendationsResultOutput {
+	return o
+}
+
+func (o GetRecommendationsResultOutput) ToGetRecommendationsResultOutputWithContext(ctx context.Context) GetRecommendationsResultOutput {
+	return o
+}
+
+func (o GetRecommendationsResultOutput) FilterByCategories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRecommendationsResult) []string { return v.FilterByCategories }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRecommendationsResultOutput) FilterByResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRecommendationsResult) []string { return v.FilterByResourceGroups }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetRecommendationsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecommendationsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// One or more `recommendations` blocks as defined below.
+func (o GetRecommendationsResultOutput) Recommendations() GetRecommendationsRecommendationArrayOutput {
+	return o.ApplyT(func(v GetRecommendationsResult) []GetRecommendationsRecommendation { return v.Recommendations }).(GetRecommendationsRecommendationArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetRecommendationsResultOutput{})
 }

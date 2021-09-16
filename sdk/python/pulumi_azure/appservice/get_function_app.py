@@ -13,6 +13,7 @@ __all__ = [
     'GetFunctionAppResult',
     'AwaitableGetFunctionAppResult',
     'get_function_app',
+    'get_function_app_output',
 ]
 
 @pulumi.output_type
@@ -298,3 +299,28 @@ def get_function_app(name: Optional[str] = None,
         site_credentials=__ret__.site_credentials,
         source_controls=__ret__.source_controls,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_function_app)
+def get_function_app_output(name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionAppResult]:
+    """
+    Use this data source to access information about a Function App.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_function_app(name="test-azure-functions",
+        resource_group_name=azurerm_resource_group["example"]["name"])
+    ```
+
+
+    :param str name: The name of the Function App resource.
+    :param str resource_group_name: The name of the Resource Group where the Function App exists.
+    """
+    ...

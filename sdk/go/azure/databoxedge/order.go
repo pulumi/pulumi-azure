@@ -280,7 +280,7 @@ type OrderArrayInput interface {
 type OrderArray []OrderInput
 
 func (OrderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Order)(nil))
+	return reflect.TypeOf((*[]*Order)(nil)).Elem()
 }
 
 func (i OrderArray) ToOrderArrayOutput() OrderArrayOutput {
@@ -305,7 +305,7 @@ type OrderMapInput interface {
 type OrderMap map[string]OrderInput
 
 func (OrderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Order)(nil))
+	return reflect.TypeOf((*map[string]*Order)(nil)).Elem()
 }
 
 func (i OrderMap) ToOrderMapOutput() OrderMapOutput {
@@ -316,9 +316,7 @@ func (i OrderMap) ToOrderMapOutputWithContext(ctx context.Context) OrderMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(OrderMapOutput)
 }
 
-type OrderOutput struct {
-	*pulumi.OutputState
-}
+type OrderOutput struct{ *pulumi.OutputState }
 
 func (OrderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Order)(nil))
@@ -337,14 +335,12 @@ func (o OrderOutput) ToOrderPtrOutput() OrderPtrOutput {
 }
 
 func (o OrderOutput) ToOrderPtrOutputWithContext(ctx context.Context) OrderPtrOutput {
-	return o.ApplyT(func(v Order) *Order {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Order) *Order {
 		return &v
 	}).(OrderPtrOutput)
 }
 
-type OrderPtrOutput struct {
-	*pulumi.OutputState
-}
+type OrderPtrOutput struct{ *pulumi.OutputState }
 
 func (OrderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Order)(nil))
@@ -356,6 +352,16 @@ func (o OrderPtrOutput) ToOrderPtrOutput() OrderPtrOutput {
 
 func (o OrderPtrOutput) ToOrderPtrOutputWithContext(ctx context.Context) OrderPtrOutput {
 	return o
+}
+
+func (o OrderPtrOutput) Elem() OrderOutput {
+	return o.ApplyT(func(v *Order) Order {
+		if v != nil {
+			return *v
+		}
+		var ret Order
+		return ret
+	}).(OrderOutput)
 }
 
 type OrderArrayOutput struct{ *pulumi.OutputState }

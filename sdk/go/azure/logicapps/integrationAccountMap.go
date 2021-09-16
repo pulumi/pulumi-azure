@@ -208,7 +208,7 @@ type IntegrationAccountMapArrayInput interface {
 type IntegrationAccountMapArray []IntegrationAccountMapInput
 
 func (IntegrationAccountMapArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntegrationAccountMap)(nil))
+	return reflect.TypeOf((*[]*IntegrationAccountMap)(nil)).Elem()
 }
 
 func (i IntegrationAccountMapArray) ToIntegrationAccountMapArrayOutput() IntegrationAccountMapArrayOutput {
@@ -233,7 +233,7 @@ type IntegrationAccountMapMapInput interface {
 type IntegrationAccountMapMap map[string]IntegrationAccountMapInput
 
 func (IntegrationAccountMapMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntegrationAccountMap)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationAccountMap)(nil)).Elem()
 }
 
 func (i IntegrationAccountMapMap) ToIntegrationAccountMapMapOutput() IntegrationAccountMapMapOutput {
@@ -244,9 +244,7 @@ func (i IntegrationAccountMapMap) ToIntegrationAccountMapMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapMapOutput)
 }
 
-type IntegrationAccountMapOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountMap)(nil))
@@ -265,14 +263,12 @@ func (o IntegrationAccountMapOutput) ToIntegrationAccountMapPtrOutput() Integrat
 }
 
 func (o IntegrationAccountMapOutput) ToIntegrationAccountMapPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountMap) *IntegrationAccountMap {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountMap) *IntegrationAccountMap {
 		return &v
 	}).(IntegrationAccountMapPtrOutput)
 }
 
-type IntegrationAccountMapPtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountMapPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationAccountMap)(nil))
@@ -284,6 +280,16 @@ func (o IntegrationAccountMapPtrOutput) ToIntegrationAccountMapPtrOutput() Integ
 
 func (o IntegrationAccountMapPtrOutput) ToIntegrationAccountMapPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPtrOutput {
 	return o
+}
+
+func (o IntegrationAccountMapPtrOutput) Elem() IntegrationAccountMapOutput {
+	return o.ApplyT(func(v *IntegrationAccountMap) IntegrationAccountMap {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountMap
+		return ret
+	}).(IntegrationAccountMapOutput)
 }
 
 type IntegrationAccountMapArrayOutput struct{ *pulumi.OutputState }

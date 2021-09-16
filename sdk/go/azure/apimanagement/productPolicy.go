@@ -231,7 +231,7 @@ type ProductPolicyArrayInput interface {
 type ProductPolicyArray []ProductPolicyInput
 
 func (ProductPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProductPolicy)(nil))
+	return reflect.TypeOf((*[]*ProductPolicy)(nil)).Elem()
 }
 
 func (i ProductPolicyArray) ToProductPolicyArrayOutput() ProductPolicyArrayOutput {
@@ -256,7 +256,7 @@ type ProductPolicyMapInput interface {
 type ProductPolicyMap map[string]ProductPolicyInput
 
 func (ProductPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProductPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ProductPolicy)(nil)).Elem()
 }
 
 func (i ProductPolicyMap) ToProductPolicyMapOutput() ProductPolicyMapOutput {
@@ -267,9 +267,7 @@ func (i ProductPolicyMap) ToProductPolicyMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProductPolicyMapOutput)
 }
 
-type ProductPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ProductPolicyOutput struct{ *pulumi.OutputState }
 
 func (ProductPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProductPolicy)(nil))
@@ -288,14 +286,12 @@ func (o ProductPolicyOutput) ToProductPolicyPtrOutput() ProductPolicyPtrOutput {
 }
 
 func (o ProductPolicyOutput) ToProductPolicyPtrOutputWithContext(ctx context.Context) ProductPolicyPtrOutput {
-	return o.ApplyT(func(v ProductPolicy) *ProductPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductPolicy) *ProductPolicy {
 		return &v
 	}).(ProductPolicyPtrOutput)
 }
 
-type ProductPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProductPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ProductPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProductPolicy)(nil))
@@ -307,6 +303,16 @@ func (o ProductPolicyPtrOutput) ToProductPolicyPtrOutput() ProductPolicyPtrOutpu
 
 func (o ProductPolicyPtrOutput) ToProductPolicyPtrOutputWithContext(ctx context.Context) ProductPolicyPtrOutput {
 	return o
+}
+
+func (o ProductPolicyPtrOutput) Elem() ProductPolicyOutput {
+	return o.ApplyT(func(v *ProductPolicy) ProductPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ProductPolicy
+		return ret
+	}).(ProductPolicyOutput)
 }
 
 type ProductPolicyArrayOutput struct{ *pulumi.OutputState }

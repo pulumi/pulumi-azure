@@ -599,7 +599,7 @@ func (o ZoneSoaRecordOutput) ToZoneSoaRecordPtrOutput() ZoneSoaRecordPtrOutput {
 }
 
 func (o ZoneSoaRecordOutput) ToZoneSoaRecordPtrOutputWithContext(ctx context.Context) ZoneSoaRecordPtrOutput {
-	return o.ApplyT(func(v ZoneSoaRecord) *ZoneSoaRecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ZoneSoaRecord) *ZoneSoaRecord {
 		return &v
 	}).(ZoneSoaRecordPtrOutput)
 }
@@ -669,7 +669,13 @@ func (o ZoneSoaRecordPtrOutput) ToZoneSoaRecordPtrOutputWithContext(ctx context.
 }
 
 func (o ZoneSoaRecordPtrOutput) Elem() ZoneSoaRecordOutput {
-	return o.ApplyT(func(v *ZoneSoaRecord) ZoneSoaRecord { return *v }).(ZoneSoaRecordOutput)
+	return o.ApplyT(func(v *ZoneSoaRecord) ZoneSoaRecord {
+		if v != nil {
+			return *v
+		}
+		var ret ZoneSoaRecord
+		return ret
+	}).(ZoneSoaRecordOutput)
 }
 
 // The email contact for the SOA record.

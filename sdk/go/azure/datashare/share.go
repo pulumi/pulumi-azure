@@ -250,7 +250,7 @@ type ShareArrayInput interface {
 type ShareArray []ShareInput
 
 func (ShareArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Share)(nil))
+	return reflect.TypeOf((*[]*Share)(nil)).Elem()
 }
 
 func (i ShareArray) ToShareArrayOutput() ShareArrayOutput {
@@ -275,7 +275,7 @@ type ShareMapInput interface {
 type ShareMap map[string]ShareInput
 
 func (ShareMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Share)(nil))
+	return reflect.TypeOf((*map[string]*Share)(nil)).Elem()
 }
 
 func (i ShareMap) ToShareMapOutput() ShareMapOutput {
@@ -286,9 +286,7 @@ func (i ShareMap) ToShareMapOutputWithContext(ctx context.Context) ShareMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ShareMapOutput)
 }
 
-type ShareOutput struct {
-	*pulumi.OutputState
-}
+type ShareOutput struct{ *pulumi.OutputState }
 
 func (ShareOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Share)(nil))
@@ -307,14 +305,12 @@ func (o ShareOutput) ToSharePtrOutput() SharePtrOutput {
 }
 
 func (o ShareOutput) ToSharePtrOutputWithContext(ctx context.Context) SharePtrOutput {
-	return o.ApplyT(func(v Share) *Share {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Share) *Share {
 		return &v
 	}).(SharePtrOutput)
 }
 
-type SharePtrOutput struct {
-	*pulumi.OutputState
-}
+type SharePtrOutput struct{ *pulumi.OutputState }
 
 func (SharePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Share)(nil))
@@ -326,6 +322,16 @@ func (o SharePtrOutput) ToSharePtrOutput() SharePtrOutput {
 
 func (o SharePtrOutput) ToSharePtrOutputWithContext(ctx context.Context) SharePtrOutput {
 	return o
+}
+
+func (o SharePtrOutput) Elem() ShareOutput {
+	return o.ApplyT(func(v *Share) Share {
+		if v != nil {
+			return *v
+		}
+		var ret Share
+		return ret
+	}).(ShareOutput)
 }
 
 type ShareArrayOutput struct{ *pulumi.OutputState }

@@ -4,6 +4,9 @@
 package policy
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,4 +75,93 @@ type LookupVirtualMachineConfigurationAssignmentResult struct {
 	Name               string `pulumi:"name"`
 	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	VirtualMachineName string `pulumi:"virtualMachineName"`
+}
+
+func LookupVirtualMachineConfigurationAssignmentOutput(ctx *pulumi.Context, args LookupVirtualMachineConfigurationAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineConfigurationAssignmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualMachineConfigurationAssignmentResult, error) {
+			args := v.(LookupVirtualMachineConfigurationAssignmentArgs)
+			r, err := LookupVirtualMachineConfigurationAssignment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualMachineConfigurationAssignmentResultOutput)
+}
+
+// A collection of arguments for invoking getVirtualMachineConfigurationAssignment.
+type LookupVirtualMachineConfigurationAssignmentOutputArgs struct {
+	// Specifies the name of the Guest Configuration Assignment.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the Name of the Resource Group where the Guest Configuration Assignment exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Only retrieve Policy Set Definitions from this Management Group.
+	VirtualMachineName pulumi.StringInput `pulumi:"virtualMachineName"`
+}
+
+func (LookupVirtualMachineConfigurationAssignmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineConfigurationAssignmentArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVirtualMachineConfigurationAssignment.
+type LookupVirtualMachineConfigurationAssignmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualMachineConfigurationAssignmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineConfigurationAssignmentResult)(nil)).Elem()
+}
+
+func (o LookupVirtualMachineConfigurationAssignmentResultOutput) ToLookupVirtualMachineConfigurationAssignmentResultOutput() LookupVirtualMachineConfigurationAssignmentResultOutput {
+	return o
+}
+
+func (o LookupVirtualMachineConfigurationAssignmentResultOutput) ToLookupVirtualMachineConfigurationAssignmentResultOutputWithContext(ctx context.Context) LookupVirtualMachineConfigurationAssignmentResultOutput {
+	return o
+}
+
+// Combined hash of the configuration package and parameters.
+func (o LookupVirtualMachineConfigurationAssignmentResultOutput) AssignmentHash() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineConfigurationAssignmentResult) string { return v.AssignmentHash }).(pulumi.StringOutput)
+}
+
+// A value indicating compliance status of the machine for the assigned guest configuration. Possible return values are `Compliant`, `NonCompliant` and `Pending`.
+func (o LookupVirtualMachineConfigurationAssignmentResultOutput) ComplianceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineConfigurationAssignmentResult) string { return v.ComplianceStatus }).(pulumi.StringOutput)
+}
+
+// The content hash for the Guest Configuration package.
+func (o LookupVirtualMachineConfigurationAssignmentResultOutput) ContentHash() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineConfigurationAssignmentResult) string { return v.ContentHash }).(pulumi.StringOutput)
+}
+
+// The content URI where the Guest Configuration package is stored.
+func (o LookupVirtualMachineConfigurationAssignmentResultOutput) ContentUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineConfigurationAssignmentResult) string { return v.ContentUri }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupVirtualMachineConfigurationAssignmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineConfigurationAssignmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Date and time, in RFC3339 format, when the machines compliance status was last checked.
+func (o LookupVirtualMachineConfigurationAssignmentResultOutput) LastComplianceStatusChecked() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineConfigurationAssignmentResult) string { return v.LastComplianceStatusChecked }).(pulumi.StringOutput)
+}
+
+// The ID of the latest report for the guest configuration assignment.
+func (o LookupVirtualMachineConfigurationAssignmentResultOutput) LatestReportId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineConfigurationAssignmentResult) string { return v.LatestReportId }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualMachineConfigurationAssignmentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineConfigurationAssignmentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualMachineConfigurationAssignmentResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineConfigurationAssignmentResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualMachineConfigurationAssignmentResultOutput) VirtualMachineName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineConfigurationAssignmentResult) string { return v.VirtualMachineName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualMachineConfigurationAssignmentResultOutput{})
 }

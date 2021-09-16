@@ -12,6 +12,7 @@ __all__ = [
     'GetAccountResult',
     'AwaitableGetAccountResult',
     'get_account',
+    'get_account_output',
 ]
 
 @pulumi.output_type
@@ -107,3 +108,28 @@ def get_account(name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name)
+
+
+@_utilities.lift_output_func(get_account)
+def get_account_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+    """
+    Uses this data source to access information about an existing NetApp Account.
+
+    ## NetApp Account Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.netapp.get_account(resource_group_name="acctestRG",
+        name="acctestnetappaccount")
+    pulumi.export("netappAccountId", example.id)
+    ```
+
+
+    :param str name: The name of the NetApp Account.
+    :param str resource_group_name: The Name of the Resource Group where the NetApp Account exists.
+    """
+    ...

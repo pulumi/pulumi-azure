@@ -4,6 +4,9 @@
 package datashare
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,4 +75,78 @@ type LookupShareResult struct {
 	SnapshotSchedules []GetShareSnapshotSchedule `pulumi:"snapshotSchedules"`
 	// The terms of the Data Share.
 	Terms string `pulumi:"terms"`
+}
+
+func LookupShareOutput(ctx *pulumi.Context, args LookupShareOutputArgs, opts ...pulumi.InvokeOption) LookupShareResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupShareResult, error) {
+			args := v.(LookupShareArgs)
+			r, err := LookupShare(ctx, &args, opts...)
+			return *r, err
+		}).(LookupShareResultOutput)
+}
+
+// A collection of arguments for invoking getShare.
+type LookupShareOutputArgs struct {
+	// The ID of the Data Share account in which the Data Share is created.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// The name of this Data Share.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupShareOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupShareArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getShare.
+type LookupShareResultOutput struct{ *pulumi.OutputState }
+
+func (LookupShareResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupShareResult)(nil)).Elem()
+}
+
+func (o LookupShareResultOutput) ToLookupShareResultOutput() LookupShareResultOutput {
+	return o
+}
+
+func (o LookupShareResultOutput) ToLookupShareResultOutputWithContext(ctx context.Context) LookupShareResultOutput {
+	return o
+}
+
+func (o LookupShareResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The description of the Data Share.
+func (o LookupShareResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupShareResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The kind of the Data Share.
+func (o LookupShareResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the snapshot schedule.
+func (o LookupShareResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `snapshotSchedule` block as defined below.
+func (o LookupShareResultOutput) SnapshotSchedules() GetShareSnapshotScheduleArrayOutput {
+	return o.ApplyT(func(v LookupShareResult) []GetShareSnapshotSchedule { return v.SnapshotSchedules }).(GetShareSnapshotScheduleArrayOutput)
+}
+
+// The terms of the Data Share.
+func (o LookupShareResultOutput) Terms() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.Terms }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupShareResultOutput{})
 }

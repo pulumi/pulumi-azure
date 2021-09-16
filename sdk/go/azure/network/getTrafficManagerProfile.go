@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,4 +78,99 @@ type LookupTrafficManagerProfileResult struct {
 	TrafficRoutingMethod string `pulumi:"trafficRoutingMethod"`
 	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
 	TrafficViewEnabled *bool `pulumi:"trafficViewEnabled"`
+}
+
+func LookupTrafficManagerProfileOutput(ctx *pulumi.Context, args LookupTrafficManagerProfileOutputArgs, opts ...pulumi.InvokeOption) LookupTrafficManagerProfileResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTrafficManagerProfileResult, error) {
+			args := v.(LookupTrafficManagerProfileArgs)
+			r, err := LookupTrafficManagerProfile(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTrafficManagerProfileResultOutput)
+}
+
+// A collection of arguments for invoking getTrafficManagerProfile.
+type LookupTrafficManagerProfileOutputArgs struct {
+	// Specifies the name of the Traffic Manager Profile.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group the Traffic Manager Profile is located in.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled pulumi.BoolPtrInput `pulumi:"trafficViewEnabled"`
+}
+
+func (LookupTrafficManagerProfileOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTrafficManagerProfileArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTrafficManagerProfile.
+type LookupTrafficManagerProfileResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTrafficManagerProfileResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTrafficManagerProfileResult)(nil)).Elem()
+}
+
+func (o LookupTrafficManagerProfileResultOutput) ToLookupTrafficManagerProfileResultOutput() LookupTrafficManagerProfileResultOutput {
+	return o
+}
+
+func (o LookupTrafficManagerProfileResultOutput) ToLookupTrafficManagerProfileResultOutputWithContext(ctx context.Context) LookupTrafficManagerProfileResultOutput {
+	return o
+}
+
+// This block specifies the DNS configuration of the Profile.
+func (o LookupTrafficManagerProfileResultOutput) DnsConfigs() GetTrafficManagerProfileDnsConfigArrayOutput {
+	return o.ApplyT(func(v LookupTrafficManagerProfileResult) []GetTrafficManagerProfileDnsConfig { return v.DnsConfigs }).(GetTrafficManagerProfileDnsConfigArrayOutput)
+}
+
+// The FQDN of the created Profile.
+func (o LookupTrafficManagerProfileResultOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrafficManagerProfileResult) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupTrafficManagerProfileResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrafficManagerProfileResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// This block specifies the Endpoint monitoring configuration for the Profile.
+func (o LookupTrafficManagerProfileResultOutput) MonitorConfigs() GetTrafficManagerProfileMonitorConfigArrayOutput {
+	return o.ApplyT(func(v LookupTrafficManagerProfileResult) []GetTrafficManagerProfileMonitorConfig {
+		return v.MonitorConfigs
+	}).(GetTrafficManagerProfileMonitorConfigArrayOutput)
+}
+
+// The name of the custom header.
+func (o LookupTrafficManagerProfileResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrafficManagerProfileResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the profile.
+func (o LookupTrafficManagerProfileResultOutput) ProfileStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrafficManagerProfileResult) string { return v.ProfileStatus }).(pulumi.StringOutput)
+}
+
+func (o LookupTrafficManagerProfileResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrafficManagerProfileResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o LookupTrafficManagerProfileResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupTrafficManagerProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the algorithm used to route traffic.
+func (o LookupTrafficManagerProfileResultOutput) TrafficRoutingMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrafficManagerProfileResult) string { return v.TrafficRoutingMethod }).(pulumi.StringOutput)
+}
+
+// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+func (o LookupTrafficManagerProfileResultOutput) TrafficViewEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTrafficManagerProfileResult) *bool { return v.TrafficViewEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTrafficManagerProfileResultOutput{})
 }

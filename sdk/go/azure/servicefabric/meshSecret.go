@@ -197,7 +197,7 @@ type MeshSecretArrayInput interface {
 type MeshSecretArray []MeshSecretInput
 
 func (MeshSecretArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MeshSecret)(nil))
+	return reflect.TypeOf((*[]*MeshSecret)(nil)).Elem()
 }
 
 func (i MeshSecretArray) ToMeshSecretArrayOutput() MeshSecretArrayOutput {
@@ -222,7 +222,7 @@ type MeshSecretMapInput interface {
 type MeshSecretMap map[string]MeshSecretInput
 
 func (MeshSecretMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MeshSecret)(nil))
+	return reflect.TypeOf((*map[string]*MeshSecret)(nil)).Elem()
 }
 
 func (i MeshSecretMap) ToMeshSecretMapOutput() MeshSecretMapOutput {
@@ -233,9 +233,7 @@ func (i MeshSecretMap) ToMeshSecretMapOutputWithContext(ctx context.Context) Mes
 	return pulumi.ToOutputWithContext(ctx, i).(MeshSecretMapOutput)
 }
 
-type MeshSecretOutput struct {
-	*pulumi.OutputState
-}
+type MeshSecretOutput struct{ *pulumi.OutputState }
 
 func (MeshSecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MeshSecret)(nil))
@@ -254,14 +252,12 @@ func (o MeshSecretOutput) ToMeshSecretPtrOutput() MeshSecretPtrOutput {
 }
 
 func (o MeshSecretOutput) ToMeshSecretPtrOutputWithContext(ctx context.Context) MeshSecretPtrOutput {
-	return o.ApplyT(func(v MeshSecret) *MeshSecret {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeshSecret) *MeshSecret {
 		return &v
 	}).(MeshSecretPtrOutput)
 }
 
-type MeshSecretPtrOutput struct {
-	*pulumi.OutputState
-}
+type MeshSecretPtrOutput struct{ *pulumi.OutputState }
 
 func (MeshSecretPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MeshSecret)(nil))
@@ -273,6 +269,16 @@ func (o MeshSecretPtrOutput) ToMeshSecretPtrOutput() MeshSecretPtrOutput {
 
 func (o MeshSecretPtrOutput) ToMeshSecretPtrOutputWithContext(ctx context.Context) MeshSecretPtrOutput {
 	return o
+}
+
+func (o MeshSecretPtrOutput) Elem() MeshSecretOutput {
+	return o.ApplyT(func(v *MeshSecret) MeshSecret {
+		if v != nil {
+			return *v
+		}
+		var ret MeshSecret
+		return ret
+	}).(MeshSecretOutput)
 }
 
 type MeshSecretArrayOutput struct{ *pulumi.OutputState }

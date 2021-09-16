@@ -13,6 +13,7 @@ __all__ = [
     'GetEnvironmentV3Result',
     'AwaitableGetEnvironmentV3Result',
     'get_environment_v3',
+    'get_environment_v3_output',
 ]
 
 @pulumi.output_type
@@ -303,3 +304,28 @@ def get_environment_v3(name: Optional[str] = None,
         tags=__ret__.tags,
         windows_outbound_ip_addresses=__ret__.windows_outbound_ip_addresses,
         zone_redundant=__ret__.zone_redundant)
+
+
+@_utilities.lift_output_func(get_environment_v3)
+def get_environment_v3_output(name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentV3Result]:
+    """
+    Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_environment_v3(name="example-ASE",
+        resource_group_name="example-resource-group")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this v3 App Service Environment.
+    :param str resource_group_name: The name of the Resource Group where the v3 App Service Environment exists.
+    """
+    ...

@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,62 @@ type GetImagesResult struct {
 	Images            []GetImagesImage  `pulumi:"images"`
 	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	TagsFilter        map[string]string `pulumi:"tagsFilter"`
+}
+
+func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulumi.InvokeOption) GetImagesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetImagesResult, error) {
+			args := v.(GetImagesArgs)
+			r, err := GetImages(ctx, &args, opts...)
+			return *r, err
+		}).(GetImagesResultOutput)
+}
+
+// A collection of arguments for invoking getImages.
+type GetImagesOutputArgs struct {
+	// The name of the Resource Group in which the Image exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A mapping of tags to filter the list of images against.
+	TagsFilter pulumi.StringMapInput `pulumi:"tagsFilter"`
+}
+
+func (GetImagesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getImages.
+type GetImagesResultOutput struct{ *pulumi.OutputState }
+
+func (GetImagesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesResult)(nil)).Elem()
+}
+
+func (o GetImagesResultOutput) ToGetImagesResultOutput() GetImagesResultOutput {
+	return o
+}
+
+func (o GetImagesResultOutput) ToGetImagesResultOutputWithContext(ctx context.Context) GetImagesResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetImagesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// One or more `images` blocks as defined below:
+func (o GetImagesResultOutput) Images() GetImagesImageArrayOutput {
+	return o.ApplyT(func(v GetImagesResult) []GetImagesImage { return v.Images }).(GetImagesImageArrayOutput)
+}
+
+func (o GetImagesResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o GetImagesResultOutput) TagsFilter() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetImagesResult) map[string]string { return v.TagsFilter }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetImagesResultOutput{})
 }

@@ -246,7 +246,7 @@ type SecurityDeviceGroupArrayInput interface {
 type SecurityDeviceGroupArray []SecurityDeviceGroupInput
 
 func (SecurityDeviceGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SecurityDeviceGroup)(nil))
+	return reflect.TypeOf((*[]*SecurityDeviceGroup)(nil)).Elem()
 }
 
 func (i SecurityDeviceGroupArray) ToSecurityDeviceGroupArrayOutput() SecurityDeviceGroupArrayOutput {
@@ -271,7 +271,7 @@ type SecurityDeviceGroupMapInput interface {
 type SecurityDeviceGroupMap map[string]SecurityDeviceGroupInput
 
 func (SecurityDeviceGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SecurityDeviceGroup)(nil))
+	return reflect.TypeOf((*map[string]*SecurityDeviceGroup)(nil)).Elem()
 }
 
 func (i SecurityDeviceGroupMap) ToSecurityDeviceGroupMapOutput() SecurityDeviceGroupMapOutput {
@@ -282,9 +282,7 @@ func (i SecurityDeviceGroupMap) ToSecurityDeviceGroupMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupMapOutput)
 }
 
-type SecurityDeviceGroupOutput struct {
-	*pulumi.OutputState
-}
+type SecurityDeviceGroupOutput struct{ *pulumi.OutputState }
 
 func (SecurityDeviceGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityDeviceGroup)(nil))
@@ -303,14 +301,12 @@ func (o SecurityDeviceGroupOutput) ToSecurityDeviceGroupPtrOutput() SecurityDevi
 }
 
 func (o SecurityDeviceGroupOutput) ToSecurityDeviceGroupPtrOutputWithContext(ctx context.Context) SecurityDeviceGroupPtrOutput {
-	return o.ApplyT(func(v SecurityDeviceGroup) *SecurityDeviceGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityDeviceGroup) *SecurityDeviceGroup {
 		return &v
 	}).(SecurityDeviceGroupPtrOutput)
 }
 
-type SecurityDeviceGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type SecurityDeviceGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (SecurityDeviceGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SecurityDeviceGroup)(nil))
@@ -322,6 +318,16 @@ func (o SecurityDeviceGroupPtrOutput) ToSecurityDeviceGroupPtrOutput() SecurityD
 
 func (o SecurityDeviceGroupPtrOutput) ToSecurityDeviceGroupPtrOutputWithContext(ctx context.Context) SecurityDeviceGroupPtrOutput {
 	return o
+}
+
+func (o SecurityDeviceGroupPtrOutput) Elem() SecurityDeviceGroupOutput {
+	return o.ApplyT(func(v *SecurityDeviceGroup) SecurityDeviceGroup {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityDeviceGroup
+		return ret
+	}).(SecurityDeviceGroupOutput)
 }
 
 type SecurityDeviceGroupArrayOutput struct{ *pulumi.OutputState }

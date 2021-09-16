@@ -107,7 +107,7 @@ func (o ModuleNetworkProfileOutput) ToModuleNetworkProfilePtrOutput() ModuleNetw
 }
 
 func (o ModuleNetworkProfileOutput) ToModuleNetworkProfilePtrOutputWithContext(ctx context.Context) ModuleNetworkProfilePtrOutput {
-	return o.ApplyT(func(v ModuleNetworkProfile) *ModuleNetworkProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModuleNetworkProfile) *ModuleNetworkProfile {
 		return &v
 	}).(ModuleNetworkProfilePtrOutput)
 }
@@ -137,7 +137,13 @@ func (o ModuleNetworkProfilePtrOutput) ToModuleNetworkProfilePtrOutputWithContex
 }
 
 func (o ModuleNetworkProfilePtrOutput) Elem() ModuleNetworkProfileOutput {
-	return o.ApplyT(func(v *ModuleNetworkProfile) ModuleNetworkProfile { return *v }).(ModuleNetworkProfileOutput)
+	return o.ApplyT(func(v *ModuleNetworkProfile) ModuleNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ModuleNetworkProfile
+		return ret
+	}).(ModuleNetworkProfileOutput)
 }
 
 // The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.

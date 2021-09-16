@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,74 @@ type GetNetworkDdosProtectionPlanResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A list of ID's of the Virtual Networks associated with this DDoS Protection Plan.
 	VirtualNetworkIds []string `pulumi:"virtualNetworkIds"`
+}
+
+func GetNetworkDdosProtectionPlanOutput(ctx *pulumi.Context, args GetNetworkDdosProtectionPlanOutputArgs, opts ...pulumi.InvokeOption) GetNetworkDdosProtectionPlanResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetNetworkDdosProtectionPlanResult, error) {
+			args := v.(GetNetworkDdosProtectionPlanArgs)
+			r, err := GetNetworkDdosProtectionPlan(ctx, &args, opts...)
+			return *r, err
+		}).(GetNetworkDdosProtectionPlanResultOutput)
+}
+
+// A collection of arguments for invoking getNetworkDdosProtectionPlan.
+type GetNetworkDdosProtectionPlanOutputArgs struct {
+	// The name of the Network DDoS Protection Plan.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group where the Network DDoS Protection Plan exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetNetworkDdosProtectionPlanOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkDdosProtectionPlanArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getNetworkDdosProtectionPlan.
+type GetNetworkDdosProtectionPlanResultOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkDdosProtectionPlanResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkDdosProtectionPlanResult)(nil)).Elem()
+}
+
+func (o GetNetworkDdosProtectionPlanResultOutput) ToGetNetworkDdosProtectionPlanResultOutput() GetNetworkDdosProtectionPlanResultOutput {
+	return o
+}
+
+func (o GetNetworkDdosProtectionPlanResultOutput) ToGetNetworkDdosProtectionPlanResultOutputWithContext(ctx context.Context) GetNetworkDdosProtectionPlanResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetNetworkDdosProtectionPlanResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkDdosProtectionPlanResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the supported Azure location where the resource exists.
+func (o GetNetworkDdosProtectionPlanResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkDdosProtectionPlanResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o GetNetworkDdosProtectionPlanResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkDdosProtectionPlanResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetNetworkDdosProtectionPlanResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkDdosProtectionPlanResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o GetNetworkDdosProtectionPlanResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNetworkDdosProtectionPlanResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A list of ID's of the Virtual Networks associated with this DDoS Protection Plan.
+func (o GetNetworkDdosProtectionPlanResultOutput) VirtualNetworkIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkDdosProtectionPlanResult) []string { return v.VirtualNetworkIds }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetNetworkDdosProtectionPlanResultOutput{})
 }

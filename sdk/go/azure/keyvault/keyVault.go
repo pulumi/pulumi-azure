@@ -372,7 +372,7 @@ type KeyVaultArrayInput interface {
 type KeyVaultArray []KeyVaultInput
 
 func (KeyVaultArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*KeyVault)(nil))
+	return reflect.TypeOf((*[]*KeyVault)(nil)).Elem()
 }
 
 func (i KeyVaultArray) ToKeyVaultArrayOutput() KeyVaultArrayOutput {
@@ -397,7 +397,7 @@ type KeyVaultMapInput interface {
 type KeyVaultMap map[string]KeyVaultInput
 
 func (KeyVaultMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*KeyVault)(nil))
+	return reflect.TypeOf((*map[string]*KeyVault)(nil)).Elem()
 }
 
 func (i KeyVaultMap) ToKeyVaultMapOutput() KeyVaultMapOutput {
@@ -408,9 +408,7 @@ func (i KeyVaultMap) ToKeyVaultMapOutputWithContext(ctx context.Context) KeyVaul
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultMapOutput)
 }
 
-type KeyVaultOutput struct {
-	*pulumi.OutputState
-}
+type KeyVaultOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KeyVault)(nil))
@@ -429,14 +427,12 @@ func (o KeyVaultOutput) ToKeyVaultPtrOutput() KeyVaultPtrOutput {
 }
 
 func (o KeyVaultOutput) ToKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultPtrOutput {
-	return o.ApplyT(func(v KeyVault) *KeyVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVault) *KeyVault {
 		return &v
 	}).(KeyVaultPtrOutput)
 }
 
-type KeyVaultPtrOutput struct {
-	*pulumi.OutputState
-}
+type KeyVaultPtrOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KeyVault)(nil))
@@ -448,6 +444,16 @@ func (o KeyVaultPtrOutput) ToKeyVaultPtrOutput() KeyVaultPtrOutput {
 
 func (o KeyVaultPtrOutput) ToKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultPtrOutput {
 	return o
+}
+
+func (o KeyVaultPtrOutput) Elem() KeyVaultOutput {
+	return o.ApplyT(func(v *KeyVault) KeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVault
+		return ret
+	}).(KeyVaultOutput)
 }
 
 type KeyVaultArrayOutput struct{ *pulumi.OutputState }

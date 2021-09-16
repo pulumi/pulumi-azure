@@ -115,7 +115,7 @@ func (o ComputeClusterIdentityOutput) ToComputeClusterIdentityPtrOutput() Comput
 }
 
 func (o ComputeClusterIdentityOutput) ToComputeClusterIdentityPtrOutputWithContext(ctx context.Context) ComputeClusterIdentityPtrOutput {
-	return o.ApplyT(func(v ComputeClusterIdentity) *ComputeClusterIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeClusterIdentity) *ComputeClusterIdentity {
 		return &v
 	}).(ComputeClusterIdentityPtrOutput)
 }
@@ -155,7 +155,13 @@ func (o ComputeClusterIdentityPtrOutput) ToComputeClusterIdentityPtrOutputWithCo
 }
 
 func (o ComputeClusterIdentityPtrOutput) Elem() ComputeClusterIdentityOutput {
-	return o.ApplyT(func(v *ComputeClusterIdentity) ComputeClusterIdentity { return *v }).(ComputeClusterIdentityOutput)
+	return o.ApplyT(func(v *ComputeClusterIdentity) ComputeClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeClusterIdentity
+		return ret
+	}).(ComputeClusterIdentityOutput)
 }
 
 // A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -299,7 +305,7 @@ func (o ComputeClusterScaleSettingsOutput) ToComputeClusterScaleSettingsPtrOutpu
 }
 
 func (o ComputeClusterScaleSettingsOutput) ToComputeClusterScaleSettingsPtrOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsPtrOutput {
-	return o.ApplyT(func(v ComputeClusterScaleSettings) *ComputeClusterScaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeClusterScaleSettings) *ComputeClusterScaleSettings {
 		return &v
 	}).(ComputeClusterScaleSettingsPtrOutput)
 }
@@ -334,7 +340,13 @@ func (o ComputeClusterScaleSettingsPtrOutput) ToComputeClusterScaleSettingsPtrOu
 }
 
 func (o ComputeClusterScaleSettingsPtrOutput) Elem() ComputeClusterScaleSettingsOutput {
-	return o.ApplyT(func(v *ComputeClusterScaleSettings) ComputeClusterScaleSettings { return *v }).(ComputeClusterScaleSettingsOutput)
+	return o.ApplyT(func(v *ComputeClusterScaleSettings) ComputeClusterScaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeClusterScaleSettings
+		return ret
+	}).(ComputeClusterScaleSettingsOutput)
 }
 
 // Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -468,7 +480,7 @@ func (o ComputeClusterSshOutput) ToComputeClusterSshPtrOutput() ComputeClusterSs
 }
 
 func (o ComputeClusterSshOutput) ToComputeClusterSshPtrOutputWithContext(ctx context.Context) ComputeClusterSshPtrOutput {
-	return o.ApplyT(func(v ComputeClusterSsh) *ComputeClusterSsh {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeClusterSsh) *ComputeClusterSsh {
 		return &v
 	}).(ComputeClusterSshPtrOutput)
 }
@@ -503,7 +515,13 @@ func (o ComputeClusterSshPtrOutput) ToComputeClusterSshPtrOutputWithContext(ctx 
 }
 
 func (o ComputeClusterSshPtrOutput) Elem() ComputeClusterSshOutput {
-	return o.ApplyT(func(v *ComputeClusterSsh) ComputeClusterSsh { return *v }).(ComputeClusterSshOutput)
+	return o.ApplyT(func(v *ComputeClusterSsh) ComputeClusterSsh {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeClusterSsh
+		return ret
+	}).(ComputeClusterSshOutput)
 }
 
 // Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -633,7 +651,7 @@ func (o ComputeInstanceAssignToUserOutput) ToComputeInstanceAssignToUserPtrOutpu
 }
 
 func (o ComputeInstanceAssignToUserOutput) ToComputeInstanceAssignToUserPtrOutputWithContext(ctx context.Context) ComputeInstanceAssignToUserPtrOutput {
-	return o.ApplyT(func(v ComputeInstanceAssignToUser) *ComputeInstanceAssignToUser {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceAssignToUser) *ComputeInstanceAssignToUser {
 		return &v
 	}).(ComputeInstanceAssignToUserPtrOutput)
 }
@@ -663,7 +681,13 @@ func (o ComputeInstanceAssignToUserPtrOutput) ToComputeInstanceAssignToUserPtrOu
 }
 
 func (o ComputeInstanceAssignToUserPtrOutput) Elem() ComputeInstanceAssignToUserOutput {
-	return o.ApplyT(func(v *ComputeInstanceAssignToUser) ComputeInstanceAssignToUser { return *v }).(ComputeInstanceAssignToUserOutput)
+	return o.ApplyT(func(v *ComputeInstanceAssignToUser) ComputeInstanceAssignToUser {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeInstanceAssignToUser
+		return ret
+	}).(ComputeInstanceAssignToUserOutput)
 }
 
 // User’s AAD Object Id.
@@ -791,7 +815,7 @@ func (o ComputeInstanceIdentityOutput) ToComputeInstanceIdentityPtrOutput() Comp
 }
 
 func (o ComputeInstanceIdentityOutput) ToComputeInstanceIdentityPtrOutputWithContext(ctx context.Context) ComputeInstanceIdentityPtrOutput {
-	return o.ApplyT(func(v ComputeInstanceIdentity) *ComputeInstanceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceIdentity) *ComputeInstanceIdentity {
 		return &v
 	}).(ComputeInstanceIdentityPtrOutput)
 }
@@ -831,7 +855,13 @@ func (o ComputeInstanceIdentityPtrOutput) ToComputeInstanceIdentityPtrOutputWith
 }
 
 func (o ComputeInstanceIdentityPtrOutput) Elem() ComputeInstanceIdentityOutput {
-	return o.ApplyT(func(v *ComputeInstanceIdentity) ComputeInstanceIdentity { return *v }).(ComputeInstanceIdentityOutput)
+	return o.ApplyT(func(v *ComputeInstanceIdentity) ComputeInstanceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeInstanceIdentity
+		return ret
+	}).(ComputeInstanceIdentityOutput)
 }
 
 // A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -975,7 +1005,7 @@ func (o ComputeInstanceSshOutput) ToComputeInstanceSshPtrOutput() ComputeInstanc
 }
 
 func (o ComputeInstanceSshOutput) ToComputeInstanceSshPtrOutputWithContext(ctx context.Context) ComputeInstanceSshPtrOutput {
-	return o.ApplyT(func(v ComputeInstanceSsh) *ComputeInstanceSsh {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceSsh) *ComputeInstanceSsh {
 		return &v
 	}).(ComputeInstanceSshPtrOutput)
 }
@@ -1010,7 +1040,13 @@ func (o ComputeInstanceSshPtrOutput) ToComputeInstanceSshPtrOutputWithContext(ct
 }
 
 func (o ComputeInstanceSshPtrOutput) Elem() ComputeInstanceSshOutput {
-	return o.ApplyT(func(v *ComputeInstanceSsh) ComputeInstanceSsh { return *v }).(ComputeInstanceSshOutput)
+	return o.ApplyT(func(v *ComputeInstanceSsh) ComputeInstanceSsh {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeInstanceSsh
+		return ret
+	}).(ComputeInstanceSshOutput)
 }
 
 // Describes the port for connecting through SSH.
@@ -1148,7 +1184,7 @@ func (o InferenceClusterIdentityOutput) ToInferenceClusterIdentityPtrOutput() In
 }
 
 func (o InferenceClusterIdentityOutput) ToInferenceClusterIdentityPtrOutputWithContext(ctx context.Context) InferenceClusterIdentityPtrOutput {
-	return o.ApplyT(func(v InferenceClusterIdentity) *InferenceClusterIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceClusterIdentity) *InferenceClusterIdentity {
 		return &v
 	}).(InferenceClusterIdentityPtrOutput)
 }
@@ -1188,7 +1224,13 @@ func (o InferenceClusterIdentityPtrOutput) ToInferenceClusterIdentityPtrOutputWi
 }
 
 func (o InferenceClusterIdentityPtrOutput) Elem() InferenceClusterIdentityOutput {
-	return o.ApplyT(func(v *InferenceClusterIdentity) InferenceClusterIdentity { return *v }).(InferenceClusterIdentityOutput)
+	return o.ApplyT(func(v *InferenceClusterIdentity) InferenceClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceClusterIdentity
+		return ret
+	}).(InferenceClusterIdentityOutput)
 }
 
 // A list of User Managed Identity ID's which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -1340,7 +1382,7 @@ func (o InferenceClusterSslOutput) ToInferenceClusterSslPtrOutput() InferenceClu
 }
 
 func (o InferenceClusterSslOutput) ToInferenceClusterSslPtrOutputWithContext(ctx context.Context) InferenceClusterSslPtrOutput {
-	return o.ApplyT(func(v InferenceClusterSsl) *InferenceClusterSsl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceClusterSsl) *InferenceClusterSsl {
 		return &v
 	}).(InferenceClusterSslPtrOutput)
 }
@@ -1385,7 +1427,13 @@ func (o InferenceClusterSslPtrOutput) ToInferenceClusterSslPtrOutputWithContext(
 }
 
 func (o InferenceClusterSslPtrOutput) Elem() InferenceClusterSslOutput {
-	return o.ApplyT(func(v *InferenceClusterSsl) InferenceClusterSsl { return *v }).(InferenceClusterSslOutput)
+	return o.ApplyT(func(v *InferenceClusterSsl) InferenceClusterSsl {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceClusterSsl
+		return ret
+	}).(InferenceClusterSslOutput)
 }
 
 // The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -1543,7 +1591,7 @@ func (o SynapseSparkIdentityOutput) ToSynapseSparkIdentityPtrOutput() SynapseSpa
 }
 
 func (o SynapseSparkIdentityOutput) ToSynapseSparkIdentityPtrOutputWithContext(ctx context.Context) SynapseSparkIdentityPtrOutput {
-	return o.ApplyT(func(v SynapseSparkIdentity) *SynapseSparkIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SynapseSparkIdentity) *SynapseSparkIdentity {
 		return &v
 	}).(SynapseSparkIdentityPtrOutput)
 }
@@ -1583,7 +1631,13 @@ func (o SynapseSparkIdentityPtrOutput) ToSynapseSparkIdentityPtrOutputWithContex
 }
 
 func (o SynapseSparkIdentityPtrOutput) Elem() SynapseSparkIdentityOutput {
-	return o.ApplyT(func(v *SynapseSparkIdentity) SynapseSparkIdentity { return *v }).(SynapseSparkIdentityOutput)
+	return o.ApplyT(func(v *SynapseSparkIdentity) SynapseSparkIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret SynapseSparkIdentity
+		return ret
+	}).(SynapseSparkIdentityOutput)
 }
 
 // A list of User Managed Identity ID's which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -1727,7 +1781,7 @@ func (o WorkspaceIdentityOutput) ToWorkspaceIdentityPtrOutput() WorkspaceIdentit
 }
 
 func (o WorkspaceIdentityOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx context.Context) WorkspaceIdentityPtrOutput {
-	return o.ApplyT(func(v WorkspaceIdentity) *WorkspaceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceIdentity) *WorkspaceIdentity {
 		return &v
 	}).(WorkspaceIdentityPtrOutput)
 }
@@ -1762,7 +1816,13 @@ func (o WorkspaceIdentityPtrOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx 
 }
 
 func (o WorkspaceIdentityPtrOutput) Elem() WorkspaceIdentityOutput {
-	return o.ApplyT(func(v *WorkspaceIdentity) WorkspaceIdentity { return *v }).(WorkspaceIdentityOutput)
+	return o.ApplyT(func(v *WorkspaceIdentity) WorkspaceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceIdentity
+		return ret
+	}).(WorkspaceIdentityOutput)
 }
 
 // The (Client) ID of the Service Principal.

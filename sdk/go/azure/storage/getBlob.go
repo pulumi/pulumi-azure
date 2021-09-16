@@ -4,6 +4,9 @@
 package storage
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,4 +76,95 @@ type LookupBlobResult struct {
 	Type string `pulumi:"type"`
 	// The URL of the storage blob.
 	Url string `pulumi:"url"`
+}
+
+func LookupBlobOutput(ctx *pulumi.Context, args LookupBlobOutputArgs, opts ...pulumi.InvokeOption) LookupBlobResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBlobResult, error) {
+			args := v.(LookupBlobArgs)
+			r, err := LookupBlob(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBlobResultOutput)
+}
+
+// A collection of arguments for invoking getBlob.
+type LookupBlobOutputArgs struct {
+	// A map of custom blob metadata.
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// The name of the Blob.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Storage Account where the Container exists.
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	// The name of the Storage Container where the Blob exists.
+	StorageContainerName pulumi.StringInput `pulumi:"storageContainerName"`
+}
+
+func (LookupBlobOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBlobArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getBlob.
+type LookupBlobResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBlobResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBlobResult)(nil)).Elem()
+}
+
+func (o LookupBlobResultOutput) ToLookupBlobResultOutput() LookupBlobResultOutput {
+	return o
+}
+
+func (o LookupBlobResultOutput) ToLookupBlobResultOutputWithContext(ctx context.Context) LookupBlobResultOutput {
+	return o
+}
+
+// The access tier of the storage blob.
+func (o LookupBlobResultOutput) AccessTier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.AccessTier }).(pulumi.StringOutput)
+}
+
+// The MD5 sum of the blob contents.
+func (o LookupBlobResultOutput) ContentMd5() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.ContentMd5 }).(pulumi.StringOutput)
+}
+
+// The content type of the storage blob.
+func (o LookupBlobResultOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupBlobResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A map of custom blob metadata.
+func (o LookupBlobResultOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBlobResult) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+func (o LookupBlobResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupBlobResultOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+func (o LookupBlobResultOutput) StorageContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.StorageContainerName }).(pulumi.StringOutput)
+}
+
+// The type of the storage blob
+func (o LookupBlobResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The URL of the storage blob.
+func (o LookupBlobResultOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.Url }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBlobResultOutput{})
 }

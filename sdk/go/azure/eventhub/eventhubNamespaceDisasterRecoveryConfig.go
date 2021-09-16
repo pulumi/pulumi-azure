@@ -243,7 +243,7 @@ type EventhubNamespaceDisasterRecoveryConfigArrayInput interface {
 type EventhubNamespaceDisasterRecoveryConfigArray []EventhubNamespaceDisasterRecoveryConfigInput
 
 func (EventhubNamespaceDisasterRecoveryConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventhubNamespaceDisasterRecoveryConfig)(nil))
+	return reflect.TypeOf((*[]*EventhubNamespaceDisasterRecoveryConfig)(nil)).Elem()
 }
 
 func (i EventhubNamespaceDisasterRecoveryConfigArray) ToEventhubNamespaceDisasterRecoveryConfigArrayOutput() EventhubNamespaceDisasterRecoveryConfigArrayOutput {
@@ -268,7 +268,7 @@ type EventhubNamespaceDisasterRecoveryConfigMapInput interface {
 type EventhubNamespaceDisasterRecoveryConfigMap map[string]EventhubNamespaceDisasterRecoveryConfigInput
 
 func (EventhubNamespaceDisasterRecoveryConfigMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventhubNamespaceDisasterRecoveryConfig)(nil))
+	return reflect.TypeOf((*map[string]*EventhubNamespaceDisasterRecoveryConfig)(nil)).Elem()
 }
 
 func (i EventhubNamespaceDisasterRecoveryConfigMap) ToEventhubNamespaceDisasterRecoveryConfigMapOutput() EventhubNamespaceDisasterRecoveryConfigMapOutput {
@@ -279,9 +279,7 @@ func (i EventhubNamespaceDisasterRecoveryConfigMap) ToEventhubNamespaceDisasterR
 	return pulumi.ToOutputWithContext(ctx, i).(EventhubNamespaceDisasterRecoveryConfigMapOutput)
 }
 
-type EventhubNamespaceDisasterRecoveryConfigOutput struct {
-	*pulumi.OutputState
-}
+type EventhubNamespaceDisasterRecoveryConfigOutput struct{ *pulumi.OutputState }
 
 func (EventhubNamespaceDisasterRecoveryConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventhubNamespaceDisasterRecoveryConfig)(nil))
@@ -300,14 +298,12 @@ func (o EventhubNamespaceDisasterRecoveryConfigOutput) ToEventhubNamespaceDisast
 }
 
 func (o EventhubNamespaceDisasterRecoveryConfigOutput) ToEventhubNamespaceDisasterRecoveryConfigPtrOutputWithContext(ctx context.Context) EventhubNamespaceDisasterRecoveryConfigPtrOutput {
-	return o.ApplyT(func(v EventhubNamespaceDisasterRecoveryConfig) *EventhubNamespaceDisasterRecoveryConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventhubNamespaceDisasterRecoveryConfig) *EventhubNamespaceDisasterRecoveryConfig {
 		return &v
 	}).(EventhubNamespaceDisasterRecoveryConfigPtrOutput)
 }
 
-type EventhubNamespaceDisasterRecoveryConfigPtrOutput struct {
-	*pulumi.OutputState
-}
+type EventhubNamespaceDisasterRecoveryConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (EventhubNamespaceDisasterRecoveryConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventhubNamespaceDisasterRecoveryConfig)(nil))
@@ -319,6 +315,16 @@ func (o EventhubNamespaceDisasterRecoveryConfigPtrOutput) ToEventhubNamespaceDis
 
 func (o EventhubNamespaceDisasterRecoveryConfigPtrOutput) ToEventhubNamespaceDisasterRecoveryConfigPtrOutputWithContext(ctx context.Context) EventhubNamespaceDisasterRecoveryConfigPtrOutput {
 	return o
+}
+
+func (o EventhubNamespaceDisasterRecoveryConfigPtrOutput) Elem() EventhubNamespaceDisasterRecoveryConfigOutput {
+	return o.ApplyT(func(v *EventhubNamespaceDisasterRecoveryConfig) EventhubNamespaceDisasterRecoveryConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventhubNamespaceDisasterRecoveryConfig
+		return ret
+	}).(EventhubNamespaceDisasterRecoveryConfigOutput)
 }
 
 type EventhubNamespaceDisasterRecoveryConfigArrayOutput struct{ *pulumi.OutputState }

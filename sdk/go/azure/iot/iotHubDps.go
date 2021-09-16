@@ -266,7 +266,7 @@ type IotHubDpsArrayInput interface {
 type IotHubDpsArray []IotHubDpsInput
 
 func (IotHubDpsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IotHubDps)(nil))
+	return reflect.TypeOf((*[]*IotHubDps)(nil)).Elem()
 }
 
 func (i IotHubDpsArray) ToIotHubDpsArrayOutput() IotHubDpsArrayOutput {
@@ -291,7 +291,7 @@ type IotHubDpsMapInput interface {
 type IotHubDpsMap map[string]IotHubDpsInput
 
 func (IotHubDpsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IotHubDps)(nil))
+	return reflect.TypeOf((*map[string]*IotHubDps)(nil)).Elem()
 }
 
 func (i IotHubDpsMap) ToIotHubDpsMapOutput() IotHubDpsMapOutput {
@@ -302,9 +302,7 @@ func (i IotHubDpsMap) ToIotHubDpsMapOutputWithContext(ctx context.Context) IotHu
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsMapOutput)
 }
 
-type IotHubDpsOutput struct {
-	*pulumi.OutputState
-}
+type IotHubDpsOutput struct{ *pulumi.OutputState }
 
 func (IotHubDpsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotHubDps)(nil))
@@ -323,14 +321,12 @@ func (o IotHubDpsOutput) ToIotHubDpsPtrOutput() IotHubDpsPtrOutput {
 }
 
 func (o IotHubDpsOutput) ToIotHubDpsPtrOutputWithContext(ctx context.Context) IotHubDpsPtrOutput {
-	return o.ApplyT(func(v IotHubDps) *IotHubDps {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubDps) *IotHubDps {
 		return &v
 	}).(IotHubDpsPtrOutput)
 }
 
-type IotHubDpsPtrOutput struct {
-	*pulumi.OutputState
-}
+type IotHubDpsPtrOutput struct{ *pulumi.OutputState }
 
 func (IotHubDpsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IotHubDps)(nil))
@@ -342,6 +338,16 @@ func (o IotHubDpsPtrOutput) ToIotHubDpsPtrOutput() IotHubDpsPtrOutput {
 
 func (o IotHubDpsPtrOutput) ToIotHubDpsPtrOutputWithContext(ctx context.Context) IotHubDpsPtrOutput {
 	return o
+}
+
+func (o IotHubDpsPtrOutput) Elem() IotHubDpsOutput {
+	return o.ApplyT(func(v *IotHubDps) IotHubDps {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubDps
+		return ret
+	}).(IotHubDpsOutput)
 }
 
 type IotHubDpsArrayOutput struct{ *pulumi.OutputState }

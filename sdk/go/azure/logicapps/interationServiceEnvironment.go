@@ -340,7 +340,7 @@ type InterationServiceEnvironmentArrayInput interface {
 type InterationServiceEnvironmentArray []InterationServiceEnvironmentInput
 
 func (InterationServiceEnvironmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*InterationServiceEnvironment)(nil))
+	return reflect.TypeOf((*[]*InterationServiceEnvironment)(nil)).Elem()
 }
 
 func (i InterationServiceEnvironmentArray) ToInterationServiceEnvironmentArrayOutput() InterationServiceEnvironmentArrayOutput {
@@ -365,7 +365,7 @@ type InterationServiceEnvironmentMapInput interface {
 type InterationServiceEnvironmentMap map[string]InterationServiceEnvironmentInput
 
 func (InterationServiceEnvironmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*InterationServiceEnvironment)(nil))
+	return reflect.TypeOf((*map[string]*InterationServiceEnvironment)(nil)).Elem()
 }
 
 func (i InterationServiceEnvironmentMap) ToInterationServiceEnvironmentMapOutput() InterationServiceEnvironmentMapOutput {
@@ -376,9 +376,7 @@ func (i InterationServiceEnvironmentMap) ToInterationServiceEnvironmentMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(InterationServiceEnvironmentMapOutput)
 }
 
-type InterationServiceEnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type InterationServiceEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (InterationServiceEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InterationServiceEnvironment)(nil))
@@ -397,14 +395,12 @@ func (o InterationServiceEnvironmentOutput) ToInterationServiceEnvironmentPtrOut
 }
 
 func (o InterationServiceEnvironmentOutput) ToInterationServiceEnvironmentPtrOutputWithContext(ctx context.Context) InterationServiceEnvironmentPtrOutput {
-	return o.ApplyT(func(v InterationServiceEnvironment) *InterationServiceEnvironment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InterationServiceEnvironment) *InterationServiceEnvironment {
 		return &v
 	}).(InterationServiceEnvironmentPtrOutput)
 }
 
-type InterationServiceEnvironmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type InterationServiceEnvironmentPtrOutput struct{ *pulumi.OutputState }
 
 func (InterationServiceEnvironmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InterationServiceEnvironment)(nil))
@@ -416,6 +412,16 @@ func (o InterationServiceEnvironmentPtrOutput) ToInterationServiceEnvironmentPtr
 
 func (o InterationServiceEnvironmentPtrOutput) ToInterationServiceEnvironmentPtrOutputWithContext(ctx context.Context) InterationServiceEnvironmentPtrOutput {
 	return o
+}
+
+func (o InterationServiceEnvironmentPtrOutput) Elem() InterationServiceEnvironmentOutput {
+	return o.ApplyT(func(v *InterationServiceEnvironment) InterationServiceEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret InterationServiceEnvironment
+		return ret
+	}).(InterationServiceEnvironmentOutput)
 }
 
 type InterationServiceEnvironmentArrayOutput struct{ *pulumi.OutputState }

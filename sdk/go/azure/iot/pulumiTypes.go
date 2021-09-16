@@ -399,7 +399,7 @@ func (o IoTHubFallbackRouteOutput) ToIoTHubFallbackRoutePtrOutput() IoTHubFallba
 }
 
 func (o IoTHubFallbackRouteOutput) ToIoTHubFallbackRoutePtrOutputWithContext(ctx context.Context) IoTHubFallbackRoutePtrOutput {
-	return o.ApplyT(func(v IoTHubFallbackRoute) *IoTHubFallbackRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTHubFallbackRoute) *IoTHubFallbackRoute {
 		return &v
 	}).(IoTHubFallbackRoutePtrOutput)
 }
@@ -439,7 +439,13 @@ func (o IoTHubFallbackRoutePtrOutput) ToIoTHubFallbackRoutePtrOutputWithContext(
 }
 
 func (o IoTHubFallbackRoutePtrOutput) Elem() IoTHubFallbackRouteOutput {
-	return o.ApplyT(func(v *IoTHubFallbackRoute) IoTHubFallbackRoute { return *v }).(IoTHubFallbackRouteOutput)
+	return o.ApplyT(func(v *IoTHubFallbackRoute) IoTHubFallbackRoute {
+		if v != nil {
+			return *v
+		}
+		var ret IoTHubFallbackRoute
+		return ret
+	}).(IoTHubFallbackRouteOutput)
 }
 
 // The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
@@ -599,7 +605,7 @@ func (o IoTHubFileUploadOutput) ToIoTHubFileUploadPtrOutput() IoTHubFileUploadPt
 }
 
 func (o IoTHubFileUploadOutput) ToIoTHubFileUploadPtrOutputWithContext(ctx context.Context) IoTHubFileUploadPtrOutput {
-	return o.ApplyT(func(v IoTHubFileUpload) *IoTHubFileUpload {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTHubFileUpload) *IoTHubFileUpload {
 		return &v
 	}).(IoTHubFileUploadPtrOutput)
 }
@@ -654,7 +660,13 @@ func (o IoTHubFileUploadPtrOutput) ToIoTHubFileUploadPtrOutputWithContext(ctx co
 }
 
 func (o IoTHubFileUploadPtrOutput) Elem() IoTHubFileUploadOutput {
-	return o.ApplyT(func(v *IoTHubFileUpload) IoTHubFileUpload { return *v }).(IoTHubFileUploadOutput)
+	return o.ApplyT(func(v *IoTHubFileUpload) IoTHubFileUpload {
+		if v != nil {
+			return *v
+		}
+		var ret IoTHubFileUpload
+		return ret
+	}).(IoTHubFileUploadOutput)
 }
 
 // The connection string for the Azure Storage account to which files are uploaded.
@@ -1196,7 +1208,7 @@ func (o IoTHubSkuOutput) ToIoTHubSkuPtrOutput() IoTHubSkuPtrOutput {
 }
 
 func (o IoTHubSkuOutput) ToIoTHubSkuPtrOutputWithContext(ctx context.Context) IoTHubSkuPtrOutput {
-	return o.ApplyT(func(v IoTHubSku) *IoTHubSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTHubSku) *IoTHubSku {
 		return &v
 	}).(IoTHubSkuPtrOutput)
 }
@@ -1226,7 +1238,13 @@ func (o IoTHubSkuPtrOutput) ToIoTHubSkuPtrOutputWithContext(ctx context.Context)
 }
 
 func (o IoTHubSkuPtrOutput) Elem() IoTHubSkuOutput {
-	return o.ApplyT(func(v *IoTHubSku) IoTHubSku { return *v }).(IoTHubSkuOutput)
+	return o.ApplyT(func(v *IoTHubSku) IoTHubSku {
+		if v != nil {
+			return *v
+		}
+		var ret IoTHubSku
+		return ret
+	}).(IoTHubSkuOutput)
 }
 
 // The number of provisioned IoT Hub units.
@@ -1479,7 +1497,7 @@ func (o IotHubDpsSkuOutput) ToIotHubDpsSkuPtrOutput() IotHubDpsSkuPtrOutput {
 }
 
 func (o IotHubDpsSkuOutput) ToIotHubDpsSkuPtrOutputWithContext(ctx context.Context) IotHubDpsSkuPtrOutput {
-	return o.ApplyT(func(v IotHubDpsSku) *IotHubDpsSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubDpsSku) *IotHubDpsSku {
 		return &v
 	}).(IotHubDpsSkuPtrOutput)
 }
@@ -1509,7 +1527,13 @@ func (o IotHubDpsSkuPtrOutput) ToIotHubDpsSkuPtrOutputWithContext(ctx context.Co
 }
 
 func (o IotHubDpsSkuPtrOutput) Elem() IotHubDpsSkuOutput {
-	return o.ApplyT(func(v *IotHubDpsSku) IotHubDpsSku { return *v }).(IotHubDpsSkuOutput)
+	return o.ApplyT(func(v *IotHubDpsSku) IotHubDpsSku {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubDpsSku
+		return ret
+	}).(IotHubDpsSkuOutput)
 }
 
 // The number of provisioned IoT Device Provisioning Service units.
@@ -1633,7 +1657,7 @@ func (o SecurityDeviceGroupAllowRuleOutput) ToSecurityDeviceGroupAllowRulePtrOut
 }
 
 func (o SecurityDeviceGroupAllowRuleOutput) ToSecurityDeviceGroupAllowRulePtrOutputWithContext(ctx context.Context) SecurityDeviceGroupAllowRulePtrOutput {
-	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) *SecurityDeviceGroupAllowRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityDeviceGroupAllowRule) *SecurityDeviceGroupAllowRule {
 		return &v
 	}).(SecurityDeviceGroupAllowRulePtrOutput)
 }
@@ -1668,7 +1692,13 @@ func (o SecurityDeviceGroupAllowRulePtrOutput) ToSecurityDeviceGroupAllowRulePtr
 }
 
 func (o SecurityDeviceGroupAllowRulePtrOutput) Elem() SecurityDeviceGroupAllowRuleOutput {
-	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) SecurityDeviceGroupAllowRule { return *v }).(SecurityDeviceGroupAllowRuleOutput)
+	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) SecurityDeviceGroupAllowRule {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityDeviceGroupAllowRule
+		return ret
+	}).(SecurityDeviceGroupAllowRuleOutput)
 }
 
 // Specifies which Ip is not allowed to be connected to in current device group.
@@ -1978,7 +2008,7 @@ func (o SecuritySolutionRecommendationsEnabledOutput) ToSecuritySolutionRecommen
 }
 
 func (o SecuritySolutionRecommendationsEnabledOutput) ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsEnabledPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *SecuritySolutionRecommendationsEnabled {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecuritySolutionRecommendationsEnabled) *SecuritySolutionRecommendationsEnabled {
 		return &v
 	}).(SecuritySolutionRecommendationsEnabledPtrOutput)
 }
@@ -2078,7 +2108,13 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) ToSecuritySolutionRecom
 }
 
 func (o SecuritySolutionRecommendationsEnabledPtrOutput) Elem() SecuritySolutionRecommendationsEnabledOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) SecuritySolutionRecommendationsEnabled { return *v }).(SecuritySolutionRecommendationsEnabledOutput)
+	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) SecuritySolutionRecommendationsEnabled {
+		if v != nil {
+			return *v
+		}
+		var ret SecuritySolutionRecommendationsEnabled
+		return ret
+	}).(SecuritySolutionRecommendationsEnabledOutput)
 }
 
 // Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
@@ -2338,7 +2374,7 @@ func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) ToTimeSeriesInsightsGen2
 }
 
 func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return o.ApplyT(func(v TimeSeriesInsightsGen2EnvironmentStorage) *TimeSeriesInsightsGen2EnvironmentStorage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeSeriesInsightsGen2EnvironmentStorage) *TimeSeriesInsightsGen2EnvironmentStorage {
 		return &v
 	}).(TimeSeriesInsightsGen2EnvironmentStoragePtrOutput)
 }
@@ -2368,7 +2404,13 @@ func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) ToTimeSeriesInsightsG
 }
 
 func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) Elem() TimeSeriesInsightsGen2EnvironmentStorageOutput {
-	return o.ApplyT(func(v *TimeSeriesInsightsGen2EnvironmentStorage) TimeSeriesInsightsGen2EnvironmentStorage { return *v }).(TimeSeriesInsightsGen2EnvironmentStorageOutput)
+	return o.ApplyT(func(v *TimeSeriesInsightsGen2EnvironmentStorage) TimeSeriesInsightsGen2EnvironmentStorage {
+		if v != nil {
+			return *v
+		}
+		var ret TimeSeriesInsightsGen2EnvironmentStorage
+		return ret
+	}).(TimeSeriesInsightsGen2EnvironmentStorageOutput)
 }
 
 // Access key of storage account for Azure IoT Time Series Insights Gen2 Environment

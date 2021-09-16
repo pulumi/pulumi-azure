@@ -156,7 +156,7 @@ type WorkspaceKeyArrayInput interface {
 type WorkspaceKeyArray []WorkspaceKeyInput
 
 func (WorkspaceKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*WorkspaceKey)(nil))
+	return reflect.TypeOf((*[]*WorkspaceKey)(nil)).Elem()
 }
 
 func (i WorkspaceKeyArray) ToWorkspaceKeyArrayOutput() WorkspaceKeyArrayOutput {
@@ -181,7 +181,7 @@ type WorkspaceKeyMapInput interface {
 type WorkspaceKeyMap map[string]WorkspaceKeyInput
 
 func (WorkspaceKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*WorkspaceKey)(nil))
+	return reflect.TypeOf((*map[string]*WorkspaceKey)(nil)).Elem()
 }
 
 func (i WorkspaceKeyMap) ToWorkspaceKeyMapOutput() WorkspaceKeyMapOutput {
@@ -192,9 +192,7 @@ func (i WorkspaceKeyMap) ToWorkspaceKeyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyMapOutput)
 }
 
-type WorkspaceKeyOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceKeyOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceKey)(nil))
@@ -213,14 +211,12 @@ func (o WorkspaceKeyOutput) ToWorkspaceKeyPtrOutput() WorkspaceKeyPtrOutput {
 }
 
 func (o WorkspaceKeyOutput) ToWorkspaceKeyPtrOutputWithContext(ctx context.Context) WorkspaceKeyPtrOutput {
-	return o.ApplyT(func(v WorkspaceKey) *WorkspaceKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceKey) *WorkspaceKey {
 		return &v
 	}).(WorkspaceKeyPtrOutput)
 }
 
-type WorkspaceKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WorkspaceKey)(nil))
@@ -232,6 +228,16 @@ func (o WorkspaceKeyPtrOutput) ToWorkspaceKeyPtrOutput() WorkspaceKeyPtrOutput {
 
 func (o WorkspaceKeyPtrOutput) ToWorkspaceKeyPtrOutputWithContext(ctx context.Context) WorkspaceKeyPtrOutput {
 	return o
+}
+
+func (o WorkspaceKeyPtrOutput) Elem() WorkspaceKeyOutput {
+	return o.ApplyT(func(v *WorkspaceKey) WorkspaceKey {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceKey
+		return ret
+	}).(WorkspaceKeyOutput)
 }
 
 type WorkspaceKeyArrayOutput struct{ *pulumi.OutputState }

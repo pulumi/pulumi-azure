@@ -13,6 +13,7 @@ __all__ = [
     'GetKubernetesClusterResult',
     'AwaitableGetKubernetesClusterResult',
     'get_kubernetes_cluster',
+    'get_kubernetes_cluster_output',
 ]
 
 @pulumi.output_type
@@ -406,3 +407,27 @@ def get_kubernetes_cluster(name: Optional[str] = None,
         service_principals=__ret__.service_principals,
         tags=__ret__.tags,
         windows_profiles=__ret__.windows_profiles)
+
+
+@_utilities.lift_output_func(get_kubernetes_cluster)
+def get_kubernetes_cluster_output(name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesClusterResult]:
+    """
+    Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerservice.get_kubernetes_cluster(name="myakscluster",
+        resource_group_name="my-example-resource-group")
+    ```
+
+
+    :param str name: The name of the managed Kubernetes Cluster.
+    :param str resource_group_name: The name of the Resource Group in which the managed Kubernetes Cluster exists.
+    """
+    ...

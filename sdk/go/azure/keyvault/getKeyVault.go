@@ -4,6 +4,9 @@
 package keyvault
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,4 +82,116 @@ type LookupKeyVaultResult struct {
 	TenantId string `pulumi:"tenantId"`
 	// The URI of the vault for performing operations on keys and secrets.
 	VaultUri string `pulumi:"vaultUri"`
+}
+
+func LookupKeyVaultOutput(ctx *pulumi.Context, args LookupKeyVaultOutputArgs, opts ...pulumi.InvokeOption) LookupKeyVaultResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupKeyVaultResult, error) {
+			args := v.(LookupKeyVaultArgs)
+			r, err := LookupKeyVault(ctx, &args, opts...)
+			return *r, err
+		}).(LookupKeyVaultResultOutput)
+}
+
+// A collection of arguments for invoking getKeyVault.
+type LookupKeyVaultOutputArgs struct {
+	// Specifies the name of the Key Vault.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group in which the Key Vault exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupKeyVaultOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKeyVaultArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getKeyVault.
+type LookupKeyVaultResultOutput struct{ *pulumi.OutputState }
+
+func (LookupKeyVaultResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKeyVaultResult)(nil)).Elem()
+}
+
+func (o LookupKeyVaultResultOutput) ToLookupKeyVaultResultOutput() LookupKeyVaultResultOutput {
+	return o
+}
+
+func (o LookupKeyVaultResultOutput) ToLookupKeyVaultResultOutputWithContext(ctx context.Context) LookupKeyVaultResultOutput {
+	return o
+}
+
+// One or more `accessPolicy` blocks as defined below.
+func (o LookupKeyVaultResultOutput) AccessPolicies() GetKeyVaultAccessPolicyArrayOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) []GetKeyVaultAccessPolicy { return v.AccessPolicies }).(GetKeyVaultAccessPolicyArrayOutput)
+}
+
+// Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
+func (o LookupKeyVaultResultOutput) EnabledForDeployment() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.EnabledForDeployment }).(pulumi.BoolOutput)
+}
+
+// Can Azure Disk Encryption retrieve secrets from the Key Vault?
+func (o LookupKeyVaultResultOutput) EnabledForDiskEncryption() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.EnabledForDiskEncryption }).(pulumi.BoolOutput)
+}
+
+// Can Azure Resource Manager retrieve secrets from the Key Vault?
+func (o LookupKeyVaultResultOutput) EnabledForTemplateDeployment() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.EnabledForTemplateDeployment }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupKeyVaultResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure Region in which the Key Vault exists.
+func (o LookupKeyVaultResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyVaultResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyVaultResultOutput) NetworkAcls() GetKeyVaultNetworkAclArrayOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) []GetKeyVaultNetworkAcl { return v.NetworkAcls }).(GetKeyVaultNetworkAclArrayOutput)
+}
+
+// Is purge protection enabled on this Key Vault?
+func (o LookupKeyVaultResultOutput) PurgeProtectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.PurgeProtectionEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupKeyVaultResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Name of the SKU used for this Key Vault.
+func (o LookupKeyVaultResultOutput) SkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) string { return v.SkuName }).(pulumi.StringOutput)
+}
+
+// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field will always return 'true' and will be removed in version 3.0 of the Azure Provider.
+func (o LookupKeyVaultResultOutput) SoftDeleteEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.SoftDeleteEnabled }).(pulumi.BoolOutput)
+}
+
+// A mapping of tags assigned to the Key Vault.
+func (o LookupKeyVaultResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
+func (o LookupKeyVaultResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The URI of the vault for performing operations on keys and secrets.
+func (o LookupKeyVaultResultOutput) VaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) string { return v.VaultUri }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupKeyVaultResultOutput{})
 }

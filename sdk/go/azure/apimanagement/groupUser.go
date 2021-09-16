@@ -222,7 +222,7 @@ type GroupUserArrayInput interface {
 type GroupUserArray []GroupUserInput
 
 func (GroupUserArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GroupUser)(nil))
+	return reflect.TypeOf((*[]*GroupUser)(nil)).Elem()
 }
 
 func (i GroupUserArray) ToGroupUserArrayOutput() GroupUserArrayOutput {
@@ -247,7 +247,7 @@ type GroupUserMapInput interface {
 type GroupUserMap map[string]GroupUserInput
 
 func (GroupUserMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GroupUser)(nil))
+	return reflect.TypeOf((*map[string]*GroupUser)(nil)).Elem()
 }
 
 func (i GroupUserMap) ToGroupUserMapOutput() GroupUserMapOutput {
@@ -258,9 +258,7 @@ func (i GroupUserMap) ToGroupUserMapOutputWithContext(ctx context.Context) Group
 	return pulumi.ToOutputWithContext(ctx, i).(GroupUserMapOutput)
 }
 
-type GroupUserOutput struct {
-	*pulumi.OutputState
-}
+type GroupUserOutput struct{ *pulumi.OutputState }
 
 func (GroupUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupUser)(nil))
@@ -279,14 +277,12 @@ func (o GroupUserOutput) ToGroupUserPtrOutput() GroupUserPtrOutput {
 }
 
 func (o GroupUserOutput) ToGroupUserPtrOutputWithContext(ctx context.Context) GroupUserPtrOutput {
-	return o.ApplyT(func(v GroupUser) *GroupUser {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupUser) *GroupUser {
 		return &v
 	}).(GroupUserPtrOutput)
 }
 
-type GroupUserPtrOutput struct {
-	*pulumi.OutputState
-}
+type GroupUserPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupUserPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupUser)(nil))
@@ -298,6 +294,16 @@ func (o GroupUserPtrOutput) ToGroupUserPtrOutput() GroupUserPtrOutput {
 
 func (o GroupUserPtrOutput) ToGroupUserPtrOutputWithContext(ctx context.Context) GroupUserPtrOutput {
 	return o
+}
+
+func (o GroupUserPtrOutput) Elem() GroupUserOutput {
+	return o.ApplyT(func(v *GroupUser) GroupUser {
+		if v != nil {
+			return *v
+		}
+		var ret GroupUser
+		return ret
+	}).(GroupUserOutput)
 }
 
 type GroupUserArrayOutput struct{ *pulumi.OutputState }

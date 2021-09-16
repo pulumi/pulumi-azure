@@ -4,6 +4,9 @@
 package eventhub
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -78,4 +81,108 @@ type LookupNamespaceAuthorizationRuleResult struct {
 	SecondaryKey string `pulumi:"secondaryKey"`
 	// Does this Authorization Rule have permissions to Send to the Event Hub?
 	Send bool `pulumi:"send"`
+}
+
+func LookupNamespaceAuthorizationRuleOutput(ctx *pulumi.Context, args LookupNamespaceAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceAuthorizationRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNamespaceAuthorizationRuleResult, error) {
+			args := v.(LookupNamespaceAuthorizationRuleArgs)
+			r, err := LookupNamespaceAuthorizationRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNamespaceAuthorizationRuleResultOutput)
+}
+
+// A collection of arguments for invoking getNamespaceAuthorizationRule.
+type LookupNamespaceAuthorizationRuleOutputArgs struct {
+	// The name of the EventHub Authorization Rule resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the EventHub Namespace.
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// The name of the resource group in which the EventHub Namespace exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNamespaceAuthorizationRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceAuthorizationRuleArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getNamespaceAuthorizationRule.
+type LookupNamespaceAuthorizationRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNamespaceAuthorizationRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceAuthorizationRuleResult)(nil)).Elem()
+}
+
+func (o LookupNamespaceAuthorizationRuleResultOutput) ToLookupNamespaceAuthorizationRuleResultOutput() LookupNamespaceAuthorizationRuleResultOutput {
+	return o
+}
+
+func (o LookupNamespaceAuthorizationRuleResultOutput) ToLookupNamespaceAuthorizationRuleResultOutputWithContext(ctx context.Context) LookupNamespaceAuthorizationRuleResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupNamespaceAuthorizationRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Does this Authorization Rule have permissions to Listen to the Event Hub?
+func (o LookupNamespaceAuthorizationRuleResultOutput) Listen() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) bool { return v.Listen }).(pulumi.BoolOutput)
+}
+
+// Does this Authorization Rule have permissions to Manage to the Event Hub?
+func (o LookupNamespaceAuthorizationRuleResultOutput) Manage() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) bool { return v.Manage }).(pulumi.BoolOutput)
+}
+
+func (o LookupNamespaceAuthorizationRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupNamespaceAuthorizationRuleResultOutput) NamespaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.NamespaceName }).(pulumi.StringOutput)
+}
+
+// The Primary Connection String for the Event Hubs authorization Rule.
+func (o LookupNamespaceAuthorizationRuleResultOutput) PrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The alias of the Primary Connection String for the Event Hubs authorization Rule.
+func (o LookupNamespaceAuthorizationRuleResultOutput) PrimaryConnectionStringAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.PrimaryConnectionStringAlias }).(pulumi.StringOutput)
+}
+
+// The Primary Key for the Event Hubs authorization Rule.
+func (o LookupNamespaceAuthorizationRuleResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+func (o LookupNamespaceAuthorizationRuleResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Secondary Connection String for the Event Hubs authorization Rule.
+func (o LookupNamespaceAuthorizationRuleResultOutput) SecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.SecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The alias of the Secondary Connection String for the Event Hubs authorization Rule.
+func (o LookupNamespaceAuthorizationRuleResultOutput) SecondaryConnectionStringAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.SecondaryConnectionStringAlias }).(pulumi.StringOutput)
+}
+
+// The Secondary Key for the Event Hubs authorization Rule.
+func (o LookupNamespaceAuthorizationRuleResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+// Does this Authorization Rule have permissions to Send to the Event Hub?
+func (o LookupNamespaceAuthorizationRuleResultOutput) Send() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) bool { return v.Send }).(pulumi.BoolOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNamespaceAuthorizationRuleResultOutput{})
 }

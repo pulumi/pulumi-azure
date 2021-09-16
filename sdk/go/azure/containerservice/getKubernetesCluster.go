@@ -4,6 +4,9 @@
 package containerservice
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -103,4 +106,185 @@ type LookupKubernetesClusterResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as documented below.
 	WindowsProfiles []GetKubernetesClusterWindowsProfile `pulumi:"windowsProfiles"`
+}
+
+func LookupKubernetesClusterOutput(ctx *pulumi.Context, args LookupKubernetesClusterOutputArgs, opts ...pulumi.InvokeOption) LookupKubernetesClusterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupKubernetesClusterResult, error) {
+			args := v.(LookupKubernetesClusterArgs)
+			r, err := LookupKubernetesCluster(ctx, &args, opts...)
+			return *r, err
+		}).(LookupKubernetesClusterResultOutput)
+}
+
+// A collection of arguments for invoking getKubernetesCluster.
+type LookupKubernetesClusterOutputArgs struct {
+	// The name of the managed Kubernetes Cluster.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group in which the managed Kubernetes Cluster exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupKubernetesClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKubernetesClusterArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getKubernetesCluster.
+type LookupKubernetesClusterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupKubernetesClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKubernetesClusterResult)(nil)).Elem()
+}
+
+func (o LookupKubernetesClusterResultOutput) ToLookupKubernetesClusterResultOutput() LookupKubernetesClusterResultOutput {
+	return o
+}
+
+func (o LookupKubernetesClusterResultOutput) ToLookupKubernetesClusterResultOutputWithContext(ctx context.Context) LookupKubernetesClusterResultOutput {
+	return o
+}
+
+// A `addonProfile` block as documented below.
+func (o LookupKubernetesClusterResultOutput) AddonProfiles() GetKubernetesClusterAddonProfileArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterAddonProfile { return v.AddonProfiles }).(GetKubernetesClusterAddonProfileArrayOutput)
+}
+
+// An `agentPoolProfile` block as documented below.
+func (o LookupKubernetesClusterResultOutput) AgentPoolProfiles() GetKubernetesClusterAgentPoolProfileArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterAgentPoolProfile {
+		return v.AgentPoolProfiles
+	}).(GetKubernetesClusterAgentPoolProfileArrayOutput)
+}
+
+// The IP ranges to whitelist for incoming traffic to the primaries.
+func (o LookupKubernetesClusterResultOutput) ApiServerAuthorizedIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []string { return v.ApiServerAuthorizedIpRanges }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Disk Encryption Set used for the Nodes and Volumes.
+func (o LookupKubernetesClusterResultOutput) DiskEncryptionSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
+}
+
+// The DNS Prefix of the managed Kubernetes cluster.
+func (o LookupKubernetesClusterResultOutput) DnsPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.DnsPrefix }).(pulumi.StringOutput)
+}
+
+// The FQDN of the Azure Kubernetes Managed Cluster.
+func (o LookupKubernetesClusterResultOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupKubernetesClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A `identity` block as documented below.
+func (o LookupKubernetesClusterResultOutput) Identities() GetKubernetesClusterIdentityArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterIdentity { return v.Identities }).(GetKubernetesClusterIdentityArrayOutput)
+}
+
+// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
+func (o LookupKubernetesClusterResultOutput) KubeAdminConfigRaw() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.KubeAdminConfigRaw }).(pulumi.StringOutput)
+}
+
+// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
+func (o LookupKubernetesClusterResultOutput) KubeAdminConfigs() GetKubernetesClusterKubeAdminConfigArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterKubeAdminConfig { return v.KubeAdminConfigs }).(GetKubernetesClusterKubeAdminConfigArrayOutput)
+}
+
+// Base64 encoded Kubernetes configuration.
+func (o LookupKubernetesClusterResultOutput) KubeConfigRaw() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.KubeConfigRaw }).(pulumi.StringOutput)
+}
+
+// A `kubeConfig` block as defined below.
+func (o LookupKubernetesClusterResultOutput) KubeConfigs() GetKubernetesClusterKubeConfigArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterKubeConfig { return v.KubeConfigs }).(GetKubernetesClusterKubeConfigArrayOutput)
+}
+
+// A `kubeletIdentity` block as documented below.
+func (o LookupKubernetesClusterResultOutput) KubeletIdentities() GetKubernetesClusterKubeletIdentityArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterKubeletIdentity {
+		return v.KubeletIdentities
+	}).(GetKubernetesClusterKubeletIdentityArrayOutput)
+}
+
+// The version of Kubernetes used on the managed Kubernetes Cluster.
+func (o LookupKubernetesClusterResultOutput) KubernetesVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.KubernetesVersion }).(pulumi.StringOutput)
+}
+
+// A `linuxProfile` block as documented below.
+func (o LookupKubernetesClusterResultOutput) LinuxProfiles() GetKubernetesClusterLinuxProfileArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterLinuxProfile { return v.LinuxProfiles }).(GetKubernetesClusterLinuxProfileArrayOutput)
+}
+
+// The Azure Region in which the managed Kubernetes Cluster exists.
+func (o LookupKubernetesClusterResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name assigned to this pool of agents.
+func (o LookupKubernetesClusterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `networkProfile` block as documented below.
+func (o LookupKubernetesClusterResultOutput) NetworkProfiles() GetKubernetesClusterNetworkProfileArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterNetworkProfile { return v.NetworkProfiles }).(GetKubernetesClusterNetworkProfileArrayOutput)
+}
+
+// Auto-generated Resource Group containing AKS Cluster resources.
+func (o LookupKubernetesClusterResultOutput) NodeResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.NodeResourceGroup }).(pulumi.StringOutput)
+}
+
+// If the cluster has the Kubernetes API only exposed on internal IP addresses.
+func (o LookupKubernetesClusterResultOutput) PrivateClusterEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.PrivateClusterEnabled }).(pulumi.BoolOutput)
+}
+
+// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located
+func (o LookupKubernetesClusterResultOutput) PrivateFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.PrivateFqdn }).(pulumi.StringOutput)
+}
+
+func (o LookupKubernetesClusterResultOutput) PrivateLinkEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.PrivateLinkEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupKubernetesClusterResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `roleBasedAccessControl` block as documented below.
+func (o LookupKubernetesClusterResultOutput) RoleBasedAccessControls() GetKubernetesClusterRoleBasedAccessControlArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterRoleBasedAccessControl {
+		return v.RoleBasedAccessControls
+	}).(GetKubernetesClusterRoleBasedAccessControlArrayOutput)
+}
+
+// A `servicePrincipal` block as documented below.
+func (o LookupKubernetesClusterResultOutput) ServicePrincipals() GetKubernetesClusterServicePrincipalArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterServicePrincipal {
+		return v.ServicePrincipals
+	}).(GetKubernetesClusterServicePrincipalArrayOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o LookupKubernetesClusterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A `windowsProfile` block as documented below.
+func (o LookupKubernetesClusterResultOutput) WindowsProfiles() GetKubernetesClusterWindowsProfileArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterWindowsProfile { return v.WindowsProfiles }).(GetKubernetesClusterWindowsProfileArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupKubernetesClusterResultOutput{})
 }

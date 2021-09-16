@@ -290,7 +290,7 @@ type DpsSharedAccessPolicyArrayInput interface {
 type DpsSharedAccessPolicyArray []DpsSharedAccessPolicyInput
 
 func (DpsSharedAccessPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DpsSharedAccessPolicy)(nil))
+	return reflect.TypeOf((*[]*DpsSharedAccessPolicy)(nil)).Elem()
 }
 
 func (i DpsSharedAccessPolicyArray) ToDpsSharedAccessPolicyArrayOutput() DpsSharedAccessPolicyArrayOutput {
@@ -315,7 +315,7 @@ type DpsSharedAccessPolicyMapInput interface {
 type DpsSharedAccessPolicyMap map[string]DpsSharedAccessPolicyInput
 
 func (DpsSharedAccessPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DpsSharedAccessPolicy)(nil))
+	return reflect.TypeOf((*map[string]*DpsSharedAccessPolicy)(nil)).Elem()
 }
 
 func (i DpsSharedAccessPolicyMap) ToDpsSharedAccessPolicyMapOutput() DpsSharedAccessPolicyMapOutput {
@@ -326,9 +326,7 @@ func (i DpsSharedAccessPolicyMap) ToDpsSharedAccessPolicyMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DpsSharedAccessPolicyMapOutput)
 }
 
-type DpsSharedAccessPolicyOutput struct {
-	*pulumi.OutputState
-}
+type DpsSharedAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (DpsSharedAccessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DpsSharedAccessPolicy)(nil))
@@ -347,14 +345,12 @@ func (o DpsSharedAccessPolicyOutput) ToDpsSharedAccessPolicyPtrOutput() DpsShare
 }
 
 func (o DpsSharedAccessPolicyOutput) ToDpsSharedAccessPolicyPtrOutputWithContext(ctx context.Context) DpsSharedAccessPolicyPtrOutput {
-	return o.ApplyT(func(v DpsSharedAccessPolicy) *DpsSharedAccessPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DpsSharedAccessPolicy) *DpsSharedAccessPolicy {
 		return &v
 	}).(DpsSharedAccessPolicyPtrOutput)
 }
 
-type DpsSharedAccessPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type DpsSharedAccessPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (DpsSharedAccessPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DpsSharedAccessPolicy)(nil))
@@ -366,6 +362,16 @@ func (o DpsSharedAccessPolicyPtrOutput) ToDpsSharedAccessPolicyPtrOutput() DpsSh
 
 func (o DpsSharedAccessPolicyPtrOutput) ToDpsSharedAccessPolicyPtrOutputWithContext(ctx context.Context) DpsSharedAccessPolicyPtrOutput {
 	return o
+}
+
+func (o DpsSharedAccessPolicyPtrOutput) Elem() DpsSharedAccessPolicyOutput {
+	return o.ApplyT(func(v *DpsSharedAccessPolicy) DpsSharedAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DpsSharedAccessPolicy
+		return ret
+	}).(DpsSharedAccessPolicyOutput)
 }
 
 type DpsSharedAccessPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -222,7 +222,7 @@ func (o ApplicationGatewayAutoscaleConfigurationOutput) ToApplicationGatewayAuto
 }
 
 func (o ApplicationGatewayAutoscaleConfigurationOutput) ToApplicationGatewayAutoscaleConfigurationPtrOutputWithContext(ctx context.Context) ApplicationGatewayAutoscaleConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayAutoscaleConfiguration) *ApplicationGatewayAutoscaleConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewayAutoscaleConfiguration) *ApplicationGatewayAutoscaleConfiguration {
 		return &v
 	}).(ApplicationGatewayAutoscaleConfigurationPtrOutput)
 }
@@ -252,7 +252,13 @@ func (o ApplicationGatewayAutoscaleConfigurationPtrOutput) ToApplicationGatewayA
 }
 
 func (o ApplicationGatewayAutoscaleConfigurationPtrOutput) Elem() ApplicationGatewayAutoscaleConfigurationOutput {
-	return o.ApplyT(func(v *ApplicationGatewayAutoscaleConfiguration) ApplicationGatewayAutoscaleConfiguration { return *v }).(ApplicationGatewayAutoscaleConfigurationOutput)
+	return o.ApplyT(func(v *ApplicationGatewayAutoscaleConfiguration) ApplicationGatewayAutoscaleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayAutoscaleConfiguration
+		return ret
+	}).(ApplicationGatewayAutoscaleConfigurationOutput)
 }
 
 // Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
@@ -829,7 +835,7 @@ func (o ApplicationGatewayBackendHttpSettingConnectionDrainingOutput) ToApplicat
 }
 
 func (o ApplicationGatewayBackendHttpSettingConnectionDrainingOutput) ToApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingConnectionDraining) *ApplicationGatewayBackendHttpSettingConnectionDraining {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewayBackendHttpSettingConnectionDraining) *ApplicationGatewayBackendHttpSettingConnectionDraining {
 		return &v
 	}).(ApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutput)
 }
@@ -860,7 +866,11 @@ func (o ApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutput) ToAppli
 
 func (o ApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutput) Elem() ApplicationGatewayBackendHttpSettingConnectionDrainingOutput {
 	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingConnectionDraining) ApplicationGatewayBackendHttpSettingConnectionDraining {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayBackendHttpSettingConnectionDraining
+		return ret
 	}).(ApplicationGatewayBackendHttpSettingConnectionDrainingOutput)
 }
 
@@ -1817,7 +1827,7 @@ func (o ApplicationGatewayIdentityOutput) ToApplicationGatewayIdentityPtrOutput(
 }
 
 func (o ApplicationGatewayIdentityOutput) ToApplicationGatewayIdentityPtrOutputWithContext(ctx context.Context) ApplicationGatewayIdentityPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayIdentity) *ApplicationGatewayIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewayIdentity) *ApplicationGatewayIdentity {
 		return &v
 	}).(ApplicationGatewayIdentityPtrOutput)
 }
@@ -1847,7 +1857,13 @@ func (o ApplicationGatewayIdentityPtrOutput) ToApplicationGatewayIdentityPtrOutp
 }
 
 func (o ApplicationGatewayIdentityPtrOutput) Elem() ApplicationGatewayIdentityOutput {
-	return o.ApplyT(func(v *ApplicationGatewayIdentity) ApplicationGatewayIdentity { return *v }).(ApplicationGatewayIdentityOutput)
+	return o.ApplyT(func(v *ApplicationGatewayIdentity) ApplicationGatewayIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayIdentity
+		return ret
+	}).(ApplicationGatewayIdentityOutput)
 }
 
 // Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
@@ -2163,7 +2179,7 @@ func (o ApplicationGatewayProbeMatchOutput) ToApplicationGatewayProbeMatchPtrOut
 }
 
 func (o ApplicationGatewayProbeMatchOutput) ToApplicationGatewayProbeMatchPtrOutputWithContext(ctx context.Context) ApplicationGatewayProbeMatchPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayProbeMatch) *ApplicationGatewayProbeMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewayProbeMatch) *ApplicationGatewayProbeMatch {
 		return &v
 	}).(ApplicationGatewayProbeMatchPtrOutput)
 }
@@ -2193,7 +2209,13 @@ func (o ApplicationGatewayProbeMatchPtrOutput) ToApplicationGatewayProbeMatchPtr
 }
 
 func (o ApplicationGatewayProbeMatchPtrOutput) Elem() ApplicationGatewayProbeMatchOutput {
-	return o.ApplyT(func(v *ApplicationGatewayProbeMatch) ApplicationGatewayProbeMatch { return *v }).(ApplicationGatewayProbeMatchOutput)
+	return o.ApplyT(func(v *ApplicationGatewayProbeMatch) ApplicationGatewayProbeMatch {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayProbeMatch
+		return ret
+	}).(ApplicationGatewayProbeMatchOutput)
 }
 
 // A snippet from the Response Body which must be present in the Response..
@@ -3308,7 +3330,7 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ToApplicationGatew
 }
 
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
 		return &v
 	}).(ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput)
 }
@@ -3344,7 +3366,11 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) ToApplicationGa
 
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Elem() ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput {
 	return o.ApplyT(func(v *ApplicationGatewayRewriteRuleSetRewriteRuleUrl) ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayRewriteRuleSetRewriteRuleUrl
+		return ret
 	}).(ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput)
 }
 
@@ -3479,7 +3505,7 @@ func (o ApplicationGatewaySkuOutput) ToApplicationGatewaySkuPtrOutput() Applicat
 }
 
 func (o ApplicationGatewaySkuOutput) ToApplicationGatewaySkuPtrOutputWithContext(ctx context.Context) ApplicationGatewaySkuPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewaySku) *ApplicationGatewaySku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewaySku) *ApplicationGatewaySku {
 		return &v
 	}).(ApplicationGatewaySkuPtrOutput)
 }
@@ -3514,7 +3540,13 @@ func (o ApplicationGatewaySkuPtrOutput) ToApplicationGatewaySkuPtrOutputWithCont
 }
 
 func (o ApplicationGatewaySkuPtrOutput) Elem() ApplicationGatewaySkuOutput {
-	return o.ApplyT(func(v *ApplicationGatewaySku) ApplicationGatewaySku { return *v }).(ApplicationGatewaySkuOutput)
+	return o.ApplyT(func(v *ApplicationGatewaySku) ApplicationGatewaySku {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewaySku
+		return ret
+	}).(ApplicationGatewaySkuOutput)
 }
 
 // The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
@@ -4829,7 +4861,7 @@ func (o ApplicationGatewayWafConfigurationOutput) ToApplicationGatewayWafConfigu
 }
 
 func (o ApplicationGatewayWafConfigurationOutput) ToApplicationGatewayWafConfigurationPtrOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *ApplicationGatewayWafConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewayWafConfiguration) *ApplicationGatewayWafConfiguration {
 		return &v
 	}).(ApplicationGatewayWafConfigurationPtrOutput)
 }
@@ -4898,7 +4930,13 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) ToApplicationGatewayWafConf
 }
 
 func (o ApplicationGatewayWafConfigurationPtrOutput) Elem() ApplicationGatewayWafConfigurationOutput {
-	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) ApplicationGatewayWafConfiguration { return *v }).(ApplicationGatewayWafConfigurationOutput)
+	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) ApplicationGatewayWafConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayWafConfiguration
+		return ret
+	}).(ApplicationGatewayWafConfigurationOutput)
 }
 
 // one or more `disabledRuleGroup` blocks as defined below.
@@ -5317,7 +5355,7 @@ func (o ExpressRouteCircuitPeeringIpv6Output) ToExpressRouteCircuitPeeringIpv6Pt
 }
 
 func (o ExpressRouteCircuitPeeringIpv6Output) ToExpressRouteCircuitPeeringIpv6PtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6PtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6) *ExpressRouteCircuitPeeringIpv6 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitPeeringIpv6) *ExpressRouteCircuitPeeringIpv6 {
 		return &v
 	}).(ExpressRouteCircuitPeeringIpv6PtrOutput)
 }
@@ -5359,7 +5397,13 @@ func (o ExpressRouteCircuitPeeringIpv6PtrOutput) ToExpressRouteCircuitPeeringIpv
 }
 
 func (o ExpressRouteCircuitPeeringIpv6PtrOutput) Elem() ExpressRouteCircuitPeeringIpv6Output {
-	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6) ExpressRouteCircuitPeeringIpv6 { return *v }).(ExpressRouteCircuitPeeringIpv6Output)
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6) ExpressRouteCircuitPeeringIpv6 {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitPeeringIpv6
+		return ret
+	}).(ExpressRouteCircuitPeeringIpv6Output)
 }
 
 // A `microsoftPeering` block as defined below.
@@ -5503,7 +5547,7 @@ func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) ToExpressRouteCirc
 }
 
 func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6MicrosoftPeering) *ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitPeeringIpv6MicrosoftPeering) *ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
 		return &v
 	}).(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput)
 }
@@ -5539,7 +5583,11 @@ func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) ToExpressRouteC
 
 func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) Elem() ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6MicrosoftPeering) ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitPeeringIpv6MicrosoftPeering
+		return ret
 	}).(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput)
 }
 
@@ -5674,7 +5722,7 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) ToExpressRouteCi
 }
 
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) ToExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
 		return &v
 	}).(ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput)
 }
@@ -5710,7 +5758,11 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) ToExpressRout
 
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) Elem() ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringMicrosoftPeeringConfig) ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitPeeringMicrosoftPeeringConfig
+		return ret
 	}).(ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput)
 }
 
@@ -5841,7 +5893,7 @@ func (o ExpressRouteCircuitSkuOutput) ToExpressRouteCircuitSkuPtrOutput() Expres
 }
 
 func (o ExpressRouteCircuitSkuOutput) ToExpressRouteCircuitSkuPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitSkuPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitSku) *ExpressRouteCircuitSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitSku) *ExpressRouteCircuitSku {
 		return &v
 	}).(ExpressRouteCircuitSkuPtrOutput)
 }
@@ -5871,7 +5923,13 @@ func (o ExpressRouteCircuitSkuPtrOutput) ToExpressRouteCircuitSkuPtrOutputWithCo
 }
 
 func (o ExpressRouteCircuitSkuPtrOutput) Elem() ExpressRouteCircuitSkuOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitSku) ExpressRouteCircuitSku { return *v }).(ExpressRouteCircuitSkuOutput)
+	return o.ApplyT(func(v *ExpressRouteCircuitSku) ExpressRouteCircuitSku {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitSku
+		return ret
+	}).(ExpressRouteCircuitSkuOutput)
 }
 
 // The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
@@ -5991,7 +6049,7 @@ func (o ExpressRouteConnectionRoutingOutput) ToExpressRouteConnectionRoutingPtrO
 }
 
 func (o ExpressRouteConnectionRoutingOutput) ToExpressRouteConnectionRoutingPtrOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingPtrOutput {
-	return o.ApplyT(func(v ExpressRouteConnectionRouting) *ExpressRouteConnectionRouting {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteConnectionRouting) *ExpressRouteConnectionRouting {
 		return &v
 	}).(ExpressRouteConnectionRoutingPtrOutput)
 }
@@ -6023,7 +6081,13 @@ func (o ExpressRouteConnectionRoutingPtrOutput) ToExpressRouteConnectionRoutingP
 }
 
 func (o ExpressRouteConnectionRoutingPtrOutput) Elem() ExpressRouteConnectionRoutingOutput {
-	return o.ApplyT(func(v *ExpressRouteConnectionRouting) ExpressRouteConnectionRouting { return *v }).(ExpressRouteConnectionRoutingOutput)
+	return o.ApplyT(func(v *ExpressRouteConnectionRouting) ExpressRouteConnectionRouting {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteConnectionRouting
+		return ret
+	}).(ExpressRouteConnectionRoutingOutput)
 }
 
 // The ID of the Virtual Hub Route Table associated with this Express Route Connection.
@@ -6143,7 +6207,7 @@ func (o ExpressRouteConnectionRoutingPropagatedRouteTableOutput) ToExpressRouteC
 }
 
 func (o ExpressRouteConnectionRoutingPropagatedRouteTableOutput) ToExpressRouteConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput {
-	return o.ApplyT(func(v ExpressRouteConnectionRoutingPropagatedRouteTable) *ExpressRouteConnectionRoutingPropagatedRouteTable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteConnectionRoutingPropagatedRouteTable) *ExpressRouteConnectionRoutingPropagatedRouteTable {
 		return &v
 	}).(ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput)
 }
@@ -6174,7 +6238,11 @@ func (o ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput) ToExpressRou
 
 func (o ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput) Elem() ExpressRouteConnectionRoutingPropagatedRouteTableOutput {
 	return o.ApplyT(func(v *ExpressRouteConnectionRoutingPropagatedRouteTable) ExpressRouteConnectionRoutingPropagatedRouteTable {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteConnectionRoutingPropagatedRouteTable
+		return ret
 	}).(ExpressRouteConnectionRoutingPropagatedRouteTableOutput)
 }
 
@@ -6295,7 +6363,7 @@ func (o ExpressRoutePortIdentityOutput) ToExpressRoutePortIdentityPtrOutput() Ex
 }
 
 func (o ExpressRoutePortIdentityOutput) ToExpressRoutePortIdentityPtrOutputWithContext(ctx context.Context) ExpressRoutePortIdentityPtrOutput {
-	return o.ApplyT(func(v ExpressRoutePortIdentity) *ExpressRoutePortIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRoutePortIdentity) *ExpressRoutePortIdentity {
 		return &v
 	}).(ExpressRoutePortIdentityPtrOutput)
 }
@@ -6325,7 +6393,13 @@ func (o ExpressRoutePortIdentityPtrOutput) ToExpressRoutePortIdentityPtrOutputWi
 }
 
 func (o ExpressRoutePortIdentityPtrOutput) Elem() ExpressRoutePortIdentityOutput {
-	return o.ApplyT(func(v *ExpressRoutePortIdentity) ExpressRoutePortIdentity { return *v }).(ExpressRoutePortIdentityOutput)
+	return o.ApplyT(func(v *ExpressRoutePortIdentity) ExpressRoutePortIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRoutePortIdentity
+		return ret
+	}).(ExpressRoutePortIdentityOutput)
 }
 
 // Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
@@ -6477,7 +6551,7 @@ func (o ExpressRoutePortLink1Output) ToExpressRoutePortLink1PtrOutput() ExpressR
 }
 
 func (o ExpressRoutePortLink1Output) ToExpressRoutePortLink1PtrOutputWithContext(ctx context.Context) ExpressRoutePortLink1PtrOutput {
-	return o.ApplyT(func(v ExpressRoutePortLink1) *ExpressRoutePortLink1 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRoutePortLink1) *ExpressRoutePortLink1 {
 		return &v
 	}).(ExpressRoutePortLink1PtrOutput)
 }
@@ -6547,7 +6621,13 @@ func (o ExpressRoutePortLink1PtrOutput) ToExpressRoutePortLink1PtrOutputWithCont
 }
 
 func (o ExpressRoutePortLink1PtrOutput) Elem() ExpressRoutePortLink1Output {
-	return o.ApplyT(func(v *ExpressRoutePortLink1) ExpressRoutePortLink1 { return *v }).(ExpressRoutePortLink1Output)
+	return o.ApplyT(func(v *ExpressRoutePortLink1) ExpressRoutePortLink1 {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRoutePortLink1
+		return ret
+	}).(ExpressRoutePortLink1Output)
 }
 
 // Whether enable administration state on the Express Route Port Link? Defaults to `false`.
@@ -6779,7 +6859,7 @@ func (o ExpressRoutePortLink2Output) ToExpressRoutePortLink2PtrOutput() ExpressR
 }
 
 func (o ExpressRoutePortLink2Output) ToExpressRoutePortLink2PtrOutputWithContext(ctx context.Context) ExpressRoutePortLink2PtrOutput {
-	return o.ApplyT(func(v ExpressRoutePortLink2) *ExpressRoutePortLink2 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRoutePortLink2) *ExpressRoutePortLink2 {
 		return &v
 	}).(ExpressRoutePortLink2PtrOutput)
 }
@@ -6849,7 +6929,13 @@ func (o ExpressRoutePortLink2PtrOutput) ToExpressRoutePortLink2PtrOutputWithCont
 }
 
 func (o ExpressRoutePortLink2PtrOutput) Elem() ExpressRoutePortLink2Output {
-	return o.ApplyT(func(v *ExpressRoutePortLink2) ExpressRoutePortLink2 { return *v }).(ExpressRoutePortLink2Output)
+	return o.ApplyT(func(v *ExpressRoutePortLink2) ExpressRoutePortLink2 {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRoutePortLink2
+		return ret
+	}).(ExpressRoutePortLink2Output)
 }
 
 // Whether enable administration state on the Express Route Port Link? Defaults to `false`.
@@ -7440,7 +7526,7 @@ func (o FirewallManagementIpConfigurationOutput) ToFirewallManagementIpConfigura
 }
 
 func (o FirewallManagementIpConfigurationOutput) ToFirewallManagementIpConfigurationPtrOutputWithContext(ctx context.Context) FirewallManagementIpConfigurationPtrOutput {
-	return o.ApplyT(func(v FirewallManagementIpConfiguration) *FirewallManagementIpConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallManagementIpConfiguration) *FirewallManagementIpConfiguration {
 		return &v
 	}).(FirewallManagementIpConfigurationPtrOutput)
 }
@@ -7480,7 +7566,13 @@ func (o FirewallManagementIpConfigurationPtrOutput) ToFirewallManagementIpConfig
 }
 
 func (o FirewallManagementIpConfigurationPtrOutput) Elem() FirewallManagementIpConfigurationOutput {
-	return o.ApplyT(func(v *FirewallManagementIpConfiguration) FirewallManagementIpConfiguration { return *v }).(FirewallManagementIpConfigurationOutput)
+	return o.ApplyT(func(v *FirewallManagementIpConfiguration) FirewallManagementIpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallManagementIpConfiguration
+		return ret
+	}).(FirewallManagementIpConfigurationOutput)
 }
 
 // Specifies the name of the IP Configuration.
@@ -7966,7 +8058,7 @@ func (o FirewallPolicyDnsOutput) ToFirewallPolicyDnsPtrOutput() FirewallPolicyDn
 }
 
 func (o FirewallPolicyDnsOutput) ToFirewallPolicyDnsPtrOutputWithContext(ctx context.Context) FirewallPolicyDnsPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyDns) *FirewallPolicyDns {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyDns) *FirewallPolicyDns {
 		return &v
 	}).(FirewallPolicyDnsPtrOutput)
 }
@@ -8003,7 +8095,13 @@ func (o FirewallPolicyDnsPtrOutput) ToFirewallPolicyDnsPtrOutputWithContext(ctx 
 }
 
 func (o FirewallPolicyDnsPtrOutput) Elem() FirewallPolicyDnsOutput {
-	return o.ApplyT(func(v *FirewallPolicyDns) FirewallPolicyDns { return *v }).(FirewallPolicyDnsOutput)
+	return o.ApplyT(func(v *FirewallPolicyDns) FirewallPolicyDns {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyDns
+		return ret
+	}).(FirewallPolicyDnsOutput)
 }
 
 // Should the network rule fqdn be enabled?
@@ -8139,10 +8237,11 @@ func (o FirewallPolicyIdentityOutput) ToFirewallPolicyIdentityPtrOutput() Firewa
 }
 
 func (o FirewallPolicyIdentityOutput) ToFirewallPolicyIdentityPtrOutputWithContext(ctx context.Context) FirewallPolicyIdentityPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyIdentity) *FirewallPolicyIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyIdentity) *FirewallPolicyIdentity {
 		return &v
 	}).(FirewallPolicyIdentityPtrOutput)
 }
+
 func (o FirewallPolicyIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -8176,7 +8275,13 @@ func (o FirewallPolicyIdentityPtrOutput) ToFirewallPolicyIdentityPtrOutputWithCo
 }
 
 func (o FirewallPolicyIdentityPtrOutput) Elem() FirewallPolicyIdentityOutput {
-	return o.ApplyT(func(v *FirewallPolicyIdentity) FirewallPolicyIdentity { return *v }).(FirewallPolicyIdentityOutput)
+	return o.ApplyT(func(v *FirewallPolicyIdentity) FirewallPolicyIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyIdentity
+		return ret
+	}).(FirewallPolicyIdentityOutput)
 }
 
 func (o FirewallPolicyIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
@@ -8318,7 +8423,7 @@ func (o FirewallPolicyIntrusionDetectionOutput) ToFirewallPolicyIntrusionDetecti
 }
 
 func (o FirewallPolicyIntrusionDetectionOutput) ToFirewallPolicyIntrusionDetectionPtrOutputWithContext(ctx context.Context) FirewallPolicyIntrusionDetectionPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyIntrusionDetection) *FirewallPolicyIntrusionDetection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyIntrusionDetection) *FirewallPolicyIntrusionDetection {
 		return &v
 	}).(FirewallPolicyIntrusionDetectionPtrOutput)
 }
@@ -8357,7 +8462,13 @@ func (o FirewallPolicyIntrusionDetectionPtrOutput) ToFirewallPolicyIntrusionDete
 }
 
 func (o FirewallPolicyIntrusionDetectionPtrOutput) Elem() FirewallPolicyIntrusionDetectionOutput {
-	return o.ApplyT(func(v *FirewallPolicyIntrusionDetection) FirewallPolicyIntrusionDetection { return *v }).(FirewallPolicyIntrusionDetectionOutput)
+	return o.ApplyT(func(v *FirewallPolicyIntrusionDetection) FirewallPolicyIntrusionDetection {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyIntrusionDetection
+		return ret
+	}).(FirewallPolicyIntrusionDetectionOutput)
 }
 
 // In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
@@ -9764,7 +9875,7 @@ func (o FirewallPolicyThreatIntelligenceAllowlistOutput) ToFirewallPolicyThreatI
 }
 
 func (o FirewallPolicyThreatIntelligenceAllowlistOutput) ToFirewallPolicyThreatIntelligenceAllowlistPtrOutputWithContext(ctx context.Context) FirewallPolicyThreatIntelligenceAllowlistPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyThreatIntelligenceAllowlist) *FirewallPolicyThreatIntelligenceAllowlist {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyThreatIntelligenceAllowlist) *FirewallPolicyThreatIntelligenceAllowlist {
 		return &v
 	}).(FirewallPolicyThreatIntelligenceAllowlistPtrOutput)
 }
@@ -9795,7 +9906,11 @@ func (o FirewallPolicyThreatIntelligenceAllowlistPtrOutput) ToFirewallPolicyThre
 
 func (o FirewallPolicyThreatIntelligenceAllowlistPtrOutput) Elem() FirewallPolicyThreatIntelligenceAllowlistOutput {
 	return o.ApplyT(func(v *FirewallPolicyThreatIntelligenceAllowlist) FirewallPolicyThreatIntelligenceAllowlist {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyThreatIntelligenceAllowlist
+		return ret
 	}).(FirewallPolicyThreatIntelligenceAllowlistOutput)
 }
 
@@ -9916,7 +10031,7 @@ func (o FirewallPolicyTlsCertificateOutput) ToFirewallPolicyTlsCertificatePtrOut
 }
 
 func (o FirewallPolicyTlsCertificateOutput) ToFirewallPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) FirewallPolicyTlsCertificatePtrOutput {
-	return o.ApplyT(func(v FirewallPolicyTlsCertificate) *FirewallPolicyTlsCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyTlsCertificate) *FirewallPolicyTlsCertificate {
 		return &v
 	}).(FirewallPolicyTlsCertificatePtrOutput)
 }
@@ -9946,7 +10061,13 @@ func (o FirewallPolicyTlsCertificatePtrOutput) ToFirewallPolicyTlsCertificatePtr
 }
 
 func (o FirewallPolicyTlsCertificatePtrOutput) Elem() FirewallPolicyTlsCertificateOutput {
-	return o.ApplyT(func(v *FirewallPolicyTlsCertificate) FirewallPolicyTlsCertificate { return *v }).(FirewallPolicyTlsCertificateOutput)
+	return o.ApplyT(func(v *FirewallPolicyTlsCertificate) FirewallPolicyTlsCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyTlsCertificate
+		return ret
+	}).(FirewallPolicyTlsCertificateOutput)
 }
 
 // The ID of the Key Vault, where the secret or certificate is stored.
@@ -10074,7 +10195,7 @@ func (o FirewallVirtualHubOutput) ToFirewallVirtualHubPtrOutput() FirewallVirtua
 }
 
 func (o FirewallVirtualHubOutput) ToFirewallVirtualHubPtrOutputWithContext(ctx context.Context) FirewallVirtualHubPtrOutput {
-	return o.ApplyT(func(v FirewallVirtualHub) *FirewallVirtualHub {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallVirtualHub) *FirewallVirtualHub {
 		return &v
 	}).(FirewallVirtualHubPtrOutput)
 }
@@ -10114,7 +10235,13 @@ func (o FirewallVirtualHubPtrOutput) ToFirewallVirtualHubPtrOutputWithContext(ct
 }
 
 func (o FirewallVirtualHubPtrOutput) Elem() FirewallVirtualHubOutput {
-	return o.ApplyT(func(v *FirewallVirtualHub) FirewallVirtualHub { return *v }).(FirewallVirtualHubOutput)
+	return o.ApplyT(func(v *FirewallVirtualHub) FirewallVirtualHub {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallVirtualHub
+		return ret
+	}).(FirewallVirtualHubOutput)
 }
 
 // The private IP address associated with the Firewall.
@@ -10262,7 +10389,7 @@ func (o LocalNetworkGatewayBgpSettingsOutput) ToLocalNetworkGatewayBgpSettingsPt
 }
 
 func (o LocalNetworkGatewayBgpSettingsOutput) ToLocalNetworkGatewayBgpSettingsPtrOutputWithContext(ctx context.Context) LocalNetworkGatewayBgpSettingsPtrOutput {
-	return o.ApplyT(func(v LocalNetworkGatewayBgpSettings) *LocalNetworkGatewayBgpSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalNetworkGatewayBgpSettings) *LocalNetworkGatewayBgpSettings {
 		return &v
 	}).(LocalNetworkGatewayBgpSettingsPtrOutput)
 }
@@ -10299,7 +10426,13 @@ func (o LocalNetworkGatewayBgpSettingsPtrOutput) ToLocalNetworkGatewayBgpSetting
 }
 
 func (o LocalNetworkGatewayBgpSettingsPtrOutput) Elem() LocalNetworkGatewayBgpSettingsOutput {
-	return o.ApplyT(func(v *LocalNetworkGatewayBgpSettings) LocalNetworkGatewayBgpSettings { return *v }).(LocalNetworkGatewayBgpSettingsOutput)
+	return o.ApplyT(func(v *LocalNetworkGatewayBgpSettings) LocalNetworkGatewayBgpSettings {
+		if v != nil {
+			return *v
+		}
+		var ret LocalNetworkGatewayBgpSettings
+		return ret
+	}).(LocalNetworkGatewayBgpSettingsOutput)
 }
 
 // The BGP speaker's ASN.
@@ -10447,7 +10580,7 @@ func (o NetworkConnectionMonitorDestinationOutput) ToNetworkConnectionMonitorDes
 }
 
 func (o NetworkConnectionMonitorDestinationOutput) ToNetworkConnectionMonitorDestinationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorDestinationPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorDestination) *NetworkConnectionMonitorDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectionMonitorDestination) *NetworkConnectionMonitorDestination {
 		return &v
 	}).(NetworkConnectionMonitorDestinationPtrOutput)
 }
@@ -10488,7 +10621,13 @@ func (o NetworkConnectionMonitorDestinationPtrOutput) ToNetworkConnectionMonitor
 }
 
 func (o NetworkConnectionMonitorDestinationPtrOutput) Elem() NetworkConnectionMonitorDestinationOutput {
-	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) NetworkConnectionMonitorDestination { return *v }).(NetworkConnectionMonitorDestinationOutput)
+	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) NetworkConnectionMonitorDestination {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectionMonitorDestination
+		return ret
+	}).(NetworkConnectionMonitorDestinationOutput)
 }
 
 // The IP address or domain name of the Network Connection Monitor endpoint.
@@ -10799,7 +10938,7 @@ func (o NetworkConnectionMonitorEndpointFilterOutput) ToNetworkConnectionMonitor
 }
 
 func (o NetworkConnectionMonitorEndpointFilterOutput) ToNetworkConnectionMonitorEndpointFilterPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointFilterPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorEndpointFilter) *NetworkConnectionMonitorEndpointFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectionMonitorEndpointFilter) *NetworkConnectionMonitorEndpointFilter {
 		return &v
 	}).(NetworkConnectionMonitorEndpointFilterPtrOutput)
 }
@@ -10831,7 +10970,13 @@ func (o NetworkConnectionMonitorEndpointFilterPtrOutput) ToNetworkConnectionMoni
 }
 
 func (o NetworkConnectionMonitorEndpointFilterPtrOutput) Elem() NetworkConnectionMonitorEndpointFilterOutput {
-	return o.ApplyT(func(v *NetworkConnectionMonitorEndpointFilter) NetworkConnectionMonitorEndpointFilter { return *v }).(NetworkConnectionMonitorEndpointFilterOutput)
+	return o.ApplyT(func(v *NetworkConnectionMonitorEndpointFilter) NetworkConnectionMonitorEndpointFilter {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectionMonitorEndpointFilter
+		return ret
+	}).(NetworkConnectionMonitorEndpointFilterOutput)
 }
 
 // A `item` block as defined below.
@@ -11065,7 +11210,7 @@ func (o NetworkConnectionMonitorSourceOutput) ToNetworkConnectionMonitorSourcePt
 }
 
 func (o NetworkConnectionMonitorSourceOutput) ToNetworkConnectionMonitorSourcePtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorSourcePtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorSource) *NetworkConnectionMonitorSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectionMonitorSource) *NetworkConnectionMonitorSource {
 		return &v
 	}).(NetworkConnectionMonitorSourcePtrOutput)
 }
@@ -11099,7 +11244,13 @@ func (o NetworkConnectionMonitorSourcePtrOutput) ToNetworkConnectionMonitorSourc
 }
 
 func (o NetworkConnectionMonitorSourcePtrOutput) Elem() NetworkConnectionMonitorSourceOutput {
-	return o.ApplyT(func(v *NetworkConnectionMonitorSource) NetworkConnectionMonitorSource { return *v }).(NetworkConnectionMonitorSourceOutput)
+	return o.ApplyT(func(v *NetworkConnectionMonitorSource) NetworkConnectionMonitorSource {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectionMonitorSource
+		return ret
+	}).(NetworkConnectionMonitorSourceOutput)
 }
 
 // The port for the HTTP connection.
@@ -11407,7 +11558,7 @@ func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) ToNetw
 }
 
 func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationHttpConfiguration) *NetworkConnectionMonitorTestConfigurationHttpConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectionMonitorTestConfigurationHttpConfiguration) *NetworkConnectionMonitorTestConfigurationHttpConfiguration {
 		return &v
 	}).(NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput)
 }
@@ -11462,7 +11613,11 @@ func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput) ToN
 
 func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput) Elem() NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationHttpConfiguration) NetworkConnectionMonitorTestConfigurationHttpConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectionMonitorTestConfigurationHttpConfiguration
+		return ret
 	}).(NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput)
 }
 
@@ -11725,7 +11880,7 @@ func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput) ToNetw
 }
 
 func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationIcmpConfiguration) *NetworkConnectionMonitorTestConfigurationIcmpConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectionMonitorTestConfigurationIcmpConfiguration) *NetworkConnectionMonitorTestConfigurationIcmpConfiguration {
 		return &v
 	}).(NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput)
 }
@@ -11751,7 +11906,11 @@ func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput) ToN
 
 func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput) Elem() NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationIcmpConfiguration) NetworkConnectionMonitorTestConfigurationIcmpConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectionMonitorTestConfigurationIcmpConfiguration
+		return ret
 	}).(NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput)
 }
 
@@ -11862,7 +12021,7 @@ func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput) ToNetwo
 }
 
 func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationSuccessThreshold) *NetworkConnectionMonitorTestConfigurationSuccessThreshold {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectionMonitorTestConfigurationSuccessThreshold) *NetworkConnectionMonitorTestConfigurationSuccessThreshold {
 		return &v
 	}).(NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput)
 }
@@ -11893,7 +12052,11 @@ func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput) ToNe
 
 func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput) Elem() NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationSuccessThreshold) NetworkConnectionMonitorTestConfigurationSuccessThreshold {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectionMonitorTestConfigurationSuccessThreshold
+		return ret
 	}).(NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput)
 }
 
@@ -12014,7 +12177,7 @@ func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) ToNetwo
 }
 
 func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationTcpConfiguration) *NetworkConnectionMonitorTestConfigurationTcpConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectionMonitorTestConfigurationTcpConfiguration) *NetworkConnectionMonitorTestConfigurationTcpConfiguration {
 		return &v
 	}).(NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput)
 }
@@ -12045,7 +12208,11 @@ func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) ToNe
 
 func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) Elem() NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationTcpConfiguration) NetworkConnectionMonitorTestConfigurationTcpConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectionMonitorTestConfigurationTcpConfiguration
+		return ret
 	}).(NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput)
 }
 
@@ -12587,7 +12754,7 @@ func (o NetworkPacketCaptureStorageLocationOutput) ToNetworkPacketCaptureStorage
 }
 
 func (o NetworkPacketCaptureStorageLocationOutput) ToNetworkPacketCaptureStorageLocationPtrOutputWithContext(ctx context.Context) NetworkPacketCaptureStorageLocationPtrOutput {
-	return o.ApplyT(func(v NetworkPacketCaptureStorageLocation) *NetworkPacketCaptureStorageLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkPacketCaptureStorageLocation) *NetworkPacketCaptureStorageLocation {
 		return &v
 	}).(NetworkPacketCaptureStorageLocationPtrOutput)
 }
@@ -12622,7 +12789,13 @@ func (o NetworkPacketCaptureStorageLocationPtrOutput) ToNetworkPacketCaptureStor
 }
 
 func (o NetworkPacketCaptureStorageLocationPtrOutput) Elem() NetworkPacketCaptureStorageLocationOutput {
-	return o.ApplyT(func(v *NetworkPacketCaptureStorageLocation) NetworkPacketCaptureStorageLocation { return *v }).(NetworkPacketCaptureStorageLocationOutput)
+	return o.ApplyT(func(v *NetworkPacketCaptureStorageLocation) NetworkPacketCaptureStorageLocation {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkPacketCaptureStorageLocation
+		return ret
+	}).(NetworkPacketCaptureStorageLocationOutput)
 }
 
 // A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
@@ -12984,7 +13157,7 @@ func (o NetworkWatcherFlowLogRetentionPolicyOutput) ToNetworkWatcherFlowLogReten
 }
 
 func (o NetworkWatcherFlowLogRetentionPolicyOutput) ToNetworkWatcherFlowLogRetentionPolicyPtrOutputWithContext(ctx context.Context) NetworkWatcherFlowLogRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v NetworkWatcherFlowLogRetentionPolicy) *NetworkWatcherFlowLogRetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkWatcherFlowLogRetentionPolicy) *NetworkWatcherFlowLogRetentionPolicy {
 		return &v
 	}).(NetworkWatcherFlowLogRetentionPolicyPtrOutput)
 }
@@ -13014,7 +13187,13 @@ func (o NetworkWatcherFlowLogRetentionPolicyPtrOutput) ToNetworkWatcherFlowLogRe
 }
 
 func (o NetworkWatcherFlowLogRetentionPolicyPtrOutput) Elem() NetworkWatcherFlowLogRetentionPolicyOutput {
-	return o.ApplyT(func(v *NetworkWatcherFlowLogRetentionPolicy) NetworkWatcherFlowLogRetentionPolicy { return *v }).(NetworkWatcherFlowLogRetentionPolicyOutput)
+	return o.ApplyT(func(v *NetworkWatcherFlowLogRetentionPolicy) NetworkWatcherFlowLogRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkWatcherFlowLogRetentionPolicy
+		return ret
+	}).(NetworkWatcherFlowLogRetentionPolicyOutput)
 }
 
 // The number of days to retain flow log records.
@@ -13146,7 +13325,7 @@ func (o NetworkWatcherFlowLogTrafficAnalyticsOutput) ToNetworkWatcherFlowLogTraf
 }
 
 func (o NetworkWatcherFlowLogTrafficAnalyticsOutput) ToNetworkWatcherFlowLogTrafficAnalyticsPtrOutputWithContext(ctx context.Context) NetworkWatcherFlowLogTrafficAnalyticsPtrOutput {
-	return o.ApplyT(func(v NetworkWatcherFlowLogTrafficAnalytics) *NetworkWatcherFlowLogTrafficAnalytics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkWatcherFlowLogTrafficAnalytics) *NetworkWatcherFlowLogTrafficAnalytics {
 		return &v
 	}).(NetworkWatcherFlowLogTrafficAnalyticsPtrOutput)
 }
@@ -13191,7 +13370,13 @@ func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) ToNetworkWatcherFlowLogT
 }
 
 func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) Elem() NetworkWatcherFlowLogTrafficAnalyticsOutput {
-	return o.ApplyT(func(v *NetworkWatcherFlowLogTrafficAnalytics) NetworkWatcherFlowLogTrafficAnalytics { return *v }).(NetworkWatcherFlowLogTrafficAnalyticsOutput)
+	return o.ApplyT(func(v *NetworkWatcherFlowLogTrafficAnalytics) NetworkWatcherFlowLogTrafficAnalytics {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkWatcherFlowLogTrafficAnalytics
+		return ret
+	}).(NetworkWatcherFlowLogTrafficAnalyticsOutput)
 }
 
 // Boolean flag to enable/disable traffic analytics.
@@ -13478,7 +13663,7 @@ func (o PacketCaptureStorageLocationOutput) ToPacketCaptureStorageLocationPtrOut
 }
 
 func (o PacketCaptureStorageLocationOutput) ToPacketCaptureStorageLocationPtrOutputWithContext(ctx context.Context) PacketCaptureStorageLocationPtrOutput {
-	return o.ApplyT(func(v PacketCaptureStorageLocation) *PacketCaptureStorageLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PacketCaptureStorageLocation) *PacketCaptureStorageLocation {
 		return &v
 	}).(PacketCaptureStorageLocationPtrOutput)
 }
@@ -13513,7 +13698,13 @@ func (o PacketCaptureStorageLocationPtrOutput) ToPacketCaptureStorageLocationPtr
 }
 
 func (o PacketCaptureStorageLocationPtrOutput) Elem() PacketCaptureStorageLocationOutput {
-	return o.ApplyT(func(v *PacketCaptureStorageLocation) PacketCaptureStorageLocation { return *v }).(PacketCaptureStorageLocationOutput)
+	return o.ApplyT(func(v *PacketCaptureStorageLocation) PacketCaptureStorageLocation {
+		if v != nil {
+			return *v
+		}
+		var ret PacketCaptureStorageLocation
+		return ret
+	}).(PacketCaptureStorageLocationOutput)
 }
 
 // A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
@@ -13647,7 +13838,7 @@ func (o PointToPointVpnGatewayConnectionConfigurationOutput) ToPointToPointVpnGa
 }
 
 func (o PointToPointVpnGatewayConnectionConfigurationOutput) ToPointToPointVpnGatewayConnectionConfigurationPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationPtrOutput {
-	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfiguration) *PointToPointVpnGatewayConnectionConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PointToPointVpnGatewayConnectionConfiguration) *PointToPointVpnGatewayConnectionConfiguration {
 		return &v
 	}).(PointToPointVpnGatewayConnectionConfigurationPtrOutput)
 }
@@ -13687,7 +13878,11 @@ func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) ToPointToPointVp
 
 func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) Elem() PointToPointVpnGatewayConnectionConfigurationOutput {
 	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfiguration) PointToPointVpnGatewayConnectionConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PointToPointVpnGatewayConnectionConfiguration
+		return ret
 	}).(PointToPointVpnGatewayConnectionConfigurationOutput)
 }
 
@@ -13818,7 +14013,7 @@ func (o PointToPointVpnGatewayConnectionConfigurationRouteOutput) ToPointToPoint
 }
 
 func (o PointToPointVpnGatewayConnectionConfigurationRouteOutput) ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput {
-	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationRoute) *PointToPointVpnGatewayConnectionConfigurationRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PointToPointVpnGatewayConnectionConfigurationRoute) *PointToPointVpnGatewayConnectionConfigurationRoute {
 		return &v
 	}).(PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput)
 }
@@ -13851,7 +14046,11 @@ func (o PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput) ToPointToPo
 
 func (o PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput) Elem() PointToPointVpnGatewayConnectionConfigurationRouteOutput {
 	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationRoute) PointToPointVpnGatewayConnectionConfigurationRoute {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PointToPointVpnGatewayConnectionConfigurationRoute
+		return ret
 	}).(PointToPointVpnGatewayConnectionConfigurationRouteOutput)
 }
 
@@ -13972,7 +14171,7 @@ func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOu
 }
 
 func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput {
-	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable) *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable) *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable {
 		return &v
 	}).(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput)
 }
@@ -14005,7 +14204,11 @@ func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePt
 
 func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput) Elem() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput {
 	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable) PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable
+		return ret
 	}).(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput)
 }
 
@@ -14122,7 +14325,7 @@ func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput)
 }
 
 func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
-	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool) *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool) *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
 		return &v
 	}).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput)
 }
@@ -14150,7 +14353,11 @@ func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutp
 
 func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput) Elem() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput {
 	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool
+		return ret
 	}).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput)
 }
 
@@ -14261,7 +14468,7 @@ func (o ProfileContainerNetworkInterfaceOutput) ToProfileContainerNetworkInterfa
 }
 
 func (o ProfileContainerNetworkInterfaceOutput) ToProfileContainerNetworkInterfacePtrOutputWithContext(ctx context.Context) ProfileContainerNetworkInterfacePtrOutput {
-	return o.ApplyT(func(v ProfileContainerNetworkInterface) *ProfileContainerNetworkInterface {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileContainerNetworkInterface) *ProfileContainerNetworkInterface {
 		return &v
 	}).(ProfileContainerNetworkInterfacePtrOutput)
 }
@@ -14293,7 +14500,13 @@ func (o ProfileContainerNetworkInterfacePtrOutput) ToProfileContainerNetworkInte
 }
 
 func (o ProfileContainerNetworkInterfacePtrOutput) Elem() ProfileContainerNetworkInterfaceOutput {
-	return o.ApplyT(func(v *ProfileContainerNetworkInterface) ProfileContainerNetworkInterface { return *v }).(ProfileContainerNetworkInterfaceOutput)
+	return o.ApplyT(func(v *ProfileContainerNetworkInterface) ProfileContainerNetworkInterface {
+		if v != nil {
+			return *v
+		}
+		var ret ProfileContainerNetworkInterface
+		return ret
+	}).(ProfileContainerNetworkInterfaceOutput)
 }
 
 // One or more `ipConfiguration` blocks as documented below.
@@ -14527,7 +14740,7 @@ func (o RouteFilterRuleOutput) ToRouteFilterRulePtrOutput() RouteFilterRulePtrOu
 }
 
 func (o RouteFilterRuleOutput) ToRouteFilterRulePtrOutputWithContext(ctx context.Context) RouteFilterRulePtrOutput {
-	return o.ApplyT(func(v RouteFilterRule) *RouteFilterRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteFilterRule) *RouteFilterRule {
 		return &v
 	}).(RouteFilterRulePtrOutput)
 }
@@ -14567,7 +14780,13 @@ func (o RouteFilterRulePtrOutput) ToRouteFilterRulePtrOutputWithContext(ctx cont
 }
 
 func (o RouteFilterRulePtrOutput) Elem() RouteFilterRuleOutput {
-	return o.ApplyT(func(v *RouteFilterRule) RouteFilterRule { return *v }).(RouteFilterRuleOutput)
+	return o.ApplyT(func(v *RouteFilterRule) RouteFilterRule {
+		if v != nil {
+			return *v
+		}
+		var ret RouteFilterRule
+		return ret
+	}).(RouteFilterRuleOutput)
 }
 
 // The access type of the rule. The only possible value is `Allow`.
@@ -15002,7 +15221,7 @@ func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ToSubnetServiceEndpo
 }
 
 func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
-	return o.ApplyT(func(v SubnetServiceEndpointStoragePolicyDefinition) *SubnetServiceEndpointStoragePolicyDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetServiceEndpointStoragePolicyDefinition) *SubnetServiceEndpointStoragePolicyDefinition {
 		return &v
 	}).(SubnetServiceEndpointStoragePolicyDefinitionPtrOutput)
 }
@@ -15038,7 +15257,11 @@ func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) ToSubnetServiceEn
 
 func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) Elem() SubnetServiceEndpointStoragePolicyDefinitionOutput {
 	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicyDefinition) SubnetServiceEndpointStoragePolicyDefinition {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SubnetServiceEndpointStoragePolicyDefinition
+		return ret
 	}).(SubnetServiceEndpointStoragePolicyDefinitionOutput)
 }
 
@@ -15390,7 +15613,7 @@ func (o TrafficManagerProfileDnsConfigOutput) ToTrafficManagerProfileDnsConfigPt
 }
 
 func (o TrafficManagerProfileDnsConfigOutput) ToTrafficManagerProfileDnsConfigPtrOutputWithContext(ctx context.Context) TrafficManagerProfileDnsConfigPtrOutput {
-	return o.ApplyT(func(v TrafficManagerProfileDnsConfig) *TrafficManagerProfileDnsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficManagerProfileDnsConfig) *TrafficManagerProfileDnsConfig {
 		return &v
 	}).(TrafficManagerProfileDnsConfigPtrOutput)
 }
@@ -15420,7 +15643,13 @@ func (o TrafficManagerProfileDnsConfigPtrOutput) ToTrafficManagerProfileDnsConfi
 }
 
 func (o TrafficManagerProfileDnsConfigPtrOutput) Elem() TrafficManagerProfileDnsConfigOutput {
-	return o.ApplyT(func(v *TrafficManagerProfileDnsConfig) TrafficManagerProfileDnsConfig { return *v }).(TrafficManagerProfileDnsConfigOutput)
+	return o.ApplyT(func(v *TrafficManagerProfileDnsConfig) TrafficManagerProfileDnsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficManagerProfileDnsConfig
+		return ret
+	}).(TrafficManagerProfileDnsConfigOutput)
 }
 
 // The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
@@ -15564,7 +15793,7 @@ func (o TrafficManagerProfileMonitorConfigOutput) ToTrafficManagerProfileMonitor
 }
 
 func (o TrafficManagerProfileMonitorConfigOutput) ToTrafficManagerProfileMonitorConfigPtrOutputWithContext(ctx context.Context) TrafficManagerProfileMonitorConfigPtrOutput {
-	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) *TrafficManagerProfileMonitorConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficManagerProfileMonitorConfig) *TrafficManagerProfileMonitorConfig {
 		return &v
 	}).(TrafficManagerProfileMonitorConfigPtrOutput)
 }
@@ -15626,7 +15855,13 @@ func (o TrafficManagerProfileMonitorConfigPtrOutput) ToTrafficManagerProfileMoni
 }
 
 func (o TrafficManagerProfileMonitorConfigPtrOutput) Elem() TrafficManagerProfileMonitorConfigOutput {
-	return o.ApplyT(func(v *TrafficManagerProfileMonitorConfig) TrafficManagerProfileMonitorConfig { return *v }).(TrafficManagerProfileMonitorConfigOutput)
+	return o.ApplyT(func(v *TrafficManagerProfileMonitorConfig) TrafficManagerProfileMonitorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficManagerProfileMonitorConfig
+		return ret
+	}).(TrafficManagerProfileMonitorConfigOutput)
 }
 
 // One or more `customHeader` blocks as defined below.
@@ -15916,7 +16151,7 @@ func (o VirtualHubConnectionRoutingOutput) ToVirtualHubConnectionRoutingPtrOutpu
 }
 
 func (o VirtualHubConnectionRoutingOutput) ToVirtualHubConnectionRoutingPtrOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingPtrOutput {
-	return o.ApplyT(func(v VirtualHubConnectionRouting) *VirtualHubConnectionRouting {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualHubConnectionRouting) *VirtualHubConnectionRouting {
 		return &v
 	}).(VirtualHubConnectionRoutingPtrOutput)
 }
@@ -15955,7 +16190,13 @@ func (o VirtualHubConnectionRoutingPtrOutput) ToVirtualHubConnectionRoutingPtrOu
 }
 
 func (o VirtualHubConnectionRoutingPtrOutput) Elem() VirtualHubConnectionRoutingOutput {
-	return o.ApplyT(func(v *VirtualHubConnectionRouting) VirtualHubConnectionRouting { return *v }).(VirtualHubConnectionRoutingOutput)
+	return o.ApplyT(func(v *VirtualHubConnectionRouting) VirtualHubConnectionRouting {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualHubConnectionRouting
+		return ret
+	}).(VirtualHubConnectionRoutingOutput)
 }
 
 // The ID of the route table associated with this Virtual Hub connection.
@@ -16085,7 +16326,7 @@ func (o VirtualHubConnectionRoutingPropagatedRouteTableOutput) ToVirtualHubConne
 }
 
 func (o VirtualHubConnectionRoutingPropagatedRouteTableOutput) ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput {
-	return o.ApplyT(func(v VirtualHubConnectionRoutingPropagatedRouteTable) *VirtualHubConnectionRoutingPropagatedRouteTable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualHubConnectionRoutingPropagatedRouteTable) *VirtualHubConnectionRoutingPropagatedRouteTable {
 		return &v
 	}).(VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput)
 }
@@ -16116,7 +16357,11 @@ func (o VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput) ToVirtualHubCo
 
 func (o VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput) Elem() VirtualHubConnectionRoutingPropagatedRouteTableOutput {
 	return o.ApplyT(func(v *VirtualHubConnectionRoutingPropagatedRouteTable) VirtualHubConnectionRoutingPropagatedRouteTable {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualHubConnectionRoutingPropagatedRouteTable
+		return ret
 	}).(VirtualHubConnectionRoutingPropagatedRouteTableOutput)
 }
 
@@ -16591,7 +16836,7 @@ func (o VirtualNetworkDdosProtectionPlanOutput) ToVirtualNetworkDdosProtectionPl
 }
 
 func (o VirtualNetworkDdosProtectionPlanOutput) ToVirtualNetworkDdosProtectionPlanPtrOutputWithContext(ctx context.Context) VirtualNetworkDdosProtectionPlanPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkDdosProtectionPlan) *VirtualNetworkDdosProtectionPlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkDdosProtectionPlan) *VirtualNetworkDdosProtectionPlan {
 		return &v
 	}).(VirtualNetworkDdosProtectionPlanPtrOutput)
 }
@@ -16621,7 +16866,13 @@ func (o VirtualNetworkDdosProtectionPlanPtrOutput) ToVirtualNetworkDdosProtectio
 }
 
 func (o VirtualNetworkDdosProtectionPlanPtrOutput) Elem() VirtualNetworkDdosProtectionPlanOutput {
-	return o.ApplyT(func(v *VirtualNetworkDdosProtectionPlan) VirtualNetworkDdosProtectionPlan { return *v }).(VirtualNetworkDdosProtectionPlanOutput)
+	return o.ApplyT(func(v *VirtualNetworkDdosProtectionPlan) VirtualNetworkDdosProtectionPlan {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkDdosProtectionPlan
+		return ret
+	}).(VirtualNetworkDdosProtectionPlanOutput)
 }
 
 // Enable/disable DDoS Protection Plan on Virtual Network.
@@ -16751,7 +17002,7 @@ func (o VirtualNetworkGatewayBgpSettingsOutput) ToVirtualNetworkGatewayBgpSettin
 }
 
 func (o VirtualNetworkGatewayBgpSettingsOutput) ToVirtualNetworkGatewayBgpSettingsPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayBgpSettingsPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettings) *VirtualNetworkGatewayBgpSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkGatewayBgpSettings) *VirtualNetworkGatewayBgpSettings {
 		return &v
 	}).(VirtualNetworkGatewayBgpSettingsPtrOutput)
 }
@@ -16794,7 +17045,13 @@ func (o VirtualNetworkGatewayBgpSettingsPtrOutput) ToVirtualNetworkGatewayBgpSet
 }
 
 func (o VirtualNetworkGatewayBgpSettingsPtrOutput) Elem() VirtualNetworkGatewayBgpSettingsOutput {
-	return o.ApplyT(func(v *VirtualNetworkGatewayBgpSettings) VirtualNetworkGatewayBgpSettings { return *v }).(VirtualNetworkGatewayBgpSettingsOutput)
+	return o.ApplyT(func(v *VirtualNetworkGatewayBgpSettings) VirtualNetworkGatewayBgpSettings {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkGatewayBgpSettings
+		return ret
+	}).(VirtualNetworkGatewayBgpSettingsOutput)
 }
 
 // The Autonomous System Number (ASN) to use as part of the BGP.
@@ -17103,7 +17360,7 @@ func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) ToVirtualNetworkGatewa
 }
 
 func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) ToVirtualNetworkGatewayConnectionIpsecPolicyPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayConnectionIpsecPolicy) *VirtualNetworkGatewayConnectionIpsecPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkGatewayConnectionIpsecPolicy) *VirtualNetworkGatewayConnectionIpsecPolicy {
 		return &v
 	}).(VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput)
 }
@@ -17174,7 +17431,11 @@ func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) ToVirtualNetworkGat
 
 func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) Elem() VirtualNetworkGatewayConnectionIpsecPolicyOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionIpsecPolicy) VirtualNetworkGatewayConnectionIpsecPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkGatewayConnectionIpsecPolicy
+		return ret
 	}).(VirtualNetworkGatewayConnectionIpsecPolicyOutput)
 }
 
@@ -17361,10 +17622,11 @@ func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) ToVirtualNet
 }
 
 func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayConnectionTrafficSelectorPolicy) *VirtualNetworkGatewayConnectionTrafficSelectorPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkGatewayConnectionTrafficSelectorPolicy) *VirtualNetworkGatewayConnectionTrafficSelectorPolicy {
 		return &v
 	}).(VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput)
 }
+
 func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) LocalAddressCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayConnectionTrafficSelectorPolicy) []string { return v.LocalAddressCidrs }).(pulumi.StringArrayOutput)
 }
@@ -17389,7 +17651,11 @@ func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) ToVirtual
 
 func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) Elem() VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionTrafficSelectorPolicy) VirtualNetworkGatewayConnectionTrafficSelectorPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkGatewayConnectionTrafficSelectorPolicy
+		return ret
 	}).(VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput)
 }
 
@@ -17504,7 +17770,7 @@ func (o VirtualNetworkGatewayCustomRouteOutput) ToVirtualNetworkGatewayCustomRou
 }
 
 func (o VirtualNetworkGatewayCustomRouteOutput) ToVirtualNetworkGatewayCustomRoutePtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayCustomRoutePtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayCustomRoute) *VirtualNetworkGatewayCustomRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkGatewayCustomRoute) *VirtualNetworkGatewayCustomRoute {
 		return &v
 	}).(VirtualNetworkGatewayCustomRoutePtrOutput)
 }
@@ -17529,7 +17795,13 @@ func (o VirtualNetworkGatewayCustomRoutePtrOutput) ToVirtualNetworkGatewayCustom
 }
 
 func (o VirtualNetworkGatewayCustomRoutePtrOutput) Elem() VirtualNetworkGatewayCustomRouteOutput {
-	return o.ApplyT(func(v *VirtualNetworkGatewayCustomRoute) VirtualNetworkGatewayCustomRoute { return *v }).(VirtualNetworkGatewayCustomRouteOutput)
+	return o.ApplyT(func(v *VirtualNetworkGatewayCustomRoute) VirtualNetworkGatewayCustomRoute {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkGatewayCustomRoute
+		return ret
+	}).(VirtualNetworkGatewayCustomRouteOutput)
 }
 
 // A list of address blocks reserved for this virtual network in CIDR notation.
@@ -17836,7 +18108,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) ToVirtualNetworkGatew
 }
 
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) ToVirtualNetworkGatewayVpnClientConfigurationPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *VirtualNetworkGatewayVpnClientConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkGatewayVpnClientConfiguration) *VirtualNetworkGatewayVpnClientConfiguration {
 		return &v
 	}).(VirtualNetworkGatewayVpnClientConfigurationPtrOutput)
 }
@@ -17921,7 +18193,11 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) ToVirtualNetworkGa
 
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) Elem() VirtualNetworkGatewayVpnClientConfigurationOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) VirtualNetworkGatewayVpnClientConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkGatewayVpnClientConfiguration
+		return ret
 	}).(VirtualNetworkGatewayVpnClientConfigurationOutput)
 }
 
@@ -18495,7 +18771,7 @@ func (o VpnGatewayBgpSettingsOutput) ToVpnGatewayBgpSettingsPtrOutput() VpnGatew
 }
 
 func (o VpnGatewayBgpSettingsOutput) ToVpnGatewayBgpSettingsPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsPtrOutput {
-	return o.ApplyT(func(v VpnGatewayBgpSettings) *VpnGatewayBgpSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnGatewayBgpSettings) *VpnGatewayBgpSettings {
 		return &v
 	}).(VpnGatewayBgpSettingsPtrOutput)
 }
@@ -18544,7 +18820,13 @@ func (o VpnGatewayBgpSettingsPtrOutput) ToVpnGatewayBgpSettingsPtrOutputWithCont
 }
 
 func (o VpnGatewayBgpSettingsPtrOutput) Elem() VpnGatewayBgpSettingsOutput {
-	return o.ApplyT(func(v *VpnGatewayBgpSettings) VpnGatewayBgpSettings { return *v }).(VpnGatewayBgpSettingsOutput)
+	return o.ApplyT(func(v *VpnGatewayBgpSettings) VpnGatewayBgpSettings {
+		if v != nil {
+			return *v
+		}
+		var ret VpnGatewayBgpSettings
+		return ret
+	}).(VpnGatewayBgpSettingsOutput)
 }
 
 // The ASN of the BGP Speaker. Changing this forces a new resource to be created.
@@ -18702,7 +18984,7 @@ func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) ToVpnGatewayBgpSe
 }
 
 func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput {
-	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance0BgpPeeringAddress) *VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnGatewayBgpSettingsInstance0BgpPeeringAddress) *VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
 		return &v
 	}).(VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput)
 }
@@ -18743,7 +19025,11 @@ func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) ToVpnGatewayBg
 
 func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) Elem() VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput {
 	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance0BgpPeeringAddress) VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VpnGatewayBgpSettingsInstance0BgpPeeringAddress
+		return ret
 	}).(VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput)
 }
 
@@ -18892,7 +19178,7 @@ func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) ToVpnGatewayBgpSe
 }
 
 func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput {
-	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance1BgpPeeringAddress) *VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnGatewayBgpSettingsInstance1BgpPeeringAddress) *VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
 		return &v
 	}).(VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput)
 }
@@ -18933,7 +19219,11 @@ func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) ToVpnGatewayBg
 
 func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) Elem() VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput {
 	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance1BgpPeeringAddress) VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VpnGatewayBgpSettingsInstance1BgpPeeringAddress
+		return ret
 	}).(VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput)
 }
 
@@ -19878,7 +20168,7 @@ func (o VpnServerConfigurationIpsecPolicyOutput) ToVpnServerConfigurationIpsecPo
 }
 
 func (o VpnServerConfigurationIpsecPolicyOutput) ToVpnServerConfigurationIpsecPolicyPtrOutputWithContext(ctx context.Context) VpnServerConfigurationIpsecPolicyPtrOutput {
-	return o.ApplyT(func(v VpnServerConfigurationIpsecPolicy) *VpnServerConfigurationIpsecPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnServerConfigurationIpsecPolicy) *VpnServerConfigurationIpsecPolicy {
 		return &v
 	}).(VpnServerConfigurationIpsecPolicyPtrOutput)
 }
@@ -19938,7 +20228,13 @@ func (o VpnServerConfigurationIpsecPolicyPtrOutput) ToVpnServerConfigurationIpse
 }
 
 func (o VpnServerConfigurationIpsecPolicyPtrOutput) Elem() VpnServerConfigurationIpsecPolicyOutput {
-	return o.ApplyT(func(v *VpnServerConfigurationIpsecPolicy) VpnServerConfigurationIpsecPolicy { return *v }).(VpnServerConfigurationIpsecPolicyOutput)
+	return o.ApplyT(func(v *VpnServerConfigurationIpsecPolicy) VpnServerConfigurationIpsecPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VpnServerConfigurationIpsecPolicy
+		return ret
+	}).(VpnServerConfigurationIpsecPolicyOutput)
 }
 
 // The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
@@ -20122,7 +20418,7 @@ func (o VpnServerConfigurationRadiusOutput) ToVpnServerConfigurationRadiusPtrOut
 }
 
 func (o VpnServerConfigurationRadiusOutput) ToVpnServerConfigurationRadiusPtrOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusPtrOutput {
-	return o.ApplyT(func(v VpnServerConfigurationRadius) *VpnServerConfigurationRadius {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnServerConfigurationRadius) *VpnServerConfigurationRadius {
 		return &v
 	}).(VpnServerConfigurationRadiusPtrOutput)
 }
@@ -20161,7 +20457,13 @@ func (o VpnServerConfigurationRadiusPtrOutput) ToVpnServerConfigurationRadiusPtr
 }
 
 func (o VpnServerConfigurationRadiusPtrOutput) Elem() VpnServerConfigurationRadiusOutput {
-	return o.ApplyT(func(v *VpnServerConfigurationRadius) VpnServerConfigurationRadius { return *v }).(VpnServerConfigurationRadiusOutput)
+	return o.ApplyT(func(v *VpnServerConfigurationRadius) VpnServerConfigurationRadius {
+		if v != nil {
+			return *v
+		}
+		var ret VpnServerConfigurationRadius
+		return ret
+	}).(VpnServerConfigurationRadiusOutput)
 }
 
 // One or more `clientRootCertificate` blocks as defined above.
@@ -20430,7 +20732,7 @@ func (o VpnServerConfigurationRadiusServerOutput) ToVpnServerConfigurationRadius
 }
 
 func (o VpnServerConfigurationRadiusServerOutput) ToVpnServerConfigurationRadiusServerPtrOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerPtrOutput {
-	return o.ApplyT(func(v VpnServerConfigurationRadiusServer) *VpnServerConfigurationRadiusServer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnServerConfigurationRadiusServer) *VpnServerConfigurationRadiusServer {
 		return &v
 	}).(VpnServerConfigurationRadiusServerPtrOutput)
 }
@@ -20474,7 +20776,13 @@ func (o VpnServerConfigurationRadiusServerPtrOutput) ToVpnServerConfigurationRad
 }
 
 func (o VpnServerConfigurationRadiusServerPtrOutput) Elem() VpnServerConfigurationRadiusServerOutput {
-	return o.ApplyT(func(v *VpnServerConfigurationRadiusServer) VpnServerConfigurationRadiusServer { return *v }).(VpnServerConfigurationRadiusServerOutput)
+	return o.ApplyT(func(v *VpnServerConfigurationRadiusServer) VpnServerConfigurationRadiusServer {
+		if v != nil {
+			return *v
+		}
+		var ret VpnServerConfigurationRadiusServer
+		return ret
+	}).(VpnServerConfigurationRadiusServerOutput)
 }
 
 // The Address of the Radius Server.
@@ -21103,7 +21411,7 @@ func (o VpnSiteLinkBgpOutput) ToVpnSiteLinkBgpPtrOutput() VpnSiteLinkBgpPtrOutpu
 }
 
 func (o VpnSiteLinkBgpOutput) ToVpnSiteLinkBgpPtrOutputWithContext(ctx context.Context) VpnSiteLinkBgpPtrOutput {
-	return o.ApplyT(func(v VpnSiteLinkBgp) *VpnSiteLinkBgp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnSiteLinkBgp) *VpnSiteLinkBgp {
 		return &v
 	}).(VpnSiteLinkBgpPtrOutput)
 }
@@ -21133,7 +21441,13 @@ func (o VpnSiteLinkBgpPtrOutput) ToVpnSiteLinkBgpPtrOutputWithContext(ctx contex
 }
 
 func (o VpnSiteLinkBgpPtrOutput) Elem() VpnSiteLinkBgpOutput {
-	return o.ApplyT(func(v *VpnSiteLinkBgp) VpnSiteLinkBgp { return *v }).(VpnSiteLinkBgpOutput)
+	return o.ApplyT(func(v *VpnSiteLinkBgp) VpnSiteLinkBgp {
+		if v != nil {
+			return *v
+		}
+		var ret VpnSiteLinkBgp
+		return ret
+	}).(VpnSiteLinkBgpOutput)
 }
 
 // The BGP speaker's ASN.

@@ -425,7 +425,7 @@ type AppServiceArrayInput interface {
 type AppServiceArray []AppServiceInput
 
 func (AppServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AppService)(nil))
+	return reflect.TypeOf((*[]*AppService)(nil)).Elem()
 }
 
 func (i AppServiceArray) ToAppServiceArrayOutput() AppServiceArrayOutput {
@@ -450,7 +450,7 @@ type AppServiceMapInput interface {
 type AppServiceMap map[string]AppServiceInput
 
 func (AppServiceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AppService)(nil))
+	return reflect.TypeOf((*map[string]*AppService)(nil)).Elem()
 }
 
 func (i AppServiceMap) ToAppServiceMapOutput() AppServiceMapOutput {
@@ -461,9 +461,7 @@ func (i AppServiceMap) ToAppServiceMapOutputWithContext(ctx context.Context) App
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceMapOutput)
 }
 
-type AppServiceOutput struct {
-	*pulumi.OutputState
-}
+type AppServiceOutput struct{ *pulumi.OutputState }
 
 func (AppServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppService)(nil))
@@ -482,14 +480,12 @@ func (o AppServiceOutput) ToAppServicePtrOutput() AppServicePtrOutput {
 }
 
 func (o AppServiceOutput) ToAppServicePtrOutputWithContext(ctx context.Context) AppServicePtrOutput {
-	return o.ApplyT(func(v AppService) *AppService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppService) *AppService {
 		return &v
 	}).(AppServicePtrOutput)
 }
 
-type AppServicePtrOutput struct {
-	*pulumi.OutputState
-}
+type AppServicePtrOutput struct{ *pulumi.OutputState }
 
 func (AppServicePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AppService)(nil))
@@ -501,6 +497,16 @@ func (o AppServicePtrOutput) ToAppServicePtrOutput() AppServicePtrOutput {
 
 func (o AppServicePtrOutput) ToAppServicePtrOutputWithContext(ctx context.Context) AppServicePtrOutput {
 	return o
+}
+
+func (o AppServicePtrOutput) Elem() AppServiceOutput {
+	return o.ApplyT(func(v *AppService) AppService {
+		if v != nil {
+			return *v
+		}
+		var ret AppService
+		return ret
+	}).(AppServiceOutput)
 }
 
 type AppServiceArrayOutput struct{ *pulumi.OutputState }

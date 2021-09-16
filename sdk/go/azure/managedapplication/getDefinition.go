@@ -4,6 +4,9 @@
 package managedapplication
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,61 @@ type LookupDefinitionResult struct {
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+func LookupDefinitionOutput(ctx *pulumi.Context, args LookupDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupDefinitionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDefinitionResult, error) {
+			args := v.(LookupDefinitionArgs)
+			r, err := LookupDefinition(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDefinitionResultOutput)
+}
+
+// A collection of arguments for invoking getDefinition.
+type LookupDefinitionOutputArgs struct {
+	// Specifies the name of the Managed Application Definition.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the Resource Group where this Managed Application Definition exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDefinitionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDefinitionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDefinition.
+type LookupDefinitionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDefinitionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDefinitionResult)(nil)).Elem()
+}
+
+func (o LookupDefinitionResultOutput) ToLookupDefinitionResultOutput() LookupDefinitionResultOutput {
+	return o
+}
+
+func (o LookupDefinitionResultOutput) ToLookupDefinitionResultOutputWithContext(ctx context.Context) LookupDefinitionResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupDefinitionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupDefinitionResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefinitionResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupDefinitionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefinitionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupDefinitionResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefinitionResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDefinitionResultOutput{})
 }

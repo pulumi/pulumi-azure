@@ -12,6 +12,7 @@ __all__ = [
     'GetManagementGroupResult',
     'AwaitableGetManagementGroupResult',
     'get_management_group',
+    'get_management_group_output',
 ]
 
 warnings.warn("""azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup""", DeprecationWarning)
@@ -139,3 +140,30 @@ def get_management_group(display_name: Optional[str] = None,
         name=__ret__.name,
         parent_management_group_id=__ret__.parent_management_group_id,
         subscription_ids=__ret__.subscription_ids)
+
+
+@_utilities.lift_output_func(get_management_group)
+def get_management_group_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                group_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                name: Optional[pulumi.Input[Optional[str]]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupResult]:
+    """
+    Use this data source to access information about an existing Management Group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
+    pulumi.export("displayName", example.display_name)
+    ```
+
+
+    :param str display_name: Specifies the display name of this Management Group.
+    :param str group_id: Specifies the name or UUID of this Management Group.
+    :param str name: Specifies the name or UUID of this Management Group.
+    """
+    pulumi.log.warn("""get_management_group is deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup""")
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetQueueAuthorizationRuleResult',
     'AwaitableGetQueueAuthorizationRuleResult',
     'get_queue_authorization_rule',
+    'get_queue_authorization_rule_output',
 ]
 
 @pulumi.output_type
@@ -230,3 +231,34 @@ def get_queue_authorization_rule(name: Optional[str] = None,
         secondary_connection_string_alias=__ret__.secondary_connection_string_alias,
         secondary_key=__ret__.secondary_key,
         send=__ret__.send)
+
+
+@_utilities.lift_output_func(get_queue_authorization_rule)
+def get_queue_authorization_rule_output(name: Optional[pulumi.Input[str]] = None,
+                                        namespace_name: Optional[pulumi.Input[str]] = None,
+                                        queue_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueAuthorizationRuleResult]:
+    """
+    Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.servicebus.get_queue_authorization_rule(name="example-tfex_name",
+        resource_group_name="example-resources",
+        queue_name="example-servicebus_queue",
+        namespace_name="example-namespace")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this ServiceBus Queue Authorisation Rule.
+    :param str namespace_name: The name of the ServiceBus Namespace.
+    :param str queue_name: The name of the ServiceBus Queue.
+    :param str resource_group_name: The name of the Resource Group where the ServiceBus Queue Authorisation Rule exists.
+    """
+    ...

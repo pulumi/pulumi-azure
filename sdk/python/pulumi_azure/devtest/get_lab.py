@@ -12,6 +12,7 @@ __all__ = [
     'GetLabResult',
     'AwaitableGetLabResult',
     'get_lab',
+    'get_lab_output',
 ]
 
 @pulumi.output_type
@@ -211,3 +212,28 @@ def get_lab(name: Optional[str] = None,
         storage_type=__ret__.storage_type,
         tags=__ret__.tags,
         unique_identifier=__ret__.unique_identifier)
+
+
+@_utilities.lift_output_func(get_lab)
+def get_lab_output(name: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
+    """
+    Use this data source to access information about an existing Dev Test Lab.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.devtest.get_lab(name="example-lab",
+        resource_group_name="example-resources")
+    pulumi.export("uniqueIdentifier", example.unique_identifier)
+    ```
+
+
+    :param str name: The name of the Dev Test Lab.
+    :param str resource_group_name: The Name of the Resource Group where the Dev Test Lab exists.
+    """
+    ...

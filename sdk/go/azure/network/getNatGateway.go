@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,101 @@ type LookupNatGatewayResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Availability Zones which the NAT Gateway exists in.
 	Zones []string `pulumi:"zones"`
+}
+
+func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupNatGatewayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNatGatewayResult, error) {
+			args := v.(LookupNatGatewayArgs)
+			r, err := LookupNatGateway(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNatGatewayResultOutput)
+}
+
+// A collection of arguments for invoking getNatGateway.
+type LookupNatGatewayOutputArgs struct {
+	// Specifies the Name of the NAT Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of existing Public IP Address resource IDs which the NAT Gateway is using.
+	PublicIpAddressIds pulumi.StringArrayInput `pulumi:"publicIpAddressIds"`
+	// A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
+	PublicIpPrefixIds pulumi.StringArrayInput `pulumi:"publicIpPrefixIds"`
+	// Specifies the name of the Resource Group where the NAT Gateway exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNatGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNatGatewayArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getNatGateway.
+type LookupNatGatewayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNatGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNatGatewayResult)(nil)).Elem()
+}
+
+func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutput() LookupNatGatewayResultOutput {
+	return o
+}
+
+func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutputWithContext(ctx context.Context) LookupNatGatewayResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupNatGatewayResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The idle timeout in minutes which is used for the NAT Gateway.
+func (o LookupNatGatewayResultOutput) IdleTimeoutInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) int { return v.IdleTimeoutInMinutes }).(pulumi.IntOutput)
+}
+
+// The location where the NAT Gateway exists.
+func (o LookupNatGatewayResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupNatGatewayResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of existing Public IP Address resource IDs which the NAT Gateway is using.
+func (o LookupNatGatewayResultOutput) PublicIpAddressIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) []string { return v.PublicIpAddressIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
+func (o LookupNatGatewayResultOutput) PublicIpPrefixIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) []string { return v.PublicIpPrefixIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupNatGatewayResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Resource GUID of the NAT Gateway.
+func (o LookupNatGatewayResultOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// The SKU used by the NAT Gateway.
+func (o LookupNatGatewayResultOutput) SkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.SkuName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupNatGatewayResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A list of Availability Zones which the NAT Gateway exists in.
+func (o LookupNatGatewayResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNatGatewayResultOutput{})
 }

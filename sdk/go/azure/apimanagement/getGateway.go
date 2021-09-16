@@ -4,6 +4,9 @@
 package apimanagement
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,68 @@ type LookupGatewayResult struct {
 	LocationDatas []GetGatewayLocationData `pulumi:"locationDatas"`
 	// A canonical name for the geographic or physical location.
 	Name string `pulumi:"name"`
+}
+
+func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGatewayResult, error) {
+			args := v.(LookupGatewayArgs)
+			r, err := LookupGateway(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGatewayResultOutput)
+}
+
+// A collection of arguments for invoking getGateway.
+type LookupGatewayOutputArgs struct {
+	// The ID of the API Management Service in which the Gateway exists.
+	ApiManagementId pulumi.StringInput `pulumi:"apiManagementId"`
+	// The name of the API Management Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGatewayArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getGateway.
+type LookupGatewayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGatewayResult)(nil)).Elem()
+}
+
+func (o LookupGatewayResultOutput) ToLookupGatewayResultOutput() LookupGatewayResultOutput {
+	return o
+}
+
+func (o LookupGatewayResultOutput) ToLookupGatewayResultOutputWithContext(ctx context.Context) LookupGatewayResultOutput {
+	return o
+}
+
+func (o LookupGatewayResultOutput) ApiManagementId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayResult) string { return v.ApiManagementId }).(pulumi.StringOutput)
+}
+
+// The description of the API Management Gateway.
+func (o LookupGatewayResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupGatewayResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A `locationData` block as documented below.
+func (o LookupGatewayResultOutput) LocationDatas() GetGatewayLocationDataArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayLocationData { return v.LocationDatas }).(GetGatewayLocationDataArrayOutput)
+}
+
+// A canonical name for the geographic or physical location.
+func (o LookupGatewayResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGatewayResultOutput{})
 }

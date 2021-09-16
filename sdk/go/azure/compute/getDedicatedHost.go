@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,73 @@ type LookupDedicatedHostResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the Dedicated Host.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupDedicatedHostOutput(ctx *pulumi.Context, args LookupDedicatedHostOutputArgs, opts ...pulumi.InvokeOption) LookupDedicatedHostResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDedicatedHostResult, error) {
+			args := v.(LookupDedicatedHostArgs)
+			r, err := LookupDedicatedHost(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDedicatedHostResultOutput)
+}
+
+// A collection of arguments for invoking getDedicatedHost.
+type LookupDedicatedHostOutputArgs struct {
+	// Specifies the name of the Dedicated Host Group the Dedicated Host is located in.
+	DedicatedHostGroupName pulumi.StringInput `pulumi:"dedicatedHostGroupName"`
+	// Specifies the name of the Dedicated Host.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group the Dedicated Host is located in.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDedicatedHostOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDedicatedHostArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDedicatedHost.
+type LookupDedicatedHostResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDedicatedHostResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDedicatedHostResult)(nil)).Elem()
+}
+
+func (o LookupDedicatedHostResultOutput) ToLookupDedicatedHostResultOutput() LookupDedicatedHostResultOutput {
+	return o
+}
+
+func (o LookupDedicatedHostResultOutput) ToLookupDedicatedHostResultOutputWithContext(ctx context.Context) LookupDedicatedHostResultOutput {
+	return o
+}
+
+func (o LookupDedicatedHostResultOutput) DedicatedHostGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.DedicatedHostGroupName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupDedicatedHostResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location where the Dedicated Host exists.
+func (o LookupDedicatedHostResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupDedicatedHostResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupDedicatedHostResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the Dedicated Host.
+func (o LookupDedicatedHostResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDedicatedHostResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDedicatedHostResultOutput{})
 }

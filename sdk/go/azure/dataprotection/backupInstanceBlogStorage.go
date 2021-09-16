@@ -190,7 +190,7 @@ type BackupInstanceBlogStorageArrayInput interface {
 type BackupInstanceBlogStorageArray []BackupInstanceBlogStorageInput
 
 func (BackupInstanceBlogStorageArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BackupInstanceBlogStorage)(nil))
+	return reflect.TypeOf((*[]*BackupInstanceBlogStorage)(nil)).Elem()
 }
 
 func (i BackupInstanceBlogStorageArray) ToBackupInstanceBlogStorageArrayOutput() BackupInstanceBlogStorageArrayOutput {
@@ -215,7 +215,7 @@ type BackupInstanceBlogStorageMapInput interface {
 type BackupInstanceBlogStorageMap map[string]BackupInstanceBlogStorageInput
 
 func (BackupInstanceBlogStorageMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BackupInstanceBlogStorage)(nil))
+	return reflect.TypeOf((*map[string]*BackupInstanceBlogStorage)(nil)).Elem()
 }
 
 func (i BackupInstanceBlogStorageMap) ToBackupInstanceBlogStorageMapOutput() BackupInstanceBlogStorageMapOutput {
@@ -226,9 +226,7 @@ func (i BackupInstanceBlogStorageMap) ToBackupInstanceBlogStorageMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceBlogStorageMapOutput)
 }
 
-type BackupInstanceBlogStorageOutput struct {
-	*pulumi.OutputState
-}
+type BackupInstanceBlogStorageOutput struct{ *pulumi.OutputState }
 
 func (BackupInstanceBlogStorageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupInstanceBlogStorage)(nil))
@@ -247,14 +245,12 @@ func (o BackupInstanceBlogStorageOutput) ToBackupInstanceBlogStoragePtrOutput() 
 }
 
 func (o BackupInstanceBlogStorageOutput) ToBackupInstanceBlogStoragePtrOutputWithContext(ctx context.Context) BackupInstanceBlogStoragePtrOutput {
-	return o.ApplyT(func(v BackupInstanceBlogStorage) *BackupInstanceBlogStorage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupInstanceBlogStorage) *BackupInstanceBlogStorage {
 		return &v
 	}).(BackupInstanceBlogStoragePtrOutput)
 }
 
-type BackupInstanceBlogStoragePtrOutput struct {
-	*pulumi.OutputState
-}
+type BackupInstanceBlogStoragePtrOutput struct{ *pulumi.OutputState }
 
 func (BackupInstanceBlogStoragePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BackupInstanceBlogStorage)(nil))
@@ -266,6 +262,16 @@ func (o BackupInstanceBlogStoragePtrOutput) ToBackupInstanceBlogStoragePtrOutput
 
 func (o BackupInstanceBlogStoragePtrOutput) ToBackupInstanceBlogStoragePtrOutputWithContext(ctx context.Context) BackupInstanceBlogStoragePtrOutput {
 	return o
+}
+
+func (o BackupInstanceBlogStoragePtrOutput) Elem() BackupInstanceBlogStorageOutput {
+	return o.ApplyT(func(v *BackupInstanceBlogStorage) BackupInstanceBlogStorage {
+		if v != nil {
+			return *v
+		}
+		var ret BackupInstanceBlogStorage
+		return ret
+	}).(BackupInstanceBlogStorageOutput)
 }
 
 type BackupInstanceBlogStorageArrayOutput struct{ *pulumi.OutputState }

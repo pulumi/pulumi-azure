@@ -315,7 +315,7 @@ type CacheBlobTargetArrayInput interface {
 type CacheBlobTargetArray []CacheBlobTargetInput
 
 func (CacheBlobTargetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CacheBlobTarget)(nil))
+	return reflect.TypeOf((*[]*CacheBlobTarget)(nil)).Elem()
 }
 
 func (i CacheBlobTargetArray) ToCacheBlobTargetArrayOutput() CacheBlobTargetArrayOutput {
@@ -340,7 +340,7 @@ type CacheBlobTargetMapInput interface {
 type CacheBlobTargetMap map[string]CacheBlobTargetInput
 
 func (CacheBlobTargetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CacheBlobTarget)(nil))
+	return reflect.TypeOf((*map[string]*CacheBlobTarget)(nil)).Elem()
 }
 
 func (i CacheBlobTargetMap) ToCacheBlobTargetMapOutput() CacheBlobTargetMapOutput {
@@ -351,9 +351,7 @@ func (i CacheBlobTargetMap) ToCacheBlobTargetMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobTargetMapOutput)
 }
 
-type CacheBlobTargetOutput struct {
-	*pulumi.OutputState
-}
+type CacheBlobTargetOutput struct{ *pulumi.OutputState }
 
 func (CacheBlobTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CacheBlobTarget)(nil))
@@ -372,14 +370,12 @@ func (o CacheBlobTargetOutput) ToCacheBlobTargetPtrOutput() CacheBlobTargetPtrOu
 }
 
 func (o CacheBlobTargetOutput) ToCacheBlobTargetPtrOutputWithContext(ctx context.Context) CacheBlobTargetPtrOutput {
-	return o.ApplyT(func(v CacheBlobTarget) *CacheBlobTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheBlobTarget) *CacheBlobTarget {
 		return &v
 	}).(CacheBlobTargetPtrOutput)
 }
 
-type CacheBlobTargetPtrOutput struct {
-	*pulumi.OutputState
-}
+type CacheBlobTargetPtrOutput struct{ *pulumi.OutputState }
 
 func (CacheBlobTargetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CacheBlobTarget)(nil))
@@ -391,6 +387,16 @@ func (o CacheBlobTargetPtrOutput) ToCacheBlobTargetPtrOutput() CacheBlobTargetPt
 
 func (o CacheBlobTargetPtrOutput) ToCacheBlobTargetPtrOutputWithContext(ctx context.Context) CacheBlobTargetPtrOutput {
 	return o
+}
+
+func (o CacheBlobTargetPtrOutput) Elem() CacheBlobTargetOutput {
+	return o.ApplyT(func(v *CacheBlobTarget) CacheBlobTarget {
+		if v != nil {
+			return *v
+		}
+		var ret CacheBlobTarget
+		return ret
+	}).(CacheBlobTargetOutput)
 }
 
 type CacheBlobTargetArrayOutput struct{ *pulumi.OutputState }

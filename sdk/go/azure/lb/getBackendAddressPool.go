@@ -4,6 +4,9 @@
 package lb
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -77,4 +80,82 @@ type LookupBackendAddressPoolResult struct {
 	Name string `pulumi:"name"`
 	// A list of the Load Balancing Outbound Rules associated with this Backend Address Pool.
 	OutboundRules []string `pulumi:"outboundRules"`
+}
+
+func LookupBackendAddressPoolOutput(ctx *pulumi.Context, args LookupBackendAddressPoolOutputArgs, opts ...pulumi.InvokeOption) LookupBackendAddressPoolResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBackendAddressPoolResult, error) {
+			args := v.(LookupBackendAddressPoolArgs)
+			r, err := LookupBackendAddressPool(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBackendAddressPoolResultOutput)
+}
+
+// A collection of arguments for invoking getBackendAddressPool.
+type LookupBackendAddressPoolOutputArgs struct {
+	// The ID of the Load Balancer in which the Backend Address Pool exists.
+	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
+	// Specifies the name of the Backend Address Pool.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupBackendAddressPoolOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackendAddressPoolArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getBackendAddressPool.
+type LookupBackendAddressPoolResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBackendAddressPoolResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackendAddressPoolResult)(nil)).Elem()
+}
+
+func (o LookupBackendAddressPoolResultOutput) ToLookupBackendAddressPoolResultOutput() LookupBackendAddressPoolResultOutput {
+	return o
+}
+
+func (o LookupBackendAddressPoolResultOutput) ToLookupBackendAddressPoolResultOutputWithContext(ctx context.Context) LookupBackendAddressPoolResultOutput {
+	return o
+}
+
+// A list of `backendAddress` block as defined below.
+func (o LookupBackendAddressPoolResultOutput) BackendAddresses() GetBackendAddressPoolBackendAddressArrayOutput {
+	return o.ApplyT(func(v LookupBackendAddressPoolResult) []GetBackendAddressPoolBackendAddress {
+		return v.BackendAddresses
+	}).(GetBackendAddressPoolBackendAddressArrayOutput)
+}
+
+// A list of references to IP addresses defined in network interfaces.
+func (o LookupBackendAddressPoolResultOutput) BackendIpConfigurations() GetBackendAddressPoolBackendIpConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupBackendAddressPoolResult) []GetBackendAddressPoolBackendIpConfiguration {
+		return v.BackendIpConfigurations
+	}).(GetBackendAddressPoolBackendIpConfigurationArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupBackendAddressPoolResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackendAddressPoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A list of the Load Balancing Rules associated with this Backend Address Pool.
+func (o LookupBackendAddressPoolResultOutput) LoadBalancingRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupBackendAddressPoolResult) []string { return v.LoadBalancingRules }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupBackendAddressPoolResultOutput) LoadbalancerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackendAddressPoolResult) string { return v.LoadbalancerId }).(pulumi.StringOutput)
+}
+
+// The name of the Backend Address.
+func (o LookupBackendAddressPoolResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackendAddressPoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of the Load Balancing Outbound Rules associated with this Backend Address Pool.
+func (o LookupBackendAddressPoolResultOutput) OutboundRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupBackendAddressPoolResult) []string { return v.OutboundRules }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBackendAddressPoolResultOutput{})
 }

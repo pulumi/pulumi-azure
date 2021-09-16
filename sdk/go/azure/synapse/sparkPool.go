@@ -335,7 +335,7 @@ type SparkPoolArrayInput interface {
 type SparkPoolArray []SparkPoolInput
 
 func (SparkPoolArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SparkPool)(nil))
+	return reflect.TypeOf((*[]*SparkPool)(nil)).Elem()
 }
 
 func (i SparkPoolArray) ToSparkPoolArrayOutput() SparkPoolArrayOutput {
@@ -360,7 +360,7 @@ type SparkPoolMapInput interface {
 type SparkPoolMap map[string]SparkPoolInput
 
 func (SparkPoolMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SparkPool)(nil))
+	return reflect.TypeOf((*map[string]*SparkPool)(nil)).Elem()
 }
 
 func (i SparkPoolMap) ToSparkPoolMapOutput() SparkPoolMapOutput {
@@ -371,9 +371,7 @@ func (i SparkPoolMap) ToSparkPoolMapOutputWithContext(ctx context.Context) Spark
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolMapOutput)
 }
 
-type SparkPoolOutput struct {
-	*pulumi.OutputState
-}
+type SparkPoolOutput struct{ *pulumi.OutputState }
 
 func (SparkPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SparkPool)(nil))
@@ -392,14 +390,12 @@ func (o SparkPoolOutput) ToSparkPoolPtrOutput() SparkPoolPtrOutput {
 }
 
 func (o SparkPoolOutput) ToSparkPoolPtrOutputWithContext(ctx context.Context) SparkPoolPtrOutput {
-	return o.ApplyT(func(v SparkPool) *SparkPool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkPool) *SparkPool {
 		return &v
 	}).(SparkPoolPtrOutput)
 }
 
-type SparkPoolPtrOutput struct {
-	*pulumi.OutputState
-}
+type SparkPoolPtrOutput struct{ *pulumi.OutputState }
 
 func (SparkPoolPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SparkPool)(nil))
@@ -411,6 +407,16 @@ func (o SparkPoolPtrOutput) ToSparkPoolPtrOutput() SparkPoolPtrOutput {
 
 func (o SparkPoolPtrOutput) ToSparkPoolPtrOutputWithContext(ctx context.Context) SparkPoolPtrOutput {
 	return o
+}
+
+func (o SparkPoolPtrOutput) Elem() SparkPoolOutput {
+	return o.ApplyT(func(v *SparkPool) SparkPool {
+		if v != nil {
+			return *v
+		}
+		var ret SparkPool
+		return ret
+	}).(SparkPoolOutput)
 }
 
 type SparkPoolArrayOutput struct{ *pulumi.OutputState }

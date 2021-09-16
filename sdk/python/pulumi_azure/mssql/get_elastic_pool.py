@@ -13,6 +13,7 @@ __all__ = [
     'GetElasticPoolResult',
     'AwaitableGetElasticPoolResult',
     'get_elastic_pool',
+    'get_elastic_pool_output',
 ]
 
 @pulumi.output_type
@@ -229,3 +230,31 @@ def get_elastic_pool(name: Optional[str] = None,
         skus=__ret__.skus,
         tags=__ret__.tags,
         zone_redundant=__ret__.zone_redundant)
+
+
+@_utilities.lift_output_func(get_elastic_pool)
+def get_elastic_pool_output(name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            server_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticPoolResult]:
+    """
+    Use this data source to access information about an existing SQL elastic pool.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mssql.get_elastic_pool(name="mssqlelasticpoolname",
+        resource_group_name="example-resources",
+        server_name="example-sql-server")
+    pulumi.export("elasticpoolId", example.id)
+    ```
+
+
+    :param str name: The name of the elastic pool.
+    :param str resource_group_name: The name of the resource group which contains the elastic pool.
+    :param str server_name: The name of the SQL Server which contains the elastic pool.
+    """
+    ...

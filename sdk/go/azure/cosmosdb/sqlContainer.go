@@ -330,7 +330,7 @@ type SqlContainerArrayInput interface {
 type SqlContainerArray []SqlContainerInput
 
 func (SqlContainerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SqlContainer)(nil))
+	return reflect.TypeOf((*[]*SqlContainer)(nil)).Elem()
 }
 
 func (i SqlContainerArray) ToSqlContainerArrayOutput() SqlContainerArrayOutput {
@@ -355,7 +355,7 @@ type SqlContainerMapInput interface {
 type SqlContainerMap map[string]SqlContainerInput
 
 func (SqlContainerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SqlContainer)(nil))
+	return reflect.TypeOf((*map[string]*SqlContainer)(nil)).Elem()
 }
 
 func (i SqlContainerMap) ToSqlContainerMapOutput() SqlContainerMapOutput {
@@ -366,9 +366,7 @@ func (i SqlContainerMap) ToSqlContainerMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerMapOutput)
 }
 
-type SqlContainerOutput struct {
-	*pulumi.OutputState
-}
+type SqlContainerOutput struct{ *pulumi.OutputState }
 
 func (SqlContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlContainer)(nil))
@@ -387,14 +385,12 @@ func (o SqlContainerOutput) ToSqlContainerPtrOutput() SqlContainerPtrOutput {
 }
 
 func (o SqlContainerOutput) ToSqlContainerPtrOutputWithContext(ctx context.Context) SqlContainerPtrOutput {
-	return o.ApplyT(func(v SqlContainer) *SqlContainer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlContainer) *SqlContainer {
 		return &v
 	}).(SqlContainerPtrOutput)
 }
 
-type SqlContainerPtrOutput struct {
-	*pulumi.OutputState
-}
+type SqlContainerPtrOutput struct{ *pulumi.OutputState }
 
 func (SqlContainerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SqlContainer)(nil))
@@ -406,6 +402,16 @@ func (o SqlContainerPtrOutput) ToSqlContainerPtrOutput() SqlContainerPtrOutput {
 
 func (o SqlContainerPtrOutput) ToSqlContainerPtrOutputWithContext(ctx context.Context) SqlContainerPtrOutput {
 	return o
+}
+
+func (o SqlContainerPtrOutput) Elem() SqlContainerOutput {
+	return o.ApplyT(func(v *SqlContainer) SqlContainer {
+		if v != nil {
+			return *v
+		}
+		var ret SqlContainer
+		return ret
+	}).(SqlContainerOutput)
 }
 
 type SqlContainerArrayOutput struct{ *pulumi.OutputState }

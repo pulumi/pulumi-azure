@@ -12,6 +12,7 @@ __all__ = [
     'GetIotHubResult',
     'AwaitableGetIotHubResult',
     'get_iot_hub',
+    'get_iot_hub_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,30 @@ def get_iot_hub(name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_iot_hub)
+def get_iot_hub_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubResult]:
+    """
+    Use this data source to access information about an existing IoTHub.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.iot.get_iot_hub(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this IoTHub.
+    :param str resource_group_name: The name of the Resource Group where the IoTHub exists.
+    :param Mapping[str, str] tags: A mapping of tags which should be assigned to the IoTHub.
+    """
+    ...

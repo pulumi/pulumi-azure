@@ -345,7 +345,7 @@ type IntegrationRuntimeSsisArrayInput interface {
 type IntegrationRuntimeSsisArray []IntegrationRuntimeSsisInput
 
 func (IntegrationRuntimeSsisArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntegrationRuntimeSsis)(nil))
+	return reflect.TypeOf((*[]*IntegrationRuntimeSsis)(nil)).Elem()
 }
 
 func (i IntegrationRuntimeSsisArray) ToIntegrationRuntimeSsisArrayOutput() IntegrationRuntimeSsisArrayOutput {
@@ -370,7 +370,7 @@ type IntegrationRuntimeSsisMapInput interface {
 type IntegrationRuntimeSsisMap map[string]IntegrationRuntimeSsisInput
 
 func (IntegrationRuntimeSsisMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntegrationRuntimeSsis)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationRuntimeSsis)(nil)).Elem()
 }
 
 func (i IntegrationRuntimeSsisMap) ToIntegrationRuntimeSsisMapOutput() IntegrationRuntimeSsisMapOutput {
@@ -381,9 +381,7 @@ func (i IntegrationRuntimeSsisMap) ToIntegrationRuntimeSsisMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisMapOutput)
 }
 
-type IntegrationRuntimeSsisOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationRuntimeSsisOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSsisOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationRuntimeSsis)(nil))
@@ -402,14 +400,12 @@ func (o IntegrationRuntimeSsisOutput) ToIntegrationRuntimeSsisPtrOutput() Integr
 }
 
 func (o IntegrationRuntimeSsisOutput) ToIntegrationRuntimeSsisPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsis) *IntegrationRuntimeSsis {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsis) *IntegrationRuntimeSsis {
 		return &v
 	}).(IntegrationRuntimeSsisPtrOutput)
 }
 
-type IntegrationRuntimeSsisPtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationRuntimeSsisPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSsisPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationRuntimeSsis)(nil))
@@ -421,6 +417,16 @@ func (o IntegrationRuntimeSsisPtrOutput) ToIntegrationRuntimeSsisPtrOutput() Int
 
 func (o IntegrationRuntimeSsisPtrOutput) ToIntegrationRuntimeSsisPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPtrOutput {
 	return o
+}
+
+func (o IntegrationRuntimeSsisPtrOutput) Elem() IntegrationRuntimeSsisOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsis) IntegrationRuntimeSsis {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSsis
+		return ret
+	}).(IntegrationRuntimeSsisOutput)
 }
 
 type IntegrationRuntimeSsisArrayOutput struct{ *pulumi.OutputState }

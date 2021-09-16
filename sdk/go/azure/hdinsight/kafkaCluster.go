@@ -426,7 +426,7 @@ type KafkaClusterArrayInput interface {
 type KafkaClusterArray []KafkaClusterInput
 
 func (KafkaClusterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*KafkaCluster)(nil))
+	return reflect.TypeOf((*[]*KafkaCluster)(nil)).Elem()
 }
 
 func (i KafkaClusterArray) ToKafkaClusterArrayOutput() KafkaClusterArrayOutput {
@@ -451,7 +451,7 @@ type KafkaClusterMapInput interface {
 type KafkaClusterMap map[string]KafkaClusterInput
 
 func (KafkaClusterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*KafkaCluster)(nil))
+	return reflect.TypeOf((*map[string]*KafkaCluster)(nil)).Elem()
 }
 
 func (i KafkaClusterMap) ToKafkaClusterMapOutput() KafkaClusterMapOutput {
@@ -462,9 +462,7 @@ func (i KafkaClusterMap) ToKafkaClusterMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMapOutput)
 }
 
-type KafkaClusterOutput struct {
-	*pulumi.OutputState
-}
+type KafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KafkaCluster)(nil))
@@ -483,14 +481,12 @@ func (o KafkaClusterOutput) ToKafkaClusterPtrOutput() KafkaClusterPtrOutput {
 }
 
 func (o KafkaClusterOutput) ToKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClusterPtrOutput {
-	return o.ApplyT(func(v KafkaCluster) *KafkaCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaCluster) *KafkaCluster {
 		return &v
 	}).(KafkaClusterPtrOutput)
 }
 
-type KafkaClusterPtrOutput struct {
-	*pulumi.OutputState
-}
+type KafkaClusterPtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KafkaCluster)(nil))
@@ -502,6 +498,16 @@ func (o KafkaClusterPtrOutput) ToKafkaClusterPtrOutput() KafkaClusterPtrOutput {
 
 func (o KafkaClusterPtrOutput) ToKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClusterPtrOutput {
 	return o
+}
+
+func (o KafkaClusterPtrOutput) Elem() KafkaClusterOutput {
+	return o.ApplyT(func(v *KafkaCluster) KafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaCluster
+		return ret
+	}).(KafkaClusterOutput)
 }
 
 type KafkaClusterArrayOutput struct{ *pulumi.OutputState }

@@ -12,6 +12,7 @@ __all__ = [
     'GetAccountResult',
     'AwaitableGetAccountResult',
     'get_account',
+    'get_account_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,29 @@ def get_account(name: Optional[str] = None,
         sku_name=__ret__.sku_name,
         tags=__ret__.tags,
         x_ms_client_id=__ret__.x_ms_client_id)
+
+
+@_utilities.lift_output_func(get_account)
+def get_account_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+    """
+    Use this data source to access information about an existing Azure Maps Account.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.maps.get_account(name="production",
+        resource_group_name="maps")
+    pulumi.export("mapsAccountId", example.id)
+    ```
+
+
+    :param str name: Specifies the name of the Maps Account.
+    :param str resource_group_name: Specifies the name of the Resource Group in which the Maps Account is located.
+    """
+    ...

@@ -123,7 +123,7 @@ func (o AccountActiveDirectoryOutput) ToAccountActiveDirectoryPtrOutput() Accoun
 }
 
 func (o AccountActiveDirectoryOutput) ToAccountActiveDirectoryPtrOutputWithContext(ctx context.Context) AccountActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v AccountActiveDirectory) *AccountActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountActiveDirectory) *AccountActiveDirectory {
 		return &v
 	}).(AccountActiveDirectoryPtrOutput)
 }
@@ -173,7 +173,13 @@ func (o AccountActiveDirectoryPtrOutput) ToAccountActiveDirectoryPtrOutputWithCo
 }
 
 func (o AccountActiveDirectoryPtrOutput) Elem() AccountActiveDirectoryOutput {
-	return o.ApplyT(func(v *AccountActiveDirectory) AccountActiveDirectory { return *v }).(AccountActiveDirectoryOutput)
+	return o.ApplyT(func(v *AccountActiveDirectory) AccountActiveDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret AccountActiveDirectory
+		return ret
+	}).(AccountActiveDirectoryOutput)
 }
 
 // A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
@@ -341,7 +347,7 @@ func (o VolumeDataProtectionReplicationOutput) ToVolumeDataProtectionReplication
 }
 
 func (o VolumeDataProtectionReplicationOutput) ToVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeDataProtectionReplicationPtrOutput {
-	return o.ApplyT(func(v VolumeDataProtectionReplication) *VolumeDataProtectionReplication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeDataProtectionReplication) *VolumeDataProtectionReplication {
 		return &v
 	}).(VolumeDataProtectionReplicationPtrOutput)
 }
@@ -381,7 +387,13 @@ func (o VolumeDataProtectionReplicationPtrOutput) ToVolumeDataProtectionReplicat
 }
 
 func (o VolumeDataProtectionReplicationPtrOutput) Elem() VolumeDataProtectionReplicationOutput {
-	return o.ApplyT(func(v *VolumeDataProtectionReplication) VolumeDataProtectionReplication { return *v }).(VolumeDataProtectionReplicationOutput)
+	return o.ApplyT(func(v *VolumeDataProtectionReplication) VolumeDataProtectionReplication {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeDataProtectionReplication
+		return ret
+	}).(VolumeDataProtectionReplicationOutput)
 }
 
 // The endpoint type, default value is `dst` for destination.

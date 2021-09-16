@@ -13,6 +13,7 @@ __all__ = [
     'GetMariaDbServerResult',
     'AwaitableGetMariaDbServerResult',
     'get_maria_db_server',
+    'get_maria_db_server_output',
 ]
 
 @pulumi.output_type
@@ -200,3 +201,28 @@ def get_maria_db_server(name: Optional[str] = None,
         storage_profiles=__ret__.storage_profiles,
         tags=__ret__.tags,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_maria_db_server)
+def get_maria_db_server_output(name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMariaDbServerResult]:
+    """
+    Use this data source to access information about an existing MariaDB Server.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    db_server = azure.mariadb.get_maria_db_server(name="mariadb-server",
+        resource_group_name=azurerm_mariadb_server["example"]["resource_group_name"])
+    pulumi.export("mariadbServerId", data["azurerm_mariadb_server"]["example"]["id"])
+    ```
+
+
+    :param str name: The name of the MariaDB Server to retrieve information about.
+    :param str resource_group_name: The name of the resource group where the MariaDB Server exists.
+    """
+    ...

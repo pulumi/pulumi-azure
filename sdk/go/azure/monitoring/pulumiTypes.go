@@ -1518,7 +1518,7 @@ func (o ActionGroupWebhookReceiverAadAuthOutput) ToActionGroupWebhookReceiverAad
 }
 
 func (o ActionGroupWebhookReceiverAadAuthOutput) ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(ctx context.Context) ActionGroupWebhookReceiverAadAuthPtrOutput {
-	return o.ApplyT(func(v ActionGroupWebhookReceiverAadAuth) *ActionGroupWebhookReceiverAadAuth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionGroupWebhookReceiverAadAuth) *ActionGroupWebhookReceiverAadAuth {
 		return &v
 	}).(ActionGroupWebhookReceiverAadAuthPtrOutput)
 }
@@ -1553,7 +1553,13 @@ func (o ActionGroupWebhookReceiverAadAuthPtrOutput) ToActionGroupWebhookReceiver
 }
 
 func (o ActionGroupWebhookReceiverAadAuthPtrOutput) Elem() ActionGroupWebhookReceiverAadAuthOutput {
-	return o.ApplyT(func(v *ActionGroupWebhookReceiverAadAuth) ActionGroupWebhookReceiverAadAuth { return *v }).(ActionGroupWebhookReceiverAadAuthOutput)
+	return o.ApplyT(func(v *ActionGroupWebhookReceiverAadAuth) ActionGroupWebhookReceiverAadAuth {
+		if v != nil {
+			return *v
+		}
+		var ret ActionGroupWebhookReceiverAadAuth
+		return ret
+	}).(ActionGroupWebhookReceiverAadAuthOutput)
 }
 
 // The identifier uri for aad auth.
@@ -1703,7 +1709,7 @@ func (o ActionRuleActionGroupConditionOutput) ToActionRuleActionGroupConditionPt
 }
 
 func (o ActionRuleActionGroupConditionOutput) ToActionRuleActionGroupConditionPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionPtrOutput {
-	return o.ApplyT(func(v ActionRuleActionGroupCondition) *ActionRuleActionGroupCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleActionGroupCondition) *ActionRuleActionGroupCondition {
 		return &v
 	}).(ActionRuleActionGroupConditionPtrOutput)
 }
@@ -1768,7 +1774,13 @@ func (o ActionRuleActionGroupConditionPtrOutput) ToActionRuleActionGroupConditio
 }
 
 func (o ActionRuleActionGroupConditionPtrOutput) Elem() ActionRuleActionGroupConditionOutput {
-	return o.ApplyT(func(v *ActionRuleActionGroupCondition) ActionRuleActionGroupCondition { return *v }).(ActionRuleActionGroupConditionOutput)
+	return o.ApplyT(func(v *ActionRuleActionGroupCondition) ActionRuleActionGroupCondition {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleActionGroupCondition
+		return ret
+	}).(ActionRuleActionGroupConditionOutput)
 }
 
 // A `alertContext` block as defined below.
@@ -1938,7 +1950,7 @@ func (o ActionRuleActionGroupConditionAlertContextOutput) ToActionRuleActionGrou
 }
 
 func (o ActionRuleActionGroupConditionAlertContextOutput) ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertContextPtrOutput {
-	return o.ApplyT(func(v ActionRuleActionGroupConditionAlertContext) *ActionRuleActionGroupConditionAlertContext {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleActionGroupConditionAlertContext) *ActionRuleActionGroupConditionAlertContext {
 		return &v
 	}).(ActionRuleActionGroupConditionAlertContextPtrOutput)
 }
@@ -1969,7 +1981,11 @@ func (o ActionRuleActionGroupConditionAlertContextPtrOutput) ToActionRuleActionG
 
 func (o ActionRuleActionGroupConditionAlertContextPtrOutput) Elem() ActionRuleActionGroupConditionAlertContextOutput {
 	return o.ApplyT(func(v *ActionRuleActionGroupConditionAlertContext) ActionRuleActionGroupConditionAlertContext {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleActionGroupConditionAlertContext
+		return ret
 	}).(ActionRuleActionGroupConditionAlertContextOutput)
 }
 
@@ -2090,7 +2106,7 @@ func (o ActionRuleActionGroupConditionAlertRuleIdOutput) ToActionRuleActionGroup
 }
 
 func (o ActionRuleActionGroupConditionAlertRuleIdOutput) ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
-	return o.ApplyT(func(v ActionRuleActionGroupConditionAlertRuleId) *ActionRuleActionGroupConditionAlertRuleId {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleActionGroupConditionAlertRuleId) *ActionRuleActionGroupConditionAlertRuleId {
 		return &v
 	}).(ActionRuleActionGroupConditionAlertRuleIdPtrOutput)
 }
@@ -2121,7 +2137,11 @@ func (o ActionRuleActionGroupConditionAlertRuleIdPtrOutput) ToActionRuleActionGr
 
 func (o ActionRuleActionGroupConditionAlertRuleIdPtrOutput) Elem() ActionRuleActionGroupConditionAlertRuleIdOutput {
 	return o.ApplyT(func(v *ActionRuleActionGroupConditionAlertRuleId) ActionRuleActionGroupConditionAlertRuleId {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleActionGroupConditionAlertRuleId
+		return ret
 	}).(ActionRuleActionGroupConditionAlertRuleIdOutput)
 }
 
@@ -2242,7 +2262,7 @@ func (o ActionRuleActionGroupConditionDescriptionOutput) ToActionRuleActionGroup
 }
 
 func (o ActionRuleActionGroupConditionDescriptionOutput) ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionDescriptionPtrOutput {
-	return o.ApplyT(func(v ActionRuleActionGroupConditionDescription) *ActionRuleActionGroupConditionDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleActionGroupConditionDescription) *ActionRuleActionGroupConditionDescription {
 		return &v
 	}).(ActionRuleActionGroupConditionDescriptionPtrOutput)
 }
@@ -2273,7 +2293,11 @@ func (o ActionRuleActionGroupConditionDescriptionPtrOutput) ToActionRuleActionGr
 
 func (o ActionRuleActionGroupConditionDescriptionPtrOutput) Elem() ActionRuleActionGroupConditionDescriptionOutput {
 	return o.ApplyT(func(v *ActionRuleActionGroupConditionDescription) ActionRuleActionGroupConditionDescription {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleActionGroupConditionDescription
+		return ret
 	}).(ActionRuleActionGroupConditionDescriptionOutput)
 }
 
@@ -2394,7 +2418,7 @@ func (o ActionRuleActionGroupConditionMonitorOutput) ToActionRuleActionGroupCond
 }
 
 func (o ActionRuleActionGroupConditionMonitorOutput) ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorPtrOutput {
-	return o.ApplyT(func(v ActionRuleActionGroupConditionMonitor) *ActionRuleActionGroupConditionMonitor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleActionGroupConditionMonitor) *ActionRuleActionGroupConditionMonitor {
 		return &v
 	}).(ActionRuleActionGroupConditionMonitorPtrOutput)
 }
@@ -2424,7 +2448,13 @@ func (o ActionRuleActionGroupConditionMonitorPtrOutput) ToActionRuleActionGroupC
 }
 
 func (o ActionRuleActionGroupConditionMonitorPtrOutput) Elem() ActionRuleActionGroupConditionMonitorOutput {
-	return o.ApplyT(func(v *ActionRuleActionGroupConditionMonitor) ActionRuleActionGroupConditionMonitor { return *v }).(ActionRuleActionGroupConditionMonitorOutput)
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionMonitor) ActionRuleActionGroupConditionMonitor {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleActionGroupConditionMonitor
+		return ret
+	}).(ActionRuleActionGroupConditionMonitorOutput)
 }
 
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
@@ -2544,7 +2574,7 @@ func (o ActionRuleActionGroupConditionMonitorServiceOutput) ToActionRuleActionGr
 }
 
 func (o ActionRuleActionGroupConditionMonitorServiceOutput) ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorServicePtrOutput {
-	return o.ApplyT(func(v ActionRuleActionGroupConditionMonitorService) *ActionRuleActionGroupConditionMonitorService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleActionGroupConditionMonitorService) *ActionRuleActionGroupConditionMonitorService {
 		return &v
 	}).(ActionRuleActionGroupConditionMonitorServicePtrOutput)
 }
@@ -2575,7 +2605,11 @@ func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) ToActionRuleActio
 
 func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) Elem() ActionRuleActionGroupConditionMonitorServiceOutput {
 	return o.ApplyT(func(v *ActionRuleActionGroupConditionMonitorService) ActionRuleActionGroupConditionMonitorService {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleActionGroupConditionMonitorService
+		return ret
 	}).(ActionRuleActionGroupConditionMonitorServiceOutput)
 }
 
@@ -2696,7 +2730,7 @@ func (o ActionRuleActionGroupConditionSeverityOutput) ToActionRuleActionGroupCon
 }
 
 func (o ActionRuleActionGroupConditionSeverityOutput) ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionSeverityPtrOutput {
-	return o.ApplyT(func(v ActionRuleActionGroupConditionSeverity) *ActionRuleActionGroupConditionSeverity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleActionGroupConditionSeverity) *ActionRuleActionGroupConditionSeverity {
 		return &v
 	}).(ActionRuleActionGroupConditionSeverityPtrOutput)
 }
@@ -2726,7 +2760,13 @@ func (o ActionRuleActionGroupConditionSeverityPtrOutput) ToActionRuleActionGroup
 }
 
 func (o ActionRuleActionGroupConditionSeverityPtrOutput) Elem() ActionRuleActionGroupConditionSeverityOutput {
-	return o.ApplyT(func(v *ActionRuleActionGroupConditionSeverity) ActionRuleActionGroupConditionSeverity { return *v }).(ActionRuleActionGroupConditionSeverityOutput)
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionSeverity) ActionRuleActionGroupConditionSeverity {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleActionGroupConditionSeverity
+		return ret
+	}).(ActionRuleActionGroupConditionSeverityOutput)
 }
 
 // The operator for a given condition. Possible values are `Equals`and `NotEquals`.
@@ -2846,7 +2886,7 @@ func (o ActionRuleActionGroupConditionTargetResourceTypeOutput) ToActionRuleActi
 }
 
 func (o ActionRuleActionGroupConditionTargetResourceTypeOutput) ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
-	return o.ApplyT(func(v ActionRuleActionGroupConditionTargetResourceType) *ActionRuleActionGroupConditionTargetResourceType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleActionGroupConditionTargetResourceType) *ActionRuleActionGroupConditionTargetResourceType {
 		return &v
 	}).(ActionRuleActionGroupConditionTargetResourceTypePtrOutput)
 }
@@ -2877,7 +2917,11 @@ func (o ActionRuleActionGroupConditionTargetResourceTypePtrOutput) ToActionRuleA
 
 func (o ActionRuleActionGroupConditionTargetResourceTypePtrOutput) Elem() ActionRuleActionGroupConditionTargetResourceTypeOutput {
 	return o.ApplyT(func(v *ActionRuleActionGroupConditionTargetResourceType) ActionRuleActionGroupConditionTargetResourceType {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleActionGroupConditionTargetResourceType
+		return ret
 	}).(ActionRuleActionGroupConditionTargetResourceTypeOutput)
 }
 
@@ -2998,7 +3042,7 @@ func (o ActionRuleActionGroupScopeOutput) ToActionRuleActionGroupScopePtrOutput(
 }
 
 func (o ActionRuleActionGroupScopeOutput) ToActionRuleActionGroupScopePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupScopePtrOutput {
-	return o.ApplyT(func(v ActionRuleActionGroupScope) *ActionRuleActionGroupScope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleActionGroupScope) *ActionRuleActionGroupScope {
 		return &v
 	}).(ActionRuleActionGroupScopePtrOutput)
 }
@@ -3028,7 +3072,13 @@ func (o ActionRuleActionGroupScopePtrOutput) ToActionRuleActionGroupScopePtrOutp
 }
 
 func (o ActionRuleActionGroupScopePtrOutput) Elem() ActionRuleActionGroupScopeOutput {
-	return o.ApplyT(func(v *ActionRuleActionGroupScope) ActionRuleActionGroupScope { return *v }).(ActionRuleActionGroupScopeOutput)
+	return o.ApplyT(func(v *ActionRuleActionGroupScope) ActionRuleActionGroupScope {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleActionGroupScope
+		return ret
+	}).(ActionRuleActionGroupScopeOutput)
 }
 
 // A list of resource IDs of the given scope type which will be the target of action rule.
@@ -3168,7 +3218,7 @@ func (o ActionRuleSuppressionConditionOutput) ToActionRuleSuppressionConditionPt
 }
 
 func (o ActionRuleSuppressionConditionOutput) ToActionRuleSuppressionConditionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionPtrOutput {
-	return o.ApplyT(func(v ActionRuleSuppressionCondition) *ActionRuleSuppressionCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionCondition) *ActionRuleSuppressionCondition {
 		return &v
 	}).(ActionRuleSuppressionConditionPtrOutput)
 }
@@ -3233,7 +3283,13 @@ func (o ActionRuleSuppressionConditionPtrOutput) ToActionRuleSuppressionConditio
 }
 
 func (o ActionRuleSuppressionConditionPtrOutput) Elem() ActionRuleSuppressionConditionOutput {
-	return o.ApplyT(func(v *ActionRuleSuppressionCondition) ActionRuleSuppressionCondition { return *v }).(ActionRuleSuppressionConditionOutput)
+	return o.ApplyT(func(v *ActionRuleSuppressionCondition) ActionRuleSuppressionCondition {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleSuppressionCondition
+		return ret
+	}).(ActionRuleSuppressionConditionOutput)
 }
 
 // A `alertContext` block as defined below.
@@ -3403,7 +3459,7 @@ func (o ActionRuleSuppressionConditionAlertContextOutput) ToActionRuleSuppressio
 }
 
 func (o ActionRuleSuppressionConditionAlertContextOutput) ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertContextPtrOutput {
-	return o.ApplyT(func(v ActionRuleSuppressionConditionAlertContext) *ActionRuleSuppressionConditionAlertContext {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionConditionAlertContext) *ActionRuleSuppressionConditionAlertContext {
 		return &v
 	}).(ActionRuleSuppressionConditionAlertContextPtrOutput)
 }
@@ -3434,7 +3490,11 @@ func (o ActionRuleSuppressionConditionAlertContextPtrOutput) ToActionRuleSuppres
 
 func (o ActionRuleSuppressionConditionAlertContextPtrOutput) Elem() ActionRuleSuppressionConditionAlertContextOutput {
 	return o.ApplyT(func(v *ActionRuleSuppressionConditionAlertContext) ActionRuleSuppressionConditionAlertContext {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleSuppressionConditionAlertContext
+		return ret
 	}).(ActionRuleSuppressionConditionAlertContextOutput)
 }
 
@@ -3555,7 +3615,7 @@ func (o ActionRuleSuppressionConditionAlertRuleIdOutput) ToActionRuleSuppression
 }
 
 func (o ActionRuleSuppressionConditionAlertRuleIdOutput) ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
-	return o.ApplyT(func(v ActionRuleSuppressionConditionAlertRuleId) *ActionRuleSuppressionConditionAlertRuleId {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionConditionAlertRuleId) *ActionRuleSuppressionConditionAlertRuleId {
 		return &v
 	}).(ActionRuleSuppressionConditionAlertRuleIdPtrOutput)
 }
@@ -3586,7 +3646,11 @@ func (o ActionRuleSuppressionConditionAlertRuleIdPtrOutput) ToActionRuleSuppress
 
 func (o ActionRuleSuppressionConditionAlertRuleIdPtrOutput) Elem() ActionRuleSuppressionConditionAlertRuleIdOutput {
 	return o.ApplyT(func(v *ActionRuleSuppressionConditionAlertRuleId) ActionRuleSuppressionConditionAlertRuleId {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleSuppressionConditionAlertRuleId
+		return ret
 	}).(ActionRuleSuppressionConditionAlertRuleIdOutput)
 }
 
@@ -3707,7 +3771,7 @@ func (o ActionRuleSuppressionConditionDescriptionOutput) ToActionRuleSuppression
 }
 
 func (o ActionRuleSuppressionConditionDescriptionOutput) ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionDescriptionPtrOutput {
-	return o.ApplyT(func(v ActionRuleSuppressionConditionDescription) *ActionRuleSuppressionConditionDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionConditionDescription) *ActionRuleSuppressionConditionDescription {
 		return &v
 	}).(ActionRuleSuppressionConditionDescriptionPtrOutput)
 }
@@ -3738,7 +3802,11 @@ func (o ActionRuleSuppressionConditionDescriptionPtrOutput) ToActionRuleSuppress
 
 func (o ActionRuleSuppressionConditionDescriptionPtrOutput) Elem() ActionRuleSuppressionConditionDescriptionOutput {
 	return o.ApplyT(func(v *ActionRuleSuppressionConditionDescription) ActionRuleSuppressionConditionDescription {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleSuppressionConditionDescription
+		return ret
 	}).(ActionRuleSuppressionConditionDescriptionOutput)
 }
 
@@ -3859,7 +3927,7 @@ func (o ActionRuleSuppressionConditionMonitorOutput) ToActionRuleSuppressionCond
 }
 
 func (o ActionRuleSuppressionConditionMonitorOutput) ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorPtrOutput {
-	return o.ApplyT(func(v ActionRuleSuppressionConditionMonitor) *ActionRuleSuppressionConditionMonitor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionConditionMonitor) *ActionRuleSuppressionConditionMonitor {
 		return &v
 	}).(ActionRuleSuppressionConditionMonitorPtrOutput)
 }
@@ -3889,7 +3957,13 @@ func (o ActionRuleSuppressionConditionMonitorPtrOutput) ToActionRuleSuppressionC
 }
 
 func (o ActionRuleSuppressionConditionMonitorPtrOutput) Elem() ActionRuleSuppressionConditionMonitorOutput {
-	return o.ApplyT(func(v *ActionRuleSuppressionConditionMonitor) ActionRuleSuppressionConditionMonitor { return *v }).(ActionRuleSuppressionConditionMonitorOutput)
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionMonitor) ActionRuleSuppressionConditionMonitor {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleSuppressionConditionMonitor
+		return ret
+	}).(ActionRuleSuppressionConditionMonitorOutput)
 }
 
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
@@ -4009,7 +4083,7 @@ func (o ActionRuleSuppressionConditionMonitorServiceOutput) ToActionRuleSuppress
 }
 
 func (o ActionRuleSuppressionConditionMonitorServiceOutput) ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorServicePtrOutput {
-	return o.ApplyT(func(v ActionRuleSuppressionConditionMonitorService) *ActionRuleSuppressionConditionMonitorService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionConditionMonitorService) *ActionRuleSuppressionConditionMonitorService {
 		return &v
 	}).(ActionRuleSuppressionConditionMonitorServicePtrOutput)
 }
@@ -4040,7 +4114,11 @@ func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) ToActionRuleSuppr
 
 func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) Elem() ActionRuleSuppressionConditionMonitorServiceOutput {
 	return o.ApplyT(func(v *ActionRuleSuppressionConditionMonitorService) ActionRuleSuppressionConditionMonitorService {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleSuppressionConditionMonitorService
+		return ret
 	}).(ActionRuleSuppressionConditionMonitorServiceOutput)
 }
 
@@ -4161,7 +4239,7 @@ func (o ActionRuleSuppressionConditionSeverityOutput) ToActionRuleSuppressionCon
 }
 
 func (o ActionRuleSuppressionConditionSeverityOutput) ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionSeverityPtrOutput {
-	return o.ApplyT(func(v ActionRuleSuppressionConditionSeverity) *ActionRuleSuppressionConditionSeverity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionConditionSeverity) *ActionRuleSuppressionConditionSeverity {
 		return &v
 	}).(ActionRuleSuppressionConditionSeverityPtrOutput)
 }
@@ -4191,7 +4269,13 @@ func (o ActionRuleSuppressionConditionSeverityPtrOutput) ToActionRuleSuppression
 }
 
 func (o ActionRuleSuppressionConditionSeverityPtrOutput) Elem() ActionRuleSuppressionConditionSeverityOutput {
-	return o.ApplyT(func(v *ActionRuleSuppressionConditionSeverity) ActionRuleSuppressionConditionSeverity { return *v }).(ActionRuleSuppressionConditionSeverityOutput)
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionSeverity) ActionRuleSuppressionConditionSeverity {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleSuppressionConditionSeverity
+		return ret
+	}).(ActionRuleSuppressionConditionSeverityOutput)
 }
 
 // The operator for a given condition. Possible values are `Equals`and `NotEquals`.
@@ -4311,7 +4395,7 @@ func (o ActionRuleSuppressionConditionTargetResourceTypeOutput) ToActionRuleSupp
 }
 
 func (o ActionRuleSuppressionConditionTargetResourceTypeOutput) ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
-	return o.ApplyT(func(v ActionRuleSuppressionConditionTargetResourceType) *ActionRuleSuppressionConditionTargetResourceType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionConditionTargetResourceType) *ActionRuleSuppressionConditionTargetResourceType {
 		return &v
 	}).(ActionRuleSuppressionConditionTargetResourceTypePtrOutput)
 }
@@ -4342,7 +4426,11 @@ func (o ActionRuleSuppressionConditionTargetResourceTypePtrOutput) ToActionRuleS
 
 func (o ActionRuleSuppressionConditionTargetResourceTypePtrOutput) Elem() ActionRuleSuppressionConditionTargetResourceTypeOutput {
 	return o.ApplyT(func(v *ActionRuleSuppressionConditionTargetResourceType) ActionRuleSuppressionConditionTargetResourceType {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleSuppressionConditionTargetResourceType
+		return ret
 	}).(ActionRuleSuppressionConditionTargetResourceTypeOutput)
 }
 
@@ -4463,7 +4551,7 @@ func (o ActionRuleSuppressionScopeOutput) ToActionRuleSuppressionScopePtrOutput(
 }
 
 func (o ActionRuleSuppressionScopeOutput) ToActionRuleSuppressionScopePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionScopePtrOutput {
-	return o.ApplyT(func(v ActionRuleSuppressionScope) *ActionRuleSuppressionScope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionScope) *ActionRuleSuppressionScope {
 		return &v
 	}).(ActionRuleSuppressionScopePtrOutput)
 }
@@ -4493,7 +4581,13 @@ func (o ActionRuleSuppressionScopePtrOutput) ToActionRuleSuppressionScopePtrOutp
 }
 
 func (o ActionRuleSuppressionScopePtrOutput) Elem() ActionRuleSuppressionScopeOutput {
-	return o.ApplyT(func(v *ActionRuleSuppressionScope) ActionRuleSuppressionScope { return *v }).(ActionRuleSuppressionScopeOutput)
+	return o.ApplyT(func(v *ActionRuleSuppressionScope) ActionRuleSuppressionScope {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleSuppressionScope
+		return ret
+	}).(ActionRuleSuppressionScopeOutput)
 }
 
 // A list of resource IDs of the given scope type which will be the target of action rule.
@@ -4613,7 +4707,7 @@ func (o ActionRuleSuppressionSuppressionOutput) ToActionRuleSuppressionSuppressi
 }
 
 func (o ActionRuleSuppressionSuppressionOutput) ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionPtrOutput {
-	return o.ApplyT(func(v ActionRuleSuppressionSuppression) *ActionRuleSuppressionSuppression {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionSuppression) *ActionRuleSuppressionSuppression {
 		return &v
 	}).(ActionRuleSuppressionSuppressionPtrOutput)
 }
@@ -4643,7 +4737,13 @@ func (o ActionRuleSuppressionSuppressionPtrOutput) ToActionRuleSuppressionSuppre
 }
 
 func (o ActionRuleSuppressionSuppressionPtrOutput) Elem() ActionRuleSuppressionSuppressionOutput {
-	return o.ApplyT(func(v *ActionRuleSuppressionSuppression) ActionRuleSuppressionSuppression { return *v }).(ActionRuleSuppressionSuppressionOutput)
+	return o.ApplyT(func(v *ActionRuleSuppressionSuppression) ActionRuleSuppressionSuppression {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleSuppressionSuppression
+		return ret
+	}).(ActionRuleSuppressionSuppressionOutput)
 }
 
 // Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
@@ -4771,7 +4871,7 @@ func (o ActionRuleSuppressionSuppressionScheduleOutput) ToActionRuleSuppressionS
 }
 
 func (o ActionRuleSuppressionSuppressionScheduleOutput) ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionSchedulePtrOutput {
-	return o.ApplyT(func(v ActionRuleSuppressionSuppressionSchedule) *ActionRuleSuppressionSuppressionSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionSuppressionSchedule) *ActionRuleSuppressionSuppressionSchedule {
 		return &v
 	}).(ActionRuleSuppressionSuppressionSchedulePtrOutput)
 }
@@ -4811,7 +4911,13 @@ func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) ToActionRuleSuppressi
 }
 
 func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) Elem() ActionRuleSuppressionSuppressionScheduleOutput {
-	return o.ApplyT(func(v *ActionRuleSuppressionSuppressionSchedule) ActionRuleSuppressionSuppressionSchedule { return *v }).(ActionRuleSuppressionSuppressionScheduleOutput)
+	return o.ApplyT(func(v *ActionRuleSuppressionSuppressionSchedule) ActionRuleSuppressionSuppressionSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleSuppressionSuppressionSchedule
+		return ret
+	}).(ActionRuleSuppressionSuppressionScheduleOutput)
 }
 
 // specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
@@ -5105,7 +5211,7 @@ func (o ActivityLogAlertCriteriaOutput) ToActivityLogAlertCriteriaPtrOutput() Ac
 }
 
 func (o ActivityLogAlertCriteriaOutput) ToActivityLogAlertCriteriaPtrOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertCriteria) *ActivityLogAlertCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertCriteria) *ActivityLogAlertCriteria {
 		return &v
 	}).(ActivityLogAlertCriteriaPtrOutput)
 }
@@ -5195,7 +5301,13 @@ func (o ActivityLogAlertCriteriaPtrOutput) ToActivityLogAlertCriteriaPtrOutputWi
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) Elem() ActivityLogAlertCriteriaOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) ActivityLogAlertCriteria { return *v }).(ActivityLogAlertCriteriaOutput)
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) ActivityLogAlertCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ActivityLogAlertCriteria
+		return ret
+	}).(ActivityLogAlertCriteriaOutput)
 }
 
 // The email address or Azure Active Directory identifier of the user who performed the operation.
@@ -5550,7 +5662,7 @@ func (o AutoscaleSettingNotificationOutput) ToAutoscaleSettingNotificationPtrOut
 }
 
 func (o AutoscaleSettingNotificationOutput) ToAutoscaleSettingNotificationPtrOutputWithContext(ctx context.Context) AutoscaleSettingNotificationPtrOutput {
-	return o.ApplyT(func(v AutoscaleSettingNotification) *AutoscaleSettingNotification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoscaleSettingNotification) *AutoscaleSettingNotification {
 		return &v
 	}).(AutoscaleSettingNotificationPtrOutput)
 }
@@ -5580,7 +5692,13 @@ func (o AutoscaleSettingNotificationPtrOutput) ToAutoscaleSettingNotificationPtr
 }
 
 func (o AutoscaleSettingNotificationPtrOutput) Elem() AutoscaleSettingNotificationOutput {
-	return o.ApplyT(func(v *AutoscaleSettingNotification) AutoscaleSettingNotification { return *v }).(AutoscaleSettingNotificationOutput)
+	return o.ApplyT(func(v *AutoscaleSettingNotification) AutoscaleSettingNotification {
+		if v != nil {
+			return *v
+		}
+		var ret AutoscaleSettingNotification
+		return ret
+	}).(AutoscaleSettingNotificationOutput)
 }
 
 // A `email` block as defined below.
@@ -5704,7 +5822,7 @@ func (o AutoscaleSettingNotificationEmailOutput) ToAutoscaleSettingNotificationE
 }
 
 func (o AutoscaleSettingNotificationEmailOutput) ToAutoscaleSettingNotificationEmailPtrOutputWithContext(ctx context.Context) AutoscaleSettingNotificationEmailPtrOutput {
-	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) *AutoscaleSettingNotificationEmail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoscaleSettingNotificationEmail) *AutoscaleSettingNotificationEmail {
 		return &v
 	}).(AutoscaleSettingNotificationEmailPtrOutput)
 }
@@ -5739,7 +5857,13 @@ func (o AutoscaleSettingNotificationEmailPtrOutput) ToAutoscaleSettingNotificati
 }
 
 func (o AutoscaleSettingNotificationEmailPtrOutput) Elem() AutoscaleSettingNotificationEmailOutput {
-	return o.ApplyT(func(v *AutoscaleSettingNotificationEmail) AutoscaleSettingNotificationEmail { return *v }).(AutoscaleSettingNotificationEmailOutput)
+	return o.ApplyT(func(v *AutoscaleSettingNotificationEmail) AutoscaleSettingNotificationEmail {
+		if v != nil {
+			return *v
+		}
+		var ret AutoscaleSettingNotificationEmail
+		return ret
+	}).(AutoscaleSettingNotificationEmailOutput)
 }
 
 // Specifies a list of custom email addresses to which the email notifications will be sent.
@@ -6182,7 +6306,7 @@ func (o AutoscaleSettingProfileFixedDateOutput) ToAutoscaleSettingProfileFixedDa
 }
 
 func (o AutoscaleSettingProfileFixedDateOutput) ToAutoscaleSettingProfileFixedDatePtrOutputWithContext(ctx context.Context) AutoscaleSettingProfileFixedDatePtrOutput {
-	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) *AutoscaleSettingProfileFixedDate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoscaleSettingProfileFixedDate) *AutoscaleSettingProfileFixedDate {
 		return &v
 	}).(AutoscaleSettingProfileFixedDatePtrOutput)
 }
@@ -6217,7 +6341,13 @@ func (o AutoscaleSettingProfileFixedDatePtrOutput) ToAutoscaleSettingProfileFixe
 }
 
 func (o AutoscaleSettingProfileFixedDatePtrOutput) Elem() AutoscaleSettingProfileFixedDateOutput {
-	return o.ApplyT(func(v *AutoscaleSettingProfileFixedDate) AutoscaleSettingProfileFixedDate { return *v }).(AutoscaleSettingProfileFixedDateOutput)
+	return o.ApplyT(func(v *AutoscaleSettingProfileFixedDate) AutoscaleSettingProfileFixedDate {
+		if v != nil {
+			return *v
+		}
+		var ret AutoscaleSettingProfileFixedDate
+		return ret
+	}).(AutoscaleSettingProfileFixedDateOutput)
 }
 
 // Specifies the end date for the profile, formatted as an RFC3339 date string.
@@ -6355,7 +6485,7 @@ func (o AutoscaleSettingProfileRecurrenceOutput) ToAutoscaleSettingProfileRecurr
 }
 
 func (o AutoscaleSettingProfileRecurrenceOutput) ToAutoscaleSettingProfileRecurrencePtrOutputWithContext(ctx context.Context) AutoscaleSettingProfileRecurrencePtrOutput {
-	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) *AutoscaleSettingProfileRecurrence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoscaleSettingProfileRecurrence) *AutoscaleSettingProfileRecurrence {
 		return &v
 	}).(AutoscaleSettingProfileRecurrencePtrOutput)
 }
@@ -6395,7 +6525,13 @@ func (o AutoscaleSettingProfileRecurrencePtrOutput) ToAutoscaleSettingProfileRec
 }
 
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Elem() AutoscaleSettingProfileRecurrenceOutput {
-	return o.ApplyT(func(v *AutoscaleSettingProfileRecurrence) AutoscaleSettingProfileRecurrence { return *v }).(AutoscaleSettingProfileRecurrenceOutput)
+	return o.ApplyT(func(v *AutoscaleSettingProfileRecurrence) AutoscaleSettingProfileRecurrence {
+		if v != nil {
+			return *v
+		}
+		var ret AutoscaleSettingProfileRecurrence
+		return ret
+	}).(AutoscaleSettingProfileRecurrenceOutput)
 }
 
 // A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
@@ -7094,7 +7230,7 @@ func (o DiagnosticSettingLogRetentionPolicyOutput) ToDiagnosticSettingLogRetenti
 }
 
 func (o DiagnosticSettingLogRetentionPolicyOutput) ToDiagnosticSettingLogRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingLogRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v DiagnosticSettingLogRetentionPolicy) *DiagnosticSettingLogRetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticSettingLogRetentionPolicy) *DiagnosticSettingLogRetentionPolicy {
 		return &v
 	}).(DiagnosticSettingLogRetentionPolicyPtrOutput)
 }
@@ -7124,7 +7260,13 @@ func (o DiagnosticSettingLogRetentionPolicyPtrOutput) ToDiagnosticSettingLogRete
 }
 
 func (o DiagnosticSettingLogRetentionPolicyPtrOutput) Elem() DiagnosticSettingLogRetentionPolicyOutput {
-	return o.ApplyT(func(v *DiagnosticSettingLogRetentionPolicy) DiagnosticSettingLogRetentionPolicy { return *v }).(DiagnosticSettingLogRetentionPolicyOutput)
+	return o.ApplyT(func(v *DiagnosticSettingLogRetentionPolicy) DiagnosticSettingLogRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticSettingLogRetentionPolicy
+		return ret
+	}).(DiagnosticSettingLogRetentionPolicyOutput)
 }
 
 // The number of days for which this Retention Policy should apply.
@@ -7359,7 +7501,7 @@ func (o DiagnosticSettingMetricRetentionPolicyOutput) ToDiagnosticSettingMetricR
 }
 
 func (o DiagnosticSettingMetricRetentionPolicyOutput) ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingMetricRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v DiagnosticSettingMetricRetentionPolicy) *DiagnosticSettingMetricRetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticSettingMetricRetentionPolicy) *DiagnosticSettingMetricRetentionPolicy {
 		return &v
 	}).(DiagnosticSettingMetricRetentionPolicyPtrOutput)
 }
@@ -7389,7 +7531,13 @@ func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) ToDiagnosticSettingMetr
 }
 
 func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) Elem() DiagnosticSettingMetricRetentionPolicyOutput {
-	return o.ApplyT(func(v *DiagnosticSettingMetricRetentionPolicy) DiagnosticSettingMetricRetentionPolicy { return *v }).(DiagnosticSettingMetricRetentionPolicyOutput)
+	return o.ApplyT(func(v *DiagnosticSettingMetricRetentionPolicy) DiagnosticSettingMetricRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticSettingMetricRetentionPolicy
+		return ret
+	}).(DiagnosticSettingMetricRetentionPolicyOutput)
 }
 
 // The number of days for which this Retention Policy should apply.
@@ -7509,7 +7657,7 @@ func (o LogProfileRetentionPolicyOutput) ToLogProfileRetentionPolicyPtrOutput() 
 }
 
 func (o LogProfileRetentionPolicyOutput) ToLogProfileRetentionPolicyPtrOutputWithContext(ctx context.Context) LogProfileRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v LogProfileRetentionPolicy) *LogProfileRetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogProfileRetentionPolicy) *LogProfileRetentionPolicy {
 		return &v
 	}).(LogProfileRetentionPolicyPtrOutput)
 }
@@ -7539,7 +7687,13 @@ func (o LogProfileRetentionPolicyPtrOutput) ToLogProfileRetentionPolicyPtrOutput
 }
 
 func (o LogProfileRetentionPolicyPtrOutput) Elem() LogProfileRetentionPolicyOutput {
-	return o.ApplyT(func(v *LogProfileRetentionPolicy) LogProfileRetentionPolicy { return *v }).(LogProfileRetentionPolicyOutput)
+	return o.ApplyT(func(v *LogProfileRetentionPolicy) LogProfileRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret LogProfileRetentionPolicy
+		return ret
+	}).(LogProfileRetentionPolicyOutput)
 }
 
 // The number of days for the retention policy. Defaults to 0.
@@ -7769,7 +7923,7 @@ func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput)
 }
 
 func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
-	return o.ApplyT(func(v MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria {
 		return &v
 	}).(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput)
 }
@@ -7807,7 +7961,11 @@ func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutp
 
 func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput) Elem() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput {
 	return o.ApplyT(func(v *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria
+		return ret
 	}).(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput)
 }
 
@@ -8236,7 +8394,7 @@ func (o MetricAlertDynamicCriteriaOutput) ToMetricAlertDynamicCriteriaPtrOutput(
 }
 
 func (o MetricAlertDynamicCriteriaOutput) ToMetricAlertDynamicCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaPtrOutput {
-	return o.ApplyT(func(v MetricAlertDynamicCriteria) *MetricAlertDynamicCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlertDynamicCriteria) *MetricAlertDynamicCriteria {
 		return &v
 	}).(MetricAlertDynamicCriteriaPtrOutput)
 }
@@ -8306,7 +8464,13 @@ func (o MetricAlertDynamicCriteriaPtrOutput) ToMetricAlertDynamicCriteriaPtrOutp
 }
 
 func (o MetricAlertDynamicCriteriaPtrOutput) Elem() MetricAlertDynamicCriteriaOutput {
-	return o.ApplyT(func(v *MetricAlertDynamicCriteria) MetricAlertDynamicCriteria { return *v }).(MetricAlertDynamicCriteriaOutput)
+	return o.ApplyT(func(v *MetricAlertDynamicCriteria) MetricAlertDynamicCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret MetricAlertDynamicCriteria
+		return ret
+	}).(MetricAlertDynamicCriteriaOutput)
 }
 
 // The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
@@ -8625,7 +8789,7 @@ func (o ScheduledQueryRulesAlertActionOutput) ToScheduledQueryRulesAlertActionPt
 }
 
 func (o ScheduledQueryRulesAlertActionOutput) ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionPtrOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertAction) *ScheduledQueryRulesAlertAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesAlertAction) *ScheduledQueryRulesAlertAction {
 		return &v
 	}).(ScheduledQueryRulesAlertActionPtrOutput)
 }
@@ -8660,7 +8824,13 @@ func (o ScheduledQueryRulesAlertActionPtrOutput) ToScheduledQueryRulesAlertActio
 }
 
 func (o ScheduledQueryRulesAlertActionPtrOutput) Elem() ScheduledQueryRulesAlertActionOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesAlertAction) ScheduledQueryRulesAlertAction { return *v }).(ScheduledQueryRulesAlertActionOutput)
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertAction) ScheduledQueryRulesAlertAction {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryRulesAlertAction
+		return ret
+	}).(ScheduledQueryRulesAlertActionOutput)
 }
 
 // List of action group reference resource IDs.
@@ -8794,7 +8964,7 @@ func (o ScheduledQueryRulesAlertTriggerOutput) ToScheduledQueryRulesAlertTrigger
 }
 
 func (o ScheduledQueryRulesAlertTriggerOutput) ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerPtrOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) *ScheduledQueryRulesAlertTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesAlertTrigger) *ScheduledQueryRulesAlertTrigger {
 		return &v
 	}).(ScheduledQueryRulesAlertTriggerPtrOutput)
 }
@@ -8831,7 +9001,13 @@ func (o ScheduledQueryRulesAlertTriggerPtrOutput) ToScheduledQueryRulesAlertTrig
 }
 
 func (o ScheduledQueryRulesAlertTriggerPtrOutput) Elem() ScheduledQueryRulesAlertTriggerOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesAlertTrigger) ScheduledQueryRulesAlertTrigger { return *v }).(ScheduledQueryRulesAlertTriggerOutput)
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertTrigger) ScheduledQueryRulesAlertTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryRulesAlertTrigger
+		return ret
+	}).(ScheduledQueryRulesAlertTriggerOutput)
 }
 
 // A `metricTrigger` block as defined above. Trigger condition for metric query rule.
@@ -8969,7 +9145,7 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToScheduledQueryRule
 }
 
 func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) *ScheduledQueryRulesAlertTriggerMetricTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesAlertTriggerMetricTrigger) *ScheduledQueryRulesAlertTriggerMetricTrigger {
 		return &v
 	}).(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput)
 }
@@ -9010,7 +9186,11 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) ToScheduledQueryR
 
 func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Elem() ScheduledQueryRulesAlertTriggerMetricTriggerOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertTriggerMetricTrigger) ScheduledQueryRulesAlertTriggerMetricTrigger {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryRulesAlertTriggerMetricTrigger
+		return ret
 	}).(ScheduledQueryRulesAlertTriggerMetricTriggerOutput)
 }
 
@@ -9151,7 +9331,7 @@ func (o ScheduledQueryRulesLogCriteriaOutput) ToScheduledQueryRulesLogCriteriaPt
 }
 
 func (o ScheduledQueryRulesLogCriteriaOutput) ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaPtrOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) *ScheduledQueryRulesLogCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesLogCriteria) *ScheduledQueryRulesLogCriteria {
 		return &v
 	}).(ScheduledQueryRulesLogCriteriaPtrOutput)
 }
@@ -9181,7 +9361,13 @@ func (o ScheduledQueryRulesLogCriteriaPtrOutput) ToScheduledQueryRulesLogCriteri
 }
 
 func (o ScheduledQueryRulesLogCriteriaPtrOutput) Elem() ScheduledQueryRulesLogCriteriaOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesLogCriteria) ScheduledQueryRulesLogCriteria { return *v }).(ScheduledQueryRulesLogCriteriaOutput)
+	return o.ApplyT(func(v *ScheduledQueryRulesLogCriteria) ScheduledQueryRulesLogCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryRulesLogCriteria
+		return ret
+	}).(ScheduledQueryRulesLogCriteriaOutput)
 }
 
 // A `dimension` block as defined below.
@@ -9420,7 +9606,7 @@ func (o SmartDetectorAlertRuleActionGroupOutput) ToSmartDetectorAlertRuleActionG
 }
 
 func (o SmartDetectorAlertRuleActionGroupOutput) ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupPtrOutput {
-	return o.ApplyT(func(v SmartDetectorAlertRuleActionGroup) *SmartDetectorAlertRuleActionGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmartDetectorAlertRuleActionGroup) *SmartDetectorAlertRuleActionGroup {
 		return &v
 	}).(SmartDetectorAlertRuleActionGroupPtrOutput)
 }
@@ -9455,7 +9641,13 @@ func (o SmartDetectorAlertRuleActionGroupPtrOutput) ToSmartDetectorAlertRuleActi
 }
 
 func (o SmartDetectorAlertRuleActionGroupPtrOutput) Elem() SmartDetectorAlertRuleActionGroupOutput {
-	return o.ApplyT(func(v *SmartDetectorAlertRuleActionGroup) SmartDetectorAlertRuleActionGroup { return *v }).(SmartDetectorAlertRuleActionGroupOutput)
+	return o.ApplyT(func(v *SmartDetectorAlertRuleActionGroup) SmartDetectorAlertRuleActionGroup {
+		if v != nil {
+			return *v
+		}
+		var ret SmartDetectorAlertRuleActionGroup
+		return ret
+	}).(SmartDetectorAlertRuleActionGroupOutput)
 }
 
 // Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.

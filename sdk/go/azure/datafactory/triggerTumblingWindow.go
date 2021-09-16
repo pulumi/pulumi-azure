@@ -217,7 +217,7 @@ type TriggerTumblingWindowArrayInput interface {
 type TriggerTumblingWindowArray []TriggerTumblingWindowInput
 
 func (TriggerTumblingWindowArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TriggerTumblingWindow)(nil))
+	return reflect.TypeOf((*[]*TriggerTumblingWindow)(nil)).Elem()
 }
 
 func (i TriggerTumblingWindowArray) ToTriggerTumblingWindowArrayOutput() TriggerTumblingWindowArrayOutput {
@@ -242,7 +242,7 @@ type TriggerTumblingWindowMapInput interface {
 type TriggerTumblingWindowMap map[string]TriggerTumblingWindowInput
 
 func (TriggerTumblingWindowMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TriggerTumblingWindow)(nil))
+	return reflect.TypeOf((*map[string]*TriggerTumblingWindow)(nil)).Elem()
 }
 
 func (i TriggerTumblingWindowMap) ToTriggerTumblingWindowMapOutput() TriggerTumblingWindowMapOutput {
@@ -253,9 +253,7 @@ func (i TriggerTumblingWindowMap) ToTriggerTumblingWindowMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowMapOutput)
 }
 
-type TriggerTumblingWindowOutput struct {
-	*pulumi.OutputState
-}
+type TriggerTumblingWindowOutput struct{ *pulumi.OutputState }
 
 func (TriggerTumblingWindowOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TriggerTumblingWindow)(nil))
@@ -274,14 +272,12 @@ func (o TriggerTumblingWindowOutput) ToTriggerTumblingWindowPtrOutput() TriggerT
 }
 
 func (o TriggerTumblingWindowOutput) ToTriggerTumblingWindowPtrOutputWithContext(ctx context.Context) TriggerTumblingWindowPtrOutput {
-	return o.ApplyT(func(v TriggerTumblingWindow) *TriggerTumblingWindow {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerTumblingWindow) *TriggerTumblingWindow {
 		return &v
 	}).(TriggerTumblingWindowPtrOutput)
 }
 
-type TriggerTumblingWindowPtrOutput struct {
-	*pulumi.OutputState
-}
+type TriggerTumblingWindowPtrOutput struct{ *pulumi.OutputState }
 
 func (TriggerTumblingWindowPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TriggerTumblingWindow)(nil))
@@ -293,6 +289,16 @@ func (o TriggerTumblingWindowPtrOutput) ToTriggerTumblingWindowPtrOutput() Trigg
 
 func (o TriggerTumblingWindowPtrOutput) ToTriggerTumblingWindowPtrOutputWithContext(ctx context.Context) TriggerTumblingWindowPtrOutput {
 	return o
+}
+
+func (o TriggerTumblingWindowPtrOutput) Elem() TriggerTumblingWindowOutput {
+	return o.ApplyT(func(v *TriggerTumblingWindow) TriggerTumblingWindow {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerTumblingWindow
+		return ret
+	}).(TriggerTumblingWindowOutput)
 }
 
 type TriggerTumblingWindowArrayOutput struct{ *pulumi.OutputState }

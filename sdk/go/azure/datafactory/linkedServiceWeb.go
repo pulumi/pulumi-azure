@@ -303,7 +303,7 @@ type LinkedServiceWebArrayInput interface {
 type LinkedServiceWebArray []LinkedServiceWebInput
 
 func (LinkedServiceWebArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LinkedServiceWeb)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceWeb)(nil)).Elem()
 }
 
 func (i LinkedServiceWebArray) ToLinkedServiceWebArrayOutput() LinkedServiceWebArrayOutput {
@@ -328,7 +328,7 @@ type LinkedServiceWebMapInput interface {
 type LinkedServiceWebMap map[string]LinkedServiceWebInput
 
 func (LinkedServiceWebMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LinkedServiceWeb)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceWeb)(nil)).Elem()
 }
 
 func (i LinkedServiceWebMap) ToLinkedServiceWebMapOutput() LinkedServiceWebMapOutput {
@@ -339,9 +339,7 @@ func (i LinkedServiceWebMap) ToLinkedServiceWebMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceWebMapOutput)
 }
 
-type LinkedServiceWebOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceWebOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceWebOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedServiceWeb)(nil))
@@ -360,14 +358,12 @@ func (o LinkedServiceWebOutput) ToLinkedServiceWebPtrOutput() LinkedServiceWebPt
 }
 
 func (o LinkedServiceWebOutput) ToLinkedServiceWebPtrOutputWithContext(ctx context.Context) LinkedServiceWebPtrOutput {
-	return o.ApplyT(func(v LinkedServiceWeb) *LinkedServiceWeb {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceWeb) *LinkedServiceWeb {
 		return &v
 	}).(LinkedServiceWebPtrOutput)
 }
 
-type LinkedServiceWebPtrOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceWebPtrOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceWebPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinkedServiceWeb)(nil))
@@ -379,6 +375,16 @@ func (o LinkedServiceWebPtrOutput) ToLinkedServiceWebPtrOutput() LinkedServiceWe
 
 func (o LinkedServiceWebPtrOutput) ToLinkedServiceWebPtrOutputWithContext(ctx context.Context) LinkedServiceWebPtrOutput {
 	return o
+}
+
+func (o LinkedServiceWebPtrOutput) Elem() LinkedServiceWebOutput {
+	return o.ApplyT(func(v *LinkedServiceWeb) LinkedServiceWeb {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceWeb
+		return ret
+	}).(LinkedServiceWebOutput)
 }
 
 type LinkedServiceWebArrayOutput struct{ *pulumi.OutputState }

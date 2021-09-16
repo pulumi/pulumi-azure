@@ -12,6 +12,7 @@ __all__ = [
     'GetDiskAccessResult',
     'AwaitableGetDiskAccessResult',
     'get_disk_access',
+    'get_disk_access_output',
 ]
 
 @pulumi.output_type
@@ -107,3 +108,30 @@ def get_disk_access(name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_disk_access)
+def get_disk_access_output(name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskAccessResult]:
+    """
+    Use this data source to access information about an existing Disk Access.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_disk_access(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this Disk Access.
+    :param str resource_group_name: The name of the Resource Group where the Disk Access exists.
+    :param Mapping[str, str] tags: A mapping of tags which should be assigned to the Disk Access.
+    """
+    ...

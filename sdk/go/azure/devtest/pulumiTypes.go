@@ -115,7 +115,7 @@ func (o GlobalVMShutdownScheduleNotificationSettingsOutput) ToGlobalVMShutdownSc
 }
 
 func (o GlobalVMShutdownScheduleNotificationSettingsOutput) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
-	return o.ApplyT(func(v GlobalVMShutdownScheduleNotificationSettings) *GlobalVMShutdownScheduleNotificationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalVMShutdownScheduleNotificationSettings) *GlobalVMShutdownScheduleNotificationSettings {
 		return &v
 	}).(GlobalVMShutdownScheduleNotificationSettingsPtrOutput)
 }
@@ -156,7 +156,11 @@ func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) ToGlobalVMShutdow
 
 func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) Elem() GlobalVMShutdownScheduleNotificationSettingsOutput {
 	return o.ApplyT(func(v *GlobalVMShutdownScheduleNotificationSettings) GlobalVMShutdownScheduleNotificationSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GlobalVMShutdownScheduleNotificationSettings
+		return ret
 	}).(GlobalVMShutdownScheduleNotificationSettingsOutput)
 }
 
@@ -305,7 +309,7 @@ func (o LinuxVirtualMachineGalleryImageReferenceOutput) ToLinuxVirtualMachineGal
 }
 
 func (o LinuxVirtualMachineGalleryImageReferenceOutput) ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryImageReferencePtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) *LinuxVirtualMachineGalleryImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineGalleryImageReference) *LinuxVirtualMachineGalleryImageReference {
 		return &v
 	}).(LinuxVirtualMachineGalleryImageReferencePtrOutput)
 }
@@ -345,7 +349,13 @@ func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) ToLinuxVirtualMachine
 }
 
 func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Elem() LinuxVirtualMachineGalleryImageReferenceOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineGalleryImageReference) LinuxVirtualMachineGalleryImageReference { return *v }).(LinuxVirtualMachineGalleryImageReferenceOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineGalleryImageReference) LinuxVirtualMachineGalleryImageReference {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineGalleryImageReference
+		return ret
+	}).(LinuxVirtualMachineGalleryImageReferenceOutput)
 }
 
 // The Offer of the Gallery Image. Changing this forces a new resource to be created.
@@ -596,7 +606,7 @@ func (o ScheduleDailyRecurrenceOutput) ToScheduleDailyRecurrencePtrOutput() Sche
 }
 
 func (o ScheduleDailyRecurrenceOutput) ToScheduleDailyRecurrencePtrOutputWithContext(ctx context.Context) ScheduleDailyRecurrencePtrOutput {
-	return o.ApplyT(func(v ScheduleDailyRecurrence) *ScheduleDailyRecurrence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleDailyRecurrence) *ScheduleDailyRecurrence {
 		return &v
 	}).(ScheduleDailyRecurrencePtrOutput)
 }
@@ -621,7 +631,13 @@ func (o ScheduleDailyRecurrencePtrOutput) ToScheduleDailyRecurrencePtrOutputWith
 }
 
 func (o ScheduleDailyRecurrencePtrOutput) Elem() ScheduleDailyRecurrenceOutput {
-	return o.ApplyT(func(v *ScheduleDailyRecurrence) ScheduleDailyRecurrence { return *v }).(ScheduleDailyRecurrenceOutput)
+	return o.ApplyT(func(v *ScheduleDailyRecurrence) ScheduleDailyRecurrence {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleDailyRecurrence
+		return ret
+	}).(ScheduleDailyRecurrenceOutput)
 }
 
 // The time each day when the schedule takes effect.
@@ -725,10 +741,11 @@ func (o ScheduleHourlyRecurrenceOutput) ToScheduleHourlyRecurrencePtrOutput() Sc
 }
 
 func (o ScheduleHourlyRecurrenceOutput) ToScheduleHourlyRecurrencePtrOutputWithContext(ctx context.Context) ScheduleHourlyRecurrencePtrOutput {
-	return o.ApplyT(func(v ScheduleHourlyRecurrence) *ScheduleHourlyRecurrence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleHourlyRecurrence) *ScheduleHourlyRecurrence {
 		return &v
 	}).(ScheduleHourlyRecurrencePtrOutput)
 }
+
 func (o ScheduleHourlyRecurrenceOutput) Minute() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleHourlyRecurrence) int { return v.Minute }).(pulumi.IntOutput)
 }
@@ -748,7 +765,13 @@ func (o ScheduleHourlyRecurrencePtrOutput) ToScheduleHourlyRecurrencePtrOutputWi
 }
 
 func (o ScheduleHourlyRecurrencePtrOutput) Elem() ScheduleHourlyRecurrenceOutput {
-	return o.ApplyT(func(v *ScheduleHourlyRecurrence) ScheduleHourlyRecurrence { return *v }).(ScheduleHourlyRecurrenceOutput)
+	return o.ApplyT(func(v *ScheduleHourlyRecurrence) ScheduleHourlyRecurrence {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleHourlyRecurrence
+		return ret
+	}).(ScheduleHourlyRecurrenceOutput)
 }
 
 func (o ScheduleHourlyRecurrencePtrOutput) Minute() pulumi.IntPtrOutput {
@@ -861,7 +884,7 @@ func (o ScheduleNotificationSettingsOutput) ToScheduleNotificationSettingsPtrOut
 }
 
 func (o ScheduleNotificationSettingsOutput) ToScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) ScheduleNotificationSettingsPtrOutput {
-	return o.ApplyT(func(v ScheduleNotificationSettings) *ScheduleNotificationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleNotificationSettings) *ScheduleNotificationSettings {
 		return &v
 	}).(ScheduleNotificationSettingsPtrOutput)
 }
@@ -896,7 +919,13 @@ func (o ScheduleNotificationSettingsPtrOutput) ToScheduleNotificationSettingsPtr
 }
 
 func (o ScheduleNotificationSettingsPtrOutput) Elem() ScheduleNotificationSettingsOutput {
-	return o.ApplyT(func(v *ScheduleNotificationSettings) ScheduleNotificationSettings { return *v }).(ScheduleNotificationSettingsOutput)
+	return o.ApplyT(func(v *ScheduleNotificationSettings) ScheduleNotificationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleNotificationSettings
+		return ret
+	}).(ScheduleNotificationSettingsOutput)
 }
 
 // The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
@@ -1026,7 +1055,7 @@ func (o ScheduleWeeklyRecurrenceOutput) ToScheduleWeeklyRecurrencePtrOutput() Sc
 }
 
 func (o ScheduleWeeklyRecurrenceOutput) ToScheduleWeeklyRecurrencePtrOutputWithContext(ctx context.Context) ScheduleWeeklyRecurrencePtrOutput {
-	return o.ApplyT(func(v ScheduleWeeklyRecurrence) *ScheduleWeeklyRecurrence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleWeeklyRecurrence) *ScheduleWeeklyRecurrence {
 		return &v
 	}).(ScheduleWeeklyRecurrencePtrOutput)
 }
@@ -1056,7 +1085,13 @@ func (o ScheduleWeeklyRecurrencePtrOutput) ToScheduleWeeklyRecurrencePtrOutputWi
 }
 
 func (o ScheduleWeeklyRecurrencePtrOutput) Elem() ScheduleWeeklyRecurrenceOutput {
-	return o.ApplyT(func(v *ScheduleWeeklyRecurrence) ScheduleWeeklyRecurrence { return *v }).(ScheduleWeeklyRecurrenceOutput)
+	return o.ApplyT(func(v *ScheduleWeeklyRecurrence) ScheduleWeeklyRecurrence {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleWeeklyRecurrence
+		return ret
+	}).(ScheduleWeeklyRecurrenceOutput)
 }
 
 // The time when the schedule takes effect.
@@ -1180,7 +1215,7 @@ func (o VirtualNetworkSubnetOutput) ToVirtualNetworkSubnetPtrOutput() VirtualNet
 }
 
 func (o VirtualNetworkSubnetOutput) ToVirtualNetworkSubnetPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkSubnet) *VirtualNetworkSubnet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkSubnet) *VirtualNetworkSubnet {
 		return &v
 	}).(VirtualNetworkSubnetPtrOutput)
 }
@@ -1215,7 +1250,13 @@ func (o VirtualNetworkSubnetPtrOutput) ToVirtualNetworkSubnetPtrOutputWithContex
 }
 
 func (o VirtualNetworkSubnetPtrOutput) Elem() VirtualNetworkSubnetOutput {
-	return o.ApplyT(func(v *VirtualNetworkSubnet) VirtualNetworkSubnet { return *v }).(VirtualNetworkSubnetOutput)
+	return o.ApplyT(func(v *VirtualNetworkSubnet) VirtualNetworkSubnet {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkSubnet
+		return ret
+	}).(VirtualNetworkSubnetOutput)
 }
 
 // Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
@@ -1353,7 +1394,7 @@ func (o WindowsVirtualMachineGalleryImageReferenceOutput) ToWindowsVirtualMachin
 }
 
 func (o WindowsVirtualMachineGalleryImageReferenceOutput) ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryImageReferencePtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) *WindowsVirtualMachineGalleryImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineGalleryImageReference) *WindowsVirtualMachineGalleryImageReference {
 		return &v
 	}).(WindowsVirtualMachineGalleryImageReferencePtrOutput)
 }
@@ -1394,7 +1435,11 @@ func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) ToWindowsVirtualMac
 
 func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Elem() WindowsVirtualMachineGalleryImageReferenceOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineGalleryImageReference) WindowsVirtualMachineGalleryImageReference {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineGalleryImageReference
+		return ret
 	}).(WindowsVirtualMachineGalleryImageReferenceOutput)
 }
 

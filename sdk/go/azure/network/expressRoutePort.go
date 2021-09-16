@@ -300,7 +300,7 @@ type ExpressRoutePortArrayInput interface {
 type ExpressRoutePortArray []ExpressRoutePortInput
 
 func (ExpressRoutePortArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ExpressRoutePort)(nil))
+	return reflect.TypeOf((*[]*ExpressRoutePort)(nil)).Elem()
 }
 
 func (i ExpressRoutePortArray) ToExpressRoutePortArrayOutput() ExpressRoutePortArrayOutput {
@@ -325,7 +325,7 @@ type ExpressRoutePortMapInput interface {
 type ExpressRoutePortMap map[string]ExpressRoutePortInput
 
 func (ExpressRoutePortMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ExpressRoutePort)(nil))
+	return reflect.TypeOf((*map[string]*ExpressRoutePort)(nil)).Elem()
 }
 
 func (i ExpressRoutePortMap) ToExpressRoutePortMapOutput() ExpressRoutePortMapOutput {
@@ -336,9 +336,7 @@ func (i ExpressRoutePortMap) ToExpressRoutePortMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortMapOutput)
 }
 
-type ExpressRoutePortOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRoutePortOutput struct{ *pulumi.OutputState }
 
 func (ExpressRoutePortOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRoutePort)(nil))
@@ -357,14 +355,12 @@ func (o ExpressRoutePortOutput) ToExpressRoutePortPtrOutput() ExpressRoutePortPt
 }
 
 func (o ExpressRoutePortOutput) ToExpressRoutePortPtrOutputWithContext(ctx context.Context) ExpressRoutePortPtrOutput {
-	return o.ApplyT(func(v ExpressRoutePort) *ExpressRoutePort {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRoutePort) *ExpressRoutePort {
 		return &v
 	}).(ExpressRoutePortPtrOutput)
 }
 
-type ExpressRoutePortPtrOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRoutePortPtrOutput struct{ *pulumi.OutputState }
 
 func (ExpressRoutePortPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ExpressRoutePort)(nil))
@@ -376,6 +372,16 @@ func (o ExpressRoutePortPtrOutput) ToExpressRoutePortPtrOutput() ExpressRoutePor
 
 func (o ExpressRoutePortPtrOutput) ToExpressRoutePortPtrOutputWithContext(ctx context.Context) ExpressRoutePortPtrOutput {
 	return o
+}
+
+func (o ExpressRoutePortPtrOutput) Elem() ExpressRoutePortOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) ExpressRoutePort {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRoutePort
+		return ret
+	}).(ExpressRoutePortOutput)
 }
 
 type ExpressRoutePortArrayOutput struct{ *pulumi.OutputState }

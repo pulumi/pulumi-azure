@@ -12,6 +12,7 @@ __all__ = [
     'GetStoreResult',
     'AwaitableGetStoreResult',
     'get_store',
+    'get_store_output',
 ]
 
 @pulumi.output_type
@@ -182,3 +183,28 @@ def get_store(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags,
         tier=__ret__.tier)
+
+
+@_utilities.lift_output_func(get_store)
+def get_store_output(name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStoreResult]:
+    """
+    Use this data source to access information about an existing Data Lake Store.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.datalake.get_store(name="testdatalake",
+        resource_group_name="testdatalake")
+    pulumi.export("dataLakeStoreId", example.id)
+    ```
+
+
+    :param str name: The name of the Data Lake Store.
+    :param str resource_group_name: The Name of the Resource Group where the Data Lake Store exists.
+    """
+    ...

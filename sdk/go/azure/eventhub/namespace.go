@@ -289,7 +289,7 @@ type NamespaceArrayInput interface {
 type NamespaceArray []NamespaceInput
 
 func (NamespaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Namespace)(nil))
+	return reflect.TypeOf((*[]*Namespace)(nil)).Elem()
 }
 
 func (i NamespaceArray) ToNamespaceArrayOutput() NamespaceArrayOutput {
@@ -314,7 +314,7 @@ type NamespaceMapInput interface {
 type NamespaceMap map[string]NamespaceInput
 
 func (NamespaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Namespace)(nil))
+	return reflect.TypeOf((*map[string]*Namespace)(nil)).Elem()
 }
 
 func (i NamespaceMap) ToNamespaceMapOutput() NamespaceMapOutput {
@@ -325,9 +325,7 @@ func (i NamespaceMap) ToNamespaceMapOutputWithContext(ctx context.Context) Names
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceMapOutput)
 }
 
-type NamespaceOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceOutput struct{ *pulumi.OutputState }
 
 func (NamespaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Namespace)(nil))
@@ -346,14 +344,12 @@ func (o NamespaceOutput) ToNamespacePtrOutput() NamespacePtrOutput {
 }
 
 func (o NamespaceOutput) ToNamespacePtrOutputWithContext(ctx context.Context) NamespacePtrOutput {
-	return o.ApplyT(func(v Namespace) *Namespace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Namespace) *Namespace {
 		return &v
 	}).(NamespacePtrOutput)
 }
 
-type NamespacePtrOutput struct {
-	*pulumi.OutputState
-}
+type NamespacePtrOutput struct{ *pulumi.OutputState }
 
 func (NamespacePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Namespace)(nil))
@@ -365,6 +361,16 @@ func (o NamespacePtrOutput) ToNamespacePtrOutput() NamespacePtrOutput {
 
 func (o NamespacePtrOutput) ToNamespacePtrOutputWithContext(ctx context.Context) NamespacePtrOutput {
 	return o
+}
+
+func (o NamespacePtrOutput) Elem() NamespaceOutput {
+	return o.ApplyT(func(v *Namespace) Namespace {
+		if v != nil {
+			return *v
+		}
+		var ret Namespace
+		return ret
+	}).(NamespaceOutput)
 }
 
 type NamespaceArrayOutput struct{ *pulumi.OutputState }

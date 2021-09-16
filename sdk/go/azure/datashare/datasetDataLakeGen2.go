@@ -292,7 +292,7 @@ type DatasetDataLakeGen2ArrayInput interface {
 type DatasetDataLakeGen2Array []DatasetDataLakeGen2Input
 
 func (DatasetDataLakeGen2Array) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DatasetDataLakeGen2)(nil))
+	return reflect.TypeOf((*[]*DatasetDataLakeGen2)(nil)).Elem()
 }
 
 func (i DatasetDataLakeGen2Array) ToDatasetDataLakeGen2ArrayOutput() DatasetDataLakeGen2ArrayOutput {
@@ -317,7 +317,7 @@ type DatasetDataLakeGen2MapInput interface {
 type DatasetDataLakeGen2Map map[string]DatasetDataLakeGen2Input
 
 func (DatasetDataLakeGen2Map) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DatasetDataLakeGen2)(nil))
+	return reflect.TypeOf((*map[string]*DatasetDataLakeGen2)(nil)).Elem()
 }
 
 func (i DatasetDataLakeGen2Map) ToDatasetDataLakeGen2MapOutput() DatasetDataLakeGen2MapOutput {
@@ -328,9 +328,7 @@ func (i DatasetDataLakeGen2Map) ToDatasetDataLakeGen2MapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDataLakeGen2MapOutput)
 }
 
-type DatasetDataLakeGen2Output struct {
-	*pulumi.OutputState
-}
+type DatasetDataLakeGen2Output struct{ *pulumi.OutputState }
 
 func (DatasetDataLakeGen2Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetDataLakeGen2)(nil))
@@ -349,14 +347,12 @@ func (o DatasetDataLakeGen2Output) ToDatasetDataLakeGen2PtrOutput() DatasetDataL
 }
 
 func (o DatasetDataLakeGen2Output) ToDatasetDataLakeGen2PtrOutputWithContext(ctx context.Context) DatasetDataLakeGen2PtrOutput {
-	return o.ApplyT(func(v DatasetDataLakeGen2) *DatasetDataLakeGen2 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetDataLakeGen2) *DatasetDataLakeGen2 {
 		return &v
 	}).(DatasetDataLakeGen2PtrOutput)
 }
 
-type DatasetDataLakeGen2PtrOutput struct {
-	*pulumi.OutputState
-}
+type DatasetDataLakeGen2PtrOutput struct{ *pulumi.OutputState }
 
 func (DatasetDataLakeGen2PtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DatasetDataLakeGen2)(nil))
@@ -368,6 +364,16 @@ func (o DatasetDataLakeGen2PtrOutput) ToDatasetDataLakeGen2PtrOutput() DatasetDa
 
 func (o DatasetDataLakeGen2PtrOutput) ToDatasetDataLakeGen2PtrOutputWithContext(ctx context.Context) DatasetDataLakeGen2PtrOutput {
 	return o
+}
+
+func (o DatasetDataLakeGen2PtrOutput) Elem() DatasetDataLakeGen2Output {
+	return o.ApplyT(func(v *DatasetDataLakeGen2) DatasetDataLakeGen2 {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetDataLakeGen2
+		return ret
+	}).(DatasetDataLakeGen2Output)
 }
 
 type DatasetDataLakeGen2ArrayOutput struct{ *pulumi.OutputState }

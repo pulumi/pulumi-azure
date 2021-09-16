@@ -204,11 +204,11 @@ class Assessment(pulumi.CustomResource):
             network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
                 name="example",
                 primary=True,
-                ip_configurations=[{
-                    "name": "internal",
-                    "primary": True,
-                    "subnet_id": internal.id,
-                }],
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                    name="internal",
+                    primary=True,
+                    subnet_id=internal.id,
+                )],
             )])
         example_assessment_policy = azure.securitycenter.AssessmentPolicy("exampleAssessmentPolicy",
             display_name="Test Display Name",
@@ -284,11 +284,11 @@ class Assessment(pulumi.CustomResource):
             network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
                 name="example",
                 primary=True,
-                ip_configurations=[{
-                    "name": "internal",
-                    "primary": True,
-                    "subnet_id": internal.id,
-                }],
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                    name="internal",
+                    primary=True,
+                    subnet_id=internal.id,
+                )],
             )])
         example_assessment_policy = azure.securitycenter.AssessmentPolicy("exampleAssessmentPolicy",
             display_name="Test Display Name",

@@ -239,7 +239,7 @@ type CacheAccessPolicyArrayInput interface {
 type CacheAccessPolicyArray []CacheAccessPolicyInput
 
 func (CacheAccessPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CacheAccessPolicy)(nil))
+	return reflect.TypeOf((*[]*CacheAccessPolicy)(nil)).Elem()
 }
 
 func (i CacheAccessPolicyArray) ToCacheAccessPolicyArrayOutput() CacheAccessPolicyArrayOutput {
@@ -264,7 +264,7 @@ type CacheAccessPolicyMapInput interface {
 type CacheAccessPolicyMap map[string]CacheAccessPolicyInput
 
 func (CacheAccessPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CacheAccessPolicy)(nil))
+	return reflect.TypeOf((*map[string]*CacheAccessPolicy)(nil)).Elem()
 }
 
 func (i CacheAccessPolicyMap) ToCacheAccessPolicyMapOutput() CacheAccessPolicyMapOutput {
@@ -275,9 +275,7 @@ func (i CacheAccessPolicyMap) ToCacheAccessPolicyMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CacheAccessPolicyMapOutput)
 }
 
-type CacheAccessPolicyOutput struct {
-	*pulumi.OutputState
-}
+type CacheAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (CacheAccessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CacheAccessPolicy)(nil))
@@ -296,14 +294,12 @@ func (o CacheAccessPolicyOutput) ToCacheAccessPolicyPtrOutput() CacheAccessPolic
 }
 
 func (o CacheAccessPolicyOutput) ToCacheAccessPolicyPtrOutputWithContext(ctx context.Context) CacheAccessPolicyPtrOutput {
-	return o.ApplyT(func(v CacheAccessPolicy) *CacheAccessPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheAccessPolicy) *CacheAccessPolicy {
 		return &v
 	}).(CacheAccessPolicyPtrOutput)
 }
 
-type CacheAccessPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type CacheAccessPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (CacheAccessPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CacheAccessPolicy)(nil))
@@ -315,6 +311,16 @@ func (o CacheAccessPolicyPtrOutput) ToCacheAccessPolicyPtrOutput() CacheAccessPo
 
 func (o CacheAccessPolicyPtrOutput) ToCacheAccessPolicyPtrOutputWithContext(ctx context.Context) CacheAccessPolicyPtrOutput {
 	return o
+}
+
+func (o CacheAccessPolicyPtrOutput) Elem() CacheAccessPolicyOutput {
+	return o.ApplyT(func(v *CacheAccessPolicy) CacheAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret CacheAccessPolicy
+		return ret
+	}).(CacheAccessPolicyOutput)
 }
 
 type CacheAccessPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -4,6 +4,9 @@
 package streamanalytics
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -78,4 +81,112 @@ type LookupJobResult struct {
 	StreamingUnits int `pulumi:"streamingUnits"`
 	// The query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery string `pulumi:"transformationQuery"`
+}
+
+func LookupJobOutput(ctx *pulumi.Context, args LookupJobOutputArgs, opts ...pulumi.InvokeOption) LookupJobResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupJobResult, error) {
+			args := v.(LookupJobArgs)
+			r, err := LookupJob(ctx, &args, opts...)
+			return *r, err
+		}).(LookupJobResultOutput)
+}
+
+// A collection of arguments for invoking getJob.
+type LookupJobOutputArgs struct {
+	// Specifies the name of the Stream Analytics Job.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group the Stream Analytics Job is located in.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupJobOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getJob.
+type LookupJobResultOutput struct{ *pulumi.OutputState }
+
+func (LookupJobResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobResult)(nil)).Elem()
+}
+
+func (o LookupJobResultOutput) ToLookupJobResultOutput() LookupJobResultOutput {
+	return o
+}
+
+func (o LookupJobResultOutput) ToLookupJobResultOutputWithContext(ctx context.Context) LookupJobResultOutput {
+	return o
+}
+
+// The compatibility level for this job.
+func (o LookupJobResultOutput) CompatibilityLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.CompatibilityLevel }).(pulumi.StringOutput)
+}
+
+// The Data Locale of the Job.
+func (o LookupJobResultOutput) DataLocale() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.DataLocale }).(pulumi.StringOutput)
+}
+
+// The maximum tolerable delay in seconds where events arriving late could be included.
+func (o LookupJobResultOutput) EventsLateArrivalMaxDelayInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupJobResult) int { return v.EventsLateArrivalMaxDelayInSeconds }).(pulumi.IntOutput)
+}
+
+// The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
+func (o LookupJobResultOutput) EventsOutOfOrderMaxDelayInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupJobResult) int { return v.EventsOutOfOrderMaxDelayInSeconds }).(pulumi.IntOutput)
+}
+
+// The policy which should be applied to events which arrive out of order in the input event stream.
+func (o LookupJobResultOutput) EventsOutOfOrderPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.EventsOutOfOrderPolicy }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupJobResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Optional) An `identity` block as defined below.
+func (o LookupJobResultOutput) Identities() GetJobIdentityArrayOutput {
+	return o.ApplyT(func(v LookupJobResult) []GetJobIdentity { return v.Identities }).(GetJobIdentityArrayOutput)
+}
+
+// The Job ID assigned by the Stream Analytics Job.
+func (o LookupJobResultOutput) JobId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.JobId }).(pulumi.StringOutput)
+}
+
+// The Azure location where the Stream Analytics Job exists.
+func (o LookupJobResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupJobResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size).
+func (o LookupJobResultOutput) OutputErrorPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.OutputErrorPolicy }).(pulumi.StringOutput)
+}
+
+func (o LookupJobResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The number of streaming units that the streaming job uses.
+func (o LookupJobResultOutput) StreamingUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupJobResult) int { return v.StreamingUnits }).(pulumi.IntOutput)
+}
+
+// The query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+func (o LookupJobResultOutput) TransformationQuery() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.TransformationQuery }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupJobResultOutput{})
 }

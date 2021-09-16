@@ -32,7 +32,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	case "azure:media/liveEvent:LiveEvent":
 		r = &LiveEvent{}
 	case "azure:media/liveEventOutput:LiveEventOutput":
-		r = &LiveEventOutput{}
+		r = &LiveEventOutputResource{}
 	case "azure:media/serviceAccount:ServiceAccount":
 		r = &ServiceAccount{}
 	case "azure:media/streamingEndpoint:StreamingEndpoint":

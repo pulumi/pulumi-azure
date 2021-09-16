@@ -257,7 +257,7 @@ type IdentityProviderAadArrayInput interface {
 type IdentityProviderAadArray []IdentityProviderAadInput
 
 func (IdentityProviderAadArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IdentityProviderAad)(nil))
+	return reflect.TypeOf((*[]*IdentityProviderAad)(nil)).Elem()
 }
 
 func (i IdentityProviderAadArray) ToIdentityProviderAadArrayOutput() IdentityProviderAadArrayOutput {
@@ -282,7 +282,7 @@ type IdentityProviderAadMapInput interface {
 type IdentityProviderAadMap map[string]IdentityProviderAadInput
 
 func (IdentityProviderAadMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IdentityProviderAad)(nil))
+	return reflect.TypeOf((*map[string]*IdentityProviderAad)(nil)).Elem()
 }
 
 func (i IdentityProviderAadMap) ToIdentityProviderAadMapOutput() IdentityProviderAadMapOutput {
@@ -293,9 +293,7 @@ func (i IdentityProviderAadMap) ToIdentityProviderAadMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadMapOutput)
 }
 
-type IdentityProviderAadOutput struct {
-	*pulumi.OutputState
-}
+type IdentityProviderAadOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderAadOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IdentityProviderAad)(nil))
@@ -314,14 +312,12 @@ func (o IdentityProviderAadOutput) ToIdentityProviderAadPtrOutput() IdentityProv
 }
 
 func (o IdentityProviderAadOutput) ToIdentityProviderAadPtrOutputWithContext(ctx context.Context) IdentityProviderAadPtrOutput {
-	return o.ApplyT(func(v IdentityProviderAad) *IdentityProviderAad {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderAad) *IdentityProviderAad {
 		return &v
 	}).(IdentityProviderAadPtrOutput)
 }
 
-type IdentityProviderAadPtrOutput struct {
-	*pulumi.OutputState
-}
+type IdentityProviderAadPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderAadPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IdentityProviderAad)(nil))
@@ -333,6 +329,16 @@ func (o IdentityProviderAadPtrOutput) ToIdentityProviderAadPtrOutput() IdentityP
 
 func (o IdentityProviderAadPtrOutput) ToIdentityProviderAadPtrOutputWithContext(ctx context.Context) IdentityProviderAadPtrOutput {
 	return o
+}
+
+func (o IdentityProviderAadPtrOutput) Elem() IdentityProviderAadOutput {
+	return o.ApplyT(func(v *IdentityProviderAad) IdentityProviderAad {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProviderAad
+		return ret
+	}).(IdentityProviderAadOutput)
 }
 
 type IdentityProviderAadArrayOutput struct{ *pulumi.OutputState }

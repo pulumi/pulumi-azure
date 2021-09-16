@@ -12,6 +12,7 @@ __all__ = [
     'GetNamespaceResult',
     'AwaitableGetNamespaceResult',
     'get_namespace',
+    'get_namespace_output',
 ]
 
 @pulumi.output_type
@@ -290,3 +291,28 @@ def get_namespace(name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         zone_redundant=__ret__.zone_redundant)
+
+
+@_utilities.lift_output_func(get_namespace)
+def get_namespace_output(name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
+    """
+    Use this data source to access information about an existing EventHub Namespace.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.eventhub.get_namespace(name="search-eventhubns",
+        resource_group_name="search-service")
+    pulumi.export("eventhubNamespaceId", example.id)
+    ```
+
+
+    :param str name: The name of the EventHub Namespace.
+    :param str resource_group_name: The Name of the Resource Group where the EventHub Namespace exists.
+    """
+    ...

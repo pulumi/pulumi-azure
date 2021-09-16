@@ -113,10 +113,11 @@ func (o AnalyticsSolutionPlanOutput) ToAnalyticsSolutionPlanPtrOutput() Analytic
 }
 
 func (o AnalyticsSolutionPlanOutput) ToAnalyticsSolutionPlanPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPlanPtrOutput {
-	return o.ApplyT(func(v AnalyticsSolutionPlan) *AnalyticsSolutionPlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsSolutionPlan) *AnalyticsSolutionPlan {
 		return &v
 	}).(AnalyticsSolutionPlanPtrOutput)
 }
+
 func (o AnalyticsSolutionPlanOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -151,7 +152,13 @@ func (o AnalyticsSolutionPlanPtrOutput) ToAnalyticsSolutionPlanPtrOutputWithCont
 }
 
 func (o AnalyticsSolutionPlanPtrOutput) Elem() AnalyticsSolutionPlanOutput {
-	return o.ApplyT(func(v *AnalyticsSolutionPlan) AnalyticsSolutionPlan { return *v }).(AnalyticsSolutionPlanOutput)
+	return o.ApplyT(func(v *AnalyticsSolutionPlan) AnalyticsSolutionPlan {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsSolutionPlan
+		return ret
+	}).(AnalyticsSolutionPlanOutput)
 }
 
 func (o AnalyticsSolutionPlanPtrOutput) Name() pulumi.StringPtrOutput {

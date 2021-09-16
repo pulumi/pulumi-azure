@@ -277,7 +277,7 @@ type CaaRecordArrayInput interface {
 type CaaRecordArray []CaaRecordInput
 
 func (CaaRecordArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CaaRecord)(nil))
+	return reflect.TypeOf((*[]*CaaRecord)(nil)).Elem()
 }
 
 func (i CaaRecordArray) ToCaaRecordArrayOutput() CaaRecordArrayOutput {
@@ -302,7 +302,7 @@ type CaaRecordMapInput interface {
 type CaaRecordMap map[string]CaaRecordInput
 
 func (CaaRecordMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CaaRecord)(nil))
+	return reflect.TypeOf((*map[string]*CaaRecord)(nil)).Elem()
 }
 
 func (i CaaRecordMap) ToCaaRecordMapOutput() CaaRecordMapOutput {
@@ -313,9 +313,7 @@ func (i CaaRecordMap) ToCaaRecordMapOutputWithContext(ctx context.Context) CaaRe
 	return pulumi.ToOutputWithContext(ctx, i).(CaaRecordMapOutput)
 }
 
-type CaaRecordOutput struct {
-	*pulumi.OutputState
-}
+type CaaRecordOutput struct{ *pulumi.OutputState }
 
 func (CaaRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CaaRecord)(nil))
@@ -334,14 +332,12 @@ func (o CaaRecordOutput) ToCaaRecordPtrOutput() CaaRecordPtrOutput {
 }
 
 func (o CaaRecordOutput) ToCaaRecordPtrOutputWithContext(ctx context.Context) CaaRecordPtrOutput {
-	return o.ApplyT(func(v CaaRecord) *CaaRecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaaRecord) *CaaRecord {
 		return &v
 	}).(CaaRecordPtrOutput)
 }
 
-type CaaRecordPtrOutput struct {
-	*pulumi.OutputState
-}
+type CaaRecordPtrOutput struct{ *pulumi.OutputState }
 
 func (CaaRecordPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CaaRecord)(nil))
@@ -353,6 +349,16 @@ func (o CaaRecordPtrOutput) ToCaaRecordPtrOutput() CaaRecordPtrOutput {
 
 func (o CaaRecordPtrOutput) ToCaaRecordPtrOutputWithContext(ctx context.Context) CaaRecordPtrOutput {
 	return o
+}
+
+func (o CaaRecordPtrOutput) Elem() CaaRecordOutput {
+	return o.ApplyT(func(v *CaaRecord) CaaRecord {
+		if v != nil {
+			return *v
+		}
+		var ret CaaRecord
+		return ret
+	}).(CaaRecordOutput)
 }
 
 type CaaRecordArrayOutput struct{ *pulumi.OutputState }

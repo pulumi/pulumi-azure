@@ -322,7 +322,7 @@ type StreamingLocatorArrayInput interface {
 type StreamingLocatorArray []StreamingLocatorInput
 
 func (StreamingLocatorArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StreamingLocator)(nil))
+	return reflect.TypeOf((*[]*StreamingLocator)(nil)).Elem()
 }
 
 func (i StreamingLocatorArray) ToStreamingLocatorArrayOutput() StreamingLocatorArrayOutput {
@@ -347,7 +347,7 @@ type StreamingLocatorMapInput interface {
 type StreamingLocatorMap map[string]StreamingLocatorInput
 
 func (StreamingLocatorMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StreamingLocator)(nil))
+	return reflect.TypeOf((*map[string]*StreamingLocator)(nil)).Elem()
 }
 
 func (i StreamingLocatorMap) ToStreamingLocatorMapOutput() StreamingLocatorMapOutput {
@@ -358,9 +358,7 @@ func (i StreamingLocatorMap) ToStreamingLocatorMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorMapOutput)
 }
 
-type StreamingLocatorOutput struct {
-	*pulumi.OutputState
-}
+type StreamingLocatorOutput struct{ *pulumi.OutputState }
 
 func (StreamingLocatorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamingLocator)(nil))
@@ -379,14 +377,12 @@ func (o StreamingLocatorOutput) ToStreamingLocatorPtrOutput() StreamingLocatorPt
 }
 
 func (o StreamingLocatorOutput) ToStreamingLocatorPtrOutputWithContext(ctx context.Context) StreamingLocatorPtrOutput {
-	return o.ApplyT(func(v StreamingLocator) *StreamingLocator {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingLocator) *StreamingLocator {
 		return &v
 	}).(StreamingLocatorPtrOutput)
 }
 
-type StreamingLocatorPtrOutput struct {
-	*pulumi.OutputState
-}
+type StreamingLocatorPtrOutput struct{ *pulumi.OutputState }
 
 func (StreamingLocatorPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StreamingLocator)(nil))
@@ -398,6 +394,16 @@ func (o StreamingLocatorPtrOutput) ToStreamingLocatorPtrOutput() StreamingLocato
 
 func (o StreamingLocatorPtrOutput) ToStreamingLocatorPtrOutputWithContext(ctx context.Context) StreamingLocatorPtrOutput {
 	return o
+}
+
+func (o StreamingLocatorPtrOutput) Elem() StreamingLocatorOutput {
+	return o.ApplyT(func(v *StreamingLocator) StreamingLocator {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingLocator
+		return ret
+	}).(StreamingLocatorOutput)
 }
 
 type StreamingLocatorArrayOutput struct{ *pulumi.OutputState }

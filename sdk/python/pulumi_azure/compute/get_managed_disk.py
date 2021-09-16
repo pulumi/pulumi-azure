@@ -12,6 +12,7 @@ __all__ = [
     'GetManagedDiskResult',
     'AwaitableGetManagedDiskResult',
     'get_managed_disk',
+    'get_managed_disk_output',
 ]
 
 @pulumi.output_type
@@ -266,3 +267,32 @@ def get_managed_disk(name: Optional[str] = None,
         storage_account_type=__ret__.storage_account_type,
         tags=__ret__.tags,
         zones=__ret__.zones)
+
+
+@_utilities.lift_output_func(get_managed_disk)
+def get_managed_disk_output(name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                            zones: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedDiskResult]:
+    """
+    Use this data source to access information about an existing Managed Disk.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    existing = azure.compute.get_managed_disk(name="example-datadisk",
+        resource_group_name="example-resources")
+    pulumi.export("id", existing.id)
+    ```
+
+
+    :param str name: Specifies the name of the Managed Disk.
+    :param str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
+    :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
+    :param Sequence[str] zones: A list of Availability Zones where the Managed Disk exists.
+    """
+    ...

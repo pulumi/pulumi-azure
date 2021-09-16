@@ -302,7 +302,7 @@ type CNameRecordArrayInput interface {
 type CNameRecordArray []CNameRecordInput
 
 func (CNameRecordArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CNameRecord)(nil))
+	return reflect.TypeOf((*[]*CNameRecord)(nil)).Elem()
 }
 
 func (i CNameRecordArray) ToCNameRecordArrayOutput() CNameRecordArrayOutput {
@@ -327,7 +327,7 @@ type CNameRecordMapInput interface {
 type CNameRecordMap map[string]CNameRecordInput
 
 func (CNameRecordMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CNameRecord)(nil))
+	return reflect.TypeOf((*map[string]*CNameRecord)(nil)).Elem()
 }
 
 func (i CNameRecordMap) ToCNameRecordMapOutput() CNameRecordMapOutput {
@@ -338,9 +338,7 @@ func (i CNameRecordMap) ToCNameRecordMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CNameRecordMapOutput)
 }
 
-type CNameRecordOutput struct {
-	*pulumi.OutputState
-}
+type CNameRecordOutput struct{ *pulumi.OutputState }
 
 func (CNameRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CNameRecord)(nil))
@@ -359,14 +357,12 @@ func (o CNameRecordOutput) ToCNameRecordPtrOutput() CNameRecordPtrOutput {
 }
 
 func (o CNameRecordOutput) ToCNameRecordPtrOutputWithContext(ctx context.Context) CNameRecordPtrOutput {
-	return o.ApplyT(func(v CNameRecord) *CNameRecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CNameRecord) *CNameRecord {
 		return &v
 	}).(CNameRecordPtrOutput)
 }
 
-type CNameRecordPtrOutput struct {
-	*pulumi.OutputState
-}
+type CNameRecordPtrOutput struct{ *pulumi.OutputState }
 
 func (CNameRecordPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CNameRecord)(nil))
@@ -378,6 +374,16 @@ func (o CNameRecordPtrOutput) ToCNameRecordPtrOutput() CNameRecordPtrOutput {
 
 func (o CNameRecordPtrOutput) ToCNameRecordPtrOutputWithContext(ctx context.Context) CNameRecordPtrOutput {
 	return o
+}
+
+func (o CNameRecordPtrOutput) Elem() CNameRecordOutput {
+	return o.ApplyT(func(v *CNameRecord) CNameRecord {
+		if v != nil {
+			return *v
+		}
+		var ret CNameRecord
+		return ret
+	}).(CNameRecordOutput)
 }
 
 type CNameRecordArrayOutput struct{ *pulumi.OutputState }

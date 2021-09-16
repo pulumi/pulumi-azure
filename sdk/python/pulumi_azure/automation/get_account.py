@@ -12,6 +12,7 @@ __all__ = [
     'GetAccountResult',
     'AwaitableGetAccountResult',
     'get_account',
+    'get_account_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,28 @@ def get_account(name: Optional[str] = None,
         primary_key=__ret__.primary_key,
         resource_group_name=__ret__.resource_group_name,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(get_account)
+def get_account_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+    """
+    Use this data source to access information about an existing Automation Account.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.automation.get_account(name="example-account",
+        resource_group_name="example-resources")
+    pulumi.export("automationAccountId", example.id)
+    ```
+
+
+    :param str name: The name of the Automation Account.
+    :param str resource_group_name: Specifies the name of the Resource Group where the Automation Account exists.
+    """
+    ...

@@ -236,7 +236,7 @@ type RegistryScopeMapArrayInput interface {
 type RegistryScopeMapArray []RegistryScopeMapInput
 
 func (RegistryScopeMapArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RegistryScopeMap)(nil))
+	return reflect.TypeOf((*[]*RegistryScopeMap)(nil)).Elem()
 }
 
 func (i RegistryScopeMapArray) ToRegistryScopeMapArrayOutput() RegistryScopeMapArrayOutput {
@@ -261,7 +261,7 @@ type RegistryScopeMapMapInput interface {
 type RegistryScopeMapMap map[string]RegistryScopeMapInput
 
 func (RegistryScopeMapMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RegistryScopeMap)(nil))
+	return reflect.TypeOf((*map[string]*RegistryScopeMap)(nil)).Elem()
 }
 
 func (i RegistryScopeMapMap) ToRegistryScopeMapMapOutput() RegistryScopeMapMapOutput {
@@ -272,9 +272,7 @@ func (i RegistryScopeMapMap) ToRegistryScopeMapMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScopeMapMapOutput)
 }
 
-type RegistryScopeMapOutput struct {
-	*pulumi.OutputState
-}
+type RegistryScopeMapOutput struct{ *pulumi.OutputState }
 
 func (RegistryScopeMapOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistryScopeMap)(nil))
@@ -293,14 +291,12 @@ func (o RegistryScopeMapOutput) ToRegistryScopeMapPtrOutput() RegistryScopeMapPt
 }
 
 func (o RegistryScopeMapOutput) ToRegistryScopeMapPtrOutputWithContext(ctx context.Context) RegistryScopeMapPtrOutput {
-	return o.ApplyT(func(v RegistryScopeMap) *RegistryScopeMap {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryScopeMap) *RegistryScopeMap {
 		return &v
 	}).(RegistryScopeMapPtrOutput)
 }
 
-type RegistryScopeMapPtrOutput struct {
-	*pulumi.OutputState
-}
+type RegistryScopeMapPtrOutput struct{ *pulumi.OutputState }
 
 func (RegistryScopeMapPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RegistryScopeMap)(nil))
@@ -312,6 +308,16 @@ func (o RegistryScopeMapPtrOutput) ToRegistryScopeMapPtrOutput() RegistryScopeMa
 
 func (o RegistryScopeMapPtrOutput) ToRegistryScopeMapPtrOutputWithContext(ctx context.Context) RegistryScopeMapPtrOutput {
 	return o
+}
+
+func (o RegistryScopeMapPtrOutput) Elem() RegistryScopeMapOutput {
+	return o.ApplyT(func(v *RegistryScopeMap) RegistryScopeMap {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryScopeMap
+		return ret
+	}).(RegistryScopeMapOutput)
 }
 
 type RegistryScopeMapArrayOutput struct{ *pulumi.OutputState }

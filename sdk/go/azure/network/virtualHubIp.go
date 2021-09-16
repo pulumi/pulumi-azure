@@ -272,7 +272,7 @@ type VirtualHubIpArrayInput interface {
 type VirtualHubIpArray []VirtualHubIpInput
 
 func (VirtualHubIpArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualHubIp)(nil))
+	return reflect.TypeOf((*[]*VirtualHubIp)(nil)).Elem()
 }
 
 func (i VirtualHubIpArray) ToVirtualHubIpArrayOutput() VirtualHubIpArrayOutput {
@@ -297,7 +297,7 @@ type VirtualHubIpMapInput interface {
 type VirtualHubIpMap map[string]VirtualHubIpInput
 
 func (VirtualHubIpMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualHubIp)(nil))
+	return reflect.TypeOf((*map[string]*VirtualHubIp)(nil)).Elem()
 }
 
 func (i VirtualHubIpMap) ToVirtualHubIpMapOutput() VirtualHubIpMapOutput {
@@ -308,9 +308,7 @@ func (i VirtualHubIpMap) ToVirtualHubIpMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubIpMapOutput)
 }
 
-type VirtualHubIpOutput struct {
-	*pulumi.OutputState
-}
+type VirtualHubIpOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubIpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualHubIp)(nil))
@@ -329,14 +327,12 @@ func (o VirtualHubIpOutput) ToVirtualHubIpPtrOutput() VirtualHubIpPtrOutput {
 }
 
 func (o VirtualHubIpOutput) ToVirtualHubIpPtrOutputWithContext(ctx context.Context) VirtualHubIpPtrOutput {
-	return o.ApplyT(func(v VirtualHubIp) *VirtualHubIp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualHubIp) *VirtualHubIp {
 		return &v
 	}).(VirtualHubIpPtrOutput)
 }
 
-type VirtualHubIpPtrOutput struct {
-	*pulumi.OutputState
-}
+type VirtualHubIpPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubIpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualHubIp)(nil))
@@ -348,6 +344,16 @@ func (o VirtualHubIpPtrOutput) ToVirtualHubIpPtrOutput() VirtualHubIpPtrOutput {
 
 func (o VirtualHubIpPtrOutput) ToVirtualHubIpPtrOutputWithContext(ctx context.Context) VirtualHubIpPtrOutput {
 	return o
+}
+
+func (o VirtualHubIpPtrOutput) Elem() VirtualHubIpOutput {
+	return o.ApplyT(func(v *VirtualHubIp) VirtualHubIp {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualHubIp
+		return ret
+	}).(VirtualHubIpOutput)
 }
 
 type VirtualHubIpArrayOutput struct{ *pulumi.OutputState }

@@ -338,7 +338,7 @@ type SharedImageArrayInput interface {
 type SharedImageArray []SharedImageInput
 
 func (SharedImageArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SharedImage)(nil))
+	return reflect.TypeOf((*[]*SharedImage)(nil)).Elem()
 }
 
 func (i SharedImageArray) ToSharedImageArrayOutput() SharedImageArrayOutput {
@@ -363,7 +363,7 @@ type SharedImageMapInput interface {
 type SharedImageMap map[string]SharedImageInput
 
 func (SharedImageMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SharedImage)(nil))
+	return reflect.TypeOf((*map[string]*SharedImage)(nil)).Elem()
 }
 
 func (i SharedImageMap) ToSharedImageMapOutput() SharedImageMapOutput {
@@ -374,9 +374,7 @@ func (i SharedImageMap) ToSharedImageMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageMapOutput)
 }
 
-type SharedImageOutput struct {
-	*pulumi.OutputState
-}
+type SharedImageOutput struct{ *pulumi.OutputState }
 
 func (SharedImageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SharedImage)(nil))
@@ -395,14 +393,12 @@ func (o SharedImageOutput) ToSharedImagePtrOutput() SharedImagePtrOutput {
 }
 
 func (o SharedImageOutput) ToSharedImagePtrOutputWithContext(ctx context.Context) SharedImagePtrOutput {
-	return o.ApplyT(func(v SharedImage) *SharedImage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedImage) *SharedImage {
 		return &v
 	}).(SharedImagePtrOutput)
 }
 
-type SharedImagePtrOutput struct {
-	*pulumi.OutputState
-}
+type SharedImagePtrOutput struct{ *pulumi.OutputState }
 
 func (SharedImagePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SharedImage)(nil))
@@ -414,6 +410,16 @@ func (o SharedImagePtrOutput) ToSharedImagePtrOutput() SharedImagePtrOutput {
 
 func (o SharedImagePtrOutput) ToSharedImagePtrOutputWithContext(ctx context.Context) SharedImagePtrOutput {
 	return o
+}
+
+func (o SharedImagePtrOutput) Elem() SharedImageOutput {
+	return o.ApplyT(func(v *SharedImage) SharedImage {
+		if v != nil {
+			return *v
+		}
+		var ret SharedImage
+		return ret
+	}).(SharedImageOutput)
 }
 
 type SharedImageArrayOutput struct{ *pulumi.OutputState }

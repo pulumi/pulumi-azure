@@ -320,7 +320,7 @@ type NatGatewayArrayInput interface {
 type NatGatewayArray []NatGatewayInput
 
 func (NatGatewayArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NatGateway)(nil))
+	return reflect.TypeOf((*[]*NatGateway)(nil)).Elem()
 }
 
 func (i NatGatewayArray) ToNatGatewayArrayOutput() NatGatewayArrayOutput {
@@ -345,7 +345,7 @@ type NatGatewayMapInput interface {
 type NatGatewayMap map[string]NatGatewayInput
 
 func (NatGatewayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NatGateway)(nil))
+	return reflect.TypeOf((*map[string]*NatGateway)(nil)).Elem()
 }
 
 func (i NatGatewayMap) ToNatGatewayMapOutput() NatGatewayMapOutput {
@@ -356,9 +356,7 @@ func (i NatGatewayMap) ToNatGatewayMapOutputWithContext(ctx context.Context) Nat
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayMapOutput)
 }
 
-type NatGatewayOutput struct {
-	*pulumi.OutputState
-}
+type NatGatewayOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NatGateway)(nil))
@@ -377,14 +375,12 @@ func (o NatGatewayOutput) ToNatGatewayPtrOutput() NatGatewayPtrOutput {
 }
 
 func (o NatGatewayOutput) ToNatGatewayPtrOutputWithContext(ctx context.Context) NatGatewayPtrOutput {
-	return o.ApplyT(func(v NatGateway) *NatGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NatGateway) *NatGateway {
 		return &v
 	}).(NatGatewayPtrOutput)
 }
 
-type NatGatewayPtrOutput struct {
-	*pulumi.OutputState
-}
+type NatGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NatGateway)(nil))
@@ -396,6 +392,16 @@ func (o NatGatewayPtrOutput) ToNatGatewayPtrOutput() NatGatewayPtrOutput {
 
 func (o NatGatewayPtrOutput) ToNatGatewayPtrOutputWithContext(ctx context.Context) NatGatewayPtrOutput {
 	return o
+}
+
+func (o NatGatewayPtrOutput) Elem() NatGatewayOutput {
+	return o.ApplyT(func(v *NatGateway) NatGateway {
+		if v != nil {
+			return *v
+		}
+		var ret NatGateway
+		return ret
+	}).(NatGatewayOutput)
 }
 
 type NatGatewayArrayOutput struct{ *pulumi.OutputState }

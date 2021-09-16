@@ -279,7 +279,7 @@ type LinkedServerArrayInput interface {
 type LinkedServerArray []LinkedServerInput
 
 func (LinkedServerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LinkedServer)(nil))
+	return reflect.TypeOf((*[]*LinkedServer)(nil)).Elem()
 }
 
 func (i LinkedServerArray) ToLinkedServerArrayOutput() LinkedServerArrayOutput {
@@ -304,7 +304,7 @@ type LinkedServerMapInput interface {
 type LinkedServerMap map[string]LinkedServerInput
 
 func (LinkedServerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LinkedServer)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServer)(nil)).Elem()
 }
 
 func (i LinkedServerMap) ToLinkedServerMapOutput() LinkedServerMapOutput {
@@ -315,9 +315,7 @@ func (i LinkedServerMap) ToLinkedServerMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerMapOutput)
 }
 
-type LinkedServerOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServerOutput struct{ *pulumi.OutputState }
 
 func (LinkedServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedServer)(nil))
@@ -336,14 +334,12 @@ func (o LinkedServerOutput) ToLinkedServerPtrOutput() LinkedServerPtrOutput {
 }
 
 func (o LinkedServerOutput) ToLinkedServerPtrOutputWithContext(ctx context.Context) LinkedServerPtrOutput {
-	return o.ApplyT(func(v LinkedServer) *LinkedServer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServer) *LinkedServer {
 		return &v
 	}).(LinkedServerPtrOutput)
 }
 
-type LinkedServerPtrOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServerPtrOutput struct{ *pulumi.OutputState }
 
 func (LinkedServerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinkedServer)(nil))
@@ -355,6 +351,16 @@ func (o LinkedServerPtrOutput) ToLinkedServerPtrOutput() LinkedServerPtrOutput {
 
 func (o LinkedServerPtrOutput) ToLinkedServerPtrOutputWithContext(ctx context.Context) LinkedServerPtrOutput {
 	return o
+}
+
+func (o LinkedServerPtrOutput) Elem() LinkedServerOutput {
+	return o.ApplyT(func(v *LinkedServer) LinkedServer {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServer
+		return ret
+	}).(LinkedServerOutput)
 }
 
 type LinkedServerArrayOutput struct{ *pulumi.OutputState }

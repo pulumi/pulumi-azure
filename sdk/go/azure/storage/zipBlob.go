@@ -205,7 +205,7 @@ type ZipBlobArrayInput interface {
 type ZipBlobArray []ZipBlobInput
 
 func (ZipBlobArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ZipBlob)(nil))
+	return reflect.TypeOf((*[]*ZipBlob)(nil)).Elem()
 }
 
 func (i ZipBlobArray) ToZipBlobArrayOutput() ZipBlobArrayOutput {
@@ -230,7 +230,7 @@ type ZipBlobMapInput interface {
 type ZipBlobMap map[string]ZipBlobInput
 
 func (ZipBlobMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ZipBlob)(nil))
+	return reflect.TypeOf((*map[string]*ZipBlob)(nil)).Elem()
 }
 
 func (i ZipBlobMap) ToZipBlobMapOutput() ZipBlobMapOutput {
@@ -241,9 +241,7 @@ func (i ZipBlobMap) ToZipBlobMapOutputWithContext(ctx context.Context) ZipBlobMa
 	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobMapOutput)
 }
 
-type ZipBlobOutput struct {
-	*pulumi.OutputState
-}
+type ZipBlobOutput struct{ *pulumi.OutputState }
 
 func (ZipBlobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ZipBlob)(nil))
@@ -262,14 +260,12 @@ func (o ZipBlobOutput) ToZipBlobPtrOutput() ZipBlobPtrOutput {
 }
 
 func (o ZipBlobOutput) ToZipBlobPtrOutputWithContext(ctx context.Context) ZipBlobPtrOutput {
-	return o.ApplyT(func(v ZipBlob) *ZipBlob {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ZipBlob) *ZipBlob {
 		return &v
 	}).(ZipBlobPtrOutput)
 }
 
-type ZipBlobPtrOutput struct {
-	*pulumi.OutputState
-}
+type ZipBlobPtrOutput struct{ *pulumi.OutputState }
 
 func (ZipBlobPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ZipBlob)(nil))
@@ -281,6 +277,16 @@ func (o ZipBlobPtrOutput) ToZipBlobPtrOutput() ZipBlobPtrOutput {
 
 func (o ZipBlobPtrOutput) ToZipBlobPtrOutputWithContext(ctx context.Context) ZipBlobPtrOutput {
 	return o
+}
+
+func (o ZipBlobPtrOutput) Elem() ZipBlobOutput {
+	return o.ApplyT(func(v *ZipBlob) ZipBlob {
+		if v != nil {
+			return *v
+		}
+		var ret ZipBlob
+		return ret
+	}).(ZipBlobOutput)
 }
 
 type ZipBlobArrayOutput struct{ *pulumi.OutputState }

@@ -4,6 +4,9 @@
 package netapp
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,80 @@ type LookupSnapshotResult struct {
 	PoolName          string `pulumi:"poolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	VolumeName        string `pulumi:"volumeName"`
+}
+
+func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSnapshotResult, error) {
+			args := v.(LookupSnapshotArgs)
+			r, err := LookupSnapshot(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSnapshotResultOutput)
+}
+
+// A collection of arguments for invoking getSnapshot.
+type LookupSnapshotOutputArgs struct {
+	// The name of the NetApp Account where the NetApp Pool exists.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the NetApp Snapshot.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the NetApp Pool where the NetApp Volume exists.
+	PoolName pulumi.StringInput `pulumi:"poolName"`
+	// The Name of the Resource Group where the NetApp Snapshot exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the NetApp Volume where the NetApp Snapshot exists.
+	VolumeName pulumi.StringInput `pulumi:"volumeName"`
+}
+
+func (LookupSnapshotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSnapshotArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSnapshot.
+type LookupSnapshotResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSnapshotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSnapshotResult)(nil)).Elem()
+}
+
+func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutput() LookupSnapshotResultOutput {
+	return o
+}
+
+func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutputWithContext(ctx context.Context) LookupSnapshotResultOutput {
+	return o
+}
+
+func (o LookupSnapshotResultOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSnapshotResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure Region where the NetApp Snapshot exists.
+func (o LookupSnapshotResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupSnapshotResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSnapshotResultOutput) PoolName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.PoolName }).(pulumi.StringOutput)
+}
+
+func (o LookupSnapshotResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupSnapshotResultOutput) VolumeName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.VolumeName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSnapshotResultOutput{})
 }

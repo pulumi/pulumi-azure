@@ -256,7 +256,7 @@ type EndpointEventGridArrayInput interface {
 type EndpointEventGridArray []EndpointEventGridInput
 
 func (EndpointEventGridArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EndpointEventGrid)(nil))
+	return reflect.TypeOf((*[]*EndpointEventGrid)(nil)).Elem()
 }
 
 func (i EndpointEventGridArray) ToEndpointEventGridArrayOutput() EndpointEventGridArrayOutput {
@@ -281,7 +281,7 @@ type EndpointEventGridMapInput interface {
 type EndpointEventGridMap map[string]EndpointEventGridInput
 
 func (EndpointEventGridMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EndpointEventGrid)(nil))
+	return reflect.TypeOf((*map[string]*EndpointEventGrid)(nil)).Elem()
 }
 
 func (i EndpointEventGridMap) ToEndpointEventGridMapOutput() EndpointEventGridMapOutput {
@@ -292,9 +292,7 @@ func (i EndpointEventGridMap) ToEndpointEventGridMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventGridMapOutput)
 }
 
-type EndpointEventGridOutput struct {
-	*pulumi.OutputState
-}
+type EndpointEventGridOutput struct{ *pulumi.OutputState }
 
 func (EndpointEventGridOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EndpointEventGrid)(nil))
@@ -313,14 +311,12 @@ func (o EndpointEventGridOutput) ToEndpointEventGridPtrOutput() EndpointEventGri
 }
 
 func (o EndpointEventGridOutput) ToEndpointEventGridPtrOutputWithContext(ctx context.Context) EndpointEventGridPtrOutput {
-	return o.ApplyT(func(v EndpointEventGrid) *EndpointEventGrid {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointEventGrid) *EndpointEventGrid {
 		return &v
 	}).(EndpointEventGridPtrOutput)
 }
 
-type EndpointEventGridPtrOutput struct {
-	*pulumi.OutputState
-}
+type EndpointEventGridPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointEventGridPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EndpointEventGrid)(nil))
@@ -332,6 +328,16 @@ func (o EndpointEventGridPtrOutput) ToEndpointEventGridPtrOutput() EndpointEvent
 
 func (o EndpointEventGridPtrOutput) ToEndpointEventGridPtrOutputWithContext(ctx context.Context) EndpointEventGridPtrOutput {
 	return o
+}
+
+func (o EndpointEventGridPtrOutput) Elem() EndpointEventGridOutput {
+	return o.ApplyT(func(v *EndpointEventGrid) EndpointEventGrid {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointEventGrid
+		return ret
+	}).(EndpointEventGridOutput)
 }
 
 type EndpointEventGridArrayOutput struct{ *pulumi.OutputState }

@@ -12,6 +12,7 @@ __all__ = [
     'GetSecretResult',
     'AwaitableGetSecretResult',
     'get_secret',
+    'get_secret_output',
 ]
 
 @pulumi.output_type
@@ -156,3 +157,28 @@ def get_secret(key_vault_id: Optional[str] = None,
         value=__ret__.value,
         version=__ret__.version,
         versionless_id=__ret__.versionless_id)
+
+
+@_utilities.lift_output_func(get_secret)
+def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
+                      name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
+    """
+    Use this data source to access information about an existing Key Vault Secret.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.keyvault.get_secret(name="secret-sauce",
+        key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
+    pulumi.export("secretValue", example.value)
+    ```
+
+
+    :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
+    :param str name: Specifies the name of the Key Vault Secret.
+    """
+    ...

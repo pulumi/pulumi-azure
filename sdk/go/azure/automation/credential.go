@@ -250,7 +250,7 @@ type CredentialArrayInput interface {
 type CredentialArray []CredentialInput
 
 func (CredentialArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Credential)(nil))
+	return reflect.TypeOf((*[]*Credential)(nil)).Elem()
 }
 
 func (i CredentialArray) ToCredentialArrayOutput() CredentialArrayOutput {
@@ -275,7 +275,7 @@ type CredentialMapInput interface {
 type CredentialMap map[string]CredentialInput
 
 func (CredentialMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Credential)(nil))
+	return reflect.TypeOf((*map[string]*Credential)(nil)).Elem()
 }
 
 func (i CredentialMap) ToCredentialMapOutput() CredentialMapOutput {
@@ -286,9 +286,7 @@ func (i CredentialMap) ToCredentialMapOutputWithContext(ctx context.Context) Cre
 	return pulumi.ToOutputWithContext(ctx, i).(CredentialMapOutput)
 }
 
-type CredentialOutput struct {
-	*pulumi.OutputState
-}
+type CredentialOutput struct{ *pulumi.OutputState }
 
 func (CredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Credential)(nil))
@@ -307,14 +305,12 @@ func (o CredentialOutput) ToCredentialPtrOutput() CredentialPtrOutput {
 }
 
 func (o CredentialOutput) ToCredentialPtrOutputWithContext(ctx context.Context) CredentialPtrOutput {
-	return o.ApplyT(func(v Credential) *Credential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Credential) *Credential {
 		return &v
 	}).(CredentialPtrOutput)
 }
 
-type CredentialPtrOutput struct {
-	*pulumi.OutputState
-}
+type CredentialPtrOutput struct{ *pulumi.OutputState }
 
 func (CredentialPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Credential)(nil))
@@ -326,6 +322,16 @@ func (o CredentialPtrOutput) ToCredentialPtrOutput() CredentialPtrOutput {
 
 func (o CredentialPtrOutput) ToCredentialPtrOutputWithContext(ctx context.Context) CredentialPtrOutput {
 	return o
+}
+
+func (o CredentialPtrOutput) Elem() CredentialOutput {
+	return o.ApplyT(func(v *Credential) Credential {
+		if v != nil {
+			return *v
+		}
+		var ret Credential
+		return ret
+	}).(CredentialOutput)
 }
 
 type CredentialArrayOutput struct{ *pulumi.OutputState }

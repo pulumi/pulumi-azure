@@ -12,6 +12,7 @@ __all__ = [
     'GetProductResult',
     'AwaitableGetProductResult',
     'get_product',
+    'get_product_output',
 ]
 
 @pulumi.output_type
@@ -199,3 +200,31 @@ def get_product(api_management_name: Optional[str] = None,
         subscription_required=__ret__.subscription_required,
         subscriptions_limit=__ret__.subscriptions_limit,
         terms=__ret__.terms)
+
+
+@_utilities.lift_output_func(get_product)
+def get_product_output(api_management_name: Optional[pulumi.Input[str]] = None,
+                       product_id: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
+    """
+    Use this data source to access information about an existing API Management Product.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_product(product_id="my-product",
+        api_management_name="example-apim",
+        resource_group_name="search-service")
+    pulumi.export("productTerms", example.terms)
+    ```
+
+
+    :param str api_management_name: The Name of the API Management Service in which this Product exists.
+    :param str product_id: The Identifier for the API Management Product.
+    :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
+    """
+    ...

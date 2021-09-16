@@ -4,6 +4,9 @@
 package batch
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,83 @@ type LookupCertificateResult struct {
 	Thumbprint string `pulumi:"thumbprint"`
 	// The algorithm of the certificate thumbprint.
 	ThumbprintAlgorithm string `pulumi:"thumbprintAlgorithm"`
+}
+
+func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCertificateResult, error) {
+			args := v.(LookupCertificateArgs)
+			r, err := LookupCertificate(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCertificateResultOutput)
+}
+
+// A collection of arguments for invoking getCertificate.
+type LookupCertificateOutputArgs struct {
+	// The name of the Batch account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the Batch certificate.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group where this Batch account exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCertificate.
+type LookupCertificateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateResult)(nil)).Elem()
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutput() LookupCertificateResultOutput {
+	return o
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContext(ctx context.Context) LookupCertificateResultOutput {
+	return o
+}
+
+func (o LookupCertificateResultOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// The format of the certificate, such as `Cer` or `Pfx`.
+func (o LookupCertificateResultOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The public key of the certificate.
+func (o LookupCertificateResultOutput) PublicData() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.PublicData }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The thumbprint of the certificate.
+func (o LookupCertificateResultOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// The algorithm of the certificate thumbprint.
+func (o LookupCertificateResultOutput) ThumbprintAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.ThumbprintAlgorithm }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCertificateResultOutput{})
 }

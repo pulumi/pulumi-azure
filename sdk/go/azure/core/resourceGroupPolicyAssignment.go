@@ -293,7 +293,7 @@ type ResourceGroupPolicyAssignmentArrayInput interface {
 type ResourceGroupPolicyAssignmentArray []ResourceGroupPolicyAssignmentInput
 
 func (ResourceGroupPolicyAssignmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResourceGroupPolicyAssignment)(nil))
+	return reflect.TypeOf((*[]*ResourceGroupPolicyAssignment)(nil)).Elem()
 }
 
 func (i ResourceGroupPolicyAssignmentArray) ToResourceGroupPolicyAssignmentArrayOutput() ResourceGroupPolicyAssignmentArrayOutput {
@@ -318,7 +318,7 @@ type ResourceGroupPolicyAssignmentMapInput interface {
 type ResourceGroupPolicyAssignmentMap map[string]ResourceGroupPolicyAssignmentInput
 
 func (ResourceGroupPolicyAssignmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResourceGroupPolicyAssignment)(nil))
+	return reflect.TypeOf((*map[string]*ResourceGroupPolicyAssignment)(nil)).Elem()
 }
 
 func (i ResourceGroupPolicyAssignmentMap) ToResourceGroupPolicyAssignmentMapOutput() ResourceGroupPolicyAssignmentMapOutput {
@@ -329,9 +329,7 @@ func (i ResourceGroupPolicyAssignmentMap) ToResourceGroupPolicyAssignmentMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentMapOutput)
 }
 
-type ResourceGroupPolicyAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type ResourceGroupPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPolicyAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceGroupPolicyAssignment)(nil))
@@ -350,14 +348,12 @@ func (o ResourceGroupPolicyAssignmentOutput) ToResourceGroupPolicyAssignmentPtrO
 }
 
 func (o ResourceGroupPolicyAssignmentOutput) ToResourceGroupPolicyAssignmentPtrOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentPtrOutput {
-	return o.ApplyT(func(v ResourceGroupPolicyAssignment) *ResourceGroupPolicyAssignment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupPolicyAssignment) *ResourceGroupPolicyAssignment {
 		return &v
 	}).(ResourceGroupPolicyAssignmentPtrOutput)
 }
 
-type ResourceGroupPolicyAssignmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type ResourceGroupPolicyAssignmentPtrOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPolicyAssignmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResourceGroupPolicyAssignment)(nil))
@@ -369,6 +365,16 @@ func (o ResourceGroupPolicyAssignmentPtrOutput) ToResourceGroupPolicyAssignmentP
 
 func (o ResourceGroupPolicyAssignmentPtrOutput) ToResourceGroupPolicyAssignmentPtrOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentPtrOutput {
 	return o
+}
+
+func (o ResourceGroupPolicyAssignmentPtrOutput) Elem() ResourceGroupPolicyAssignmentOutput {
+	return o.ApplyT(func(v *ResourceGroupPolicyAssignment) ResourceGroupPolicyAssignment {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGroupPolicyAssignment
+		return ret
+	}).(ResourceGroupPolicyAssignmentOutput)
 }
 
 type ResourceGroupPolicyAssignmentArrayOutput struct{ *pulumi.OutputState }

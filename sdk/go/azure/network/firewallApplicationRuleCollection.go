@@ -304,7 +304,7 @@ type FirewallApplicationRuleCollectionArrayInput interface {
 type FirewallApplicationRuleCollectionArray []FirewallApplicationRuleCollectionInput
 
 func (FirewallApplicationRuleCollectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FirewallApplicationRuleCollection)(nil))
+	return reflect.TypeOf((*[]*FirewallApplicationRuleCollection)(nil)).Elem()
 }
 
 func (i FirewallApplicationRuleCollectionArray) ToFirewallApplicationRuleCollectionArrayOutput() FirewallApplicationRuleCollectionArrayOutput {
@@ -329,7 +329,7 @@ type FirewallApplicationRuleCollectionMapInput interface {
 type FirewallApplicationRuleCollectionMap map[string]FirewallApplicationRuleCollectionInput
 
 func (FirewallApplicationRuleCollectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FirewallApplicationRuleCollection)(nil))
+	return reflect.TypeOf((*map[string]*FirewallApplicationRuleCollection)(nil)).Elem()
 }
 
 func (i FirewallApplicationRuleCollectionMap) ToFirewallApplicationRuleCollectionMapOutput() FirewallApplicationRuleCollectionMapOutput {
@@ -340,9 +340,7 @@ func (i FirewallApplicationRuleCollectionMap) ToFirewallApplicationRuleCollectio
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallApplicationRuleCollectionMapOutput)
 }
 
-type FirewallApplicationRuleCollectionOutput struct {
-	*pulumi.OutputState
-}
+type FirewallApplicationRuleCollectionOutput struct{ *pulumi.OutputState }
 
 func (FirewallApplicationRuleCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallApplicationRuleCollection)(nil))
@@ -361,14 +359,12 @@ func (o FirewallApplicationRuleCollectionOutput) ToFirewallApplicationRuleCollec
 }
 
 func (o FirewallApplicationRuleCollectionOutput) ToFirewallApplicationRuleCollectionPtrOutputWithContext(ctx context.Context) FirewallApplicationRuleCollectionPtrOutput {
-	return o.ApplyT(func(v FirewallApplicationRuleCollection) *FirewallApplicationRuleCollection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallApplicationRuleCollection) *FirewallApplicationRuleCollection {
 		return &v
 	}).(FirewallApplicationRuleCollectionPtrOutput)
 }
 
-type FirewallApplicationRuleCollectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type FirewallApplicationRuleCollectionPtrOutput struct{ *pulumi.OutputState }
 
 func (FirewallApplicationRuleCollectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FirewallApplicationRuleCollection)(nil))
@@ -380,6 +376,16 @@ func (o FirewallApplicationRuleCollectionPtrOutput) ToFirewallApplicationRuleCol
 
 func (o FirewallApplicationRuleCollectionPtrOutput) ToFirewallApplicationRuleCollectionPtrOutputWithContext(ctx context.Context) FirewallApplicationRuleCollectionPtrOutput {
 	return o
+}
+
+func (o FirewallApplicationRuleCollectionPtrOutput) Elem() FirewallApplicationRuleCollectionOutput {
+	return o.ApplyT(func(v *FirewallApplicationRuleCollection) FirewallApplicationRuleCollection {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallApplicationRuleCollection
+		return ret
+	}).(FirewallApplicationRuleCollectionOutput)
 }
 
 type FirewallApplicationRuleCollectionArrayOutput struct{ *pulumi.OutputState }

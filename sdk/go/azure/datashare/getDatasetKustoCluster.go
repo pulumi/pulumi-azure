@@ -4,6 +4,9 @@
 package datashare
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,72 @@ type LookupDatasetKustoClusterResult struct {
 	KustoClusterLocation string `pulumi:"kustoClusterLocation"`
 	Name                 string `pulumi:"name"`
 	ShareId              string `pulumi:"shareId"`
+}
+
+func LookupDatasetKustoClusterOutput(ctx *pulumi.Context, args LookupDatasetKustoClusterOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetKustoClusterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDatasetKustoClusterResult, error) {
+			args := v.(LookupDatasetKustoClusterArgs)
+			r, err := LookupDatasetKustoCluster(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDatasetKustoClusterResultOutput)
+}
+
+// A collection of arguments for invoking getDatasetKustoCluster.
+type LookupDatasetKustoClusterOutputArgs struct {
+	// The name of this Data Share Kusto Cluster Dataset.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource ID of the Data Share where this Data Share Kusto Cluster Dataset should be created.
+	ShareId pulumi.StringInput `pulumi:"shareId"`
+}
+
+func (LookupDatasetKustoClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatasetKustoClusterArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDatasetKustoCluster.
+type LookupDatasetKustoClusterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDatasetKustoClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatasetKustoClusterResult)(nil)).Elem()
+}
+
+func (o LookupDatasetKustoClusterResultOutput) ToLookupDatasetKustoClusterResultOutput() LookupDatasetKustoClusterResultOutput {
+	return o
+}
+
+func (o LookupDatasetKustoClusterResultOutput) ToLookupDatasetKustoClusterResultOutputWithContext(ctx context.Context) LookupDatasetKustoClusterResultOutput {
+	return o
+}
+
+// The name of the Data Share Dataset.
+func (o LookupDatasetKustoClusterResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetKustoClusterResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupDatasetKustoClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetKustoClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource ID of the Kusto Cluster to be shared with the receiver.
+func (o LookupDatasetKustoClusterResultOutput) KustoClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetKustoClusterResult) string { return v.KustoClusterId }).(pulumi.StringOutput)
+}
+
+// The location of the Kusto Cluster.
+func (o LookupDatasetKustoClusterResultOutput) KustoClusterLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetKustoClusterResult) string { return v.KustoClusterLocation }).(pulumi.StringOutput)
+}
+
+func (o LookupDatasetKustoClusterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetKustoClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupDatasetKustoClusterResultOutput) ShareId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetKustoClusterResult) string { return v.ShareId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDatasetKustoClusterResultOutput{})
 }

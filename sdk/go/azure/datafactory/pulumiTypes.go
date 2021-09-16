@@ -107,7 +107,7 @@ func (o CustomDatasetLinkedServiceOutput) ToCustomDatasetLinkedServicePtrOutput(
 }
 
 func (o CustomDatasetLinkedServiceOutput) ToCustomDatasetLinkedServicePtrOutputWithContext(ctx context.Context) CustomDatasetLinkedServicePtrOutput {
-	return o.ApplyT(func(v CustomDatasetLinkedService) *CustomDatasetLinkedService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDatasetLinkedService) *CustomDatasetLinkedService {
 		return &v
 	}).(CustomDatasetLinkedServicePtrOutput)
 }
@@ -137,7 +137,13 @@ func (o CustomDatasetLinkedServicePtrOutput) ToCustomDatasetLinkedServicePtrOutp
 }
 
 func (o CustomDatasetLinkedServicePtrOutput) Elem() CustomDatasetLinkedServiceOutput {
-	return o.ApplyT(func(v *CustomDatasetLinkedService) CustomDatasetLinkedService { return *v }).(CustomDatasetLinkedServiceOutput)
+	return o.ApplyT(func(v *CustomDatasetLinkedService) CustomDatasetLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDatasetLinkedService
+		return ret
+	}).(CustomDatasetLinkedServiceOutput)
 }
 
 // The name of the Data Factory Linked Service.
@@ -390,7 +396,7 @@ func (o DataFlowSinkDatasetOutput) ToDataFlowSinkDatasetPtrOutput() DataFlowSink
 }
 
 func (o DataFlowSinkDatasetOutput) ToDataFlowSinkDatasetPtrOutputWithContext(ctx context.Context) DataFlowSinkDatasetPtrOutput {
-	return o.ApplyT(func(v DataFlowSinkDataset) *DataFlowSinkDataset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowSinkDataset) *DataFlowSinkDataset {
 		return &v
 	}).(DataFlowSinkDatasetPtrOutput)
 }
@@ -420,7 +426,13 @@ func (o DataFlowSinkDatasetPtrOutput) ToDataFlowSinkDatasetPtrOutputWithContext(
 }
 
 func (o DataFlowSinkDatasetPtrOutput) Elem() DataFlowSinkDatasetOutput {
-	return o.ApplyT(func(v *DataFlowSinkDataset) DataFlowSinkDataset { return *v }).(DataFlowSinkDatasetOutput)
+	return o.ApplyT(func(v *DataFlowSinkDataset) DataFlowSinkDataset {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowSinkDataset
+		return ret
+	}).(DataFlowSinkDatasetOutput)
 }
 
 // The name for the Data Factory Dataset.
@@ -540,7 +552,7 @@ func (o DataFlowSinkLinkedServiceOutput) ToDataFlowSinkLinkedServicePtrOutput() 
 }
 
 func (o DataFlowSinkLinkedServiceOutput) ToDataFlowSinkLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkLinkedServicePtrOutput {
-	return o.ApplyT(func(v DataFlowSinkLinkedService) *DataFlowSinkLinkedService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowSinkLinkedService) *DataFlowSinkLinkedService {
 		return &v
 	}).(DataFlowSinkLinkedServicePtrOutput)
 }
@@ -570,7 +582,13 @@ func (o DataFlowSinkLinkedServicePtrOutput) ToDataFlowSinkLinkedServicePtrOutput
 }
 
 func (o DataFlowSinkLinkedServicePtrOutput) Elem() DataFlowSinkLinkedServiceOutput {
-	return o.ApplyT(func(v *DataFlowSinkLinkedService) DataFlowSinkLinkedService { return *v }).(DataFlowSinkLinkedServiceOutput)
+	return o.ApplyT(func(v *DataFlowSinkLinkedService) DataFlowSinkLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowSinkLinkedService
+		return ret
+	}).(DataFlowSinkLinkedServiceOutput)
 }
 
 // The name for the Data Factory Linked Service.
@@ -690,7 +708,7 @@ func (o DataFlowSinkSchemaLinkedServiceOutput) ToDataFlowSinkSchemaLinkedService
 }
 
 func (o DataFlowSinkSchemaLinkedServiceOutput) ToDataFlowSinkSchemaLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkSchemaLinkedServicePtrOutput {
-	return o.ApplyT(func(v DataFlowSinkSchemaLinkedService) *DataFlowSinkSchemaLinkedService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowSinkSchemaLinkedService) *DataFlowSinkSchemaLinkedService {
 		return &v
 	}).(DataFlowSinkSchemaLinkedServicePtrOutput)
 }
@@ -720,7 +738,13 @@ func (o DataFlowSinkSchemaLinkedServicePtrOutput) ToDataFlowSinkSchemaLinkedServ
 }
 
 func (o DataFlowSinkSchemaLinkedServicePtrOutput) Elem() DataFlowSinkSchemaLinkedServiceOutput {
-	return o.ApplyT(func(v *DataFlowSinkSchemaLinkedService) DataFlowSinkSchemaLinkedService { return *v }).(DataFlowSinkSchemaLinkedServiceOutput)
+	return o.ApplyT(func(v *DataFlowSinkSchemaLinkedService) DataFlowSinkSchemaLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowSinkSchemaLinkedService
+		return ret
+	}).(DataFlowSinkSchemaLinkedServiceOutput)
 }
 
 // The name for the Data Factory Linked Service with schema.
@@ -973,7 +997,7 @@ func (o DataFlowSourceDatasetOutput) ToDataFlowSourceDatasetPtrOutput() DataFlow
 }
 
 func (o DataFlowSourceDatasetOutput) ToDataFlowSourceDatasetPtrOutputWithContext(ctx context.Context) DataFlowSourceDatasetPtrOutput {
-	return o.ApplyT(func(v DataFlowSourceDataset) *DataFlowSourceDataset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowSourceDataset) *DataFlowSourceDataset {
 		return &v
 	}).(DataFlowSourceDatasetPtrOutput)
 }
@@ -1003,7 +1027,13 @@ func (o DataFlowSourceDatasetPtrOutput) ToDataFlowSourceDatasetPtrOutputWithCont
 }
 
 func (o DataFlowSourceDatasetPtrOutput) Elem() DataFlowSourceDatasetOutput {
-	return o.ApplyT(func(v *DataFlowSourceDataset) DataFlowSourceDataset { return *v }).(DataFlowSourceDatasetOutput)
+	return o.ApplyT(func(v *DataFlowSourceDataset) DataFlowSourceDataset {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowSourceDataset
+		return ret
+	}).(DataFlowSourceDatasetOutput)
 }
 
 // The name for the Data Factory Dataset.
@@ -1123,7 +1153,7 @@ func (o DataFlowSourceLinkedServiceOutput) ToDataFlowSourceLinkedServicePtrOutpu
 }
 
 func (o DataFlowSourceLinkedServiceOutput) ToDataFlowSourceLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceLinkedServicePtrOutput {
-	return o.ApplyT(func(v DataFlowSourceLinkedService) *DataFlowSourceLinkedService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowSourceLinkedService) *DataFlowSourceLinkedService {
 		return &v
 	}).(DataFlowSourceLinkedServicePtrOutput)
 }
@@ -1153,7 +1183,13 @@ func (o DataFlowSourceLinkedServicePtrOutput) ToDataFlowSourceLinkedServicePtrOu
 }
 
 func (o DataFlowSourceLinkedServicePtrOutput) Elem() DataFlowSourceLinkedServiceOutput {
-	return o.ApplyT(func(v *DataFlowSourceLinkedService) DataFlowSourceLinkedService { return *v }).(DataFlowSourceLinkedServiceOutput)
+	return o.ApplyT(func(v *DataFlowSourceLinkedService) DataFlowSourceLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowSourceLinkedService
+		return ret
+	}).(DataFlowSourceLinkedServiceOutput)
 }
 
 // The name for the Data Factory Linked Service.
@@ -1273,7 +1309,7 @@ func (o DataFlowSourceSchemaLinkedServiceOutput) ToDataFlowSourceSchemaLinkedSer
 }
 
 func (o DataFlowSourceSchemaLinkedServiceOutput) ToDataFlowSourceSchemaLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceSchemaLinkedServicePtrOutput {
-	return o.ApplyT(func(v DataFlowSourceSchemaLinkedService) *DataFlowSourceSchemaLinkedService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowSourceSchemaLinkedService) *DataFlowSourceSchemaLinkedService {
 		return &v
 	}).(DataFlowSourceSchemaLinkedServicePtrOutput)
 }
@@ -1303,7 +1339,13 @@ func (o DataFlowSourceSchemaLinkedServicePtrOutput) ToDataFlowSourceSchemaLinked
 }
 
 func (o DataFlowSourceSchemaLinkedServicePtrOutput) Elem() DataFlowSourceSchemaLinkedServiceOutput {
-	return o.ApplyT(func(v *DataFlowSourceSchemaLinkedService) DataFlowSourceSchemaLinkedService { return *v }).(DataFlowSourceSchemaLinkedServiceOutput)
+	return o.ApplyT(func(v *DataFlowSourceSchemaLinkedService) DataFlowSourceSchemaLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowSourceSchemaLinkedService
+		return ret
+	}).(DataFlowSourceSchemaLinkedServiceOutput)
 }
 
 // The name for the Data Factory Linked Service with schema.
@@ -1656,7 +1698,7 @@ func (o DatasetBinaryAzureBlobStorageLocationOutput) ToDatasetBinaryAzureBlobSto
 }
 
 func (o DatasetBinaryAzureBlobStorageLocationOutput) ToDatasetBinaryAzureBlobStorageLocationPtrOutputWithContext(ctx context.Context) DatasetBinaryAzureBlobStorageLocationPtrOutput {
-	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) *DatasetBinaryAzureBlobStorageLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetBinaryAzureBlobStorageLocation) *DatasetBinaryAzureBlobStorageLocation {
 		return &v
 	}).(DatasetBinaryAzureBlobStorageLocationPtrOutput)
 }
@@ -1701,7 +1743,13 @@ func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) ToDatasetBinaryAzureBlob
 }
 
 func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) Elem() DatasetBinaryAzureBlobStorageLocationOutput {
-	return o.ApplyT(func(v *DatasetBinaryAzureBlobStorageLocation) DatasetBinaryAzureBlobStorageLocation { return *v }).(DatasetBinaryAzureBlobStorageLocationOutput)
+	return o.ApplyT(func(v *DatasetBinaryAzureBlobStorageLocation) DatasetBinaryAzureBlobStorageLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetBinaryAzureBlobStorageLocation
+		return ret
+	}).(DatasetBinaryAzureBlobStorageLocationOutput)
 }
 
 // The container on the Azure Blob Storage Account hosting the file.
@@ -1851,7 +1899,7 @@ func (o DatasetBinaryCompressionOutput) ToDatasetBinaryCompressionPtrOutput() Da
 }
 
 func (o DatasetBinaryCompressionOutput) ToDatasetBinaryCompressionPtrOutputWithContext(ctx context.Context) DatasetBinaryCompressionPtrOutput {
-	return o.ApplyT(func(v DatasetBinaryCompression) *DatasetBinaryCompression {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetBinaryCompression) *DatasetBinaryCompression {
 		return &v
 	}).(DatasetBinaryCompressionPtrOutput)
 }
@@ -1881,7 +1929,13 @@ func (o DatasetBinaryCompressionPtrOutput) ToDatasetBinaryCompressionPtrOutputWi
 }
 
 func (o DatasetBinaryCompressionPtrOutput) Elem() DatasetBinaryCompressionOutput {
-	return o.ApplyT(func(v *DatasetBinaryCompression) DatasetBinaryCompression { return *v }).(DatasetBinaryCompressionOutput)
+	return o.ApplyT(func(v *DatasetBinaryCompression) DatasetBinaryCompression {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetBinaryCompression
+		return ret
+	}).(DatasetBinaryCompressionOutput)
 }
 
 // The level of compression. Possible values are `Fastest` and `Optimal`.
@@ -2013,7 +2067,7 @@ func (o DatasetBinaryHttpServerLocationOutput) ToDatasetBinaryHttpServerLocation
 }
 
 func (o DatasetBinaryHttpServerLocationOutput) ToDatasetBinaryHttpServerLocationPtrOutputWithContext(ctx context.Context) DatasetBinaryHttpServerLocationPtrOutput {
-	return o.ApplyT(func(v DatasetBinaryHttpServerLocation) *DatasetBinaryHttpServerLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetBinaryHttpServerLocation) *DatasetBinaryHttpServerLocation {
 		return &v
 	}).(DatasetBinaryHttpServerLocationPtrOutput)
 }
@@ -2058,7 +2112,13 @@ func (o DatasetBinaryHttpServerLocationPtrOutput) ToDatasetBinaryHttpServerLocat
 }
 
 func (o DatasetBinaryHttpServerLocationPtrOutput) Elem() DatasetBinaryHttpServerLocationOutput {
-	return o.ApplyT(func(v *DatasetBinaryHttpServerLocation) DatasetBinaryHttpServerLocation { return *v }).(DatasetBinaryHttpServerLocationOutput)
+	return o.ApplyT(func(v *DatasetBinaryHttpServerLocation) DatasetBinaryHttpServerLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetBinaryHttpServerLocation
+		return ret
+	}).(DatasetBinaryHttpServerLocationOutput)
 }
 
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -2216,7 +2276,7 @@ func (o DatasetBinarySftpServerLocationOutput) ToDatasetBinarySftpServerLocation
 }
 
 func (o DatasetBinarySftpServerLocationOutput) ToDatasetBinarySftpServerLocationPtrOutputWithContext(ctx context.Context) DatasetBinarySftpServerLocationPtrOutput {
-	return o.ApplyT(func(v DatasetBinarySftpServerLocation) *DatasetBinarySftpServerLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetBinarySftpServerLocation) *DatasetBinarySftpServerLocation {
 		return &v
 	}).(DatasetBinarySftpServerLocationPtrOutput)
 }
@@ -2256,7 +2316,13 @@ func (o DatasetBinarySftpServerLocationPtrOutput) ToDatasetBinarySftpServerLocat
 }
 
 func (o DatasetBinarySftpServerLocationPtrOutput) Elem() DatasetBinarySftpServerLocationOutput {
-	return o.ApplyT(func(v *DatasetBinarySftpServerLocation) DatasetBinarySftpServerLocation { return *v }).(DatasetBinarySftpServerLocationOutput)
+	return o.ApplyT(func(v *DatasetBinarySftpServerLocation) DatasetBinarySftpServerLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetBinarySftpServerLocation
+		return ret
+	}).(DatasetBinarySftpServerLocationOutput)
 }
 
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -2515,7 +2581,7 @@ func (o DatasetDelimitedTextAzureBlobFsLocationOutput) ToDatasetDelimitedTextAzu
 }
 
 func (o DatasetDelimitedTextAzureBlobFsLocationOutput) ToDatasetDelimitedTextAzureBlobFsLocationPtrOutputWithContext(ctx context.Context) DatasetDelimitedTextAzureBlobFsLocationPtrOutput {
-	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobFsLocation) *DatasetDelimitedTextAzureBlobFsLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetDelimitedTextAzureBlobFsLocation) *DatasetDelimitedTextAzureBlobFsLocation {
 		return &v
 	}).(DatasetDelimitedTextAzureBlobFsLocationPtrOutput)
 }
@@ -2550,7 +2616,13 @@ func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) ToDatasetDelimitedText
 }
 
 func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) Elem() DatasetDelimitedTextAzureBlobFsLocationOutput {
-	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobFsLocation) DatasetDelimitedTextAzureBlobFsLocation { return *v }).(DatasetDelimitedTextAzureBlobFsLocationOutput)
+	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobFsLocation) DatasetDelimitedTextAzureBlobFsLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetDelimitedTextAzureBlobFsLocation
+		return ret
+	}).(DatasetDelimitedTextAzureBlobFsLocationOutput)
 }
 
 // The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
@@ -2692,7 +2764,7 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) ToDatasetDelimitedTe
 }
 
 func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) ToDatasetDelimitedTextAzureBlobStorageLocationPtrOutputWithContext(ctx context.Context) DatasetDelimitedTextAzureBlobStorageLocationPtrOutput {
-	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) *DatasetDelimitedTextAzureBlobStorageLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetDelimitedTextAzureBlobStorageLocation) *DatasetDelimitedTextAzureBlobStorageLocation {
 		return &v
 	}).(DatasetDelimitedTextAzureBlobStorageLocationPtrOutput)
 }
@@ -2738,7 +2810,11 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) ToDatasetDelimite
 
 func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Elem() DatasetDelimitedTextAzureBlobStorageLocationOutput {
 	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobStorageLocation) DatasetDelimitedTextAzureBlobStorageLocation {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DatasetDelimitedTextAzureBlobStorageLocation
+		return ret
 	}).(DatasetDelimitedTextAzureBlobStorageLocationOutput)
 }
 
@@ -2901,7 +2977,7 @@ func (o DatasetDelimitedTextHttpServerLocationOutput) ToDatasetDelimitedTextHttp
 }
 
 func (o DatasetDelimitedTextHttpServerLocationOutput) ToDatasetDelimitedTextHttpServerLocationPtrOutputWithContext(ctx context.Context) DatasetDelimitedTextHttpServerLocationPtrOutput {
-	return o.ApplyT(func(v DatasetDelimitedTextHttpServerLocation) *DatasetDelimitedTextHttpServerLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetDelimitedTextHttpServerLocation) *DatasetDelimitedTextHttpServerLocation {
 		return &v
 	}).(DatasetDelimitedTextHttpServerLocationPtrOutput)
 }
@@ -2946,7 +3022,13 @@ func (o DatasetDelimitedTextHttpServerLocationPtrOutput) ToDatasetDelimitedTextH
 }
 
 func (o DatasetDelimitedTextHttpServerLocationPtrOutput) Elem() DatasetDelimitedTextHttpServerLocationOutput {
-	return o.ApplyT(func(v *DatasetDelimitedTextHttpServerLocation) DatasetDelimitedTextHttpServerLocation { return *v }).(DatasetDelimitedTextHttpServerLocationOutput)
+	return o.ApplyT(func(v *DatasetDelimitedTextHttpServerLocation) DatasetDelimitedTextHttpServerLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetDelimitedTextHttpServerLocation
+		return ret
+	}).(DatasetDelimitedTextHttpServerLocationOutput)
 }
 
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -3338,7 +3420,7 @@ func (o DatasetJsonAzureBlobStorageLocationOutput) ToDatasetJsonAzureBlobStorage
 }
 
 func (o DatasetJsonAzureBlobStorageLocationOutput) ToDatasetJsonAzureBlobStorageLocationPtrOutputWithContext(ctx context.Context) DatasetJsonAzureBlobStorageLocationPtrOutput {
-	return o.ApplyT(func(v DatasetJsonAzureBlobStorageLocation) *DatasetJsonAzureBlobStorageLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetJsonAzureBlobStorageLocation) *DatasetJsonAzureBlobStorageLocation {
 		return &v
 	}).(DatasetJsonAzureBlobStorageLocationPtrOutput)
 }
@@ -3383,7 +3465,13 @@ func (o DatasetJsonAzureBlobStorageLocationPtrOutput) ToDatasetJsonAzureBlobStor
 }
 
 func (o DatasetJsonAzureBlobStorageLocationPtrOutput) Elem() DatasetJsonAzureBlobStorageLocationOutput {
-	return o.ApplyT(func(v *DatasetJsonAzureBlobStorageLocation) DatasetJsonAzureBlobStorageLocation { return *v }).(DatasetJsonAzureBlobStorageLocationOutput)
+	return o.ApplyT(func(v *DatasetJsonAzureBlobStorageLocation) DatasetJsonAzureBlobStorageLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetJsonAzureBlobStorageLocation
+		return ret
+	}).(DatasetJsonAzureBlobStorageLocationOutput)
 }
 
 // The container on the Azure Blob Storage Account hosting the file.
@@ -3545,7 +3633,7 @@ func (o DatasetJsonHttpServerLocationOutput) ToDatasetJsonHttpServerLocationPtrO
 }
 
 func (o DatasetJsonHttpServerLocationOutput) ToDatasetJsonHttpServerLocationPtrOutputWithContext(ctx context.Context) DatasetJsonHttpServerLocationPtrOutput {
-	return o.ApplyT(func(v DatasetJsonHttpServerLocation) *DatasetJsonHttpServerLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetJsonHttpServerLocation) *DatasetJsonHttpServerLocation {
 		return &v
 	}).(DatasetJsonHttpServerLocationPtrOutput)
 }
@@ -3590,7 +3678,13 @@ func (o DatasetJsonHttpServerLocationPtrOutput) ToDatasetJsonHttpServerLocationP
 }
 
 func (o DatasetJsonHttpServerLocationPtrOutput) Elem() DatasetJsonHttpServerLocationOutput {
-	return o.ApplyT(func(v *DatasetJsonHttpServerLocation) DatasetJsonHttpServerLocation { return *v }).(DatasetJsonHttpServerLocationOutput)
+	return o.ApplyT(func(v *DatasetJsonHttpServerLocation) DatasetJsonHttpServerLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetJsonHttpServerLocation
+		return ret
+	}).(DatasetJsonHttpServerLocationOutput)
 }
 
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -3982,7 +4076,7 @@ func (o DatasetParquetAzureBlobStorageLocationOutput) ToDatasetParquetAzureBlobS
 }
 
 func (o DatasetParquetAzureBlobStorageLocationOutput) ToDatasetParquetAzureBlobStorageLocationPtrOutputWithContext(ctx context.Context) DatasetParquetAzureBlobStorageLocationPtrOutput {
-	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) *DatasetParquetAzureBlobStorageLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetParquetAzureBlobStorageLocation) *DatasetParquetAzureBlobStorageLocation {
 		return &v
 	}).(DatasetParquetAzureBlobStorageLocationPtrOutput)
 }
@@ -4027,7 +4121,13 @@ func (o DatasetParquetAzureBlobStorageLocationPtrOutput) ToDatasetParquetAzureBl
 }
 
 func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Elem() DatasetParquetAzureBlobStorageLocationOutput {
-	return o.ApplyT(func(v *DatasetParquetAzureBlobStorageLocation) DatasetParquetAzureBlobStorageLocation { return *v }).(DatasetParquetAzureBlobStorageLocationOutput)
+	return o.ApplyT(func(v *DatasetParquetAzureBlobStorageLocation) DatasetParquetAzureBlobStorageLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetParquetAzureBlobStorageLocation
+		return ret
+	}).(DatasetParquetAzureBlobStorageLocationOutput)
 }
 
 // The container on the Azure Blob Storage Account hosting the file.
@@ -4189,7 +4289,7 @@ func (o DatasetParquetHttpServerLocationOutput) ToDatasetParquetHttpServerLocati
 }
 
 func (o DatasetParquetHttpServerLocationOutput) ToDatasetParquetHttpServerLocationPtrOutputWithContext(ctx context.Context) DatasetParquetHttpServerLocationPtrOutput {
-	return o.ApplyT(func(v DatasetParquetHttpServerLocation) *DatasetParquetHttpServerLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetParquetHttpServerLocation) *DatasetParquetHttpServerLocation {
 		return &v
 	}).(DatasetParquetHttpServerLocationPtrOutput)
 }
@@ -4234,7 +4334,13 @@ func (o DatasetParquetHttpServerLocationPtrOutput) ToDatasetParquetHttpServerLoc
 }
 
 func (o DatasetParquetHttpServerLocationPtrOutput) Elem() DatasetParquetHttpServerLocationOutput {
-	return o.ApplyT(func(v *DatasetParquetHttpServerLocation) DatasetParquetHttpServerLocation { return *v }).(DatasetParquetHttpServerLocationOutput)
+	return o.ApplyT(func(v *DatasetParquetHttpServerLocation) DatasetParquetHttpServerLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetParquetHttpServerLocation
+		return ret
+	}).(DatasetParquetHttpServerLocationOutput)
 }
 
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -4856,7 +4962,7 @@ func (o FactoryGithubConfigurationOutput) ToFactoryGithubConfigurationPtrOutput(
 }
 
 func (o FactoryGithubConfigurationOutput) ToFactoryGithubConfigurationPtrOutputWithContext(ctx context.Context) FactoryGithubConfigurationPtrOutput {
-	return o.ApplyT(func(v FactoryGithubConfiguration) *FactoryGithubConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FactoryGithubConfiguration) *FactoryGithubConfiguration {
 		return &v
 	}).(FactoryGithubConfigurationPtrOutput)
 }
@@ -4901,7 +5007,13 @@ func (o FactoryGithubConfigurationPtrOutput) ToFactoryGithubConfigurationPtrOutp
 }
 
 func (o FactoryGithubConfigurationPtrOutput) Elem() FactoryGithubConfigurationOutput {
-	return o.ApplyT(func(v *FactoryGithubConfiguration) FactoryGithubConfiguration { return *v }).(FactoryGithubConfigurationOutput)
+	return o.ApplyT(func(v *FactoryGithubConfiguration) FactoryGithubConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FactoryGithubConfiguration
+		return ret
+	}).(FactoryGithubConfigurationOutput)
 }
 
 // Specifies the GitHub account name.
@@ -5174,7 +5286,7 @@ func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutput() FactoryIdentityPtrOu
 }
 
 func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutputWithContext(ctx context.Context) FactoryIdentityPtrOutput {
-	return o.ApplyT(func(v FactoryIdentity) *FactoryIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FactoryIdentity) *FactoryIdentity {
 		return &v
 	}).(FactoryIdentityPtrOutput)
 }
@@ -5214,7 +5326,13 @@ func (o FactoryIdentityPtrOutput) ToFactoryIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o FactoryIdentityPtrOutput) Elem() FactoryIdentityOutput {
-	return o.ApplyT(func(v *FactoryIdentity) FactoryIdentity { return *v }).(FactoryIdentityOutput)
+	return o.ApplyT(func(v *FactoryIdentity) FactoryIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret FactoryIdentity
+		return ret
+	}).(FactoryIdentityOutput)
 }
 
 // Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
@@ -5370,7 +5488,7 @@ func (o FactoryVstsConfigurationOutput) ToFactoryVstsConfigurationPtrOutput() Fa
 }
 
 func (o FactoryVstsConfigurationOutput) ToFactoryVstsConfigurationPtrOutputWithContext(ctx context.Context) FactoryVstsConfigurationPtrOutput {
-	return o.ApplyT(func(v FactoryVstsConfiguration) *FactoryVstsConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FactoryVstsConfiguration) *FactoryVstsConfiguration {
 		return &v
 	}).(FactoryVstsConfigurationPtrOutput)
 }
@@ -5420,7 +5538,13 @@ func (o FactoryVstsConfigurationPtrOutput) ToFactoryVstsConfigurationPtrOutputWi
 }
 
 func (o FactoryVstsConfigurationPtrOutput) Elem() FactoryVstsConfigurationOutput {
-	return o.ApplyT(func(v *FactoryVstsConfiguration) FactoryVstsConfiguration { return *v }).(FactoryVstsConfigurationOutput)
+	return o.ApplyT(func(v *FactoryVstsConfiguration) FactoryVstsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FactoryVstsConfiguration
+		return ret
+	}).(FactoryVstsConfigurationOutput)
 }
 
 // Specifies the VSTS account name.
@@ -5588,7 +5712,7 @@ func (o IntegrationRuntimeManagedCatalogInfoOutput) ToIntegrationRuntimeManagedC
 }
 
 func (o IntegrationRuntimeManagedCatalogInfoOutput) ToIntegrationRuntimeManagedCatalogInfoPtrOutputWithContext(ctx context.Context) IntegrationRuntimeManagedCatalogInfoPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) *IntegrationRuntimeManagedCatalogInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeManagedCatalogInfo) *IntegrationRuntimeManagedCatalogInfo {
 		return &v
 	}).(IntegrationRuntimeManagedCatalogInfoPtrOutput)
 }
@@ -5628,7 +5752,13 @@ func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) ToIntegrationRuntimeManag
 }
 
 func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) Elem() IntegrationRuntimeManagedCatalogInfoOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeManagedCatalogInfo) IntegrationRuntimeManagedCatalogInfo { return *v }).(IntegrationRuntimeManagedCatalogInfoOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeManagedCatalogInfo) IntegrationRuntimeManagedCatalogInfo {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeManagedCatalogInfo
+		return ret
+	}).(IntegrationRuntimeManagedCatalogInfoOutput)
 }
 
 // Administrator login name for the SQL Server.
@@ -5768,7 +5898,7 @@ func (o IntegrationRuntimeManagedCustomSetupScriptOutput) ToIntegrationRuntimeMa
 }
 
 func (o IntegrationRuntimeManagedCustomSetupScriptOutput) ToIntegrationRuntimeManagedCustomSetupScriptPtrOutputWithContext(ctx context.Context) IntegrationRuntimeManagedCustomSetupScriptPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedCustomSetupScript) *IntegrationRuntimeManagedCustomSetupScript {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeManagedCustomSetupScript) *IntegrationRuntimeManagedCustomSetupScript {
 		return &v
 	}).(IntegrationRuntimeManagedCustomSetupScriptPtrOutput)
 }
@@ -5799,7 +5929,11 @@ func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) ToIntegrationRuntim
 
 func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) Elem() IntegrationRuntimeManagedCustomSetupScriptOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeManagedCustomSetupScript) IntegrationRuntimeManagedCustomSetupScript {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeManagedCustomSetupScript
+		return ret
 	}).(IntegrationRuntimeManagedCustomSetupScriptOutput)
 }
 
@@ -5920,7 +6054,7 @@ func (o IntegrationRuntimeManagedVnetIntegrationOutput) ToIntegrationRuntimeMana
 }
 
 func (o IntegrationRuntimeManagedVnetIntegrationOutput) ToIntegrationRuntimeManagedVnetIntegrationPtrOutputWithContext(ctx context.Context) IntegrationRuntimeManagedVnetIntegrationPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedVnetIntegration) *IntegrationRuntimeManagedVnetIntegration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeManagedVnetIntegration) *IntegrationRuntimeManagedVnetIntegration {
 		return &v
 	}).(IntegrationRuntimeManagedVnetIntegrationPtrOutput)
 }
@@ -5950,7 +6084,13 @@ func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) ToIntegrationRuntimeM
 }
 
 func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) Elem() IntegrationRuntimeManagedVnetIntegrationOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeManagedVnetIntegration) IntegrationRuntimeManagedVnetIntegration { return *v }).(IntegrationRuntimeManagedVnetIntegrationOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeManagedVnetIntegration) IntegrationRuntimeManagedVnetIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeManagedVnetIntegration
+		return ret
+	}).(IntegrationRuntimeManagedVnetIntegrationOutput)
 }
 
 // Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
@@ -6179,7 +6319,7 @@ func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalog
 }
 
 func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *IntegrationRuntimeSsisCatalogInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisCatalogInfo) *IntegrationRuntimeSsisCatalogInfo {
 		return &v
 	}).(IntegrationRuntimeSsisCatalogInfoPtrOutput)
 }
@@ -6224,7 +6364,13 @@ func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) ToIntegrationRuntimeSsisCata
 }
 
 func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) Elem() IntegrationRuntimeSsisCatalogInfoOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) IntegrationRuntimeSsisCatalogInfo { return *v }).(IntegrationRuntimeSsisCatalogInfoOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) IntegrationRuntimeSsisCatalogInfo {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSsisCatalogInfo
+		return ret
+	}).(IntegrationRuntimeSsisCatalogInfoOutput)
 }
 
 // Administrator login name for the SQL Server.
@@ -6374,7 +6520,7 @@ func (o IntegrationRuntimeSsisCustomSetupScriptOutput) ToIntegrationRuntimeSsisC
 }
 
 func (o IntegrationRuntimeSsisCustomSetupScriptOutput) ToIntegrationRuntimeSsisCustomSetupScriptPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCustomSetupScriptPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisCustomSetupScript) *IntegrationRuntimeSsisCustomSetupScript {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisCustomSetupScript) *IntegrationRuntimeSsisCustomSetupScript {
 		return &v
 	}).(IntegrationRuntimeSsisCustomSetupScriptPtrOutput)
 }
@@ -6404,7 +6550,13 @@ func (o IntegrationRuntimeSsisCustomSetupScriptPtrOutput) ToIntegrationRuntimeSs
 }
 
 func (o IntegrationRuntimeSsisCustomSetupScriptPtrOutput) Elem() IntegrationRuntimeSsisCustomSetupScriptOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisCustomSetupScript) IntegrationRuntimeSsisCustomSetupScript { return *v }).(IntegrationRuntimeSsisCustomSetupScriptOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCustomSetupScript) IntegrationRuntimeSsisCustomSetupScript {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSsisCustomSetupScript
+		return ret
+	}).(IntegrationRuntimeSsisCustomSetupScriptOutput)
 }
 
 // The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
@@ -6532,7 +6684,7 @@ func (o IntegrationRuntimeSsisExpressCustomSetupOutput) ToIntegrationRuntimeSsis
 }
 
 func (o IntegrationRuntimeSsisExpressCustomSetupOutput) ToIntegrationRuntimeSsisExpressCustomSetupPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetup) *IntegrationRuntimeSsisExpressCustomSetup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisExpressCustomSetup) *IntegrationRuntimeSsisExpressCustomSetup {
 		return &v
 	}).(IntegrationRuntimeSsisExpressCustomSetupPtrOutput)
 }
@@ -6576,7 +6728,13 @@ func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) ToIntegrationRuntimeS
 }
 
 func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) Elem() IntegrationRuntimeSsisExpressCustomSetupOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetup) IntegrationRuntimeSsisExpressCustomSetup { return *v }).(IntegrationRuntimeSsisExpressCustomSetupOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetup) IntegrationRuntimeSsisExpressCustomSetup {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSsisExpressCustomSetup
+		return ret
+	}).(IntegrationRuntimeSsisExpressCustomSetupOutput)
 }
 
 // One or more `commandKey` blocks as defined below.
@@ -6850,7 +7008,7 @@ func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput
 }
 
 func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) ToIntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword {
 		return &v
 	}).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput)
 }
@@ -6897,7 +7055,11 @@ func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOut
 
 func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) Elem() IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword
+		return ret
 	}).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput)
 }
 
@@ -7163,7 +7325,7 @@ func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) 
 }
 
 func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) ToIntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense {
 		return &v
 	}).(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput)
 }
@@ -7210,7 +7372,11 @@ func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutpu
 
 func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) Elem() IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense
+		return ret
 	}).(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput)
 }
 
@@ -7461,7 +7627,7 @@ func (o IntegrationRuntimeSsisProxyOutput) ToIntegrationRuntimeSsisProxyPtrOutpu
 }
 
 func (o IntegrationRuntimeSsisProxyOutput) ToIntegrationRuntimeSsisProxyPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisProxyPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisProxy) *IntegrationRuntimeSsisProxy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisProxy) *IntegrationRuntimeSsisProxy {
 		return &v
 	}).(IntegrationRuntimeSsisProxyPtrOutput)
 }
@@ -7496,7 +7662,13 @@ func (o IntegrationRuntimeSsisProxyPtrOutput) ToIntegrationRuntimeSsisProxyPtrOu
 }
 
 func (o IntegrationRuntimeSsisProxyPtrOutput) Elem() IntegrationRuntimeSsisProxyOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisProxy) IntegrationRuntimeSsisProxy { return *v }).(IntegrationRuntimeSsisProxyOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeSsisProxy) IntegrationRuntimeSsisProxy {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSsisProxy
+		return ret
+	}).(IntegrationRuntimeSsisProxyOutput)
 }
 
 // The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
@@ -7634,7 +7806,7 @@ func (o IntegrationRuntimeSsisVnetIntegrationOutput) ToIntegrationRuntimeSsisVne
 }
 
 func (o IntegrationRuntimeSsisVnetIntegrationOutput) ToIntegrationRuntimeSsisVnetIntegrationPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisVnetIntegrationPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisVnetIntegration) *IntegrationRuntimeSsisVnetIntegration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisVnetIntegration) *IntegrationRuntimeSsisVnetIntegration {
 		return &v
 	}).(IntegrationRuntimeSsisVnetIntegrationPtrOutput)
 }
@@ -7674,7 +7846,13 @@ func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) ToIntegrationRuntimeSsis
 }
 
 func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) Elem() IntegrationRuntimeSsisVnetIntegrationOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisVnetIntegration) IntegrationRuntimeSsisVnetIntegration { return *v }).(IntegrationRuntimeSsisVnetIntegrationOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeSsisVnetIntegration) IntegrationRuntimeSsisVnetIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSsisVnetIntegration
+		return ret
+	}).(IntegrationRuntimeSsisVnetIntegrationOutput)
 }
 
 // Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
@@ -7814,7 +7992,7 @@ func (o LinkedCustomServiceIntegrationRuntimeOutput) ToLinkedCustomServiceIntegr
 }
 
 func (o LinkedCustomServiceIntegrationRuntimeOutput) ToLinkedCustomServiceIntegrationRuntimePtrOutputWithContext(ctx context.Context) LinkedCustomServiceIntegrationRuntimePtrOutput {
-	return o.ApplyT(func(v LinkedCustomServiceIntegrationRuntime) *LinkedCustomServiceIntegrationRuntime {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedCustomServiceIntegrationRuntime) *LinkedCustomServiceIntegrationRuntime {
 		return &v
 	}).(LinkedCustomServiceIntegrationRuntimePtrOutput)
 }
@@ -7844,7 +8022,13 @@ func (o LinkedCustomServiceIntegrationRuntimePtrOutput) ToLinkedCustomServiceInt
 }
 
 func (o LinkedCustomServiceIntegrationRuntimePtrOutput) Elem() LinkedCustomServiceIntegrationRuntimeOutput {
-	return o.ApplyT(func(v *LinkedCustomServiceIntegrationRuntime) LinkedCustomServiceIntegrationRuntime { return *v }).(LinkedCustomServiceIntegrationRuntimeOutput)
+	return o.ApplyT(func(v *LinkedCustomServiceIntegrationRuntime) LinkedCustomServiceIntegrationRuntime {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedCustomServiceIntegrationRuntime
+		return ret
+	}).(LinkedCustomServiceIntegrationRuntimeOutput)
 }
 
 // The integration runtime reference to associate with the Data Factory Linked Service.
@@ -7964,7 +8148,7 @@ func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) ToLinkedServiceAzur
 }
 
 func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
-	return o.ApplyT(func(v LinkedServiceAzureBlobStorageKeyVaultSasToken) *LinkedServiceAzureBlobStorageKeyVaultSasToken {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureBlobStorageKeyVaultSasToken) *LinkedServiceAzureBlobStorageKeyVaultSasToken {
 		return &v
 	}).(LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput)
 }
@@ -7995,7 +8179,11 @@ func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) ToLinkedServiceA
 
 func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) Elem() LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureBlobStorageKeyVaultSasToken) LinkedServiceAzureBlobStorageKeyVaultSasToken {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceAzureBlobStorageKeyVaultSasToken
+		return ret
 	}).(LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput)
 }
 
@@ -8124,7 +8312,7 @@ func (o LinkedServiceAzureDatabricksInstancePoolOutput) ToLinkedServiceAzureData
 }
 
 func (o LinkedServiceAzureDatabricksInstancePoolOutput) ToLinkedServiceAzureDatabricksInstancePoolPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksInstancePoolPtrOutput {
-	return o.ApplyT(func(v LinkedServiceAzureDatabricksInstancePool) *LinkedServiceAzureDatabricksInstancePool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureDatabricksInstancePool) *LinkedServiceAzureDatabricksInstancePool {
 		return &v
 	}).(LinkedServiceAzureDatabricksInstancePoolPtrOutput)
 }
@@ -8164,7 +8352,13 @@ func (o LinkedServiceAzureDatabricksInstancePoolPtrOutput) ToLinkedServiceAzureD
 }
 
 func (o LinkedServiceAzureDatabricksInstancePoolPtrOutput) Elem() LinkedServiceAzureDatabricksInstancePoolOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureDatabricksInstancePool) LinkedServiceAzureDatabricksInstancePool { return *v }).(LinkedServiceAzureDatabricksInstancePoolOutput)
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksInstancePool) LinkedServiceAzureDatabricksInstancePool {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceAzureDatabricksInstancePool
+		return ret
+	}).(LinkedServiceAzureDatabricksInstancePoolOutput)
 }
 
 // Spark version of a the cluster.
@@ -8304,7 +8498,7 @@ func (o LinkedServiceAzureDatabricksKeyVaultPasswordOutput) ToLinkedServiceAzure
 }
 
 func (o LinkedServiceAzureDatabricksKeyVaultPasswordOutput) ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput {
-	return o.ApplyT(func(v LinkedServiceAzureDatabricksKeyVaultPassword) *LinkedServiceAzureDatabricksKeyVaultPassword {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureDatabricksKeyVaultPassword) *LinkedServiceAzureDatabricksKeyVaultPassword {
 		return &v
 	}).(LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput)
 }
@@ -8335,7 +8529,11 @@ func (o LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput) ToLinkedServiceAz
 
 func (o LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput) Elem() LinkedServiceAzureDatabricksKeyVaultPasswordOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricksKeyVaultPassword) LinkedServiceAzureDatabricksKeyVaultPassword {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceAzureDatabricksKeyVaultPassword
+		return ret
 	}).(LinkedServiceAzureDatabricksKeyVaultPasswordOutput)
 }
 
@@ -8488,7 +8686,7 @@ func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) ToLinkedServiceAzure
 }
 
 func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksNewClusterConfigPtrOutput {
-	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *LinkedServiceAzureDatabricksNewClusterConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureDatabricksNewClusterConfig) *LinkedServiceAzureDatabricksNewClusterConfig {
 		return &v
 	}).(LinkedServiceAzureDatabricksNewClusterConfigPtrOutput)
 }
@@ -8561,7 +8759,11 @@ func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) ToLinkedServiceAz
 
 func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) Elem() LinkedServiceAzureDatabricksNewClusterConfigOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) LinkedServiceAzureDatabricksNewClusterConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceAzureDatabricksNewClusterConfig
+		return ret
 	}).(LinkedServiceAzureDatabricksNewClusterConfigOutput)
 }
 
@@ -8762,7 +8964,7 @@ func (o LinkedServiceAzureFileStorageKeyVaultPasswordOutput) ToLinkedServiceAzur
 }
 
 func (o LinkedServiceAzureFileStorageKeyVaultPasswordOutput) ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput {
-	return o.ApplyT(func(v LinkedServiceAzureFileStorageKeyVaultPassword) *LinkedServiceAzureFileStorageKeyVaultPassword {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureFileStorageKeyVaultPassword) *LinkedServiceAzureFileStorageKeyVaultPassword {
 		return &v
 	}).(LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput)
 }
@@ -8793,7 +8995,11 @@ func (o LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput) ToLinkedServiceA
 
 func (o LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput) Elem() LinkedServiceAzureFileStorageKeyVaultPasswordOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureFileStorageKeyVaultPassword) LinkedServiceAzureFileStorageKeyVaultPassword {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceAzureFileStorageKeyVaultPassword
+		return ret
 	}).(LinkedServiceAzureFileStorageKeyVaultPasswordOutput)
 }
 
@@ -8914,7 +9120,7 @@ func (o LinkedServiceAzureFunctionKeyVaultKeyOutput) ToLinkedServiceAzureFunctio
 }
 
 func (o LinkedServiceAzureFunctionKeyVaultKeyOutput) ToLinkedServiceAzureFunctionKeyVaultKeyPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionKeyVaultKeyPtrOutput {
-	return o.ApplyT(func(v LinkedServiceAzureFunctionKeyVaultKey) *LinkedServiceAzureFunctionKeyVaultKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureFunctionKeyVaultKey) *LinkedServiceAzureFunctionKeyVaultKey {
 		return &v
 	}).(LinkedServiceAzureFunctionKeyVaultKeyPtrOutput)
 }
@@ -8944,7 +9150,13 @@ func (o LinkedServiceAzureFunctionKeyVaultKeyPtrOutput) ToLinkedServiceAzureFunc
 }
 
 func (o LinkedServiceAzureFunctionKeyVaultKeyPtrOutput) Elem() LinkedServiceAzureFunctionKeyVaultKeyOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureFunctionKeyVaultKey) LinkedServiceAzureFunctionKeyVaultKey { return *v }).(LinkedServiceAzureFunctionKeyVaultKeyOutput)
+	return o.ApplyT(func(v *LinkedServiceAzureFunctionKeyVaultKey) LinkedServiceAzureFunctionKeyVaultKey {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceAzureFunctionKeyVaultKey
+		return ret
+	}).(LinkedServiceAzureFunctionKeyVaultKeyOutput)
 }
 
 // Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -9064,7 +9276,7 @@ func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput) ToLinkedSer
 }
 
 func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput {
-	return o.ApplyT(func(v LinkedServiceAzureSqlDatabaseKeyVaultConnectionString) *LinkedServiceAzureSqlDatabaseKeyVaultConnectionString {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureSqlDatabaseKeyVaultConnectionString) *LinkedServiceAzureSqlDatabaseKeyVaultConnectionString {
 		return &v
 	}).(LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput)
 }
@@ -9095,7 +9307,11 @@ func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput) ToLinked
 
 func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput) Elem() LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureSqlDatabaseKeyVaultConnectionString) LinkedServiceAzureSqlDatabaseKeyVaultConnectionString {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceAzureSqlDatabaseKeyVaultConnectionString
+		return ret
 	}).(LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput)
 }
 
@@ -9216,7 +9432,7 @@ func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput) ToLinkedServiceAzur
 }
 
 func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput {
-	return o.ApplyT(func(v LinkedServiceAzureSqlDatabaseKeyVaultPassword) *LinkedServiceAzureSqlDatabaseKeyVaultPassword {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureSqlDatabaseKeyVaultPassword) *LinkedServiceAzureSqlDatabaseKeyVaultPassword {
 		return &v
 	}).(LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput)
 }
@@ -9247,7 +9463,11 @@ func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput) ToLinkedServiceA
 
 func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput) Elem() LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureSqlDatabaseKeyVaultPassword) LinkedServiceAzureSqlDatabaseKeyVaultPassword {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceAzureSqlDatabaseKeyVaultPassword
+		return ret
 	}).(LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput)
 }
 
@@ -9368,7 +9588,7 @@ func (o LinkedServiceOdataBasicAuthenticationOutput) ToLinkedServiceOdataBasicAu
 }
 
 func (o LinkedServiceOdataBasicAuthenticationOutput) ToLinkedServiceOdataBasicAuthenticationPtrOutputWithContext(ctx context.Context) LinkedServiceOdataBasicAuthenticationPtrOutput {
-	return o.ApplyT(func(v LinkedServiceOdataBasicAuthentication) *LinkedServiceOdataBasicAuthentication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceOdataBasicAuthentication) *LinkedServiceOdataBasicAuthentication {
 		return &v
 	}).(LinkedServiceOdataBasicAuthenticationPtrOutput)
 }
@@ -9398,7 +9618,13 @@ func (o LinkedServiceOdataBasicAuthenticationPtrOutput) ToLinkedServiceOdataBasi
 }
 
 func (o LinkedServiceOdataBasicAuthenticationPtrOutput) Elem() LinkedServiceOdataBasicAuthenticationOutput {
-	return o.ApplyT(func(v *LinkedServiceOdataBasicAuthentication) LinkedServiceOdataBasicAuthentication { return *v }).(LinkedServiceOdataBasicAuthenticationOutput)
+	return o.ApplyT(func(v *LinkedServiceOdataBasicAuthentication) LinkedServiceOdataBasicAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceOdataBasicAuthentication
+		return ret
+	}).(LinkedServiceOdataBasicAuthenticationOutput)
 }
 
 // The password associated with the username, which can be used to authenticate to the OData endpoint.
@@ -9518,7 +9744,7 @@ func (o LinkedServiceSnowflakeKeyVaultPasswordOutput) ToLinkedServiceSnowflakeKe
 }
 
 func (o LinkedServiceSnowflakeKeyVaultPasswordOutput) ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSnowflakeKeyVaultPasswordPtrOutput {
-	return o.ApplyT(func(v LinkedServiceSnowflakeKeyVaultPassword) *LinkedServiceSnowflakeKeyVaultPassword {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceSnowflakeKeyVaultPassword) *LinkedServiceSnowflakeKeyVaultPassword {
 		return &v
 	}).(LinkedServiceSnowflakeKeyVaultPasswordPtrOutput)
 }
@@ -9548,7 +9774,13 @@ func (o LinkedServiceSnowflakeKeyVaultPasswordPtrOutput) ToLinkedServiceSnowflak
 }
 
 func (o LinkedServiceSnowflakeKeyVaultPasswordPtrOutput) Elem() LinkedServiceSnowflakeKeyVaultPasswordOutput {
-	return o.ApplyT(func(v *LinkedServiceSnowflakeKeyVaultPassword) LinkedServiceSnowflakeKeyVaultPassword { return *v }).(LinkedServiceSnowflakeKeyVaultPasswordOutput)
+	return o.ApplyT(func(v *LinkedServiceSnowflakeKeyVaultPassword) LinkedServiceSnowflakeKeyVaultPassword {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceSnowflakeKeyVaultPassword
+		return ret
+	}).(LinkedServiceSnowflakeKeyVaultPasswordOutput)
 }
 
 // Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -9668,7 +9900,7 @@ func (o LinkedServiceSqlServerKeyVaultConnectionStringOutput) ToLinkedServiceSql
 }
 
 func (o LinkedServiceSqlServerKeyVaultConnectionStringOutput) ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput {
-	return o.ApplyT(func(v LinkedServiceSqlServerKeyVaultConnectionString) *LinkedServiceSqlServerKeyVaultConnectionString {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceSqlServerKeyVaultConnectionString) *LinkedServiceSqlServerKeyVaultConnectionString {
 		return &v
 	}).(LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput)
 }
@@ -9699,7 +9931,11 @@ func (o LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput) ToLinkedService
 
 func (o LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput) Elem() LinkedServiceSqlServerKeyVaultConnectionStringOutput {
 	return o.ApplyT(func(v *LinkedServiceSqlServerKeyVaultConnectionString) LinkedServiceSqlServerKeyVaultConnectionString {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceSqlServerKeyVaultConnectionString
+		return ret
 	}).(LinkedServiceSqlServerKeyVaultConnectionStringOutput)
 }
 
@@ -9820,7 +10056,7 @@ func (o LinkedServiceSqlServerKeyVaultPasswordOutput) ToLinkedServiceSqlServerKe
 }
 
 func (o LinkedServiceSqlServerKeyVaultPasswordOutput) ToLinkedServiceSqlServerKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultPasswordPtrOutput {
-	return o.ApplyT(func(v LinkedServiceSqlServerKeyVaultPassword) *LinkedServiceSqlServerKeyVaultPassword {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceSqlServerKeyVaultPassword) *LinkedServiceSqlServerKeyVaultPassword {
 		return &v
 	}).(LinkedServiceSqlServerKeyVaultPasswordPtrOutput)
 }
@@ -9850,7 +10086,13 @@ func (o LinkedServiceSqlServerKeyVaultPasswordPtrOutput) ToLinkedServiceSqlServe
 }
 
 func (o LinkedServiceSqlServerKeyVaultPasswordPtrOutput) Elem() LinkedServiceSqlServerKeyVaultPasswordOutput {
-	return o.ApplyT(func(v *LinkedServiceSqlServerKeyVaultPassword) LinkedServiceSqlServerKeyVaultPassword { return *v }).(LinkedServiceSqlServerKeyVaultPasswordOutput)
+	return o.ApplyT(func(v *LinkedServiceSqlServerKeyVaultPassword) LinkedServiceSqlServerKeyVaultPassword {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceSqlServerKeyVaultPassword
+		return ret
+	}).(LinkedServiceSqlServerKeyVaultPasswordOutput)
 }
 
 // Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -9970,7 +10212,7 @@ func (o LinkedServiceSynapseKeyVaultPasswordOutput) ToLinkedServiceSynapseKeyVau
 }
 
 func (o LinkedServiceSynapseKeyVaultPasswordOutput) ToLinkedServiceSynapseKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSynapseKeyVaultPasswordPtrOutput {
-	return o.ApplyT(func(v LinkedServiceSynapseKeyVaultPassword) *LinkedServiceSynapseKeyVaultPassword {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceSynapseKeyVaultPassword) *LinkedServiceSynapseKeyVaultPassword {
 		return &v
 	}).(LinkedServiceSynapseKeyVaultPasswordPtrOutput)
 }
@@ -10000,7 +10242,13 @@ func (o LinkedServiceSynapseKeyVaultPasswordPtrOutput) ToLinkedServiceSynapseKey
 }
 
 func (o LinkedServiceSynapseKeyVaultPasswordPtrOutput) Elem() LinkedServiceSynapseKeyVaultPasswordOutput {
-	return o.ApplyT(func(v *LinkedServiceSynapseKeyVaultPassword) LinkedServiceSynapseKeyVaultPassword { return *v }).(LinkedServiceSynapseKeyVaultPasswordOutput)
+	return o.ApplyT(func(v *LinkedServiceSynapseKeyVaultPassword) LinkedServiceSynapseKeyVaultPassword {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceSynapseKeyVaultPassword
+		return ret
+	}).(LinkedServiceSynapseKeyVaultPasswordOutput)
 }
 
 // Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -10344,7 +10592,7 @@ func (o TriggerScheduleScheduleOutput) ToTriggerScheduleSchedulePtrOutput() Trig
 }
 
 func (o TriggerScheduleScheduleOutput) ToTriggerScheduleSchedulePtrOutputWithContext(ctx context.Context) TriggerScheduleSchedulePtrOutput {
-	return o.ApplyT(func(v TriggerScheduleSchedule) *TriggerScheduleSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerScheduleSchedule) *TriggerScheduleSchedule {
 		return &v
 	}).(TriggerScheduleSchedulePtrOutput)
 }
@@ -10389,7 +10637,13 @@ func (o TriggerScheduleSchedulePtrOutput) ToTriggerScheduleSchedulePtrOutputWith
 }
 
 func (o TriggerScheduleSchedulePtrOutput) Elem() TriggerScheduleScheduleOutput {
-	return o.ApplyT(func(v *TriggerScheduleSchedule) TriggerScheduleSchedule { return *v }).(TriggerScheduleScheduleOutput)
+	return o.ApplyT(func(v *TriggerScheduleSchedule) TriggerScheduleSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerScheduleSchedule
+		return ret
+	}).(TriggerScheduleScheduleOutput)
 }
 
 // Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
@@ -10641,10 +10895,11 @@ func (o TriggerTumblingWindowPipelineOutput) ToTriggerTumblingWindowPipelinePtrO
 }
 
 func (o TriggerTumblingWindowPipelineOutput) ToTriggerTumblingWindowPipelinePtrOutputWithContext(ctx context.Context) TriggerTumblingWindowPipelinePtrOutput {
-	return o.ApplyT(func(v TriggerTumblingWindowPipeline) *TriggerTumblingWindowPipeline {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerTumblingWindowPipeline) *TriggerTumblingWindowPipeline {
 		return &v
 	}).(TriggerTumblingWindowPipelinePtrOutput)
 }
+
 func (o TriggerTumblingWindowPipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowPipeline) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -10668,7 +10923,13 @@ func (o TriggerTumblingWindowPipelinePtrOutput) ToTriggerTumblingWindowPipelineP
 }
 
 func (o TriggerTumblingWindowPipelinePtrOutput) Elem() TriggerTumblingWindowPipelineOutput {
-	return o.ApplyT(func(v *TriggerTumblingWindowPipeline) TriggerTumblingWindowPipeline { return *v }).(TriggerTumblingWindowPipelineOutput)
+	return o.ApplyT(func(v *TriggerTumblingWindowPipeline) TriggerTumblingWindowPipeline {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerTumblingWindowPipeline
+		return ret
+	}).(TriggerTumblingWindowPipelineOutput)
 }
 
 func (o TriggerTumblingWindowPipelinePtrOutput) Name() pulumi.StringPtrOutput {
@@ -10782,10 +11043,11 @@ func (o TriggerTumblingWindowRetryOutput) ToTriggerTumblingWindowRetryPtrOutput(
 }
 
 func (o TriggerTumblingWindowRetryOutput) ToTriggerTumblingWindowRetryPtrOutputWithContext(ctx context.Context) TriggerTumblingWindowRetryPtrOutput {
-	return o.ApplyT(func(v TriggerTumblingWindowRetry) *TriggerTumblingWindowRetry {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerTumblingWindowRetry) *TriggerTumblingWindowRetry {
 		return &v
 	}).(TriggerTumblingWindowRetryPtrOutput)
 }
+
 func (o TriggerTumblingWindowRetryOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowRetry) int { return v.Count }).(pulumi.IntOutput)
 }
@@ -10809,7 +11071,13 @@ func (o TriggerTumblingWindowRetryPtrOutput) ToTriggerTumblingWindowRetryPtrOutp
 }
 
 func (o TriggerTumblingWindowRetryPtrOutput) Elem() TriggerTumblingWindowRetryOutput {
-	return o.ApplyT(func(v *TriggerTumblingWindowRetry) TriggerTumblingWindowRetry { return *v }).(TriggerTumblingWindowRetryOutput)
+	return o.ApplyT(func(v *TriggerTumblingWindowRetry) TriggerTumblingWindowRetry {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerTumblingWindowRetry
+		return ret
+	}).(TriggerTumblingWindowRetryOutput)
 }
 
 func (o TriggerTumblingWindowRetryPtrOutput) Count() pulumi.IntPtrOutput {

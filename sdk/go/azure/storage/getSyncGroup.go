@@ -4,6 +4,9 @@
 package storage
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,57 @@ type LookupSyncGroupResult struct {
 	Id            string `pulumi:"id"`
 	Name          string `pulumi:"name"`
 	StorageSyncId string `pulumi:"storageSyncId"`
+}
+
+func LookupSyncGroupOutput(ctx *pulumi.Context, args LookupSyncGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSyncGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSyncGroupResult, error) {
+			args := v.(LookupSyncGroupArgs)
+			r, err := LookupSyncGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSyncGroupResultOutput)
+}
+
+// A collection of arguments for invoking getSyncGroup.
+type LookupSyncGroupOutputArgs struct {
+	// The name of this Storage Sync Group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource ID of the Storage Sync where this Storage Sync Group is.
+	StorageSyncId pulumi.StringInput `pulumi:"storageSyncId"`
+}
+
+func (LookupSyncGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSyncGroupArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSyncGroup.
+type LookupSyncGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSyncGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSyncGroupResult)(nil)).Elem()
+}
+
+func (o LookupSyncGroupResultOutput) ToLookupSyncGroupResultOutput() LookupSyncGroupResultOutput {
+	return o
+}
+
+func (o LookupSyncGroupResultOutput) ToLookupSyncGroupResultOutputWithContext(ctx context.Context) LookupSyncGroupResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSyncGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupSyncGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSyncGroupResultOutput) StorageSyncId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.StorageSyncId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSyncGroupResultOutput{})
 }

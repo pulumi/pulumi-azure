@@ -298,7 +298,7 @@ type ReplicatedVMArrayInput interface {
 type ReplicatedVMArray []ReplicatedVMInput
 
 func (ReplicatedVMArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ReplicatedVM)(nil))
+	return reflect.TypeOf((*[]*ReplicatedVM)(nil)).Elem()
 }
 
 func (i ReplicatedVMArray) ToReplicatedVMArrayOutput() ReplicatedVMArrayOutput {
@@ -323,7 +323,7 @@ type ReplicatedVMMapInput interface {
 type ReplicatedVMMap map[string]ReplicatedVMInput
 
 func (ReplicatedVMMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ReplicatedVM)(nil))
+	return reflect.TypeOf((*map[string]*ReplicatedVM)(nil)).Elem()
 }
 
 func (i ReplicatedVMMap) ToReplicatedVMMapOutput() ReplicatedVMMapOutput {
@@ -334,9 +334,7 @@ func (i ReplicatedVMMap) ToReplicatedVMMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMMapOutput)
 }
 
-type ReplicatedVMOutput struct {
-	*pulumi.OutputState
-}
+type ReplicatedVMOutput struct{ *pulumi.OutputState }
 
 func (ReplicatedVMOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicatedVM)(nil))
@@ -355,14 +353,12 @@ func (o ReplicatedVMOutput) ToReplicatedVMPtrOutput() ReplicatedVMPtrOutput {
 }
 
 func (o ReplicatedVMOutput) ToReplicatedVMPtrOutputWithContext(ctx context.Context) ReplicatedVMPtrOutput {
-	return o.ApplyT(func(v ReplicatedVM) *ReplicatedVM {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatedVM) *ReplicatedVM {
 		return &v
 	}).(ReplicatedVMPtrOutput)
 }
 
-type ReplicatedVMPtrOutput struct {
-	*pulumi.OutputState
-}
+type ReplicatedVMPtrOutput struct{ *pulumi.OutputState }
 
 func (ReplicatedVMPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ReplicatedVM)(nil))
@@ -374,6 +370,16 @@ func (o ReplicatedVMPtrOutput) ToReplicatedVMPtrOutput() ReplicatedVMPtrOutput {
 
 func (o ReplicatedVMPtrOutput) ToReplicatedVMPtrOutputWithContext(ctx context.Context) ReplicatedVMPtrOutput {
 	return o
+}
+
+func (o ReplicatedVMPtrOutput) Elem() ReplicatedVMOutput {
+	return o.ApplyT(func(v *ReplicatedVM) ReplicatedVM {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatedVM
+		return ret
+	}).(ReplicatedVMOutput)
 }
 
 type ReplicatedVMArrayOutput struct{ *pulumi.OutputState }

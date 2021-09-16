@@ -328,7 +328,7 @@ type ReferenceInputBlobArrayInput interface {
 type ReferenceInputBlobArray []ReferenceInputBlobInput
 
 func (ReferenceInputBlobArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ReferenceInputBlob)(nil))
+	return reflect.TypeOf((*[]*ReferenceInputBlob)(nil)).Elem()
 }
 
 func (i ReferenceInputBlobArray) ToReferenceInputBlobArrayOutput() ReferenceInputBlobArrayOutput {
@@ -353,7 +353,7 @@ type ReferenceInputBlobMapInput interface {
 type ReferenceInputBlobMap map[string]ReferenceInputBlobInput
 
 func (ReferenceInputBlobMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ReferenceInputBlob)(nil))
+	return reflect.TypeOf((*map[string]*ReferenceInputBlob)(nil)).Elem()
 }
 
 func (i ReferenceInputBlobMap) ToReferenceInputBlobMapOutput() ReferenceInputBlobMapOutput {
@@ -364,9 +364,7 @@ func (i ReferenceInputBlobMap) ToReferenceInputBlobMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputBlobMapOutput)
 }
 
-type ReferenceInputBlobOutput struct {
-	*pulumi.OutputState
-}
+type ReferenceInputBlobOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputBlobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReferenceInputBlob)(nil))
@@ -385,14 +383,12 @@ func (o ReferenceInputBlobOutput) ToReferenceInputBlobPtrOutput() ReferenceInput
 }
 
 func (o ReferenceInputBlobOutput) ToReferenceInputBlobPtrOutputWithContext(ctx context.Context) ReferenceInputBlobPtrOutput {
-	return o.ApplyT(func(v ReferenceInputBlob) *ReferenceInputBlob {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceInputBlob) *ReferenceInputBlob {
 		return &v
 	}).(ReferenceInputBlobPtrOutput)
 }
 
-type ReferenceInputBlobPtrOutput struct {
-	*pulumi.OutputState
-}
+type ReferenceInputBlobPtrOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputBlobPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ReferenceInputBlob)(nil))
@@ -404,6 +400,16 @@ func (o ReferenceInputBlobPtrOutput) ToReferenceInputBlobPtrOutput() ReferenceIn
 
 func (o ReferenceInputBlobPtrOutput) ToReferenceInputBlobPtrOutputWithContext(ctx context.Context) ReferenceInputBlobPtrOutput {
 	return o
+}
+
+func (o ReferenceInputBlobPtrOutput) Elem() ReferenceInputBlobOutput {
+	return o.ApplyT(func(v *ReferenceInputBlob) ReferenceInputBlob {
+		if v != nil {
+			return *v
+		}
+		var ret ReferenceInputBlob
+		return ret
+	}).(ReferenceInputBlobOutput)
 }
 
 type ReferenceInputBlobArrayOutput struct{ *pulumi.OutputState }

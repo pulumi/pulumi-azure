@@ -12,6 +12,7 @@ __all__ = [
     'GetCertificateResult',
     'AwaitableGetCertificateResult',
     'get_certificate',
+    'get_certificate_output',
 ]
 
 @pulumi.output_type
@@ -160,3 +161,31 @@ def get_certificate(account_name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         thumbprint=__ret__.thumbprint,
         thumbprint_algorithm=__ret__.thumbprint_algorithm)
+
+
+@_utilities.lift_output_func(get_certificate)
+def get_certificate_output(account_name: Optional[pulumi.Input[str]] = None,
+                           name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+    """
+    Use this data source to access information about an existing certificate in a Batch Account.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.batch.get_certificate(name="SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
+        account_name="examplebatchaccount",
+        resource_group_name="example")
+    pulumi.export("thumbprint", example.thumbprint)
+    ```
+
+
+    :param str account_name: The name of the Batch account.
+    :param str name: The name of the Batch certificate.
+    :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
+    """
+    ...

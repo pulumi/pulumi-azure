@@ -281,7 +281,7 @@ type StorageInsightsArrayInput interface {
 type StorageInsightsArray []StorageInsightsInput
 
 func (StorageInsightsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StorageInsights)(nil))
+	return reflect.TypeOf((*[]*StorageInsights)(nil)).Elem()
 }
 
 func (i StorageInsightsArray) ToStorageInsightsArrayOutput() StorageInsightsArrayOutput {
@@ -306,7 +306,7 @@ type StorageInsightsMapInput interface {
 type StorageInsightsMap map[string]StorageInsightsInput
 
 func (StorageInsightsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StorageInsights)(nil))
+	return reflect.TypeOf((*map[string]*StorageInsights)(nil)).Elem()
 }
 
 func (i StorageInsightsMap) ToStorageInsightsMapOutput() StorageInsightsMapOutput {
@@ -317,9 +317,7 @@ func (i StorageInsightsMap) ToStorageInsightsMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsMapOutput)
 }
 
-type StorageInsightsOutput struct {
-	*pulumi.OutputState
-}
+type StorageInsightsOutput struct{ *pulumi.OutputState }
 
 func (StorageInsightsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageInsights)(nil))
@@ -338,14 +336,12 @@ func (o StorageInsightsOutput) ToStorageInsightsPtrOutput() StorageInsightsPtrOu
 }
 
 func (o StorageInsightsOutput) ToStorageInsightsPtrOutputWithContext(ctx context.Context) StorageInsightsPtrOutput {
-	return o.ApplyT(func(v StorageInsights) *StorageInsights {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageInsights) *StorageInsights {
 		return &v
 	}).(StorageInsightsPtrOutput)
 }
 
-type StorageInsightsPtrOutput struct {
-	*pulumi.OutputState
-}
+type StorageInsightsPtrOutput struct{ *pulumi.OutputState }
 
 func (StorageInsightsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StorageInsights)(nil))
@@ -357,6 +353,16 @@ func (o StorageInsightsPtrOutput) ToStorageInsightsPtrOutput() StorageInsightsPt
 
 func (o StorageInsightsPtrOutput) ToStorageInsightsPtrOutputWithContext(ctx context.Context) StorageInsightsPtrOutput {
 	return o
+}
+
+func (o StorageInsightsPtrOutput) Elem() StorageInsightsOutput {
+	return o.ApplyT(func(v *StorageInsights) StorageInsights {
+		if v != nil {
+			return *v
+		}
+		var ret StorageInsights
+		return ret
+	}).(StorageInsightsOutput)
 }
 
 type StorageInsightsArrayOutput struct{ *pulumi.OutputState }

@@ -119,7 +119,7 @@ func (o HubApnsCredentialOutput) ToHubApnsCredentialPtrOutput() HubApnsCredentia
 }
 
 func (o HubApnsCredentialOutput) ToHubApnsCredentialPtrOutputWithContext(ctx context.Context) HubApnsCredentialPtrOutput {
-	return o.ApplyT(func(v HubApnsCredential) *HubApnsCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubApnsCredential) *HubApnsCredential {
 		return &v
 	}).(HubApnsCredentialPtrOutput)
 }
@@ -164,7 +164,13 @@ func (o HubApnsCredentialPtrOutput) ToHubApnsCredentialPtrOutputWithContext(ctx 
 }
 
 func (o HubApnsCredentialPtrOutput) Elem() HubApnsCredentialOutput {
-	return o.ApplyT(func(v *HubApnsCredential) HubApnsCredential { return *v }).(HubApnsCredentialOutput)
+	return o.ApplyT(func(v *HubApnsCredential) HubApnsCredential {
+		if v != nil {
+			return *v
+		}
+		var ret HubApnsCredential
+		return ret
+	}).(HubApnsCredentialOutput)
 }
 
 // The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
@@ -310,7 +316,7 @@ func (o HubGcmCredentialOutput) ToHubGcmCredentialPtrOutput() HubGcmCredentialPt
 }
 
 func (o HubGcmCredentialOutput) ToHubGcmCredentialPtrOutputWithContext(ctx context.Context) HubGcmCredentialPtrOutput {
-	return o.ApplyT(func(v HubGcmCredential) *HubGcmCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubGcmCredential) *HubGcmCredential {
 		return &v
 	}).(HubGcmCredentialPtrOutput)
 }
@@ -335,7 +341,13 @@ func (o HubGcmCredentialPtrOutput) ToHubGcmCredentialPtrOutputWithContext(ctx co
 }
 
 func (o HubGcmCredentialPtrOutput) Elem() HubGcmCredentialOutput {
-	return o.ApplyT(func(v *HubGcmCredential) HubGcmCredential { return *v }).(HubGcmCredentialOutput)
+	return o.ApplyT(func(v *HubGcmCredential) HubGcmCredential {
+		if v != nil {
+			return *v
+		}
+		var ret HubGcmCredential
+		return ret
+	}).(HubGcmCredentialOutput)
 }
 
 // The API Key associated with the Google Cloud Messaging service.

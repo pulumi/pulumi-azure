@@ -14,6 +14,7 @@ __all__ = [
     'GetAccountSASResult',
     'AwaitableGetAccountSASResult',
     'get_account_sas',
+    'get_account_sas_output',
 ]
 
 @pulumi.output_type
@@ -238,3 +239,80 @@ def get_account_sas(connection_string: Optional[str] = None,
         services=__ret__.services,
         signed_version=__ret__.signed_version,
         start=__ret__.start)
+
+
+@_utilities.lift_output_func(get_account_sas)
+def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None,
+                           expiry: Optional[pulumi.Input[str]] = None,
+                           https_only: Optional[pulumi.Input[Optional[bool]]] = None,
+                           ip_addresses: Optional[pulumi.Input[Optional[str]]] = None,
+                           permissions: Optional[pulumi.Input[pulumi.InputType['GetAccountSASPermissionsArgs']]] = None,
+                           resource_types: Optional[pulumi.Input[pulumi.InputType['GetAccountSASResourceTypesArgs']]] = None,
+                           services: Optional[pulumi.Input[pulumi.InputType['GetAccountSASServicesArgs']]] = None,
+                           signed_version: Optional[pulumi.Input[Optional[str]]] = None,
+                           start: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountSASResult]:
+    """
+    Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
+
+    Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account.
+
+    Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
+    and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+    example_account = azure.storage.Account("exampleAccount",
+        resource_group_name=example_resource_group.name,
+        location="westus",
+        account_tier="Standard",
+        account_replication_type="GRS",
+        tags={
+            "environment": "staging",
+        })
+    example_account_sas = example_account.primary_connection_string.apply(lambda primary_connection_string: azure.storage.get_account_sas(connection_string=primary_connection_string,
+        https_only=True,
+        signed_version="2017-07-29",
+        resource_types=azure.storage.GetAccountSASResourceTypesArgs(
+            service=True,
+            container=False,
+            object=False,
+        ),
+        services=azure.storage.GetAccountSASServicesArgs(
+            blob=True,
+            queue=False,
+            table=False,
+            file=False,
+        ),
+        start="2018-03-21T00:00:00Z",
+        expiry="2020-03-21T00:00:00Z",
+        permissions=azure.storage.GetAccountSASPermissionsArgs(
+            read=True,
+            write=True,
+            delete=False,
+            list=False,
+            add=True,
+            create=True,
+            update=False,
+            process=False,
+        )))
+    pulumi.export("sasUrlQueryString", example_account_sas.sas)
+    ```
+
+
+    :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.
+    :param str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
+    :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
+    :param str ip_addresses: IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
+    :param pulumi.InputType['GetAccountSASPermissionsArgs'] permissions: A `permissions` block as defined below.
+    :param pulumi.InputType['GetAccountSASResourceTypesArgs'] resource_types: A `resource_types` block as defined below.
+    :param pulumi.InputType['GetAccountSASServicesArgs'] services: A `services` block as defined below.
+    :param str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+    :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
+    """
+    ...

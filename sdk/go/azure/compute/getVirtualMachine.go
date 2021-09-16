@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,4 +62,66 @@ type LookupVirtualMachineResult struct {
 	Location          string                      `pulumi:"location"`
 	Name              string                      `pulumi:"name"`
 	ResourceGroupName string                      `pulumi:"resourceGroupName"`
+}
+
+func LookupVirtualMachineOutput(ctx *pulumi.Context, args LookupVirtualMachineOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualMachineResult, error) {
+			args := v.(LookupVirtualMachineArgs)
+			r, err := LookupVirtualMachine(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualMachineResultOutput)
+}
+
+// A collection of arguments for invoking getVirtualMachine.
+type LookupVirtualMachineOutputArgs struct {
+	// Specifies the name of the Virtual Machine.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group the Virtual Machine is located in.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupVirtualMachineOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVirtualMachine.
+type LookupVirtualMachineResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualMachineResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineResult)(nil)).Elem()
+}
+
+func (o LookupVirtualMachineResultOutput) ToLookupVirtualMachineResultOutput() LookupVirtualMachineResultOutput {
+	return o
+}
+
+func (o LookupVirtualMachineResultOutput) ToLookupVirtualMachineResultOutputWithContext(ctx context.Context) LookupVirtualMachineResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupVirtualMachineResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A `identity` block as defined below.
+func (o LookupVirtualMachineResultOutput) Identities() GetVirtualMachineIdentityArrayOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) []GetVirtualMachineIdentity { return v.Identities }).(GetVirtualMachineIdentityArrayOutput)
+}
+
+func (o LookupVirtualMachineResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualMachineResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualMachineResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualMachineResultOutput{})
 }

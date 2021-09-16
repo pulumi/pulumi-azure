@@ -227,7 +227,7 @@ type IntegrationAccountArrayInput interface {
 type IntegrationAccountArray []IntegrationAccountInput
 
 func (IntegrationAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntegrationAccount)(nil))
+	return reflect.TypeOf((*[]*IntegrationAccount)(nil)).Elem()
 }
 
 func (i IntegrationAccountArray) ToIntegrationAccountArrayOutput() IntegrationAccountArrayOutput {
@@ -252,7 +252,7 @@ type IntegrationAccountMapInput interface {
 type IntegrationAccountMap map[string]IntegrationAccountInput
 
 func (IntegrationAccountMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntegrationAccount)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationAccount)(nil)).Elem()
 }
 
 func (i IntegrationAccountMap) ToIntegrationAccountMapOutput() IntegrationAccountMapOutput {
@@ -263,9 +263,7 @@ func (i IntegrationAccountMap) ToIntegrationAccountMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapOutput)
 }
 
-type IntegrationAccountOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccount)(nil))
@@ -284,14 +282,12 @@ func (o IntegrationAccountOutput) ToIntegrationAccountPtrOutput() IntegrationAcc
 }
 
 func (o IntegrationAccountOutput) ToIntegrationAccountPtrOutputWithContext(ctx context.Context) IntegrationAccountPtrOutput {
-	return o.ApplyT(func(v IntegrationAccount) *IntegrationAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccount) *IntegrationAccount {
 		return &v
 	}).(IntegrationAccountPtrOutput)
 }
 
-type IntegrationAccountPtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationAccount)(nil))
@@ -303,6 +299,16 @@ func (o IntegrationAccountPtrOutput) ToIntegrationAccountPtrOutput() Integration
 
 func (o IntegrationAccountPtrOutput) ToIntegrationAccountPtrOutputWithContext(ctx context.Context) IntegrationAccountPtrOutput {
 	return o
+}
+
+func (o IntegrationAccountPtrOutput) Elem() IntegrationAccountOutput {
+	return o.ApplyT(func(v *IntegrationAccount) IntegrationAccount {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccount
+		return ret
+	}).(IntegrationAccountOutput)
 }
 
 type IntegrationAccountArrayOutput struct{ *pulumi.OutputState }

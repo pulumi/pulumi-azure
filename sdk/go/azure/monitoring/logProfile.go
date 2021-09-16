@@ -280,7 +280,7 @@ type LogProfileArrayInput interface {
 type LogProfileArray []LogProfileInput
 
 func (LogProfileArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogProfile)(nil))
+	return reflect.TypeOf((*[]*LogProfile)(nil)).Elem()
 }
 
 func (i LogProfileArray) ToLogProfileArrayOutput() LogProfileArrayOutput {
@@ -305,7 +305,7 @@ type LogProfileMapInput interface {
 type LogProfileMap map[string]LogProfileInput
 
 func (LogProfileMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogProfile)(nil))
+	return reflect.TypeOf((*map[string]*LogProfile)(nil)).Elem()
 }
 
 func (i LogProfileMap) ToLogProfileMapOutput() LogProfileMapOutput {
@@ -316,9 +316,7 @@ func (i LogProfileMap) ToLogProfileMapOutputWithContext(ctx context.Context) Log
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileMapOutput)
 }
 
-type LogProfileOutput struct {
-	*pulumi.OutputState
-}
+type LogProfileOutput struct{ *pulumi.OutputState }
 
 func (LogProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogProfile)(nil))
@@ -337,14 +335,12 @@ func (o LogProfileOutput) ToLogProfilePtrOutput() LogProfilePtrOutput {
 }
 
 func (o LogProfileOutput) ToLogProfilePtrOutputWithContext(ctx context.Context) LogProfilePtrOutput {
-	return o.ApplyT(func(v LogProfile) *LogProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogProfile) *LogProfile {
 		return &v
 	}).(LogProfilePtrOutput)
 }
 
-type LogProfilePtrOutput struct {
-	*pulumi.OutputState
-}
+type LogProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (LogProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LogProfile)(nil))
@@ -356,6 +352,16 @@ func (o LogProfilePtrOutput) ToLogProfilePtrOutput() LogProfilePtrOutput {
 
 func (o LogProfilePtrOutput) ToLogProfilePtrOutputWithContext(ctx context.Context) LogProfilePtrOutput {
 	return o
+}
+
+func (o LogProfilePtrOutput) Elem() LogProfileOutput {
+	return o.ApplyT(func(v *LogProfile) LogProfile {
+		if v != nil {
+			return *v
+		}
+		var ret LogProfile
+		return ret
+	}).(LogProfileOutput)
 }
 
 type LogProfileArrayOutput struct{ *pulumi.OutputState }

@@ -345,7 +345,7 @@ type AssignmentVirtualMachineScaleSetArrayInput interface {
 type AssignmentVirtualMachineScaleSetArray []AssignmentVirtualMachineScaleSetInput
 
 func (AssignmentVirtualMachineScaleSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AssignmentVirtualMachineScaleSet)(nil))
+	return reflect.TypeOf((*[]*AssignmentVirtualMachineScaleSet)(nil)).Elem()
 }
 
 func (i AssignmentVirtualMachineScaleSetArray) ToAssignmentVirtualMachineScaleSetArrayOutput() AssignmentVirtualMachineScaleSetArrayOutput {
@@ -370,7 +370,7 @@ type AssignmentVirtualMachineScaleSetMapInput interface {
 type AssignmentVirtualMachineScaleSetMap map[string]AssignmentVirtualMachineScaleSetInput
 
 func (AssignmentVirtualMachineScaleSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AssignmentVirtualMachineScaleSet)(nil))
+	return reflect.TypeOf((*map[string]*AssignmentVirtualMachineScaleSet)(nil)).Elem()
 }
 
 func (i AssignmentVirtualMachineScaleSetMap) ToAssignmentVirtualMachineScaleSetMapOutput() AssignmentVirtualMachineScaleSetMapOutput {
@@ -381,9 +381,7 @@ func (i AssignmentVirtualMachineScaleSetMap) ToAssignmentVirtualMachineScaleSetM
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachineScaleSetMapOutput)
 }
 
-type AssignmentVirtualMachineScaleSetOutput struct {
-	*pulumi.OutputState
-}
+type AssignmentVirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (AssignmentVirtualMachineScaleSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AssignmentVirtualMachineScaleSet)(nil))
@@ -402,14 +400,12 @@ func (o AssignmentVirtualMachineScaleSetOutput) ToAssignmentVirtualMachineScaleS
 }
 
 func (o AssignmentVirtualMachineScaleSetOutput) ToAssignmentVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) AssignmentVirtualMachineScaleSetPtrOutput {
-	return o.ApplyT(func(v AssignmentVirtualMachineScaleSet) *AssignmentVirtualMachineScaleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentVirtualMachineScaleSet) *AssignmentVirtualMachineScaleSet {
 		return &v
 	}).(AssignmentVirtualMachineScaleSetPtrOutput)
 }
 
-type AssignmentVirtualMachineScaleSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type AssignmentVirtualMachineScaleSetPtrOutput struct{ *pulumi.OutputState }
 
 func (AssignmentVirtualMachineScaleSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AssignmentVirtualMachineScaleSet)(nil))
@@ -421,6 +417,16 @@ func (o AssignmentVirtualMachineScaleSetPtrOutput) ToAssignmentVirtualMachineSca
 
 func (o AssignmentVirtualMachineScaleSetPtrOutput) ToAssignmentVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) AssignmentVirtualMachineScaleSetPtrOutput {
 	return o
+}
+
+func (o AssignmentVirtualMachineScaleSetPtrOutput) Elem() AssignmentVirtualMachineScaleSetOutput {
+	return o.ApplyT(func(v *AssignmentVirtualMachineScaleSet) AssignmentVirtualMachineScaleSet {
+		if v != nil {
+			return *v
+		}
+		var ret AssignmentVirtualMachineScaleSet
+		return ret
+	}).(AssignmentVirtualMachineScaleSetOutput)
 }
 
 type AssignmentVirtualMachineScaleSetArrayOutput struct{ *pulumi.OutputState }

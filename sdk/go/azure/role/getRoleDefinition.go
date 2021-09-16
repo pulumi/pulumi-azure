@@ -4,6 +4,9 @@
 package role
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,4 +38,76 @@ type GetRoleDefinitionResult struct {
 	RoleDefinitionId string                        `pulumi:"roleDefinitionId"`
 	Scope            *string                       `pulumi:"scope"`
 	Type             string                        `pulumi:"type"`
+}
+
+func GetRoleDefinitionOutput(ctx *pulumi.Context, args GetRoleDefinitionOutputArgs, opts ...pulumi.InvokeOption) GetRoleDefinitionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetRoleDefinitionResult, error) {
+			args := v.(GetRoleDefinitionArgs)
+			r, err := GetRoleDefinition(ctx, &args, opts...)
+			return *r, err
+		}).(GetRoleDefinitionResultOutput)
+}
+
+// A collection of arguments for invoking getRoleDefinition.
+type GetRoleDefinitionOutputArgs struct {
+	Name             pulumi.StringPtrInput `pulumi:"name"`
+	RoleDefinitionId pulumi.StringPtrInput `pulumi:"roleDefinitionId"`
+	Scope            pulumi.StringPtrInput `pulumi:"scope"`
+}
+
+func (GetRoleDefinitionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleDefinitionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRoleDefinition.
+type GetRoleDefinitionResultOutput struct{ *pulumi.OutputState }
+
+func (GetRoleDefinitionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleDefinitionResult)(nil)).Elem()
+}
+
+func (o GetRoleDefinitionResultOutput) ToGetRoleDefinitionResultOutput() GetRoleDefinitionResultOutput {
+	return o
+}
+
+func (o GetRoleDefinitionResultOutput) ToGetRoleDefinitionResultOutputWithContext(ctx context.Context) GetRoleDefinitionResultOutput {
+	return o
+}
+
+func (o GetRoleDefinitionResultOutput) AssignableScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRoleDefinitionResult) []string { return v.AssignableScopes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRoleDefinitionResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleDefinitionResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetRoleDefinitionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRoleDefinitionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleDefinitionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetRoleDefinitionResultOutput) Permissions() GetRoleDefinitionPermissionArrayOutput {
+	return o.ApplyT(func(v GetRoleDefinitionResult) []GetRoleDefinitionPermission { return v.Permissions }).(GetRoleDefinitionPermissionArrayOutput)
+}
+
+func (o GetRoleDefinitionResultOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleDefinitionResult) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+func (o GetRoleDefinitionResultOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRoleDefinitionResult) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+func (o GetRoleDefinitionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleDefinitionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetRoleDefinitionResultOutput{})
 }

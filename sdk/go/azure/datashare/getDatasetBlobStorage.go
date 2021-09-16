@@ -4,6 +4,9 @@
 package datashare
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,83 @@ type LookupDatasetBlobStorageResult struct {
 	Name string `pulumi:"name"`
 	// A `storageAccount` block as defined below.
 	StorageAccounts []GetDatasetBlobStorageStorageAccount `pulumi:"storageAccounts"`
+}
+
+func LookupDatasetBlobStorageOutput(ctx *pulumi.Context, args LookupDatasetBlobStorageOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetBlobStorageResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDatasetBlobStorageResult, error) {
+			args := v.(LookupDatasetBlobStorageArgs)
+			r, err := LookupDatasetBlobStorage(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDatasetBlobStorageResultOutput)
+}
+
+// A collection of arguments for invoking getDatasetBlobStorage.
+type LookupDatasetBlobStorageOutputArgs struct {
+	// The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.
+	DataShareId pulumi.StringInput `pulumi:"dataShareId"`
+	// The name of this Data Share Blob Storage Dataset.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupDatasetBlobStorageOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatasetBlobStorageArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDatasetBlobStorage.
+type LookupDatasetBlobStorageResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDatasetBlobStorageResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatasetBlobStorageResult)(nil)).Elem()
+}
+
+func (o LookupDatasetBlobStorageResultOutput) ToLookupDatasetBlobStorageResultOutput() LookupDatasetBlobStorageResultOutput {
+	return o
+}
+
+func (o LookupDatasetBlobStorageResultOutput) ToLookupDatasetBlobStorageResultOutputWithContext(ctx context.Context) LookupDatasetBlobStorageResultOutput {
+	return o
+}
+
+// The name of the storage account container to be shared with the receiver.
+func (o LookupDatasetBlobStorageResultOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetBlobStorageResult) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+func (o LookupDatasetBlobStorageResultOutput) DataShareId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetBlobStorageResult) string { return v.DataShareId }).(pulumi.StringOutput)
+}
+
+// The name of the Data Share Dataset.
+func (o LookupDatasetBlobStorageResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetBlobStorageResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The path of the file in the storage container to be shared with the receiver.
+func (o LookupDatasetBlobStorageResultOutput) FilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetBlobStorageResult) string { return v.FilePath }).(pulumi.StringOutput)
+}
+
+// The folder path of the file in the storage container to be shared with the receiver.
+func (o LookupDatasetBlobStorageResultOutput) FolderPath() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetBlobStorageResult) string { return v.FolderPath }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupDatasetBlobStorageResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetBlobStorageResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the storage account to be shared with the receiver.
+func (o LookupDatasetBlobStorageResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetBlobStorageResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `storageAccount` block as defined below.
+func (o LookupDatasetBlobStorageResultOutput) StorageAccounts() GetDatasetBlobStorageStorageAccountArrayOutput {
+	return o.ApplyT(func(v LookupDatasetBlobStorageResult) []GetDatasetBlobStorageStorageAccount { return v.StorageAccounts }).(GetDatasetBlobStorageStorageAccountArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDatasetBlobStorageResultOutput{})
 }

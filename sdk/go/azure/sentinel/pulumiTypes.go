@@ -103,7 +103,7 @@ func (o AlertRuleScheduledEventGroupingOutput) ToAlertRuleScheduledEventGrouping
 }
 
 func (o AlertRuleScheduledEventGroupingOutput) ToAlertRuleScheduledEventGroupingPtrOutputWithContext(ctx context.Context) AlertRuleScheduledEventGroupingPtrOutput {
-	return o.ApplyT(func(v AlertRuleScheduledEventGrouping) *AlertRuleScheduledEventGrouping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleScheduledEventGrouping) *AlertRuleScheduledEventGrouping {
 		return &v
 	}).(AlertRuleScheduledEventGroupingPtrOutput)
 }
@@ -128,7 +128,13 @@ func (o AlertRuleScheduledEventGroupingPtrOutput) ToAlertRuleScheduledEventGroup
 }
 
 func (o AlertRuleScheduledEventGroupingPtrOutput) Elem() AlertRuleScheduledEventGroupingOutput {
-	return o.ApplyT(func(v *AlertRuleScheduledEventGrouping) AlertRuleScheduledEventGrouping { return *v }).(AlertRuleScheduledEventGroupingOutput)
+	return o.ApplyT(func(v *AlertRuleScheduledEventGrouping) AlertRuleScheduledEventGrouping {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleScheduledEventGrouping
+		return ret
+	}).(AlertRuleScheduledEventGroupingOutput)
 }
 
 // The aggregation type of grouping the events.
@@ -238,7 +244,7 @@ func (o AlertRuleScheduledIncidentConfigurationOutput) ToAlertRuleScheduledIncid
 }
 
 func (o AlertRuleScheduledIncidentConfigurationOutput) ToAlertRuleScheduledIncidentConfigurationPtrOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentConfigurationPtrOutput {
-	return o.ApplyT(func(v AlertRuleScheduledIncidentConfiguration) *AlertRuleScheduledIncidentConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleScheduledIncidentConfiguration) *AlertRuleScheduledIncidentConfiguration {
 		return &v
 	}).(AlertRuleScheduledIncidentConfigurationPtrOutput)
 }
@@ -270,7 +276,13 @@ func (o AlertRuleScheduledIncidentConfigurationPtrOutput) ToAlertRuleScheduledIn
 }
 
 func (o AlertRuleScheduledIncidentConfigurationPtrOutput) Elem() AlertRuleScheduledIncidentConfigurationOutput {
-	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfiguration) AlertRuleScheduledIncidentConfiguration { return *v }).(AlertRuleScheduledIncidentConfigurationOutput)
+	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfiguration) AlertRuleScheduledIncidentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleScheduledIncidentConfiguration
+		return ret
+	}).(AlertRuleScheduledIncidentConfigurationOutput)
 }
 
 // Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
@@ -402,7 +414,7 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) ToAlertRuleSchedu
 }
 
 func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) ToAlertRuleScheduledIncidentConfigurationGroupingPtrOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentConfigurationGroupingPtrOutput {
-	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) *AlertRuleScheduledIncidentConfigurationGrouping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleScheduledIncidentConfigurationGrouping) *AlertRuleScheduledIncidentConfigurationGrouping {
 		return &v
 	}).(AlertRuleScheduledIncidentConfigurationGroupingPtrOutput)
 }
@@ -448,7 +460,11 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) ToAlertRuleSch
 
 func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) Elem() AlertRuleScheduledIncidentConfigurationGroupingOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) AlertRuleScheduledIncidentConfigurationGrouping {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleScheduledIncidentConfigurationGrouping
+		return ret
 	}).(AlertRuleScheduledIncidentConfigurationGroupingOutput)
 }
 

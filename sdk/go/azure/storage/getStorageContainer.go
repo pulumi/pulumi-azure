@@ -4,6 +4,9 @@
 package storage
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,84 @@ type GetStorageContainerResult struct {
 	// The Resource Manager ID of this Storage Container.
 	ResourceManagerId  string `pulumi:"resourceManagerId"`
 	StorageAccountName string `pulumi:"storageAccountName"`
+}
+
+func GetStorageContainerOutput(ctx *pulumi.Context, args GetStorageContainerOutputArgs, opts ...pulumi.InvokeOption) GetStorageContainerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetStorageContainerResult, error) {
+			args := v.(GetStorageContainerArgs)
+			r, err := GetStorageContainer(ctx, &args, opts...)
+			return *r, err
+		}).(GetStorageContainerResultOutput)
+}
+
+// A collection of arguments for invoking getStorageContainer.
+type GetStorageContainerOutputArgs struct {
+	// A mapping of MetaData for this Container.
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// The name of the Container.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Storage Account where the Container exists.
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+}
+
+func (GetStorageContainerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageContainerArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getStorageContainer.
+type GetStorageContainerResultOutput struct{ *pulumi.OutputState }
+
+func (GetStorageContainerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageContainerResult)(nil)).Elem()
+}
+
+func (o GetStorageContainerResultOutput) ToGetStorageContainerResultOutput() GetStorageContainerResultOutput {
+	return o
+}
+
+func (o GetStorageContainerResultOutput) ToGetStorageContainerResultOutputWithContext(ctx context.Context) GetStorageContainerResultOutput {
+	return o
+}
+
+// The Access Level configured for this Container.
+func (o GetStorageContainerResultOutput) ContainerAccessType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) string { return v.ContainerAccessType }).(pulumi.StringOutput)
+}
+
+// Is there an Immutability Policy configured on this Storage Container?
+func (o GetStorageContainerResultOutput) HasImmutabilityPolicy() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) bool { return v.HasImmutabilityPolicy }).(pulumi.BoolOutput)
+}
+
+// Is there a Legal Hold configured on this Storage Container?
+func (o GetStorageContainerResultOutput) HasLegalHold() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) bool { return v.HasLegalHold }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetStorageContainerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A mapping of MetaData for this Container.
+func (o GetStorageContainerResultOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+func (o GetStorageContainerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Resource Manager ID of this Storage Container.
+func (o GetStorageContainerResultOutput) ResourceManagerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) string { return v.ResourceManagerId }).(pulumi.StringOutput)
+}
+
+func (o GetStorageContainerResultOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) string { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetStorageContainerResultOutput{})
 }

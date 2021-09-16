@@ -229,7 +229,7 @@ type FlexibleServerFirewallRuleArrayInput interface {
 type FlexibleServerFirewallRuleArray []FlexibleServerFirewallRuleInput
 
 func (FlexibleServerFirewallRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FlexibleServerFirewallRule)(nil))
+	return reflect.TypeOf((*[]*FlexibleServerFirewallRule)(nil)).Elem()
 }
 
 func (i FlexibleServerFirewallRuleArray) ToFlexibleServerFirewallRuleArrayOutput() FlexibleServerFirewallRuleArrayOutput {
@@ -254,7 +254,7 @@ type FlexibleServerFirewallRuleMapInput interface {
 type FlexibleServerFirewallRuleMap map[string]FlexibleServerFirewallRuleInput
 
 func (FlexibleServerFirewallRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FlexibleServerFirewallRule)(nil))
+	return reflect.TypeOf((*map[string]*FlexibleServerFirewallRule)(nil)).Elem()
 }
 
 func (i FlexibleServerFirewallRuleMap) ToFlexibleServerFirewallRuleMapOutput() FlexibleServerFirewallRuleMapOutput {
@@ -265,9 +265,7 @@ func (i FlexibleServerFirewallRuleMap) ToFlexibleServerFirewallRuleMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerFirewallRuleMapOutput)
 }
 
-type FlexibleServerFirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type FlexibleServerFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerFirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FlexibleServerFirewallRule)(nil))
@@ -286,14 +284,12 @@ func (o FlexibleServerFirewallRuleOutput) ToFlexibleServerFirewallRulePtrOutput(
 }
 
 func (o FlexibleServerFirewallRuleOutput) ToFlexibleServerFirewallRulePtrOutputWithContext(ctx context.Context) FlexibleServerFirewallRulePtrOutput {
-	return o.ApplyT(func(v FlexibleServerFirewallRule) *FlexibleServerFirewallRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerFirewallRule) *FlexibleServerFirewallRule {
 		return &v
 	}).(FlexibleServerFirewallRulePtrOutput)
 }
 
-type FlexibleServerFirewallRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type FlexibleServerFirewallRulePtrOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerFirewallRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FlexibleServerFirewallRule)(nil))
@@ -305,6 +301,16 @@ func (o FlexibleServerFirewallRulePtrOutput) ToFlexibleServerFirewallRulePtrOutp
 
 func (o FlexibleServerFirewallRulePtrOutput) ToFlexibleServerFirewallRulePtrOutputWithContext(ctx context.Context) FlexibleServerFirewallRulePtrOutput {
 	return o
+}
+
+func (o FlexibleServerFirewallRulePtrOutput) Elem() FlexibleServerFirewallRuleOutput {
+	return o.ApplyT(func(v *FlexibleServerFirewallRule) FlexibleServerFirewallRule {
+		if v != nil {
+			return *v
+		}
+		var ret FlexibleServerFirewallRule
+		return ret
+	}).(FlexibleServerFirewallRuleOutput)
 }
 
 type FlexibleServerFirewallRuleArrayOutput struct{ *pulumi.OutputState }

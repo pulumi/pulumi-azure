@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -83,4 +86,123 @@ type LookupNetworkInterfaceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the virtual machine that the specified Network Interface is attached to.
 	VirtualMachineId string `pulumi:"virtualMachineId"`
+}
+
+func LookupNetworkInterfaceOutput(ctx *pulumi.Context, args LookupNetworkInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInterfaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNetworkInterfaceResult, error) {
+			args := v.(LookupNetworkInterfaceArgs)
+			r, err := LookupNetworkInterface(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNetworkInterfaceResultOutput)
+}
+
+// A collection of arguments for invoking getNetworkInterface.
+type LookupNetworkInterfaceOutputArgs struct {
+	// Specifies the name of the Network Interface.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group the Network Interface is located in.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNetworkInterfaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkInterfaceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getNetworkInterface.
+type LookupNetworkInterfaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNetworkInterfaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkInterfaceResult)(nil)).Elem()
+}
+
+func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutput() LookupNetworkInterfaceResultOutput {
+	return o
+}
+
+func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutputWithContext(ctx context.Context) LookupNetworkInterfaceResultOutput {
+	return o
+}
+
+// List of DNS servers applied to the specified Network Interface.
+func (o LookupNetworkInterfaceResultOutput) AppliedDnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) []string { return v.AppliedDnsServers }).(pulumi.StringArrayOutput)
+}
+
+// The list of DNS servers used by the specified Network Interface.
+func (o LookupNetworkInterfaceResultOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+// Indicates if accelerated networking is set on the specified Network Interface.
+func (o LookupNetworkInterfaceResultOutput) EnableAcceleratedNetworking() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolOutput)
+}
+
+// Indicate if IP forwarding is set on the specified Network Interface.
+func (o LookupNetworkInterfaceResultOutput) EnableIpForwarding() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) bool { return v.EnableIpForwarding }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupNetworkInterfaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The internal dns name label of the specified Network Interface.
+func (o LookupNetworkInterfaceResultOutput) InternalDnsNameLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.InternalDnsNameLabel }).(pulumi.StringOutput)
+}
+
+// One or more `ipConfiguration` blocks as defined below.
+func (o LookupNetworkInterfaceResultOutput) IpConfigurations() GetNetworkInterfaceIpConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) []GetNetworkInterfaceIpConfiguration { return v.IpConfigurations }).(GetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+// The location of the specified Network Interface.
+func (o LookupNetworkInterfaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The MAC address used by the specified Network Interface.
+func (o LookupNetworkInterfaceResultOutput) MacAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.MacAddress }).(pulumi.StringOutput)
+}
+
+// The name of the IP Configuration.
+func (o LookupNetworkInterfaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the network security group associated to the specified Network Interface.
+func (o LookupNetworkInterfaceResultOutput) NetworkSecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.NetworkSecurityGroupId }).(pulumi.StringOutput)
+}
+
+// The Private IP Address assigned to this Network Interface.
+func (o LookupNetworkInterfaceResultOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// The list of private ip addresses associates to the specified Network Interface.
+func (o LookupNetworkInterfaceResultOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupNetworkInterfaceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// List the tags associated to the specified Network Interface.
+func (o LookupNetworkInterfaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The ID of the virtual machine that the specified Network Interface is attached to.
+func (o LookupNetworkInterfaceResultOutput) VirtualMachineId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.VirtualMachineId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNetworkInterfaceResultOutput{})
 }

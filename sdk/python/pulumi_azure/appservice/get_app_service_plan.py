@@ -13,6 +13,7 @@ __all__ = [
     'GetAppServicePlanResult',
     'AwaitableGetAppServicePlanResult',
     'get_app_service_plan',
+    'get_app_service_plan_output',
 ]
 
 @pulumi.output_type
@@ -238,3 +239,28 @@ def get_app_service_plan(name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         zone_redundant=__ret__.zone_redundant)
+
+
+@_utilities.lift_output_func(get_app_service_plan)
+def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServicePlanResult]:
+    """
+    Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_app_service_plan(name="search-app-service-plan",
+        resource_group_name="search-service")
+    pulumi.export("appServicePlanId", example.id)
+    ```
+
+
+    :param str name: The name of the App Service Plan.
+    :param str resource_group_name: The Name of the Resource Group where the App Service Plan exists.
+    """
+    ...

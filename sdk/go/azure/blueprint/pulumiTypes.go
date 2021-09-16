@@ -109,10 +109,11 @@ func (o AssignmentIdentityOutput) ToAssignmentIdentityPtrOutput() AssignmentIden
 }
 
 func (o AssignmentIdentityOutput) ToAssignmentIdentityPtrOutputWithContext(ctx context.Context) AssignmentIdentityPtrOutput {
-	return o.ApplyT(func(v AssignmentIdentity) *AssignmentIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentIdentity) *AssignmentIdentity {
 		return &v
 	}).(AssignmentIdentityPtrOutput)
 }
+
 func (o AssignmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssignmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -145,7 +146,13 @@ func (o AssignmentIdentityPtrOutput) ToAssignmentIdentityPtrOutputWithContext(ct
 }
 
 func (o AssignmentIdentityPtrOutput) Elem() AssignmentIdentityOutput {
-	return o.ApplyT(func(v *AssignmentIdentity) AssignmentIdentity { return *v }).(AssignmentIdentityOutput)
+	return o.ApplyT(func(v *AssignmentIdentity) AssignmentIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AssignmentIdentity
+		return ret
+	}).(AssignmentIdentityOutput)
 }
 
 func (o AssignmentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {

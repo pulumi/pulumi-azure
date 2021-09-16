@@ -463,7 +463,7 @@ type ScaleSetArrayInput interface {
 type ScaleSetArray []ScaleSetInput
 
 func (ScaleSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ScaleSet)(nil))
+	return reflect.TypeOf((*[]*ScaleSet)(nil)).Elem()
 }
 
 func (i ScaleSetArray) ToScaleSetArrayOutput() ScaleSetArrayOutput {
@@ -488,7 +488,7 @@ type ScaleSetMapInput interface {
 type ScaleSetMap map[string]ScaleSetInput
 
 func (ScaleSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ScaleSet)(nil))
+	return reflect.TypeOf((*map[string]*ScaleSet)(nil)).Elem()
 }
 
 func (i ScaleSetMap) ToScaleSetMapOutput() ScaleSetMapOutput {
@@ -499,9 +499,7 @@ func (i ScaleSetMap) ToScaleSetMapOutputWithContext(ctx context.Context) ScaleSe
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetMapOutput)
 }
 
-type ScaleSetOutput struct {
-	*pulumi.OutputState
-}
+type ScaleSetOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSet)(nil))
@@ -520,14 +518,12 @@ func (o ScaleSetOutput) ToScaleSetPtrOutput() ScaleSetPtrOutput {
 }
 
 func (o ScaleSetOutput) ToScaleSetPtrOutputWithContext(ctx context.Context) ScaleSetPtrOutput {
-	return o.ApplyT(func(v ScaleSet) *ScaleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSet) *ScaleSet {
 		return &v
 	}).(ScaleSetPtrOutput)
 }
 
-type ScaleSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type ScaleSetPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSet)(nil))
@@ -539,6 +535,16 @@ func (o ScaleSetPtrOutput) ToScaleSetPtrOutput() ScaleSetPtrOutput {
 
 func (o ScaleSetPtrOutput) ToScaleSetPtrOutputWithContext(ctx context.Context) ScaleSetPtrOutput {
 	return o
+}
+
+func (o ScaleSetPtrOutput) Elem() ScaleSetOutput {
+	return o.ApplyT(func(v *ScaleSet) ScaleSet {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSet
+		return ret
+	}).(ScaleSetOutput)
 }
 
 type ScaleSetArrayOutput struct{ *pulumi.OutputState }

@@ -12,6 +12,7 @@ __all__ = [
     'GetPublicIpPrefixResult',
     'AwaitableGetPublicIpPrefixResult',
     'get_public_ip_prefix',
+    'get_public_ip_prefix_output',
 ]
 
 @pulumi.output_type
@@ -175,3 +176,30 @@ def get_public_ip_prefix(name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         zones=__ret__.zones)
+
+
+@_utilities.lift_output_func(get_public_ip_prefix)
+def get_public_ip_prefix_output(name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                zones: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIpPrefixResult]:
+    """
+    Use this data source to access information about an existing Public IP Prefix.
+
+    ## Example Usage
+    ### Reference An Existing)
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_public_ip_prefix(name="name_of_public_ip",
+        resource_group_name="name_of_resource_group")
+    pulumi.export("publicIpPrefix", example.ip_prefix)
+    ```
+
+
+    :param str name: Specifies the name of the public IP prefix.
+    :param str resource_group_name: Specifies the name of the resource group.
+    """
+    ...

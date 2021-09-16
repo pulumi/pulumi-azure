@@ -253,7 +253,7 @@ type HubArrayInput interface {
 type HubArray []HubInput
 
 func (HubArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Hub)(nil))
+	return reflect.TypeOf((*[]*Hub)(nil)).Elem()
 }
 
 func (i HubArray) ToHubArrayOutput() HubArrayOutput {
@@ -278,7 +278,7 @@ type HubMapInput interface {
 type HubMap map[string]HubInput
 
 func (HubMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Hub)(nil))
+	return reflect.TypeOf((*map[string]*Hub)(nil)).Elem()
 }
 
 func (i HubMap) ToHubMapOutput() HubMapOutput {
@@ -289,9 +289,7 @@ func (i HubMap) ToHubMapOutputWithContext(ctx context.Context) HubMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HubMapOutput)
 }
 
-type HubOutput struct {
-	*pulumi.OutputState
-}
+type HubOutput struct{ *pulumi.OutputState }
 
 func (HubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Hub)(nil))
@@ -310,14 +308,12 @@ func (o HubOutput) ToHubPtrOutput() HubPtrOutput {
 }
 
 func (o HubOutput) ToHubPtrOutputWithContext(ctx context.Context) HubPtrOutput {
-	return o.ApplyT(func(v Hub) *Hub {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Hub) *Hub {
 		return &v
 	}).(HubPtrOutput)
 }
 
-type HubPtrOutput struct {
-	*pulumi.OutputState
-}
+type HubPtrOutput struct{ *pulumi.OutputState }
 
 func (HubPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Hub)(nil))
@@ -329,6 +325,16 @@ func (o HubPtrOutput) ToHubPtrOutput() HubPtrOutput {
 
 func (o HubPtrOutput) ToHubPtrOutputWithContext(ctx context.Context) HubPtrOutput {
 	return o
+}
+
+func (o HubPtrOutput) Elem() HubOutput {
+	return o.ApplyT(func(v *Hub) Hub {
+		if v != nil {
+			return *v
+		}
+		var ret Hub
+		return ret
+	}).(HubOutput)
 }
 
 type HubArrayOutput struct{ *pulumi.OutputState }

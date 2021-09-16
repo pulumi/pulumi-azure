@@ -111,7 +111,7 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOu
 }
 
 func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
-	return o.ApplyT(func(v AccountIdentity) *AccountIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
 }
@@ -149,7 +149,13 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
-	return o.ApplyT(func(v *AccountIdentity) AccountIdentity { return *v }).(AccountIdentityOutput)
+	return o.ApplyT(func(v *AccountIdentity) AccountIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccountIdentity
+		return ret
+	}).(AccountIdentityOutput)
 }
 
 // A list of IDs for User Assigned Managed Identity resources to be assigned.
@@ -295,7 +301,7 @@ func (o AccountNetworkAclsOutput) ToAccountNetworkAclsPtrOutput() AccountNetwork
 }
 
 func (o AccountNetworkAclsOutput) ToAccountNetworkAclsPtrOutputWithContext(ctx context.Context) AccountNetworkAclsPtrOutput {
-	return o.ApplyT(func(v AccountNetworkAcls) *AccountNetworkAcls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkAcls) *AccountNetworkAcls {
 		return &v
 	}).(AccountNetworkAclsPtrOutput)
 }
@@ -335,7 +341,13 @@ func (o AccountNetworkAclsPtrOutput) ToAccountNetworkAclsPtrOutputWithContext(ct
 }
 
 func (o AccountNetworkAclsPtrOutput) Elem() AccountNetworkAclsOutput {
-	return o.ApplyT(func(v *AccountNetworkAcls) AccountNetworkAcls { return *v }).(AccountNetworkAclsOutput)
+	return o.ApplyT(func(v *AccountNetworkAcls) AccountNetworkAcls {
+		if v != nil {
+			return *v
+		}
+		var ret AccountNetworkAcls
+		return ret
+	}).(AccountNetworkAclsOutput)
 }
 
 // The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.

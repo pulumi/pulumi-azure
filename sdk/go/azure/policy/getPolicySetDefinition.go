@@ -4,6 +4,9 @@
 package policy
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,4 +78,104 @@ type LookupPolicySetDefinitionResult struct {
 	PolicyDefinitions string `pulumi:"policyDefinitions"`
 	// The Type of the Policy Set Definition.
 	PolicyType string `pulumi:"policyType"`
+}
+
+func LookupPolicySetDefinitionOutput(ctx *pulumi.Context, args LookupPolicySetDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupPolicySetDefinitionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPolicySetDefinitionResult, error) {
+			args := v.(LookupPolicySetDefinitionArgs)
+			r, err := LookupPolicySetDefinition(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPolicySetDefinitionResultOutput)
+}
+
+// A collection of arguments for invoking getPolicySetDefinition.
+type LookupPolicySetDefinitionOutputArgs struct {
+	// Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Only retrieve Policy Set Definitions from this Management Group.
+	ManagementGroupName pulumi.StringPtrInput `pulumi:"managementGroupName"`
+	// Specifies the name of the Policy Set Definition. Conflicts with `displayName`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (LookupPolicySetDefinitionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicySetDefinitionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPolicySetDefinition.
+type LookupPolicySetDefinitionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPolicySetDefinitionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicySetDefinitionResult)(nil)).Elem()
+}
+
+func (o LookupPolicySetDefinitionResultOutput) ToLookupPolicySetDefinitionResultOutput() LookupPolicySetDefinitionResultOutput {
+	return o
+}
+
+func (o LookupPolicySetDefinitionResultOutput) ToLookupPolicySetDefinitionResultOutputWithContext(ctx context.Context) LookupPolicySetDefinitionResultOutput {
+	return o
+}
+
+// The description of this policy definition group.
+func (o LookupPolicySetDefinitionResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of this policy definition group.
+func (o LookupPolicySetDefinitionResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupPolicySetDefinitionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupPolicySetDefinitionResultOutput) ManagementGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) *string { return v.ManagementGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Any Metadata defined in the Policy Set Definition.
+func (o LookupPolicySetDefinitionResultOutput) Metadata() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) string { return v.Metadata }).(pulumi.StringOutput)
+}
+
+// The name of this policy definition group.
+func (o LookupPolicySetDefinitionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+func (o LookupPolicySetDefinitionResultOutput) Parameters() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) string { return v.Parameters }).(pulumi.StringOutput)
+}
+
+// One or more `policyDefinitionGroup` blocks as defined below.
+func (o LookupPolicySetDefinitionResultOutput) PolicyDefinitionGroups() GetPolicySetDefinitionPolicyDefinitionGroupArrayOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) []GetPolicySetDefinitionPolicyDefinitionGroup {
+		return v.PolicyDefinitionGroups
+	}).(GetPolicySetDefinitionPolicyDefinitionGroupArrayOutput)
+}
+
+// One or more `policyDefinitionReference` blocks as defined below.
+func (o LookupPolicySetDefinitionResultOutput) PolicyDefinitionReferences() GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) []GetPolicySetDefinitionPolicyDefinitionReference {
+		return v.PolicyDefinitionReferences
+	}).(GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput)
+}
+
+// The policy definitions contained within the policy set definition.
+func (o LookupPolicySetDefinitionResultOutput) PolicyDefinitions() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) string { return v.PolicyDefinitions }).(pulumi.StringOutput)
+}
+
+// The Type of the Policy Set Definition.
+func (o LookupPolicySetDefinitionResultOutput) PolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) string { return v.PolicyType }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPolicySetDefinitionResultOutput{})
 }

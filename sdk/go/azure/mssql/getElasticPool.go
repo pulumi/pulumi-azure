@@ -4,6 +4,9 @@
 package mssql
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,4 +82,109 @@ type LookupElasticPoolResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this elastic pool is zone redundant.
 	ZoneRedundant bool `pulumi:"zoneRedundant"`
+}
+
+func LookupElasticPoolOutput(ctx *pulumi.Context, args LookupElasticPoolOutputArgs, opts ...pulumi.InvokeOption) LookupElasticPoolResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupElasticPoolResult, error) {
+			args := v.(LookupElasticPoolArgs)
+			r, err := LookupElasticPool(ctx, &args, opts...)
+			return *r, err
+		}).(LookupElasticPoolResultOutput)
+}
+
+// A collection of arguments for invoking getElasticPool.
+type LookupElasticPoolOutputArgs struct {
+	// The name of the elastic pool.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group which contains the elastic pool.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the SQL Server which contains the elastic pool.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupElasticPoolOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupElasticPoolArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getElasticPool.
+type LookupElasticPoolResultOutput struct{ *pulumi.OutputState }
+
+func (LookupElasticPoolResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupElasticPoolResult)(nil)).Elem()
+}
+
+func (o LookupElasticPoolResultOutput) ToLookupElasticPoolResultOutput() LookupElasticPoolResultOutput {
+	return o
+}
+
+func (o LookupElasticPoolResultOutput) ToLookupElasticPoolResultOutputWithContext(ctx context.Context) LookupElasticPoolResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupElasticPoolResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The license type to apply for this database.
+func (o LookupElasticPoolResultOutput) LicenseType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) string { return v.LicenseType }).(pulumi.StringOutput)
+}
+
+// Specifies the supported Azure location where the resource exists.
+func (o LookupElasticPoolResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The max data size of the elastic pool in bytes.
+func (o LookupElasticPoolResultOutput) MaxSizeBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) int { return v.MaxSizeBytes }).(pulumi.IntOutput)
+}
+
+// The max data size of the elastic pool in gigabytes.
+func (o LookupElasticPoolResultOutput) MaxSizeGb() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupElasticPoolResult) float64 { return v.MaxSizeGb }).(pulumi.Float64Output)
+}
+
+// Specifies the SKU Name for this Elasticpool.
+func (o LookupElasticPoolResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The maximum capacity any one database can consume.
+func (o LookupElasticPoolResultOutput) PerDbMaxCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) int { return v.PerDbMaxCapacity }).(pulumi.IntOutput)
+}
+
+// The minimum capacity all databases are guaranteed.
+func (o LookupElasticPoolResultOutput) PerDbMinCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) int { return v.PerDbMinCapacity }).(pulumi.IntOutput)
+}
+
+func (o LookupElasticPoolResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupElasticPoolResultOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+// A `sku` block as defined below.
+func (o LookupElasticPoolResultOutput) Skus() GetElasticPoolSkusArrayOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) []GetElasticPoolSkus { return v.Skus }).(GetElasticPoolSkusArrayOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o LookupElasticPoolResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Whether or not this elastic pool is zone redundant.
+func (o LookupElasticPoolResultOutput) ZoneRedundant() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) bool { return v.ZoneRedundant }).(pulumi.BoolOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupElasticPoolResultOutput{})
 }

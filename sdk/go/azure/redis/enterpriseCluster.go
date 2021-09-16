@@ -262,7 +262,7 @@ type EnterpriseClusterArrayInput interface {
 type EnterpriseClusterArray []EnterpriseClusterInput
 
 func (EnterpriseClusterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EnterpriseCluster)(nil))
+	return reflect.TypeOf((*[]*EnterpriseCluster)(nil)).Elem()
 }
 
 func (i EnterpriseClusterArray) ToEnterpriseClusterArrayOutput() EnterpriseClusterArrayOutput {
@@ -287,7 +287,7 @@ type EnterpriseClusterMapInput interface {
 type EnterpriseClusterMap map[string]EnterpriseClusterInput
 
 func (EnterpriseClusterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EnterpriseCluster)(nil))
+	return reflect.TypeOf((*map[string]*EnterpriseCluster)(nil)).Elem()
 }
 
 func (i EnterpriseClusterMap) ToEnterpriseClusterMapOutput() EnterpriseClusterMapOutput {
@@ -298,9 +298,7 @@ func (i EnterpriseClusterMap) ToEnterpriseClusterMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseClusterMapOutput)
 }
 
-type EnterpriseClusterOutput struct {
-	*pulumi.OutputState
-}
+type EnterpriseClusterOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnterpriseCluster)(nil))
@@ -319,14 +317,12 @@ func (o EnterpriseClusterOutput) ToEnterpriseClusterPtrOutput() EnterpriseCluste
 }
 
 func (o EnterpriseClusterOutput) ToEnterpriseClusterPtrOutputWithContext(ctx context.Context) EnterpriseClusterPtrOutput {
-	return o.ApplyT(func(v EnterpriseCluster) *EnterpriseCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterpriseCluster) *EnterpriseCluster {
 		return &v
 	}).(EnterpriseClusterPtrOutput)
 }
 
-type EnterpriseClusterPtrOutput struct {
-	*pulumi.OutputState
-}
+type EnterpriseClusterPtrOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseClusterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EnterpriseCluster)(nil))
@@ -338,6 +334,16 @@ func (o EnterpriseClusterPtrOutput) ToEnterpriseClusterPtrOutput() EnterpriseClu
 
 func (o EnterpriseClusterPtrOutput) ToEnterpriseClusterPtrOutputWithContext(ctx context.Context) EnterpriseClusterPtrOutput {
 	return o
+}
+
+func (o EnterpriseClusterPtrOutput) Elem() EnterpriseClusterOutput {
+	return o.ApplyT(func(v *EnterpriseCluster) EnterpriseCluster {
+		if v != nil {
+			return *v
+		}
+		var ret EnterpriseCluster
+		return ret
+	}).(EnterpriseClusterOutput)
 }
 
 type EnterpriseClusterArrayOutput struct{ *pulumi.OutputState }

@@ -127,7 +127,7 @@ func (o AssetFilterPresentationTimeRangeOutput) ToAssetFilterPresentationTimeRan
 }
 
 func (o AssetFilterPresentationTimeRangeOutput) ToAssetFilterPresentationTimeRangePtrOutputWithContext(ctx context.Context) AssetFilterPresentationTimeRangePtrOutput {
-	return o.ApplyT(func(v AssetFilterPresentationTimeRange) *AssetFilterPresentationTimeRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssetFilterPresentationTimeRange) *AssetFilterPresentationTimeRange {
 		return &v
 	}).(AssetFilterPresentationTimeRangePtrOutput)
 }
@@ -179,7 +179,13 @@ func (o AssetFilterPresentationTimeRangePtrOutput) ToAssetFilterPresentationTime
 }
 
 func (o AssetFilterPresentationTimeRangePtrOutput) Elem() AssetFilterPresentationTimeRangeOutput {
-	return o.ApplyT(func(v *AssetFilterPresentationTimeRange) AssetFilterPresentationTimeRange { return *v }).(AssetFilterPresentationTimeRangeOutput)
+	return o.ApplyT(func(v *AssetFilterPresentationTimeRange) AssetFilterPresentationTimeRange {
+		if v != nil {
+			return *v
+		}
+		var ret AssetFilterPresentationTimeRange
+		return ret
+	}).(AssetFilterPresentationTimeRangeOutput)
 }
 
 // The absolute end time boundary. Applies to Video on Demand (VoD).
@@ -726,7 +732,7 @@ func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) ToContentKeyPol
 }
 
 func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionFairplayConfiguration) *ContentKeyPolicyPolicyOptionFairplayConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPolicyOptionFairplayConfiguration) *ContentKeyPolicyPolicyOptionFairplayConfiguration {
 		return &v
 	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput)
 }
@@ -779,7 +785,11 @@ func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) ToContentKey
 
 func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) Elem() ContentKeyPolicyPolicyOptionFairplayConfigurationOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionFairplayConfiguration) ContentKeyPolicyPolicyOptionFairplayConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyPolicyOptionFairplayConfiguration
+		return ret
 	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationOutput)
 }
 
@@ -940,7 +950,7 @@ func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurat
 }
 
 func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration) *ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration) *ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration {
 		return &v
 	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput)
 }
@@ -975,7 +985,11 @@ func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurat
 
 func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput) Elem() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration
+		return ret
 	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput)
 }
 
@@ -1327,7 +1341,7 @@ func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput
 }
 
 func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight {
 		return &v
 	}).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput)
 }
@@ -1425,7 +1439,11 @@ func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOut
 
 func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) Elem() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight
+		return ret
 	}).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput)
 }
 
@@ -1664,7 +1682,7 @@ func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) ToContentKeyPolicyPo
 }
 
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestriction) *ContentKeyPolicyPolicyOptionTokenRestriction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPolicyOptionTokenRestriction) *ContentKeyPolicyPolicyOptionTokenRestriction {
 		return &v
 	}).(ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput)
 }
@@ -1732,7 +1750,11 @@ func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) ToContentKeyPolic
 
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) Elem() ContentKeyPolicyPolicyOptionTokenRestrictionOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionTokenRestriction) ContentKeyPolicyPolicyOptionTokenRestriction {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyPolicyOptionTokenRestriction
+		return ret
 	}).(ContentKeyPolicyPolicyOptionTokenRestrictionOutput)
 }
 
@@ -2029,7 +2051,7 @@ func (o JobInputAssetOutput) ToJobInputAssetPtrOutput() JobInputAssetPtrOutput {
 }
 
 func (o JobInputAssetOutput) ToJobInputAssetPtrOutputWithContext(ctx context.Context) JobInputAssetPtrOutput {
-	return o.ApplyT(func(v JobInputAsset) *JobInputAsset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobInputAsset) *JobInputAsset {
 		return &v
 	}).(JobInputAssetPtrOutput)
 }
@@ -2059,7 +2081,13 @@ func (o JobInputAssetPtrOutput) ToJobInputAssetPtrOutputWithContext(ctx context.
 }
 
 func (o JobInputAssetPtrOutput) Elem() JobInputAssetOutput {
-	return o.ApplyT(func(v *JobInputAsset) JobInputAsset { return *v }).(JobInputAssetOutput)
+	return o.ApplyT(func(v *JobInputAsset) JobInputAsset {
+		if v != nil {
+			return *v
+		}
+		var ret JobInputAsset
+		return ret
+	}).(JobInputAssetOutput)
 }
 
 // A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
@@ -2285,7 +2313,7 @@ func (o LiveEventCrossSiteAccessPolicyOutput) ToLiveEventCrossSiteAccessPolicyPt
 }
 
 func (o LiveEventCrossSiteAccessPolicyOutput) ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(ctx context.Context) LiveEventCrossSiteAccessPolicyPtrOutput {
-	return o.ApplyT(func(v LiveEventCrossSiteAccessPolicy) *LiveEventCrossSiteAccessPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventCrossSiteAccessPolicy) *LiveEventCrossSiteAccessPolicy {
 		return &v
 	}).(LiveEventCrossSiteAccessPolicyPtrOutput)
 }
@@ -2315,7 +2343,13 @@ func (o LiveEventCrossSiteAccessPolicyPtrOutput) ToLiveEventCrossSiteAccessPolic
 }
 
 func (o LiveEventCrossSiteAccessPolicyPtrOutput) Elem() LiveEventCrossSiteAccessPolicyOutput {
-	return o.ApplyT(func(v *LiveEventCrossSiteAccessPolicy) LiveEventCrossSiteAccessPolicy { return *v }).(LiveEventCrossSiteAccessPolicyOutput)
+	return o.ApplyT(func(v *LiveEventCrossSiteAccessPolicy) LiveEventCrossSiteAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventCrossSiteAccessPolicy
+		return ret
+	}).(LiveEventCrossSiteAccessPolicyOutput)
 }
 
 // The content of clientaccesspolicy.xml used by Silverlight.
@@ -2443,7 +2477,7 @@ func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutput() LiveEventEncodin
 }
 
 func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutputWithContext(ctx context.Context) LiveEventEncodingPtrOutput {
-	return o.ApplyT(func(v LiveEventEncoding) *LiveEventEncoding {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventEncoding) *LiveEventEncoding {
 		return &v
 	}).(LiveEventEncodingPtrOutput)
 }
@@ -2483,7 +2517,13 @@ func (o LiveEventEncodingPtrOutput) ToLiveEventEncodingPtrOutputWithContext(ctx 
 }
 
 func (o LiveEventEncodingPtrOutput) Elem() LiveEventEncodingOutput {
-	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding { return *v }).(LiveEventEncodingOutput)
+	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventEncoding
+		return ret
+	}).(LiveEventEncodingOutput)
 }
 
 // Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
@@ -2633,7 +2673,7 @@ func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutput() LiveEventInput
 }
 
 func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return o.ApplyT(func(v LiveEventInputType) *LiveEventInputType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputType) *LiveEventInputType {
 		return &v
 	}).(LiveEventInputTypePtrOutput)
 }
@@ -2677,7 +2717,13 @@ func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutputWithContext(ct
 }
 
 func (o LiveEventInputTypePtrOutput) Elem() LiveEventInputTypeOutput {
-	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType { return *v }).(LiveEventInputTypeOutput)
+	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventInputType
+		return ret
+	}).(LiveEventInputTypeOutput)
 }
 
 // A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
@@ -3051,7 +3097,7 @@ func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutput() LiveEventPreviewPt
 }
 
 func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutputWithContext(ctx context.Context) LiveEventPreviewPtrOutput {
-	return o.ApplyT(func(v LiveEventPreview) *LiveEventPreview {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreview) *LiveEventPreview {
 		return &v
 	}).(LiveEventPreviewPtrOutput)
 }
@@ -3095,7 +3141,13 @@ func (o LiveEventPreviewPtrOutput) ToLiveEventPreviewPtrOutputWithContext(ctx co
 }
 
 func (o LiveEventPreviewPtrOutput) Elem() LiveEventPreviewOutput {
-	return o.ApplyT(func(v *LiveEventPreview) LiveEventPreview { return *v }).(LiveEventPreviewOutput)
+	return o.ApplyT(func(v *LiveEventPreview) LiveEventPreview {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreview
+		return ret
+	}).(LiveEventPreviewOutput)
 }
 
 // An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field. Changing this forces a new resource to be created.
@@ -3463,7 +3515,7 @@ func (o ServiceAccountIdentityOutput) ToServiceAccountIdentityPtrOutput() Servic
 }
 
 func (o ServiceAccountIdentityOutput) ToServiceAccountIdentityPtrOutputWithContext(ctx context.Context) ServiceAccountIdentityPtrOutput {
-	return o.ApplyT(func(v ServiceAccountIdentity) *ServiceAccountIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAccountIdentity) *ServiceAccountIdentity {
 		return &v
 	}).(ServiceAccountIdentityPtrOutput)
 }
@@ -3498,7 +3550,13 @@ func (o ServiceAccountIdentityPtrOutput) ToServiceAccountIdentityPtrOutputWithCo
 }
 
 func (o ServiceAccountIdentityPtrOutput) Elem() ServiceAccountIdentityOutput {
-	return o.ApplyT(func(v *ServiceAccountIdentity) ServiceAccountIdentity { return *v }).(ServiceAccountIdentityOutput)
+	return o.ApplyT(func(v *ServiceAccountIdentity) ServiceAccountIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAccountIdentity
+		return ret
+	}).(ServiceAccountIdentityOutput)
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -3628,7 +3686,7 @@ func (o ServiceAccountKeyDeliveryAccessControlOutput) ToServiceAccountKeyDeliver
 }
 
 func (o ServiceAccountKeyDeliveryAccessControlOutput) ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(ctx context.Context) ServiceAccountKeyDeliveryAccessControlPtrOutput {
-	return o.ApplyT(func(v ServiceAccountKeyDeliveryAccessControl) *ServiceAccountKeyDeliveryAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAccountKeyDeliveryAccessControl) *ServiceAccountKeyDeliveryAccessControl {
 		return &v
 	}).(ServiceAccountKeyDeliveryAccessControlPtrOutput)
 }
@@ -3658,7 +3716,13 @@ func (o ServiceAccountKeyDeliveryAccessControlPtrOutput) ToServiceAccountKeyDeli
 }
 
 func (o ServiceAccountKeyDeliveryAccessControlPtrOutput) Elem() ServiceAccountKeyDeliveryAccessControlOutput {
-	return o.ApplyT(func(v *ServiceAccountKeyDeliveryAccessControl) ServiceAccountKeyDeliveryAccessControl { return *v }).(ServiceAccountKeyDeliveryAccessControlOutput)
+	return o.ApplyT(func(v *ServiceAccountKeyDeliveryAccessControl) ServiceAccountKeyDeliveryAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAccountKeyDeliveryAccessControl
+		return ret
+	}).(ServiceAccountKeyDeliveryAccessControlOutput)
 }
 
 // The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
@@ -3884,7 +3948,7 @@ func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPt
 }
 
 func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlPtrOutput {
-	return o.ApplyT(func(v StreamingEndpointAccessControl) *StreamingEndpointAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpointAccessControl) *StreamingEndpointAccessControl {
 		return &v
 	}).(StreamingEndpointAccessControlPtrOutput)
 }
@@ -3916,7 +3980,13 @@ func (o StreamingEndpointAccessControlPtrOutput) ToStreamingEndpointAccessContro
 }
 
 func (o StreamingEndpointAccessControlPtrOutput) Elem() StreamingEndpointAccessControlOutput {
-	return o.ApplyT(func(v *StreamingEndpointAccessControl) StreamingEndpointAccessControl { return *v }).(StreamingEndpointAccessControlOutput)
+	return o.ApplyT(func(v *StreamingEndpointAccessControl) StreamingEndpointAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingEndpointAccessControl
+		return ret
+	}).(StreamingEndpointAccessControlOutput)
 }
 
 // One or more `akamaiSignatureHeaderAuthenticationKey` blocks as defined below.
@@ -4272,7 +4342,7 @@ func (o StreamingEndpointCrossSiteAccessPolicyOutput) ToStreamingEndpointCrossSi
 }
 
 func (o StreamingEndpointCrossSiteAccessPolicyOutput) ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(ctx context.Context) StreamingEndpointCrossSiteAccessPolicyPtrOutput {
-	return o.ApplyT(func(v StreamingEndpointCrossSiteAccessPolicy) *StreamingEndpointCrossSiteAccessPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpointCrossSiteAccessPolicy) *StreamingEndpointCrossSiteAccessPolicy {
 		return &v
 	}).(StreamingEndpointCrossSiteAccessPolicyPtrOutput)
 }
@@ -4302,7 +4372,13 @@ func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) ToStreamingEndpointCros
 }
 
 func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) Elem() StreamingEndpointCrossSiteAccessPolicyOutput {
-	return o.ApplyT(func(v *StreamingEndpointCrossSiteAccessPolicy) StreamingEndpointCrossSiteAccessPolicy { return *v }).(StreamingEndpointCrossSiteAccessPolicyOutput)
+	return o.ApplyT(func(v *StreamingEndpointCrossSiteAccessPolicy) StreamingEndpointCrossSiteAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingEndpointCrossSiteAccessPolicy
+		return ret
+	}).(StreamingEndpointCrossSiteAccessPolicyOutput)
 }
 
 // The content of clientaccesspolicy.xml used by Silverlight.
@@ -4559,7 +4635,7 @@ func (o StreamingPolicyCommonEncryptionCbcsOutput) ToStreamingPolicyCommonEncryp
 }
 
 func (o StreamingPolicyCommonEncryptionCbcsOutput) ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcs) *StreamingPolicyCommonEncryptionCbcs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCbcs) *StreamingPolicyCommonEncryptionCbcs {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCbcsPtrOutput)
 }
@@ -4600,7 +4676,13 @@ func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) ToStreamingPolicyCommonEnc
 }
 
 func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsOutput {
-	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcs) StreamingPolicyCommonEncryptionCbcs { return *v }).(StreamingPolicyCommonEncryptionCbcsOutput)
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcs) StreamingPolicyCommonEncryptionCbcs {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyCommonEncryptionCbcs
+		return ret
+	}).(StreamingPolicyCommonEncryptionCbcsOutput)
 }
 
 // A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -4730,7 +4812,7 @@ func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) ToStreamingP
 }
 
 func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsDefaultContentKey) *StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCbcsDefaultContentKey) *StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput)
 }
@@ -4761,7 +4843,11 @@ func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput) ToStreami
 
 func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput {
 	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsDefaultContentKey) StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyCommonEncryptionCbcsDefaultContentKey
+		return ret
 	}).(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput)
 }
 
@@ -4882,7 +4968,7 @@ func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput) ToStreamingPolicyC
 }
 
 func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsDrmFairplay) *StreamingPolicyCommonEncryptionCbcsDrmFairplay {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCbcsDrmFairplay) *StreamingPolicyCommonEncryptionCbcsDrmFairplay {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput)
 }
@@ -4915,7 +5001,11 @@ func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput) ToStreamingPoli
 
 func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput {
 	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsDrmFairplay) StreamingPolicyCommonEncryptionCbcsDrmFairplay {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyCommonEncryptionCbcsDrmFairplay
+		return ret
 	}).(StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput)
 }
 
@@ -5044,7 +5134,7 @@ func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) ToStreamingPo
 }
 
 func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsEnabledProtocols) *StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCbcsEnabledProtocols) *StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput)
 }
@@ -5085,7 +5175,11 @@ func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) ToStreamin
 
 func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput {
 	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsEnabledProtocols) StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyCommonEncryptionCbcsEnabledProtocols
+		return ret
 	}).(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput)
 }
 
@@ -5234,7 +5328,7 @@ func (o StreamingPolicyCommonEncryptionCencOutput) ToStreamingPolicyCommonEncryp
 }
 
 func (o StreamingPolicyCommonEncryptionCencOutput) ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCenc) *StreamingPolicyCommonEncryptionCenc {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCenc) *StreamingPolicyCommonEncryptionCenc {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCencPtrOutput)
 }
@@ -5282,7 +5376,13 @@ func (o StreamingPolicyCommonEncryptionCencPtrOutput) ToStreamingPolicyCommonEnc
 }
 
 func (o StreamingPolicyCommonEncryptionCencPtrOutput) Elem() StreamingPolicyCommonEncryptionCencOutput {
-	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCenc) StreamingPolicyCommonEncryptionCenc { return *v }).(StreamingPolicyCommonEncryptionCencOutput)
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCenc) StreamingPolicyCommonEncryptionCenc {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyCommonEncryptionCenc
+		return ret
+	}).(StreamingPolicyCommonEncryptionCencOutput)
 }
 
 // A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -5422,7 +5522,7 @@ func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) ToStreamingP
 }
 
 func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencDefaultContentKey) *StreamingPolicyCommonEncryptionCencDefaultContentKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCencDefaultContentKey) *StreamingPolicyCommonEncryptionCencDefaultContentKey {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput)
 }
@@ -5453,7 +5553,11 @@ func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput) ToStreami
 
 func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput) Elem() StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput {
 	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencDefaultContentKey) StreamingPolicyCommonEncryptionCencDefaultContentKey {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyCommonEncryptionCencDefaultContentKey
+		return ret
 	}).(StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput)
 }
 
@@ -5574,7 +5678,7 @@ func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput) ToStreamingPolicy
 }
 
 func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencDrmPlayready) *StreamingPolicyCommonEncryptionCencDrmPlayready {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCencDrmPlayready) *StreamingPolicyCommonEncryptionCencDrmPlayready {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput)
 }
@@ -5607,7 +5711,11 @@ func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput) ToStreamingPol
 
 func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput) Elem() StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput {
 	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencDrmPlayready) StreamingPolicyCommonEncryptionCencDrmPlayready {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyCommonEncryptionCencDrmPlayready
+		return ret
 	}).(StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput)
 }
 
@@ -5736,7 +5844,7 @@ func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) ToStreamingPo
 }
 
 func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencEnabledProtocols) *StreamingPolicyCommonEncryptionCencEnabledProtocols {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCencEnabledProtocols) *StreamingPolicyCommonEncryptionCencEnabledProtocols {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput)
 }
@@ -5777,7 +5885,11 @@ func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) ToStreamin
 
 func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) Elem() StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput {
 	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencEnabledProtocols) StreamingPolicyCommonEncryptionCencEnabledProtocols {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyCommonEncryptionCencEnabledProtocols
+		return ret
 	}).(StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput)
 }
 
@@ -5926,7 +6038,7 @@ func (o StreamingPolicyNoEncryptionEnabledProtocolsOutput) ToStreamingPolicyNoEn
 }
 
 func (o StreamingPolicyNoEncryptionEnabledProtocolsOutput) ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyNoEncryptionEnabledProtocols) *StreamingPolicyNoEncryptionEnabledProtocols {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyNoEncryptionEnabledProtocols) *StreamingPolicyNoEncryptionEnabledProtocols {
 		return &v
 	}).(StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput)
 }
@@ -5967,7 +6079,11 @@ func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) ToStreamingPolicyN
 
 func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) Elem() StreamingPolicyNoEncryptionEnabledProtocolsOutput {
 	return o.ApplyT(func(v *StreamingPolicyNoEncryptionEnabledProtocols) StreamingPolicyNoEncryptionEnabledProtocols {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyNoEncryptionEnabledProtocols
+		return ret
 	}).(StreamingPolicyNoEncryptionEnabledProtocolsOutput)
 }
 
@@ -6250,7 +6366,7 @@ func (o TransformOutputAudioAnalyzerPresetOutput) ToTransformOutputAudioAnalyzer
 }
 
 func (o TransformOutputAudioAnalyzerPresetOutput) ToTransformOutputAudioAnalyzerPresetPtrOutputWithContext(ctx context.Context) TransformOutputAudioAnalyzerPresetPtrOutput {
-	return o.ApplyT(func(v TransformOutputAudioAnalyzerPreset) *TransformOutputAudioAnalyzerPreset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputAudioAnalyzerPreset) *TransformOutputAudioAnalyzerPreset {
 		return &v
 	}).(TransformOutputAudioAnalyzerPresetPtrOutput)
 }
@@ -6280,7 +6396,13 @@ func (o TransformOutputAudioAnalyzerPresetPtrOutput) ToTransformOutputAudioAnaly
 }
 
 func (o TransformOutputAudioAnalyzerPresetPtrOutput) Elem() TransformOutputAudioAnalyzerPresetOutput {
-	return o.ApplyT(func(v *TransformOutputAudioAnalyzerPreset) TransformOutputAudioAnalyzerPreset { return *v }).(TransformOutputAudioAnalyzerPresetOutput)
+	return o.ApplyT(func(v *TransformOutputAudioAnalyzerPreset) TransformOutputAudioAnalyzerPreset {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputAudioAnalyzerPreset
+		return ret
+	}).(TransformOutputAudioAnalyzerPresetOutput)
 }
 
 // Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
@@ -6396,7 +6518,7 @@ func (o TransformOutputBuiltinPresetOutput) ToTransformOutputBuiltinPresetPtrOut
 }
 
 func (o TransformOutputBuiltinPresetOutput) ToTransformOutputBuiltinPresetPtrOutputWithContext(ctx context.Context) TransformOutputBuiltinPresetPtrOutput {
-	return o.ApplyT(func(v TransformOutputBuiltinPreset) *TransformOutputBuiltinPreset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputBuiltinPreset) *TransformOutputBuiltinPreset {
 		return &v
 	}).(TransformOutputBuiltinPresetPtrOutput)
 }
@@ -6421,7 +6543,13 @@ func (o TransformOutputBuiltinPresetPtrOutput) ToTransformOutputBuiltinPresetPtr
 }
 
 func (o TransformOutputBuiltinPresetPtrOutput) Elem() TransformOutputBuiltinPresetOutput {
-	return o.ApplyT(func(v *TransformOutputBuiltinPreset) TransformOutputBuiltinPreset { return *v }).(TransformOutputBuiltinPresetOutput)
+	return o.ApplyT(func(v *TransformOutputBuiltinPreset) TransformOutputBuiltinPreset {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputBuiltinPreset
+		return ret
+	}).(TransformOutputBuiltinPresetOutput)
 }
 
 // The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
@@ -6527,7 +6655,7 @@ func (o TransformOutputFaceDetectorPresetOutput) ToTransformOutputFaceDetectorPr
 }
 
 func (o TransformOutputFaceDetectorPresetOutput) ToTransformOutputFaceDetectorPresetPtrOutputWithContext(ctx context.Context) TransformOutputFaceDetectorPresetPtrOutput {
-	return o.ApplyT(func(v TransformOutputFaceDetectorPreset) *TransformOutputFaceDetectorPreset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputFaceDetectorPreset) *TransformOutputFaceDetectorPreset {
 		return &v
 	}).(TransformOutputFaceDetectorPresetPtrOutput)
 }
@@ -6552,7 +6680,13 @@ func (o TransformOutputFaceDetectorPresetPtrOutput) ToTransformOutputFaceDetecto
 }
 
 func (o TransformOutputFaceDetectorPresetPtrOutput) Elem() TransformOutputFaceDetectorPresetOutput {
-	return o.ApplyT(func(v *TransformOutputFaceDetectorPreset) TransformOutputFaceDetectorPreset { return *v }).(TransformOutputFaceDetectorPresetOutput)
+	return o.ApplyT(func(v *TransformOutputFaceDetectorPreset) TransformOutputFaceDetectorPreset {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputFaceDetectorPreset
+		return ret
+	}).(TransformOutputFaceDetectorPresetOutput)
 }
 
 // Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
@@ -6666,7 +6800,7 @@ func (o TransformOutputVideoAnalyzerPresetOutput) ToTransformOutputVideoAnalyzer
 }
 
 func (o TransformOutputVideoAnalyzerPresetOutput) ToTransformOutputVideoAnalyzerPresetPtrOutputWithContext(ctx context.Context) TransformOutputVideoAnalyzerPresetPtrOutput {
-	return o.ApplyT(func(v TransformOutputVideoAnalyzerPreset) *TransformOutputVideoAnalyzerPreset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputVideoAnalyzerPreset) *TransformOutputVideoAnalyzerPreset {
 		return &v
 	}).(TransformOutputVideoAnalyzerPresetPtrOutput)
 }
@@ -6701,7 +6835,13 @@ func (o TransformOutputVideoAnalyzerPresetPtrOutput) ToTransformOutputVideoAnaly
 }
 
 func (o TransformOutputVideoAnalyzerPresetPtrOutput) Elem() TransformOutputVideoAnalyzerPresetOutput {
-	return o.ApplyT(func(v *TransformOutputVideoAnalyzerPreset) TransformOutputVideoAnalyzerPreset { return *v }).(TransformOutputVideoAnalyzerPresetOutput)
+	return o.ApplyT(func(v *TransformOutputVideoAnalyzerPreset) TransformOutputVideoAnalyzerPreset {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputVideoAnalyzerPreset
+		return ret
+	}).(TransformOutputVideoAnalyzerPresetOutput)
 }
 
 // Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.

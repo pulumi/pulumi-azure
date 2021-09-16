@@ -4,6 +4,9 @@
 package automation
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,72 @@ type LookupAccountResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Automation Account.
 	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAccountResult, error) {
+			args := v.(LookupAccountArgs)
+			r, err := LookupAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAccountResultOutput)
+}
+
+// A collection of arguments for invoking getAccount.
+type LookupAccountOutputArgs struct {
+	// The name of the Automation Account.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the Resource Group where the Automation Account exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAccount.
+type LookupAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountResult)(nil)).Elem()
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutput() LookupAccountResultOutput {
+	return o
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx context.Context) LookupAccountResultOutput {
+	return o
+}
+
+// The Endpoint for this Automation Account.
+func (o LookupAccountResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Primary Access Key for the Automation Account.
+func (o LookupAccountResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Secondary Access Key for the Automation Account.
+func (o LookupAccountResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAccountResultOutput{})
 }

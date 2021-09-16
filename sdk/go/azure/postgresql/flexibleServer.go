@@ -433,7 +433,7 @@ type FlexibleServerArrayInput interface {
 type FlexibleServerArray []FlexibleServerInput
 
 func (FlexibleServerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FlexibleServer)(nil))
+	return reflect.TypeOf((*[]*FlexibleServer)(nil)).Elem()
 }
 
 func (i FlexibleServerArray) ToFlexibleServerArrayOutput() FlexibleServerArrayOutput {
@@ -458,7 +458,7 @@ type FlexibleServerMapInput interface {
 type FlexibleServerMap map[string]FlexibleServerInput
 
 func (FlexibleServerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FlexibleServer)(nil))
+	return reflect.TypeOf((*map[string]*FlexibleServer)(nil)).Elem()
 }
 
 func (i FlexibleServerMap) ToFlexibleServerMapOutput() FlexibleServerMapOutput {
@@ -469,9 +469,7 @@ func (i FlexibleServerMap) ToFlexibleServerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerMapOutput)
 }
 
-type FlexibleServerOutput struct {
-	*pulumi.OutputState
-}
+type FlexibleServerOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FlexibleServer)(nil))
@@ -490,14 +488,12 @@ func (o FlexibleServerOutput) ToFlexibleServerPtrOutput() FlexibleServerPtrOutpu
 }
 
 func (o FlexibleServerOutput) ToFlexibleServerPtrOutputWithContext(ctx context.Context) FlexibleServerPtrOutput {
-	return o.ApplyT(func(v FlexibleServer) *FlexibleServer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServer) *FlexibleServer {
 		return &v
 	}).(FlexibleServerPtrOutput)
 }
 
-type FlexibleServerPtrOutput struct {
-	*pulumi.OutputState
-}
+type FlexibleServerPtrOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FlexibleServer)(nil))
@@ -509,6 +505,16 @@ func (o FlexibleServerPtrOutput) ToFlexibleServerPtrOutput() FlexibleServerPtrOu
 
 func (o FlexibleServerPtrOutput) ToFlexibleServerPtrOutputWithContext(ctx context.Context) FlexibleServerPtrOutput {
 	return o
+}
+
+func (o FlexibleServerPtrOutput) Elem() FlexibleServerOutput {
+	return o.ApplyT(func(v *FlexibleServer) FlexibleServer {
+		if v != nil {
+			return *v
+		}
+		var ret FlexibleServer
+		return ret
+	}).(FlexibleServerOutput)
 }
 
 type FlexibleServerArrayOutput struct{ *pulumi.OutputState }

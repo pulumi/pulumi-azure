@@ -260,7 +260,7 @@ type RedisCacheArrayInput interface {
 type RedisCacheArray []RedisCacheInput
 
 func (RedisCacheArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RedisCache)(nil))
+	return reflect.TypeOf((*[]*RedisCache)(nil)).Elem()
 }
 
 func (i RedisCacheArray) ToRedisCacheArrayOutput() RedisCacheArrayOutput {
@@ -285,7 +285,7 @@ type RedisCacheMapInput interface {
 type RedisCacheMap map[string]RedisCacheInput
 
 func (RedisCacheMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RedisCache)(nil))
+	return reflect.TypeOf((*map[string]*RedisCache)(nil)).Elem()
 }
 
 func (i RedisCacheMap) ToRedisCacheMapOutput() RedisCacheMapOutput {
@@ -296,9 +296,7 @@ func (i RedisCacheMap) ToRedisCacheMapOutputWithContext(ctx context.Context) Red
 	return pulumi.ToOutputWithContext(ctx, i).(RedisCacheMapOutput)
 }
 
-type RedisCacheOutput struct {
-	*pulumi.OutputState
-}
+type RedisCacheOutput struct{ *pulumi.OutputState }
 
 func (RedisCacheOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RedisCache)(nil))
@@ -317,14 +315,12 @@ func (o RedisCacheOutput) ToRedisCachePtrOutput() RedisCachePtrOutput {
 }
 
 func (o RedisCacheOutput) ToRedisCachePtrOutputWithContext(ctx context.Context) RedisCachePtrOutput {
-	return o.ApplyT(func(v RedisCache) *RedisCache {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedisCache) *RedisCache {
 		return &v
 	}).(RedisCachePtrOutput)
 }
 
-type RedisCachePtrOutput struct {
-	*pulumi.OutputState
-}
+type RedisCachePtrOutput struct{ *pulumi.OutputState }
 
 func (RedisCachePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RedisCache)(nil))
@@ -336,6 +332,16 @@ func (o RedisCachePtrOutput) ToRedisCachePtrOutput() RedisCachePtrOutput {
 
 func (o RedisCachePtrOutput) ToRedisCachePtrOutputWithContext(ctx context.Context) RedisCachePtrOutput {
 	return o
+}
+
+func (o RedisCachePtrOutput) Elem() RedisCacheOutput {
+	return o.ApplyT(func(v *RedisCache) RedisCache {
+		if v != nil {
+			return *v
+		}
+		var ret RedisCache
+		return ret
+	}).(RedisCacheOutput)
 }
 
 type RedisCacheArrayOutput struct{ *pulumi.OutputState }

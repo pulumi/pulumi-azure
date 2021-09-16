@@ -4,6 +4,9 @@
 package blueprint
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,4 +85,87 @@ type GetDefinitionResult struct {
 	TimeCreated string `pulumi:"timeCreated"`
 	// A list of versions published for this Blueprint Definition.
 	Versions []string `pulumi:"versions"`
+}
+
+func GetDefinitionOutput(ctx *pulumi.Context, args GetDefinitionOutputArgs, opts ...pulumi.InvokeOption) GetDefinitionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDefinitionResult, error) {
+			args := v.(GetDefinitionArgs)
+			r, err := GetDefinition(ctx, &args, opts...)
+			return *r, err
+		}).(GetDefinitionResultOutput)
+}
+
+// A collection of arguments for invoking getDefinition.
+type GetDefinitionOutputArgs struct {
+	// The name of the Blueprint.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the Subscription or Management Group, as the scope at which the blueprint definition is stored.
+	ScopeId pulumi.StringInput `pulumi:"scopeId"`
+}
+
+func (GetDefinitionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDefinitionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDefinition.
+type GetDefinitionResultOutput struct{ *pulumi.OutputState }
+
+func (GetDefinitionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDefinitionResult)(nil)).Elem()
+}
+
+func (o GetDefinitionResultOutput) ToGetDefinitionResultOutput() GetDefinitionResultOutput {
+	return o
+}
+
+func (o GetDefinitionResultOutput) ToGetDefinitionResultOutputWithContext(ctx context.Context) GetDefinitionResultOutput {
+	return o
+}
+
+// The description of the Blueprint Definition.
+func (o GetDefinitionResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefinitionResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of the Blueprint Definition.
+func (o GetDefinitionResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefinitionResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetDefinitionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The timestamp of when this last modification was saved to the Blueprint Definition.
+func (o GetDefinitionResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefinitionResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+func (o GetDefinitionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefinitionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDefinitionResultOutput) ScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefinitionResult) string { return v.ScopeId }).(pulumi.StringOutput)
+}
+
+// The target scope.
+func (o GetDefinitionResultOutput) TargetScope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefinitionResult) string { return v.TargetScope }).(pulumi.StringOutput)
+}
+
+// The timestamp of when this Blueprint Definition was created.
+func (o GetDefinitionResultOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefinitionResult) string { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// A list of versions published for this Blueprint Definition.
+func (o GetDefinitionResultOutput) Versions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDefinitionResult) []string { return v.Versions }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDefinitionResultOutput{})
 }

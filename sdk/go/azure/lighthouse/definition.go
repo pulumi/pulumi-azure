@@ -255,7 +255,7 @@ type DefinitionArrayInput interface {
 type DefinitionArray []DefinitionInput
 
 func (DefinitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Definition)(nil))
+	return reflect.TypeOf((*[]*Definition)(nil)).Elem()
 }
 
 func (i DefinitionArray) ToDefinitionArrayOutput() DefinitionArrayOutput {
@@ -280,7 +280,7 @@ type DefinitionMapInput interface {
 type DefinitionMap map[string]DefinitionInput
 
 func (DefinitionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Definition)(nil))
+	return reflect.TypeOf((*map[string]*Definition)(nil)).Elem()
 }
 
 func (i DefinitionMap) ToDefinitionMapOutput() DefinitionMapOutput {
@@ -291,9 +291,7 @@ func (i DefinitionMap) ToDefinitionMapOutputWithContext(ctx context.Context) Def
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionMapOutput)
 }
 
-type DefinitionOutput struct {
-	*pulumi.OutputState
-}
+type DefinitionOutput struct{ *pulumi.OutputState }
 
 func (DefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Definition)(nil))
@@ -312,14 +310,12 @@ func (o DefinitionOutput) ToDefinitionPtrOutput() DefinitionPtrOutput {
 }
 
 func (o DefinitionOutput) ToDefinitionPtrOutputWithContext(ctx context.Context) DefinitionPtrOutput {
-	return o.ApplyT(func(v Definition) *Definition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Definition) *Definition {
 		return &v
 	}).(DefinitionPtrOutput)
 }
 
-type DefinitionPtrOutput struct {
-	*pulumi.OutputState
-}
+type DefinitionPtrOutput struct{ *pulumi.OutputState }
 
 func (DefinitionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Definition)(nil))
@@ -331,6 +327,16 @@ func (o DefinitionPtrOutput) ToDefinitionPtrOutput() DefinitionPtrOutput {
 
 func (o DefinitionPtrOutput) ToDefinitionPtrOutputWithContext(ctx context.Context) DefinitionPtrOutput {
 	return o
+}
+
+func (o DefinitionPtrOutput) Elem() DefinitionOutput {
+	return o.ApplyT(func(v *Definition) Definition {
+		if v != nil {
+			return *v
+		}
+		var ret Definition
+		return ret
+	}).(DefinitionOutput)
 }
 
 type DefinitionArrayOutput struct{ *pulumi.OutputState }

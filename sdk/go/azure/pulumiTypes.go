@@ -117,10 +117,11 @@ func (o ProviderFeaturesOutput) ToProviderFeaturesPtrOutput() ProviderFeaturesPt
 }
 
 func (o ProviderFeaturesOutput) ToProviderFeaturesPtrOutputWithContext(ctx context.Context) ProviderFeaturesPtrOutput {
-	return o.ApplyT(func(v ProviderFeatures) *ProviderFeatures {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeatures) *ProviderFeatures {
 		return &v
 	}).(ProviderFeaturesPtrOutput)
 }
+
 func (o ProviderFeaturesOutput) ApiManagement() ProviderFeaturesApiManagementPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesApiManagement { return v.ApiManagement }).(ProviderFeaturesApiManagementPtrOutput)
 }
@@ -172,7 +173,13 @@ func (o ProviderFeaturesPtrOutput) ToProviderFeaturesPtrOutputWithContext(ctx co
 }
 
 func (o ProviderFeaturesPtrOutput) Elem() ProviderFeaturesOutput {
-	return o.ApplyT(func(v *ProviderFeatures) ProviderFeatures { return *v }).(ProviderFeaturesOutput)
+	return o.ApplyT(func(v *ProviderFeatures) ProviderFeatures {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeatures
+		return ret
+	}).(ProviderFeaturesOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) ApiManagement() ProviderFeaturesApiManagementPtrOutput {
@@ -347,10 +354,11 @@ func (o ProviderFeaturesApiManagementOutput) ToProviderFeaturesApiManagementPtrO
 }
 
 func (o ProviderFeaturesApiManagementOutput) ToProviderFeaturesApiManagementPtrOutputWithContext(ctx context.Context) ProviderFeaturesApiManagementPtrOutput {
-	return o.ApplyT(func(v ProviderFeaturesApiManagement) *ProviderFeaturesApiManagement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesApiManagement) *ProviderFeaturesApiManagement {
 		return &v
 	}).(ProviderFeaturesApiManagementPtrOutput)
 }
+
 func (o ProviderFeaturesApiManagementOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesApiManagement) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -370,7 +378,13 @@ func (o ProviderFeaturesApiManagementPtrOutput) ToProviderFeaturesApiManagementP
 }
 
 func (o ProviderFeaturesApiManagementPtrOutput) Elem() ProviderFeaturesApiManagementOutput {
-	return o.ApplyT(func(v *ProviderFeaturesApiManagement) ProviderFeaturesApiManagement { return *v }).(ProviderFeaturesApiManagementOutput)
+	return o.ApplyT(func(v *ProviderFeaturesApiManagement) ProviderFeaturesApiManagement {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesApiManagement
+		return ret
+	}).(ProviderFeaturesApiManagementOutput)
 }
 
 func (o ProviderFeaturesApiManagementPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
@@ -473,10 +487,11 @@ func (o ProviderFeaturesCognitiveAccountOutput) ToProviderFeaturesCognitiveAccou
 }
 
 func (o ProviderFeaturesCognitiveAccountOutput) ToProviderFeaturesCognitiveAccountPtrOutputWithContext(ctx context.Context) ProviderFeaturesCognitiveAccountPtrOutput {
-	return o.ApplyT(func(v ProviderFeaturesCognitiveAccount) *ProviderFeaturesCognitiveAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesCognitiveAccount) *ProviderFeaturesCognitiveAccount {
 		return &v
 	}).(ProviderFeaturesCognitiveAccountPtrOutput)
 }
+
 func (o ProviderFeaturesCognitiveAccountOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesCognitiveAccount) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -496,7 +511,13 @@ func (o ProviderFeaturesCognitiveAccountPtrOutput) ToProviderFeaturesCognitiveAc
 }
 
 func (o ProviderFeaturesCognitiveAccountPtrOutput) Elem() ProviderFeaturesCognitiveAccountOutput {
-	return o.ApplyT(func(v *ProviderFeaturesCognitiveAccount) ProviderFeaturesCognitiveAccount { return *v }).(ProviderFeaturesCognitiveAccountOutput)
+	return o.ApplyT(func(v *ProviderFeaturesCognitiveAccount) ProviderFeaturesCognitiveAccount {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesCognitiveAccount
+		return ret
+	}).(ProviderFeaturesCognitiveAccountOutput)
 }
 
 func (o ProviderFeaturesCognitiveAccountPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
@@ -601,10 +622,11 @@ func (o ProviderFeaturesKeyVaultOutput) ToProviderFeaturesKeyVaultPtrOutput() Pr
 }
 
 func (o ProviderFeaturesKeyVaultOutput) ToProviderFeaturesKeyVaultPtrOutputWithContext(ctx context.Context) ProviderFeaturesKeyVaultPtrOutput {
-	return o.ApplyT(func(v ProviderFeaturesKeyVault) *ProviderFeaturesKeyVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesKeyVault) *ProviderFeaturesKeyVault {
 		return &v
 	}).(ProviderFeaturesKeyVaultPtrOutput)
 }
+
 func (o ProviderFeaturesKeyVaultOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -628,7 +650,13 @@ func (o ProviderFeaturesKeyVaultPtrOutput) ToProviderFeaturesKeyVaultPtrOutputWi
 }
 
 func (o ProviderFeaturesKeyVaultPtrOutput) Elem() ProviderFeaturesKeyVaultOutput {
-	return o.ApplyT(func(v *ProviderFeaturesKeyVault) ProviderFeaturesKeyVault { return *v }).(ProviderFeaturesKeyVaultOutput)
+	return o.ApplyT(func(v *ProviderFeaturesKeyVault) ProviderFeaturesKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesKeyVault
+		return ret
+	}).(ProviderFeaturesKeyVaultOutput)
 }
 
 func (o ProviderFeaturesKeyVaultPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
@@ -740,10 +768,11 @@ func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) ToProviderFeaturesLogAnalyt
 }
 
 func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
-	return o.ApplyT(func(v ProviderFeaturesLogAnalyticsWorkspace) *ProviderFeaturesLogAnalyticsWorkspace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesLogAnalyticsWorkspace) *ProviderFeaturesLogAnalyticsWorkspace {
 		return &v
 	}).(ProviderFeaturesLogAnalyticsWorkspacePtrOutput)
 }
+
 func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) PermanentlyDeleteOnDestroy() pulumi.BoolOutput {
 	return o.ApplyT(func(v ProviderFeaturesLogAnalyticsWorkspace) bool { return v.PermanentlyDeleteOnDestroy }).(pulumi.BoolOutput)
 }
@@ -763,7 +792,13 @@ func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) ToProviderFeaturesLogAna
 }
 
 func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) Elem() ProviderFeaturesLogAnalyticsWorkspaceOutput {
-	return o.ApplyT(func(v *ProviderFeaturesLogAnalyticsWorkspace) ProviderFeaturesLogAnalyticsWorkspace { return *v }).(ProviderFeaturesLogAnalyticsWorkspaceOutput)
+	return o.ApplyT(func(v *ProviderFeaturesLogAnalyticsWorkspace) ProviderFeaturesLogAnalyticsWorkspace {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesLogAnalyticsWorkspace
+		return ret
+	}).(ProviderFeaturesLogAnalyticsWorkspaceOutput)
 }
 
 func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) PermanentlyDeleteOnDestroy() pulumi.BoolPtrOutput {
@@ -866,10 +901,11 @@ func (o ProviderFeaturesNetworkOutput) ToProviderFeaturesNetworkPtrOutput() Prov
 }
 
 func (o ProviderFeaturesNetworkOutput) ToProviderFeaturesNetworkPtrOutputWithContext(ctx context.Context) ProviderFeaturesNetworkPtrOutput {
-	return o.ApplyT(func(v ProviderFeaturesNetwork) *ProviderFeaturesNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesNetwork) *ProviderFeaturesNetwork {
 		return &v
 	}).(ProviderFeaturesNetworkPtrOutput)
 }
+
 func (o ProviderFeaturesNetworkOutput) RelaxedLocking() pulumi.BoolOutput {
 	return o.ApplyT(func(v ProviderFeaturesNetwork) bool { return v.RelaxedLocking }).(pulumi.BoolOutput)
 }
@@ -889,7 +925,13 @@ func (o ProviderFeaturesNetworkPtrOutput) ToProviderFeaturesNetworkPtrOutputWith
 }
 
 func (o ProviderFeaturesNetworkPtrOutput) Elem() ProviderFeaturesNetworkOutput {
-	return o.ApplyT(func(v *ProviderFeaturesNetwork) ProviderFeaturesNetwork { return *v }).(ProviderFeaturesNetworkOutput)
+	return o.ApplyT(func(v *ProviderFeaturesNetwork) ProviderFeaturesNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesNetwork
+		return ret
+	}).(ProviderFeaturesNetworkOutput)
 }
 
 func (o ProviderFeaturesNetworkPtrOutput) RelaxedLocking() pulumi.BoolPtrOutput {
@@ -992,10 +1034,11 @@ func (o ProviderFeaturesResourceGroupOutput) ToProviderFeaturesResourceGroupPtrO
 }
 
 func (o ProviderFeaturesResourceGroupOutput) ToProviderFeaturesResourceGroupPtrOutputWithContext(ctx context.Context) ProviderFeaturesResourceGroupPtrOutput {
-	return o.ApplyT(func(v ProviderFeaturesResourceGroup) *ProviderFeaturesResourceGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesResourceGroup) *ProviderFeaturesResourceGroup {
 		return &v
 	}).(ProviderFeaturesResourceGroupPtrOutput)
 }
+
 func (o ProviderFeaturesResourceGroupOutput) PreventDeletionIfContainsResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesResourceGroup) *bool { return v.PreventDeletionIfContainsResources }).(pulumi.BoolPtrOutput)
 }
@@ -1015,7 +1058,13 @@ func (o ProviderFeaturesResourceGroupPtrOutput) ToProviderFeaturesResourceGroupP
 }
 
 func (o ProviderFeaturesResourceGroupPtrOutput) Elem() ProviderFeaturesResourceGroupOutput {
-	return o.ApplyT(func(v *ProviderFeaturesResourceGroup) ProviderFeaturesResourceGroup { return *v }).(ProviderFeaturesResourceGroupOutput)
+	return o.ApplyT(func(v *ProviderFeaturesResourceGroup) ProviderFeaturesResourceGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesResourceGroup
+		return ret
+	}).(ProviderFeaturesResourceGroupOutput)
 }
 
 func (o ProviderFeaturesResourceGroupPtrOutput) PreventDeletionIfContainsResources() pulumi.BoolPtrOutput {
@@ -1118,10 +1167,11 @@ func (o ProviderFeaturesTemplateDeploymentOutput) ToProviderFeaturesTemplateDepl
 }
 
 func (o ProviderFeaturesTemplateDeploymentOutput) ToProviderFeaturesTemplateDeploymentPtrOutputWithContext(ctx context.Context) ProviderFeaturesTemplateDeploymentPtrOutput {
-	return o.ApplyT(func(v ProviderFeaturesTemplateDeployment) *ProviderFeaturesTemplateDeployment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesTemplateDeployment) *ProviderFeaturesTemplateDeployment {
 		return &v
 	}).(ProviderFeaturesTemplateDeploymentPtrOutput)
 }
+
 func (o ProviderFeaturesTemplateDeploymentOutput) DeleteNestedItemsDuringDeletion() pulumi.BoolOutput {
 	return o.ApplyT(func(v ProviderFeaturesTemplateDeployment) bool { return v.DeleteNestedItemsDuringDeletion }).(pulumi.BoolOutput)
 }
@@ -1141,7 +1191,13 @@ func (o ProviderFeaturesTemplateDeploymentPtrOutput) ToProviderFeaturesTemplateD
 }
 
 func (o ProviderFeaturesTemplateDeploymentPtrOutput) Elem() ProviderFeaturesTemplateDeploymentOutput {
-	return o.ApplyT(func(v *ProviderFeaturesTemplateDeployment) ProviderFeaturesTemplateDeployment { return *v }).(ProviderFeaturesTemplateDeploymentOutput)
+	return o.ApplyT(func(v *ProviderFeaturesTemplateDeployment) ProviderFeaturesTemplateDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesTemplateDeployment
+		return ret
+	}).(ProviderFeaturesTemplateDeploymentOutput)
 }
 
 func (o ProviderFeaturesTemplateDeploymentPtrOutput) DeleteNestedItemsDuringDeletion() pulumi.BoolPtrOutput {
@@ -1248,10 +1304,11 @@ func (o ProviderFeaturesVirtualMachineOutput) ToProviderFeaturesVirtualMachinePt
 }
 
 func (o ProviderFeaturesVirtualMachineOutput) ToProviderFeaturesVirtualMachinePtrOutputWithContext(ctx context.Context) ProviderFeaturesVirtualMachinePtrOutput {
-	return o.ApplyT(func(v ProviderFeaturesVirtualMachine) *ProviderFeaturesVirtualMachine {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesVirtualMachine) *ProviderFeaturesVirtualMachine {
 		return &v
 	}).(ProviderFeaturesVirtualMachinePtrOutput)
 }
+
 func (o ProviderFeaturesVirtualMachineOutput) DeleteOsDiskOnDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesVirtualMachine) *bool { return v.DeleteOsDiskOnDeletion }).(pulumi.BoolPtrOutput)
 }
@@ -1279,7 +1336,13 @@ func (o ProviderFeaturesVirtualMachinePtrOutput) ToProviderFeaturesVirtualMachin
 }
 
 func (o ProviderFeaturesVirtualMachinePtrOutput) Elem() ProviderFeaturesVirtualMachineOutput {
-	return o.ApplyT(func(v *ProviderFeaturesVirtualMachine) ProviderFeaturesVirtualMachine { return *v }).(ProviderFeaturesVirtualMachineOutput)
+	return o.ApplyT(func(v *ProviderFeaturesVirtualMachine) ProviderFeaturesVirtualMachine {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesVirtualMachine
+		return ret
+	}).(ProviderFeaturesVirtualMachineOutput)
 }
 
 func (o ProviderFeaturesVirtualMachinePtrOutput) DeleteOsDiskOnDeletion() pulumi.BoolPtrOutput {
@@ -1402,10 +1465,11 @@ func (o ProviderFeaturesVirtualMachineScaleSetOutput) ToProviderFeaturesVirtualM
 }
 
 func (o ProviderFeaturesVirtualMachineScaleSetOutput) ToProviderFeaturesVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) ProviderFeaturesVirtualMachineScaleSetPtrOutput {
-	return o.ApplyT(func(v ProviderFeaturesVirtualMachineScaleSet) *ProviderFeaturesVirtualMachineScaleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesVirtualMachineScaleSet) *ProviderFeaturesVirtualMachineScaleSet {
 		return &v
 	}).(ProviderFeaturesVirtualMachineScaleSetPtrOutput)
 }
+
 func (o ProviderFeaturesVirtualMachineScaleSetOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesVirtualMachineScaleSet) *bool { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
@@ -1429,7 +1493,13 @@ func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) ToProviderFeaturesVirtu
 }
 
 func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) Elem() ProviderFeaturesVirtualMachineScaleSetOutput {
-	return o.ApplyT(func(v *ProviderFeaturesVirtualMachineScaleSet) ProviderFeaturesVirtualMachineScaleSet { return *v }).(ProviderFeaturesVirtualMachineScaleSetOutput)
+	return o.ApplyT(func(v *ProviderFeaturesVirtualMachineScaleSet) ProviderFeaturesVirtualMachineScaleSet {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesVirtualMachineScaleSet
+		return ret
+	}).(ProviderFeaturesVirtualMachineScaleSetOutput)
 }
 
 func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) ForceDelete() pulumi.BoolPtrOutput {

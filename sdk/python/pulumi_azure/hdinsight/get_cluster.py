@@ -13,6 +13,7 @@ __all__ = [
     'GetClusterResult',
     'AwaitableGetClusterResult',
     'get_cluster',
+    'get_cluster_output',
 ]
 
 @pulumi.output_type
@@ -251,3 +252,28 @@ def get_cluster(name: Optional[str] = None,
         tags=__ret__.tags,
         tier=__ret__.tier,
         tls_min_version=__ret__.tls_min_version)
+
+
+@_utilities.lift_output_func(get_cluster)
+def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+    """
+    Use this data source to access information about an existing HDInsight Cluster.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.hdinsight.get_cluster(name="example",
+        resource_group_name="example-resources")
+    pulumi.export("httpsEndpoint", example.https_endpoint)
+    ```
+
+
+    :param str name: Specifies the name of this HDInsight Cluster.
+    :param str resource_group_name: Specifies the name of the Resource Group in which this HDInsight Cluster exists.
+    """
+    ...

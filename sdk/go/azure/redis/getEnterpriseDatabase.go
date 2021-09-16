@@ -4,6 +4,9 @@
 package redis
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,75 @@ type LookupEnterpriseDatabaseResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Enterprise Database instance.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
+}
+
+func LookupEnterpriseDatabaseOutput(ctx *pulumi.Context, args LookupEnterpriseDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupEnterpriseDatabaseResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupEnterpriseDatabaseResult, error) {
+			args := v.(LookupEnterpriseDatabaseArgs)
+			r, err := LookupEnterpriseDatabase(ctx, &args, opts...)
+			return *r, err
+		}).(LookupEnterpriseDatabaseResultOutput)
+}
+
+// A collection of arguments for invoking getEnterpriseDatabase.
+type LookupEnterpriseDatabaseOutputArgs struct {
+	// The resource ID of Redis Enterprise Cluster which hosts the Redis Enterprise Database instance.
+	ClusterId pulumi.StringInput `pulumi:"clusterId"`
+	// The name of the Redis Enterprise Database.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group the Redis Enterprise Database instance is located in.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupEnterpriseDatabaseOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEnterpriseDatabaseArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getEnterpriseDatabase.
+type LookupEnterpriseDatabaseResultOutput struct{ *pulumi.OutputState }
+
+func (LookupEnterpriseDatabaseResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEnterpriseDatabaseResult)(nil)).Elem()
+}
+
+func (o LookupEnterpriseDatabaseResultOutput) ToLookupEnterpriseDatabaseResultOutput() LookupEnterpriseDatabaseResultOutput {
+	return o
+}
+
+func (o LookupEnterpriseDatabaseResultOutput) ToLookupEnterpriseDatabaseResultOutputWithContext(ctx context.Context) LookupEnterpriseDatabaseResultOutput {
+	return o
+}
+
+// The Redis Enterprise Cluster ID that is hosting the Redis Enterprise Database.
+func (o LookupEnterpriseDatabaseResultOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) string { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupEnterpriseDatabaseResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Redis Enterprise Database name.
+func (o LookupEnterpriseDatabaseResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Primary Access Key for the Redis Enterprise Database instance.
+func (o LookupEnterpriseDatabaseResultOutput) PrimaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) string { return v.PrimaryAccessKey }).(pulumi.StringOutput)
+}
+
+func (o LookupEnterpriseDatabaseResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Secondary Access Key for the Redis Enterprise Database instance.
+func (o LookupEnterpriseDatabaseResultOutput) SecondaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) string { return v.SecondaryAccessKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupEnterpriseDatabaseResultOutput{})
 }

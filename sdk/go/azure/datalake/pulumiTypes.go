@@ -107,10 +107,11 @@ func (o StoreIdentityOutput) ToStoreIdentityPtrOutput() StoreIdentityPtrOutput {
 }
 
 func (o StoreIdentityOutput) ToStoreIdentityPtrOutputWithContext(ctx context.Context) StoreIdentityPtrOutput {
-	return o.ApplyT(func(v StoreIdentity) *StoreIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StoreIdentity) *StoreIdentity {
 		return &v
 	}).(StoreIdentityPtrOutput)
 }
+
 func (o StoreIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StoreIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -139,7 +140,13 @@ func (o StoreIdentityPtrOutput) ToStoreIdentityPtrOutputWithContext(ctx context.
 }
 
 func (o StoreIdentityPtrOutput) Elem() StoreIdentityOutput {
-	return o.ApplyT(func(v *StoreIdentity) StoreIdentity { return *v }).(StoreIdentityOutput)
+	return o.ApplyT(func(v *StoreIdentity) StoreIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret StoreIdentity
+		return ret
+	}).(StoreIdentityOutput)
 }
 
 func (o StoreIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {

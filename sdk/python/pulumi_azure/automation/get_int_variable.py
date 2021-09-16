@@ -12,6 +12,7 @@ __all__ = [
     'GetIntVariableResult',
     'AwaitableGetIntVariableResult',
     'get_int_variable',
+    'get_int_variable_output',
 ]
 
 @pulumi.output_type
@@ -147,3 +148,31 @@ def get_int_variable(automation_account_name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_int_variable)
+def get_int_variable_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                            name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntVariableResult]:
+    """
+    Use this data source to access information about an existing Automation Int Variable.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.automation.get_int_variable(name="tfex-example-var",
+        resource_group_name="tfex-example-rg",
+        automation_account_name="tfex-example-account")
+    pulumi.export("variableId", example.id)
+    ```
+
+
+    :param str automation_account_name: The name of the automation account in which the Automation Variable exists.
+    :param str name: The name of the Automation Variable.
+    :param str resource_group_name: The Name of the Resource Group where the automation account exists.
+    """
+    ...

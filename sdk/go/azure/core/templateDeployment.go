@@ -268,7 +268,7 @@ type TemplateDeploymentArrayInput interface {
 type TemplateDeploymentArray []TemplateDeploymentInput
 
 func (TemplateDeploymentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TemplateDeployment)(nil))
+	return reflect.TypeOf((*[]*TemplateDeployment)(nil)).Elem()
 }
 
 func (i TemplateDeploymentArray) ToTemplateDeploymentArrayOutput() TemplateDeploymentArrayOutput {
@@ -293,7 +293,7 @@ type TemplateDeploymentMapInput interface {
 type TemplateDeploymentMap map[string]TemplateDeploymentInput
 
 func (TemplateDeploymentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TemplateDeployment)(nil))
+	return reflect.TypeOf((*map[string]*TemplateDeployment)(nil)).Elem()
 }
 
 func (i TemplateDeploymentMap) ToTemplateDeploymentMapOutput() TemplateDeploymentMapOutput {
@@ -304,9 +304,7 @@ func (i TemplateDeploymentMap) ToTemplateDeploymentMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateDeploymentMapOutput)
 }
 
-type TemplateDeploymentOutput struct {
-	*pulumi.OutputState
-}
+type TemplateDeploymentOutput struct{ *pulumi.OutputState }
 
 func (TemplateDeploymentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TemplateDeployment)(nil))
@@ -325,14 +323,12 @@ func (o TemplateDeploymentOutput) ToTemplateDeploymentPtrOutput() TemplateDeploy
 }
 
 func (o TemplateDeploymentOutput) ToTemplateDeploymentPtrOutputWithContext(ctx context.Context) TemplateDeploymentPtrOutput {
-	return o.ApplyT(func(v TemplateDeployment) *TemplateDeployment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateDeployment) *TemplateDeployment {
 		return &v
 	}).(TemplateDeploymentPtrOutput)
 }
 
-type TemplateDeploymentPtrOutput struct {
-	*pulumi.OutputState
-}
+type TemplateDeploymentPtrOutput struct{ *pulumi.OutputState }
 
 func (TemplateDeploymentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TemplateDeployment)(nil))
@@ -344,6 +340,16 @@ func (o TemplateDeploymentPtrOutput) ToTemplateDeploymentPtrOutput() TemplateDep
 
 func (o TemplateDeploymentPtrOutput) ToTemplateDeploymentPtrOutputWithContext(ctx context.Context) TemplateDeploymentPtrOutput {
 	return o
+}
+
+func (o TemplateDeploymentPtrOutput) Elem() TemplateDeploymentOutput {
+	return o.ApplyT(func(v *TemplateDeployment) TemplateDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateDeployment
+		return ret
+	}).(TemplateDeploymentOutput)
 }
 
 type TemplateDeploymentArrayOutput struct{ *pulumi.OutputState }

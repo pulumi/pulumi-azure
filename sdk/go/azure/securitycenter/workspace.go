@@ -206,7 +206,7 @@ type WorkspaceArrayInput interface {
 type WorkspaceArray []WorkspaceInput
 
 func (WorkspaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Workspace)(nil))
+	return reflect.TypeOf((*[]*Workspace)(nil)).Elem()
 }
 
 func (i WorkspaceArray) ToWorkspaceArrayOutput() WorkspaceArrayOutput {
@@ -231,7 +231,7 @@ type WorkspaceMapInput interface {
 type WorkspaceMap map[string]WorkspaceInput
 
 func (WorkspaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Workspace)(nil))
+	return reflect.TypeOf((*map[string]*Workspace)(nil)).Elem()
 }
 
 func (i WorkspaceMap) ToWorkspaceMapOutput() WorkspaceMapOutput {
@@ -242,9 +242,7 @@ func (i WorkspaceMap) ToWorkspaceMapOutputWithContext(ctx context.Context) Works
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceMapOutput)
 }
 
-type WorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workspace)(nil))
@@ -263,14 +261,12 @@ func (o WorkspaceOutput) ToWorkspacePtrOutput() WorkspacePtrOutput {
 }
 
 func (o WorkspaceOutput) ToWorkspacePtrOutputWithContext(ctx context.Context) WorkspacePtrOutput {
-	return o.ApplyT(func(v Workspace) *Workspace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Workspace) *Workspace {
 		return &v
 	}).(WorkspacePtrOutput)
 }
 
-type WorkspacePtrOutput struct {
-	*pulumi.OutputState
-}
+type WorkspacePtrOutput struct{ *pulumi.OutputState }
 
 func (WorkspacePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Workspace)(nil))
@@ -282,6 +278,16 @@ func (o WorkspacePtrOutput) ToWorkspacePtrOutput() WorkspacePtrOutput {
 
 func (o WorkspacePtrOutput) ToWorkspacePtrOutputWithContext(ctx context.Context) WorkspacePtrOutput {
 	return o
+}
+
+func (o WorkspacePtrOutput) Elem() WorkspaceOutput {
+	return o.ApplyT(func(v *Workspace) Workspace {
+		if v != nil {
+			return *v
+		}
+		var ret Workspace
+		return ret
+	}).(WorkspaceOutput)
 }
 
 type WorkspaceArrayOutput struct{ *pulumi.OutputState }

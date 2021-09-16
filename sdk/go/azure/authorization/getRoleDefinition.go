@@ -4,6 +4,9 @@
 package authorization
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,83 @@ type LookupRoleDefinitionResult struct {
 	Scope            *string                       `pulumi:"scope"`
 	// the Type of the Role.
 	Type string `pulumi:"type"`
+}
+
+func LookupRoleDefinitionOutput(ctx *pulumi.Context, args LookupRoleDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupRoleDefinitionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRoleDefinitionResult, error) {
+			args := v.(LookupRoleDefinitionArgs)
+			r, err := LookupRoleDefinition(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRoleDefinitionResultOutput)
+}
+
+// A collection of arguments for invoking getRoleDefinition.
+type LookupRoleDefinitionOutputArgs struct {
+	// Specifies the Name of either a built-in or custom Role Definition.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies the ID of the Role Definition as a UUID/GUID.
+	RoleDefinitionId pulumi.StringPtrInput `pulumi:"roleDefinitionId"`
+	// Specifies the Scope at which the Custom Role Definition exists.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+}
+
+func (LookupRoleDefinitionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRoleDefinitionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRoleDefinition.
+type LookupRoleDefinitionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRoleDefinitionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRoleDefinitionResult)(nil)).Elem()
+}
+
+func (o LookupRoleDefinitionResultOutput) ToLookupRoleDefinitionResultOutput() LookupRoleDefinitionResultOutput {
+	return o
+}
+
+func (o LookupRoleDefinitionResultOutput) ToLookupRoleDefinitionResultOutputWithContext(ctx context.Context) LookupRoleDefinitionResultOutput {
+	return o
+}
+
+// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+func (o LookupRoleDefinitionResultOutput) AssignableScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) []string { return v.AssignableScopes }).(pulumi.StringArrayOutput)
+}
+
+// the Description of the built-in Role.
+func (o LookupRoleDefinitionResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupRoleDefinitionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupRoleDefinitionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// a `permissions` block as documented below.
+func (o LookupRoleDefinitionResultOutput) Permissions() GetRoleDefinitionPermissionArrayOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) []GetRoleDefinitionPermission { return v.Permissions }).(GetRoleDefinitionPermissionArrayOutput)
+}
+
+func (o LookupRoleDefinitionResultOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+func (o LookupRoleDefinitionResultOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// the Type of the Role.
+func (o LookupRoleDefinitionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRoleDefinitionResultOutput{})
 }

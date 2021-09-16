@@ -200,7 +200,7 @@ type ProfileArrayInput interface {
 type ProfileArray []ProfileInput
 
 func (ProfileArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Profile)(nil))
+	return reflect.TypeOf((*[]*Profile)(nil)).Elem()
 }
 
 func (i ProfileArray) ToProfileArrayOutput() ProfileArrayOutput {
@@ -225,7 +225,7 @@ type ProfileMapInput interface {
 type ProfileMap map[string]ProfileInput
 
 func (ProfileMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Profile)(nil))
+	return reflect.TypeOf((*map[string]*Profile)(nil)).Elem()
 }
 
 func (i ProfileMap) ToProfileMapOutput() ProfileMapOutput {
@@ -236,9 +236,7 @@ func (i ProfileMap) ToProfileMapOutputWithContext(ctx context.Context) ProfileMa
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileMapOutput)
 }
 
-type ProfileOutput struct {
-	*pulumi.OutputState
-}
+type ProfileOutput struct{ *pulumi.OutputState }
 
 func (ProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Profile)(nil))
@@ -257,14 +255,12 @@ func (o ProfileOutput) ToProfilePtrOutput() ProfilePtrOutput {
 }
 
 func (o ProfileOutput) ToProfilePtrOutputWithContext(ctx context.Context) ProfilePtrOutput {
-	return o.ApplyT(func(v Profile) *Profile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Profile) *Profile {
 		return &v
 	}).(ProfilePtrOutput)
 }
 
-type ProfilePtrOutput struct {
-	*pulumi.OutputState
-}
+type ProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (ProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Profile)(nil))
@@ -276,6 +272,16 @@ func (o ProfilePtrOutput) ToProfilePtrOutput() ProfilePtrOutput {
 
 func (o ProfilePtrOutput) ToProfilePtrOutputWithContext(ctx context.Context) ProfilePtrOutput {
 	return o
+}
+
+func (o ProfilePtrOutput) Elem() ProfileOutput {
+	return o.ApplyT(func(v *Profile) Profile {
+		if v != nil {
+			return *v
+		}
+		var ret Profile
+		return ret
+	}).(ProfileOutput)
 }
 
 type ProfileArrayOutput struct{ *pulumi.OutputState }

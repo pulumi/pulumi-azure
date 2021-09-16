@@ -271,7 +271,7 @@ type SavedSearchArrayInput interface {
 type SavedSearchArray []SavedSearchInput
 
 func (SavedSearchArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SavedSearch)(nil))
+	return reflect.TypeOf((*[]*SavedSearch)(nil)).Elem()
 }
 
 func (i SavedSearchArray) ToSavedSearchArrayOutput() SavedSearchArrayOutput {
@@ -296,7 +296,7 @@ type SavedSearchMapInput interface {
 type SavedSearchMap map[string]SavedSearchInput
 
 func (SavedSearchMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SavedSearch)(nil))
+	return reflect.TypeOf((*map[string]*SavedSearch)(nil)).Elem()
 }
 
 func (i SavedSearchMap) ToSavedSearchMapOutput() SavedSearchMapOutput {
@@ -307,9 +307,7 @@ func (i SavedSearchMap) ToSavedSearchMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchMapOutput)
 }
 
-type SavedSearchOutput struct {
-	*pulumi.OutputState
-}
+type SavedSearchOutput struct{ *pulumi.OutputState }
 
 func (SavedSearchOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SavedSearch)(nil))
@@ -328,14 +326,12 @@ func (o SavedSearchOutput) ToSavedSearchPtrOutput() SavedSearchPtrOutput {
 }
 
 func (o SavedSearchOutput) ToSavedSearchPtrOutputWithContext(ctx context.Context) SavedSearchPtrOutput {
-	return o.ApplyT(func(v SavedSearch) *SavedSearch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SavedSearch) *SavedSearch {
 		return &v
 	}).(SavedSearchPtrOutput)
 }
 
-type SavedSearchPtrOutput struct {
-	*pulumi.OutputState
-}
+type SavedSearchPtrOutput struct{ *pulumi.OutputState }
 
 func (SavedSearchPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SavedSearch)(nil))
@@ -347,6 +343,16 @@ func (o SavedSearchPtrOutput) ToSavedSearchPtrOutput() SavedSearchPtrOutput {
 
 func (o SavedSearchPtrOutput) ToSavedSearchPtrOutputWithContext(ctx context.Context) SavedSearchPtrOutput {
 	return o
+}
+
+func (o SavedSearchPtrOutput) Elem() SavedSearchOutput {
+	return o.ApplyT(func(v *SavedSearch) SavedSearch {
+		if v != nil {
+			return *v
+		}
+		var ret SavedSearch
+		return ret
+	}).(SavedSearchOutput)
 }
 
 type SavedSearchArrayOutput struct{ *pulumi.OutputState }

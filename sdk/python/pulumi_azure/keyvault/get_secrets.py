@@ -12,6 +12,7 @@ __all__ = [
     'GetSecretsResult',
     'AwaitableGetSecretsResult',
     'get_secrets',
+    'get_secrets_output',
 ]
 
 @pulumi.output_type
@@ -86,3 +87,15 @@ def get_secrets(key_vault_id: Optional[str] = None,
         id=__ret__.id,
         key_vault_id=__ret__.key_vault_id,
         names=__ret__.names)
+
+
+@_utilities.lift_output_func(get_secrets)
+def get_secrets_output(key_vault_id: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretsResult]:
+    """
+    Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+
+
+    :param str key_vault_id: Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
+    """
+    ...

@@ -291,7 +291,7 @@ type VirtualMachineScaleSetExtensionArrayInput interface {
 type VirtualMachineScaleSetExtensionArray []VirtualMachineScaleSetExtensionInput
 
 func (VirtualMachineScaleSetExtensionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualMachineScaleSetExtension)(nil))
+	return reflect.TypeOf((*[]*VirtualMachineScaleSetExtension)(nil)).Elem()
 }
 
 func (i VirtualMachineScaleSetExtensionArray) ToVirtualMachineScaleSetExtensionArrayOutput() VirtualMachineScaleSetExtensionArrayOutput {
@@ -316,7 +316,7 @@ type VirtualMachineScaleSetExtensionMapInput interface {
 type VirtualMachineScaleSetExtensionMap map[string]VirtualMachineScaleSetExtensionInput
 
 func (VirtualMachineScaleSetExtensionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualMachineScaleSetExtension)(nil))
+	return reflect.TypeOf((*map[string]*VirtualMachineScaleSetExtension)(nil)).Elem()
 }
 
 func (i VirtualMachineScaleSetExtensionMap) ToVirtualMachineScaleSetExtensionMapOutput() VirtualMachineScaleSetExtensionMapOutput {
@@ -327,9 +327,7 @@ func (i VirtualMachineScaleSetExtensionMap) ToVirtualMachineScaleSetExtensionMap
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionMapOutput)
 }
 
-type VirtualMachineScaleSetExtensionOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineScaleSetExtensionOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineScaleSetExtension)(nil))
@@ -348,14 +346,12 @@ func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtension
 }
 
 func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtensionPtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtension) *VirtualMachineScaleSetExtension {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetExtension) *VirtualMachineScaleSetExtension {
 		return &v
 	}).(VirtualMachineScaleSetExtensionPtrOutput)
 }
 
-type VirtualMachineScaleSetExtensionPtrOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineScaleSetExtensionPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetExtensionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineScaleSetExtension)(nil))
@@ -367,6 +363,16 @@ func (o VirtualMachineScaleSetExtensionPtrOutput) ToVirtualMachineScaleSetExtens
 
 func (o VirtualMachineScaleSetExtensionPtrOutput) ToVirtualMachineScaleSetExtensionPtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPtrOutput {
 	return o
+}
+
+func (o VirtualMachineScaleSetExtensionPtrOutput) Elem() VirtualMachineScaleSetExtensionOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) VirtualMachineScaleSetExtension {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineScaleSetExtension
+		return ret
+	}).(VirtualMachineScaleSetExtensionOutput)
 }
 
 type VirtualMachineScaleSetExtensionArrayOutput struct{ *pulumi.OutputState }

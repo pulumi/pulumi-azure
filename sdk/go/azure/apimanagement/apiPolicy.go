@@ -231,7 +231,7 @@ type ApiPolicyArrayInput interface {
 type ApiPolicyArray []ApiPolicyInput
 
 func (ApiPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiPolicy)(nil))
+	return reflect.TypeOf((*[]*ApiPolicy)(nil)).Elem()
 }
 
 func (i ApiPolicyArray) ToApiPolicyArrayOutput() ApiPolicyArrayOutput {
@@ -256,7 +256,7 @@ type ApiPolicyMapInput interface {
 type ApiPolicyMap map[string]ApiPolicyInput
 
 func (ApiPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ApiPolicy)(nil)).Elem()
 }
 
 func (i ApiPolicyMap) ToApiPolicyMapOutput() ApiPolicyMapOutput {
@@ -267,9 +267,7 @@ func (i ApiPolicyMap) ToApiPolicyMapOutputWithContext(ctx context.Context) ApiPo
 	return pulumi.ToOutputWithContext(ctx, i).(ApiPolicyMapOutput)
 }
 
-type ApiPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ApiPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApiPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiPolicy)(nil))
@@ -288,14 +286,12 @@ func (o ApiPolicyOutput) ToApiPolicyPtrOutput() ApiPolicyPtrOutput {
 }
 
 func (o ApiPolicyOutput) ToApiPolicyPtrOutputWithContext(ctx context.Context) ApiPolicyPtrOutput {
-	return o.ApplyT(func(v ApiPolicy) *ApiPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiPolicy) *ApiPolicy {
 		return &v
 	}).(ApiPolicyPtrOutput)
 }
 
-type ApiPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApiPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiPolicy)(nil))
@@ -307,6 +303,16 @@ func (o ApiPolicyPtrOutput) ToApiPolicyPtrOutput() ApiPolicyPtrOutput {
 
 func (o ApiPolicyPtrOutput) ToApiPolicyPtrOutputWithContext(ctx context.Context) ApiPolicyPtrOutput {
 	return o
+}
+
+func (o ApiPolicyPtrOutput) Elem() ApiPolicyOutput {
+	return o.ApplyT(func(v *ApiPolicy) ApiPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ApiPolicy
+		return ret
+	}).(ApiPolicyOutput)
 }
 
 type ApiPolicyArrayOutput struct{ *pulumi.OutputState }

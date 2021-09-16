@@ -298,7 +298,7 @@ type LinkedServiceOdataArrayInput interface {
 type LinkedServiceOdataArray []LinkedServiceOdataInput
 
 func (LinkedServiceOdataArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LinkedServiceOdata)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceOdata)(nil)).Elem()
 }
 
 func (i LinkedServiceOdataArray) ToLinkedServiceOdataArrayOutput() LinkedServiceOdataArrayOutput {
@@ -323,7 +323,7 @@ type LinkedServiceOdataMapInput interface {
 type LinkedServiceOdataMap map[string]LinkedServiceOdataInput
 
 func (LinkedServiceOdataMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LinkedServiceOdata)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceOdata)(nil)).Elem()
 }
 
 func (i LinkedServiceOdataMap) ToLinkedServiceOdataMapOutput() LinkedServiceOdataMapOutput {
@@ -334,9 +334,7 @@ func (i LinkedServiceOdataMap) ToLinkedServiceOdataMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOdataMapOutput)
 }
 
-type LinkedServiceOdataOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceOdataOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceOdataOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedServiceOdata)(nil))
@@ -355,14 +353,12 @@ func (o LinkedServiceOdataOutput) ToLinkedServiceOdataPtrOutput() LinkedServiceO
 }
 
 func (o LinkedServiceOdataOutput) ToLinkedServiceOdataPtrOutputWithContext(ctx context.Context) LinkedServiceOdataPtrOutput {
-	return o.ApplyT(func(v LinkedServiceOdata) *LinkedServiceOdata {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceOdata) *LinkedServiceOdata {
 		return &v
 	}).(LinkedServiceOdataPtrOutput)
 }
 
-type LinkedServiceOdataPtrOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceOdataPtrOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceOdataPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinkedServiceOdata)(nil))
@@ -374,6 +370,16 @@ func (o LinkedServiceOdataPtrOutput) ToLinkedServiceOdataPtrOutput() LinkedServi
 
 func (o LinkedServiceOdataPtrOutput) ToLinkedServiceOdataPtrOutputWithContext(ctx context.Context) LinkedServiceOdataPtrOutput {
 	return o
+}
+
+func (o LinkedServiceOdataPtrOutput) Elem() LinkedServiceOdataOutput {
+	return o.ApplyT(func(v *LinkedServiceOdata) LinkedServiceOdata {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceOdata
+		return ret
+	}).(LinkedServiceOdataOutput)
 }
 
 type LinkedServiceOdataArrayOutput struct{ *pulumi.OutputState }

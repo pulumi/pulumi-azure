@@ -394,7 +394,7 @@ type HBaseClusterArrayInput interface {
 type HBaseClusterArray []HBaseClusterInput
 
 func (HBaseClusterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*HBaseCluster)(nil))
+	return reflect.TypeOf((*[]*HBaseCluster)(nil)).Elem()
 }
 
 func (i HBaseClusterArray) ToHBaseClusterArrayOutput() HBaseClusterArrayOutput {
@@ -419,7 +419,7 @@ type HBaseClusterMapInput interface {
 type HBaseClusterMap map[string]HBaseClusterInput
 
 func (HBaseClusterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*HBaseCluster)(nil))
+	return reflect.TypeOf((*map[string]*HBaseCluster)(nil)).Elem()
 }
 
 func (i HBaseClusterMap) ToHBaseClusterMapOutput() HBaseClusterMapOutput {
@@ -430,9 +430,7 @@ func (i HBaseClusterMap) ToHBaseClusterMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMapOutput)
 }
 
-type HBaseClusterOutput struct {
-	*pulumi.OutputState
-}
+type HBaseClusterOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HBaseCluster)(nil))
@@ -451,14 +449,12 @@ func (o HBaseClusterOutput) ToHBaseClusterPtrOutput() HBaseClusterPtrOutput {
 }
 
 func (o HBaseClusterOutput) ToHBaseClusterPtrOutputWithContext(ctx context.Context) HBaseClusterPtrOutput {
-	return o.ApplyT(func(v HBaseCluster) *HBaseCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseCluster) *HBaseCluster {
 		return &v
 	}).(HBaseClusterPtrOutput)
 }
 
-type HBaseClusterPtrOutput struct {
-	*pulumi.OutputState
-}
+type HBaseClusterPtrOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HBaseCluster)(nil))
@@ -470,6 +466,16 @@ func (o HBaseClusterPtrOutput) ToHBaseClusterPtrOutput() HBaseClusterPtrOutput {
 
 func (o HBaseClusterPtrOutput) ToHBaseClusterPtrOutputWithContext(ctx context.Context) HBaseClusterPtrOutput {
 	return o
+}
+
+func (o HBaseClusterPtrOutput) Elem() HBaseClusterOutput {
+	return o.ApplyT(func(v *HBaseCluster) HBaseCluster {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseCluster
+		return ret
+	}).(HBaseClusterOutput)
 }
 
 type HBaseClusterArrayOutput struct{ *pulumi.OutputState }

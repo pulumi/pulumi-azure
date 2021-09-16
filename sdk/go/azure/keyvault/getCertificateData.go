@@ -4,6 +4,9 @@
 package keyvault
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,4 +83,93 @@ type GetCertificateDataResult struct {
 	// A mapping of tags to assign to the resource.
 	Tags    map[string]string `pulumi:"tags"`
 	Version string            `pulumi:"version"`
+}
+
+func GetCertificateDataOutput(ctx *pulumi.Context, args GetCertificateDataOutputArgs, opts ...pulumi.InvokeOption) GetCertificateDataResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetCertificateDataResult, error) {
+			args := v.(GetCertificateDataArgs)
+			r, err := GetCertificateData(ctx, &args, opts...)
+			return *r, err
+		}).(GetCertificateDataResultOutput)
+}
+
+// A collection of arguments for invoking getCertificateData.
+type GetCertificateDataOutputArgs struct {
+	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	// Specifies the name of the Key Vault Secret.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the version of the certificate to look up.  (Defaults to latest)
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (GetCertificateDataOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateDataArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCertificateData.
+type GetCertificateDataResultOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateDataResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateDataResult)(nil)).Elem()
+}
+
+func (o GetCertificateDataResultOutput) ToGetCertificateDataResultOutput() GetCertificateDataResultOutput {
+	return o
+}
+
+func (o GetCertificateDataResultOutput) ToGetCertificateDataResultOutputWithContext(ctx context.Context) GetCertificateDataResultOutput {
+	return o
+}
+
+// Amount of certificates in the chain in case Key Vault Certificate is a bundle (e.g. has an intermediate certificate).
+func (o GetCertificateDataResultOutput) CertificatesCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCertificateDataResult) int { return v.CertificatesCount }).(pulumi.IntOutput)
+}
+
+// Expiry date of certificate in RFC3339 format.
+func (o GetCertificateDataResultOutput) Expires() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateDataResult) string { return v.Expires }).(pulumi.StringOutput)
+}
+
+// The raw Key Vault Certificate data represented as a hexadecimal string.
+func (o GetCertificateDataResultOutput) Hex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateDataResult) string { return v.Hex }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetCertificateDataResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateDataResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Key Vault Certificate Key.
+func (o GetCertificateDataResultOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateDataResult) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetCertificateDataResultOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateDataResult) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+func (o GetCertificateDataResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateDataResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Key Vault Certificate in PEM format.
+func (o GetCertificateDataResultOutput) Pem() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateDataResult) string { return v.Pem }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o GetCertificateDataResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCertificateDataResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o GetCertificateDataResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateDataResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCertificateDataResultOutput{})
 }

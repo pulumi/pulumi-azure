@@ -364,7 +364,7 @@ type EnvironmentV3ArrayInput interface {
 type EnvironmentV3Array []EnvironmentV3Input
 
 func (EnvironmentV3Array) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EnvironmentV3)(nil))
+	return reflect.TypeOf((*[]*EnvironmentV3)(nil)).Elem()
 }
 
 func (i EnvironmentV3Array) ToEnvironmentV3ArrayOutput() EnvironmentV3ArrayOutput {
@@ -389,7 +389,7 @@ type EnvironmentV3MapInput interface {
 type EnvironmentV3Map map[string]EnvironmentV3Input
 
 func (EnvironmentV3Map) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EnvironmentV3)(nil))
+	return reflect.TypeOf((*map[string]*EnvironmentV3)(nil)).Elem()
 }
 
 func (i EnvironmentV3Map) ToEnvironmentV3MapOutput() EnvironmentV3MapOutput {
@@ -400,9 +400,7 @@ func (i EnvironmentV3Map) ToEnvironmentV3MapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentV3MapOutput)
 }
 
-type EnvironmentV3Output struct {
-	*pulumi.OutputState
-}
+type EnvironmentV3Output struct{ *pulumi.OutputState }
 
 func (EnvironmentV3Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnvironmentV3)(nil))
@@ -421,14 +419,12 @@ func (o EnvironmentV3Output) ToEnvironmentV3PtrOutput() EnvironmentV3PtrOutput {
 }
 
 func (o EnvironmentV3Output) ToEnvironmentV3PtrOutputWithContext(ctx context.Context) EnvironmentV3PtrOutput {
-	return o.ApplyT(func(v EnvironmentV3) *EnvironmentV3 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentV3) *EnvironmentV3 {
 		return &v
 	}).(EnvironmentV3PtrOutput)
 }
 
-type EnvironmentV3PtrOutput struct {
-	*pulumi.OutputState
-}
+type EnvironmentV3PtrOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentV3PtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EnvironmentV3)(nil))
@@ -440,6 +436,16 @@ func (o EnvironmentV3PtrOutput) ToEnvironmentV3PtrOutput() EnvironmentV3PtrOutpu
 
 func (o EnvironmentV3PtrOutput) ToEnvironmentV3PtrOutputWithContext(ctx context.Context) EnvironmentV3PtrOutput {
 	return o
+}
+
+func (o EnvironmentV3PtrOutput) Elem() EnvironmentV3Output {
+	return o.ApplyT(func(v *EnvironmentV3) EnvironmentV3 {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentV3
+		return ret
+	}).(EnvironmentV3Output)
 }
 
 type EnvironmentV3ArrayOutput struct{ *pulumi.OutputState }

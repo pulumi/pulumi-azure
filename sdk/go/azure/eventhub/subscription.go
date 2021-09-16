@@ -352,7 +352,7 @@ type SubscriptionArrayInput interface {
 type SubscriptionArray []SubscriptionInput
 
 func (SubscriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Subscription)(nil))
+	return reflect.TypeOf((*[]*Subscription)(nil)).Elem()
 }
 
 func (i SubscriptionArray) ToSubscriptionArrayOutput() SubscriptionArrayOutput {
@@ -377,7 +377,7 @@ type SubscriptionMapInput interface {
 type SubscriptionMap map[string]SubscriptionInput
 
 func (SubscriptionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Subscription)(nil))
+	return reflect.TypeOf((*map[string]*Subscription)(nil)).Elem()
 }
 
 func (i SubscriptionMap) ToSubscriptionMapOutput() SubscriptionMapOutput {
@@ -388,9 +388,7 @@ func (i SubscriptionMap) ToSubscriptionMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionMapOutput)
 }
 
-type SubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Subscription)(nil))
@@ -409,14 +407,12 @@ func (o SubscriptionOutput) ToSubscriptionPtrOutput() SubscriptionPtrOutput {
 }
 
 func (o SubscriptionOutput) ToSubscriptionPtrOutputWithContext(ctx context.Context) SubscriptionPtrOutput {
-	return o.ApplyT(func(v Subscription) *Subscription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Subscription) *Subscription {
 		return &v
 	}).(SubscriptionPtrOutput)
 }
 
-type SubscriptionPtrOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionPtrOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Subscription)(nil))
@@ -428,6 +424,16 @@ func (o SubscriptionPtrOutput) ToSubscriptionPtrOutput() SubscriptionPtrOutput {
 
 func (o SubscriptionPtrOutput) ToSubscriptionPtrOutputWithContext(ctx context.Context) SubscriptionPtrOutput {
 	return o
+}
+
+func (o SubscriptionPtrOutput) Elem() SubscriptionOutput {
+	return o.ApplyT(func(v *Subscription) Subscription {
+		if v != nil {
+			return *v
+		}
+		var ret Subscription
+		return ret
+	}).(SubscriptionOutput)
 }
 
 type SubscriptionArrayOutput struct{ *pulumi.OutputState }

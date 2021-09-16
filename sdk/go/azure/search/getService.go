@@ -4,6 +4,9 @@
 package search
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,93 @@ type LookupServiceResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Key used for Search Service Administration.
 	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceResult, error) {
+			args := v.(LookupServiceArgs)
+			r, err := LookupService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceResultOutput)
+}
+
+// A collection of arguments for invoking getService.
+type LookupServiceOutputArgs struct {
+	// The Name of the Search Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Search Service exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getService.
+type LookupServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceResult)(nil)).Elem()
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutput() LookupServiceResultOutput {
+	return o
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx context.Context) LookupServiceResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below.
+func (o LookupServiceResultOutput) Identities() GetServiceIdentityArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceIdentity { return v.Identities }).(GetServiceIdentityArrayOutput)
+}
+
+// The name of this Query Key.
+func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of partitions which have been created.
+func (o LookupServiceResultOutput) PartitionCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServiceResult) int { return v.PartitionCount }).(pulumi.IntOutput)
+}
+
+// The Primary Key used for Search Service Administration.
+func (o LookupServiceResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// Whether or not public network access is enabled for this resource.
+func (o LookupServiceResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
+}
+
+// A `queryKeys` block as defined below.
+func (o LookupServiceResultOutput) QueryKeys() GetServiceQueryKeyArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceQueryKey { return v.QueryKeys }).(GetServiceQueryKeyArrayOutput)
+}
+
+// The number of replica's which have been created.
+func (o LookupServiceResultOutput) ReplicaCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServiceResult) int { return v.ReplicaCount }).(pulumi.IntOutput)
+}
+
+func (o LookupServiceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Secondary Key used for Search Service Administration.
+func (o LookupServiceResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceResultOutput{})
 }

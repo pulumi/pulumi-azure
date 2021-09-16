@@ -251,7 +251,7 @@ type IntegrationAccountBatchConfigurationArrayInput interface {
 type IntegrationAccountBatchConfigurationArray []IntegrationAccountBatchConfigurationInput
 
 func (IntegrationAccountBatchConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntegrationAccountBatchConfiguration)(nil))
+	return reflect.TypeOf((*[]*IntegrationAccountBatchConfiguration)(nil)).Elem()
 }
 
 func (i IntegrationAccountBatchConfigurationArray) ToIntegrationAccountBatchConfigurationArrayOutput() IntegrationAccountBatchConfigurationArrayOutput {
@@ -276,7 +276,7 @@ type IntegrationAccountBatchConfigurationMapInput interface {
 type IntegrationAccountBatchConfigurationMap map[string]IntegrationAccountBatchConfigurationInput
 
 func (IntegrationAccountBatchConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntegrationAccountBatchConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationAccountBatchConfiguration)(nil)).Elem()
 }
 
 func (i IntegrationAccountBatchConfigurationMap) ToIntegrationAccountBatchConfigurationMapOutput() IntegrationAccountBatchConfigurationMapOutput {
@@ -287,9 +287,7 @@ func (i IntegrationAccountBatchConfigurationMap) ToIntegrationAccountBatchConfig
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationMapOutput)
 }
 
-type IntegrationAccountBatchConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountBatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountBatchConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountBatchConfiguration)(nil))
@@ -308,14 +306,12 @@ func (o IntegrationAccountBatchConfigurationOutput) ToIntegrationAccountBatchCon
 }
 
 func (o IntegrationAccountBatchConfigurationOutput) ToIntegrationAccountBatchConfigurationPtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountBatchConfiguration) *IntegrationAccountBatchConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountBatchConfiguration) *IntegrationAccountBatchConfiguration {
 		return &v
 	}).(IntegrationAccountBatchConfigurationPtrOutput)
 }
 
-type IntegrationAccountBatchConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountBatchConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountBatchConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationAccountBatchConfiguration)(nil))
@@ -327,6 +323,16 @@ func (o IntegrationAccountBatchConfigurationPtrOutput) ToIntegrationAccountBatch
 
 func (o IntegrationAccountBatchConfigurationPtrOutput) ToIntegrationAccountBatchConfigurationPtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationPtrOutput {
 	return o
+}
+
+func (o IntegrationAccountBatchConfigurationPtrOutput) Elem() IntegrationAccountBatchConfigurationOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfiguration) IntegrationAccountBatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountBatchConfiguration
+		return ret
+	}).(IntegrationAccountBatchConfigurationOutput)
 }
 
 type IntegrationAccountBatchConfigurationArrayOutput struct{ *pulumi.OutputState }

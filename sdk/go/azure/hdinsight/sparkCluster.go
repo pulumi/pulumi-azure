@@ -414,7 +414,7 @@ type SparkClusterArrayInput interface {
 type SparkClusterArray []SparkClusterInput
 
 func (SparkClusterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SparkCluster)(nil))
+	return reflect.TypeOf((*[]*SparkCluster)(nil)).Elem()
 }
 
 func (i SparkClusterArray) ToSparkClusterArrayOutput() SparkClusterArrayOutput {
@@ -439,7 +439,7 @@ type SparkClusterMapInput interface {
 type SparkClusterMap map[string]SparkClusterInput
 
 func (SparkClusterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SparkCluster)(nil))
+	return reflect.TypeOf((*map[string]*SparkCluster)(nil)).Elem()
 }
 
 func (i SparkClusterMap) ToSparkClusterMapOutput() SparkClusterMapOutput {
@@ -450,9 +450,7 @@ func (i SparkClusterMap) ToSparkClusterMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterMapOutput)
 }
 
-type SparkClusterOutput struct {
-	*pulumi.OutputState
-}
+type SparkClusterOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SparkCluster)(nil))
@@ -471,14 +469,12 @@ func (o SparkClusterOutput) ToSparkClusterPtrOutput() SparkClusterPtrOutput {
 }
 
 func (o SparkClusterOutput) ToSparkClusterPtrOutputWithContext(ctx context.Context) SparkClusterPtrOutput {
-	return o.ApplyT(func(v SparkCluster) *SparkCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkCluster) *SparkCluster {
 		return &v
 	}).(SparkClusterPtrOutput)
 }
 
-type SparkClusterPtrOutput struct {
-	*pulumi.OutputState
-}
+type SparkClusterPtrOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SparkCluster)(nil))
@@ -490,6 +486,16 @@ func (o SparkClusterPtrOutput) ToSparkClusterPtrOutput() SparkClusterPtrOutput {
 
 func (o SparkClusterPtrOutput) ToSparkClusterPtrOutputWithContext(ctx context.Context) SparkClusterPtrOutput {
 	return o
+}
+
+func (o SparkClusterPtrOutput) Elem() SparkClusterOutput {
+	return o.ApplyT(func(v *SparkCluster) SparkCluster {
+		if v != nil {
+			return *v
+		}
+		var ret SparkCluster
+		return ret
+	}).(SparkClusterOutput)
 }
 
 type SparkClusterArrayOutput struct{ *pulumi.OutputState }

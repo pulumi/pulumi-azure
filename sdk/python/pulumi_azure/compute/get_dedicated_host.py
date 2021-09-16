@@ -12,6 +12,7 @@ __all__ = [
     'GetDedicatedHostResult',
     'AwaitableGetDedicatedHostResult',
     'get_dedicated_host',
+    'get_dedicated_host_output',
 ]
 
 @pulumi.output_type
@@ -134,3 +135,31 @@ def get_dedicated_host(dedicated_host_group_name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_dedicated_host)
+def get_dedicated_host_output(dedicated_host_group_name: Optional[pulumi.Input[str]] = None,
+                              name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
+    """
+    Use this data source to access information about an existing Dedicated Host.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_dedicated_host(name="example-host",
+        dedicated_host_group_name="example-host-group",
+        resource_group_name="example-resources")
+    pulumi.export("dedicatedHostId", example.id)
+    ```
+
+
+    :param str dedicated_host_group_name: Specifies the name of the Dedicated Host Group the Dedicated Host is located in.
+    :param str name: Specifies the name of the Dedicated Host.
+    :param str resource_group_name: Specifies the name of the resource group the Dedicated Host is located in.
+    """
+    ...

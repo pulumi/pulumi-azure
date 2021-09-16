@@ -13,6 +13,7 @@ __all__ = [
     'GetFactoryResult',
     'AwaitableGetFactoryResult',
     'get_factory',
+    'get_factory_output',
 ]
 
 @pulumi.output_type
@@ -160,3 +161,28 @@ def get_factory(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags,
         vsts_configurations=__ret__.vsts_configurations)
+
+
+@_utilities.lift_output_func(get_factory)
+def get_factory_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryResult]:
+    """
+    Use this data source to access information about an existing Azure Data Factory (Version 2).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.datafactory.get_factory(name="existing-adf",
+        resource_group_name="existing-rg")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this Azure Data Factory.
+    :param str resource_group_name: The name of the Resource Group where the Azure Data Factory exists.
+    """
+    ...

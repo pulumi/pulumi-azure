@@ -469,7 +469,7 @@ type SlotArrayInput interface {
 type SlotArray []SlotInput
 
 func (SlotArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Slot)(nil))
+	return reflect.TypeOf((*[]*Slot)(nil)).Elem()
 }
 
 func (i SlotArray) ToSlotArrayOutput() SlotArrayOutput {
@@ -494,7 +494,7 @@ type SlotMapInput interface {
 type SlotMap map[string]SlotInput
 
 func (SlotMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Slot)(nil))
+	return reflect.TypeOf((*map[string]*Slot)(nil)).Elem()
 }
 
 func (i SlotMap) ToSlotMapOutput() SlotMapOutput {
@@ -505,9 +505,7 @@ func (i SlotMap) ToSlotMapOutputWithContext(ctx context.Context) SlotMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SlotMapOutput)
 }
 
-type SlotOutput struct {
-	*pulumi.OutputState
-}
+type SlotOutput struct{ *pulumi.OutputState }
 
 func (SlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Slot)(nil))
@@ -526,14 +524,12 @@ func (o SlotOutput) ToSlotPtrOutput() SlotPtrOutput {
 }
 
 func (o SlotOutput) ToSlotPtrOutputWithContext(ctx context.Context) SlotPtrOutput {
-	return o.ApplyT(func(v Slot) *Slot {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Slot) *Slot {
 		return &v
 	}).(SlotPtrOutput)
 }
 
-type SlotPtrOutput struct {
-	*pulumi.OutputState
-}
+type SlotPtrOutput struct{ *pulumi.OutputState }
 
 func (SlotPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Slot)(nil))
@@ -545,6 +541,16 @@ func (o SlotPtrOutput) ToSlotPtrOutput() SlotPtrOutput {
 
 func (o SlotPtrOutput) ToSlotPtrOutputWithContext(ctx context.Context) SlotPtrOutput {
 	return o
+}
+
+func (o SlotPtrOutput) Elem() SlotOutput {
+	return o.ApplyT(func(v *Slot) Slot {
+		if v != nil {
+			return *v
+		}
+		var ret Slot
+		return ret
+	}).(SlotOutput)
 }
 
 type SlotArrayOutput struct{ *pulumi.OutputState }

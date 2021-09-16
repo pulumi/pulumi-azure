@@ -13,6 +13,7 @@ __all__ = [
     'GetAppServiceEnvironmentResult',
     'AwaitableGetAppServiceEnvironmentResult',
     'get_app_service_environment',
+    'get_app_service_environment_output',
 ]
 
 @pulumi.output_type
@@ -202,3 +203,28 @@ def get_app_service_environment(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         service_ip_address=__ret__.service_ip_address,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_app_service_environment)
+def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentResult]:
+    """
+    Use this data source to access information about an existing App Service Environment.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_app_service_environment(name="existing-ase",
+        resource_group_name="existing-rg")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this App Service Environment.
+    :param str resource_group_name: The name of the Resource Group where the App Service Environment exists.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetEncryptionScopeResult',
     'AwaitableGetEncryptionScopeResult',
     'get_encryption_scope',
+    'get_encryption_scope_output',
 ]
 
 @pulumi.output_type
@@ -122,3 +123,30 @@ def get_encryption_scope(name: Optional[str] = None,
         name=__ret__.name,
         source=__ret__.source,
         storage_account_id=__ret__.storage_account_id)
+
+
+@_utilities.lift_output_func(get_encryption_scope)
+def get_encryption_scope_output(name: Optional[pulumi.Input[str]] = None,
+                                storage_account_id: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEncryptionScopeResult]:
+    """
+    Use this data source to access information about an existing Storage Encryption Scope.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_account = azure.storage.get_account(name="storageaccountname",
+        resource_group_name="resourcegroupname")
+    example_encryption_scope = azure.storage.get_encryption_scope(name="existingStorageES",
+        storage_account_id=example_account.id)
+    pulumi.export("id", example_encryption_scope.id)
+    ```
+
+
+    :param str name: The name of this Storage Encryption Scope.
+    :param str storage_account_id: The ID of the Storage Account where this Storage Encryption Scope exists.
+    """
+    ...

@@ -448,7 +448,7 @@ type FunctionAppSlotArrayInput interface {
 type FunctionAppSlotArray []FunctionAppSlotInput
 
 func (FunctionAppSlotArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FunctionAppSlot)(nil))
+	return reflect.TypeOf((*[]*FunctionAppSlot)(nil)).Elem()
 }
 
 func (i FunctionAppSlotArray) ToFunctionAppSlotArrayOutput() FunctionAppSlotArrayOutput {
@@ -473,7 +473,7 @@ type FunctionAppSlotMapInput interface {
 type FunctionAppSlotMap map[string]FunctionAppSlotInput
 
 func (FunctionAppSlotMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FunctionAppSlot)(nil))
+	return reflect.TypeOf((*map[string]*FunctionAppSlot)(nil)).Elem()
 }
 
 func (i FunctionAppSlotMap) ToFunctionAppSlotMapOutput() FunctionAppSlotMapOutput {
@@ -484,9 +484,7 @@ func (i FunctionAppSlotMap) ToFunctionAppSlotMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotMapOutput)
 }
 
-type FunctionAppSlotOutput struct {
-	*pulumi.OutputState
-}
+type FunctionAppSlotOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FunctionAppSlot)(nil))
@@ -505,14 +503,12 @@ func (o FunctionAppSlotOutput) ToFunctionAppSlotPtrOutput() FunctionAppSlotPtrOu
 }
 
 func (o FunctionAppSlotOutput) ToFunctionAppSlotPtrOutputWithContext(ctx context.Context) FunctionAppSlotPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlot) *FunctionAppSlot {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlot) *FunctionAppSlot {
 		return &v
 	}).(FunctionAppSlotPtrOutput)
 }
 
-type FunctionAppSlotPtrOutput struct {
-	*pulumi.OutputState
-}
+type FunctionAppSlotPtrOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppSlotPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FunctionAppSlot)(nil))
@@ -524,6 +520,16 @@ func (o FunctionAppSlotPtrOutput) ToFunctionAppSlotPtrOutput() FunctionAppSlotPt
 
 func (o FunctionAppSlotPtrOutput) ToFunctionAppSlotPtrOutputWithContext(ctx context.Context) FunctionAppSlotPtrOutput {
 	return o
+}
+
+func (o FunctionAppSlotPtrOutput) Elem() FunctionAppSlotOutput {
+	return o.ApplyT(func(v *FunctionAppSlot) FunctionAppSlot {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSlot
+		return ret
+	}).(FunctionAppSlotOutput)
 }
 
 type FunctionAppSlotArrayOutput struct{ *pulumi.OutputState }

@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,4 +82,113 @@ type LookupSharedImageResult struct {
 	Specialized bool `pulumi:"specialized"`
 	// A mapping of tags assigned to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupSharedImageOutput(ctx *pulumi.Context, args LookupSharedImageOutputArgs, opts ...pulumi.InvokeOption) LookupSharedImageResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSharedImageResult, error) {
+			args := v.(LookupSharedImageArgs)
+			r, err := LookupSharedImage(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSharedImageResultOutput)
+}
+
+// A collection of arguments for invoking getSharedImage.
+type LookupSharedImageOutputArgs struct {
+	// The name of the Shared Image Gallery in which the Shared Image exists.
+	GalleryName pulumi.StringInput `pulumi:"galleryName"`
+	// The name of the Shared Image.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group in which the Shared Image Gallery exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupSharedImageOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSharedImageArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSharedImage.
+type LookupSharedImageResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSharedImageResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSharedImageResult)(nil)).Elem()
+}
+
+func (o LookupSharedImageResultOutput) ToLookupSharedImageResultOutput() LookupSharedImageResultOutput {
+	return o
+}
+
+func (o LookupSharedImageResultOutput) ToLookupSharedImageResultOutputWithContext(ctx context.Context) LookupSharedImageResultOutput {
+	return o
+}
+
+// The description of this Shared Image.
+func (o LookupSharedImageResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The End User Licence Agreement for the Shared Image.
+func (o LookupSharedImageResultOutput) Eula() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) string { return v.Eula }).(pulumi.StringOutput)
+}
+
+func (o LookupSharedImageResultOutput) GalleryName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) string { return v.GalleryName }).(pulumi.StringOutput)
+}
+
+// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on.
+func (o LookupSharedImageResultOutput) HyperVGeneration() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) string { return v.HyperVGeneration }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSharedImageResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// An `identifier` block as defined below.
+func (o LookupSharedImageResultOutput) Identifiers() GetSharedImageIdentifierArrayOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) []GetSharedImageIdentifier { return v.Identifiers }).(GetSharedImageIdentifierArrayOutput)
+}
+
+// The supported Azure location where the Shared Image Gallery exists.
+func (o LookupSharedImageResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupSharedImageResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of Operating System present in this Shared Image.
+func (o LookupSharedImageResultOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+// The URI containing the Privacy Statement for this Shared Image.
+func (o LookupSharedImageResultOutput) PrivacyStatementUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) string { return v.PrivacyStatementUri }).(pulumi.StringOutput)
+}
+
+// The URI containing the Release Notes for this Shared Image.
+func (o LookupSharedImageResultOutput) ReleaseNoteUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) string { return v.ReleaseNoteUri }).(pulumi.StringOutput)
+}
+
+func (o LookupSharedImageResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run).
+func (o LookupSharedImageResultOutput) Specialized() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) bool { return v.Specialized }).(pulumi.BoolOutput)
+}
+
+// A mapping of tags assigned to the Shared Image.
+func (o LookupSharedImageResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSharedImageResultOutput{})
 }

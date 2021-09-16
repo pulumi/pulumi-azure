@@ -13,6 +13,7 @@ __all__ = [
     'GetCacheResult',
     'AwaitableGetCacheResult',
     'get_cache',
+    'get_cache_output',
 ]
 
 @pulumi.output_type
@@ -343,3 +344,30 @@ def get_cache(name: Optional[str] = None,
         subnet_id=__ret__.subnet_id,
         tags=__ret__.tags,
         zones=__ret__.zones)
+
+
+@_utilities.lift_output_func(get_cache)
+def get_cache_output(name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     zones: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
+    """
+    Use this data source to access information about an existing Redis Cache
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.redis.get_cache(name="myrediscache",
+        resource_group_name="redis-cache")
+    pulumi.export("primaryAccessKey", example.primary_access_key)
+    pulumi.export("hostname", example.hostname)
+    ```
+
+
+    :param str name: The name of the Redis cache
+    :param str resource_group_name: The name of the resource group the Redis cache instance is located in.
+    """
+    ...

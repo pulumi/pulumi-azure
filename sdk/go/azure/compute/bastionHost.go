@@ -263,7 +263,7 @@ type BastionHostArrayInput interface {
 type BastionHostArray []BastionHostInput
 
 func (BastionHostArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BastionHost)(nil))
+	return reflect.TypeOf((*[]*BastionHost)(nil)).Elem()
 }
 
 func (i BastionHostArray) ToBastionHostArrayOutput() BastionHostArrayOutput {
@@ -288,7 +288,7 @@ type BastionHostMapInput interface {
 type BastionHostMap map[string]BastionHostInput
 
 func (BastionHostMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BastionHost)(nil))
+	return reflect.TypeOf((*map[string]*BastionHost)(nil)).Elem()
 }
 
 func (i BastionHostMap) ToBastionHostMapOutput() BastionHostMapOutput {
@@ -299,9 +299,7 @@ func (i BastionHostMap) ToBastionHostMapOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BastionHostMapOutput)
 }
 
-type BastionHostOutput struct {
-	*pulumi.OutputState
-}
+type BastionHostOutput struct{ *pulumi.OutputState }
 
 func (BastionHostOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BastionHost)(nil))
@@ -320,14 +318,12 @@ func (o BastionHostOutput) ToBastionHostPtrOutput() BastionHostPtrOutput {
 }
 
 func (o BastionHostOutput) ToBastionHostPtrOutputWithContext(ctx context.Context) BastionHostPtrOutput {
-	return o.ApplyT(func(v BastionHost) *BastionHost {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BastionHost) *BastionHost {
 		return &v
 	}).(BastionHostPtrOutput)
 }
 
-type BastionHostPtrOutput struct {
-	*pulumi.OutputState
-}
+type BastionHostPtrOutput struct{ *pulumi.OutputState }
 
 func (BastionHostPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BastionHost)(nil))
@@ -339,6 +335,16 @@ func (o BastionHostPtrOutput) ToBastionHostPtrOutput() BastionHostPtrOutput {
 
 func (o BastionHostPtrOutput) ToBastionHostPtrOutputWithContext(ctx context.Context) BastionHostPtrOutput {
 	return o
+}
+
+func (o BastionHostPtrOutput) Elem() BastionHostOutput {
+	return o.ApplyT(func(v *BastionHost) BastionHost {
+		if v != nil {
+			return *v
+		}
+		var ret BastionHost
+		return ret
+	}).(BastionHostOutput)
 }
 
 type BastionHostArrayOutput struct{ *pulumi.OutputState }

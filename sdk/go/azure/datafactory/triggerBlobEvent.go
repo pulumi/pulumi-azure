@@ -348,7 +348,7 @@ type TriggerBlobEventArrayInput interface {
 type TriggerBlobEventArray []TriggerBlobEventInput
 
 func (TriggerBlobEventArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TriggerBlobEvent)(nil))
+	return reflect.TypeOf((*[]*TriggerBlobEvent)(nil)).Elem()
 }
 
 func (i TriggerBlobEventArray) ToTriggerBlobEventArrayOutput() TriggerBlobEventArrayOutput {
@@ -373,7 +373,7 @@ type TriggerBlobEventMapInput interface {
 type TriggerBlobEventMap map[string]TriggerBlobEventInput
 
 func (TriggerBlobEventMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TriggerBlobEvent)(nil))
+	return reflect.TypeOf((*map[string]*TriggerBlobEvent)(nil)).Elem()
 }
 
 func (i TriggerBlobEventMap) ToTriggerBlobEventMapOutput() TriggerBlobEventMapOutput {
@@ -384,9 +384,7 @@ func (i TriggerBlobEventMap) ToTriggerBlobEventMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerBlobEventMapOutput)
 }
 
-type TriggerBlobEventOutput struct {
-	*pulumi.OutputState
-}
+type TriggerBlobEventOutput struct{ *pulumi.OutputState }
 
 func (TriggerBlobEventOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TriggerBlobEvent)(nil))
@@ -405,14 +403,12 @@ func (o TriggerBlobEventOutput) ToTriggerBlobEventPtrOutput() TriggerBlobEventPt
 }
 
 func (o TriggerBlobEventOutput) ToTriggerBlobEventPtrOutputWithContext(ctx context.Context) TriggerBlobEventPtrOutput {
-	return o.ApplyT(func(v TriggerBlobEvent) *TriggerBlobEvent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerBlobEvent) *TriggerBlobEvent {
 		return &v
 	}).(TriggerBlobEventPtrOutput)
 }
 
-type TriggerBlobEventPtrOutput struct {
-	*pulumi.OutputState
-}
+type TriggerBlobEventPtrOutput struct{ *pulumi.OutputState }
 
 func (TriggerBlobEventPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TriggerBlobEvent)(nil))
@@ -424,6 +420,16 @@ func (o TriggerBlobEventPtrOutput) ToTriggerBlobEventPtrOutput() TriggerBlobEven
 
 func (o TriggerBlobEventPtrOutput) ToTriggerBlobEventPtrOutputWithContext(ctx context.Context) TriggerBlobEventPtrOutput {
 	return o
+}
+
+func (o TriggerBlobEventPtrOutput) Elem() TriggerBlobEventOutput {
+	return o.ApplyT(func(v *TriggerBlobEvent) TriggerBlobEvent {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerBlobEvent
+		return ret
+	}).(TriggerBlobEventOutput)
 }
 
 type TriggerBlobEventArrayOutput struct{ *pulumi.OutputState }

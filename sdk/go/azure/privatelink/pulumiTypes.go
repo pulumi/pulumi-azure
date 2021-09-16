@@ -474,7 +474,7 @@ func (o EndpointPrivateDnsZoneGroupOutput) ToEndpointPrivateDnsZoneGroupPtrOutpu
 }
 
 func (o EndpointPrivateDnsZoneGroupOutput) ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneGroupPtrOutput {
-	return o.ApplyT(func(v EndpointPrivateDnsZoneGroup) *EndpointPrivateDnsZoneGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPrivateDnsZoneGroup) *EndpointPrivateDnsZoneGroup {
 		return &v
 	}).(EndpointPrivateDnsZoneGroupPtrOutput)
 }
@@ -509,7 +509,13 @@ func (o EndpointPrivateDnsZoneGroupPtrOutput) ToEndpointPrivateDnsZoneGroupPtrOu
 }
 
 func (o EndpointPrivateDnsZoneGroupPtrOutput) Elem() EndpointPrivateDnsZoneGroupOutput {
-	return o.ApplyT(func(v *EndpointPrivateDnsZoneGroup) EndpointPrivateDnsZoneGroup { return *v }).(EndpointPrivateDnsZoneGroupOutput)
+	return o.ApplyT(func(v *EndpointPrivateDnsZoneGroup) EndpointPrivateDnsZoneGroup {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointPrivateDnsZoneGroup
+		return ret
+	}).(EndpointPrivateDnsZoneGroupOutput)
 }
 
 // The ID of the Private DNS Zone Config.
@@ -659,7 +665,7 @@ func (o EndpointPrivateServiceConnectionOutput) ToEndpointPrivateServiceConnecti
 }
 
 func (o EndpointPrivateServiceConnectionOutput) ToEndpointPrivateServiceConnectionPtrOutputWithContext(ctx context.Context) EndpointPrivateServiceConnectionPtrOutput {
-	return o.ApplyT(func(v EndpointPrivateServiceConnection) *EndpointPrivateServiceConnection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPrivateServiceConnection) *EndpointPrivateServiceConnection {
 		return &v
 	}).(EndpointPrivateServiceConnectionPtrOutput)
 }
@@ -714,7 +720,13 @@ func (o EndpointPrivateServiceConnectionPtrOutput) ToEndpointPrivateServiceConne
 }
 
 func (o EndpointPrivateServiceConnectionPtrOutput) Elem() EndpointPrivateServiceConnectionOutput {
-	return o.ApplyT(func(v *EndpointPrivateServiceConnection) EndpointPrivateServiceConnection { return *v }).(EndpointPrivateServiceConnectionOutput)
+	return o.ApplyT(func(v *EndpointPrivateServiceConnection) EndpointPrivateServiceConnection {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointPrivateServiceConnection
+		return ret
+	}).(EndpointPrivateServiceConnectionOutput)
 }
 
 // Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.

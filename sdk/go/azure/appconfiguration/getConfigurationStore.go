@@ -4,6 +4,9 @@
 package appconfiguration
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,4 +75,103 @@ type LookupConfigurationStoreResult struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the App Configuration.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupConfigurationStoreOutput(ctx *pulumi.Context, args LookupConfigurationStoreOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationStoreResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConfigurationStoreResult, error) {
+			args := v.(LookupConfigurationStoreArgs)
+			r, err := LookupConfigurationStore(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConfigurationStoreResultOutput)
+}
+
+// A collection of arguments for invoking getConfigurationStore.
+type LookupConfigurationStoreOutputArgs struct {
+	// The Name of this App Configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the App Configuration exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupConfigurationStoreOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationStoreArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getConfigurationStore.
+type LookupConfigurationStoreResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConfigurationStoreResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationStoreResult)(nil)).Elem()
+}
+
+func (o LookupConfigurationStoreResultOutput) ToLookupConfigurationStoreResultOutput() LookupConfigurationStoreResultOutput {
+	return o
+}
+
+func (o LookupConfigurationStoreResultOutput) ToLookupConfigurationStoreResultOutputWithContext(ctx context.Context) LookupConfigurationStoreResultOutput {
+	return o
+}
+
+// The Endpoint used to access this App Configuration.
+func (o LookupConfigurationStoreResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupConfigurationStoreResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure Region where the App Configuration exists.
+func (o LookupConfigurationStoreResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupConfigurationStoreResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `primaryReadKey` block as defined below containing the primary read access key.
+func (o LookupConfigurationStoreResultOutput) PrimaryReadKeys() GetConfigurationStorePrimaryReadKeyArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) []GetConfigurationStorePrimaryReadKey { return v.PrimaryReadKeys }).(GetConfigurationStorePrimaryReadKeyArrayOutput)
+}
+
+// A `primaryWriteKey` block as defined below containing the primary write access key.
+func (o LookupConfigurationStoreResultOutput) PrimaryWriteKeys() GetConfigurationStorePrimaryWriteKeyArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) []GetConfigurationStorePrimaryWriteKey {
+		return v.PrimaryWriteKeys
+	}).(GetConfigurationStorePrimaryWriteKeyArrayOutput)
+}
+
+func (o LookupConfigurationStoreResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `secondaryReadKey` block as defined below containing the secondary read access key.
+func (o LookupConfigurationStoreResultOutput) SecondaryReadKeys() GetConfigurationStoreSecondaryReadKeyArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) []GetConfigurationStoreSecondaryReadKey {
+		return v.SecondaryReadKeys
+	}).(GetConfigurationStoreSecondaryReadKeyArrayOutput)
+}
+
+// A `secondaryWriteKey` block as defined below containing the secondary write access key.
+func (o LookupConfigurationStoreResultOutput) SecondaryWriteKeys() GetConfigurationStoreSecondaryWriteKeyArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) []GetConfigurationStoreSecondaryWriteKey {
+		return v.SecondaryWriteKeys
+	}).(GetConfigurationStoreSecondaryWriteKeyArrayOutput)
+}
+
+// The name of the SKU used for this App Configuration.
+func (o LookupConfigurationStoreResultOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the App Configuration.
+func (o LookupConfigurationStoreResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConfigurationStoreResultOutput{})
 }

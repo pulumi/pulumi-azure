@@ -12,6 +12,7 @@ __all__ = [
     'GetMongoDatabaseResult',
     'AwaitableGetMongoDatabaseResult',
     'get_mongo_database',
+    'get_mongo_database_output',
 ]
 
 @pulumi.output_type
@@ -121,3 +122,31 @@ def get_mongo_database(account_name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_mongo_database)
+def get_mongo_database_output(account_name: Optional[pulumi.Input[str]] = None,
+                              name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoDatabaseResult]:
+    """
+    Use this data source to access information about an existing Cosmos DB Mongo Database.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cosmosdb.get_mongo_database(name="test-cosmosdb-mongo-db",
+        resource_group_name="test-cosmosdb-account-rg",
+        account_name="test-cosmosdb-account")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str account_name: The name of the Cosmos DB Account where the Mongo Database exists.
+    :param str name: The name of this Cosmos DB Mongo Database.
+    :param str resource_group_name: The name of the Resource Group where the Cosmos DB Mongo Database exists.
+    """
+    ...

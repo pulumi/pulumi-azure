@@ -271,7 +271,7 @@ type ApiVersionSetArrayInput interface {
 type ApiVersionSetArray []ApiVersionSetInput
 
 func (ApiVersionSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiVersionSet)(nil))
+	return reflect.TypeOf((*[]*ApiVersionSet)(nil)).Elem()
 }
 
 func (i ApiVersionSetArray) ToApiVersionSetArrayOutput() ApiVersionSetArrayOutput {
@@ -296,7 +296,7 @@ type ApiVersionSetMapInput interface {
 type ApiVersionSetMap map[string]ApiVersionSetInput
 
 func (ApiVersionSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiVersionSet)(nil))
+	return reflect.TypeOf((*map[string]*ApiVersionSet)(nil)).Elem()
 }
 
 func (i ApiVersionSetMap) ToApiVersionSetMapOutput() ApiVersionSetMapOutput {
@@ -307,9 +307,7 @@ func (i ApiVersionSetMap) ToApiVersionSetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApiVersionSetMapOutput)
 }
 
-type ApiVersionSetOutput struct {
-	*pulumi.OutputState
-}
+type ApiVersionSetOutput struct{ *pulumi.OutputState }
 
 func (ApiVersionSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiVersionSet)(nil))
@@ -328,14 +326,12 @@ func (o ApiVersionSetOutput) ToApiVersionSetPtrOutput() ApiVersionSetPtrOutput {
 }
 
 func (o ApiVersionSetOutput) ToApiVersionSetPtrOutputWithContext(ctx context.Context) ApiVersionSetPtrOutput {
-	return o.ApplyT(func(v ApiVersionSet) *ApiVersionSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiVersionSet) *ApiVersionSet {
 		return &v
 	}).(ApiVersionSetPtrOutput)
 }
 
-type ApiVersionSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApiVersionSetPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiVersionSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiVersionSet)(nil))
@@ -347,6 +343,16 @@ func (o ApiVersionSetPtrOutput) ToApiVersionSetPtrOutput() ApiVersionSetPtrOutpu
 
 func (o ApiVersionSetPtrOutput) ToApiVersionSetPtrOutputWithContext(ctx context.Context) ApiVersionSetPtrOutput {
 	return o
+}
+
+func (o ApiVersionSetPtrOutput) Elem() ApiVersionSetOutput {
+	return o.ApplyT(func(v *ApiVersionSet) ApiVersionSet {
+		if v != nil {
+			return *v
+		}
+		var ret ApiVersionSet
+		return ret
+	}).(ApiVersionSetOutput)
 }
 
 type ApiVersionSetArrayOutput struct{ *pulumi.OutputState }

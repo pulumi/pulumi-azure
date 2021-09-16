@@ -425,7 +425,7 @@ func (o ServiceNetworkAclPublicNetworkOutput) ToServiceNetworkAclPublicNetworkPt
 }
 
 func (o ServiceNetworkAclPublicNetworkOutput) ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkPtrOutput {
-	return o.ApplyT(func(v ServiceNetworkAclPublicNetwork) *ServiceNetworkAclPublicNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNetworkAclPublicNetwork) *ServiceNetworkAclPublicNetwork {
 		return &v
 	}).(ServiceNetworkAclPublicNetworkPtrOutput)
 }
@@ -455,7 +455,13 @@ func (o ServiceNetworkAclPublicNetworkPtrOutput) ToServiceNetworkAclPublicNetwor
 }
 
 func (o ServiceNetworkAclPublicNetworkPtrOutput) Elem() ServiceNetworkAclPublicNetworkOutput {
-	return o.ApplyT(func(v *ServiceNetworkAclPublicNetwork) ServiceNetworkAclPublicNetwork { return *v }).(ServiceNetworkAclPublicNetworkOutput)
+	return o.ApplyT(func(v *ServiceNetworkAclPublicNetwork) ServiceNetworkAclPublicNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNetworkAclPublicNetwork
+		return ret
+	}).(ServiceNetworkAclPublicNetworkOutput)
 }
 
 // The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
@@ -575,7 +581,7 @@ func (o ServiceSkuOutput) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
 }
 
 func (o ServiceSkuOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
-	return o.ApplyT(func(v ServiceSku) *ServiceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSku) *ServiceSku {
 		return &v
 	}).(ServiceSkuPtrOutput)
 }
@@ -605,7 +611,13 @@ func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ServiceSkuPtrOutput) Elem() ServiceSkuOutput {
-	return o.ApplyT(func(v *ServiceSku) ServiceSku { return *v }).(ServiceSkuOutput)
+	return o.ApplyT(func(v *ServiceSku) ServiceSku {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSku
+		return ret
+	}).(ServiceSkuOutput)
 }
 
 // Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.

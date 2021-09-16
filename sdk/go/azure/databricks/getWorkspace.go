@@ -4,6 +4,9 @@
 package databricks
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,79 @@ type LookupWorkspaceResult struct {
 	WorkspaceId string `pulumi:"workspaceId"`
 	// URL this Databricks Workspace is accessible on.
 	WorkspaceUrl string `pulumi:"workspaceUrl"`
+}
+
+func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkspaceResult, error) {
+			args := v.(LookupWorkspaceArgs)
+			r, err := LookupWorkspace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkspaceResultOutput)
+}
+
+// A collection of arguments for invoking getWorkspace.
+type LookupWorkspaceOutputArgs struct {
+	// The name of the Databricks Workspace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group where the Databricks Workspace exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the Databricks Workspace.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupWorkspaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getWorkspace.
+type LookupWorkspaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkspaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceResult)(nil)).Elem()
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutput() LookupWorkspaceResultOutput {
+	return o
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ctx context.Context) LookupWorkspaceResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupWorkspaceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// SKU of this Databricks Workspace.
+func (o LookupWorkspaceResultOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the Databricks Workspace.
+func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Unique ID of this Databricks Workspace in Databricks management plane.
+func (o LookupWorkspaceResultOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+// URL this Databricks Workspace is accessible on.
+func (o LookupWorkspaceResultOutput) WorkspaceUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.WorkspaceUrl }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkspaceResultOutput{})
 }

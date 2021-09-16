@@ -310,7 +310,7 @@ type ExpressRouteCircuitConnectionArrayInput interface {
 type ExpressRouteCircuitConnectionArray []ExpressRouteCircuitConnectionInput
 
 func (ExpressRouteCircuitConnectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ExpressRouteCircuitConnection)(nil))
+	return reflect.TypeOf((*[]*ExpressRouteCircuitConnection)(nil)).Elem()
 }
 
 func (i ExpressRouteCircuitConnectionArray) ToExpressRouteCircuitConnectionArrayOutput() ExpressRouteCircuitConnectionArrayOutput {
@@ -335,7 +335,7 @@ type ExpressRouteCircuitConnectionMapInput interface {
 type ExpressRouteCircuitConnectionMap map[string]ExpressRouteCircuitConnectionInput
 
 func (ExpressRouteCircuitConnectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ExpressRouteCircuitConnection)(nil))
+	return reflect.TypeOf((*map[string]*ExpressRouteCircuitConnection)(nil)).Elem()
 }
 
 func (i ExpressRouteCircuitConnectionMap) ToExpressRouteCircuitConnectionMapOutput() ExpressRouteCircuitConnectionMapOutput {
@@ -346,9 +346,7 @@ func (i ExpressRouteCircuitConnectionMap) ToExpressRouteCircuitConnectionMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitConnectionMapOutput)
 }
 
-type ExpressRouteCircuitConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRouteCircuitConnectionOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteCircuitConnection)(nil))
@@ -367,14 +365,12 @@ func (o ExpressRouteCircuitConnectionOutput) ToExpressRouteCircuitConnectionPtrO
 }
 
 func (o ExpressRouteCircuitConnectionOutput) ToExpressRouteCircuitConnectionPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionPtrOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitConnection) *ExpressRouteCircuitConnection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitConnection) *ExpressRouteCircuitConnection {
 		return &v
 	}).(ExpressRouteCircuitConnectionPtrOutput)
 }
 
-type ExpressRouteCircuitConnectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRouteCircuitConnectionPtrOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitConnectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ExpressRouteCircuitConnection)(nil))
@@ -386,6 +382,16 @@ func (o ExpressRouteCircuitConnectionPtrOutput) ToExpressRouteCircuitConnectionP
 
 func (o ExpressRouteCircuitConnectionPtrOutput) ToExpressRouteCircuitConnectionPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionPtrOutput {
 	return o
+}
+
+func (o ExpressRouteCircuitConnectionPtrOutput) Elem() ExpressRouteCircuitConnectionOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitConnection) ExpressRouteCircuitConnection {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressRouteCircuitConnection
+		return ret
+	}).(ExpressRouteCircuitConnectionOutput)
 }
 
 type ExpressRouteCircuitConnectionArrayOutput struct{ *pulumi.OutputState }

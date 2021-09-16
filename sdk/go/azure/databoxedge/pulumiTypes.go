@@ -302,7 +302,7 @@ func (o OrderContactOutput) ToOrderContactPtrOutput() OrderContactPtrOutput {
 }
 
 func (o OrderContactOutput) ToOrderContactPtrOutputWithContext(ctx context.Context) OrderContactPtrOutput {
-	return o.ApplyT(func(v OrderContact) *OrderContact {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrderContact) *OrderContact {
 		return &v
 	}).(OrderContactPtrOutput)
 }
@@ -342,7 +342,13 @@ func (o OrderContactPtrOutput) ToOrderContactPtrOutputWithContext(ctx context.Co
 }
 
 func (o OrderContactPtrOutput) Elem() OrderContactOutput {
-	return o.ApplyT(func(v *OrderContact) OrderContact { return *v }).(OrderContactOutput)
+	return o.ApplyT(func(v *OrderContact) OrderContact {
+		if v != nil {
+			return *v
+		}
+		var ret OrderContact
+		return ret
+	}).(OrderContactOutput)
 }
 
 // The name of the company. Changing this forces a new Databox Edge Order to be created.
@@ -618,7 +624,7 @@ func (o OrderShipmentAddressOutput) ToOrderShipmentAddressPtrOutput() OrderShipm
 }
 
 func (o OrderShipmentAddressOutput) ToOrderShipmentAddressPtrOutputWithContext(ctx context.Context) OrderShipmentAddressPtrOutput {
-	return o.ApplyT(func(v OrderShipmentAddress) *OrderShipmentAddress {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrderShipmentAddress) *OrderShipmentAddress {
 		return &v
 	}).(OrderShipmentAddressPtrOutput)
 }
@@ -663,7 +669,13 @@ func (o OrderShipmentAddressPtrOutput) ToOrderShipmentAddressPtrOutputWithContex
 }
 
 func (o OrderShipmentAddressPtrOutput) Elem() OrderShipmentAddressOutput {
-	return o.ApplyT(func(v *OrderShipmentAddress) OrderShipmentAddress { return *v }).(OrderShipmentAddressOutput)
+	return o.ApplyT(func(v *OrderShipmentAddress) OrderShipmentAddress {
+		if v != nil {
+			return *v
+		}
+		var ret OrderShipmentAddress
+		return ret
+	}).(OrderShipmentAddressOutput)
 }
 
 // The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.

@@ -247,7 +247,7 @@ type HciClusterArrayInput interface {
 type HciClusterArray []HciClusterInput
 
 func (HciClusterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*HciCluster)(nil))
+	return reflect.TypeOf((*[]*HciCluster)(nil)).Elem()
 }
 
 func (i HciClusterArray) ToHciClusterArrayOutput() HciClusterArrayOutput {
@@ -272,7 +272,7 @@ type HciClusterMapInput interface {
 type HciClusterMap map[string]HciClusterInput
 
 func (HciClusterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*HciCluster)(nil))
+	return reflect.TypeOf((*map[string]*HciCluster)(nil)).Elem()
 }
 
 func (i HciClusterMap) ToHciClusterMapOutput() HciClusterMapOutput {
@@ -283,9 +283,7 @@ func (i HciClusterMap) ToHciClusterMapOutputWithContext(ctx context.Context) Hci
 	return pulumi.ToOutputWithContext(ctx, i).(HciClusterMapOutput)
 }
 
-type HciClusterOutput struct {
-	*pulumi.OutputState
-}
+type HciClusterOutput struct{ *pulumi.OutputState }
 
 func (HciClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HciCluster)(nil))
@@ -304,14 +302,12 @@ func (o HciClusterOutput) ToHciClusterPtrOutput() HciClusterPtrOutput {
 }
 
 func (o HciClusterOutput) ToHciClusterPtrOutputWithContext(ctx context.Context) HciClusterPtrOutput {
-	return o.ApplyT(func(v HciCluster) *HciCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HciCluster) *HciCluster {
 		return &v
 	}).(HciClusterPtrOutput)
 }
 
-type HciClusterPtrOutput struct {
-	*pulumi.OutputState
-}
+type HciClusterPtrOutput struct{ *pulumi.OutputState }
 
 func (HciClusterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HciCluster)(nil))
@@ -323,6 +319,16 @@ func (o HciClusterPtrOutput) ToHciClusterPtrOutput() HciClusterPtrOutput {
 
 func (o HciClusterPtrOutput) ToHciClusterPtrOutputWithContext(ctx context.Context) HciClusterPtrOutput {
 	return o
+}
+
+func (o HciClusterPtrOutput) Elem() HciClusterOutput {
+	return o.ApplyT(func(v *HciCluster) HciCluster {
+		if v != nil {
+			return *v
+		}
+		var ret HciCluster
+		return ret
+	}).(HciClusterOutput)
 }
 
 type HciClusterArrayOutput struct{ *pulumi.OutputState }

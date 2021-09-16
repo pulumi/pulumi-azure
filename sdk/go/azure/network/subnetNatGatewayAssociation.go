@@ -220,7 +220,7 @@ type SubnetNatGatewayAssociationArrayInput interface {
 type SubnetNatGatewayAssociationArray []SubnetNatGatewayAssociationInput
 
 func (SubnetNatGatewayAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SubnetNatGatewayAssociation)(nil))
+	return reflect.TypeOf((*[]*SubnetNatGatewayAssociation)(nil)).Elem()
 }
 
 func (i SubnetNatGatewayAssociationArray) ToSubnetNatGatewayAssociationArrayOutput() SubnetNatGatewayAssociationArrayOutput {
@@ -245,7 +245,7 @@ type SubnetNatGatewayAssociationMapInput interface {
 type SubnetNatGatewayAssociationMap map[string]SubnetNatGatewayAssociationInput
 
 func (SubnetNatGatewayAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SubnetNatGatewayAssociation)(nil))
+	return reflect.TypeOf((*map[string]*SubnetNatGatewayAssociation)(nil)).Elem()
 }
 
 func (i SubnetNatGatewayAssociationMap) ToSubnetNatGatewayAssociationMapOutput() SubnetNatGatewayAssociationMapOutput {
@@ -256,9 +256,7 @@ func (i SubnetNatGatewayAssociationMap) ToSubnetNatGatewayAssociationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetNatGatewayAssociationMapOutput)
 }
 
-type SubnetNatGatewayAssociationOutput struct {
-	*pulumi.OutputState
-}
+type SubnetNatGatewayAssociationOutput struct{ *pulumi.OutputState }
 
 func (SubnetNatGatewayAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubnetNatGatewayAssociation)(nil))
@@ -277,14 +275,12 @@ func (o SubnetNatGatewayAssociationOutput) ToSubnetNatGatewayAssociationPtrOutpu
 }
 
 func (o SubnetNatGatewayAssociationOutput) ToSubnetNatGatewayAssociationPtrOutputWithContext(ctx context.Context) SubnetNatGatewayAssociationPtrOutput {
-	return o.ApplyT(func(v SubnetNatGatewayAssociation) *SubnetNatGatewayAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetNatGatewayAssociation) *SubnetNatGatewayAssociation {
 		return &v
 	}).(SubnetNatGatewayAssociationPtrOutput)
 }
 
-type SubnetNatGatewayAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type SubnetNatGatewayAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (SubnetNatGatewayAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SubnetNatGatewayAssociation)(nil))
@@ -296,6 +292,16 @@ func (o SubnetNatGatewayAssociationPtrOutput) ToSubnetNatGatewayAssociationPtrOu
 
 func (o SubnetNatGatewayAssociationPtrOutput) ToSubnetNatGatewayAssociationPtrOutputWithContext(ctx context.Context) SubnetNatGatewayAssociationPtrOutput {
 	return o
+}
+
+func (o SubnetNatGatewayAssociationPtrOutput) Elem() SubnetNatGatewayAssociationOutput {
+	return o.ApplyT(func(v *SubnetNatGatewayAssociation) SubnetNatGatewayAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret SubnetNatGatewayAssociation
+		return ret
+	}).(SubnetNatGatewayAssociationOutput)
 }
 
 type SubnetNatGatewayAssociationArrayOutput struct{ *pulumi.OutputState }

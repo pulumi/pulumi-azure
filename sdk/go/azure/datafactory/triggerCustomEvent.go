@@ -335,7 +335,7 @@ type TriggerCustomEventArrayInput interface {
 type TriggerCustomEventArray []TriggerCustomEventInput
 
 func (TriggerCustomEventArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TriggerCustomEvent)(nil))
+	return reflect.TypeOf((*[]*TriggerCustomEvent)(nil)).Elem()
 }
 
 func (i TriggerCustomEventArray) ToTriggerCustomEventArrayOutput() TriggerCustomEventArrayOutput {
@@ -360,7 +360,7 @@ type TriggerCustomEventMapInput interface {
 type TriggerCustomEventMap map[string]TriggerCustomEventInput
 
 func (TriggerCustomEventMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TriggerCustomEvent)(nil))
+	return reflect.TypeOf((*map[string]*TriggerCustomEvent)(nil)).Elem()
 }
 
 func (i TriggerCustomEventMap) ToTriggerCustomEventMapOutput() TriggerCustomEventMapOutput {
@@ -371,9 +371,7 @@ func (i TriggerCustomEventMap) ToTriggerCustomEventMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomEventMapOutput)
 }
 
-type TriggerCustomEventOutput struct {
-	*pulumi.OutputState
-}
+type TriggerCustomEventOutput struct{ *pulumi.OutputState }
 
 func (TriggerCustomEventOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TriggerCustomEvent)(nil))
@@ -392,14 +390,12 @@ func (o TriggerCustomEventOutput) ToTriggerCustomEventPtrOutput() TriggerCustomE
 }
 
 func (o TriggerCustomEventOutput) ToTriggerCustomEventPtrOutputWithContext(ctx context.Context) TriggerCustomEventPtrOutput {
-	return o.ApplyT(func(v TriggerCustomEvent) *TriggerCustomEvent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerCustomEvent) *TriggerCustomEvent {
 		return &v
 	}).(TriggerCustomEventPtrOutput)
 }
 
-type TriggerCustomEventPtrOutput struct {
-	*pulumi.OutputState
-}
+type TriggerCustomEventPtrOutput struct{ *pulumi.OutputState }
 
 func (TriggerCustomEventPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TriggerCustomEvent)(nil))
@@ -411,6 +407,16 @@ func (o TriggerCustomEventPtrOutput) ToTriggerCustomEventPtrOutput() TriggerCust
 
 func (o TriggerCustomEventPtrOutput) ToTriggerCustomEventPtrOutputWithContext(ctx context.Context) TriggerCustomEventPtrOutput {
 	return o
+}
+
+func (o TriggerCustomEventPtrOutput) Elem() TriggerCustomEventOutput {
+	return o.ApplyT(func(v *TriggerCustomEvent) TriggerCustomEvent {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerCustomEvent
+		return ret
+	}).(TriggerCustomEventOutput)
 }
 
 type TriggerCustomEventArrayOutput struct{ *pulumi.OutputState }

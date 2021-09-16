@@ -332,7 +332,7 @@ type GremlinGraphArrayInput interface {
 type GremlinGraphArray []GremlinGraphInput
 
 func (GremlinGraphArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GremlinGraph)(nil))
+	return reflect.TypeOf((*[]*GremlinGraph)(nil)).Elem()
 }
 
 func (i GremlinGraphArray) ToGremlinGraphArrayOutput() GremlinGraphArrayOutput {
@@ -357,7 +357,7 @@ type GremlinGraphMapInput interface {
 type GremlinGraphMap map[string]GremlinGraphInput
 
 func (GremlinGraphMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GremlinGraph)(nil))
+	return reflect.TypeOf((*map[string]*GremlinGraph)(nil)).Elem()
 }
 
 func (i GremlinGraphMap) ToGremlinGraphMapOutput() GremlinGraphMapOutput {
@@ -368,9 +368,7 @@ func (i GremlinGraphMap) ToGremlinGraphMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphMapOutput)
 }
 
-type GremlinGraphOutput struct {
-	*pulumi.OutputState
-}
+type GremlinGraphOutput struct{ *pulumi.OutputState }
 
 func (GremlinGraphOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GremlinGraph)(nil))
@@ -389,14 +387,12 @@ func (o GremlinGraphOutput) ToGremlinGraphPtrOutput() GremlinGraphPtrOutput {
 }
 
 func (o GremlinGraphOutput) ToGremlinGraphPtrOutputWithContext(ctx context.Context) GremlinGraphPtrOutput {
-	return o.ApplyT(func(v GremlinGraph) *GremlinGraph {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GremlinGraph) *GremlinGraph {
 		return &v
 	}).(GremlinGraphPtrOutput)
 }
 
-type GremlinGraphPtrOutput struct {
-	*pulumi.OutputState
-}
+type GremlinGraphPtrOutput struct{ *pulumi.OutputState }
 
 func (GremlinGraphPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GremlinGraph)(nil))
@@ -408,6 +404,16 @@ func (o GremlinGraphPtrOutput) ToGremlinGraphPtrOutput() GremlinGraphPtrOutput {
 
 func (o GremlinGraphPtrOutput) ToGremlinGraphPtrOutputWithContext(ctx context.Context) GremlinGraphPtrOutput {
 	return o
+}
+
+func (o GremlinGraphPtrOutput) Elem() GremlinGraphOutput {
+	return o.ApplyT(func(v *GremlinGraph) GremlinGraph {
+		if v != nil {
+			return *v
+		}
+		var ret GremlinGraph
+		return ret
+	}).(GremlinGraphOutput)
 }
 
 type GremlinGraphArrayOutput struct{ *pulumi.OutputState }

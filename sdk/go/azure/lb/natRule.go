@@ -321,7 +321,7 @@ type NatRuleArrayInput interface {
 type NatRuleArray []NatRuleInput
 
 func (NatRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NatRule)(nil))
+	return reflect.TypeOf((*[]*NatRule)(nil)).Elem()
 }
 
 func (i NatRuleArray) ToNatRuleArrayOutput() NatRuleArrayOutput {
@@ -346,7 +346,7 @@ type NatRuleMapInput interface {
 type NatRuleMap map[string]NatRuleInput
 
 func (NatRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NatRule)(nil))
+	return reflect.TypeOf((*map[string]*NatRule)(nil)).Elem()
 }
 
 func (i NatRuleMap) ToNatRuleMapOutput() NatRuleMapOutput {
@@ -357,9 +357,7 @@ func (i NatRuleMap) ToNatRuleMapOutputWithContext(ctx context.Context) NatRuleMa
 	return pulumi.ToOutputWithContext(ctx, i).(NatRuleMapOutput)
 }
 
-type NatRuleOutput struct {
-	*pulumi.OutputState
-}
+type NatRuleOutput struct{ *pulumi.OutputState }
 
 func (NatRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NatRule)(nil))
@@ -378,14 +376,12 @@ func (o NatRuleOutput) ToNatRulePtrOutput() NatRulePtrOutput {
 }
 
 func (o NatRuleOutput) ToNatRulePtrOutputWithContext(ctx context.Context) NatRulePtrOutput {
-	return o.ApplyT(func(v NatRule) *NatRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NatRule) *NatRule {
 		return &v
 	}).(NatRulePtrOutput)
 }
 
-type NatRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type NatRulePtrOutput struct{ *pulumi.OutputState }
 
 func (NatRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NatRule)(nil))
@@ -397,6 +393,16 @@ func (o NatRulePtrOutput) ToNatRulePtrOutput() NatRulePtrOutput {
 
 func (o NatRulePtrOutput) ToNatRulePtrOutputWithContext(ctx context.Context) NatRulePtrOutput {
 	return o
+}
+
+func (o NatRulePtrOutput) Elem() NatRuleOutput {
+	return o.ApplyT(func(v *NatRule) NatRule {
+		if v != nil {
+			return *v
+		}
+		var ret NatRule
+		return ret
+	}).(NatRuleOutput)
 }
 
 type NatRuleArrayOutput struct{ *pulumi.OutputState }

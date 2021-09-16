@@ -12,6 +12,7 @@ __all__ = [
     'GetTopicResult',
     'AwaitableGetTopicResult',
     'get_topic',
+    'get_topic_output',
 ]
 
 @pulumi.output_type
@@ -154,3 +155,28 @@ def get_topic(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         secondary_access_key=__ret__.secondary_access_key,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_topic)
+def get_topic_output(name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
+    """
+    Use this data source to access information about an existing EventGrid Topic
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.eventgrid.get_topic(name="my-eventgrid-topic",
+        resource_group_name="example-resources")
+    ```
+
+
+    :param str name: The name of the EventGrid Topic resource.
+    :param str resource_group_name: The name of the resource group in which the EventGrid Topic exists.
+    """
+    ...

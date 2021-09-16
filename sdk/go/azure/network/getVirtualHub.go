@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,77 @@ type LookupVirtualHubResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Virtual WAN within which the Virtual Hub exists.
 	VirtualWanId string `pulumi:"virtualWanId"`
+}
+
+func LookupVirtualHubOutput(ctx *pulumi.Context, args LookupVirtualHubOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHubResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualHubResult, error) {
+			args := v.(LookupVirtualHubArgs)
+			r, err := LookupVirtualHub(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualHubResultOutput)
+}
+
+// A collection of arguments for invoking getVirtualHub.
+type LookupVirtualHubOutputArgs struct {
+	// The name of the Virtual Hub.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group where the Virtual Hub exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupVirtualHubOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualHubArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVirtualHub.
+type LookupVirtualHubResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualHubResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualHubResult)(nil)).Elem()
+}
+
+func (o LookupVirtualHubResultOutput) ToLookupVirtualHubResultOutput() LookupVirtualHubResultOutput {
+	return o
+}
+
+func (o LookupVirtualHubResultOutput) ToLookupVirtualHubResultOutputWithContext(ctx context.Context) LookupVirtualHubResultOutput {
+	return o
+}
+
+// The Address Prefix used for this Virtual Hub.
+func (o LookupVirtualHubResultOutput) AddressPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualHubResult) string { return v.AddressPrefix }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupVirtualHubResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualHubResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure Region where the Virtual Hub exists.
+func (o LookupVirtualHubResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualHubResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualHubResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualHubResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualHubResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualHubResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the Virtual Hub.
+func (o LookupVirtualHubResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualHubResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The ID of the Virtual WAN within which the Virtual Hub exists.
+func (o LookupVirtualHubResultOutput) VirtualWanId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualHubResult) string { return v.VirtualWanId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualHubResultOutput{})
 }

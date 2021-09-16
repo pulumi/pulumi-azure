@@ -234,7 +234,7 @@ type NetworkInterfaceSecurityGroupAssociationArrayInput interface {
 type NetworkInterfaceSecurityGroupAssociationArray []NetworkInterfaceSecurityGroupAssociationInput
 
 func (NetworkInterfaceSecurityGroupAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkInterfaceSecurityGroupAssociation)(nil))
+	return reflect.TypeOf((*[]*NetworkInterfaceSecurityGroupAssociation)(nil)).Elem()
 }
 
 func (i NetworkInterfaceSecurityGroupAssociationArray) ToNetworkInterfaceSecurityGroupAssociationArrayOutput() NetworkInterfaceSecurityGroupAssociationArrayOutput {
@@ -259,7 +259,7 @@ type NetworkInterfaceSecurityGroupAssociationMapInput interface {
 type NetworkInterfaceSecurityGroupAssociationMap map[string]NetworkInterfaceSecurityGroupAssociationInput
 
 func (NetworkInterfaceSecurityGroupAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkInterfaceSecurityGroupAssociation)(nil))
+	return reflect.TypeOf((*map[string]*NetworkInterfaceSecurityGroupAssociation)(nil)).Elem()
 }
 
 func (i NetworkInterfaceSecurityGroupAssociationMap) ToNetworkInterfaceSecurityGroupAssociationMapOutput() NetworkInterfaceSecurityGroupAssociationMapOutput {
@@ -270,9 +270,7 @@ func (i NetworkInterfaceSecurityGroupAssociationMap) ToNetworkInterfaceSecurityG
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceSecurityGroupAssociationMapOutput)
 }
 
-type NetworkInterfaceSecurityGroupAssociationOutput struct {
-	*pulumi.OutputState
-}
+type NetworkInterfaceSecurityGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceSecurityGroupAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkInterfaceSecurityGroupAssociation)(nil))
@@ -291,14 +289,12 @@ func (o NetworkInterfaceSecurityGroupAssociationOutput) ToNetworkInterfaceSecuri
 }
 
 func (o NetworkInterfaceSecurityGroupAssociationOutput) ToNetworkInterfaceSecurityGroupAssociationPtrOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAssociationPtrOutput {
-	return o.ApplyT(func(v NetworkInterfaceSecurityGroupAssociation) *NetworkInterfaceSecurityGroupAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceSecurityGroupAssociation) *NetworkInterfaceSecurityGroupAssociation {
 		return &v
 	}).(NetworkInterfaceSecurityGroupAssociationPtrOutput)
 }
 
-type NetworkInterfaceSecurityGroupAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type NetworkInterfaceSecurityGroupAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceSecurityGroupAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NetworkInterfaceSecurityGroupAssociation)(nil))
@@ -310,6 +306,16 @@ func (o NetworkInterfaceSecurityGroupAssociationPtrOutput) ToNetworkInterfaceSec
 
 func (o NetworkInterfaceSecurityGroupAssociationPtrOutput) ToNetworkInterfaceSecurityGroupAssociationPtrOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAssociationPtrOutput {
 	return o
+}
+
+func (o NetworkInterfaceSecurityGroupAssociationPtrOutput) Elem() NetworkInterfaceSecurityGroupAssociationOutput {
+	return o.ApplyT(func(v *NetworkInterfaceSecurityGroupAssociation) NetworkInterfaceSecurityGroupAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceSecurityGroupAssociation
+		return ret
+	}).(NetworkInterfaceSecurityGroupAssociationOutput)
 }
 
 type NetworkInterfaceSecurityGroupAssociationArrayOutput struct{ *pulumi.OutputState }

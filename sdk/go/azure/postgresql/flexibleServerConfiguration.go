@@ -215,7 +215,7 @@ type FlexibleServerConfigurationArrayInput interface {
 type FlexibleServerConfigurationArray []FlexibleServerConfigurationInput
 
 func (FlexibleServerConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FlexibleServerConfiguration)(nil))
+	return reflect.TypeOf((*[]*FlexibleServerConfiguration)(nil)).Elem()
 }
 
 func (i FlexibleServerConfigurationArray) ToFlexibleServerConfigurationArrayOutput() FlexibleServerConfigurationArrayOutput {
@@ -240,7 +240,7 @@ type FlexibleServerConfigurationMapInput interface {
 type FlexibleServerConfigurationMap map[string]FlexibleServerConfigurationInput
 
 func (FlexibleServerConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FlexibleServerConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*FlexibleServerConfiguration)(nil)).Elem()
 }
 
 func (i FlexibleServerConfigurationMap) ToFlexibleServerConfigurationMapOutput() FlexibleServerConfigurationMapOutput {
@@ -251,9 +251,7 @@ func (i FlexibleServerConfigurationMap) ToFlexibleServerConfigurationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerConfigurationMapOutput)
 }
 
-type FlexibleServerConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type FlexibleServerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FlexibleServerConfiguration)(nil))
@@ -272,14 +270,12 @@ func (o FlexibleServerConfigurationOutput) ToFlexibleServerConfigurationPtrOutpu
 }
 
 func (o FlexibleServerConfigurationOutput) ToFlexibleServerConfigurationPtrOutputWithContext(ctx context.Context) FlexibleServerConfigurationPtrOutput {
-	return o.ApplyT(func(v FlexibleServerConfiguration) *FlexibleServerConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerConfiguration) *FlexibleServerConfiguration {
 		return &v
 	}).(FlexibleServerConfigurationPtrOutput)
 }
 
-type FlexibleServerConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type FlexibleServerConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FlexibleServerConfiguration)(nil))
@@ -291,6 +287,16 @@ func (o FlexibleServerConfigurationPtrOutput) ToFlexibleServerConfigurationPtrOu
 
 func (o FlexibleServerConfigurationPtrOutput) ToFlexibleServerConfigurationPtrOutputWithContext(ctx context.Context) FlexibleServerConfigurationPtrOutput {
 	return o
+}
+
+func (o FlexibleServerConfigurationPtrOutput) Elem() FlexibleServerConfigurationOutput {
+	return o.ApplyT(func(v *FlexibleServerConfiguration) FlexibleServerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlexibleServerConfiguration
+		return ret
+	}).(FlexibleServerConfigurationOutput)
 }
 
 type FlexibleServerConfigurationArrayOutput struct{ *pulumi.OutputState }

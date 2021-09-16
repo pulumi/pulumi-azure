@@ -267,7 +267,7 @@ type AssetArrayInput interface {
 type AssetArray []AssetInput
 
 func (AssetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Asset)(nil))
+	return reflect.TypeOf((*[]*Asset)(nil)).Elem()
 }
 
 func (i AssetArray) ToAssetArrayOutput() AssetArrayOutput {
@@ -292,7 +292,7 @@ type AssetMapInput interface {
 type AssetMap map[string]AssetInput
 
 func (AssetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Asset)(nil))
+	return reflect.TypeOf((*map[string]*Asset)(nil)).Elem()
 }
 
 func (i AssetMap) ToAssetMapOutput() AssetMapOutput {
@@ -303,9 +303,7 @@ func (i AssetMap) ToAssetMapOutputWithContext(ctx context.Context) AssetMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AssetMapOutput)
 }
 
-type AssetOutput struct {
-	*pulumi.OutputState
-}
+type AssetOutput struct{ *pulumi.OutputState }
 
 func (AssetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Asset)(nil))
@@ -324,14 +322,12 @@ func (o AssetOutput) ToAssetPtrOutput() AssetPtrOutput {
 }
 
 func (o AssetOutput) ToAssetPtrOutputWithContext(ctx context.Context) AssetPtrOutput {
-	return o.ApplyT(func(v Asset) *Asset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Asset) *Asset {
 		return &v
 	}).(AssetPtrOutput)
 }
 
-type AssetPtrOutput struct {
-	*pulumi.OutputState
-}
+type AssetPtrOutput struct{ *pulumi.OutputState }
 
 func (AssetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Asset)(nil))
@@ -343,6 +339,16 @@ func (o AssetPtrOutput) ToAssetPtrOutput() AssetPtrOutput {
 
 func (o AssetPtrOutput) ToAssetPtrOutputWithContext(ctx context.Context) AssetPtrOutput {
 	return o
+}
+
+func (o AssetPtrOutput) Elem() AssetOutput {
+	return o.ApplyT(func(v *Asset) Asset {
+		if v != nil {
+			return *v
+		}
+		var ret Asset
+		return ret
+	}).(AssetOutput)
 }
 
 type AssetArrayOutput struct{ *pulumi.OutputState }

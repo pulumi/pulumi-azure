@@ -28,9 +28,9 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	case "azure:eventgrid/eventSubscription:EventSubscription":
 		r = &EventSubscription{}
 	case "azure:eventgrid/getSystemTopic:getSystemTopic":
-		r = &GetSystemTopic{}
+		r = &GetSystemTopicResource{}
 	case "azure:eventgrid/systemTopic:SystemTopic":
-		r = &SystemTopic{}
+		r = &SystemTopicResource{}
 	case "azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription":
 		r = &SystemTopicEventSubscription{}
 	case "azure:eventgrid/topic:Topic":

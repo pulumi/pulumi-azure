@@ -235,7 +235,7 @@ func (o PrivateCloudManagementClusterOutput) ToPrivateCloudManagementClusterPtrO
 }
 
 func (o PrivateCloudManagementClusterOutput) ToPrivateCloudManagementClusterPtrOutputWithContext(ctx context.Context) PrivateCloudManagementClusterPtrOutput {
-	return o.ApplyT(func(v PrivateCloudManagementCluster) *PrivateCloudManagementCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateCloudManagementCluster) *PrivateCloudManagementCluster {
 		return &v
 	}).(PrivateCloudManagementClusterPtrOutput)
 }
@@ -270,7 +270,13 @@ func (o PrivateCloudManagementClusterPtrOutput) ToPrivateCloudManagementClusterP
 }
 
 func (o PrivateCloudManagementClusterPtrOutput) Elem() PrivateCloudManagementClusterOutput {
-	return o.ApplyT(func(v *PrivateCloudManagementCluster) PrivateCloudManagementCluster { return *v }).(PrivateCloudManagementClusterOutput)
+	return o.ApplyT(func(v *PrivateCloudManagementCluster) PrivateCloudManagementCluster {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateCloudManagementCluster
+		return ret
+	}).(PrivateCloudManagementClusterOutput)
 }
 
 // A list of hosts in the management cluster.

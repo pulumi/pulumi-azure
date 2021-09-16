@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,4 +77,95 @@ type LookupImageResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// is zone resiliency enabled?
 	ZoneResilient bool `pulumi:"zoneResilient"`
+}
+
+func LookupImageOutput(ctx *pulumi.Context, args LookupImageOutputArgs, opts ...pulumi.InvokeOption) LookupImageResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupImageResult, error) {
+			args := v.(LookupImageArgs)
+			r, err := LookupImage(ctx, &args, opts...)
+			return *r, err
+		}).(LookupImageResultOutput)
+}
+
+// A collection of arguments for invoking getImage.
+type LookupImageOutputArgs struct {
+	// The name of the Image.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Regex pattern of the image to match.
+	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
+	// The Name of the Resource Group where this Image exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// By default when matching by regex, images are sorted by name in ascending order and the first match is chosen, to sort descending, set this flag.
+	SortDescending pulumi.BoolPtrInput `pulumi:"sortDescending"`
+}
+
+func (LookupImageOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupImageArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getImage.
+type LookupImageResultOutput struct{ *pulumi.OutputState }
+
+func (LookupImageResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupImageResult)(nil)).Elem()
+}
+
+func (o LookupImageResultOutput) ToLookupImageResultOutput() LookupImageResultOutput {
+	return o
+}
+
+func (o LookupImageResultOutput) ToLookupImageResultOutputWithContext(ctx context.Context) LookupImageResultOutput {
+	return o
+}
+
+// a collection of `dataDisk` blocks as defined below.
+func (o LookupImageResultOutput) DataDisks() GetImageDataDiskArrayOutput {
+	return o.ApplyT(func(v LookupImageResult) []GetImageDataDisk { return v.DataDisks }).(GetImageDataDiskArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupImageResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// the Azure Location where this Image exists.
+func (o LookupImageResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// the name of the Image.
+func (o LookupImageResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupImageResultOutput) NameRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.NameRegex }).(pulumi.StringPtrOutput)
+}
+
+// a `osDisk` block as defined below.
+func (o LookupImageResultOutput) OsDisks() GetImageOsDiskArrayOutput {
+	return o.ApplyT(func(v LookupImageResult) []GetImageOsDisk { return v.OsDisks }).(GetImageOsDiskArrayOutput)
+}
+
+func (o LookupImageResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupImageResultOutput) SortDescending() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *bool { return v.SortDescending }).(pulumi.BoolPtrOutput)
+}
+
+// a mapping of tags to assigned to the resource.
+func (o LookupImageResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupImageResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// is zone resiliency enabled?
+func (o LookupImageResultOutput) ZoneResilient() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupImageResult) bool { return v.ZoneResilient }).(pulumi.BoolOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupImageResultOutput{})
 }

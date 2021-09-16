@@ -4,6 +4,9 @@
 package netapp
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -85,4 +88,117 @@ type LookupVolumeResult struct {
 	SubnetId string `pulumi:"subnetId"`
 	// The unique file path of the volume.
 	VolumePath string `pulumi:"volumePath"`
+}
+
+func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVolumeResult, error) {
+			args := v.(LookupVolumeArgs)
+			r, err := LookupVolume(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVolumeResultOutput)
+}
+
+// A collection of arguments for invoking getVolume.
+type LookupVolumeOutputArgs struct {
+	// The name of the NetApp account where the NetApp pool exists.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the NetApp Volume.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the NetApp pool where the NetApp volume exists.
+	PoolName pulumi.StringInput `pulumi:"poolName"`
+	// The Name of the Resource Group where the NetApp Volume exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Volume security style
+	SecurityStyle pulumi.StringPtrInput `pulumi:"securityStyle"`
+}
+
+func (LookupVolumeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVolumeArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVolume.
+type LookupVolumeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVolumeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVolumeResult)(nil)).Elem()
+}
+
+func (o LookupVolumeResultOutput) ToLookupVolumeResultOutput() LookupVolumeResultOutput {
+	return o
+}
+
+func (o LookupVolumeResultOutput) ToLookupVolumeResultOutputWithContext(ctx context.Context) LookupVolumeResultOutput {
+	return o
+}
+
+func (o LookupVolumeResultOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Volume data protection block
+// *
+func (o LookupVolumeResultOutput) DataProtectionReplications() GetVolumeDataProtectionReplicationArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []GetVolumeDataProtectionReplication { return v.DataProtectionReplications }).(GetVolumeDataProtectionReplicationArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupVolumeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure Region where the NetApp Volume exists.
+func (o LookupVolumeResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// A list of IPv4 Addresses which should be used to mount the volume.
+func (o LookupVolumeResultOutput) MountIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []string { return v.MountIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupVolumeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupVolumeResultOutput) PoolName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.PoolName }).(pulumi.StringOutput)
+}
+
+// A list of protocol types enabled on volume.
+func (o LookupVolumeResultOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupVolumeResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Volume security style
+func (o LookupVolumeResultOutput) SecurityStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.SecurityStyle }).(pulumi.StringPtrOutput)
+}
+
+// The service level of the file system.
+func (o LookupVolumeResultOutput) ServiceLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.ServiceLevel }).(pulumi.StringOutput)
+}
+
+// The maximum Storage Quota in Gigabytes allowed for a file system.
+func (o LookupVolumeResultOutput) StorageQuotaInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupVolumeResult) int { return v.StorageQuotaInGb }).(pulumi.IntOutput)
+}
+
+// The ID of a Subnet in which the NetApp Volume resides.
+func (o LookupVolumeResultOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// The unique file path of the volume.
+func (o LookupVolumeResultOutput) VolumePath() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.VolumePath }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVolumeResultOutput{})
 }

@@ -103,7 +103,7 @@ func (o HBaseClusterComponentVersionOutput) ToHBaseClusterComponentVersionPtrOut
 }
 
 func (o HBaseClusterComponentVersionOutput) ToHBaseClusterComponentVersionPtrOutputWithContext(ctx context.Context) HBaseClusterComponentVersionPtrOutput {
-	return o.ApplyT(func(v HBaseClusterComponentVersion) *HBaseClusterComponentVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterComponentVersion) *HBaseClusterComponentVersion {
 		return &v
 	}).(HBaseClusterComponentVersionPtrOutput)
 }
@@ -128,7 +128,13 @@ func (o HBaseClusterComponentVersionPtrOutput) ToHBaseClusterComponentVersionPtr
 }
 
 func (o HBaseClusterComponentVersionPtrOutput) Elem() HBaseClusterComponentVersionOutput {
-	return o.ApplyT(func(v *HBaseClusterComponentVersion) HBaseClusterComponentVersion { return *v }).(HBaseClusterComponentVersionOutput)
+	return o.ApplyT(func(v *HBaseClusterComponentVersion) HBaseClusterComponentVersion {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterComponentVersion
+		return ret
+	}).(HBaseClusterComponentVersionOutput)
 }
 
 // The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
@@ -246,7 +252,7 @@ func (o HBaseClusterGatewayOutput) ToHBaseClusterGatewayPtrOutput() HBaseCluster
 }
 
 func (o HBaseClusterGatewayOutput) ToHBaseClusterGatewayPtrOutputWithContext(ctx context.Context) HBaseClusterGatewayPtrOutput {
-	return o.ApplyT(func(v HBaseClusterGateway) *HBaseClusterGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterGateway) *HBaseClusterGateway {
 		return &v
 	}).(HBaseClusterGatewayPtrOutput)
 }
@@ -283,7 +289,13 @@ func (o HBaseClusterGatewayPtrOutput) ToHBaseClusterGatewayPtrOutputWithContext(
 }
 
 func (o HBaseClusterGatewayPtrOutput) Elem() HBaseClusterGatewayOutput {
-	return o.ApplyT(func(v *HBaseClusterGateway) HBaseClusterGateway { return *v }).(HBaseClusterGatewayOutput)
+	return o.ApplyT(func(v *HBaseClusterGateway) HBaseClusterGateway {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterGateway
+		return ret
+	}).(HBaseClusterGatewayOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -419,7 +431,7 @@ func (o HBaseClusterMetastoresOutput) ToHBaseClusterMetastoresPtrOutput() HBaseC
 }
 
 func (o HBaseClusterMetastoresOutput) ToHBaseClusterMetastoresPtrOutputWithContext(ctx context.Context) HBaseClusterMetastoresPtrOutput {
-	return o.ApplyT(func(v HBaseClusterMetastores) *HBaseClusterMetastores {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterMetastores) *HBaseClusterMetastores {
 		return &v
 	}).(HBaseClusterMetastoresPtrOutput)
 }
@@ -454,7 +466,13 @@ func (o HBaseClusterMetastoresPtrOutput) ToHBaseClusterMetastoresPtrOutputWithCo
 }
 
 func (o HBaseClusterMetastoresPtrOutput) Elem() HBaseClusterMetastoresOutput {
-	return o.ApplyT(func(v *HBaseClusterMetastores) HBaseClusterMetastores { return *v }).(HBaseClusterMetastoresOutput)
+	return o.ApplyT(func(v *HBaseClusterMetastores) HBaseClusterMetastores {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterMetastores
+		return ret
+	}).(HBaseClusterMetastoresOutput)
 }
 
 // An `ambari` block as defined below.
@@ -592,7 +610,7 @@ func (o HBaseClusterMetastoresAmbariOutput) ToHBaseClusterMetastoresAmbariPtrOut
 }
 
 func (o HBaseClusterMetastoresAmbariOutput) ToHBaseClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) HBaseClusterMetastoresAmbariPtrOutput {
-	return o.ApplyT(func(v HBaseClusterMetastoresAmbari) *HBaseClusterMetastoresAmbari {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterMetastoresAmbari) *HBaseClusterMetastoresAmbari {
 		return &v
 	}).(HBaseClusterMetastoresAmbariPtrOutput)
 }
@@ -632,7 +650,13 @@ func (o HBaseClusterMetastoresAmbariPtrOutput) ToHBaseClusterMetastoresAmbariPtr
 }
 
 func (o HBaseClusterMetastoresAmbariPtrOutput) Elem() HBaseClusterMetastoresAmbariOutput {
-	return o.ApplyT(func(v *HBaseClusterMetastoresAmbari) HBaseClusterMetastoresAmbari { return *v }).(HBaseClusterMetastoresAmbariOutput)
+	return o.ApplyT(func(v *HBaseClusterMetastoresAmbari) HBaseClusterMetastoresAmbari {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterMetastoresAmbari
+		return ret
+	}).(HBaseClusterMetastoresAmbariOutput)
 }
 
 // The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -780,7 +804,7 @@ func (o HBaseClusterMetastoresHiveOutput) ToHBaseClusterMetastoresHivePtrOutput(
 }
 
 func (o HBaseClusterMetastoresHiveOutput) ToHBaseClusterMetastoresHivePtrOutputWithContext(ctx context.Context) HBaseClusterMetastoresHivePtrOutput {
-	return o.ApplyT(func(v HBaseClusterMetastoresHive) *HBaseClusterMetastoresHive {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterMetastoresHive) *HBaseClusterMetastoresHive {
 		return &v
 	}).(HBaseClusterMetastoresHivePtrOutput)
 }
@@ -820,7 +844,13 @@ func (o HBaseClusterMetastoresHivePtrOutput) ToHBaseClusterMetastoresHivePtrOutp
 }
 
 func (o HBaseClusterMetastoresHivePtrOutput) Elem() HBaseClusterMetastoresHiveOutput {
-	return o.ApplyT(func(v *HBaseClusterMetastoresHive) HBaseClusterMetastoresHive { return *v }).(HBaseClusterMetastoresHiveOutput)
+	return o.ApplyT(func(v *HBaseClusterMetastoresHive) HBaseClusterMetastoresHive {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterMetastoresHive
+		return ret
+	}).(HBaseClusterMetastoresHiveOutput)
 }
 
 // The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -968,7 +998,7 @@ func (o HBaseClusterMetastoresOozieOutput) ToHBaseClusterMetastoresOoziePtrOutpu
 }
 
 func (o HBaseClusterMetastoresOozieOutput) ToHBaseClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) HBaseClusterMetastoresOoziePtrOutput {
-	return o.ApplyT(func(v HBaseClusterMetastoresOozie) *HBaseClusterMetastoresOozie {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterMetastoresOozie) *HBaseClusterMetastoresOozie {
 		return &v
 	}).(HBaseClusterMetastoresOoziePtrOutput)
 }
@@ -1008,7 +1038,13 @@ func (o HBaseClusterMetastoresOoziePtrOutput) ToHBaseClusterMetastoresOoziePtrOu
 }
 
 func (o HBaseClusterMetastoresOoziePtrOutput) Elem() HBaseClusterMetastoresOozieOutput {
-	return o.ApplyT(func(v *HBaseClusterMetastoresOozie) HBaseClusterMetastoresOozie { return *v }).(HBaseClusterMetastoresOozieOutput)
+	return o.ApplyT(func(v *HBaseClusterMetastoresOozie) HBaseClusterMetastoresOozie {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterMetastoresOozie
+		return ret
+	}).(HBaseClusterMetastoresOozieOutput)
 }
 
 // The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -1148,7 +1184,7 @@ func (o HBaseClusterMonitorOutput) ToHBaseClusterMonitorPtrOutput() HBaseCluster
 }
 
 func (o HBaseClusterMonitorOutput) ToHBaseClusterMonitorPtrOutputWithContext(ctx context.Context) HBaseClusterMonitorPtrOutput {
-	return o.ApplyT(func(v HBaseClusterMonitor) *HBaseClusterMonitor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterMonitor) *HBaseClusterMonitor {
 		return &v
 	}).(HBaseClusterMonitorPtrOutput)
 }
@@ -1178,7 +1214,13 @@ func (o HBaseClusterMonitorPtrOutput) ToHBaseClusterMonitorPtrOutputWithContext(
 }
 
 func (o HBaseClusterMonitorPtrOutput) Elem() HBaseClusterMonitorOutput {
-	return o.ApplyT(func(v *HBaseClusterMonitor) HBaseClusterMonitor { return *v }).(HBaseClusterMonitorOutput)
+	return o.ApplyT(func(v *HBaseClusterMonitor) HBaseClusterMonitor {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterMonitor
+		return ret
+	}).(HBaseClusterMonitorOutput)
 }
 
 // The Operations Management Suite (OMS) workspace ID.
@@ -1302,7 +1344,7 @@ func (o HBaseClusterRolesOutput) ToHBaseClusterRolesPtrOutput() HBaseClusterRole
 }
 
 func (o HBaseClusterRolesOutput) ToHBaseClusterRolesPtrOutputWithContext(ctx context.Context) HBaseClusterRolesPtrOutput {
-	return o.ApplyT(func(v HBaseClusterRoles) *HBaseClusterRoles {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRoles) *HBaseClusterRoles {
 		return &v
 	}).(HBaseClusterRolesPtrOutput)
 }
@@ -1337,7 +1379,13 @@ func (o HBaseClusterRolesPtrOutput) ToHBaseClusterRolesPtrOutputWithContext(ctx 
 }
 
 func (o HBaseClusterRolesPtrOutput) Elem() HBaseClusterRolesOutput {
-	return o.ApplyT(func(v *HBaseClusterRoles) HBaseClusterRoles { return *v }).(HBaseClusterRolesOutput)
+	return o.ApplyT(func(v *HBaseClusterRoles) HBaseClusterRoles {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterRoles
+		return ret
+	}).(HBaseClusterRolesOutput)
 }
 
 // A `headNode` block as defined above.
@@ -1483,7 +1531,7 @@ func (o HBaseClusterRolesHeadNodeOutput) ToHBaseClusterRolesHeadNodePtrOutput() 
 }
 
 func (o HBaseClusterRolesHeadNodeOutput) ToHBaseClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v HBaseClusterRolesHeadNode) *HBaseClusterRolesHeadNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRolesHeadNode) *HBaseClusterRolesHeadNode {
 		return &v
 	}).(HBaseClusterRolesHeadNodePtrOutput)
 }
@@ -1533,7 +1581,13 @@ func (o HBaseClusterRolesHeadNodePtrOutput) ToHBaseClusterRolesHeadNodePtrOutput
 }
 
 func (o HBaseClusterRolesHeadNodePtrOutput) Elem() HBaseClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) HBaseClusterRolesHeadNode { return *v }).(HBaseClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) HBaseClusterRolesHeadNode {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterRolesHeadNode
+		return ret
+	}).(HBaseClusterRolesHeadNodeOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -1725,7 +1779,7 @@ func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodePtrOutpu
 }
 
 func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *HBaseClusterRolesWorkerNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRolesWorkerNode) *HBaseClusterRolesWorkerNode {
 		return &v
 	}).(HBaseClusterRolesWorkerNodePtrOutput)
 }
@@ -1792,7 +1846,13 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) ToHBaseClusterRolesWorkerNodePtrOu
 }
 
 func (o HBaseClusterRolesWorkerNodePtrOutput) Elem() HBaseClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) HBaseClusterRolesWorkerNode { return *v }).(HBaseClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) HBaseClusterRolesWorkerNode {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterRolesWorkerNode
+		return ret
+	}).(HBaseClusterRolesWorkerNodeOutput)
 }
 
 // A `autoscale` block as defined below.
@@ -1980,7 +2040,7 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) ToHBaseClusterRolesWorkerNod
 }
 
 func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
-	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscale) *HBaseClusterRolesWorkerNodeAutoscale {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRolesWorkerNodeAutoscale) *HBaseClusterRolesWorkerNodeAutoscale {
 		return &v
 	}).(HBaseClusterRolesWorkerNodeAutoscalePtrOutput)
 }
@@ -2007,7 +2067,13 @@ func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) ToHBaseClusterRolesWorker
 }
 
 func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) Elem() HBaseClusterRolesWorkerNodeAutoscaleOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscale) HBaseClusterRolesWorkerNodeAutoscale { return *v }).(HBaseClusterRolesWorkerNodeAutoscaleOutput)
+	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscale) HBaseClusterRolesWorkerNodeAutoscale {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterRolesWorkerNodeAutoscale
+		return ret
+	}).(HBaseClusterRolesWorkerNodeAutoscaleOutput)
 }
 
 // A `recurrence` block as defined below.
@@ -2117,7 +2183,7 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHBaseClusterRole
 }
 
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
-	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrence) *HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRolesWorkerNodeAutoscaleRecurrence) *HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
 		return &v
 	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
 }
@@ -2150,7 +2216,11 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToHBaseClusterR
 
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscaleRecurrence) HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterRolesWorkerNodeAutoscaleRecurrence
+		return ret
 	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
 }
 
@@ -2402,7 +2472,7 @@ func (o HBaseClusterRolesZookeeperNodeOutput) ToHBaseClusterRolesZookeeperNodePt
 }
 
 func (o HBaseClusterRolesZookeeperNodeOutput) ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) *HBaseClusterRolesZookeeperNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRolesZookeeperNode) *HBaseClusterRolesZookeeperNode {
 		return &v
 	}).(HBaseClusterRolesZookeeperNodePtrOutput)
 }
@@ -2452,7 +2522,13 @@ func (o HBaseClusterRolesZookeeperNodePtrOutput) ToHBaseClusterRolesZookeeperNod
 }
 
 func (o HBaseClusterRolesZookeeperNodePtrOutput) Elem() HBaseClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) HBaseClusterRolesZookeeperNode { return *v }).(HBaseClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) HBaseClusterRolesZookeeperNode {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterRolesZookeeperNode
+		return ret
+	}).(HBaseClusterRolesZookeeperNodeOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -2632,7 +2708,7 @@ func (o HBaseClusterSecurityProfileOutput) ToHBaseClusterSecurityProfilePtrOutpu
 }
 
 func (o HBaseClusterSecurityProfileOutput) ToHBaseClusterSecurityProfilePtrOutputWithContext(ctx context.Context) HBaseClusterSecurityProfilePtrOutput {
-	return o.ApplyT(func(v HBaseClusterSecurityProfile) *HBaseClusterSecurityProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterSecurityProfile) *HBaseClusterSecurityProfile {
 		return &v
 	}).(HBaseClusterSecurityProfilePtrOutput)
 }
@@ -2687,7 +2763,13 @@ func (o HBaseClusterSecurityProfilePtrOutput) ToHBaseClusterSecurityProfilePtrOu
 }
 
 func (o HBaseClusterSecurityProfilePtrOutput) Elem() HBaseClusterSecurityProfileOutput {
-	return o.ApplyT(func(v *HBaseClusterSecurityProfile) HBaseClusterSecurityProfile { return *v }).(HBaseClusterSecurityProfileOutput)
+	return o.ApplyT(func(v *HBaseClusterSecurityProfile) HBaseClusterSecurityProfile {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterSecurityProfile
+		return ret
+	}).(HBaseClusterSecurityProfileOutput)
 }
 
 // The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -2980,7 +3062,7 @@ func (o HBaseClusterStorageAccountGen2Output) ToHBaseClusterStorageAccountGen2Pt
 }
 
 func (o HBaseClusterStorageAccountGen2Output) ToHBaseClusterStorageAccountGen2PtrOutputWithContext(ctx context.Context) HBaseClusterStorageAccountGen2PtrOutput {
-	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) *HBaseClusterStorageAccountGen2 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterStorageAccountGen2) *HBaseClusterStorageAccountGen2 {
 		return &v
 	}).(HBaseClusterStorageAccountGen2PtrOutput)
 }
@@ -3020,7 +3102,13 @@ func (o HBaseClusterStorageAccountGen2PtrOutput) ToHBaseClusterStorageAccountGen
 }
 
 func (o HBaseClusterStorageAccountGen2PtrOutput) Elem() HBaseClusterStorageAccountGen2Output {
-	return o.ApplyT(func(v *HBaseClusterStorageAccountGen2) HBaseClusterStorageAccountGen2 { return *v }).(HBaseClusterStorageAccountGen2Output)
+	return o.ApplyT(func(v *HBaseClusterStorageAccountGen2) HBaseClusterStorageAccountGen2 {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterStorageAccountGen2
+		return ret
+	}).(HBaseClusterStorageAccountGen2Output)
 }
 
 // The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
@@ -3156,7 +3244,7 @@ func (o HadoopClusterComponentVersionOutput) ToHadoopClusterComponentVersionPtrO
 }
 
 func (o HadoopClusterComponentVersionOutput) ToHadoopClusterComponentVersionPtrOutputWithContext(ctx context.Context) HadoopClusterComponentVersionPtrOutput {
-	return o.ApplyT(func(v HadoopClusterComponentVersion) *HadoopClusterComponentVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterComponentVersion) *HadoopClusterComponentVersion {
 		return &v
 	}).(HadoopClusterComponentVersionPtrOutput)
 }
@@ -3181,7 +3269,13 @@ func (o HadoopClusterComponentVersionPtrOutput) ToHadoopClusterComponentVersionP
 }
 
 func (o HadoopClusterComponentVersionPtrOutput) Elem() HadoopClusterComponentVersionOutput {
-	return o.ApplyT(func(v *HadoopClusterComponentVersion) HadoopClusterComponentVersion { return *v }).(HadoopClusterComponentVersionOutput)
+	return o.ApplyT(func(v *HadoopClusterComponentVersion) HadoopClusterComponentVersion {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterComponentVersion
+		return ret
+	}).(HadoopClusterComponentVersionOutput)
 }
 
 // The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
@@ -3299,7 +3393,7 @@ func (o HadoopClusterGatewayOutput) ToHadoopClusterGatewayPtrOutput() HadoopClus
 }
 
 func (o HadoopClusterGatewayOutput) ToHadoopClusterGatewayPtrOutputWithContext(ctx context.Context) HadoopClusterGatewayPtrOutput {
-	return o.ApplyT(func(v HadoopClusterGateway) *HadoopClusterGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterGateway) *HadoopClusterGateway {
 		return &v
 	}).(HadoopClusterGatewayPtrOutput)
 }
@@ -3336,7 +3430,13 @@ func (o HadoopClusterGatewayPtrOutput) ToHadoopClusterGatewayPtrOutputWithContex
 }
 
 func (o HadoopClusterGatewayPtrOutput) Elem() HadoopClusterGatewayOutput {
-	return o.ApplyT(func(v *HadoopClusterGateway) HadoopClusterGateway { return *v }).(HadoopClusterGatewayOutput)
+	return o.ApplyT(func(v *HadoopClusterGateway) HadoopClusterGateway {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterGateway
+		return ret
+	}).(HadoopClusterGatewayOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -3472,7 +3572,7 @@ func (o HadoopClusterMetastoresOutput) ToHadoopClusterMetastoresPtrOutput() Hado
 }
 
 func (o HadoopClusterMetastoresOutput) ToHadoopClusterMetastoresPtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresPtrOutput {
-	return o.ApplyT(func(v HadoopClusterMetastores) *HadoopClusterMetastores {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterMetastores) *HadoopClusterMetastores {
 		return &v
 	}).(HadoopClusterMetastoresPtrOutput)
 }
@@ -3507,7 +3607,13 @@ func (o HadoopClusterMetastoresPtrOutput) ToHadoopClusterMetastoresPtrOutputWith
 }
 
 func (o HadoopClusterMetastoresPtrOutput) Elem() HadoopClusterMetastoresOutput {
-	return o.ApplyT(func(v *HadoopClusterMetastores) HadoopClusterMetastores { return *v }).(HadoopClusterMetastoresOutput)
+	return o.ApplyT(func(v *HadoopClusterMetastores) HadoopClusterMetastores {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterMetastores
+		return ret
+	}).(HadoopClusterMetastoresOutput)
 }
 
 // An `ambari` block as defined below.
@@ -3645,7 +3751,7 @@ func (o HadoopClusterMetastoresAmbariOutput) ToHadoopClusterMetastoresAmbariPtrO
 }
 
 func (o HadoopClusterMetastoresAmbariOutput) ToHadoopClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresAmbariPtrOutput {
-	return o.ApplyT(func(v HadoopClusterMetastoresAmbari) *HadoopClusterMetastoresAmbari {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterMetastoresAmbari) *HadoopClusterMetastoresAmbari {
 		return &v
 	}).(HadoopClusterMetastoresAmbariPtrOutput)
 }
@@ -3685,7 +3791,13 @@ func (o HadoopClusterMetastoresAmbariPtrOutput) ToHadoopClusterMetastoresAmbariP
 }
 
 func (o HadoopClusterMetastoresAmbariPtrOutput) Elem() HadoopClusterMetastoresAmbariOutput {
-	return o.ApplyT(func(v *HadoopClusterMetastoresAmbari) HadoopClusterMetastoresAmbari { return *v }).(HadoopClusterMetastoresAmbariOutput)
+	return o.ApplyT(func(v *HadoopClusterMetastoresAmbari) HadoopClusterMetastoresAmbari {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterMetastoresAmbari
+		return ret
+	}).(HadoopClusterMetastoresAmbariOutput)
 }
 
 // The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -3833,7 +3945,7 @@ func (o HadoopClusterMetastoresHiveOutput) ToHadoopClusterMetastoresHivePtrOutpu
 }
 
 func (o HadoopClusterMetastoresHiveOutput) ToHadoopClusterMetastoresHivePtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresHivePtrOutput {
-	return o.ApplyT(func(v HadoopClusterMetastoresHive) *HadoopClusterMetastoresHive {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterMetastoresHive) *HadoopClusterMetastoresHive {
 		return &v
 	}).(HadoopClusterMetastoresHivePtrOutput)
 }
@@ -3873,7 +3985,13 @@ func (o HadoopClusterMetastoresHivePtrOutput) ToHadoopClusterMetastoresHivePtrOu
 }
 
 func (o HadoopClusterMetastoresHivePtrOutput) Elem() HadoopClusterMetastoresHiveOutput {
-	return o.ApplyT(func(v *HadoopClusterMetastoresHive) HadoopClusterMetastoresHive { return *v }).(HadoopClusterMetastoresHiveOutput)
+	return o.ApplyT(func(v *HadoopClusterMetastoresHive) HadoopClusterMetastoresHive {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterMetastoresHive
+		return ret
+	}).(HadoopClusterMetastoresHiveOutput)
 }
 
 // The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -4021,7 +4139,7 @@ func (o HadoopClusterMetastoresOozieOutput) ToHadoopClusterMetastoresOoziePtrOut
 }
 
 func (o HadoopClusterMetastoresOozieOutput) ToHadoopClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresOoziePtrOutput {
-	return o.ApplyT(func(v HadoopClusterMetastoresOozie) *HadoopClusterMetastoresOozie {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterMetastoresOozie) *HadoopClusterMetastoresOozie {
 		return &v
 	}).(HadoopClusterMetastoresOoziePtrOutput)
 }
@@ -4061,7 +4179,13 @@ func (o HadoopClusterMetastoresOoziePtrOutput) ToHadoopClusterMetastoresOoziePtr
 }
 
 func (o HadoopClusterMetastoresOoziePtrOutput) Elem() HadoopClusterMetastoresOozieOutput {
-	return o.ApplyT(func(v *HadoopClusterMetastoresOozie) HadoopClusterMetastoresOozie { return *v }).(HadoopClusterMetastoresOozieOutput)
+	return o.ApplyT(func(v *HadoopClusterMetastoresOozie) HadoopClusterMetastoresOozie {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterMetastoresOozie
+		return ret
+	}).(HadoopClusterMetastoresOozieOutput)
 }
 
 // The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -4201,7 +4325,7 @@ func (o HadoopClusterMonitorOutput) ToHadoopClusterMonitorPtrOutput() HadoopClus
 }
 
 func (o HadoopClusterMonitorOutput) ToHadoopClusterMonitorPtrOutputWithContext(ctx context.Context) HadoopClusterMonitorPtrOutput {
-	return o.ApplyT(func(v HadoopClusterMonitor) *HadoopClusterMonitor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterMonitor) *HadoopClusterMonitor {
 		return &v
 	}).(HadoopClusterMonitorPtrOutput)
 }
@@ -4231,7 +4355,13 @@ func (o HadoopClusterMonitorPtrOutput) ToHadoopClusterMonitorPtrOutputWithContex
 }
 
 func (o HadoopClusterMonitorPtrOutput) Elem() HadoopClusterMonitorOutput {
-	return o.ApplyT(func(v *HadoopClusterMonitor) HadoopClusterMonitor { return *v }).(HadoopClusterMonitorOutput)
+	return o.ApplyT(func(v *HadoopClusterMonitor) HadoopClusterMonitor {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterMonitor
+		return ret
+	}).(HadoopClusterMonitorOutput)
 }
 
 // The Operations Management Suite (OMS) workspace ID.
@@ -4351,7 +4481,7 @@ func (o HadoopClusterNetworkOutput) ToHadoopClusterNetworkPtrOutput() HadoopClus
 }
 
 func (o HadoopClusterNetworkOutput) ToHadoopClusterNetworkPtrOutputWithContext(ctx context.Context) HadoopClusterNetworkPtrOutput {
-	return o.ApplyT(func(v HadoopClusterNetwork) *HadoopClusterNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterNetwork) *HadoopClusterNetwork {
 		return &v
 	}).(HadoopClusterNetworkPtrOutput)
 }
@@ -4381,7 +4511,13 @@ func (o HadoopClusterNetworkPtrOutput) ToHadoopClusterNetworkPtrOutputWithContex
 }
 
 func (o HadoopClusterNetworkPtrOutput) Elem() HadoopClusterNetworkOutput {
-	return o.ApplyT(func(v *HadoopClusterNetwork) HadoopClusterNetwork { return *v }).(HadoopClusterNetworkOutput)
+	return o.ApplyT(func(v *HadoopClusterNetwork) HadoopClusterNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterNetwork
+		return ret
+	}).(HadoopClusterNetworkOutput)
 }
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
@@ -4509,7 +4645,7 @@ func (o HadoopClusterRolesOutput) ToHadoopClusterRolesPtrOutput() HadoopClusterR
 }
 
 func (o HadoopClusterRolesOutput) ToHadoopClusterRolesPtrOutputWithContext(ctx context.Context) HadoopClusterRolesPtrOutput {
-	return o.ApplyT(func(v HadoopClusterRoles) *HadoopClusterRoles {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRoles) *HadoopClusterRoles {
 		return &v
 	}).(HadoopClusterRolesPtrOutput)
 }
@@ -4549,7 +4685,13 @@ func (o HadoopClusterRolesPtrOutput) ToHadoopClusterRolesPtrOutputWithContext(ct
 }
 
 func (o HadoopClusterRolesPtrOutput) Elem() HadoopClusterRolesOutput {
-	return o.ApplyT(func(v *HadoopClusterRoles) HadoopClusterRoles { return *v }).(HadoopClusterRolesOutput)
+	return o.ApplyT(func(v *HadoopClusterRoles) HadoopClusterRoles {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterRoles
+		return ret
+	}).(HadoopClusterRolesOutput)
 }
 
 // A `edgeNode` block as defined below.
@@ -4693,7 +4835,7 @@ func (o HadoopClusterRolesEdgeNodeOutput) ToHadoopClusterRolesEdgeNodePtrOutput(
 }
 
 func (o HadoopClusterRolesEdgeNodeOutput) ToHadoopClusterRolesEdgeNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodePtrOutput {
-	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) *HadoopClusterRolesEdgeNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesEdgeNode) *HadoopClusterRolesEdgeNode {
 		return &v
 	}).(HadoopClusterRolesEdgeNodePtrOutput)
 }
@@ -4730,7 +4872,13 @@ func (o HadoopClusterRolesEdgeNodePtrOutput) ToHadoopClusterRolesEdgeNodePtrOutp
 }
 
 func (o HadoopClusterRolesEdgeNodePtrOutput) Elem() HadoopClusterRolesEdgeNodeOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesEdgeNode) HadoopClusterRolesEdgeNode { return *v }).(HadoopClusterRolesEdgeNodeOutput)
+	return o.ApplyT(func(v *HadoopClusterRolesEdgeNode) HadoopClusterRolesEdgeNode {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterRolesEdgeNode
+		return ret
+	}).(HadoopClusterRolesEdgeNodeOutput)
 }
 
 // A `installScriptAction` block as defined below.
@@ -4982,7 +5130,7 @@ func (o HadoopClusterRolesHeadNodeOutput) ToHadoopClusterRolesHeadNodePtrOutput(
 }
 
 func (o HadoopClusterRolesHeadNodeOutput) ToHadoopClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v HadoopClusterRolesHeadNode) *HadoopClusterRolesHeadNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesHeadNode) *HadoopClusterRolesHeadNode {
 		return &v
 	}).(HadoopClusterRolesHeadNodePtrOutput)
 }
@@ -5032,7 +5180,13 @@ func (o HadoopClusterRolesHeadNodePtrOutput) ToHadoopClusterRolesHeadNodePtrOutp
 }
 
 func (o HadoopClusterRolesHeadNodePtrOutput) Elem() HadoopClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) HadoopClusterRolesHeadNode { return *v }).(HadoopClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) HadoopClusterRolesHeadNode {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterRolesHeadNode
+		return ret
+	}).(HadoopClusterRolesHeadNodeOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -5224,7 +5378,7 @@ func (o HadoopClusterRolesWorkerNodeOutput) ToHadoopClusterRolesWorkerNodePtrOut
 }
 
 func (o HadoopClusterRolesWorkerNodeOutput) ToHadoopClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) *HadoopClusterRolesWorkerNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesWorkerNode) *HadoopClusterRolesWorkerNode {
 		return &v
 	}).(HadoopClusterRolesWorkerNodePtrOutput)
 }
@@ -5291,7 +5445,13 @@ func (o HadoopClusterRolesWorkerNodePtrOutput) ToHadoopClusterRolesWorkerNodePtr
 }
 
 func (o HadoopClusterRolesWorkerNodePtrOutput) Elem() HadoopClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) HadoopClusterRolesWorkerNode { return *v }).(HadoopClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) HadoopClusterRolesWorkerNode {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterRolesWorkerNode
+		return ret
+	}).(HadoopClusterRolesWorkerNodeOutput)
 }
 
 // A `autoscale` block as defined below.
@@ -5483,7 +5643,7 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleOutput) ToHadoopClusterRolesWorkerN
 }
 
 func (o HadoopClusterRolesWorkerNodeAutoscaleOutput) ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
-	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscale) *HadoopClusterRolesWorkerNodeAutoscale {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesWorkerNodeAutoscale) *HadoopClusterRolesWorkerNodeAutoscale {
 		return &v
 	}).(HadoopClusterRolesWorkerNodeAutoscalePtrOutput)
 }
@@ -5517,7 +5677,13 @@ func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) ToHadoopClusterRolesWork
 }
 
 func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) Elem() HadoopClusterRolesWorkerNodeAutoscaleOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscale) HadoopClusterRolesWorkerNodeAutoscale { return *v }).(HadoopClusterRolesWorkerNodeAutoscaleOutput)
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscale) HadoopClusterRolesWorkerNodeAutoscale {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterRolesWorkerNodeAutoscale
+		return ret
+	}).(HadoopClusterRolesWorkerNodeAutoscaleOutput)
 }
 
 // A `capacity` block as defined below.
@@ -5637,7 +5803,7 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) ToHadoopClusterRole
 }
 
 func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscaleCapacity) *HadoopClusterRolesWorkerNodeAutoscaleCapacity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesWorkerNodeAutoscaleCapacity) *HadoopClusterRolesWorkerNodeAutoscaleCapacity {
 		return &v
 	}).(HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
 }
@@ -5668,7 +5834,11 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToHadoopClusterR
 
 func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) Elem() HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscaleCapacity) HadoopClusterRolesWorkerNodeAutoscaleCapacity {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterRolesWorkerNodeAutoscaleCapacity
+		return ret
 	}).(HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput)
 }
 
@@ -5789,7 +5959,7 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHadoopClusterRo
 }
 
 func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
-	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscaleRecurrence) *HadoopClusterRolesWorkerNodeAutoscaleRecurrence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesWorkerNodeAutoscaleRecurrence) *HadoopClusterRolesWorkerNodeAutoscaleRecurrence {
 		return &v
 	}).(HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
 }
@@ -5822,7 +5992,11 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToHadoopCluste
 
 func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscaleRecurrence) HadoopClusterRolesWorkerNodeAutoscaleRecurrence {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterRolesWorkerNodeAutoscaleRecurrence
+		return ret
 	}).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
 }
 
@@ -6074,7 +6248,7 @@ func (o HadoopClusterRolesZookeeperNodeOutput) ToHadoopClusterRolesZookeeperNode
 }
 
 func (o HadoopClusterRolesZookeeperNodeOutput) ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) *HadoopClusterRolesZookeeperNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesZookeeperNode) *HadoopClusterRolesZookeeperNode {
 		return &v
 	}).(HadoopClusterRolesZookeeperNodePtrOutput)
 }
@@ -6124,7 +6298,13 @@ func (o HadoopClusterRolesZookeeperNodePtrOutput) ToHadoopClusterRolesZookeeperN
 }
 
 func (o HadoopClusterRolesZookeeperNodePtrOutput) Elem() HadoopClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) HadoopClusterRolesZookeeperNode { return *v }).(HadoopClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) HadoopClusterRolesZookeeperNode {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterRolesZookeeperNode
+		return ret
+	}).(HadoopClusterRolesZookeeperNodeOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -6304,7 +6484,7 @@ func (o HadoopClusterSecurityProfileOutput) ToHadoopClusterSecurityProfilePtrOut
 }
 
 func (o HadoopClusterSecurityProfileOutput) ToHadoopClusterSecurityProfilePtrOutputWithContext(ctx context.Context) HadoopClusterSecurityProfilePtrOutput {
-	return o.ApplyT(func(v HadoopClusterSecurityProfile) *HadoopClusterSecurityProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterSecurityProfile) *HadoopClusterSecurityProfile {
 		return &v
 	}).(HadoopClusterSecurityProfilePtrOutput)
 }
@@ -6359,7 +6539,13 @@ func (o HadoopClusterSecurityProfilePtrOutput) ToHadoopClusterSecurityProfilePtr
 }
 
 func (o HadoopClusterSecurityProfilePtrOutput) Elem() HadoopClusterSecurityProfileOutput {
-	return o.ApplyT(func(v *HadoopClusterSecurityProfile) HadoopClusterSecurityProfile { return *v }).(HadoopClusterSecurityProfileOutput)
+	return o.ApplyT(func(v *HadoopClusterSecurityProfile) HadoopClusterSecurityProfile {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterSecurityProfile
+		return ret
+	}).(HadoopClusterSecurityProfileOutput)
 }
 
 // The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -6652,7 +6838,7 @@ func (o HadoopClusterStorageAccountGen2Output) ToHadoopClusterStorageAccountGen2
 }
 
 func (o HadoopClusterStorageAccountGen2Output) ToHadoopClusterStorageAccountGen2PtrOutputWithContext(ctx context.Context) HadoopClusterStorageAccountGen2PtrOutput {
-	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) *HadoopClusterStorageAccountGen2 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterStorageAccountGen2) *HadoopClusterStorageAccountGen2 {
 		return &v
 	}).(HadoopClusterStorageAccountGen2PtrOutput)
 }
@@ -6692,7 +6878,13 @@ func (o HadoopClusterStorageAccountGen2PtrOutput) ToHadoopClusterStorageAccountG
 }
 
 func (o HadoopClusterStorageAccountGen2PtrOutput) Elem() HadoopClusterStorageAccountGen2Output {
-	return o.ApplyT(func(v *HadoopClusterStorageAccountGen2) HadoopClusterStorageAccountGen2 { return *v }).(HadoopClusterStorageAccountGen2Output)
+	return o.ApplyT(func(v *HadoopClusterStorageAccountGen2) HadoopClusterStorageAccountGen2 {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterStorageAccountGen2
+		return ret
+	}).(HadoopClusterStorageAccountGen2Output)
 }
 
 // The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
@@ -6826,10 +7018,11 @@ func (o InteractiveQueryClusterComponentVersionOutput) ToInteractiveQueryCluster
 }
 
 func (o InteractiveQueryClusterComponentVersionOutput) ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterComponentVersionPtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterComponentVersion) *InteractiveQueryClusterComponentVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterComponentVersion) *InteractiveQueryClusterComponentVersion {
 		return &v
 	}).(InteractiveQueryClusterComponentVersionPtrOutput)
 }
+
 func (o InteractiveQueryClusterComponentVersionOutput) InteractiveHive() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterComponentVersion) string { return v.InteractiveHive }).(pulumi.StringOutput)
 }
@@ -6849,7 +7042,13 @@ func (o InteractiveQueryClusterComponentVersionPtrOutput) ToInteractiveQueryClus
 }
 
 func (o InteractiveQueryClusterComponentVersionPtrOutput) Elem() InteractiveQueryClusterComponentVersionOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterComponentVersion) InteractiveQueryClusterComponentVersion { return *v }).(InteractiveQueryClusterComponentVersionOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterComponentVersion) InteractiveQueryClusterComponentVersion {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterComponentVersion
+		return ret
+	}).(InteractiveQueryClusterComponentVersionOutput)
 }
 
 func (o InteractiveQueryClusterComponentVersionPtrOutput) InteractiveHive() pulumi.StringPtrOutput {
@@ -6966,7 +7165,7 @@ func (o InteractiveQueryClusterGatewayOutput) ToInteractiveQueryClusterGatewayPt
 }
 
 func (o InteractiveQueryClusterGatewayOutput) ToInteractiveQueryClusterGatewayPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterGatewayPtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterGateway) *InteractiveQueryClusterGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterGateway) *InteractiveQueryClusterGateway {
 		return &v
 	}).(InteractiveQueryClusterGatewayPtrOutput)
 }
@@ -7003,7 +7202,13 @@ func (o InteractiveQueryClusterGatewayPtrOutput) ToInteractiveQueryClusterGatewa
 }
 
 func (o InteractiveQueryClusterGatewayPtrOutput) Elem() InteractiveQueryClusterGatewayOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterGateway) InteractiveQueryClusterGateway { return *v }).(InteractiveQueryClusterGatewayOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterGateway) InteractiveQueryClusterGateway {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterGateway
+		return ret
+	}).(InteractiveQueryClusterGatewayOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -7139,7 +7344,7 @@ func (o InteractiveQueryClusterMetastoresOutput) ToInteractiveQueryClusterMetast
 }
 
 func (o InteractiveQueryClusterMetastoresOutput) ToInteractiveQueryClusterMetastoresPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterMetastoresPtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterMetastores) *InteractiveQueryClusterMetastores {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterMetastores) *InteractiveQueryClusterMetastores {
 		return &v
 	}).(InteractiveQueryClusterMetastoresPtrOutput)
 }
@@ -7174,7 +7379,13 @@ func (o InteractiveQueryClusterMetastoresPtrOutput) ToInteractiveQueryClusterMet
 }
 
 func (o InteractiveQueryClusterMetastoresPtrOutput) Elem() InteractiveQueryClusterMetastoresOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterMetastores) InteractiveQueryClusterMetastores { return *v }).(InteractiveQueryClusterMetastoresOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterMetastores) InteractiveQueryClusterMetastores {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterMetastores
+		return ret
+	}).(InteractiveQueryClusterMetastoresOutput)
 }
 
 // An `ambari` block as defined below.
@@ -7312,7 +7523,7 @@ func (o InteractiveQueryClusterMetastoresAmbariOutput) ToInteractiveQueryCluster
 }
 
 func (o InteractiveQueryClusterMetastoresAmbariOutput) ToInteractiveQueryClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterMetastoresAmbariPtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterMetastoresAmbari) *InteractiveQueryClusterMetastoresAmbari {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterMetastoresAmbari) *InteractiveQueryClusterMetastoresAmbari {
 		return &v
 	}).(InteractiveQueryClusterMetastoresAmbariPtrOutput)
 }
@@ -7352,7 +7563,13 @@ func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) ToInteractiveQueryClus
 }
 
 func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) Elem() InteractiveQueryClusterMetastoresAmbariOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresAmbari) InteractiveQueryClusterMetastoresAmbari { return *v }).(InteractiveQueryClusterMetastoresAmbariOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresAmbari) InteractiveQueryClusterMetastoresAmbari {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterMetastoresAmbari
+		return ret
+	}).(InteractiveQueryClusterMetastoresAmbariOutput)
 }
 
 // The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -7500,7 +7717,7 @@ func (o InteractiveQueryClusterMetastoresHiveOutput) ToInteractiveQueryClusterMe
 }
 
 func (o InteractiveQueryClusterMetastoresHiveOutput) ToInteractiveQueryClusterMetastoresHivePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterMetastoresHivePtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterMetastoresHive) *InteractiveQueryClusterMetastoresHive {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterMetastoresHive) *InteractiveQueryClusterMetastoresHive {
 		return &v
 	}).(InteractiveQueryClusterMetastoresHivePtrOutput)
 }
@@ -7540,7 +7757,13 @@ func (o InteractiveQueryClusterMetastoresHivePtrOutput) ToInteractiveQueryCluste
 }
 
 func (o InteractiveQueryClusterMetastoresHivePtrOutput) Elem() InteractiveQueryClusterMetastoresHiveOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresHive) InteractiveQueryClusterMetastoresHive { return *v }).(InteractiveQueryClusterMetastoresHiveOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresHive) InteractiveQueryClusterMetastoresHive {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterMetastoresHive
+		return ret
+	}).(InteractiveQueryClusterMetastoresHiveOutput)
 }
 
 // The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -7688,7 +7911,7 @@ func (o InteractiveQueryClusterMetastoresOozieOutput) ToInteractiveQueryClusterM
 }
 
 func (o InteractiveQueryClusterMetastoresOozieOutput) ToInteractiveQueryClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterMetastoresOoziePtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterMetastoresOozie) *InteractiveQueryClusterMetastoresOozie {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterMetastoresOozie) *InteractiveQueryClusterMetastoresOozie {
 		return &v
 	}).(InteractiveQueryClusterMetastoresOoziePtrOutput)
 }
@@ -7728,7 +7951,13 @@ func (o InteractiveQueryClusterMetastoresOoziePtrOutput) ToInteractiveQueryClust
 }
 
 func (o InteractiveQueryClusterMetastoresOoziePtrOutput) Elem() InteractiveQueryClusterMetastoresOozieOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresOozie) InteractiveQueryClusterMetastoresOozie { return *v }).(InteractiveQueryClusterMetastoresOozieOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresOozie) InteractiveQueryClusterMetastoresOozie {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterMetastoresOozie
+		return ret
+	}).(InteractiveQueryClusterMetastoresOozieOutput)
 }
 
 // The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -7868,7 +8097,7 @@ func (o InteractiveQueryClusterMonitorOutput) ToInteractiveQueryClusterMonitorPt
 }
 
 func (o InteractiveQueryClusterMonitorOutput) ToInteractiveQueryClusterMonitorPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterMonitorPtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterMonitor) *InteractiveQueryClusterMonitor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterMonitor) *InteractiveQueryClusterMonitor {
 		return &v
 	}).(InteractiveQueryClusterMonitorPtrOutput)
 }
@@ -7898,7 +8127,13 @@ func (o InteractiveQueryClusterMonitorPtrOutput) ToInteractiveQueryClusterMonito
 }
 
 func (o InteractiveQueryClusterMonitorPtrOutput) Elem() InteractiveQueryClusterMonitorOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterMonitor) InteractiveQueryClusterMonitor { return *v }).(InteractiveQueryClusterMonitorOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterMonitor) InteractiveQueryClusterMonitor {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterMonitor
+		return ret
+	}).(InteractiveQueryClusterMonitorOutput)
 }
 
 // The Operations Management Suite (OMS) workspace ID.
@@ -8018,7 +8253,7 @@ func (o InteractiveQueryClusterNetworkOutput) ToInteractiveQueryClusterNetworkPt
 }
 
 func (o InteractiveQueryClusterNetworkOutput) ToInteractiveQueryClusterNetworkPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterNetworkPtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterNetwork) *InteractiveQueryClusterNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterNetwork) *InteractiveQueryClusterNetwork {
 		return &v
 	}).(InteractiveQueryClusterNetworkPtrOutput)
 }
@@ -8048,7 +8283,13 @@ func (o InteractiveQueryClusterNetworkPtrOutput) ToInteractiveQueryClusterNetwor
 }
 
 func (o InteractiveQueryClusterNetworkPtrOutput) Elem() InteractiveQueryClusterNetworkOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterNetwork) InteractiveQueryClusterNetwork { return *v }).(InteractiveQueryClusterNetworkOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterNetwork) InteractiveQueryClusterNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterNetwork
+		return ret
+	}).(InteractiveQueryClusterNetworkOutput)
 }
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
@@ -8172,7 +8413,7 @@ func (o InteractiveQueryClusterRolesOutput) ToInteractiveQueryClusterRolesPtrOut
 }
 
 func (o InteractiveQueryClusterRolesOutput) ToInteractiveQueryClusterRolesPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesPtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterRoles) *InteractiveQueryClusterRoles {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRoles) *InteractiveQueryClusterRoles {
 		return &v
 	}).(InteractiveQueryClusterRolesPtrOutput)
 }
@@ -8207,7 +8448,13 @@ func (o InteractiveQueryClusterRolesPtrOutput) ToInteractiveQueryClusterRolesPtr
 }
 
 func (o InteractiveQueryClusterRolesPtrOutput) Elem() InteractiveQueryClusterRolesOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRoles) InteractiveQueryClusterRoles { return *v }).(InteractiveQueryClusterRolesOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterRoles) InteractiveQueryClusterRoles {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterRoles
+		return ret
+	}).(InteractiveQueryClusterRolesOutput)
 }
 
 // A `headNode` block as defined above.
@@ -8353,7 +8600,7 @@ func (o InteractiveQueryClusterRolesHeadNodeOutput) ToInteractiveQueryClusterRol
 }
 
 func (o InteractiveQueryClusterRolesHeadNodeOutput) ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) *InteractiveQueryClusterRolesHeadNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesHeadNode) *InteractiveQueryClusterRolesHeadNode {
 		return &v
 	}).(InteractiveQueryClusterRolesHeadNodePtrOutput)
 }
@@ -8403,7 +8650,13 @@ func (o InteractiveQueryClusterRolesHeadNodePtrOutput) ToInteractiveQueryCluster
 }
 
 func (o InteractiveQueryClusterRolesHeadNodePtrOutput) Elem() InteractiveQueryClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) InteractiveQueryClusterRolesHeadNode { return *v }).(InteractiveQueryClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) InteractiveQueryClusterRolesHeadNode {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterRolesHeadNode
+		return ret
+	}).(InteractiveQueryClusterRolesHeadNodeOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -8595,7 +8848,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToInteractiveQueryClusterR
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) *InteractiveQueryClusterRolesWorkerNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesWorkerNode) *InteractiveQueryClusterRolesWorkerNode {
 		return &v
 	}).(InteractiveQueryClusterRolesWorkerNodePtrOutput)
 }
@@ -8664,7 +8917,13 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) ToInteractiveQueryClust
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) InteractiveQueryClusterRolesWorkerNode { return *v }).(InteractiveQueryClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) InteractiveQueryClusterRolesWorkerNode {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterRolesWorkerNode
+		return ret
+	}).(InteractiveQueryClusterRolesWorkerNodeOutput)
 }
 
 // A `autoscale` block as defined below.
@@ -8856,7 +9115,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) ToInteractiveQuer
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscale {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscale {
 		return &v
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput)
 }
@@ -8891,7 +9150,11 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) ToInteractiveQ
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscale) InteractiveQueryClusterRolesWorkerNodeAutoscale {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterRolesWorkerNodeAutoscale
+		return ret
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput)
 }
 
@@ -9012,7 +9275,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToInterac
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
 		return &v
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
 }
@@ -9043,7 +9306,11 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToInte
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity
+		return ret
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput)
 }
 
@@ -9164,7 +9431,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToInter
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence) *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence) *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
 		return &v
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
 }
@@ -9197,7 +9464,11 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToIn
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence
+		return ret
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
 }
 
@@ -9451,7 +9722,7 @@ func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ToInteractiveQueryClust
 }
 
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) *InteractiveQueryClusterRolesZookeeperNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesZookeeperNode) *InteractiveQueryClusterRolesZookeeperNode {
 		return &v
 	}).(InteractiveQueryClusterRolesZookeeperNodePtrOutput)
 }
@@ -9502,7 +9773,11 @@ func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) ToInteractiveQueryCl
 
 func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) Elem() InteractiveQueryClusterRolesZookeeperNodeOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) InteractiveQueryClusterRolesZookeeperNode {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterRolesZookeeperNode
+		return ret
 	}).(InteractiveQueryClusterRolesZookeeperNodeOutput)
 }
 
@@ -9683,7 +9958,7 @@ func (o InteractiveQueryClusterSecurityProfileOutput) ToInteractiveQueryClusterS
 }
 
 func (o InteractiveQueryClusterSecurityProfileOutput) ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterSecurityProfilePtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterSecurityProfile) *InteractiveQueryClusterSecurityProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterSecurityProfile) *InteractiveQueryClusterSecurityProfile {
 		return &v
 	}).(InteractiveQueryClusterSecurityProfilePtrOutput)
 }
@@ -9738,7 +10013,13 @@ func (o InteractiveQueryClusterSecurityProfilePtrOutput) ToInteractiveQueryClust
 }
 
 func (o InteractiveQueryClusterSecurityProfilePtrOutput) Elem() InteractiveQueryClusterSecurityProfileOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterSecurityProfile) InteractiveQueryClusterSecurityProfile { return *v }).(InteractiveQueryClusterSecurityProfileOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterSecurityProfile) InteractiveQueryClusterSecurityProfile {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterSecurityProfile
+		return ret
+	}).(InteractiveQueryClusterSecurityProfileOutput)
 }
 
 // The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -10031,7 +10312,7 @@ func (o InteractiveQueryClusterStorageAccountGen2Output) ToInteractiveQueryClust
 }
 
 func (o InteractiveQueryClusterStorageAccountGen2Output) ToInteractiveQueryClusterStorageAccountGen2PtrOutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountGen2PtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) *InteractiveQueryClusterStorageAccountGen2 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterStorageAccountGen2) *InteractiveQueryClusterStorageAccountGen2 {
 		return &v
 	}).(InteractiveQueryClusterStorageAccountGen2PtrOutput)
 }
@@ -10072,7 +10353,11 @@ func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) ToInteractiveQueryCl
 
 func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) Elem() InteractiveQueryClusterStorageAccountGen2Output {
 	return o.ApplyT(func(v *InteractiveQueryClusterStorageAccountGen2) InteractiveQueryClusterStorageAccountGen2 {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterStorageAccountGen2
+		return ret
 	}).(InteractiveQueryClusterStorageAccountGen2Output)
 }
 
@@ -10209,7 +10494,7 @@ func (o KafkaClusterComponentVersionOutput) ToKafkaClusterComponentVersionPtrOut
 }
 
 func (o KafkaClusterComponentVersionOutput) ToKafkaClusterComponentVersionPtrOutputWithContext(ctx context.Context) KafkaClusterComponentVersionPtrOutput {
-	return o.ApplyT(func(v KafkaClusterComponentVersion) *KafkaClusterComponentVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterComponentVersion) *KafkaClusterComponentVersion {
 		return &v
 	}).(KafkaClusterComponentVersionPtrOutput)
 }
@@ -10234,7 +10519,13 @@ func (o KafkaClusterComponentVersionPtrOutput) ToKafkaClusterComponentVersionPtr
 }
 
 func (o KafkaClusterComponentVersionPtrOutput) Elem() KafkaClusterComponentVersionOutput {
-	return o.ApplyT(func(v *KafkaClusterComponentVersion) KafkaClusterComponentVersion { return *v }).(KafkaClusterComponentVersionOutput)
+	return o.ApplyT(func(v *KafkaClusterComponentVersion) KafkaClusterComponentVersion {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterComponentVersion
+		return ret
+	}).(KafkaClusterComponentVersionOutput)
 }
 
 // The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
@@ -10352,7 +10643,7 @@ func (o KafkaClusterGatewayOutput) ToKafkaClusterGatewayPtrOutput() KafkaCluster
 }
 
 func (o KafkaClusterGatewayOutput) ToKafkaClusterGatewayPtrOutputWithContext(ctx context.Context) KafkaClusterGatewayPtrOutput {
-	return o.ApplyT(func(v KafkaClusterGateway) *KafkaClusterGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterGateway) *KafkaClusterGateway {
 		return &v
 	}).(KafkaClusterGatewayPtrOutput)
 }
@@ -10389,7 +10680,13 @@ func (o KafkaClusterGatewayPtrOutput) ToKafkaClusterGatewayPtrOutputWithContext(
 }
 
 func (o KafkaClusterGatewayPtrOutput) Elem() KafkaClusterGatewayOutput {
-	return o.ApplyT(func(v *KafkaClusterGateway) KafkaClusterGateway { return *v }).(KafkaClusterGatewayOutput)
+	return o.ApplyT(func(v *KafkaClusterGateway) KafkaClusterGateway {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterGateway
+		return ret
+	}).(KafkaClusterGatewayOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -10525,7 +10822,7 @@ func (o KafkaClusterMetastoresOutput) ToKafkaClusterMetastoresPtrOutput() KafkaC
 }
 
 func (o KafkaClusterMetastoresOutput) ToKafkaClusterMetastoresPtrOutputWithContext(ctx context.Context) KafkaClusterMetastoresPtrOutput {
-	return o.ApplyT(func(v KafkaClusterMetastores) *KafkaClusterMetastores {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterMetastores) *KafkaClusterMetastores {
 		return &v
 	}).(KafkaClusterMetastoresPtrOutput)
 }
@@ -10560,7 +10857,13 @@ func (o KafkaClusterMetastoresPtrOutput) ToKafkaClusterMetastoresPtrOutputWithCo
 }
 
 func (o KafkaClusterMetastoresPtrOutput) Elem() KafkaClusterMetastoresOutput {
-	return o.ApplyT(func(v *KafkaClusterMetastores) KafkaClusterMetastores { return *v }).(KafkaClusterMetastoresOutput)
+	return o.ApplyT(func(v *KafkaClusterMetastores) KafkaClusterMetastores {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterMetastores
+		return ret
+	}).(KafkaClusterMetastoresOutput)
 }
 
 // An `ambari` block as defined below.
@@ -10698,7 +11001,7 @@ func (o KafkaClusterMetastoresAmbariOutput) ToKafkaClusterMetastoresAmbariPtrOut
 }
 
 func (o KafkaClusterMetastoresAmbariOutput) ToKafkaClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) KafkaClusterMetastoresAmbariPtrOutput {
-	return o.ApplyT(func(v KafkaClusterMetastoresAmbari) *KafkaClusterMetastoresAmbari {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterMetastoresAmbari) *KafkaClusterMetastoresAmbari {
 		return &v
 	}).(KafkaClusterMetastoresAmbariPtrOutput)
 }
@@ -10738,7 +11041,13 @@ func (o KafkaClusterMetastoresAmbariPtrOutput) ToKafkaClusterMetastoresAmbariPtr
 }
 
 func (o KafkaClusterMetastoresAmbariPtrOutput) Elem() KafkaClusterMetastoresAmbariOutput {
-	return o.ApplyT(func(v *KafkaClusterMetastoresAmbari) KafkaClusterMetastoresAmbari { return *v }).(KafkaClusterMetastoresAmbariOutput)
+	return o.ApplyT(func(v *KafkaClusterMetastoresAmbari) KafkaClusterMetastoresAmbari {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterMetastoresAmbari
+		return ret
+	}).(KafkaClusterMetastoresAmbariOutput)
 }
 
 // The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -10886,7 +11195,7 @@ func (o KafkaClusterMetastoresHiveOutput) ToKafkaClusterMetastoresHivePtrOutput(
 }
 
 func (o KafkaClusterMetastoresHiveOutput) ToKafkaClusterMetastoresHivePtrOutputWithContext(ctx context.Context) KafkaClusterMetastoresHivePtrOutput {
-	return o.ApplyT(func(v KafkaClusterMetastoresHive) *KafkaClusterMetastoresHive {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterMetastoresHive) *KafkaClusterMetastoresHive {
 		return &v
 	}).(KafkaClusterMetastoresHivePtrOutput)
 }
@@ -10926,7 +11235,13 @@ func (o KafkaClusterMetastoresHivePtrOutput) ToKafkaClusterMetastoresHivePtrOutp
 }
 
 func (o KafkaClusterMetastoresHivePtrOutput) Elem() KafkaClusterMetastoresHiveOutput {
-	return o.ApplyT(func(v *KafkaClusterMetastoresHive) KafkaClusterMetastoresHive { return *v }).(KafkaClusterMetastoresHiveOutput)
+	return o.ApplyT(func(v *KafkaClusterMetastoresHive) KafkaClusterMetastoresHive {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterMetastoresHive
+		return ret
+	}).(KafkaClusterMetastoresHiveOutput)
 }
 
 // The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -11074,7 +11389,7 @@ func (o KafkaClusterMetastoresOozieOutput) ToKafkaClusterMetastoresOoziePtrOutpu
 }
 
 func (o KafkaClusterMetastoresOozieOutput) ToKafkaClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) KafkaClusterMetastoresOoziePtrOutput {
-	return o.ApplyT(func(v KafkaClusterMetastoresOozie) *KafkaClusterMetastoresOozie {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterMetastoresOozie) *KafkaClusterMetastoresOozie {
 		return &v
 	}).(KafkaClusterMetastoresOoziePtrOutput)
 }
@@ -11114,7 +11429,13 @@ func (o KafkaClusterMetastoresOoziePtrOutput) ToKafkaClusterMetastoresOoziePtrOu
 }
 
 func (o KafkaClusterMetastoresOoziePtrOutput) Elem() KafkaClusterMetastoresOozieOutput {
-	return o.ApplyT(func(v *KafkaClusterMetastoresOozie) KafkaClusterMetastoresOozie { return *v }).(KafkaClusterMetastoresOozieOutput)
+	return o.ApplyT(func(v *KafkaClusterMetastoresOozie) KafkaClusterMetastoresOozie {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterMetastoresOozie
+		return ret
+	}).(KafkaClusterMetastoresOozieOutput)
 }
 
 // The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -11254,7 +11575,7 @@ func (o KafkaClusterMonitorOutput) ToKafkaClusterMonitorPtrOutput() KafkaCluster
 }
 
 func (o KafkaClusterMonitorOutput) ToKafkaClusterMonitorPtrOutputWithContext(ctx context.Context) KafkaClusterMonitorPtrOutput {
-	return o.ApplyT(func(v KafkaClusterMonitor) *KafkaClusterMonitor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterMonitor) *KafkaClusterMonitor {
 		return &v
 	}).(KafkaClusterMonitorPtrOutput)
 }
@@ -11284,7 +11605,13 @@ func (o KafkaClusterMonitorPtrOutput) ToKafkaClusterMonitorPtrOutputWithContext(
 }
 
 func (o KafkaClusterMonitorPtrOutput) Elem() KafkaClusterMonitorOutput {
-	return o.ApplyT(func(v *KafkaClusterMonitor) KafkaClusterMonitor { return *v }).(KafkaClusterMonitorOutput)
+	return o.ApplyT(func(v *KafkaClusterMonitor) KafkaClusterMonitor {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterMonitor
+		return ret
+	}).(KafkaClusterMonitorOutput)
 }
 
 // The Operations Management Suite (OMS) workspace ID.
@@ -11400,7 +11727,7 @@ func (o KafkaClusterRestProxyOutput) ToKafkaClusterRestProxyPtrOutput() KafkaClu
 }
 
 func (o KafkaClusterRestProxyOutput) ToKafkaClusterRestProxyPtrOutputWithContext(ctx context.Context) KafkaClusterRestProxyPtrOutput {
-	return o.ApplyT(func(v KafkaClusterRestProxy) *KafkaClusterRestProxy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRestProxy) *KafkaClusterRestProxy {
 		return &v
 	}).(KafkaClusterRestProxyPtrOutput)
 }
@@ -11425,7 +11752,13 @@ func (o KafkaClusterRestProxyPtrOutput) ToKafkaClusterRestProxyPtrOutputWithCont
 }
 
 func (o KafkaClusterRestProxyPtrOutput) Elem() KafkaClusterRestProxyOutput {
-	return o.ApplyT(func(v *KafkaClusterRestProxy) KafkaClusterRestProxy { return *v }).(KafkaClusterRestProxyOutput)
+	return o.ApplyT(func(v *KafkaClusterRestProxy) KafkaClusterRestProxy {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterRestProxy
+		return ret
+	}).(KafkaClusterRestProxyOutput)
 }
 
 // The Azure Active Directory Security Group ID.
@@ -11543,7 +11876,7 @@ func (o KafkaClusterRolesOutput) ToKafkaClusterRolesPtrOutput() KafkaClusterRole
 }
 
 func (o KafkaClusterRolesOutput) ToKafkaClusterRolesPtrOutputWithContext(ctx context.Context) KafkaClusterRolesPtrOutput {
-	return o.ApplyT(func(v KafkaClusterRoles) *KafkaClusterRoles {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRoles) *KafkaClusterRoles {
 		return &v
 	}).(KafkaClusterRolesPtrOutput)
 }
@@ -11583,7 +11916,13 @@ func (o KafkaClusterRolesPtrOutput) ToKafkaClusterRolesPtrOutputWithContext(ctx 
 }
 
 func (o KafkaClusterRolesPtrOutput) Elem() KafkaClusterRolesOutput {
-	return o.ApplyT(func(v *KafkaClusterRoles) KafkaClusterRoles { return *v }).(KafkaClusterRolesOutput)
+	return o.ApplyT(func(v *KafkaClusterRoles) KafkaClusterRoles {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterRoles
+		return ret
+	}).(KafkaClusterRolesOutput)
 }
 
 // A `headNode` block as defined above.
@@ -11739,7 +12078,7 @@ func (o KafkaClusterRolesHeadNodeOutput) ToKafkaClusterRolesHeadNodePtrOutput() 
 }
 
 func (o KafkaClusterRolesHeadNodeOutput) ToKafkaClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v KafkaClusterRolesHeadNode) *KafkaClusterRolesHeadNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRolesHeadNode) *KafkaClusterRolesHeadNode {
 		return &v
 	}).(KafkaClusterRolesHeadNodePtrOutput)
 }
@@ -11789,7 +12128,13 @@ func (o KafkaClusterRolesHeadNodePtrOutput) ToKafkaClusterRolesHeadNodePtrOutput
 }
 
 func (o KafkaClusterRolesHeadNodePtrOutput) Elem() KafkaClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) KafkaClusterRolesHeadNode { return *v }).(KafkaClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) KafkaClusterRolesHeadNode {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterRolesHeadNode
+		return ret
+	}).(KafkaClusterRolesHeadNodeOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -11965,7 +12310,7 @@ func (o KafkaClusterRolesKafkaManagementNodeOutput) ToKafkaClusterRolesKafkaMana
 }
 
 func (o KafkaClusterRolesKafkaManagementNodeOutput) ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodePtrOutput {
-	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) *KafkaClusterRolesKafkaManagementNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRolesKafkaManagementNode) *KafkaClusterRolesKafkaManagementNode {
 		return &v
 	}).(KafkaClusterRolesKafkaManagementNodePtrOutput)
 }
@@ -12015,7 +12360,13 @@ func (o KafkaClusterRolesKafkaManagementNodePtrOutput) ToKafkaClusterRolesKafkaM
 }
 
 func (o KafkaClusterRolesKafkaManagementNodePtrOutput) Elem() KafkaClusterRolesKafkaManagementNodeOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) KafkaClusterRolesKafkaManagementNode { return *v }).(KafkaClusterRolesKafkaManagementNodeOutput)
+	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) KafkaClusterRolesKafkaManagementNode {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterRolesKafkaManagementNode
+		return ret
+	}).(KafkaClusterRolesKafkaManagementNodeOutput)
 }
 
 // The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
@@ -12207,7 +12558,7 @@ func (o KafkaClusterRolesWorkerNodeOutput) ToKafkaClusterRolesWorkerNodePtrOutpu
 }
 
 func (o KafkaClusterRolesWorkerNodeOutput) ToKafkaClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) *KafkaClusterRolesWorkerNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRolesWorkerNode) *KafkaClusterRolesWorkerNode {
 		return &v
 	}).(KafkaClusterRolesWorkerNodePtrOutput)
 }
@@ -12274,7 +12625,13 @@ func (o KafkaClusterRolesWorkerNodePtrOutput) ToKafkaClusterRolesWorkerNodePtrOu
 }
 
 func (o KafkaClusterRolesWorkerNodePtrOutput) Elem() KafkaClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) KafkaClusterRolesWorkerNode { return *v }).(KafkaClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) KafkaClusterRolesWorkerNode {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterRolesWorkerNode
+		return ret
+	}).(KafkaClusterRolesWorkerNodeOutput)
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
@@ -12482,7 +12839,7 @@ func (o KafkaClusterRolesZookeeperNodeOutput) ToKafkaClusterRolesZookeeperNodePt
 }
 
 func (o KafkaClusterRolesZookeeperNodeOutput) ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) *KafkaClusterRolesZookeeperNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRolesZookeeperNode) *KafkaClusterRolesZookeeperNode {
 		return &v
 	}).(KafkaClusterRolesZookeeperNodePtrOutput)
 }
@@ -12532,7 +12889,13 @@ func (o KafkaClusterRolesZookeeperNodePtrOutput) ToKafkaClusterRolesZookeeperNod
 }
 
 func (o KafkaClusterRolesZookeeperNodePtrOutput) Elem() KafkaClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) KafkaClusterRolesZookeeperNode { return *v }).(KafkaClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) KafkaClusterRolesZookeeperNode {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterRolesZookeeperNode
+		return ret
+	}).(KafkaClusterRolesZookeeperNodeOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -12712,7 +13075,7 @@ func (o KafkaClusterSecurityProfileOutput) ToKafkaClusterSecurityProfilePtrOutpu
 }
 
 func (o KafkaClusterSecurityProfileOutput) ToKafkaClusterSecurityProfilePtrOutputWithContext(ctx context.Context) KafkaClusterSecurityProfilePtrOutput {
-	return o.ApplyT(func(v KafkaClusterSecurityProfile) *KafkaClusterSecurityProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterSecurityProfile) *KafkaClusterSecurityProfile {
 		return &v
 	}).(KafkaClusterSecurityProfilePtrOutput)
 }
@@ -12767,7 +13130,13 @@ func (o KafkaClusterSecurityProfilePtrOutput) ToKafkaClusterSecurityProfilePtrOu
 }
 
 func (o KafkaClusterSecurityProfilePtrOutput) Elem() KafkaClusterSecurityProfileOutput {
-	return o.ApplyT(func(v *KafkaClusterSecurityProfile) KafkaClusterSecurityProfile { return *v }).(KafkaClusterSecurityProfileOutput)
+	return o.ApplyT(func(v *KafkaClusterSecurityProfile) KafkaClusterSecurityProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterSecurityProfile
+		return ret
+	}).(KafkaClusterSecurityProfileOutput)
 }
 
 // The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -13060,7 +13429,7 @@ func (o KafkaClusterStorageAccountGen2Output) ToKafkaClusterStorageAccountGen2Pt
 }
 
 func (o KafkaClusterStorageAccountGen2Output) ToKafkaClusterStorageAccountGen2PtrOutputWithContext(ctx context.Context) KafkaClusterStorageAccountGen2PtrOutput {
-	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) *KafkaClusterStorageAccountGen2 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterStorageAccountGen2) *KafkaClusterStorageAccountGen2 {
 		return &v
 	}).(KafkaClusterStorageAccountGen2PtrOutput)
 }
@@ -13100,7 +13469,13 @@ func (o KafkaClusterStorageAccountGen2PtrOutput) ToKafkaClusterStorageAccountGen
 }
 
 func (o KafkaClusterStorageAccountGen2PtrOutput) Elem() KafkaClusterStorageAccountGen2Output {
-	return o.ApplyT(func(v *KafkaClusterStorageAccountGen2) KafkaClusterStorageAccountGen2 { return *v }).(KafkaClusterStorageAccountGen2Output)
+	return o.ApplyT(func(v *KafkaClusterStorageAccountGen2) KafkaClusterStorageAccountGen2 {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterStorageAccountGen2
+		return ret
+	}).(KafkaClusterStorageAccountGen2Output)
 }
 
 // The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
@@ -13248,7 +13623,7 @@ func (o MLServicesClusterGatewayOutput) ToMLServicesClusterGatewayPtrOutput() ML
 }
 
 func (o MLServicesClusterGatewayOutput) ToMLServicesClusterGatewayPtrOutputWithContext(ctx context.Context) MLServicesClusterGatewayPtrOutput {
-	return o.ApplyT(func(v MLServicesClusterGateway) *MLServicesClusterGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesClusterGateway) *MLServicesClusterGateway {
 		return &v
 	}).(MLServicesClusterGatewayPtrOutput)
 }
@@ -13285,7 +13660,13 @@ func (o MLServicesClusterGatewayPtrOutput) ToMLServicesClusterGatewayPtrOutputWi
 }
 
 func (o MLServicesClusterGatewayPtrOutput) Elem() MLServicesClusterGatewayOutput {
-	return o.ApplyT(func(v *MLServicesClusterGateway) MLServicesClusterGateway { return *v }).(MLServicesClusterGatewayOutput)
+	return o.ApplyT(func(v *MLServicesClusterGateway) MLServicesClusterGateway {
+		if v != nil {
+			return *v
+		}
+		var ret MLServicesClusterGateway
+		return ret
+	}).(MLServicesClusterGatewayOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -13425,7 +13806,7 @@ func (o MLServicesClusterRolesOutput) ToMLServicesClusterRolesPtrOutput() MLServ
 }
 
 func (o MLServicesClusterRolesOutput) ToMLServicesClusterRolesPtrOutputWithContext(ctx context.Context) MLServicesClusterRolesPtrOutput {
-	return o.ApplyT(func(v MLServicesClusterRoles) *MLServicesClusterRoles {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesClusterRoles) *MLServicesClusterRoles {
 		return &v
 	}).(MLServicesClusterRolesPtrOutput)
 }
@@ -13465,7 +13846,13 @@ func (o MLServicesClusterRolesPtrOutput) ToMLServicesClusterRolesPtrOutputWithCo
 }
 
 func (o MLServicesClusterRolesPtrOutput) Elem() MLServicesClusterRolesOutput {
-	return o.ApplyT(func(v *MLServicesClusterRoles) MLServicesClusterRoles { return *v }).(MLServicesClusterRolesOutput)
+	return o.ApplyT(func(v *MLServicesClusterRoles) MLServicesClusterRoles {
+		if v != nil {
+			return *v
+		}
+		var ret MLServicesClusterRoles
+		return ret
+	}).(MLServicesClusterRolesOutput)
 }
 
 // A `edgeNode` block as defined above.
@@ -13621,7 +14008,7 @@ func (o MLServicesClusterRolesEdgeNodeOutput) ToMLServicesClusterRolesEdgeNodePt
 }
 
 func (o MLServicesClusterRolesEdgeNodeOutput) ToMLServicesClusterRolesEdgeNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesEdgeNodePtrOutput {
-	return o.ApplyT(func(v MLServicesClusterRolesEdgeNode) *MLServicesClusterRolesEdgeNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesClusterRolesEdgeNode) *MLServicesClusterRolesEdgeNode {
 		return &v
 	}).(MLServicesClusterRolesEdgeNodePtrOutput)
 }
@@ -13671,7 +14058,13 @@ func (o MLServicesClusterRolesEdgeNodePtrOutput) ToMLServicesClusterRolesEdgeNod
 }
 
 func (o MLServicesClusterRolesEdgeNodePtrOutput) Elem() MLServicesClusterRolesEdgeNodeOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesEdgeNode) MLServicesClusterRolesEdgeNode { return *v }).(MLServicesClusterRolesEdgeNodeOutput)
+	return o.ApplyT(func(v *MLServicesClusterRolesEdgeNode) MLServicesClusterRolesEdgeNode {
+		if v != nil {
+			return *v
+		}
+		var ret MLServicesClusterRolesEdgeNode
+		return ret
+	}).(MLServicesClusterRolesEdgeNodeOutput)
 }
 
 // The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
@@ -13847,7 +14240,7 @@ func (o MLServicesClusterRolesHeadNodeOutput) ToMLServicesClusterRolesHeadNodePt
 }
 
 func (o MLServicesClusterRolesHeadNodeOutput) ToMLServicesClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v MLServicesClusterRolesHeadNode) *MLServicesClusterRolesHeadNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesClusterRolesHeadNode) *MLServicesClusterRolesHeadNode {
 		return &v
 	}).(MLServicesClusterRolesHeadNodePtrOutput)
 }
@@ -13897,7 +14290,13 @@ func (o MLServicesClusterRolesHeadNodePtrOutput) ToMLServicesClusterRolesHeadNod
 }
 
 func (o MLServicesClusterRolesHeadNodePtrOutput) Elem() MLServicesClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesHeadNode) MLServicesClusterRolesHeadNode { return *v }).(MLServicesClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v *MLServicesClusterRolesHeadNode) MLServicesClusterRolesHeadNode {
+		if v != nil {
+			return *v
+		}
+		var ret MLServicesClusterRolesHeadNode
+		return ret
+	}).(MLServicesClusterRolesHeadNodeOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -14085,7 +14484,7 @@ func (o MLServicesClusterRolesWorkerNodeOutput) ToMLServicesClusterRolesWorkerNo
 }
 
 func (o MLServicesClusterRolesWorkerNodeOutput) ToMLServicesClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v MLServicesClusterRolesWorkerNode) *MLServicesClusterRolesWorkerNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesClusterRolesWorkerNode) *MLServicesClusterRolesWorkerNode {
 		return &v
 	}).(MLServicesClusterRolesWorkerNodePtrOutput)
 }
@@ -14147,7 +14546,13 @@ func (o MLServicesClusterRolesWorkerNodePtrOutput) ToMLServicesClusterRolesWorke
 }
 
 func (o MLServicesClusterRolesWorkerNodePtrOutput) Elem() MLServicesClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesWorkerNode) MLServicesClusterRolesWorkerNode { return *v }).(MLServicesClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v *MLServicesClusterRolesWorkerNode) MLServicesClusterRolesWorkerNode {
+		if v != nil {
+			return *v
+		}
+		var ret MLServicesClusterRolesWorkerNode
+		return ret
+	}).(MLServicesClusterRolesWorkerNodeOutput)
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
@@ -14345,7 +14750,7 @@ func (o MLServicesClusterRolesZookeeperNodeOutput) ToMLServicesClusterRolesZooke
 }
 
 func (o MLServicesClusterRolesZookeeperNodeOutput) ToMLServicesClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v MLServicesClusterRolesZookeeperNode) *MLServicesClusterRolesZookeeperNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesClusterRolesZookeeperNode) *MLServicesClusterRolesZookeeperNode {
 		return &v
 	}).(MLServicesClusterRolesZookeeperNodePtrOutput)
 }
@@ -14395,7 +14800,13 @@ func (o MLServicesClusterRolesZookeeperNodePtrOutput) ToMLServicesClusterRolesZo
 }
 
 func (o MLServicesClusterRolesZookeeperNodePtrOutput) Elem() MLServicesClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesZookeeperNode) MLServicesClusterRolesZookeeperNode { return *v }).(MLServicesClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v *MLServicesClusterRolesZookeeperNode) MLServicesClusterRolesZookeeperNode {
+		if v != nil {
+			return *v
+		}
+		var ret MLServicesClusterRolesZookeeperNode
+		return ret
+	}).(MLServicesClusterRolesZookeeperNodeOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -14678,7 +15089,7 @@ func (o RServerClusterGatewayOutput) ToRServerClusterGatewayPtrOutput() RServerC
 }
 
 func (o RServerClusterGatewayOutput) ToRServerClusterGatewayPtrOutputWithContext(ctx context.Context) RServerClusterGatewayPtrOutput {
-	return o.ApplyT(func(v RServerClusterGateway) *RServerClusterGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerClusterGateway) *RServerClusterGateway {
 		return &v
 	}).(RServerClusterGatewayPtrOutput)
 }
@@ -14715,7 +15126,13 @@ func (o RServerClusterGatewayPtrOutput) ToRServerClusterGatewayPtrOutputWithCont
 }
 
 func (o RServerClusterGatewayPtrOutput) Elem() RServerClusterGatewayOutput {
-	return o.ApplyT(func(v *RServerClusterGateway) RServerClusterGateway { return *v }).(RServerClusterGatewayOutput)
+	return o.ApplyT(func(v *RServerClusterGateway) RServerClusterGateway {
+		if v != nil {
+			return *v
+		}
+		var ret RServerClusterGateway
+		return ret
+	}).(RServerClusterGatewayOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -14855,7 +15272,7 @@ func (o RServerClusterRolesOutput) ToRServerClusterRolesPtrOutput() RServerClust
 }
 
 func (o RServerClusterRolesOutput) ToRServerClusterRolesPtrOutputWithContext(ctx context.Context) RServerClusterRolesPtrOutput {
-	return o.ApplyT(func(v RServerClusterRoles) *RServerClusterRoles {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerClusterRoles) *RServerClusterRoles {
 		return &v
 	}).(RServerClusterRolesPtrOutput)
 }
@@ -14895,7 +15312,13 @@ func (o RServerClusterRolesPtrOutput) ToRServerClusterRolesPtrOutputWithContext(
 }
 
 func (o RServerClusterRolesPtrOutput) Elem() RServerClusterRolesOutput {
-	return o.ApplyT(func(v *RServerClusterRoles) RServerClusterRoles { return *v }).(RServerClusterRolesOutput)
+	return o.ApplyT(func(v *RServerClusterRoles) RServerClusterRoles {
+		if v != nil {
+			return *v
+		}
+		var ret RServerClusterRoles
+		return ret
+	}).(RServerClusterRolesOutput)
 }
 
 // A `edgeNode` block as defined above.
@@ -15051,7 +15474,7 @@ func (o RServerClusterRolesEdgeNodeOutput) ToRServerClusterRolesEdgeNodePtrOutpu
 }
 
 func (o RServerClusterRolesEdgeNodeOutput) ToRServerClusterRolesEdgeNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesEdgeNodePtrOutput {
-	return o.ApplyT(func(v RServerClusterRolesEdgeNode) *RServerClusterRolesEdgeNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerClusterRolesEdgeNode) *RServerClusterRolesEdgeNode {
 		return &v
 	}).(RServerClusterRolesEdgeNodePtrOutput)
 }
@@ -15101,7 +15524,13 @@ func (o RServerClusterRolesEdgeNodePtrOutput) ToRServerClusterRolesEdgeNodePtrOu
 }
 
 func (o RServerClusterRolesEdgeNodePtrOutput) Elem() RServerClusterRolesEdgeNodeOutput {
-	return o.ApplyT(func(v *RServerClusterRolesEdgeNode) RServerClusterRolesEdgeNode { return *v }).(RServerClusterRolesEdgeNodeOutput)
+	return o.ApplyT(func(v *RServerClusterRolesEdgeNode) RServerClusterRolesEdgeNode {
+		if v != nil {
+			return *v
+		}
+		var ret RServerClusterRolesEdgeNode
+		return ret
+	}).(RServerClusterRolesEdgeNodeOutput)
 }
 
 // The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
@@ -15277,7 +15706,7 @@ func (o RServerClusterRolesHeadNodeOutput) ToRServerClusterRolesHeadNodePtrOutpu
 }
 
 func (o RServerClusterRolesHeadNodeOutput) ToRServerClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v RServerClusterRolesHeadNode) *RServerClusterRolesHeadNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerClusterRolesHeadNode) *RServerClusterRolesHeadNode {
 		return &v
 	}).(RServerClusterRolesHeadNodePtrOutput)
 }
@@ -15327,7 +15756,13 @@ func (o RServerClusterRolesHeadNodePtrOutput) ToRServerClusterRolesHeadNodePtrOu
 }
 
 func (o RServerClusterRolesHeadNodePtrOutput) Elem() RServerClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *RServerClusterRolesHeadNode) RServerClusterRolesHeadNode { return *v }).(RServerClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v *RServerClusterRolesHeadNode) RServerClusterRolesHeadNode {
+		if v != nil {
+			return *v
+		}
+		var ret RServerClusterRolesHeadNode
+		return ret
+	}).(RServerClusterRolesHeadNodeOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -15515,7 +15950,7 @@ func (o RServerClusterRolesWorkerNodeOutput) ToRServerClusterRolesWorkerNodePtrO
 }
 
 func (o RServerClusterRolesWorkerNodeOutput) ToRServerClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v RServerClusterRolesWorkerNode) *RServerClusterRolesWorkerNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerClusterRolesWorkerNode) *RServerClusterRolesWorkerNode {
 		return &v
 	}).(RServerClusterRolesWorkerNodePtrOutput)
 }
@@ -15577,7 +16012,13 @@ func (o RServerClusterRolesWorkerNodePtrOutput) ToRServerClusterRolesWorkerNodeP
 }
 
 func (o RServerClusterRolesWorkerNodePtrOutput) Elem() RServerClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *RServerClusterRolesWorkerNode) RServerClusterRolesWorkerNode { return *v }).(RServerClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v *RServerClusterRolesWorkerNode) RServerClusterRolesWorkerNode {
+		if v != nil {
+			return *v
+		}
+		var ret RServerClusterRolesWorkerNode
+		return ret
+	}).(RServerClusterRolesWorkerNodeOutput)
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
@@ -15775,7 +16216,7 @@ func (o RServerClusterRolesZookeeperNodeOutput) ToRServerClusterRolesZookeeperNo
 }
 
 func (o RServerClusterRolesZookeeperNodeOutput) ToRServerClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v RServerClusterRolesZookeeperNode) *RServerClusterRolesZookeeperNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerClusterRolesZookeeperNode) *RServerClusterRolesZookeeperNode {
 		return &v
 	}).(RServerClusterRolesZookeeperNodePtrOutput)
 }
@@ -15825,7 +16266,13 @@ func (o RServerClusterRolesZookeeperNodePtrOutput) ToRServerClusterRolesZookeepe
 }
 
 func (o RServerClusterRolesZookeeperNodePtrOutput) Elem() RServerClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *RServerClusterRolesZookeeperNode) RServerClusterRolesZookeeperNode { return *v }).(RServerClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v *RServerClusterRolesZookeeperNode) RServerClusterRolesZookeeperNode {
+		if v != nil {
+			return *v
+		}
+		var ret RServerClusterRolesZookeeperNode
+		return ret
+	}).(RServerClusterRolesZookeeperNodeOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -16096,7 +16543,7 @@ func (o SparkClusterComponentVersionOutput) ToSparkClusterComponentVersionPtrOut
 }
 
 func (o SparkClusterComponentVersionOutput) ToSparkClusterComponentVersionPtrOutputWithContext(ctx context.Context) SparkClusterComponentVersionPtrOutput {
-	return o.ApplyT(func(v SparkClusterComponentVersion) *SparkClusterComponentVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterComponentVersion) *SparkClusterComponentVersion {
 		return &v
 	}).(SparkClusterComponentVersionPtrOutput)
 }
@@ -16121,7 +16568,13 @@ func (o SparkClusterComponentVersionPtrOutput) ToSparkClusterComponentVersionPtr
 }
 
 func (o SparkClusterComponentVersionPtrOutput) Elem() SparkClusterComponentVersionOutput {
-	return o.ApplyT(func(v *SparkClusterComponentVersion) SparkClusterComponentVersion { return *v }).(SparkClusterComponentVersionOutput)
+	return o.ApplyT(func(v *SparkClusterComponentVersion) SparkClusterComponentVersion {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterComponentVersion
+		return ret
+	}).(SparkClusterComponentVersionOutput)
 }
 
 // The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
@@ -16239,7 +16692,7 @@ func (o SparkClusterGatewayOutput) ToSparkClusterGatewayPtrOutput() SparkCluster
 }
 
 func (o SparkClusterGatewayOutput) ToSparkClusterGatewayPtrOutputWithContext(ctx context.Context) SparkClusterGatewayPtrOutput {
-	return o.ApplyT(func(v SparkClusterGateway) *SparkClusterGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterGateway) *SparkClusterGateway {
 		return &v
 	}).(SparkClusterGatewayPtrOutput)
 }
@@ -16276,7 +16729,13 @@ func (o SparkClusterGatewayPtrOutput) ToSparkClusterGatewayPtrOutputWithContext(
 }
 
 func (o SparkClusterGatewayPtrOutput) Elem() SparkClusterGatewayOutput {
-	return o.ApplyT(func(v *SparkClusterGateway) SparkClusterGateway { return *v }).(SparkClusterGatewayOutput)
+	return o.ApplyT(func(v *SparkClusterGateway) SparkClusterGateway {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterGateway
+		return ret
+	}).(SparkClusterGatewayOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -16412,7 +16871,7 @@ func (o SparkClusterMetastoresOutput) ToSparkClusterMetastoresPtrOutput() SparkC
 }
 
 func (o SparkClusterMetastoresOutput) ToSparkClusterMetastoresPtrOutputWithContext(ctx context.Context) SparkClusterMetastoresPtrOutput {
-	return o.ApplyT(func(v SparkClusterMetastores) *SparkClusterMetastores {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterMetastores) *SparkClusterMetastores {
 		return &v
 	}).(SparkClusterMetastoresPtrOutput)
 }
@@ -16447,7 +16906,13 @@ func (o SparkClusterMetastoresPtrOutput) ToSparkClusterMetastoresPtrOutputWithCo
 }
 
 func (o SparkClusterMetastoresPtrOutput) Elem() SparkClusterMetastoresOutput {
-	return o.ApplyT(func(v *SparkClusterMetastores) SparkClusterMetastores { return *v }).(SparkClusterMetastoresOutput)
+	return o.ApplyT(func(v *SparkClusterMetastores) SparkClusterMetastores {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterMetastores
+		return ret
+	}).(SparkClusterMetastoresOutput)
 }
 
 // An `ambari` block as defined below.
@@ -16585,7 +17050,7 @@ func (o SparkClusterMetastoresAmbariOutput) ToSparkClusterMetastoresAmbariPtrOut
 }
 
 func (o SparkClusterMetastoresAmbariOutput) ToSparkClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) SparkClusterMetastoresAmbariPtrOutput {
-	return o.ApplyT(func(v SparkClusterMetastoresAmbari) *SparkClusterMetastoresAmbari {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterMetastoresAmbari) *SparkClusterMetastoresAmbari {
 		return &v
 	}).(SparkClusterMetastoresAmbariPtrOutput)
 }
@@ -16625,7 +17090,13 @@ func (o SparkClusterMetastoresAmbariPtrOutput) ToSparkClusterMetastoresAmbariPtr
 }
 
 func (o SparkClusterMetastoresAmbariPtrOutput) Elem() SparkClusterMetastoresAmbariOutput {
-	return o.ApplyT(func(v *SparkClusterMetastoresAmbari) SparkClusterMetastoresAmbari { return *v }).(SparkClusterMetastoresAmbariOutput)
+	return o.ApplyT(func(v *SparkClusterMetastoresAmbari) SparkClusterMetastoresAmbari {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterMetastoresAmbari
+		return ret
+	}).(SparkClusterMetastoresAmbariOutput)
 }
 
 // The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -16773,7 +17244,7 @@ func (o SparkClusterMetastoresHiveOutput) ToSparkClusterMetastoresHivePtrOutput(
 }
 
 func (o SparkClusterMetastoresHiveOutput) ToSparkClusterMetastoresHivePtrOutputWithContext(ctx context.Context) SparkClusterMetastoresHivePtrOutput {
-	return o.ApplyT(func(v SparkClusterMetastoresHive) *SparkClusterMetastoresHive {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterMetastoresHive) *SparkClusterMetastoresHive {
 		return &v
 	}).(SparkClusterMetastoresHivePtrOutput)
 }
@@ -16813,7 +17284,13 @@ func (o SparkClusterMetastoresHivePtrOutput) ToSparkClusterMetastoresHivePtrOutp
 }
 
 func (o SparkClusterMetastoresHivePtrOutput) Elem() SparkClusterMetastoresHiveOutput {
-	return o.ApplyT(func(v *SparkClusterMetastoresHive) SparkClusterMetastoresHive { return *v }).(SparkClusterMetastoresHiveOutput)
+	return o.ApplyT(func(v *SparkClusterMetastoresHive) SparkClusterMetastoresHive {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterMetastoresHive
+		return ret
+	}).(SparkClusterMetastoresHiveOutput)
 }
 
 // The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -16961,7 +17438,7 @@ func (o SparkClusterMetastoresOozieOutput) ToSparkClusterMetastoresOoziePtrOutpu
 }
 
 func (o SparkClusterMetastoresOozieOutput) ToSparkClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) SparkClusterMetastoresOoziePtrOutput {
-	return o.ApplyT(func(v SparkClusterMetastoresOozie) *SparkClusterMetastoresOozie {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterMetastoresOozie) *SparkClusterMetastoresOozie {
 		return &v
 	}).(SparkClusterMetastoresOoziePtrOutput)
 }
@@ -17001,7 +17478,13 @@ func (o SparkClusterMetastoresOoziePtrOutput) ToSparkClusterMetastoresOoziePtrOu
 }
 
 func (o SparkClusterMetastoresOoziePtrOutput) Elem() SparkClusterMetastoresOozieOutput {
-	return o.ApplyT(func(v *SparkClusterMetastoresOozie) SparkClusterMetastoresOozie { return *v }).(SparkClusterMetastoresOozieOutput)
+	return o.ApplyT(func(v *SparkClusterMetastoresOozie) SparkClusterMetastoresOozie {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterMetastoresOozie
+		return ret
+	}).(SparkClusterMetastoresOozieOutput)
 }
 
 // The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -17141,7 +17624,7 @@ func (o SparkClusterMonitorOutput) ToSparkClusterMonitorPtrOutput() SparkCluster
 }
 
 func (o SparkClusterMonitorOutput) ToSparkClusterMonitorPtrOutputWithContext(ctx context.Context) SparkClusterMonitorPtrOutput {
-	return o.ApplyT(func(v SparkClusterMonitor) *SparkClusterMonitor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterMonitor) *SparkClusterMonitor {
 		return &v
 	}).(SparkClusterMonitorPtrOutput)
 }
@@ -17171,7 +17654,13 @@ func (o SparkClusterMonitorPtrOutput) ToSparkClusterMonitorPtrOutputWithContext(
 }
 
 func (o SparkClusterMonitorPtrOutput) Elem() SparkClusterMonitorOutput {
-	return o.ApplyT(func(v *SparkClusterMonitor) SparkClusterMonitor { return *v }).(SparkClusterMonitorOutput)
+	return o.ApplyT(func(v *SparkClusterMonitor) SparkClusterMonitor {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterMonitor
+		return ret
+	}).(SparkClusterMonitorOutput)
 }
 
 // The Operations Management Suite (OMS) workspace ID.
@@ -17291,7 +17780,7 @@ func (o SparkClusterNetworkOutput) ToSparkClusterNetworkPtrOutput() SparkCluster
 }
 
 func (o SparkClusterNetworkOutput) ToSparkClusterNetworkPtrOutputWithContext(ctx context.Context) SparkClusterNetworkPtrOutput {
-	return o.ApplyT(func(v SparkClusterNetwork) *SparkClusterNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterNetwork) *SparkClusterNetwork {
 		return &v
 	}).(SparkClusterNetworkPtrOutput)
 }
@@ -17321,7 +17810,13 @@ func (o SparkClusterNetworkPtrOutput) ToSparkClusterNetworkPtrOutputWithContext(
 }
 
 func (o SparkClusterNetworkPtrOutput) Elem() SparkClusterNetworkOutput {
-	return o.ApplyT(func(v *SparkClusterNetwork) SparkClusterNetwork { return *v }).(SparkClusterNetworkOutput)
+	return o.ApplyT(func(v *SparkClusterNetwork) SparkClusterNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterNetwork
+		return ret
+	}).(SparkClusterNetworkOutput)
 }
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
@@ -17445,7 +17940,7 @@ func (o SparkClusterRolesOutput) ToSparkClusterRolesPtrOutput() SparkClusterRole
 }
 
 func (o SparkClusterRolesOutput) ToSparkClusterRolesPtrOutputWithContext(ctx context.Context) SparkClusterRolesPtrOutput {
-	return o.ApplyT(func(v SparkClusterRoles) *SparkClusterRoles {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRoles) *SparkClusterRoles {
 		return &v
 	}).(SparkClusterRolesPtrOutput)
 }
@@ -17480,7 +17975,13 @@ func (o SparkClusterRolesPtrOutput) ToSparkClusterRolesPtrOutputWithContext(ctx 
 }
 
 func (o SparkClusterRolesPtrOutput) Elem() SparkClusterRolesOutput {
-	return o.ApplyT(func(v *SparkClusterRoles) SparkClusterRoles { return *v }).(SparkClusterRolesOutput)
+	return o.ApplyT(func(v *SparkClusterRoles) SparkClusterRoles {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterRoles
+		return ret
+	}).(SparkClusterRolesOutput)
 }
 
 // A `headNode` block as defined above.
@@ -17626,7 +18127,7 @@ func (o SparkClusterRolesHeadNodeOutput) ToSparkClusterRolesHeadNodePtrOutput() 
 }
 
 func (o SparkClusterRolesHeadNodeOutput) ToSparkClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v SparkClusterRolesHeadNode) *SparkClusterRolesHeadNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesHeadNode) *SparkClusterRolesHeadNode {
 		return &v
 	}).(SparkClusterRolesHeadNodePtrOutput)
 }
@@ -17676,7 +18177,13 @@ func (o SparkClusterRolesHeadNodePtrOutput) ToSparkClusterRolesHeadNodePtrOutput
 }
 
 func (o SparkClusterRolesHeadNodePtrOutput) Elem() SparkClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *SparkClusterRolesHeadNode) SparkClusterRolesHeadNode { return *v }).(SparkClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v *SparkClusterRolesHeadNode) SparkClusterRolesHeadNode {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterRolesHeadNode
+		return ret
+	}).(SparkClusterRolesHeadNodeOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -17868,7 +18375,7 @@ func (o SparkClusterRolesWorkerNodeOutput) ToSparkClusterRolesWorkerNodePtrOutpu
 }
 
 func (o SparkClusterRolesWorkerNodeOutput) ToSparkClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v SparkClusterRolesWorkerNode) *SparkClusterRolesWorkerNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesWorkerNode) *SparkClusterRolesWorkerNode {
 		return &v
 	}).(SparkClusterRolesWorkerNodePtrOutput)
 }
@@ -17935,7 +18442,13 @@ func (o SparkClusterRolesWorkerNodePtrOutput) ToSparkClusterRolesWorkerNodePtrOu
 }
 
 func (o SparkClusterRolesWorkerNodePtrOutput) Elem() SparkClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) SparkClusterRolesWorkerNode { return *v }).(SparkClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) SparkClusterRolesWorkerNode {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterRolesWorkerNode
+		return ret
+	}).(SparkClusterRolesWorkerNodeOutput)
 }
 
 // A `autoscale` block as defined below.
@@ -18127,7 +18640,7 @@ func (o SparkClusterRolesWorkerNodeAutoscaleOutput) ToSparkClusterRolesWorkerNod
 }
 
 func (o SparkClusterRolesWorkerNodeAutoscaleOutput) ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscalePtrOutput {
-	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscale) *SparkClusterRolesWorkerNodeAutoscale {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesWorkerNodeAutoscale) *SparkClusterRolesWorkerNodeAutoscale {
 		return &v
 	}).(SparkClusterRolesWorkerNodeAutoscalePtrOutput)
 }
@@ -18161,7 +18674,13 @@ func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) ToSparkClusterRolesWorker
 }
 
 func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) Elem() SparkClusterRolesWorkerNodeAutoscaleOutput {
-	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscale) SparkClusterRolesWorkerNodeAutoscale { return *v }).(SparkClusterRolesWorkerNodeAutoscaleOutput)
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscale) SparkClusterRolesWorkerNodeAutoscale {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterRolesWorkerNodeAutoscale
+		return ret
+	}).(SparkClusterRolesWorkerNodeAutoscaleOutput)
 }
 
 // A `capacity` block as defined below.
@@ -18281,7 +18800,7 @@ func (o SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) ToSparkClusterRolesW
 }
 
 func (o SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscaleCapacity) *SparkClusterRolesWorkerNodeAutoscaleCapacity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesWorkerNodeAutoscaleCapacity) *SparkClusterRolesWorkerNodeAutoscaleCapacity {
 		return &v
 	}).(SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
 }
@@ -18312,7 +18831,11 @@ func (o SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToSparkClusterRol
 
 func (o SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) Elem() SparkClusterRolesWorkerNodeAutoscaleCapacityOutput {
 	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscaleCapacity) SparkClusterRolesWorkerNodeAutoscaleCapacity {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterRolesWorkerNodeAutoscaleCapacity
+		return ret
 	}).(SparkClusterRolesWorkerNodeAutoscaleCapacityOutput)
 }
 
@@ -18433,7 +18956,7 @@ func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToSparkClusterRole
 }
 
 func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
-	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscaleRecurrence) *SparkClusterRolesWorkerNodeAutoscaleRecurrence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesWorkerNodeAutoscaleRecurrence) *SparkClusterRolesWorkerNodeAutoscaleRecurrence {
 		return &v
 	}).(SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
 }
@@ -18466,7 +18989,11 @@ func (o SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToSparkClusterR
 
 func (o SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
 	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscaleRecurrence) SparkClusterRolesWorkerNodeAutoscaleRecurrence {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterRolesWorkerNodeAutoscaleRecurrence
+		return ret
 	}).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
 }
 
@@ -18718,7 +19245,7 @@ func (o SparkClusterRolesZookeeperNodeOutput) ToSparkClusterRolesZookeeperNodePt
 }
 
 func (o SparkClusterRolesZookeeperNodeOutput) ToSparkClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) *SparkClusterRolesZookeeperNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesZookeeperNode) *SparkClusterRolesZookeeperNode {
 		return &v
 	}).(SparkClusterRolesZookeeperNodePtrOutput)
 }
@@ -18768,7 +19295,13 @@ func (o SparkClusterRolesZookeeperNodePtrOutput) ToSparkClusterRolesZookeeperNod
 }
 
 func (o SparkClusterRolesZookeeperNodePtrOutput) Elem() SparkClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) SparkClusterRolesZookeeperNode { return *v }).(SparkClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) SparkClusterRolesZookeeperNode {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterRolesZookeeperNode
+		return ret
+	}).(SparkClusterRolesZookeeperNodeOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -18948,7 +19481,7 @@ func (o SparkClusterSecurityProfileOutput) ToSparkClusterSecurityProfilePtrOutpu
 }
 
 func (o SparkClusterSecurityProfileOutput) ToSparkClusterSecurityProfilePtrOutputWithContext(ctx context.Context) SparkClusterSecurityProfilePtrOutput {
-	return o.ApplyT(func(v SparkClusterSecurityProfile) *SparkClusterSecurityProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterSecurityProfile) *SparkClusterSecurityProfile {
 		return &v
 	}).(SparkClusterSecurityProfilePtrOutput)
 }
@@ -19003,7 +19536,13 @@ func (o SparkClusterSecurityProfilePtrOutput) ToSparkClusterSecurityProfilePtrOu
 }
 
 func (o SparkClusterSecurityProfilePtrOutput) Elem() SparkClusterSecurityProfileOutput {
-	return o.ApplyT(func(v *SparkClusterSecurityProfile) SparkClusterSecurityProfile { return *v }).(SparkClusterSecurityProfileOutput)
+	return o.ApplyT(func(v *SparkClusterSecurityProfile) SparkClusterSecurityProfile {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterSecurityProfile
+		return ret
+	}).(SparkClusterSecurityProfileOutput)
 }
 
 // The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -19296,7 +19835,7 @@ func (o SparkClusterStorageAccountGen2Output) ToSparkClusterStorageAccountGen2Pt
 }
 
 func (o SparkClusterStorageAccountGen2Output) ToSparkClusterStorageAccountGen2PtrOutputWithContext(ctx context.Context) SparkClusterStorageAccountGen2PtrOutput {
-	return o.ApplyT(func(v SparkClusterStorageAccountGen2) *SparkClusterStorageAccountGen2 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterStorageAccountGen2) *SparkClusterStorageAccountGen2 {
 		return &v
 	}).(SparkClusterStorageAccountGen2PtrOutput)
 }
@@ -19336,7 +19875,13 @@ func (o SparkClusterStorageAccountGen2PtrOutput) ToSparkClusterStorageAccountGen
 }
 
 func (o SparkClusterStorageAccountGen2PtrOutput) Elem() SparkClusterStorageAccountGen2Output {
-	return o.ApplyT(func(v *SparkClusterStorageAccountGen2) SparkClusterStorageAccountGen2 { return *v }).(SparkClusterStorageAccountGen2Output)
+	return o.ApplyT(func(v *SparkClusterStorageAccountGen2) SparkClusterStorageAccountGen2 {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterStorageAccountGen2
+		return ret
+	}).(SparkClusterStorageAccountGen2Output)
 }
 
 // The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
@@ -19472,7 +20017,7 @@ func (o StormClusterComponentVersionOutput) ToStormClusterComponentVersionPtrOut
 }
 
 func (o StormClusterComponentVersionOutput) ToStormClusterComponentVersionPtrOutputWithContext(ctx context.Context) StormClusterComponentVersionPtrOutput {
-	return o.ApplyT(func(v StormClusterComponentVersion) *StormClusterComponentVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterComponentVersion) *StormClusterComponentVersion {
 		return &v
 	}).(StormClusterComponentVersionPtrOutput)
 }
@@ -19497,7 +20042,13 @@ func (o StormClusterComponentVersionPtrOutput) ToStormClusterComponentVersionPtr
 }
 
 func (o StormClusterComponentVersionPtrOutput) Elem() StormClusterComponentVersionOutput {
-	return o.ApplyT(func(v *StormClusterComponentVersion) StormClusterComponentVersion { return *v }).(StormClusterComponentVersionOutput)
+	return o.ApplyT(func(v *StormClusterComponentVersion) StormClusterComponentVersion {
+		if v != nil {
+			return *v
+		}
+		var ret StormClusterComponentVersion
+		return ret
+	}).(StormClusterComponentVersionOutput)
 }
 
 // The version of Storm which should be used for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
@@ -19615,7 +20166,7 @@ func (o StormClusterGatewayOutput) ToStormClusterGatewayPtrOutput() StormCluster
 }
 
 func (o StormClusterGatewayOutput) ToStormClusterGatewayPtrOutputWithContext(ctx context.Context) StormClusterGatewayPtrOutput {
-	return o.ApplyT(func(v StormClusterGateway) *StormClusterGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterGateway) *StormClusterGateway {
 		return &v
 	}).(StormClusterGatewayPtrOutput)
 }
@@ -19652,7 +20203,13 @@ func (o StormClusterGatewayPtrOutput) ToStormClusterGatewayPtrOutputWithContext(
 }
 
 func (o StormClusterGatewayPtrOutput) Elem() StormClusterGatewayOutput {
-	return o.ApplyT(func(v *StormClusterGateway) StormClusterGateway { return *v }).(StormClusterGatewayOutput)
+	return o.ApplyT(func(v *StormClusterGateway) StormClusterGateway {
+		if v != nil {
+			return *v
+		}
+		var ret StormClusterGateway
+		return ret
+	}).(StormClusterGatewayOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -19788,7 +20345,7 @@ func (o StormClusterMetastoresOutput) ToStormClusterMetastoresPtrOutput() StormC
 }
 
 func (o StormClusterMetastoresOutput) ToStormClusterMetastoresPtrOutputWithContext(ctx context.Context) StormClusterMetastoresPtrOutput {
-	return o.ApplyT(func(v StormClusterMetastores) *StormClusterMetastores {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterMetastores) *StormClusterMetastores {
 		return &v
 	}).(StormClusterMetastoresPtrOutput)
 }
@@ -19823,7 +20380,13 @@ func (o StormClusterMetastoresPtrOutput) ToStormClusterMetastoresPtrOutputWithCo
 }
 
 func (o StormClusterMetastoresPtrOutput) Elem() StormClusterMetastoresOutput {
-	return o.ApplyT(func(v *StormClusterMetastores) StormClusterMetastores { return *v }).(StormClusterMetastoresOutput)
+	return o.ApplyT(func(v *StormClusterMetastores) StormClusterMetastores {
+		if v != nil {
+			return *v
+		}
+		var ret StormClusterMetastores
+		return ret
+	}).(StormClusterMetastoresOutput)
 }
 
 // An `ambari` block as defined below.
@@ -19961,7 +20524,7 @@ func (o StormClusterMetastoresAmbariOutput) ToStormClusterMetastoresAmbariPtrOut
 }
 
 func (o StormClusterMetastoresAmbariOutput) ToStormClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) StormClusterMetastoresAmbariPtrOutput {
-	return o.ApplyT(func(v StormClusterMetastoresAmbari) *StormClusterMetastoresAmbari {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterMetastoresAmbari) *StormClusterMetastoresAmbari {
 		return &v
 	}).(StormClusterMetastoresAmbariPtrOutput)
 }
@@ -20001,7 +20564,13 @@ func (o StormClusterMetastoresAmbariPtrOutput) ToStormClusterMetastoresAmbariPtr
 }
 
 func (o StormClusterMetastoresAmbariPtrOutput) Elem() StormClusterMetastoresAmbariOutput {
-	return o.ApplyT(func(v *StormClusterMetastoresAmbari) StormClusterMetastoresAmbari { return *v }).(StormClusterMetastoresAmbariOutput)
+	return o.ApplyT(func(v *StormClusterMetastoresAmbari) StormClusterMetastoresAmbari {
+		if v != nil {
+			return *v
+		}
+		var ret StormClusterMetastoresAmbari
+		return ret
+	}).(StormClusterMetastoresAmbariOutput)
 }
 
 // The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -20149,7 +20718,7 @@ func (o StormClusterMetastoresHiveOutput) ToStormClusterMetastoresHivePtrOutput(
 }
 
 func (o StormClusterMetastoresHiveOutput) ToStormClusterMetastoresHivePtrOutputWithContext(ctx context.Context) StormClusterMetastoresHivePtrOutput {
-	return o.ApplyT(func(v StormClusterMetastoresHive) *StormClusterMetastoresHive {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterMetastoresHive) *StormClusterMetastoresHive {
 		return &v
 	}).(StormClusterMetastoresHivePtrOutput)
 }
@@ -20189,7 +20758,13 @@ func (o StormClusterMetastoresHivePtrOutput) ToStormClusterMetastoresHivePtrOutp
 }
 
 func (o StormClusterMetastoresHivePtrOutput) Elem() StormClusterMetastoresHiveOutput {
-	return o.ApplyT(func(v *StormClusterMetastoresHive) StormClusterMetastoresHive { return *v }).(StormClusterMetastoresHiveOutput)
+	return o.ApplyT(func(v *StormClusterMetastoresHive) StormClusterMetastoresHive {
+		if v != nil {
+			return *v
+		}
+		var ret StormClusterMetastoresHive
+		return ret
+	}).(StormClusterMetastoresHiveOutput)
 }
 
 // The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -20337,7 +20912,7 @@ func (o StormClusterMetastoresOozieOutput) ToStormClusterMetastoresOoziePtrOutpu
 }
 
 func (o StormClusterMetastoresOozieOutput) ToStormClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) StormClusterMetastoresOoziePtrOutput {
-	return o.ApplyT(func(v StormClusterMetastoresOozie) *StormClusterMetastoresOozie {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterMetastoresOozie) *StormClusterMetastoresOozie {
 		return &v
 	}).(StormClusterMetastoresOoziePtrOutput)
 }
@@ -20377,7 +20952,13 @@ func (o StormClusterMetastoresOoziePtrOutput) ToStormClusterMetastoresOoziePtrOu
 }
 
 func (o StormClusterMetastoresOoziePtrOutput) Elem() StormClusterMetastoresOozieOutput {
-	return o.ApplyT(func(v *StormClusterMetastoresOozie) StormClusterMetastoresOozie { return *v }).(StormClusterMetastoresOozieOutput)
+	return o.ApplyT(func(v *StormClusterMetastoresOozie) StormClusterMetastoresOozie {
+		if v != nil {
+			return *v
+		}
+		var ret StormClusterMetastoresOozie
+		return ret
+	}).(StormClusterMetastoresOozieOutput)
 }
 
 // The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -20517,7 +21098,7 @@ func (o StormClusterMonitorOutput) ToStormClusterMonitorPtrOutput() StormCluster
 }
 
 func (o StormClusterMonitorOutput) ToStormClusterMonitorPtrOutputWithContext(ctx context.Context) StormClusterMonitorPtrOutput {
-	return o.ApplyT(func(v StormClusterMonitor) *StormClusterMonitor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterMonitor) *StormClusterMonitor {
 		return &v
 	}).(StormClusterMonitorPtrOutput)
 }
@@ -20547,7 +21128,13 @@ func (o StormClusterMonitorPtrOutput) ToStormClusterMonitorPtrOutputWithContext(
 }
 
 func (o StormClusterMonitorPtrOutput) Elem() StormClusterMonitorOutput {
-	return o.ApplyT(func(v *StormClusterMonitor) StormClusterMonitor { return *v }).(StormClusterMonitorOutput)
+	return o.ApplyT(func(v *StormClusterMonitor) StormClusterMonitor {
+		if v != nil {
+			return *v
+		}
+		var ret StormClusterMonitor
+		return ret
+	}).(StormClusterMonitorOutput)
 }
 
 // The Operations Management Suite (OMS) workspace ID.
@@ -20671,7 +21258,7 @@ func (o StormClusterRolesOutput) ToStormClusterRolesPtrOutput() StormClusterRole
 }
 
 func (o StormClusterRolesOutput) ToStormClusterRolesPtrOutputWithContext(ctx context.Context) StormClusterRolesPtrOutput {
-	return o.ApplyT(func(v StormClusterRoles) *StormClusterRoles {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterRoles) *StormClusterRoles {
 		return &v
 	}).(StormClusterRolesPtrOutput)
 }
@@ -20706,7 +21293,13 @@ func (o StormClusterRolesPtrOutput) ToStormClusterRolesPtrOutputWithContext(ctx 
 }
 
 func (o StormClusterRolesPtrOutput) Elem() StormClusterRolesOutput {
-	return o.ApplyT(func(v *StormClusterRoles) StormClusterRoles { return *v }).(StormClusterRolesOutput)
+	return o.ApplyT(func(v *StormClusterRoles) StormClusterRoles {
+		if v != nil {
+			return *v
+		}
+		var ret StormClusterRoles
+		return ret
+	}).(StormClusterRolesOutput)
 }
 
 // A `headNode` block as defined above.
@@ -20852,7 +21445,7 @@ func (o StormClusterRolesHeadNodeOutput) ToStormClusterRolesHeadNodePtrOutput() 
 }
 
 func (o StormClusterRolesHeadNodeOutput) ToStormClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) StormClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v StormClusterRolesHeadNode) *StormClusterRolesHeadNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterRolesHeadNode) *StormClusterRolesHeadNode {
 		return &v
 	}).(StormClusterRolesHeadNodePtrOutput)
 }
@@ -20902,7 +21495,13 @@ func (o StormClusterRolesHeadNodePtrOutput) ToStormClusterRolesHeadNodePtrOutput
 }
 
 func (o StormClusterRolesHeadNodePtrOutput) Elem() StormClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *StormClusterRolesHeadNode) StormClusterRolesHeadNode { return *v }).(StormClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v *StormClusterRolesHeadNode) StormClusterRolesHeadNode {
+		if v != nil {
+			return *v
+		}
+		var ret StormClusterRolesHeadNode
+		return ret
+	}).(StormClusterRolesHeadNodeOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -21090,7 +21689,7 @@ func (o StormClusterRolesWorkerNodeOutput) ToStormClusterRolesWorkerNodePtrOutpu
 }
 
 func (o StormClusterRolesWorkerNodeOutput) ToStormClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) StormClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v StormClusterRolesWorkerNode) *StormClusterRolesWorkerNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterRolesWorkerNode) *StormClusterRolesWorkerNode {
 		return &v
 	}).(StormClusterRolesWorkerNodePtrOutput)
 }
@@ -21152,7 +21751,13 @@ func (o StormClusterRolesWorkerNodePtrOutput) ToStormClusterRolesWorkerNodePtrOu
 }
 
 func (o StormClusterRolesWorkerNodePtrOutput) Elem() StormClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *StormClusterRolesWorkerNode) StormClusterRolesWorkerNode { return *v }).(StormClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v *StormClusterRolesWorkerNode) StormClusterRolesWorkerNode {
+		if v != nil {
+			return *v
+		}
+		var ret StormClusterRolesWorkerNode
+		return ret
+	}).(StormClusterRolesWorkerNodeOutput)
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
@@ -21350,7 +21955,7 @@ func (o StormClusterRolesZookeeperNodeOutput) ToStormClusterRolesZookeeperNodePt
 }
 
 func (o StormClusterRolesZookeeperNodeOutput) ToStormClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) StormClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v StormClusterRolesZookeeperNode) *StormClusterRolesZookeeperNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterRolesZookeeperNode) *StormClusterRolesZookeeperNode {
 		return &v
 	}).(StormClusterRolesZookeeperNodePtrOutput)
 }
@@ -21400,7 +22005,13 @@ func (o StormClusterRolesZookeeperNodePtrOutput) ToStormClusterRolesZookeeperNod
 }
 
 func (o StormClusterRolesZookeeperNodePtrOutput) Elem() StormClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *StormClusterRolesZookeeperNode) StormClusterRolesZookeeperNode { return *v }).(StormClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v *StormClusterRolesZookeeperNode) StormClusterRolesZookeeperNode {
+		if v != nil {
+			return *v
+		}
+		var ret StormClusterRolesZookeeperNode
+		return ret
+	}).(StormClusterRolesZookeeperNodeOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.

@@ -249,7 +249,7 @@ type ActiveDirectoryAdministratorArrayInput interface {
 type ActiveDirectoryAdministratorArray []ActiveDirectoryAdministratorInput
 
 func (ActiveDirectoryAdministratorArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ActiveDirectoryAdministrator)(nil))
+	return reflect.TypeOf((*[]*ActiveDirectoryAdministrator)(nil)).Elem()
 }
 
 func (i ActiveDirectoryAdministratorArray) ToActiveDirectoryAdministratorArrayOutput() ActiveDirectoryAdministratorArrayOutput {
@@ -274,7 +274,7 @@ type ActiveDirectoryAdministratorMapInput interface {
 type ActiveDirectoryAdministratorMap map[string]ActiveDirectoryAdministratorInput
 
 func (ActiveDirectoryAdministratorMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ActiveDirectoryAdministrator)(nil))
+	return reflect.TypeOf((*map[string]*ActiveDirectoryAdministrator)(nil)).Elem()
 }
 
 func (i ActiveDirectoryAdministratorMap) ToActiveDirectoryAdministratorMapOutput() ActiveDirectoryAdministratorMapOutput {
@@ -285,9 +285,7 @@ func (i ActiveDirectoryAdministratorMap) ToActiveDirectoryAdministratorMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryAdministratorMapOutput)
 }
 
-type ActiveDirectoryAdministratorOutput struct {
-	*pulumi.OutputState
-}
+type ActiveDirectoryAdministratorOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryAdministratorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActiveDirectoryAdministrator)(nil))
@@ -306,14 +304,12 @@ func (o ActiveDirectoryAdministratorOutput) ToActiveDirectoryAdministratorPtrOut
 }
 
 func (o ActiveDirectoryAdministratorOutput) ToActiveDirectoryAdministratorPtrOutputWithContext(ctx context.Context) ActiveDirectoryAdministratorPtrOutput {
-	return o.ApplyT(func(v ActiveDirectoryAdministrator) *ActiveDirectoryAdministrator {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveDirectoryAdministrator) *ActiveDirectoryAdministrator {
 		return &v
 	}).(ActiveDirectoryAdministratorPtrOutput)
 }
 
-type ActiveDirectoryAdministratorPtrOutput struct {
-	*pulumi.OutputState
-}
+type ActiveDirectoryAdministratorPtrOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryAdministratorPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ActiveDirectoryAdministrator)(nil))
@@ -325,6 +321,16 @@ func (o ActiveDirectoryAdministratorPtrOutput) ToActiveDirectoryAdministratorPtr
 
 func (o ActiveDirectoryAdministratorPtrOutput) ToActiveDirectoryAdministratorPtrOutputWithContext(ctx context.Context) ActiveDirectoryAdministratorPtrOutput {
 	return o
+}
+
+func (o ActiveDirectoryAdministratorPtrOutput) Elem() ActiveDirectoryAdministratorOutput {
+	return o.ApplyT(func(v *ActiveDirectoryAdministrator) ActiveDirectoryAdministrator {
+		if v != nil {
+			return *v
+		}
+		var ret ActiveDirectoryAdministrator
+		return ret
+	}).(ActiveDirectoryAdministratorOutput)
 }
 
 type ActiveDirectoryAdministratorArrayOutput struct{ *pulumi.OutputState }

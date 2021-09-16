@@ -4,6 +4,9 @@
 package keyvault
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,4 +75,97 @@ type LookupManagedHardwareSecurityModuleResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Active Directory Tenant ID used for authenticating requests to the Key Vault Managed Hardware Security Module.
 	TenantId string `pulumi:"tenantId"`
+}
+
+func LookupManagedHardwareSecurityModuleOutput(ctx *pulumi.Context, args LookupManagedHardwareSecurityModuleOutputArgs, opts ...pulumi.InvokeOption) LookupManagedHardwareSecurityModuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagedHardwareSecurityModuleResult, error) {
+			args := v.(LookupManagedHardwareSecurityModuleArgs)
+			r, err := LookupManagedHardwareSecurityModule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagedHardwareSecurityModuleResultOutput)
+}
+
+// A collection of arguments for invoking getManagedHardwareSecurityModule.
+type LookupManagedHardwareSecurityModuleOutputArgs struct {
+	// The name of the Key Vault Managed Hardware Security Module.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group in which the Key Vault Managed Hardware Security Module exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupManagedHardwareSecurityModuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedHardwareSecurityModuleArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getManagedHardwareSecurityModule.
+type LookupManagedHardwareSecurityModuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagedHardwareSecurityModuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedHardwareSecurityModuleResult)(nil)).Elem()
+}
+
+func (o LookupManagedHardwareSecurityModuleResultOutput) ToLookupManagedHardwareSecurityModuleResultOutput() LookupManagedHardwareSecurityModuleResultOutput {
+	return o
+}
+
+func (o LookupManagedHardwareSecurityModuleResultOutput) ToLookupManagedHardwareSecurityModuleResultOutputWithContext(ctx context.Context) LookupManagedHardwareSecurityModuleResultOutput {
+	return o
+}
+
+// Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module.
+func (o LookupManagedHardwareSecurityModuleResultOutput) AdminObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleResult) []string { return v.AdminObjectIds }).(pulumi.StringArrayOutput)
+}
+
+// The URI of the Hardware Security Module for performing operations on keys and secrets.
+func (o LookupManagedHardwareSecurityModuleResultOutput) HsmUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleResult) string { return v.HsmUri }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupManagedHardwareSecurityModuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure Region in which the Key Vault managed Hardware Security Module exists.
+func (o LookupManagedHardwareSecurityModuleResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupManagedHardwareSecurityModuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Is purge protection enabled on this Key Vault Managed Hardware Security Module?
+func (o LookupManagedHardwareSecurityModuleResultOutput) PurgeProtectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleResult) bool { return v.PurgeProtectionEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupManagedHardwareSecurityModuleResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Name of the SKU used for this Key Vault Managed Hardware Security Module.
+func (o LookupManagedHardwareSecurityModuleResultOutput) SkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleResult) string { return v.SkuName }).(pulumi.StringOutput)
+}
+
+// The number of days that items should be retained for soft-deleted.
+func (o LookupManagedHardwareSecurityModuleResultOutput) SoftDeleteRetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleResult) int { return v.SoftDeleteRetentionDays }).(pulumi.IntOutput)
+}
+
+// A mapping of tags assigned to the Key Vault Managed Hardware Security Module.
+func (o LookupManagedHardwareSecurityModuleResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Azure Active Directory Tenant ID used for authenticating requests to the Key Vault Managed Hardware Security Module.
+func (o LookupManagedHardwareSecurityModuleResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleResult) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagedHardwareSecurityModuleResultOutput{})
 }

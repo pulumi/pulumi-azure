@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,75 @@ type GetPlatformImageResult struct {
 	Publisher string `pulumi:"publisher"`
 	Sku       string `pulumi:"sku"`
 	Version   string `pulumi:"version"`
+}
+
+func GetPlatformImageOutput(ctx *pulumi.Context, args GetPlatformImageOutputArgs, opts ...pulumi.InvokeOption) GetPlatformImageResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetPlatformImageResult, error) {
+			args := v.(GetPlatformImageArgs)
+			r, err := GetPlatformImage(ctx, &args, opts...)
+			return *r, err
+		}).(GetPlatformImageResultOutput)
+}
+
+// A collection of arguments for invoking getPlatformImage.
+type GetPlatformImageOutputArgs struct {
+	// Specifies the Location to pull information about this Platform Image from.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Specifies the Offer associated with the Platform Image.
+	Offer pulumi.StringInput `pulumi:"offer"`
+	// Specifies the Publisher associated with the Platform Image.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// Specifies the SKU of the Platform Image.
+	Sku pulumi.StringInput `pulumi:"sku"`
+	// The version of the Platform Image.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (GetPlatformImageOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlatformImageArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPlatformImage.
+type GetPlatformImageResultOutput struct{ *pulumi.OutputState }
+
+func (GetPlatformImageResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlatformImageResult)(nil)).Elem()
+}
+
+func (o GetPlatformImageResultOutput) ToGetPlatformImageResultOutput() GetPlatformImageResultOutput {
+	return o
+}
+
+func (o GetPlatformImageResultOutput) ToGetPlatformImageResultOutputWithContext(ctx context.Context) GetPlatformImageResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetPlatformImageResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlatformImageResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetPlatformImageResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlatformImageResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o GetPlatformImageResultOutput) Offer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlatformImageResult) string { return v.Offer }).(pulumi.StringOutput)
+}
+
+func (o GetPlatformImageResultOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlatformImageResult) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+func (o GetPlatformImageResultOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlatformImageResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+func (o GetPlatformImageResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlatformImageResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetPlatformImageResultOutput{})
 }

@@ -198,10 +198,11 @@ func (o FeaturesApiManagementOutput) ToFeaturesApiManagementPtrOutput() Features
 }
 
 func (o FeaturesApiManagementOutput) ToFeaturesApiManagementPtrOutputWithContext(ctx context.Context) FeaturesApiManagementPtrOutput {
-	return o.ApplyT(func(v FeaturesApiManagement) *FeaturesApiManagement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesApiManagement) *FeaturesApiManagement {
 		return &v
 	}).(FeaturesApiManagementPtrOutput)
 }
+
 func (o FeaturesApiManagementOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesApiManagement) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -221,7 +222,13 @@ func (o FeaturesApiManagementPtrOutput) ToFeaturesApiManagementPtrOutputWithCont
 }
 
 func (o FeaturesApiManagementPtrOutput) Elem() FeaturesApiManagementOutput {
-	return o.ApplyT(func(v *FeaturesApiManagement) FeaturesApiManagement { return *v }).(FeaturesApiManagementOutput)
+	return o.ApplyT(func(v *FeaturesApiManagement) FeaturesApiManagement {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesApiManagement
+		return ret
+	}).(FeaturesApiManagementOutput)
 }
 
 func (o FeaturesApiManagementPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
@@ -324,10 +331,11 @@ func (o FeaturesCognitiveAccountOutput) ToFeaturesCognitiveAccountPtrOutput() Fe
 }
 
 func (o FeaturesCognitiveAccountOutput) ToFeaturesCognitiveAccountPtrOutputWithContext(ctx context.Context) FeaturesCognitiveAccountPtrOutput {
-	return o.ApplyT(func(v FeaturesCognitiveAccount) *FeaturesCognitiveAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCognitiveAccount) *FeaturesCognitiveAccount {
 		return &v
 	}).(FeaturesCognitiveAccountPtrOutput)
 }
+
 func (o FeaturesCognitiveAccountOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesCognitiveAccount) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -347,7 +355,13 @@ func (o FeaturesCognitiveAccountPtrOutput) ToFeaturesCognitiveAccountPtrOutputWi
 }
 
 func (o FeaturesCognitiveAccountPtrOutput) Elem() FeaturesCognitiveAccountOutput {
-	return o.ApplyT(func(v *FeaturesCognitiveAccount) FeaturesCognitiveAccount { return *v }).(FeaturesCognitiveAccountOutput)
+	return o.ApplyT(func(v *FeaturesCognitiveAccount) FeaturesCognitiveAccount {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCognitiveAccount
+		return ret
+	}).(FeaturesCognitiveAccountOutput)
 }
 
 func (o FeaturesCognitiveAccountPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
@@ -452,10 +466,11 @@ func (o FeaturesKeyVaultOutput) ToFeaturesKeyVaultPtrOutput() FeaturesKeyVaultPt
 }
 
 func (o FeaturesKeyVaultOutput) ToFeaturesKeyVaultPtrOutputWithContext(ctx context.Context) FeaturesKeyVaultPtrOutput {
-	return o.ApplyT(func(v FeaturesKeyVault) *FeaturesKeyVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesKeyVault) *FeaturesKeyVault {
 		return &v
 	}).(FeaturesKeyVaultPtrOutput)
 }
+
 func (o FeaturesKeyVaultOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -479,7 +494,13 @@ func (o FeaturesKeyVaultPtrOutput) ToFeaturesKeyVaultPtrOutputWithContext(ctx co
 }
 
 func (o FeaturesKeyVaultPtrOutput) Elem() FeaturesKeyVaultOutput {
-	return o.ApplyT(func(v *FeaturesKeyVault) FeaturesKeyVault { return *v }).(FeaturesKeyVaultOutput)
+	return o.ApplyT(func(v *FeaturesKeyVault) FeaturesKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesKeyVault
+		return ret
+	}).(FeaturesKeyVaultOutput)
 }
 
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
@@ -591,10 +612,11 @@ func (o FeaturesLogAnalyticsWorkspaceOutput) ToFeaturesLogAnalyticsWorkspacePtrO
 }
 
 func (o FeaturesLogAnalyticsWorkspaceOutput) ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) FeaturesLogAnalyticsWorkspacePtrOutput {
-	return o.ApplyT(func(v FeaturesLogAnalyticsWorkspace) *FeaturesLogAnalyticsWorkspace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesLogAnalyticsWorkspace) *FeaturesLogAnalyticsWorkspace {
 		return &v
 	}).(FeaturesLogAnalyticsWorkspacePtrOutput)
 }
+
 func (o FeaturesLogAnalyticsWorkspaceOutput) PermanentlyDeleteOnDestroy() pulumi.BoolOutput {
 	return o.ApplyT(func(v FeaturesLogAnalyticsWorkspace) bool { return v.PermanentlyDeleteOnDestroy }).(pulumi.BoolOutput)
 }
@@ -614,7 +636,13 @@ func (o FeaturesLogAnalyticsWorkspacePtrOutput) ToFeaturesLogAnalyticsWorkspaceP
 }
 
 func (o FeaturesLogAnalyticsWorkspacePtrOutput) Elem() FeaturesLogAnalyticsWorkspaceOutput {
-	return o.ApplyT(func(v *FeaturesLogAnalyticsWorkspace) FeaturesLogAnalyticsWorkspace { return *v }).(FeaturesLogAnalyticsWorkspaceOutput)
+	return o.ApplyT(func(v *FeaturesLogAnalyticsWorkspace) FeaturesLogAnalyticsWorkspace {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesLogAnalyticsWorkspace
+		return ret
+	}).(FeaturesLogAnalyticsWorkspaceOutput)
 }
 
 func (o FeaturesLogAnalyticsWorkspacePtrOutput) PermanentlyDeleteOnDestroy() pulumi.BoolPtrOutput {
@@ -717,10 +745,11 @@ func (o FeaturesNetworkOutput) ToFeaturesNetworkPtrOutput() FeaturesNetworkPtrOu
 }
 
 func (o FeaturesNetworkOutput) ToFeaturesNetworkPtrOutputWithContext(ctx context.Context) FeaturesNetworkPtrOutput {
-	return o.ApplyT(func(v FeaturesNetwork) *FeaturesNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesNetwork) *FeaturesNetwork {
 		return &v
 	}).(FeaturesNetworkPtrOutput)
 }
+
 func (o FeaturesNetworkOutput) RelaxedLocking() pulumi.BoolOutput {
 	return o.ApplyT(func(v FeaturesNetwork) bool { return v.RelaxedLocking }).(pulumi.BoolOutput)
 }
@@ -740,7 +769,13 @@ func (o FeaturesNetworkPtrOutput) ToFeaturesNetworkPtrOutputWithContext(ctx cont
 }
 
 func (o FeaturesNetworkPtrOutput) Elem() FeaturesNetworkOutput {
-	return o.ApplyT(func(v *FeaturesNetwork) FeaturesNetwork { return *v }).(FeaturesNetworkOutput)
+	return o.ApplyT(func(v *FeaturesNetwork) FeaturesNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesNetwork
+		return ret
+	}).(FeaturesNetworkOutput)
 }
 
 func (o FeaturesNetworkPtrOutput) RelaxedLocking() pulumi.BoolPtrOutput {
@@ -843,10 +878,11 @@ func (o FeaturesResourceGroupOutput) ToFeaturesResourceGroupPtrOutput() Features
 }
 
 func (o FeaturesResourceGroupOutput) ToFeaturesResourceGroupPtrOutputWithContext(ctx context.Context) FeaturesResourceGroupPtrOutput {
-	return o.ApplyT(func(v FeaturesResourceGroup) *FeaturesResourceGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesResourceGroup) *FeaturesResourceGroup {
 		return &v
 	}).(FeaturesResourceGroupPtrOutput)
 }
+
 func (o FeaturesResourceGroupOutput) PreventDeletionIfContainsResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesResourceGroup) *bool { return v.PreventDeletionIfContainsResources }).(pulumi.BoolPtrOutput)
 }
@@ -866,7 +902,13 @@ func (o FeaturesResourceGroupPtrOutput) ToFeaturesResourceGroupPtrOutputWithCont
 }
 
 func (o FeaturesResourceGroupPtrOutput) Elem() FeaturesResourceGroupOutput {
-	return o.ApplyT(func(v *FeaturesResourceGroup) FeaturesResourceGroup { return *v }).(FeaturesResourceGroupOutput)
+	return o.ApplyT(func(v *FeaturesResourceGroup) FeaturesResourceGroup {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesResourceGroup
+		return ret
+	}).(FeaturesResourceGroupOutput)
 }
 
 func (o FeaturesResourceGroupPtrOutput) PreventDeletionIfContainsResources() pulumi.BoolPtrOutput {
@@ -969,10 +1011,11 @@ func (o FeaturesTemplateDeploymentOutput) ToFeaturesTemplateDeploymentPtrOutput(
 }
 
 func (o FeaturesTemplateDeploymentOutput) ToFeaturesTemplateDeploymentPtrOutputWithContext(ctx context.Context) FeaturesTemplateDeploymentPtrOutput {
-	return o.ApplyT(func(v FeaturesTemplateDeployment) *FeaturesTemplateDeployment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesTemplateDeployment) *FeaturesTemplateDeployment {
 		return &v
 	}).(FeaturesTemplateDeploymentPtrOutput)
 }
+
 func (o FeaturesTemplateDeploymentOutput) DeleteNestedItemsDuringDeletion() pulumi.BoolOutput {
 	return o.ApplyT(func(v FeaturesTemplateDeployment) bool { return v.DeleteNestedItemsDuringDeletion }).(pulumi.BoolOutput)
 }
@@ -992,7 +1035,13 @@ func (o FeaturesTemplateDeploymentPtrOutput) ToFeaturesTemplateDeploymentPtrOutp
 }
 
 func (o FeaturesTemplateDeploymentPtrOutput) Elem() FeaturesTemplateDeploymentOutput {
-	return o.ApplyT(func(v *FeaturesTemplateDeployment) FeaturesTemplateDeployment { return *v }).(FeaturesTemplateDeploymentOutput)
+	return o.ApplyT(func(v *FeaturesTemplateDeployment) FeaturesTemplateDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesTemplateDeployment
+		return ret
+	}).(FeaturesTemplateDeploymentOutput)
 }
 
 func (o FeaturesTemplateDeploymentPtrOutput) DeleteNestedItemsDuringDeletion() pulumi.BoolPtrOutput {
@@ -1099,10 +1148,11 @@ func (o FeaturesVirtualMachineOutput) ToFeaturesVirtualMachinePtrOutput() Featur
 }
 
 func (o FeaturesVirtualMachineOutput) ToFeaturesVirtualMachinePtrOutputWithContext(ctx context.Context) FeaturesVirtualMachinePtrOutput {
-	return o.ApplyT(func(v FeaturesVirtualMachine) *FeaturesVirtualMachine {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesVirtualMachine) *FeaturesVirtualMachine {
 		return &v
 	}).(FeaturesVirtualMachinePtrOutput)
 }
+
 func (o FeaturesVirtualMachineOutput) DeleteOsDiskOnDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesVirtualMachine) *bool { return v.DeleteOsDiskOnDeletion }).(pulumi.BoolPtrOutput)
 }
@@ -1130,7 +1180,13 @@ func (o FeaturesVirtualMachinePtrOutput) ToFeaturesVirtualMachinePtrOutputWithCo
 }
 
 func (o FeaturesVirtualMachinePtrOutput) Elem() FeaturesVirtualMachineOutput {
-	return o.ApplyT(func(v *FeaturesVirtualMachine) FeaturesVirtualMachine { return *v }).(FeaturesVirtualMachineOutput)
+	return o.ApplyT(func(v *FeaturesVirtualMachine) FeaturesVirtualMachine {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesVirtualMachine
+		return ret
+	}).(FeaturesVirtualMachineOutput)
 }
 
 func (o FeaturesVirtualMachinePtrOutput) DeleteOsDiskOnDeletion() pulumi.BoolPtrOutput {
@@ -1253,10 +1309,11 @@ func (o FeaturesVirtualMachineScaleSetOutput) ToFeaturesVirtualMachineScaleSetPt
 }
 
 func (o FeaturesVirtualMachineScaleSetOutput) ToFeaturesVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) FeaturesVirtualMachineScaleSetPtrOutput {
-	return o.ApplyT(func(v FeaturesVirtualMachineScaleSet) *FeaturesVirtualMachineScaleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesVirtualMachineScaleSet) *FeaturesVirtualMachineScaleSet {
 		return &v
 	}).(FeaturesVirtualMachineScaleSetPtrOutput)
 }
+
 func (o FeaturesVirtualMachineScaleSetOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesVirtualMachineScaleSet) *bool { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
@@ -1280,7 +1337,13 @@ func (o FeaturesVirtualMachineScaleSetPtrOutput) ToFeaturesVirtualMachineScaleSe
 }
 
 func (o FeaturesVirtualMachineScaleSetPtrOutput) Elem() FeaturesVirtualMachineScaleSetOutput {
-	return o.ApplyT(func(v *FeaturesVirtualMachineScaleSet) FeaturesVirtualMachineScaleSet { return *v }).(FeaturesVirtualMachineScaleSetOutput)
+	return o.ApplyT(func(v *FeaturesVirtualMachineScaleSet) FeaturesVirtualMachineScaleSet {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesVirtualMachineScaleSet
+		return ret
+	}).(FeaturesVirtualMachineScaleSetOutput)
 }
 
 func (o FeaturesVirtualMachineScaleSetPtrOutput) ForceDelete() pulumi.BoolPtrOutput {

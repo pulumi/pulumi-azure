@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateCloudResult',
     'AwaitableGetPrivateCloudResult',
     'get_private_cloud',
+    'get_private_cloud_output',
 ]
 
 @pulumi.output_type
@@ -278,3 +279,16 @@ def get_private_cloud(name: Optional[str] = None,
         vcenter_certificate_thumbprint=__ret__.vcenter_certificate_thumbprint,
         vcsa_endpoint=__ret__.vcsa_endpoint,
         vmotion_subnet_cidr=__ret__.vmotion_subnet_cidr)
+
+
+@_utilities.lift_output_func(get_private_cloud)
+def get_private_cloud_output(name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateCloudResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str name: The name of this Vmware Private Cloud.
+    :param str resource_group_name: The name of the Resource Group where the Vmware Private Cloud exists.
+    """
+    ...

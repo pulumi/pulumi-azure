@@ -263,7 +263,7 @@ type EndpointEventHubArrayInput interface {
 type EndpointEventHubArray []EndpointEventHubInput
 
 func (EndpointEventHubArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EndpointEventHub)(nil))
+	return reflect.TypeOf((*[]*EndpointEventHub)(nil)).Elem()
 }
 
 func (i EndpointEventHubArray) ToEndpointEventHubArrayOutput() EndpointEventHubArrayOutput {
@@ -288,7 +288,7 @@ type EndpointEventHubMapInput interface {
 type EndpointEventHubMap map[string]EndpointEventHubInput
 
 func (EndpointEventHubMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EndpointEventHub)(nil))
+	return reflect.TypeOf((*map[string]*EndpointEventHub)(nil)).Elem()
 }
 
 func (i EndpointEventHubMap) ToEndpointEventHubMapOutput() EndpointEventHubMapOutput {
@@ -299,9 +299,7 @@ func (i EndpointEventHubMap) ToEndpointEventHubMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventHubMapOutput)
 }
 
-type EndpointEventHubOutput struct {
-	*pulumi.OutputState
-}
+type EndpointEventHubOutput struct{ *pulumi.OutputState }
 
 func (EndpointEventHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EndpointEventHub)(nil))
@@ -320,14 +318,12 @@ func (o EndpointEventHubOutput) ToEndpointEventHubPtrOutput() EndpointEventHubPt
 }
 
 func (o EndpointEventHubOutput) ToEndpointEventHubPtrOutputWithContext(ctx context.Context) EndpointEventHubPtrOutput {
-	return o.ApplyT(func(v EndpointEventHub) *EndpointEventHub {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointEventHub) *EndpointEventHub {
 		return &v
 	}).(EndpointEventHubPtrOutput)
 }
 
-type EndpointEventHubPtrOutput struct {
-	*pulumi.OutputState
-}
+type EndpointEventHubPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointEventHubPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EndpointEventHub)(nil))
@@ -339,6 +335,16 @@ func (o EndpointEventHubPtrOutput) ToEndpointEventHubPtrOutput() EndpointEventHu
 
 func (o EndpointEventHubPtrOutput) ToEndpointEventHubPtrOutputWithContext(ctx context.Context) EndpointEventHubPtrOutput {
 	return o
+}
+
+func (o EndpointEventHubPtrOutput) Elem() EndpointEventHubOutput {
+	return o.ApplyT(func(v *EndpointEventHub) EndpointEventHub {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointEventHub
+		return ret
+	}).(EndpointEventHubOutput)
 }
 
 type EndpointEventHubArrayOutput struct{ *pulumi.OutputState }

@@ -115,7 +115,7 @@ func (o ClusterIdentityOutput) ToClusterIdentityPtrOutput() ClusterIdentityPtrOu
 }
 
 func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
-	return o.ApplyT(func(v ClusterIdentity) *ClusterIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterIdentity) *ClusterIdentity {
 		return &v
 	}).(ClusterIdentityPtrOutput)
 }
@@ -155,7 +155,13 @@ func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {
-	return o.ApplyT(func(v *ClusterIdentity) ClusterIdentity { return *v }).(ClusterIdentityOutput)
+	return o.ApplyT(func(v *ClusterIdentity) ClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterIdentity
+		return ret
+	}).(ClusterIdentityOutput)
 }
 
 // A list of IDs for User Assigned Managed Identity resources to be assigned.
@@ -295,7 +301,7 @@ func (o ClusterOptimizedAutoScaleOutput) ToClusterOptimizedAutoScalePtrOutput() 
 }
 
 func (o ClusterOptimizedAutoScaleOutput) ToClusterOptimizedAutoScalePtrOutputWithContext(ctx context.Context) ClusterOptimizedAutoScalePtrOutput {
-	return o.ApplyT(func(v ClusterOptimizedAutoScale) *ClusterOptimizedAutoScale {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOptimizedAutoScale) *ClusterOptimizedAutoScale {
 		return &v
 	}).(ClusterOptimizedAutoScalePtrOutput)
 }
@@ -325,7 +331,13 @@ func (o ClusterOptimizedAutoScalePtrOutput) ToClusterOptimizedAutoScalePtrOutput
 }
 
 func (o ClusterOptimizedAutoScalePtrOutput) Elem() ClusterOptimizedAutoScaleOutput {
-	return o.ApplyT(func(v *ClusterOptimizedAutoScale) ClusterOptimizedAutoScale { return *v }).(ClusterOptimizedAutoScaleOutput)
+	return o.ApplyT(func(v *ClusterOptimizedAutoScale) ClusterOptimizedAutoScale {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOptimizedAutoScale
+		return ret
+	}).(ClusterOptimizedAutoScaleOutput)
 }
 
 // The maximum number of allowed instances. Must between `0` and `1000`.
@@ -445,7 +457,7 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
 }
 
 func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
-	return o.ApplyT(func(v ClusterSku) *ClusterSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSku) *ClusterSku {
 		return &v
 	}).(ClusterSkuPtrOutput)
 }
@@ -475,7 +487,13 @@ func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
-	return o.ApplyT(func(v *ClusterSku) ClusterSku { return *v }).(ClusterSkuOutput)
+	return o.ApplyT(func(v *ClusterSku) ClusterSku {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSku
+		return ret
+	}).(ClusterSkuOutput)
 }
 
 // Specifies the node count for the cluster. Boundaries depend on the sku name.
@@ -599,7 +617,7 @@ func (o ClusterVirtualNetworkConfigurationOutput) ToClusterVirtualNetworkConfigu
 }
 
 func (o ClusterVirtualNetworkConfigurationOutput) ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v ClusterVirtualNetworkConfiguration) *ClusterVirtualNetworkConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterVirtualNetworkConfiguration) *ClusterVirtualNetworkConfiguration {
 		return &v
 	}).(ClusterVirtualNetworkConfigurationPtrOutput)
 }
@@ -634,7 +652,13 @@ func (o ClusterVirtualNetworkConfigurationPtrOutput) ToClusterVirtualNetworkConf
 }
 
 func (o ClusterVirtualNetworkConfigurationPtrOutput) Elem() ClusterVirtualNetworkConfigurationOutput {
-	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) ClusterVirtualNetworkConfiguration { return *v }).(ClusterVirtualNetworkConfigurationOutput)
+	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) ClusterVirtualNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterVirtualNetworkConfiguration
+		return ret
+	}).(ClusterVirtualNetworkConfigurationOutput)
 }
 
 // Data management's service public IP address resource id.

@@ -107,7 +107,7 @@ func (o AccountAzureFilesAuthenticationOutput) ToAccountAzureFilesAuthentication
 }
 
 func (o AccountAzureFilesAuthenticationOutput) ToAccountAzureFilesAuthenticationPtrOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationPtrOutput {
-	return o.ApplyT(func(v AccountAzureFilesAuthentication) *AccountAzureFilesAuthentication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAzureFilesAuthentication) *AccountAzureFilesAuthentication {
 		return &v
 	}).(AccountAzureFilesAuthenticationPtrOutput)
 }
@@ -139,7 +139,13 @@ func (o AccountAzureFilesAuthenticationPtrOutput) ToAccountAzureFilesAuthenticat
 }
 
 func (o AccountAzureFilesAuthenticationPtrOutput) Elem() AccountAzureFilesAuthenticationOutput {
-	return o.ApplyT(func(v *AccountAzureFilesAuthentication) AccountAzureFilesAuthentication { return *v }).(AccountAzureFilesAuthenticationOutput)
+	return o.ApplyT(func(v *AccountAzureFilesAuthentication) AccountAzureFilesAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret AccountAzureFilesAuthentication
+		return ret
+	}).(AccountAzureFilesAuthenticationOutput)
 }
 
 // A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
@@ -275,7 +281,7 @@ func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) ToAccountAzureFile
 }
 
 func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) *AccountAzureFilesAuthenticationActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAzureFilesAuthenticationActiveDirectory) *AccountAzureFilesAuthenticationActiveDirectory {
 		return &v
 	}).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
 }
@@ -326,7 +332,11 @@ func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) ToAccountAzureF
 
 func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) Elem() AccountAzureFilesAuthenticationActiveDirectoryOutput {
 	return o.ApplyT(func(v *AccountAzureFilesAuthenticationActiveDirectory) AccountAzureFilesAuthenticationActiveDirectory {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AccountAzureFilesAuthenticationActiveDirectory
+		return ret
 	}).(AccountAzureFilesAuthenticationActiveDirectoryOutput)
 }
 
@@ -507,7 +517,7 @@ func (o AccountBlobPropertiesOutput) ToAccountBlobPropertiesPtrOutput() AccountB
 }
 
 func (o AccountBlobPropertiesOutput) ToAccountBlobPropertiesPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesPtrOutput {
-	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountBlobProperties) *AccountBlobProperties {
 		return &v
 	}).(AccountBlobPropertiesPtrOutput)
 }
@@ -566,7 +576,13 @@ func (o AccountBlobPropertiesPtrOutput) ToAccountBlobPropertiesPtrOutputWithCont
 }
 
 func (o AccountBlobPropertiesPtrOutput) Elem() AccountBlobPropertiesOutput {
-	return o.ApplyT(func(v *AccountBlobProperties) AccountBlobProperties { return *v }).(AccountBlobPropertiesOutput)
+	return o.ApplyT(func(v *AccountBlobProperties) AccountBlobProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AccountBlobProperties
+		return ret
+	}).(AccountBlobPropertiesOutput)
 }
 
 // Is the blob service properties for change feed events enabled? Default to `false`.
@@ -732,7 +748,7 @@ func (o AccountBlobPropertiesContainerDeleteRetentionPolicyOutput) ToAccountBlob
 }
 
 func (o AccountBlobPropertiesContainerDeleteRetentionPolicyOutput) ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v AccountBlobPropertiesContainerDeleteRetentionPolicy) *AccountBlobPropertiesContainerDeleteRetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountBlobPropertiesContainerDeleteRetentionPolicy) *AccountBlobPropertiesContainerDeleteRetentionPolicy {
 		return &v
 	}).(AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput)
 }
@@ -758,7 +774,11 @@ func (o AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) ToAccountB
 
 func (o AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) Elem() AccountBlobPropertiesContainerDeleteRetentionPolicyOutput {
 	return o.ApplyT(func(v *AccountBlobPropertiesContainerDeleteRetentionPolicy) AccountBlobPropertiesContainerDeleteRetentionPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AccountBlobPropertiesContainerDeleteRetentionPolicy
+		return ret
 	}).(AccountBlobPropertiesContainerDeleteRetentionPolicyOutput)
 }
 
@@ -1001,7 +1021,7 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) ToAccountBlobPropertie
 }
 
 func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) ToAccountBlobPropertiesDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v AccountBlobPropertiesDeleteRetentionPolicy) *AccountBlobPropertiesDeleteRetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountBlobPropertiesDeleteRetentionPolicy) *AccountBlobPropertiesDeleteRetentionPolicy {
 		return &v
 	}).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
 }
@@ -1027,7 +1047,11 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) ToAccountBlobProper
 
 func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) Elem() AccountBlobPropertiesDeleteRetentionPolicyOutput {
 	return o.ApplyT(func(v *AccountBlobPropertiesDeleteRetentionPolicy) AccountBlobPropertiesDeleteRetentionPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AccountBlobPropertiesDeleteRetentionPolicy
+		return ret
 	}).(AccountBlobPropertiesDeleteRetentionPolicyOutput)
 }
 
@@ -1138,7 +1162,7 @@ func (o AccountCustomDomainOutput) ToAccountCustomDomainPtrOutput() AccountCusto
 }
 
 func (o AccountCustomDomainOutput) ToAccountCustomDomainPtrOutputWithContext(ctx context.Context) AccountCustomDomainPtrOutput {
-	return o.ApplyT(func(v AccountCustomDomain) *AccountCustomDomain {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountCustomDomain) *AccountCustomDomain {
 		return &v
 	}).(AccountCustomDomainPtrOutput)
 }
@@ -1168,7 +1192,13 @@ func (o AccountCustomDomainPtrOutput) ToAccountCustomDomainPtrOutputWithContext(
 }
 
 func (o AccountCustomDomainPtrOutput) Elem() AccountCustomDomainOutput {
-	return o.ApplyT(func(v *AccountCustomDomain) AccountCustomDomain { return *v }).(AccountCustomDomainOutput)
+	return o.ApplyT(func(v *AccountCustomDomain) AccountCustomDomain {
+		if v != nil {
+			return *v
+		}
+		var ret AccountCustomDomain
+		return ret
+	}).(AccountCustomDomainOutput)
 }
 
 // The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
@@ -1296,7 +1326,7 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOu
 }
 
 func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
-	return o.ApplyT(func(v AccountIdentity) *AccountIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
 }
@@ -1336,7 +1366,13 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
-	return o.ApplyT(func(v *AccountIdentity) AccountIdentity { return *v }).(AccountIdentityOutput)
+	return o.ApplyT(func(v *AccountIdentity) AccountIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccountIdentity
+		return ret
+	}).(AccountIdentityOutput)
 }
 
 // A list of IDs for User Assigned Managed Identity resources to be assigned.
@@ -1490,7 +1526,7 @@ func (o AccountNetworkRulesTypeOutput) ToAccountNetworkRulesTypePtrOutput() Acco
 }
 
 func (o AccountNetworkRulesTypeOutput) ToAccountNetworkRulesTypePtrOutputWithContext(ctx context.Context) AccountNetworkRulesTypePtrOutput {
-	return o.ApplyT(func(v AccountNetworkRulesType) *AccountNetworkRulesType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkRulesType) *AccountNetworkRulesType {
 		return &v
 	}).(AccountNetworkRulesTypePtrOutput)
 }
@@ -1536,7 +1572,13 @@ func (o AccountNetworkRulesTypePtrOutput) ToAccountNetworkRulesTypePtrOutputWith
 }
 
 func (o AccountNetworkRulesTypePtrOutput) Elem() AccountNetworkRulesTypeOutput {
-	return o.ApplyT(func(v *AccountNetworkRulesType) AccountNetworkRulesType { return *v }).(AccountNetworkRulesTypeOutput)
+	return o.ApplyT(func(v *AccountNetworkRulesType) AccountNetworkRulesType {
+		if v != nil {
+			return *v
+		}
+		var ret AccountNetworkRulesType
+		return ret
+	}).(AccountNetworkRulesTypeOutput)
 }
 
 // Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
@@ -1907,7 +1949,7 @@ func (o AccountQueuePropertiesOutput) ToAccountQueuePropertiesPtrOutput() Accoun
 }
 
 func (o AccountQueuePropertiesOutput) ToAccountQueuePropertiesPtrOutputWithContext(ctx context.Context) AccountQueuePropertiesPtrOutput {
-	return o.ApplyT(func(v AccountQueueProperties) *AccountQueueProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountQueueProperties) *AccountQueueProperties {
 		return &v
 	}).(AccountQueuePropertiesPtrOutput)
 }
@@ -1947,7 +1989,13 @@ func (o AccountQueuePropertiesPtrOutput) ToAccountQueuePropertiesPtrOutputWithCo
 }
 
 func (o AccountQueuePropertiesPtrOutput) Elem() AccountQueuePropertiesOutput {
-	return o.ApplyT(func(v *AccountQueueProperties) AccountQueueProperties { return *v }).(AccountQueuePropertiesOutput)
+	return o.ApplyT(func(v *AccountQueueProperties) AccountQueueProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AccountQueueProperties
+		return ret
+	}).(AccountQueuePropertiesOutput)
 }
 
 // A `corsRule` block as defined above.
@@ -2231,7 +2279,7 @@ func (o AccountQueuePropertiesHourMetricsOutput) ToAccountQueuePropertiesHourMet
 }
 
 func (o AccountQueuePropertiesHourMetricsOutput) ToAccountQueuePropertiesHourMetricsPtrOutputWithContext(ctx context.Context) AccountQueuePropertiesHourMetricsPtrOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *AccountQueuePropertiesHourMetrics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountQueuePropertiesHourMetrics) *AccountQueuePropertiesHourMetrics {
 		return &v
 	}).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
@@ -2271,7 +2319,13 @@ func (o AccountQueuePropertiesHourMetricsPtrOutput) ToAccountQueuePropertiesHour
 }
 
 func (o AccountQueuePropertiesHourMetricsPtrOutput) Elem() AccountQueuePropertiesHourMetricsOutput {
-	return o.ApplyT(func(v *AccountQueuePropertiesHourMetrics) AccountQueuePropertiesHourMetrics { return *v }).(AccountQueuePropertiesHourMetricsOutput)
+	return o.ApplyT(func(v *AccountQueuePropertiesHourMetrics) AccountQueuePropertiesHourMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret AccountQueuePropertiesHourMetrics
+		return ret
+	}).(AccountQueuePropertiesHourMetricsOutput)
 }
 
 // Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
@@ -2423,7 +2477,7 @@ func (o AccountQueuePropertiesLoggingOutput) ToAccountQueuePropertiesLoggingPtrO
 }
 
 func (o AccountQueuePropertiesLoggingOutput) ToAccountQueuePropertiesLoggingPtrOutputWithContext(ctx context.Context) AccountQueuePropertiesLoggingPtrOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesLogging) *AccountQueuePropertiesLogging {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountQueuePropertiesLogging) *AccountQueuePropertiesLogging {
 		return &v
 	}).(AccountQueuePropertiesLoggingPtrOutput)
 }
@@ -2468,7 +2522,13 @@ func (o AccountQueuePropertiesLoggingPtrOutput) ToAccountQueuePropertiesLoggingP
 }
 
 func (o AccountQueuePropertiesLoggingPtrOutput) Elem() AccountQueuePropertiesLoggingOutput {
-	return o.ApplyT(func(v *AccountQueuePropertiesLogging) AccountQueuePropertiesLogging { return *v }).(AccountQueuePropertiesLoggingOutput)
+	return o.ApplyT(func(v *AccountQueuePropertiesLogging) AccountQueuePropertiesLogging {
+		if v != nil {
+			return *v
+		}
+		var ret AccountQueuePropertiesLogging
+		return ret
+	}).(AccountQueuePropertiesLoggingOutput)
 }
 
 // Indicates whether all delete requests should be logged. Changing this forces a new resource.
@@ -2626,7 +2686,7 @@ func (o AccountQueuePropertiesMinuteMetricsOutput) ToAccountQueuePropertiesMinut
 }
 
 func (o AccountQueuePropertiesMinuteMetricsOutput) ToAccountQueuePropertiesMinuteMetricsPtrOutputWithContext(ctx context.Context) AccountQueuePropertiesMinuteMetricsPtrOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *AccountQueuePropertiesMinuteMetrics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountQueuePropertiesMinuteMetrics) *AccountQueuePropertiesMinuteMetrics {
 		return &v
 	}).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
@@ -2666,7 +2726,13 @@ func (o AccountQueuePropertiesMinuteMetricsPtrOutput) ToAccountQueuePropertiesMi
 }
 
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Elem() AccountQueuePropertiesMinuteMetricsOutput {
-	return o.ApplyT(func(v *AccountQueuePropertiesMinuteMetrics) AccountQueuePropertiesMinuteMetrics { return *v }).(AccountQueuePropertiesMinuteMetricsOutput)
+	return o.ApplyT(func(v *AccountQueuePropertiesMinuteMetrics) AccountQueuePropertiesMinuteMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret AccountQueuePropertiesMinuteMetrics
+		return ret
+	}).(AccountQueuePropertiesMinuteMetricsOutput)
 }
 
 // Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
@@ -2810,7 +2876,7 @@ func (o AccountRoutingOutput) ToAccountRoutingPtrOutput() AccountRoutingPtrOutpu
 }
 
 func (o AccountRoutingOutput) ToAccountRoutingPtrOutputWithContext(ctx context.Context) AccountRoutingPtrOutput {
-	return o.ApplyT(func(v AccountRouting) *AccountRouting {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountRouting) *AccountRouting {
 		return &v
 	}).(AccountRoutingPtrOutput)
 }
@@ -2845,7 +2911,13 @@ func (o AccountRoutingPtrOutput) ToAccountRoutingPtrOutputWithContext(ctx contex
 }
 
 func (o AccountRoutingPtrOutput) Elem() AccountRoutingOutput {
-	return o.ApplyT(func(v *AccountRouting) AccountRouting { return *v }).(AccountRoutingOutput)
+	return o.ApplyT(func(v *AccountRouting) AccountRouting {
+		if v != nil {
+			return *v
+		}
+		var ret AccountRouting
+		return ret
+	}).(AccountRoutingOutput)
 }
 
 // Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
@@ -2979,7 +3051,7 @@ func (o AccountSharePropertiesOutput) ToAccountSharePropertiesPtrOutput() Accoun
 }
 
 func (o AccountSharePropertiesOutput) ToAccountSharePropertiesPtrOutputWithContext(ctx context.Context) AccountSharePropertiesPtrOutput {
-	return o.ApplyT(func(v AccountShareProperties) *AccountShareProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountShareProperties) *AccountShareProperties {
 		return &v
 	}).(AccountSharePropertiesPtrOutput)
 }
@@ -3014,7 +3086,13 @@ func (o AccountSharePropertiesPtrOutput) ToAccountSharePropertiesPtrOutputWithCo
 }
 
 func (o AccountSharePropertiesPtrOutput) Elem() AccountSharePropertiesOutput {
-	return o.ApplyT(func(v *AccountShareProperties) AccountShareProperties { return *v }).(AccountSharePropertiesOutput)
+	return o.ApplyT(func(v *AccountShareProperties) AccountShareProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AccountShareProperties
+		return ret
+	}).(AccountSharePropertiesOutput)
 }
 
 // A `corsRule` block as defined below.
@@ -3276,7 +3354,7 @@ func (o AccountSharePropertiesRetentionPolicyOutput) ToAccountSharePropertiesRet
 }
 
 func (o AccountSharePropertiesRetentionPolicyOutput) ToAccountSharePropertiesRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountSharePropertiesRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v AccountSharePropertiesRetentionPolicy) *AccountSharePropertiesRetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountSharePropertiesRetentionPolicy) *AccountSharePropertiesRetentionPolicy {
 		return &v
 	}).(AccountSharePropertiesRetentionPolicyPtrOutput)
 }
@@ -3301,7 +3379,13 @@ func (o AccountSharePropertiesRetentionPolicyPtrOutput) ToAccountShareProperties
 }
 
 func (o AccountSharePropertiesRetentionPolicyPtrOutput) Elem() AccountSharePropertiesRetentionPolicyOutput {
-	return o.ApplyT(func(v *AccountSharePropertiesRetentionPolicy) AccountSharePropertiesRetentionPolicy { return *v }).(AccountSharePropertiesRetentionPolicyOutput)
+	return o.ApplyT(func(v *AccountSharePropertiesRetentionPolicy) AccountSharePropertiesRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AccountSharePropertiesRetentionPolicy
+		return ret
+	}).(AccountSharePropertiesRetentionPolicyOutput)
 }
 
 // Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
@@ -3419,7 +3503,7 @@ func (o AccountSharePropertiesSmbOutput) ToAccountSharePropertiesSmbPtrOutput() 
 }
 
 func (o AccountSharePropertiesSmbOutput) ToAccountSharePropertiesSmbPtrOutputWithContext(ctx context.Context) AccountSharePropertiesSmbPtrOutput {
-	return o.ApplyT(func(v AccountSharePropertiesSmb) *AccountSharePropertiesSmb {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountSharePropertiesSmb) *AccountSharePropertiesSmb {
 		return &v
 	}).(AccountSharePropertiesSmbPtrOutput)
 }
@@ -3459,7 +3543,13 @@ func (o AccountSharePropertiesSmbPtrOutput) ToAccountSharePropertiesSmbPtrOutput
 }
 
 func (o AccountSharePropertiesSmbPtrOutput) Elem() AccountSharePropertiesSmbOutput {
-	return o.ApplyT(func(v *AccountSharePropertiesSmb) AccountSharePropertiesSmb { return *v }).(AccountSharePropertiesSmbOutput)
+	return o.ApplyT(func(v *AccountSharePropertiesSmb) AccountSharePropertiesSmb {
+		if v != nil {
+			return *v
+		}
+		var ret AccountSharePropertiesSmb
+		return ret
+	}).(AccountSharePropertiesSmbOutput)
 }
 
 // A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
@@ -3599,7 +3689,7 @@ func (o AccountStaticWebsiteOutput) ToAccountStaticWebsitePtrOutput() AccountSta
 }
 
 func (o AccountStaticWebsiteOutput) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
-	return o.ApplyT(func(v AccountStaticWebsite) *AccountStaticWebsite {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountStaticWebsite) *AccountStaticWebsite {
 		return &v
 	}).(AccountStaticWebsitePtrOutput)
 }
@@ -3629,7 +3719,13 @@ func (o AccountStaticWebsitePtrOutput) ToAccountStaticWebsitePtrOutputWithContex
 }
 
 func (o AccountStaticWebsitePtrOutput) Elem() AccountStaticWebsiteOutput {
-	return o.ApplyT(func(v *AccountStaticWebsite) AccountStaticWebsite { return *v }).(AccountStaticWebsiteOutput)
+	return o.ApplyT(func(v *AccountStaticWebsite) AccountStaticWebsite {
+		if v != nil {
+			return *v
+		}
+		var ret AccountStaticWebsite
+		return ret
+	}).(AccountStaticWebsiteOutput)
 }
 
 // The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
@@ -4380,7 +4476,7 @@ func (o ManagementPolicyRuleActionsBaseBlobOutput) ToManagementPolicyRuleActions
 }
 
 func (o ManagementPolicyRuleActionsBaseBlobOutput) ToManagementPolicyRuleActionsBaseBlobPtrOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsBaseBlobPtrOutput {
-	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *ManagementPolicyRuleActionsBaseBlob {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicyRuleActionsBaseBlob) *ManagementPolicyRuleActionsBaseBlob {
 		return &v
 	}).(ManagementPolicyRuleActionsBaseBlobPtrOutput)
 }
@@ -4419,7 +4515,13 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) ToManagementPolicyRuleActi
 }
 
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) Elem() ManagementPolicyRuleActionsBaseBlobOutput {
-	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) ManagementPolicyRuleActionsBaseBlob { return *v }).(ManagementPolicyRuleActionsBaseBlobOutput)
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) ManagementPolicyRuleActionsBaseBlob {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementPolicyRuleActionsBaseBlob
+		return ret
+	}).(ManagementPolicyRuleActionsBaseBlobOutput)
 }
 
 // The age in days after last modification to delete the blob. Must be between 0 and 99999.
@@ -4553,7 +4655,7 @@ func (o ManagementPolicyRuleActionsSnapshotOutput) ToManagementPolicyRuleActions
 }
 
 func (o ManagementPolicyRuleActionsSnapshotOutput) ToManagementPolicyRuleActionsSnapshotPtrOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsSnapshotPtrOutput {
-	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *ManagementPolicyRuleActionsSnapshot {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicyRuleActionsSnapshot) *ManagementPolicyRuleActionsSnapshot {
 		return &v
 	}).(ManagementPolicyRuleActionsSnapshotPtrOutput)
 }
@@ -4588,7 +4690,13 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) ToManagementPolicyRuleActi
 }
 
 func (o ManagementPolicyRuleActionsSnapshotPtrOutput) Elem() ManagementPolicyRuleActionsSnapshotOutput {
-	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) ManagementPolicyRuleActionsSnapshot { return *v }).(ManagementPolicyRuleActionsSnapshotOutput)
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) ManagementPolicyRuleActionsSnapshot {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementPolicyRuleActionsSnapshot
+		return ret
+	}).(ManagementPolicyRuleActionsSnapshotOutput)
 }
 
 // The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
@@ -4722,7 +4830,7 @@ func (o ManagementPolicyRuleActionsVersionOutput) ToManagementPolicyRuleActionsV
 }
 
 func (o ManagementPolicyRuleActionsVersionOutput) ToManagementPolicyRuleActionsVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsVersionPtrOutput {
-	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *ManagementPolicyRuleActionsVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicyRuleActionsVersion) *ManagementPolicyRuleActionsVersion {
 		return &v
 	}).(ManagementPolicyRuleActionsVersionPtrOutput)
 }
@@ -4757,7 +4865,13 @@ func (o ManagementPolicyRuleActionsVersionPtrOutput) ToManagementPolicyRuleActio
 }
 
 func (o ManagementPolicyRuleActionsVersionPtrOutput) Elem() ManagementPolicyRuleActionsVersionOutput {
-	return o.ApplyT(func(v *ManagementPolicyRuleActionsVersion) ManagementPolicyRuleActionsVersion { return *v }).(ManagementPolicyRuleActionsVersionOutput)
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsVersion) ManagementPolicyRuleActionsVersion {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementPolicyRuleActionsVersion
+		return ret
+	}).(ManagementPolicyRuleActionsVersionOutput)
 }
 
 // The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
@@ -4891,7 +5005,7 @@ func (o ManagementPolicyRuleFiltersOutput) ToManagementPolicyRuleFiltersPtrOutpu
 }
 
 func (o ManagementPolicyRuleFiltersOutput) ToManagementPolicyRuleFiltersPtrOutputWithContext(ctx context.Context) ManagementPolicyRuleFiltersPtrOutput {
-	return o.ApplyT(func(v ManagementPolicyRuleFilters) *ManagementPolicyRuleFilters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicyRuleFilters) *ManagementPolicyRuleFilters {
 		return &v
 	}).(ManagementPolicyRuleFiltersPtrOutput)
 }
@@ -4928,7 +5042,13 @@ func (o ManagementPolicyRuleFiltersPtrOutput) ToManagementPolicyRuleFiltersPtrOu
 }
 
 func (o ManagementPolicyRuleFiltersPtrOutput) Elem() ManagementPolicyRuleFiltersOutput {
-	return o.ApplyT(func(v *ManagementPolicyRuleFilters) ManagementPolicyRuleFilters { return *v }).(ManagementPolicyRuleFiltersOutput)
+	return o.ApplyT(func(v *ManagementPolicyRuleFilters) ManagementPolicyRuleFilters {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementPolicyRuleFilters
+		return ret
+	}).(ManagementPolicyRuleFiltersOutput)
 }
 
 // An array of predefined values. Valid options are `blockBlob` and `appendBlob`.

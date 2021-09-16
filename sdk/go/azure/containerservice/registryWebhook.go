@@ -299,7 +299,7 @@ type RegistryWebhookArrayInput interface {
 type RegistryWebhookArray []RegistryWebhookInput
 
 func (RegistryWebhookArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RegistryWebhook)(nil))
+	return reflect.TypeOf((*[]*RegistryWebhook)(nil)).Elem()
 }
 
 func (i RegistryWebhookArray) ToRegistryWebhookArrayOutput() RegistryWebhookArrayOutput {
@@ -324,7 +324,7 @@ type RegistryWebhookMapInput interface {
 type RegistryWebhookMap map[string]RegistryWebhookInput
 
 func (RegistryWebhookMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RegistryWebhook)(nil))
+	return reflect.TypeOf((*map[string]*RegistryWebhook)(nil)).Elem()
 }
 
 func (i RegistryWebhookMap) ToRegistryWebhookMapOutput() RegistryWebhookMapOutput {
@@ -335,9 +335,7 @@ func (i RegistryWebhookMap) ToRegistryWebhookMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebhookMapOutput)
 }
 
-type RegistryWebhookOutput struct {
-	*pulumi.OutputState
-}
+type RegistryWebhookOutput struct{ *pulumi.OutputState }
 
 func (RegistryWebhookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistryWebhook)(nil))
@@ -356,14 +354,12 @@ func (o RegistryWebhookOutput) ToRegistryWebhookPtrOutput() RegistryWebhookPtrOu
 }
 
 func (o RegistryWebhookOutput) ToRegistryWebhookPtrOutputWithContext(ctx context.Context) RegistryWebhookPtrOutput {
-	return o.ApplyT(func(v RegistryWebhook) *RegistryWebhook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryWebhook) *RegistryWebhook {
 		return &v
 	}).(RegistryWebhookPtrOutput)
 }
 
-type RegistryWebhookPtrOutput struct {
-	*pulumi.OutputState
-}
+type RegistryWebhookPtrOutput struct{ *pulumi.OutputState }
 
 func (RegistryWebhookPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RegistryWebhook)(nil))
@@ -375,6 +371,16 @@ func (o RegistryWebhookPtrOutput) ToRegistryWebhookPtrOutput() RegistryWebhookPt
 
 func (o RegistryWebhookPtrOutput) ToRegistryWebhookPtrOutputWithContext(ctx context.Context) RegistryWebhookPtrOutput {
 	return o
+}
+
+func (o RegistryWebhookPtrOutput) Elem() RegistryWebhookOutput {
+	return o.ApplyT(func(v *RegistryWebhook) RegistryWebhook {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryWebhook
+		return ret
+	}).(RegistryWebhookOutput)
 }
 
 type RegistryWebhookArrayOutput struct{ *pulumi.OutputState }

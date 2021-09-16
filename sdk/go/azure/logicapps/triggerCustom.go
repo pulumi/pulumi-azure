@@ -212,7 +212,7 @@ type TriggerCustomArrayInput interface {
 type TriggerCustomArray []TriggerCustomInput
 
 func (TriggerCustomArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TriggerCustom)(nil))
+	return reflect.TypeOf((*[]*TriggerCustom)(nil)).Elem()
 }
 
 func (i TriggerCustomArray) ToTriggerCustomArrayOutput() TriggerCustomArrayOutput {
@@ -237,7 +237,7 @@ type TriggerCustomMapInput interface {
 type TriggerCustomMap map[string]TriggerCustomInput
 
 func (TriggerCustomMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TriggerCustom)(nil))
+	return reflect.TypeOf((*map[string]*TriggerCustom)(nil)).Elem()
 }
 
 func (i TriggerCustomMap) ToTriggerCustomMapOutput() TriggerCustomMapOutput {
@@ -248,9 +248,7 @@ func (i TriggerCustomMap) ToTriggerCustomMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomMapOutput)
 }
 
-type TriggerCustomOutput struct {
-	*pulumi.OutputState
-}
+type TriggerCustomOutput struct{ *pulumi.OutputState }
 
 func (TriggerCustomOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TriggerCustom)(nil))
@@ -269,14 +267,12 @@ func (o TriggerCustomOutput) ToTriggerCustomPtrOutput() TriggerCustomPtrOutput {
 }
 
 func (o TriggerCustomOutput) ToTriggerCustomPtrOutputWithContext(ctx context.Context) TriggerCustomPtrOutput {
-	return o.ApplyT(func(v TriggerCustom) *TriggerCustom {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerCustom) *TriggerCustom {
 		return &v
 	}).(TriggerCustomPtrOutput)
 }
 
-type TriggerCustomPtrOutput struct {
-	*pulumi.OutputState
-}
+type TriggerCustomPtrOutput struct{ *pulumi.OutputState }
 
 func (TriggerCustomPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TriggerCustom)(nil))
@@ -288,6 +284,16 @@ func (o TriggerCustomPtrOutput) ToTriggerCustomPtrOutput() TriggerCustomPtrOutpu
 
 func (o TriggerCustomPtrOutput) ToTriggerCustomPtrOutputWithContext(ctx context.Context) TriggerCustomPtrOutput {
 	return o
+}
+
+func (o TriggerCustomPtrOutput) Elem() TriggerCustomOutput {
+	return o.ApplyT(func(v *TriggerCustom) TriggerCustom {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerCustom
+		return ret
+	}).(TriggerCustomOutput)
 }
 
 type TriggerCustomArrayOutput struct{ *pulumi.OutputState }

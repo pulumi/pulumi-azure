@@ -200,7 +200,7 @@ func (o FunctionJavaScriptUDFOutputTypeOutput) ToFunctionJavaScriptUDFOutputType
 }
 
 func (o FunctionJavaScriptUDFOutputTypeOutput) ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypePtrOutput {
-	return o.ApplyT(func(v FunctionJavaScriptUDFOutputType) *FunctionJavaScriptUDFOutputType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionJavaScriptUDFOutputType) *FunctionJavaScriptUDFOutputType {
 		return &v
 	}).(FunctionJavaScriptUDFOutputTypePtrOutput)
 }
@@ -225,7 +225,13 @@ func (o FunctionJavaScriptUDFOutputTypePtrOutput) ToFunctionJavaScriptUDFOutputT
 }
 
 func (o FunctionJavaScriptUDFOutputTypePtrOutput) Elem() FunctionJavaScriptUDFOutputTypeOutput {
-	return o.ApplyT(func(v *FunctionJavaScriptUDFOutputType) FunctionJavaScriptUDFOutputType { return *v }).(FunctionJavaScriptUDFOutputTypeOutput)
+	return o.ApplyT(func(v *FunctionJavaScriptUDFOutputType) FunctionJavaScriptUDFOutputType {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionJavaScriptUDFOutputType
+		return ret
+	}).(FunctionJavaScriptUDFOutputTypeOutput)
 }
 
 // The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
@@ -339,7 +345,7 @@ func (o JobIdentityOutput) ToJobIdentityPtrOutput() JobIdentityPtrOutput {
 }
 
 func (o JobIdentityOutput) ToJobIdentityPtrOutputWithContext(ctx context.Context) JobIdentityPtrOutput {
-	return o.ApplyT(func(v JobIdentity) *JobIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobIdentity) *JobIdentity {
 		return &v
 	}).(JobIdentityPtrOutput)
 }
@@ -374,7 +380,13 @@ func (o JobIdentityPtrOutput) ToJobIdentityPtrOutputWithContext(ctx context.Cont
 }
 
 func (o JobIdentityPtrOutput) Elem() JobIdentityOutput {
-	return o.ApplyT(func(v *JobIdentity) JobIdentity { return *v }).(JobIdentityOutput)
+	return o.ApplyT(func(v *JobIdentity) JobIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret JobIdentity
+		return ret
+	}).(JobIdentityOutput)
 }
 
 // The ID of the Principal (Client) in Azure Active Directory.
@@ -512,7 +524,7 @@ func (o OutputBlobSerializationOutput) ToOutputBlobSerializationPtrOutput() Outp
 }
 
 func (o OutputBlobSerializationOutput) ToOutputBlobSerializationPtrOutputWithContext(ctx context.Context) OutputBlobSerializationPtrOutput {
-	return o.ApplyT(func(v OutputBlobSerialization) *OutputBlobSerialization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputBlobSerialization) *OutputBlobSerialization {
 		return &v
 	}).(OutputBlobSerializationPtrOutput)
 }
@@ -552,7 +564,13 @@ func (o OutputBlobSerializationPtrOutput) ToOutputBlobSerializationPtrOutputWith
 }
 
 func (o OutputBlobSerializationPtrOutput) Elem() OutputBlobSerializationOutput {
-	return o.ApplyT(func(v *OutputBlobSerialization) OutputBlobSerialization { return *v }).(OutputBlobSerializationOutput)
+	return o.ApplyT(func(v *OutputBlobSerialization) OutputBlobSerialization {
+		if v != nil {
+			return *v
+		}
+		var ret OutputBlobSerialization
+		return ret
+	}).(OutputBlobSerializationOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -700,7 +718,7 @@ func (o OutputEventHubSerializationOutput) ToOutputEventHubSerializationPtrOutpu
 }
 
 func (o OutputEventHubSerializationOutput) ToOutputEventHubSerializationPtrOutputWithContext(ctx context.Context) OutputEventHubSerializationPtrOutput {
-	return o.ApplyT(func(v OutputEventHubSerialization) *OutputEventHubSerialization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputEventHubSerialization) *OutputEventHubSerialization {
 		return &v
 	}).(OutputEventHubSerializationPtrOutput)
 }
@@ -740,7 +758,13 @@ func (o OutputEventHubSerializationPtrOutput) ToOutputEventHubSerializationPtrOu
 }
 
 func (o OutputEventHubSerializationPtrOutput) Elem() OutputEventHubSerializationOutput {
-	return o.ApplyT(func(v *OutputEventHubSerialization) OutputEventHubSerialization { return *v }).(OutputEventHubSerializationOutput)
+	return o.ApplyT(func(v *OutputEventHubSerialization) OutputEventHubSerialization {
+		if v != nil {
+			return *v
+		}
+		var ret OutputEventHubSerialization
+		return ret
+	}).(OutputEventHubSerializationOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -888,7 +912,7 @@ func (o OutputServiceBusQueueSerializationOutput) ToOutputServiceBusQueueSeriali
 }
 
 func (o OutputServiceBusQueueSerializationOutput) ToOutputServiceBusQueueSerializationPtrOutputWithContext(ctx context.Context) OutputServiceBusQueueSerializationPtrOutput {
-	return o.ApplyT(func(v OutputServiceBusQueueSerialization) *OutputServiceBusQueueSerialization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputServiceBusQueueSerialization) *OutputServiceBusQueueSerialization {
 		return &v
 	}).(OutputServiceBusQueueSerializationPtrOutput)
 }
@@ -928,7 +952,13 @@ func (o OutputServiceBusQueueSerializationPtrOutput) ToOutputServiceBusQueueSeri
 }
 
 func (o OutputServiceBusQueueSerializationPtrOutput) Elem() OutputServiceBusQueueSerializationOutput {
-	return o.ApplyT(func(v *OutputServiceBusQueueSerialization) OutputServiceBusQueueSerialization { return *v }).(OutputServiceBusQueueSerializationOutput)
+	return o.ApplyT(func(v *OutputServiceBusQueueSerialization) OutputServiceBusQueueSerialization {
+		if v != nil {
+			return *v
+		}
+		var ret OutputServiceBusQueueSerialization
+		return ret
+	}).(OutputServiceBusQueueSerializationOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1076,7 +1106,7 @@ func (o OutputServicebusTopicSerializationOutput) ToOutputServicebusTopicSeriali
 }
 
 func (o OutputServicebusTopicSerializationOutput) ToOutputServicebusTopicSerializationPtrOutputWithContext(ctx context.Context) OutputServicebusTopicSerializationPtrOutput {
-	return o.ApplyT(func(v OutputServicebusTopicSerialization) *OutputServicebusTopicSerialization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputServicebusTopicSerialization) *OutputServicebusTopicSerialization {
 		return &v
 	}).(OutputServicebusTopicSerializationPtrOutput)
 }
@@ -1116,7 +1146,13 @@ func (o OutputServicebusTopicSerializationPtrOutput) ToOutputServicebusTopicSeri
 }
 
 func (o OutputServicebusTopicSerializationPtrOutput) Elem() OutputServicebusTopicSerializationOutput {
-	return o.ApplyT(func(v *OutputServicebusTopicSerialization) OutputServicebusTopicSerialization { return *v }).(OutputServicebusTopicSerializationOutput)
+	return o.ApplyT(func(v *OutputServicebusTopicSerialization) OutputServicebusTopicSerialization {
+		if v != nil {
+			return *v
+		}
+		var ret OutputServicebusTopicSerialization
+		return ret
+	}).(OutputServicebusTopicSerializationOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1260,7 +1296,7 @@ func (o ReferenceInputBlobSerializationOutput) ToReferenceInputBlobSerialization
 }
 
 func (o ReferenceInputBlobSerializationOutput) ToReferenceInputBlobSerializationPtrOutputWithContext(ctx context.Context) ReferenceInputBlobSerializationPtrOutput {
-	return o.ApplyT(func(v ReferenceInputBlobSerialization) *ReferenceInputBlobSerialization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceInputBlobSerialization) *ReferenceInputBlobSerialization {
 		return &v
 	}).(ReferenceInputBlobSerializationPtrOutput)
 }
@@ -1295,7 +1331,13 @@ func (o ReferenceInputBlobSerializationPtrOutput) ToReferenceInputBlobSerializat
 }
 
 func (o ReferenceInputBlobSerializationPtrOutput) Elem() ReferenceInputBlobSerializationOutput {
-	return o.ApplyT(func(v *ReferenceInputBlobSerialization) ReferenceInputBlobSerialization { return *v }).(ReferenceInputBlobSerializationOutput)
+	return o.ApplyT(func(v *ReferenceInputBlobSerialization) ReferenceInputBlobSerialization {
+		if v != nil {
+			return *v
+		}
+		var ret ReferenceInputBlobSerialization
+		return ret
+	}).(ReferenceInputBlobSerializationOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1429,7 +1471,7 @@ func (o StreamInputBlobSerializationOutput) ToStreamInputBlobSerializationPtrOut
 }
 
 func (o StreamInputBlobSerializationOutput) ToStreamInputBlobSerializationPtrOutputWithContext(ctx context.Context) StreamInputBlobSerializationPtrOutput {
-	return o.ApplyT(func(v StreamInputBlobSerialization) *StreamInputBlobSerialization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamInputBlobSerialization) *StreamInputBlobSerialization {
 		return &v
 	}).(StreamInputBlobSerializationPtrOutput)
 }
@@ -1464,7 +1506,13 @@ func (o StreamInputBlobSerializationPtrOutput) ToStreamInputBlobSerializationPtr
 }
 
 func (o StreamInputBlobSerializationPtrOutput) Elem() StreamInputBlobSerializationOutput {
-	return o.ApplyT(func(v *StreamInputBlobSerialization) StreamInputBlobSerialization { return *v }).(StreamInputBlobSerializationOutput)
+	return o.ApplyT(func(v *StreamInputBlobSerialization) StreamInputBlobSerialization {
+		if v != nil {
+			return *v
+		}
+		var ret StreamInputBlobSerialization
+		return ret
+	}).(StreamInputBlobSerializationOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1598,7 +1646,7 @@ func (o StreamInputEventHubSerializationOutput) ToStreamInputEventHubSerializati
 }
 
 func (o StreamInputEventHubSerializationOutput) ToStreamInputEventHubSerializationPtrOutputWithContext(ctx context.Context) StreamInputEventHubSerializationPtrOutput {
-	return o.ApplyT(func(v StreamInputEventHubSerialization) *StreamInputEventHubSerialization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamInputEventHubSerialization) *StreamInputEventHubSerialization {
 		return &v
 	}).(StreamInputEventHubSerializationPtrOutput)
 }
@@ -1633,7 +1681,13 @@ func (o StreamInputEventHubSerializationPtrOutput) ToStreamInputEventHubSerializ
 }
 
 func (o StreamInputEventHubSerializationPtrOutput) Elem() StreamInputEventHubSerializationOutput {
-	return o.ApplyT(func(v *StreamInputEventHubSerialization) StreamInputEventHubSerialization { return *v }).(StreamInputEventHubSerializationOutput)
+	return o.ApplyT(func(v *StreamInputEventHubSerialization) StreamInputEventHubSerialization {
+		if v != nil {
+			return *v
+		}
+		var ret StreamInputEventHubSerialization
+		return ret
+	}).(StreamInputEventHubSerializationOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1767,7 +1821,7 @@ func (o StreamInputIotHubSerializationOutput) ToStreamInputIotHubSerializationPt
 }
 
 func (o StreamInputIotHubSerializationOutput) ToStreamInputIotHubSerializationPtrOutputWithContext(ctx context.Context) StreamInputIotHubSerializationPtrOutput {
-	return o.ApplyT(func(v StreamInputIotHubSerialization) *StreamInputIotHubSerialization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamInputIotHubSerialization) *StreamInputIotHubSerialization {
 		return &v
 	}).(StreamInputIotHubSerializationPtrOutput)
 }
@@ -1802,7 +1856,13 @@ func (o StreamInputIotHubSerializationPtrOutput) ToStreamInputIotHubSerializatio
 }
 
 func (o StreamInputIotHubSerializationPtrOutput) Elem() StreamInputIotHubSerializationOutput {
-	return o.ApplyT(func(v *StreamInputIotHubSerialization) StreamInputIotHubSerialization { return *v }).(StreamInputIotHubSerializationOutput)
+	return o.ApplyT(func(v *StreamInputIotHubSerialization) StreamInputIotHubSerialization {
+		if v != nil {
+			return *v
+		}
+		var ret StreamInputIotHubSerialization
+		return ret
+	}).(StreamInputIotHubSerializationOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.

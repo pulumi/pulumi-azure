@@ -13,6 +13,7 @@ __all__ = [
     'GetConfigurationResult',
     'AwaitableGetConfigurationResult',
     'get_configuration',
+    'get_configuration_output',
 ]
 
 @pulumi.output_type
@@ -173,3 +174,28 @@ def get_configuration(name: Optional[str] = None,
         tags=__ret__.tags,
         visibility=__ret__.visibility,
         windows=__ret__.windows)
+
+
+@_utilities.lift_output_func(get_configuration)
+def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
+    """
+    Use this data source to access information about an existing Maintenance Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    existing = azure.maintenance.get_configuration(name="example-mc",
+        resource_group_name="example-resources")
+    pulumi.export("id", azurerm_maintenance_configuration["existing"]["id"])
+    ```
+
+
+    :param str name: Specifies the name of the Maintenance Configuration.
+    :param str resource_group_name: Specifies the name of the Resource Group where this Maintenance Configuration exists.
+    """
+    ...

@@ -115,7 +115,7 @@ func (o DomainIdentityOutput) ToDomainIdentityPtrOutput() DomainIdentityPtrOutpu
 }
 
 func (o DomainIdentityOutput) ToDomainIdentityPtrOutputWithContext(ctx context.Context) DomainIdentityPtrOutput {
-	return o.ApplyT(func(v DomainIdentity) *DomainIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIdentity) *DomainIdentity {
 		return &v
 	}).(DomainIdentityPtrOutput)
 }
@@ -155,7 +155,13 @@ func (o DomainIdentityPtrOutput) ToDomainIdentityPtrOutputWithContext(ctx contex
 }
 
 func (o DomainIdentityPtrOutput) Elem() DomainIdentityOutput {
-	return o.ApplyT(func(v *DomainIdentity) DomainIdentity { return *v }).(DomainIdentityOutput)
+	return o.ApplyT(func(v *DomainIdentity) DomainIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret DomainIdentity
+		return ret
+	}).(DomainIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
@@ -405,7 +411,7 @@ func (o DomainInputMappingDefaultValuesOutput) ToDomainInputMappingDefaultValues
 }
 
 func (o DomainInputMappingDefaultValuesOutput) ToDomainInputMappingDefaultValuesPtrOutputWithContext(ctx context.Context) DomainInputMappingDefaultValuesPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingDefaultValues) *DomainInputMappingDefaultValues {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainInputMappingDefaultValues) *DomainInputMappingDefaultValues {
 		return &v
 	}).(DomainInputMappingDefaultValuesPtrOutput)
 }
@@ -440,7 +446,13 @@ func (o DomainInputMappingDefaultValuesPtrOutput) ToDomainInputMappingDefaultVal
 }
 
 func (o DomainInputMappingDefaultValuesPtrOutput) Elem() DomainInputMappingDefaultValuesOutput {
-	return o.ApplyT(func(v *DomainInputMappingDefaultValues) DomainInputMappingDefaultValues { return *v }).(DomainInputMappingDefaultValuesOutput)
+	return o.ApplyT(func(v *DomainInputMappingDefaultValues) DomainInputMappingDefaultValues {
+		if v != nil {
+			return *v
+		}
+		var ret DomainInputMappingDefaultValues
+		return ret
+	}).(DomainInputMappingDefaultValuesOutput)
 }
 
 // Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -586,7 +598,7 @@ func (o DomainInputMappingFieldsOutput) ToDomainInputMappingFieldsPtrOutput() Do
 }
 
 func (o DomainInputMappingFieldsOutput) ToDomainInputMappingFieldsPtrOutputWithContext(ctx context.Context) DomainInputMappingFieldsPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *DomainInputMappingFields {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainInputMappingFields) *DomainInputMappingFields {
 		return &v
 	}).(DomainInputMappingFieldsPtrOutput)
 }
@@ -636,7 +648,13 @@ func (o DomainInputMappingFieldsPtrOutput) ToDomainInputMappingFieldsPtrOutputWi
 }
 
 func (o DomainInputMappingFieldsPtrOutput) Elem() DomainInputMappingFieldsOutput {
-	return o.ApplyT(func(v *DomainInputMappingFields) DomainInputMappingFields { return *v }).(DomainInputMappingFieldsOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) DomainInputMappingFields {
+		if v != nil {
+			return *v
+		}
+		var ret DomainInputMappingFields
+		return ret
+	}).(DomainInputMappingFieldsOutput)
 }
 
 // Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -864,7 +882,7 @@ func (o EventSubscriptionAdvancedFilterOutput) ToEventSubscriptionAdvancedFilter
 }
 
 func (o EventSubscriptionAdvancedFilterOutput) ToEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionAdvancedFilter) *EventSubscriptionAdvancedFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionAdvancedFilter) *EventSubscriptionAdvancedFilter {
 		return &v
 	}).(EventSubscriptionAdvancedFilterPtrOutput)
 }
@@ -1013,7 +1031,13 @@ func (o EventSubscriptionAdvancedFilterPtrOutput) ToEventSubscriptionAdvancedFil
 }
 
 func (o EventSubscriptionAdvancedFilterPtrOutput) Elem() EventSubscriptionAdvancedFilterOutput {
-	return o.ApplyT(func(v *EventSubscriptionAdvancedFilter) EventSubscriptionAdvancedFilter { return *v }).(EventSubscriptionAdvancedFilterOutput)
+	return o.ApplyT(func(v *EventSubscriptionAdvancedFilter) EventSubscriptionAdvancedFilter {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionAdvancedFilter
+		return ret
+	}).(EventSubscriptionAdvancedFilterOutput)
 }
 
 // Compares a value of an event using a single boolean value.
@@ -3303,7 +3327,7 @@ func (o EventSubscriptionAzureFunctionEndpointOutput) ToEventSubscriptionAzureFu
 }
 
 func (o EventSubscriptionAzureFunctionEndpointOutput) ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionAzureFunctionEndpointPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionAzureFunctionEndpoint) *EventSubscriptionAzureFunctionEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionAzureFunctionEndpoint) *EventSubscriptionAzureFunctionEndpoint {
 		return &v
 	}).(EventSubscriptionAzureFunctionEndpointPtrOutput)
 }
@@ -3338,7 +3362,13 @@ func (o EventSubscriptionAzureFunctionEndpointPtrOutput) ToEventSubscriptionAzur
 }
 
 func (o EventSubscriptionAzureFunctionEndpointPtrOutput) Elem() EventSubscriptionAzureFunctionEndpointOutput {
-	return o.ApplyT(func(v *EventSubscriptionAzureFunctionEndpoint) EventSubscriptionAzureFunctionEndpoint { return *v }).(EventSubscriptionAzureFunctionEndpointOutput)
+	return o.ApplyT(func(v *EventSubscriptionAzureFunctionEndpoint) EventSubscriptionAzureFunctionEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionAzureFunctionEndpoint
+		return ret
+	}).(EventSubscriptionAzureFunctionEndpointOutput)
 }
 
 // Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
@@ -3464,7 +3494,7 @@ func (o EventSubscriptionDeadLetterIdentityOutput) ToEventSubscriptionDeadLetter
 }
 
 func (o EventSubscriptionDeadLetterIdentityOutput) ToEventSubscriptionDeadLetterIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionDeadLetterIdentityPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionDeadLetterIdentity) *EventSubscriptionDeadLetterIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionDeadLetterIdentity) *EventSubscriptionDeadLetterIdentity {
 		return &v
 	}).(EventSubscriptionDeadLetterIdentityPtrOutput)
 }
@@ -3489,7 +3519,13 @@ func (o EventSubscriptionDeadLetterIdentityPtrOutput) ToEventSubscriptionDeadLet
 }
 
 func (o EventSubscriptionDeadLetterIdentityPtrOutput) Elem() EventSubscriptionDeadLetterIdentityOutput {
-	return o.ApplyT(func(v *EventSubscriptionDeadLetterIdentity) EventSubscriptionDeadLetterIdentity { return *v }).(EventSubscriptionDeadLetterIdentityOutput)
+	return o.ApplyT(func(v *EventSubscriptionDeadLetterIdentity) EventSubscriptionDeadLetterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionDeadLetterIdentity
+		return ret
+	}).(EventSubscriptionDeadLetterIdentityOutput)
 }
 
 // Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
@@ -3595,7 +3631,7 @@ func (o EventSubscriptionDeliveryIdentityOutput) ToEventSubscriptionDeliveryIden
 }
 
 func (o EventSubscriptionDeliveryIdentityOutput) ToEventSubscriptionDeliveryIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionDeliveryIdentityPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionDeliveryIdentity) *EventSubscriptionDeliveryIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionDeliveryIdentity) *EventSubscriptionDeliveryIdentity {
 		return &v
 	}).(EventSubscriptionDeliveryIdentityPtrOutput)
 }
@@ -3620,7 +3656,13 @@ func (o EventSubscriptionDeliveryIdentityPtrOutput) ToEventSubscriptionDeliveryI
 }
 
 func (o EventSubscriptionDeliveryIdentityPtrOutput) Elem() EventSubscriptionDeliveryIdentityOutput {
-	return o.ApplyT(func(v *EventSubscriptionDeliveryIdentity) EventSubscriptionDeliveryIdentity { return *v }).(EventSubscriptionDeliveryIdentityOutput)
+	return o.ApplyT(func(v *EventSubscriptionDeliveryIdentity) EventSubscriptionDeliveryIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionDeliveryIdentity
+		return ret
+	}).(EventSubscriptionDeliveryIdentityOutput)
 }
 
 // Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
@@ -3726,7 +3768,7 @@ func (o EventSubscriptionEventhubEndpointOutput) ToEventSubscriptionEventhubEndp
 }
 
 func (o EventSubscriptionEventhubEndpointOutput) ToEventSubscriptionEventhubEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionEventhubEndpointPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionEventhubEndpoint) *EventSubscriptionEventhubEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionEventhubEndpoint) *EventSubscriptionEventhubEndpoint {
 		return &v
 	}).(EventSubscriptionEventhubEndpointPtrOutput)
 }
@@ -3751,7 +3793,13 @@ func (o EventSubscriptionEventhubEndpointPtrOutput) ToEventSubscriptionEventhubE
 }
 
 func (o EventSubscriptionEventhubEndpointPtrOutput) Elem() EventSubscriptionEventhubEndpointOutput {
-	return o.ApplyT(func(v *EventSubscriptionEventhubEndpoint) EventSubscriptionEventhubEndpoint { return *v }).(EventSubscriptionEventhubEndpointOutput)
+	return o.ApplyT(func(v *EventSubscriptionEventhubEndpoint) EventSubscriptionEventhubEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionEventhubEndpoint
+		return ret
+	}).(EventSubscriptionEventhubEndpointOutput)
 }
 
 // Specifies the id of the eventhub where the Event Subscription will receive events.
@@ -3857,7 +3905,7 @@ func (o EventSubscriptionHybridConnectionEndpointOutput) ToEventSubscriptionHybr
 }
 
 func (o EventSubscriptionHybridConnectionEndpointOutput) ToEventSubscriptionHybridConnectionEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionHybridConnectionEndpointPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionHybridConnectionEndpoint) *EventSubscriptionHybridConnectionEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionHybridConnectionEndpoint) *EventSubscriptionHybridConnectionEndpoint {
 		return &v
 	}).(EventSubscriptionHybridConnectionEndpointPtrOutput)
 }
@@ -3883,7 +3931,11 @@ func (o EventSubscriptionHybridConnectionEndpointPtrOutput) ToEventSubscriptionH
 
 func (o EventSubscriptionHybridConnectionEndpointPtrOutput) Elem() EventSubscriptionHybridConnectionEndpointOutput {
 	return o.ApplyT(func(v *EventSubscriptionHybridConnectionEndpoint) EventSubscriptionHybridConnectionEndpoint {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionHybridConnectionEndpoint
+		return ret
 	}).(EventSubscriptionHybridConnectionEndpointOutput)
 }
 
@@ -3994,7 +4046,7 @@ func (o EventSubscriptionRetryPolicyOutput) ToEventSubscriptionRetryPolicyPtrOut
 }
 
 func (o EventSubscriptionRetryPolicyOutput) ToEventSubscriptionRetryPolicyPtrOutputWithContext(ctx context.Context) EventSubscriptionRetryPolicyPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionRetryPolicy) *EventSubscriptionRetryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionRetryPolicy) *EventSubscriptionRetryPolicy {
 		return &v
 	}).(EventSubscriptionRetryPolicyPtrOutput)
 }
@@ -4024,7 +4076,13 @@ func (o EventSubscriptionRetryPolicyPtrOutput) ToEventSubscriptionRetryPolicyPtr
 }
 
 func (o EventSubscriptionRetryPolicyPtrOutput) Elem() EventSubscriptionRetryPolicyOutput {
-	return o.ApplyT(func(v *EventSubscriptionRetryPolicy) EventSubscriptionRetryPolicy { return *v }).(EventSubscriptionRetryPolicyOutput)
+	return o.ApplyT(func(v *EventSubscriptionRetryPolicy) EventSubscriptionRetryPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionRetryPolicy
+		return ret
+	}).(EventSubscriptionRetryPolicyOutput)
 }
 
 // Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
@@ -4144,7 +4202,7 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) ToEventSubscrip
 }
 
 func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) ToEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) *EventSubscriptionStorageBlobDeadLetterDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionStorageBlobDeadLetterDestination) *EventSubscriptionStorageBlobDeadLetterDestination {
 		return &v
 	}).(EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
 }
@@ -4175,7 +4233,11 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ToEventSubsc
 
 func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) Elem() EventSubscriptionStorageBlobDeadLetterDestinationOutput {
 	return o.ApplyT(func(v *EventSubscriptionStorageBlobDeadLetterDestination) EventSubscriptionStorageBlobDeadLetterDestination {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionStorageBlobDeadLetterDestination
+		return ret
 	}).(EventSubscriptionStorageBlobDeadLetterDestinationOutput)
 }
 
@@ -4296,7 +4358,7 @@ func (o EventSubscriptionStorageQueueEndpointOutput) ToEventSubscriptionStorageQ
 }
 
 func (o EventSubscriptionStorageQueueEndpointOutput) ToEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionStorageQueueEndpointPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) *EventSubscriptionStorageQueueEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionStorageQueueEndpoint) *EventSubscriptionStorageQueueEndpoint {
 		return &v
 	}).(EventSubscriptionStorageQueueEndpointPtrOutput)
 }
@@ -4326,7 +4388,13 @@ func (o EventSubscriptionStorageQueueEndpointPtrOutput) ToEventSubscriptionStora
 }
 
 func (o EventSubscriptionStorageQueueEndpointPtrOutput) Elem() EventSubscriptionStorageQueueEndpointOutput {
-	return o.ApplyT(func(v *EventSubscriptionStorageQueueEndpoint) EventSubscriptionStorageQueueEndpoint { return *v }).(EventSubscriptionStorageQueueEndpointOutput)
+	return o.ApplyT(func(v *EventSubscriptionStorageQueueEndpoint) EventSubscriptionStorageQueueEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionStorageQueueEndpoint
+		return ret
+	}).(EventSubscriptionStorageQueueEndpointOutput)
 }
 
 // Specifies the name of the storage queue where the Event Subscription will receive events.
@@ -4450,7 +4518,7 @@ func (o EventSubscriptionSubjectFilterOutput) ToEventSubscriptionSubjectFilterPt
 }
 
 func (o EventSubscriptionSubjectFilterOutput) ToEventSubscriptionSubjectFilterPtrOutputWithContext(ctx context.Context) EventSubscriptionSubjectFilterPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *EventSubscriptionSubjectFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionSubjectFilter) *EventSubscriptionSubjectFilter {
 		return &v
 	}).(EventSubscriptionSubjectFilterPtrOutput)
 }
@@ -4485,7 +4553,13 @@ func (o EventSubscriptionSubjectFilterPtrOutput) ToEventSubscriptionSubjectFilte
 }
 
 func (o EventSubscriptionSubjectFilterPtrOutput) Elem() EventSubscriptionSubjectFilterOutput {
-	return o.ApplyT(func(v *EventSubscriptionSubjectFilter) EventSubscriptionSubjectFilter { return *v }).(EventSubscriptionSubjectFilterOutput)
+	return o.ApplyT(func(v *EventSubscriptionSubjectFilter) EventSubscriptionSubjectFilter {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionSubjectFilter
+		return ret
+	}).(EventSubscriptionSubjectFilterOutput)
 }
 
 // Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
@@ -4631,7 +4705,7 @@ func (o EventSubscriptionWebhookEndpointOutput) ToEventSubscriptionWebhookEndpoi
 }
 
 func (o EventSubscriptionWebhookEndpointOutput) ToEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionWebhookEndpointPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionWebhookEndpoint) *EventSubscriptionWebhookEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionWebhookEndpoint) *EventSubscriptionWebhookEndpoint {
 		return &v
 	}).(EventSubscriptionWebhookEndpointPtrOutput)
 }
@@ -4681,7 +4755,13 @@ func (o EventSubscriptionWebhookEndpointPtrOutput) ToEventSubscriptionWebhookEnd
 }
 
 func (o EventSubscriptionWebhookEndpointPtrOutput) Elem() EventSubscriptionWebhookEndpointOutput {
-	return o.ApplyT(func(v *EventSubscriptionWebhookEndpoint) EventSubscriptionWebhookEndpoint { return *v }).(EventSubscriptionWebhookEndpointOutput)
+	return o.ApplyT(func(v *EventSubscriptionWebhookEndpoint) EventSubscriptionWebhookEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionWebhookEndpoint
+		return ret
+	}).(EventSubscriptionWebhookEndpointOutput)
 }
 
 // The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
@@ -4909,7 +4989,7 @@ func (o SystemTopicEventSubscriptionAdvancedFilterOutput) ToSystemTopicEventSubs
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterOutput) ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterPtrOutput {
-	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) *SystemTopicEventSubscriptionAdvancedFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionAdvancedFilter) *SystemTopicEventSubscriptionAdvancedFilter {
 		return &v
 	}).(SystemTopicEventSubscriptionAdvancedFilterPtrOutput)
 }
@@ -5063,7 +5143,11 @@ func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) ToSystemTopicEventS
 
 func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) Elem() SystemTopicEventSubscriptionAdvancedFilterOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) SystemTopicEventSubscriptionAdvancedFilter {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SystemTopicEventSubscriptionAdvancedFilter
+		return ret
 	}).(SystemTopicEventSubscriptionAdvancedFilterOutput)
 }
 
@@ -7354,7 +7438,7 @@ func (o SystemTopicEventSubscriptionAzureFunctionEndpointOutput) ToSystemTopicEv
 }
 
 func (o SystemTopicEventSubscriptionAzureFunctionEndpointOutput) ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput {
-	return o.ApplyT(func(v SystemTopicEventSubscriptionAzureFunctionEndpoint) *SystemTopicEventSubscriptionAzureFunctionEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionAzureFunctionEndpoint) *SystemTopicEventSubscriptionAzureFunctionEndpoint {
 		return &v
 	}).(SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput)
 }
@@ -7390,7 +7474,11 @@ func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) ToSystemTopi
 
 func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) Elem() SystemTopicEventSubscriptionAzureFunctionEndpointOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscriptionAzureFunctionEndpoint) SystemTopicEventSubscriptionAzureFunctionEndpoint {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SystemTopicEventSubscriptionAzureFunctionEndpoint
+		return ret
 	}).(SystemTopicEventSubscriptionAzureFunctionEndpointOutput)
 }
 
@@ -7517,7 +7605,7 @@ func (o SystemTopicEventSubscriptionDeadLetterIdentityOutput) ToSystemTopicEvent
 }
 
 func (o SystemTopicEventSubscriptionDeadLetterIdentityOutput) ToSystemTopicEventSubscriptionDeadLetterIdentityPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput {
-	return o.ApplyT(func(v SystemTopicEventSubscriptionDeadLetterIdentity) *SystemTopicEventSubscriptionDeadLetterIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionDeadLetterIdentity) *SystemTopicEventSubscriptionDeadLetterIdentity {
 		return &v
 	}).(SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput)
 }
@@ -7543,7 +7631,11 @@ func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) ToSystemTopicEv
 
 func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) Elem() SystemTopicEventSubscriptionDeadLetterIdentityOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscriptionDeadLetterIdentity) SystemTopicEventSubscriptionDeadLetterIdentity {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SystemTopicEventSubscriptionDeadLetterIdentity
+		return ret
 	}).(SystemTopicEventSubscriptionDeadLetterIdentityOutput)
 }
 
@@ -7650,7 +7742,7 @@ func (o SystemTopicEventSubscriptionDeliveryIdentityOutput) ToSystemTopicEventSu
 }
 
 func (o SystemTopicEventSubscriptionDeliveryIdentityOutput) ToSystemTopicEventSubscriptionDeliveryIdentityPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionDeliveryIdentityPtrOutput {
-	return o.ApplyT(func(v SystemTopicEventSubscriptionDeliveryIdentity) *SystemTopicEventSubscriptionDeliveryIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionDeliveryIdentity) *SystemTopicEventSubscriptionDeliveryIdentity {
 		return &v
 	}).(SystemTopicEventSubscriptionDeliveryIdentityPtrOutput)
 }
@@ -7676,7 +7768,11 @@ func (o SystemTopicEventSubscriptionDeliveryIdentityPtrOutput) ToSystemTopicEven
 
 func (o SystemTopicEventSubscriptionDeliveryIdentityPtrOutput) Elem() SystemTopicEventSubscriptionDeliveryIdentityOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscriptionDeliveryIdentity) SystemTopicEventSubscriptionDeliveryIdentity {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SystemTopicEventSubscriptionDeliveryIdentity
+		return ret
 	}).(SystemTopicEventSubscriptionDeliveryIdentityOutput)
 }
 
@@ -7787,7 +7883,7 @@ func (o SystemTopicEventSubscriptionRetryPolicyOutput) ToSystemTopicEventSubscri
 }
 
 func (o SystemTopicEventSubscriptionRetryPolicyOutput) ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionRetryPolicyPtrOutput {
-	return o.ApplyT(func(v SystemTopicEventSubscriptionRetryPolicy) *SystemTopicEventSubscriptionRetryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionRetryPolicy) *SystemTopicEventSubscriptionRetryPolicy {
 		return &v
 	}).(SystemTopicEventSubscriptionRetryPolicyPtrOutput)
 }
@@ -7817,7 +7913,13 @@ func (o SystemTopicEventSubscriptionRetryPolicyPtrOutput) ToSystemTopicEventSubs
 }
 
 func (o SystemTopicEventSubscriptionRetryPolicyPtrOutput) Elem() SystemTopicEventSubscriptionRetryPolicyOutput {
-	return o.ApplyT(func(v *SystemTopicEventSubscriptionRetryPolicy) SystemTopicEventSubscriptionRetryPolicy { return *v }).(SystemTopicEventSubscriptionRetryPolicyOutput)
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionRetryPolicy) SystemTopicEventSubscriptionRetryPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret SystemTopicEventSubscriptionRetryPolicy
+		return ret
+	}).(SystemTopicEventSubscriptionRetryPolicyOutput)
 }
 
 // Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
@@ -7937,7 +8039,7 @@ func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput) ToSy
 }
 
 func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
-	return o.ApplyT(func(v SystemTopicEventSubscriptionStorageBlobDeadLetterDestination) *SystemTopicEventSubscriptionStorageBlobDeadLetterDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionStorageBlobDeadLetterDestination) *SystemTopicEventSubscriptionStorageBlobDeadLetterDestination {
 		return &v
 	}).(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
 }
@@ -7970,7 +8072,11 @@ func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) T
 
 func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) Elem() SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscriptionStorageBlobDeadLetterDestination) SystemTopicEventSubscriptionStorageBlobDeadLetterDestination {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SystemTopicEventSubscriptionStorageBlobDeadLetterDestination
+		return ret
 	}).(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput)
 }
 
@@ -8091,7 +8197,7 @@ func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) ToSystemTopicEve
 }
 
 func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput {
-	return o.ApplyT(func(v SystemTopicEventSubscriptionStorageQueueEndpoint) *SystemTopicEventSubscriptionStorageQueueEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionStorageQueueEndpoint) *SystemTopicEventSubscriptionStorageQueueEndpoint {
 		return &v
 	}).(SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput)
 }
@@ -8122,7 +8228,11 @@ func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) ToSystemTopic
 
 func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) Elem() SystemTopicEventSubscriptionStorageQueueEndpointOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscriptionStorageQueueEndpoint) SystemTopicEventSubscriptionStorageQueueEndpoint {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SystemTopicEventSubscriptionStorageQueueEndpoint
+		return ret
 	}).(SystemTopicEventSubscriptionStorageQueueEndpointOutput)
 }
 
@@ -8247,7 +8357,7 @@ func (o SystemTopicEventSubscriptionSubjectFilterOutput) ToSystemTopicEventSubsc
 }
 
 func (o SystemTopicEventSubscriptionSubjectFilterOutput) ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionSubjectFilterPtrOutput {
-	return o.ApplyT(func(v SystemTopicEventSubscriptionSubjectFilter) *SystemTopicEventSubscriptionSubjectFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionSubjectFilter) *SystemTopicEventSubscriptionSubjectFilter {
 		return &v
 	}).(SystemTopicEventSubscriptionSubjectFilterPtrOutput)
 }
@@ -8283,7 +8393,11 @@ func (o SystemTopicEventSubscriptionSubjectFilterPtrOutput) ToSystemTopicEventSu
 
 func (o SystemTopicEventSubscriptionSubjectFilterPtrOutput) Elem() SystemTopicEventSubscriptionSubjectFilterOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscriptionSubjectFilter) SystemTopicEventSubscriptionSubjectFilter {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SystemTopicEventSubscriptionSubjectFilter
+		return ret
 	}).(SystemTopicEventSubscriptionSubjectFilterOutput)
 }
 
@@ -8430,7 +8544,7 @@ func (o SystemTopicEventSubscriptionWebhookEndpointOutput) ToSystemTopicEventSub
 }
 
 func (o SystemTopicEventSubscriptionWebhookEndpointOutput) ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
-	return o.ApplyT(func(v SystemTopicEventSubscriptionWebhookEndpoint) *SystemTopicEventSubscriptionWebhookEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionWebhookEndpoint) *SystemTopicEventSubscriptionWebhookEndpoint {
 		return &v
 	}).(SystemTopicEventSubscriptionWebhookEndpointPtrOutput)
 }
@@ -8481,7 +8595,11 @@ func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) ToSystemTopicEvent
 
 func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) Elem() SystemTopicEventSubscriptionWebhookEndpointOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscriptionWebhookEndpoint) SystemTopicEventSubscriptionWebhookEndpoint {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SystemTopicEventSubscriptionWebhookEndpoint
+		return ret
 	}).(SystemTopicEventSubscriptionWebhookEndpointOutput)
 }
 
@@ -8650,7 +8768,7 @@ func (o SystemTopicIdentityOutput) ToSystemTopicIdentityPtrOutput() SystemTopicI
 }
 
 func (o SystemTopicIdentityOutput) ToSystemTopicIdentityPtrOutputWithContext(ctx context.Context) SystemTopicIdentityPtrOutput {
-	return o.ApplyT(func(v SystemTopicIdentity) *SystemTopicIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicIdentity) *SystemTopicIdentity {
 		return &v
 	}).(SystemTopicIdentityPtrOutput)
 }
@@ -8690,7 +8808,13 @@ func (o SystemTopicIdentityPtrOutput) ToSystemTopicIdentityPtrOutputWithContext(
 }
 
 func (o SystemTopicIdentityPtrOutput) Elem() SystemTopicIdentityOutput {
-	return o.ApplyT(func(v *SystemTopicIdentity) SystemTopicIdentity { return *v }).(SystemTopicIdentityOutput)
+	return o.ApplyT(func(v *SystemTopicIdentity) SystemTopicIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret SystemTopicIdentity
+		return ret
+	}).(SystemTopicIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
@@ -8838,7 +8962,7 @@ func (o TopicIdentityOutput) ToTopicIdentityPtrOutput() TopicIdentityPtrOutput {
 }
 
 func (o TopicIdentityOutput) ToTopicIdentityPtrOutputWithContext(ctx context.Context) TopicIdentityPtrOutput {
-	return o.ApplyT(func(v TopicIdentity) *TopicIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicIdentity) *TopicIdentity {
 		return &v
 	}).(TopicIdentityPtrOutput)
 }
@@ -8878,7 +9002,13 @@ func (o TopicIdentityPtrOutput) ToTopicIdentityPtrOutputWithContext(ctx context.
 }
 
 func (o TopicIdentityPtrOutput) Elem() TopicIdentityOutput {
-	return o.ApplyT(func(v *TopicIdentity) TopicIdentity { return *v }).(TopicIdentityOutput)
+	return o.ApplyT(func(v *TopicIdentity) TopicIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret TopicIdentity
+		return ret
+	}).(TopicIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
@@ -9128,7 +9258,7 @@ func (o TopicInputMappingDefaultValuesOutput) ToTopicInputMappingDefaultValuesPt
 }
 
 func (o TopicInputMappingDefaultValuesOutput) ToTopicInputMappingDefaultValuesPtrOutputWithContext(ctx context.Context) TopicInputMappingDefaultValuesPtrOutput {
-	return o.ApplyT(func(v TopicInputMappingDefaultValues) *TopicInputMappingDefaultValues {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicInputMappingDefaultValues) *TopicInputMappingDefaultValues {
 		return &v
 	}).(TopicInputMappingDefaultValuesPtrOutput)
 }
@@ -9163,7 +9293,13 @@ func (o TopicInputMappingDefaultValuesPtrOutput) ToTopicInputMappingDefaultValue
 }
 
 func (o TopicInputMappingDefaultValuesPtrOutput) Elem() TopicInputMappingDefaultValuesOutput {
-	return o.ApplyT(func(v *TopicInputMappingDefaultValues) TopicInputMappingDefaultValues { return *v }).(TopicInputMappingDefaultValuesOutput)
+	return o.ApplyT(func(v *TopicInputMappingDefaultValues) TopicInputMappingDefaultValues {
+		if v != nil {
+			return *v
+		}
+		var ret TopicInputMappingDefaultValues
+		return ret
+	}).(TopicInputMappingDefaultValuesOutput)
 }
 
 // Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -9309,7 +9445,7 @@ func (o TopicInputMappingFieldsOutput) ToTopicInputMappingFieldsPtrOutput() Topi
 }
 
 func (o TopicInputMappingFieldsOutput) ToTopicInputMappingFieldsPtrOutputWithContext(ctx context.Context) TopicInputMappingFieldsPtrOutput {
-	return o.ApplyT(func(v TopicInputMappingFields) *TopicInputMappingFields {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicInputMappingFields) *TopicInputMappingFields {
 		return &v
 	}).(TopicInputMappingFieldsPtrOutput)
 }
@@ -9359,7 +9495,13 @@ func (o TopicInputMappingFieldsPtrOutput) ToTopicInputMappingFieldsPtrOutputWith
 }
 
 func (o TopicInputMappingFieldsPtrOutput) Elem() TopicInputMappingFieldsOutput {
-	return o.ApplyT(func(v *TopicInputMappingFields) TopicInputMappingFields { return *v }).(TopicInputMappingFieldsOutput)
+	return o.ApplyT(func(v *TopicInputMappingFields) TopicInputMappingFields {
+		if v != nil {
+			return *v
+		}
+		var ret TopicInputMappingFields
+		return ret
+	}).(TopicInputMappingFieldsOutput)
 }
 
 // Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -9890,7 +10032,7 @@ func (o GetSystemTopicIdentityOutput) ToGetSystemTopicIdentityPtrOutput() GetSys
 }
 
 func (o GetSystemTopicIdentityOutput) ToGetSystemTopicIdentityPtrOutputWithContext(ctx context.Context) GetSystemTopicIdentityPtrOutput {
-	return o.ApplyT(func(v GetSystemTopicIdentity) *GetSystemTopicIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSystemTopicIdentity) *GetSystemTopicIdentity {
 		return &v
 	}).(GetSystemTopicIdentityPtrOutput)
 }
@@ -9930,7 +10072,13 @@ func (o GetSystemTopicIdentityPtrOutput) ToGetSystemTopicIdentityPtrOutputWithCo
 }
 
 func (o GetSystemTopicIdentityPtrOutput) Elem() GetSystemTopicIdentityOutput {
-	return o.ApplyT(func(v *GetSystemTopicIdentity) GetSystemTopicIdentity { return *v }).(GetSystemTopicIdentityOutput)
+	return o.ApplyT(func(v *GetSystemTopicIdentity) GetSystemTopicIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret GetSystemTopicIdentity
+		return ret
+	}).(GetSystemTopicIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.

@@ -269,7 +269,7 @@ type AnalyticsItemArrayInput interface {
 type AnalyticsItemArray []AnalyticsItemInput
 
 func (AnalyticsItemArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AnalyticsItem)(nil))
+	return reflect.TypeOf((*[]*AnalyticsItem)(nil)).Elem()
 }
 
 func (i AnalyticsItemArray) ToAnalyticsItemArrayOutput() AnalyticsItemArrayOutput {
@@ -294,7 +294,7 @@ type AnalyticsItemMapInput interface {
 type AnalyticsItemMap map[string]AnalyticsItemInput
 
 func (AnalyticsItemMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AnalyticsItem)(nil))
+	return reflect.TypeOf((*map[string]*AnalyticsItem)(nil)).Elem()
 }
 
 func (i AnalyticsItemMap) ToAnalyticsItemMapOutput() AnalyticsItemMapOutput {
@@ -305,9 +305,7 @@ func (i AnalyticsItemMap) ToAnalyticsItemMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemMapOutput)
 }
 
-type AnalyticsItemOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsItemOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AnalyticsItem)(nil))
@@ -326,14 +324,12 @@ func (o AnalyticsItemOutput) ToAnalyticsItemPtrOutput() AnalyticsItemPtrOutput {
 }
 
 func (o AnalyticsItemOutput) ToAnalyticsItemPtrOutputWithContext(ctx context.Context) AnalyticsItemPtrOutput {
-	return o.ApplyT(func(v AnalyticsItem) *AnalyticsItem {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsItem) *AnalyticsItem {
 		return &v
 	}).(AnalyticsItemPtrOutput)
 }
 
-type AnalyticsItemPtrOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsItemPtrOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsItemPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AnalyticsItem)(nil))
@@ -345,6 +341,16 @@ func (o AnalyticsItemPtrOutput) ToAnalyticsItemPtrOutput() AnalyticsItemPtrOutpu
 
 func (o AnalyticsItemPtrOutput) ToAnalyticsItemPtrOutputWithContext(ctx context.Context) AnalyticsItemPtrOutput {
 	return o
+}
+
+func (o AnalyticsItemPtrOutput) Elem() AnalyticsItemOutput {
+	return o.ApplyT(func(v *AnalyticsItem) AnalyticsItem {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsItem
+		return ret
+	}).(AnalyticsItemOutput)
 }
 
 type AnalyticsItemArrayOutput struct{ *pulumi.OutputState }

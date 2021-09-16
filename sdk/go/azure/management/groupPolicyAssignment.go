@@ -294,7 +294,7 @@ type GroupPolicyAssignmentArrayInput interface {
 type GroupPolicyAssignmentArray []GroupPolicyAssignmentInput
 
 func (GroupPolicyAssignmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GroupPolicyAssignment)(nil))
+	return reflect.TypeOf((*[]*GroupPolicyAssignment)(nil)).Elem()
 }
 
 func (i GroupPolicyAssignmentArray) ToGroupPolicyAssignmentArrayOutput() GroupPolicyAssignmentArrayOutput {
@@ -319,7 +319,7 @@ type GroupPolicyAssignmentMapInput interface {
 type GroupPolicyAssignmentMap map[string]GroupPolicyAssignmentInput
 
 func (GroupPolicyAssignmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GroupPolicyAssignment)(nil))
+	return reflect.TypeOf((*map[string]*GroupPolicyAssignment)(nil)).Elem()
 }
 
 func (i GroupPolicyAssignmentMap) ToGroupPolicyAssignmentMapOutput() GroupPolicyAssignmentMapOutput {
@@ -330,9 +330,7 @@ func (i GroupPolicyAssignmentMap) ToGroupPolicyAssignmentMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentMapOutput)
 }
 
-type GroupPolicyAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type GroupPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupPolicyAssignment)(nil))
@@ -351,14 +349,12 @@ func (o GroupPolicyAssignmentOutput) ToGroupPolicyAssignmentPtrOutput() GroupPol
 }
 
 func (o GroupPolicyAssignmentOutput) ToGroupPolicyAssignmentPtrOutputWithContext(ctx context.Context) GroupPolicyAssignmentPtrOutput {
-	return o.ApplyT(func(v GroupPolicyAssignment) *GroupPolicyAssignment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupPolicyAssignment) *GroupPolicyAssignment {
 		return &v
 	}).(GroupPolicyAssignmentPtrOutput)
 }
 
-type GroupPolicyAssignmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type GroupPolicyAssignmentPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyAssignmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupPolicyAssignment)(nil))
@@ -370,6 +366,16 @@ func (o GroupPolicyAssignmentPtrOutput) ToGroupPolicyAssignmentPtrOutput() Group
 
 func (o GroupPolicyAssignmentPtrOutput) ToGroupPolicyAssignmentPtrOutputWithContext(ctx context.Context) GroupPolicyAssignmentPtrOutput {
 	return o
+}
+
+func (o GroupPolicyAssignmentPtrOutput) Elem() GroupPolicyAssignmentOutput {
+	return o.ApplyT(func(v *GroupPolicyAssignment) GroupPolicyAssignment {
+		if v != nil {
+			return *v
+		}
+		var ret GroupPolicyAssignment
+		return ret
+	}).(GroupPolicyAssignmentOutput)
 }
 
 type GroupPolicyAssignmentArrayOutput struct{ *pulumi.OutputState }

@@ -260,7 +260,7 @@ type FunctionJavaScriptUDFArrayInput interface {
 type FunctionJavaScriptUDFArray []FunctionJavaScriptUDFInput
 
 func (FunctionJavaScriptUDFArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FunctionJavaScriptUDF)(nil))
+	return reflect.TypeOf((*[]*FunctionJavaScriptUDF)(nil)).Elem()
 }
 
 func (i FunctionJavaScriptUDFArray) ToFunctionJavaScriptUDFArrayOutput() FunctionJavaScriptUDFArrayOutput {
@@ -285,7 +285,7 @@ type FunctionJavaScriptUDFMapInput interface {
 type FunctionJavaScriptUDFMap map[string]FunctionJavaScriptUDFInput
 
 func (FunctionJavaScriptUDFMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FunctionJavaScriptUDF)(nil))
+	return reflect.TypeOf((*map[string]*FunctionJavaScriptUDF)(nil)).Elem()
 }
 
 func (i FunctionJavaScriptUDFMap) ToFunctionJavaScriptUDFMapOutput() FunctionJavaScriptUDFMapOutput {
@@ -296,9 +296,7 @@ func (i FunctionJavaScriptUDFMap) ToFunctionJavaScriptUDFMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFMapOutput)
 }
 
-type FunctionJavaScriptUDFOutput struct {
-	*pulumi.OutputState
-}
+type FunctionJavaScriptUDFOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavaScriptUDFOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FunctionJavaScriptUDF)(nil))
@@ -317,14 +315,12 @@ func (o FunctionJavaScriptUDFOutput) ToFunctionJavaScriptUDFPtrOutput() Function
 }
 
 func (o FunctionJavaScriptUDFOutput) ToFunctionJavaScriptUDFPtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFPtrOutput {
-	return o.ApplyT(func(v FunctionJavaScriptUDF) *FunctionJavaScriptUDF {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionJavaScriptUDF) *FunctionJavaScriptUDF {
 		return &v
 	}).(FunctionJavaScriptUDFPtrOutput)
 }
 
-type FunctionJavaScriptUDFPtrOutput struct {
-	*pulumi.OutputState
-}
+type FunctionJavaScriptUDFPtrOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavaScriptUDFPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FunctionJavaScriptUDF)(nil))
@@ -336,6 +332,16 @@ func (o FunctionJavaScriptUDFPtrOutput) ToFunctionJavaScriptUDFPtrOutput() Funct
 
 func (o FunctionJavaScriptUDFPtrOutput) ToFunctionJavaScriptUDFPtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFPtrOutput {
 	return o
+}
+
+func (o FunctionJavaScriptUDFPtrOutput) Elem() FunctionJavaScriptUDFOutput {
+	return o.ApplyT(func(v *FunctionJavaScriptUDF) FunctionJavaScriptUDF {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionJavaScriptUDF
+		return ret
+	}).(FunctionJavaScriptUDFOutput)
 }
 
 type FunctionJavaScriptUDFArrayOutput struct{ *pulumi.OutputState }

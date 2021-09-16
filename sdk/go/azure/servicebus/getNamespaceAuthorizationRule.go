@@ -4,6 +4,9 @@
 package servicebus
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,4 +75,93 @@ type LookupNamespaceAuthorizationRuleResult struct {
 	SecondaryConnectionStringAlias string `pulumi:"secondaryConnectionStringAlias"`
 	// The secondary access key for the authorization rule.
 	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+func LookupNamespaceAuthorizationRuleOutput(ctx *pulumi.Context, args LookupNamespaceAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceAuthorizationRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNamespaceAuthorizationRuleResult, error) {
+			args := v.(LookupNamespaceAuthorizationRuleArgs)
+			r, err := LookupNamespaceAuthorizationRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNamespaceAuthorizationRuleResultOutput)
+}
+
+// A collection of arguments for invoking getNamespaceAuthorizationRule.
+type LookupNamespaceAuthorizationRuleOutputArgs struct {
+	// Specifies the name of the ServiceBus Namespace Authorization Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the ServiceBus Namespace.
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNamespaceAuthorizationRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceAuthorizationRuleArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getNamespaceAuthorizationRule.
+type LookupNamespaceAuthorizationRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNamespaceAuthorizationRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceAuthorizationRuleResult)(nil)).Elem()
+}
+
+func (o LookupNamespaceAuthorizationRuleResultOutput) ToLookupNamespaceAuthorizationRuleResultOutput() LookupNamespaceAuthorizationRuleResultOutput {
+	return o
+}
+
+func (o LookupNamespaceAuthorizationRuleResultOutput) ToLookupNamespaceAuthorizationRuleResultOutputWithContext(ctx context.Context) LookupNamespaceAuthorizationRuleResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupNamespaceAuthorizationRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupNamespaceAuthorizationRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupNamespaceAuthorizationRuleResultOutput) NamespaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.NamespaceName }).(pulumi.StringOutput)
+}
+
+// The primary connection string for the authorization rule.
+func (o LookupNamespaceAuthorizationRuleResultOutput) PrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+func (o LookupNamespaceAuthorizationRuleResultOutput) PrimaryConnectionStringAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.PrimaryConnectionStringAlias }).(pulumi.StringOutput)
+}
+
+// The primary access key for the authorization rule.
+func (o LookupNamespaceAuthorizationRuleResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+func (o LookupNamespaceAuthorizationRuleResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The secondary connection string for the authorization rule.
+func (o LookupNamespaceAuthorizationRuleResultOutput) SecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.SecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The alias Secondary Connection String for the ServiceBus Namespace
+func (o LookupNamespaceAuthorizationRuleResultOutput) SecondaryConnectionStringAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.SecondaryConnectionStringAlias }).(pulumi.StringOutput)
+}
+
+// The secondary access key for the authorization rule.
+func (o LookupNamespaceAuthorizationRuleResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNamespaceAuthorizationRuleResultOutput{})
 }

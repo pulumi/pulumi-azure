@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -104,4 +107,170 @@ type GetGatewayConnectionResult struct {
 	// The ID of the Virtual Network Gateway
 	// in which the connection is created.
 	VirtualNetworkGatewayId string `pulumi:"virtualNetworkGatewayId"`
+}
+
+func GetGatewayConnectionOutput(ctx *pulumi.Context, args GetGatewayConnectionOutputArgs, opts ...pulumi.InvokeOption) GetGatewayConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetGatewayConnectionResult, error) {
+			args := v.(GetGatewayConnectionArgs)
+			r, err := GetGatewayConnection(ctx, &args, opts...)
+			return *r, err
+		}).(GetGatewayConnectionResultOutput)
+}
+
+// A collection of arguments for invoking getGatewayConnection.
+type GetGatewayConnectionOutputArgs struct {
+	// Specifies the name of the Virtual Network Gateway Connection.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group the Virtual Network Gateway Connection is located in.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetGatewayConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayConnectionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getGatewayConnection.
+type GetGatewayConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayConnectionResult)(nil)).Elem()
+}
+
+func (o GetGatewayConnectionResultOutput) ToGetGatewayConnectionResultOutput() GetGatewayConnectionResultOutput {
+	return o
+}
+
+func (o GetGatewayConnectionResultOutput) ToGetGatewayConnectionResultOutputWithContext(ctx context.Context) GetGatewayConnectionResultOutput {
+	return o
+}
+
+// The authorization key associated with the
+// Express Route Circuit. This field is present only if the type is an
+// ExpressRoute connection.
+func (o GetGatewayConnectionResultOutput) AuthorizationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.AuthorizationKey }).(pulumi.StringOutput)
+}
+
+func (o GetGatewayConnectionResultOutput) ConnectionProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.ConnectionProtocol }).(pulumi.StringOutput)
+}
+
+// The dead peer detection timeout of this connection in seconds.
+func (o GetGatewayConnectionResultOutput) DpdTimeoutSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) int { return v.DpdTimeoutSeconds }).(pulumi.IntOutput)
+}
+
+func (o GetGatewayConnectionResultOutput) EgressBytesTransferred() pulumi.IntOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) int { return v.EgressBytesTransferred }).(pulumi.IntOutput)
+}
+
+// If `true`, BGP (Border Gateway Protocol) is enabled
+// for this connection.
+func (o GetGatewayConnectionResultOutput) EnableBgp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) bool { return v.EnableBgp }).(pulumi.BoolOutput)
+}
+
+// The ID of the Express Route Circuit
+// (i.e. when `type` is `ExpressRoute`).
+func (o GetGatewayConnectionResultOutput) ExpressRouteCircuitId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.ExpressRouteCircuitId }).(pulumi.StringOutput)
+}
+
+// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding. This is only valid for ExpressRoute connections.
+func (o GetGatewayConnectionResultOutput) ExpressRouteGatewayBypass() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) bool { return v.ExpressRouteGatewayBypass }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetGatewayConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetGatewayConnectionResultOutput) IngressBytesTransferred() pulumi.IntOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) int { return v.IngressBytesTransferred }).(pulumi.IntOutput)
+}
+
+func (o GetGatewayConnectionResultOutput) IpsecPolicies() GetGatewayConnectionIpsecPolicyArrayOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) []GetGatewayConnectionIpsecPolicy { return v.IpsecPolicies }).(GetGatewayConnectionIpsecPolicyArrayOutput)
+}
+
+// Use private local Azure IP for the connection.
+func (o GetGatewayConnectionResultOutput) LocalAzureIpAddressEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) bool { return v.LocalAzureIpAddressEnabled }).(pulumi.BoolOutput)
+}
+
+// The ID of the local network gateway
+// when a Site-to-Site connection (i.e. when `type` is `IPsec`).
+func (o GetGatewayConnectionResultOutput) LocalNetworkGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.LocalNetworkGatewayId }).(pulumi.StringOutput)
+}
+
+// The location/region where the connection is
+// located.
+func (o GetGatewayConnectionResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o GetGatewayConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the peer virtual
+// network gateway when a VNet-to-VNet connection (i.e. when `type`
+// is `Vnet2Vnet`).
+func (o GetGatewayConnectionResultOutput) PeerVirtualNetworkGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.PeerVirtualNetworkGatewayId }).(pulumi.StringOutput)
+}
+
+func (o GetGatewayConnectionResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o GetGatewayConnectionResultOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// The routing weight.
+func (o GetGatewayConnectionResultOutput) RoutingWeight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) int { return v.RoutingWeight }).(pulumi.IntOutput)
+}
+
+// The shared IPSec key.
+func (o GetGatewayConnectionResultOutput) SharedKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.SharedKey }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o GetGatewayConnectionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o GetGatewayConnectionResultOutput) TrafficSelectorPolicies() GetGatewayConnectionTrafficSelectorPolicyArrayOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) []GetGatewayConnectionTrafficSelectorPolicy {
+		return v.TrafficSelectorPolicies
+	}).(GetGatewayConnectionTrafficSelectorPolicyArrayOutput)
+}
+
+// The type of connection. Valid options are `IPsec`
+// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
+func (o GetGatewayConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// If `true`, policy-based traffic
+// selectors are enabled for this connection. Enabling policy-based traffic
+// selectors requires an `ipsecPolicy` block.
+func (o GetGatewayConnectionResultOutput) UsePolicyBasedTrafficSelectors() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) bool { return v.UsePolicyBasedTrafficSelectors }).(pulumi.BoolOutput)
+}
+
+// The ID of the Virtual Network Gateway
+// in which the connection is created.
+func (o GetGatewayConnectionResultOutput) VirtualNetworkGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.VirtualNetworkGatewayId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetGatewayConnectionResultOutput{})
 }

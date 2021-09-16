@@ -179,7 +179,7 @@ type SpringCloudCustomDomainArrayInput interface {
 type SpringCloudCustomDomainArray []SpringCloudCustomDomainInput
 
 func (SpringCloudCustomDomainArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SpringCloudCustomDomain)(nil))
+	return reflect.TypeOf((*[]*SpringCloudCustomDomain)(nil)).Elem()
 }
 
 func (i SpringCloudCustomDomainArray) ToSpringCloudCustomDomainArrayOutput() SpringCloudCustomDomainArrayOutput {
@@ -204,7 +204,7 @@ type SpringCloudCustomDomainMapInput interface {
 type SpringCloudCustomDomainMap map[string]SpringCloudCustomDomainInput
 
 func (SpringCloudCustomDomainMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SpringCloudCustomDomain)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudCustomDomain)(nil)).Elem()
 }
 
 func (i SpringCloudCustomDomainMap) ToSpringCloudCustomDomainMapOutput() SpringCloudCustomDomainMapOutput {
@@ -215,9 +215,7 @@ func (i SpringCloudCustomDomainMap) ToSpringCloudCustomDomainMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomDomainMapOutput)
 }
 
-type SpringCloudCustomDomainOutput struct {
-	*pulumi.OutputState
-}
+type SpringCloudCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SpringCloudCustomDomain)(nil))
@@ -236,14 +234,12 @@ func (o SpringCloudCustomDomainOutput) ToSpringCloudCustomDomainPtrOutput() Spri
 }
 
 func (o SpringCloudCustomDomainOutput) ToSpringCloudCustomDomainPtrOutputWithContext(ctx context.Context) SpringCloudCustomDomainPtrOutput {
-	return o.ApplyT(func(v SpringCloudCustomDomain) *SpringCloudCustomDomain {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudCustomDomain) *SpringCloudCustomDomain {
 		return &v
 	}).(SpringCloudCustomDomainPtrOutput)
 }
 
-type SpringCloudCustomDomainPtrOutput struct {
-	*pulumi.OutputState
-}
+type SpringCloudCustomDomainPtrOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCustomDomainPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SpringCloudCustomDomain)(nil))
@@ -255,6 +251,16 @@ func (o SpringCloudCustomDomainPtrOutput) ToSpringCloudCustomDomainPtrOutput() S
 
 func (o SpringCloudCustomDomainPtrOutput) ToSpringCloudCustomDomainPtrOutputWithContext(ctx context.Context) SpringCloudCustomDomainPtrOutput {
 	return o
+}
+
+func (o SpringCloudCustomDomainPtrOutput) Elem() SpringCloudCustomDomainOutput {
+	return o.ApplyT(func(v *SpringCloudCustomDomain) SpringCloudCustomDomain {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudCustomDomain
+		return ret
+	}).(SpringCloudCustomDomainOutput)
 }
 
 type SpringCloudCustomDomainArrayOutput struct{ *pulumi.OutputState }

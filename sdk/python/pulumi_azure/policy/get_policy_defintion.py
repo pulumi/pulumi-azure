@@ -12,6 +12,7 @@ __all__ = [
     'GetPolicyDefintionResult',
     'AwaitableGetPolicyDefintionResult',
     'get_policy_defintion',
+    'get_policy_defintion_output',
 ]
 
 @pulumi.output_type
@@ -200,3 +201,30 @@ def get_policy_defintion(display_name: Optional[str] = None,
         policy_rule=__ret__.policy_rule,
         policy_type=__ret__.policy_type,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_policy_defintion)
+def get_policy_defintion_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                management_group_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                management_group_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                name: Optional[pulumi.Input[Optional[str]]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyDefintionResult]:
+    """
+    Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.policy.get_policy_defintion(display_name="Allowed resource types")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str display_name: Specifies the display name of the Policy Definition. Conflicts with `name`.
+    :param str management_group_name: Only retrieve Policy Definitions from this Management Group.
+    :param str name: Specifies the name of the Policy Definition. Conflicts with `display_name`.
+    """
+    ...

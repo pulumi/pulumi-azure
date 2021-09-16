@@ -307,7 +307,7 @@ type LinkedServiceArrayInput interface {
 type LinkedServiceArray []LinkedServiceInput
 
 func (LinkedServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LinkedService)(nil))
+	return reflect.TypeOf((*[]*LinkedService)(nil)).Elem()
 }
 
 func (i LinkedServiceArray) ToLinkedServiceArrayOutput() LinkedServiceArrayOutput {
@@ -332,7 +332,7 @@ type LinkedServiceMapInput interface {
 type LinkedServiceMap map[string]LinkedServiceInput
 
 func (LinkedServiceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LinkedService)(nil))
+	return reflect.TypeOf((*map[string]*LinkedService)(nil)).Elem()
 }
 
 func (i LinkedServiceMap) ToLinkedServiceMapOutput() LinkedServiceMapOutput {
@@ -343,9 +343,7 @@ func (i LinkedServiceMap) ToLinkedServiceMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMapOutput)
 }
 
-type LinkedServiceOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedService)(nil))
@@ -364,14 +362,12 @@ func (o LinkedServiceOutput) ToLinkedServicePtrOutput() LinkedServicePtrOutput {
 }
 
 func (o LinkedServiceOutput) ToLinkedServicePtrOutputWithContext(ctx context.Context) LinkedServicePtrOutput {
-	return o.ApplyT(func(v LinkedService) *LinkedService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedService) *LinkedService {
 		return &v
 	}).(LinkedServicePtrOutput)
 }
 
-type LinkedServicePtrOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServicePtrOutput struct{ *pulumi.OutputState }
 
 func (LinkedServicePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinkedService)(nil))
@@ -383,6 +379,16 @@ func (o LinkedServicePtrOutput) ToLinkedServicePtrOutput() LinkedServicePtrOutpu
 
 func (o LinkedServicePtrOutput) ToLinkedServicePtrOutputWithContext(ctx context.Context) LinkedServicePtrOutput {
 	return o
+}
+
+func (o LinkedServicePtrOutput) Elem() LinkedServiceOutput {
+	return o.ApplyT(func(v *LinkedService) LinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedService
+		return ret
+	}).(LinkedServiceOutput)
 }
 
 type LinkedServiceArrayOutput struct{ *pulumi.OutputState }

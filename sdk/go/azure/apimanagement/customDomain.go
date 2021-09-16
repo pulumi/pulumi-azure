@@ -304,7 +304,7 @@ type CustomDomainArrayInput interface {
 type CustomDomainArray []CustomDomainInput
 
 func (CustomDomainArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CustomDomain)(nil))
+	return reflect.TypeOf((*[]*CustomDomain)(nil)).Elem()
 }
 
 func (i CustomDomainArray) ToCustomDomainArrayOutput() CustomDomainArrayOutput {
@@ -329,7 +329,7 @@ type CustomDomainMapInput interface {
 type CustomDomainMap map[string]CustomDomainInput
 
 func (CustomDomainMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CustomDomain)(nil))
+	return reflect.TypeOf((*map[string]*CustomDomain)(nil)).Elem()
 }
 
 func (i CustomDomainMap) ToCustomDomainMapOutput() CustomDomainMapOutput {
@@ -340,9 +340,7 @@ func (i CustomDomainMap) ToCustomDomainMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainMapOutput)
 }
 
-type CustomDomainOutput struct {
-	*pulumi.OutputState
-}
+type CustomDomainOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomDomain)(nil))
@@ -361,14 +359,12 @@ func (o CustomDomainOutput) ToCustomDomainPtrOutput() CustomDomainPtrOutput {
 }
 
 func (o CustomDomainOutput) ToCustomDomainPtrOutputWithContext(ctx context.Context) CustomDomainPtrOutput {
-	return o.ApplyT(func(v CustomDomain) *CustomDomain {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomain) *CustomDomain {
 		return &v
 	}).(CustomDomainPtrOutput)
 }
 
-type CustomDomainPtrOutput struct {
-	*pulumi.OutputState
-}
+type CustomDomainPtrOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CustomDomain)(nil))
@@ -380,6 +376,16 @@ func (o CustomDomainPtrOutput) ToCustomDomainPtrOutput() CustomDomainPtrOutput {
 
 func (o CustomDomainPtrOutput) ToCustomDomainPtrOutputWithContext(ctx context.Context) CustomDomainPtrOutput {
 	return o
+}
+
+func (o CustomDomainPtrOutput) Elem() CustomDomainOutput {
+	return o.ApplyT(func(v *CustomDomain) CustomDomain {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDomain
+		return ret
+	}).(CustomDomainOutput)
 }
 
 type CustomDomainArrayOutput struct{ *pulumi.OutputState }

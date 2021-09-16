@@ -13,6 +13,7 @@ __all__ = [
     'GetSnapshotResult',
     'AwaitableGetSnapshotResult',
     'get_snapshot',
+    'get_snapshot_output',
 ]
 
 @pulumi.output_type
@@ -186,3 +187,27 @@ def get_snapshot(name: Optional[str] = None,
         source_uri=__ret__.source_uri,
         storage_account_id=__ret__.storage_account_id,
         time_created=__ret__.time_created)
+
+
+@_utilities.lift_output_func(get_snapshot)
+def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
+    """
+    Use this data source to access information about an existing Snapshot.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_snapshot(name="my-snapshot",
+        resource_group_name="my-resource-group")
+    ```
+
+
+    :param str name: Specifies the name of the Snapshot.
+    :param str resource_group_name: Specifies the name of the resource group the Snapshot is located in.
+    """
+    ...

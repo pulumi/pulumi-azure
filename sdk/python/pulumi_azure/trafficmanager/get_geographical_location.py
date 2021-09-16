@@ -12,6 +12,7 @@ __all__ = [
     'GetGeographicalLocationResult',
     'AwaitableGetGeographicalLocationResult',
     'get_geographical_location',
+    'get_geographical_location_output',
 ]
 
 warnings.warn("""azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager""", DeprecationWarning)
@@ -84,3 +85,27 @@ def get_geographical_location(name: Optional[str] = None,
     return AwaitableGetGeographicalLocationResult(
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_geographical_location)
+def get_geographical_location_output(name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGeographicalLocationResult]:
+    """
+    Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
+
+    ## Example Usage
+    ### World)
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_traffic_manager(name="World")
+    pulumi.export("locationCode", example.id)
+    ```
+
+
+    :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
+    """
+    pulumi.log.warn("""get_geographical_location is deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager""")
+    ...

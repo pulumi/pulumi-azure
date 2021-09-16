@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,74 @@ type GetVirtualMachineScaleSetResult struct {
 	// A list of `networkInterface` blocks as defined below.
 	NetworkInterfaces []GetVirtualMachineScaleSetNetworkInterface `pulumi:"networkInterfaces"`
 	ResourceGroupName string                                      `pulumi:"resourceGroupName"`
+}
+
+func GetVirtualMachineScaleSetOutput(ctx *pulumi.Context, args GetVirtualMachineScaleSetOutputArgs, opts ...pulumi.InvokeOption) GetVirtualMachineScaleSetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetVirtualMachineScaleSetResult, error) {
+			args := v.(GetVirtualMachineScaleSetArgs)
+			r, err := GetVirtualMachineScaleSet(ctx, &args, opts...)
+			return *r, err
+		}).(GetVirtualMachineScaleSetResultOutput)
+}
+
+// A collection of arguments for invoking getVirtualMachineScaleSet.
+type GetVirtualMachineScaleSetOutputArgs struct {
+	// The name of this Virtual Machine Scale Set.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Virtual Machine Scale Set exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetVirtualMachineScaleSetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVirtualMachineScaleSet.
+type GetVirtualMachineScaleSetResultOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetResult)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetResultOutput) ToGetVirtualMachineScaleSetResultOutput() GetVirtualMachineScaleSetResultOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetResultOutput) ToGetVirtualMachineScaleSetResultOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetVirtualMachineScaleSetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A `identity` block as defined below.
+func (o GetVirtualMachineScaleSetResultOutput) Identities() GetVirtualMachineScaleSetIdentityArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetResult) []GetVirtualMachineScaleSetIdentity { return v.Identities }).(GetVirtualMachineScaleSetIdentityArrayOutput)
+}
+
+func (o GetVirtualMachineScaleSetResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the public ip address configuration
+func (o GetVirtualMachineScaleSetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of `networkInterface` blocks as defined below.
+func (o GetVirtualMachineScaleSetResultOutput) NetworkInterfaces() GetVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetResult) []GetVirtualMachineScaleSetNetworkInterface {
+		return v.NetworkInterfaces
+	}).(GetVirtualMachineScaleSetNetworkInterfaceArrayOutput)
+}
+
+func (o GetVirtualMachineScaleSetResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetResultOutput{})
 }

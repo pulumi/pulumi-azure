@@ -185,7 +185,7 @@ type AssessmentArrayInput interface {
 type AssessmentArray []AssessmentInput
 
 func (AssessmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Assessment)(nil))
+	return reflect.TypeOf((*[]*Assessment)(nil)).Elem()
 }
 
 func (i AssessmentArray) ToAssessmentArrayOutput() AssessmentArrayOutput {
@@ -210,7 +210,7 @@ type AssessmentMapInput interface {
 type AssessmentMap map[string]AssessmentInput
 
 func (AssessmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Assessment)(nil))
+	return reflect.TypeOf((*map[string]*Assessment)(nil)).Elem()
 }
 
 func (i AssessmentMap) ToAssessmentMapOutput() AssessmentMapOutput {
@@ -221,9 +221,7 @@ func (i AssessmentMap) ToAssessmentMapOutputWithContext(ctx context.Context) Ass
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentMapOutput)
 }
 
-type AssessmentOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentOutput struct{ *pulumi.OutputState }
 
 func (AssessmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Assessment)(nil))
@@ -242,14 +240,12 @@ func (o AssessmentOutput) ToAssessmentPtrOutput() AssessmentPtrOutput {
 }
 
 func (o AssessmentOutput) ToAssessmentPtrOutputWithContext(ctx context.Context) AssessmentPtrOutput {
-	return o.ApplyT(func(v Assessment) *Assessment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Assessment) *Assessment {
 		return &v
 	}).(AssessmentPtrOutput)
 }
 
-type AssessmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentPtrOutput struct{ *pulumi.OutputState }
 
 func (AssessmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Assessment)(nil))
@@ -261,6 +257,16 @@ func (o AssessmentPtrOutput) ToAssessmentPtrOutput() AssessmentPtrOutput {
 
 func (o AssessmentPtrOutput) ToAssessmentPtrOutputWithContext(ctx context.Context) AssessmentPtrOutput {
 	return o
+}
+
+func (o AssessmentPtrOutput) Elem() AssessmentOutput {
+	return o.ApplyT(func(v *Assessment) Assessment {
+		if v != nil {
+			return *v
+		}
+		var ret Assessment
+		return ret
+	}).(AssessmentOutput)
 }
 
 type AssessmentArrayOutput struct{ *pulumi.OutputState }

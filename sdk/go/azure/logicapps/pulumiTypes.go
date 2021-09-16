@@ -213,7 +213,7 @@ func (o IntegrationAccountAgreementGuestIdentityOutput) ToIntegrationAccountAgre
 }
 
 func (o IntegrationAccountAgreementGuestIdentityOutput) ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementGuestIdentityPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountAgreementGuestIdentity) *IntegrationAccountAgreementGuestIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountAgreementGuestIdentity) *IntegrationAccountAgreementGuestIdentity {
 		return &v
 	}).(IntegrationAccountAgreementGuestIdentityPtrOutput)
 }
@@ -243,7 +243,13 @@ func (o IntegrationAccountAgreementGuestIdentityPtrOutput) ToIntegrationAccountA
 }
 
 func (o IntegrationAccountAgreementGuestIdentityPtrOutput) Elem() IntegrationAccountAgreementGuestIdentityOutput {
-	return o.ApplyT(func(v *IntegrationAccountAgreementGuestIdentity) IntegrationAccountAgreementGuestIdentity { return *v }).(IntegrationAccountAgreementGuestIdentityOutput)
+	return o.ApplyT(func(v *IntegrationAccountAgreementGuestIdentity) IntegrationAccountAgreementGuestIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountAgreementGuestIdentity
+		return ret
+	}).(IntegrationAccountAgreementGuestIdentityOutput)
 }
 
 // The authenticating body that provides unique guest identities to organizations.
@@ -363,7 +369,7 @@ func (o IntegrationAccountAgreementHostIdentityOutput) ToIntegrationAccountAgree
 }
 
 func (o IntegrationAccountAgreementHostIdentityOutput) ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementHostIdentityPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountAgreementHostIdentity) *IntegrationAccountAgreementHostIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountAgreementHostIdentity) *IntegrationAccountAgreementHostIdentity {
 		return &v
 	}).(IntegrationAccountAgreementHostIdentityPtrOutput)
 }
@@ -393,7 +399,13 @@ func (o IntegrationAccountAgreementHostIdentityPtrOutput) ToIntegrationAccountAg
 }
 
 func (o IntegrationAccountAgreementHostIdentityPtrOutput) Elem() IntegrationAccountAgreementHostIdentityOutput {
-	return o.ApplyT(func(v *IntegrationAccountAgreementHostIdentity) IntegrationAccountAgreementHostIdentity { return *v }).(IntegrationAccountAgreementHostIdentityOutput)
+	return o.ApplyT(func(v *IntegrationAccountAgreementHostIdentity) IntegrationAccountAgreementHostIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountAgreementHostIdentity
+		return ret
+	}).(IntegrationAccountAgreementHostIdentityOutput)
 }
 
 // The authenticating body that provides unique host identities to organizations.
@@ -517,7 +529,7 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ToIntegration
 }
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteria) *IntegrationAccountBatchConfigurationReleaseCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountBatchConfigurationReleaseCriteria) *IntegrationAccountBatchConfigurationReleaseCriteria {
 		return &v
 	}).(IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput)
 }
@@ -555,7 +567,11 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) ToIntegrat
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) Elem() IntegrationAccountBatchConfigurationReleaseCriteriaOutput {
 	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteria) IntegrationAccountBatchConfigurationReleaseCriteria {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountBatchConfigurationReleaseCriteria
+		return ret
 	}).(IntegrationAccountBatchConfigurationReleaseCriteriaOutput)
 }
 
@@ -702,7 +718,7 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) ToI
 }
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
-	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
 		return &v
 	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput)
 }
@@ -755,7 +771,11 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) 
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) Elem() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput {
 	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
+		return ret
 	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput)
 }
 
@@ -928,7 +948,7 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOut
 }
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
-	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule {
 		return &v
 	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput)
 }
@@ -980,7 +1000,11 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtr
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) Elem() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput {
 	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule
+		return ret
 	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput)
 }
 
@@ -1245,7 +1269,7 @@ func (o IntegrationAccountCertificateKeyVaultKeyOutput) ToIntegrationAccountCert
 }
 
 func (o IntegrationAccountCertificateKeyVaultKeyOutput) ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(ctx context.Context) IntegrationAccountCertificateKeyVaultKeyPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountCertificateKeyVaultKey) *IntegrationAccountCertificateKeyVaultKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountCertificateKeyVaultKey) *IntegrationAccountCertificateKeyVaultKey {
 		return &v
 	}).(IntegrationAccountCertificateKeyVaultKeyPtrOutput)
 }
@@ -1280,7 +1304,13 @@ func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) ToIntegrationAccountC
 }
 
 func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) Elem() IntegrationAccountCertificateKeyVaultKeyOutput {
-	return o.ApplyT(func(v *IntegrationAccountCertificateKeyVaultKey) IntegrationAccountCertificateKeyVaultKey { return *v }).(IntegrationAccountCertificateKeyVaultKeyOutput)
+	return o.ApplyT(func(v *IntegrationAccountCertificateKeyVaultKey) IntegrationAccountCertificateKeyVaultKey {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountCertificateKeyVaultKey
+		return ret
+	}).(IntegrationAccountCertificateKeyVaultKeyOutput)
 }
 
 // The name of Key Vault Key.
@@ -1520,7 +1550,7 @@ func (o TriggerRecurrenceScheduleOutput) ToTriggerRecurrenceSchedulePtrOutput() 
 }
 
 func (o TriggerRecurrenceScheduleOutput) ToTriggerRecurrenceSchedulePtrOutputWithContext(ctx context.Context) TriggerRecurrenceSchedulePtrOutput {
-	return o.ApplyT(func(v TriggerRecurrenceSchedule) *TriggerRecurrenceSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerRecurrenceSchedule) *TriggerRecurrenceSchedule {
 		return &v
 	}).(TriggerRecurrenceSchedulePtrOutput)
 }
@@ -1555,7 +1585,13 @@ func (o TriggerRecurrenceSchedulePtrOutput) ToTriggerRecurrenceSchedulePtrOutput
 }
 
 func (o TriggerRecurrenceSchedulePtrOutput) Elem() TriggerRecurrenceScheduleOutput {
-	return o.ApplyT(func(v *TriggerRecurrenceSchedule) TriggerRecurrenceSchedule { return *v }).(TriggerRecurrenceScheduleOutput)
+	return o.ApplyT(func(v *TriggerRecurrenceSchedule) TriggerRecurrenceSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerRecurrenceSchedule
+		return ret
+	}).(TriggerRecurrenceScheduleOutput)
 }
 
 // Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
@@ -1693,7 +1729,7 @@ func (o WorkflowAccessControlOutput) ToWorkflowAccessControlPtrOutput() Workflow
 }
 
 func (o WorkflowAccessControlOutput) ToWorkflowAccessControlPtrOutputWithContext(ctx context.Context) WorkflowAccessControlPtrOutput {
-	return o.ApplyT(func(v WorkflowAccessControl) *WorkflowAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowAccessControl) *WorkflowAccessControl {
 		return &v
 	}).(WorkflowAccessControlPtrOutput)
 }
@@ -1733,7 +1769,13 @@ func (o WorkflowAccessControlPtrOutput) ToWorkflowAccessControlPtrOutputWithCont
 }
 
 func (o WorkflowAccessControlPtrOutput) Elem() WorkflowAccessControlOutput {
-	return o.ApplyT(func(v *WorkflowAccessControl) WorkflowAccessControl { return *v }).(WorkflowAccessControlOutput)
+	return o.ApplyT(func(v *WorkflowAccessControl) WorkflowAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowAccessControl
+		return ret
+	}).(WorkflowAccessControlOutput)
 }
 
 // A `action` block as defined below.
@@ -1869,7 +1911,7 @@ func (o WorkflowAccessControlActionOutput) ToWorkflowAccessControlActionPtrOutpu
 }
 
 func (o WorkflowAccessControlActionOutput) ToWorkflowAccessControlActionPtrOutputWithContext(ctx context.Context) WorkflowAccessControlActionPtrOutput {
-	return o.ApplyT(func(v WorkflowAccessControlAction) *WorkflowAccessControlAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowAccessControlAction) *WorkflowAccessControlAction {
 		return &v
 	}).(WorkflowAccessControlActionPtrOutput)
 }
@@ -1894,7 +1936,13 @@ func (o WorkflowAccessControlActionPtrOutput) ToWorkflowAccessControlActionPtrOu
 }
 
 func (o WorkflowAccessControlActionPtrOutput) Elem() WorkflowAccessControlActionOutput {
-	return o.ApplyT(func(v *WorkflowAccessControlAction) WorkflowAccessControlAction { return *v }).(WorkflowAccessControlActionOutput)
+	return o.ApplyT(func(v *WorkflowAccessControlAction) WorkflowAccessControlAction {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowAccessControlAction
+		return ret
+	}).(WorkflowAccessControlActionOutput)
 }
 
 // A list of the allowed caller IP address ranges.
@@ -2000,7 +2048,7 @@ func (o WorkflowAccessControlContentOutput) ToWorkflowAccessControlContentPtrOut
 }
 
 func (o WorkflowAccessControlContentOutput) ToWorkflowAccessControlContentPtrOutputWithContext(ctx context.Context) WorkflowAccessControlContentPtrOutput {
-	return o.ApplyT(func(v WorkflowAccessControlContent) *WorkflowAccessControlContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowAccessControlContent) *WorkflowAccessControlContent {
 		return &v
 	}).(WorkflowAccessControlContentPtrOutput)
 }
@@ -2025,7 +2073,13 @@ func (o WorkflowAccessControlContentPtrOutput) ToWorkflowAccessControlContentPtr
 }
 
 func (o WorkflowAccessControlContentPtrOutput) Elem() WorkflowAccessControlContentOutput {
-	return o.ApplyT(func(v *WorkflowAccessControlContent) WorkflowAccessControlContent { return *v }).(WorkflowAccessControlContentOutput)
+	return o.ApplyT(func(v *WorkflowAccessControlContent) WorkflowAccessControlContent {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowAccessControlContent
+		return ret
+	}).(WorkflowAccessControlContentOutput)
 }
 
 // A list of the allowed caller IP address ranges.
@@ -2131,7 +2185,7 @@ func (o WorkflowAccessControlTriggerOutput) ToWorkflowAccessControlTriggerPtrOut
 }
 
 func (o WorkflowAccessControlTriggerOutput) ToWorkflowAccessControlTriggerPtrOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerPtrOutput {
-	return o.ApplyT(func(v WorkflowAccessControlTrigger) *WorkflowAccessControlTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowAccessControlTrigger) *WorkflowAccessControlTrigger {
 		return &v
 	}).(WorkflowAccessControlTriggerPtrOutput)
 }
@@ -2156,7 +2210,13 @@ func (o WorkflowAccessControlTriggerPtrOutput) ToWorkflowAccessControlTriggerPtr
 }
 
 func (o WorkflowAccessControlTriggerPtrOutput) Elem() WorkflowAccessControlTriggerOutput {
-	return o.ApplyT(func(v *WorkflowAccessControlTrigger) WorkflowAccessControlTrigger { return *v }).(WorkflowAccessControlTriggerOutput)
+	return o.ApplyT(func(v *WorkflowAccessControlTrigger) WorkflowAccessControlTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowAccessControlTrigger
+		return ret
+	}).(WorkflowAccessControlTriggerOutput)
 }
 
 // A list of the allowed caller IP address ranges.
@@ -2262,7 +2322,7 @@ func (o WorkflowAccessControlWorkflowManagementOutput) ToWorkflowAccessControlWo
 }
 
 func (o WorkflowAccessControlWorkflowManagementOutput) ToWorkflowAccessControlWorkflowManagementPtrOutputWithContext(ctx context.Context) WorkflowAccessControlWorkflowManagementPtrOutput {
-	return o.ApplyT(func(v WorkflowAccessControlWorkflowManagement) *WorkflowAccessControlWorkflowManagement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowAccessControlWorkflowManagement) *WorkflowAccessControlWorkflowManagement {
 		return &v
 	}).(WorkflowAccessControlWorkflowManagementPtrOutput)
 }
@@ -2287,7 +2347,13 @@ func (o WorkflowAccessControlWorkflowManagementPtrOutput) ToWorkflowAccessContro
 }
 
 func (o WorkflowAccessControlWorkflowManagementPtrOutput) Elem() WorkflowAccessControlWorkflowManagementOutput {
-	return o.ApplyT(func(v *WorkflowAccessControlWorkflowManagement) WorkflowAccessControlWorkflowManagement { return *v }).(WorkflowAccessControlWorkflowManagementOutput)
+	return o.ApplyT(func(v *WorkflowAccessControlWorkflowManagement) WorkflowAccessControlWorkflowManagement {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowAccessControlWorkflowManagement
+		return ret
+	}).(WorkflowAccessControlWorkflowManagementOutput)
 }
 
 // A list of the allowed caller IP address ranges.

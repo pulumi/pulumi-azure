@@ -202,7 +202,7 @@ type DateTimeVariableArrayInput interface {
 type DateTimeVariableArray []DateTimeVariableInput
 
 func (DateTimeVariableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DateTimeVariable)(nil))
+	return reflect.TypeOf((*[]*DateTimeVariable)(nil)).Elem()
 }
 
 func (i DateTimeVariableArray) ToDateTimeVariableArrayOutput() DateTimeVariableArrayOutput {
@@ -227,7 +227,7 @@ type DateTimeVariableMapInput interface {
 type DateTimeVariableMap map[string]DateTimeVariableInput
 
 func (DateTimeVariableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DateTimeVariable)(nil))
+	return reflect.TypeOf((*map[string]*DateTimeVariable)(nil)).Elem()
 }
 
 func (i DateTimeVariableMap) ToDateTimeVariableMapOutput() DateTimeVariableMapOutput {
@@ -238,9 +238,7 @@ func (i DateTimeVariableMap) ToDateTimeVariableMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DateTimeVariableMapOutput)
 }
 
-type DateTimeVariableOutput struct {
-	*pulumi.OutputState
-}
+type DateTimeVariableOutput struct{ *pulumi.OutputState }
 
 func (DateTimeVariableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DateTimeVariable)(nil))
@@ -259,14 +257,12 @@ func (o DateTimeVariableOutput) ToDateTimeVariablePtrOutput() DateTimeVariablePt
 }
 
 func (o DateTimeVariableOutput) ToDateTimeVariablePtrOutputWithContext(ctx context.Context) DateTimeVariablePtrOutput {
-	return o.ApplyT(func(v DateTimeVariable) *DateTimeVariable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DateTimeVariable) *DateTimeVariable {
 		return &v
 	}).(DateTimeVariablePtrOutput)
 }
 
-type DateTimeVariablePtrOutput struct {
-	*pulumi.OutputState
-}
+type DateTimeVariablePtrOutput struct{ *pulumi.OutputState }
 
 func (DateTimeVariablePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DateTimeVariable)(nil))
@@ -278,6 +274,16 @@ func (o DateTimeVariablePtrOutput) ToDateTimeVariablePtrOutput() DateTimeVariabl
 
 func (o DateTimeVariablePtrOutput) ToDateTimeVariablePtrOutputWithContext(ctx context.Context) DateTimeVariablePtrOutput {
 	return o
+}
+
+func (o DateTimeVariablePtrOutput) Elem() DateTimeVariableOutput {
+	return o.ApplyT(func(v *DateTimeVariable) DateTimeVariable {
+		if v != nil {
+			return *v
+		}
+		var ret DateTimeVariable
+		return ret
+	}).(DateTimeVariableOutput)
 }
 
 type DateTimeVariableArrayOutput struct{ *pulumi.OutputState }

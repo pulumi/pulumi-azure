@@ -12,6 +12,7 @@ __all__ = [
     'GetApplicationSecurityGroupResult',
     'AwaitableGetApplicationSecurityGroupResult',
     'get_application_security_group',
+    'get_application_security_group_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,28 @@ def get_application_security_group(name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_application_security_group)
+def get_application_security_group_output(name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationSecurityGroupResult]:
+    """
+    Use this data source to access information about an existing Application Security Group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_application_security_group(name="tf-appsecuritygroup",
+        resource_group_name="my-resource-group")
+    pulumi.export("applicationSecurityGroupId", example.id)
+    ```
+
+
+    :param str name: The name of the Application Security Group.
+    :param str resource_group_name: The name of the resource group in which the Application Security Group exists.
+    """
+    ...

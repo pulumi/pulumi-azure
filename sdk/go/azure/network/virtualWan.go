@@ -260,7 +260,7 @@ type VirtualWanArrayInput interface {
 type VirtualWanArray []VirtualWanInput
 
 func (VirtualWanArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualWan)(nil))
+	return reflect.TypeOf((*[]*VirtualWan)(nil)).Elem()
 }
 
 func (i VirtualWanArray) ToVirtualWanArrayOutput() VirtualWanArrayOutput {
@@ -285,7 +285,7 @@ type VirtualWanMapInput interface {
 type VirtualWanMap map[string]VirtualWanInput
 
 func (VirtualWanMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualWan)(nil))
+	return reflect.TypeOf((*map[string]*VirtualWan)(nil)).Elem()
 }
 
 func (i VirtualWanMap) ToVirtualWanMapOutput() VirtualWanMapOutput {
@@ -296,9 +296,7 @@ func (i VirtualWanMap) ToVirtualWanMapOutputWithContext(ctx context.Context) Vir
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanMapOutput)
 }
 
-type VirtualWanOutput struct {
-	*pulumi.OutputState
-}
+type VirtualWanOutput struct{ *pulumi.OutputState }
 
 func (VirtualWanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualWan)(nil))
@@ -317,14 +315,12 @@ func (o VirtualWanOutput) ToVirtualWanPtrOutput() VirtualWanPtrOutput {
 }
 
 func (o VirtualWanOutput) ToVirtualWanPtrOutputWithContext(ctx context.Context) VirtualWanPtrOutput {
-	return o.ApplyT(func(v VirtualWan) *VirtualWan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualWan) *VirtualWan {
 		return &v
 	}).(VirtualWanPtrOutput)
 }
 
-type VirtualWanPtrOutput struct {
-	*pulumi.OutputState
-}
+type VirtualWanPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualWanPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualWan)(nil))
@@ -336,6 +332,16 @@ func (o VirtualWanPtrOutput) ToVirtualWanPtrOutput() VirtualWanPtrOutput {
 
 func (o VirtualWanPtrOutput) ToVirtualWanPtrOutputWithContext(ctx context.Context) VirtualWanPtrOutput {
 	return o
+}
+
+func (o VirtualWanPtrOutput) Elem() VirtualWanOutput {
+	return o.ApplyT(func(v *VirtualWan) VirtualWan {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualWan
+		return ret
+	}).(VirtualWanOutput)
 }
 
 type VirtualWanArrayOutput struct{ *pulumi.OutputState }

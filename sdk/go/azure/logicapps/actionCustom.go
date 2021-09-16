@@ -212,7 +212,7 @@ type ActionCustomArrayInput interface {
 type ActionCustomArray []ActionCustomInput
 
 func (ActionCustomArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ActionCustom)(nil))
+	return reflect.TypeOf((*[]*ActionCustom)(nil)).Elem()
 }
 
 func (i ActionCustomArray) ToActionCustomArrayOutput() ActionCustomArrayOutput {
@@ -237,7 +237,7 @@ type ActionCustomMapInput interface {
 type ActionCustomMap map[string]ActionCustomInput
 
 func (ActionCustomMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ActionCustom)(nil))
+	return reflect.TypeOf((*map[string]*ActionCustom)(nil)).Elem()
 }
 
 func (i ActionCustomMap) ToActionCustomMapOutput() ActionCustomMapOutput {
@@ -248,9 +248,7 @@ func (i ActionCustomMap) ToActionCustomMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ActionCustomMapOutput)
 }
 
-type ActionCustomOutput struct {
-	*pulumi.OutputState
-}
+type ActionCustomOutput struct{ *pulumi.OutputState }
 
 func (ActionCustomOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionCustom)(nil))
@@ -269,14 +267,12 @@ func (o ActionCustomOutput) ToActionCustomPtrOutput() ActionCustomPtrOutput {
 }
 
 func (o ActionCustomOutput) ToActionCustomPtrOutputWithContext(ctx context.Context) ActionCustomPtrOutput {
-	return o.ApplyT(func(v ActionCustom) *ActionCustom {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionCustom) *ActionCustom {
 		return &v
 	}).(ActionCustomPtrOutput)
 }
 
-type ActionCustomPtrOutput struct {
-	*pulumi.OutputState
-}
+type ActionCustomPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionCustomPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ActionCustom)(nil))
@@ -288,6 +284,16 @@ func (o ActionCustomPtrOutput) ToActionCustomPtrOutput() ActionCustomPtrOutput {
 
 func (o ActionCustomPtrOutput) ToActionCustomPtrOutputWithContext(ctx context.Context) ActionCustomPtrOutput {
 	return o
+}
+
+func (o ActionCustomPtrOutput) Elem() ActionCustomOutput {
+	return o.ApplyT(func(v *ActionCustom) ActionCustom {
+		if v != nil {
+			return *v
+		}
+		var ret ActionCustom
+		return ret
+	}).(ActionCustomOutput)
 }
 
 type ActionCustomArrayOutput struct{ *pulumi.OutputState }

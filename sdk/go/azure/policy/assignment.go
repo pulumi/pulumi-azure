@@ -301,7 +301,7 @@ type AssignmentArrayInput interface {
 type AssignmentArray []AssignmentInput
 
 func (AssignmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Assignment)(nil))
+	return reflect.TypeOf((*[]*Assignment)(nil)).Elem()
 }
 
 func (i AssignmentArray) ToAssignmentArrayOutput() AssignmentArrayOutput {
@@ -326,7 +326,7 @@ type AssignmentMapInput interface {
 type AssignmentMap map[string]AssignmentInput
 
 func (AssignmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Assignment)(nil))
+	return reflect.TypeOf((*map[string]*Assignment)(nil)).Elem()
 }
 
 func (i AssignmentMap) ToAssignmentMapOutput() AssignmentMapOutput {
@@ -337,9 +337,7 @@ func (i AssignmentMap) ToAssignmentMapOutputWithContext(ctx context.Context) Ass
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentMapOutput)
 }
 
-type AssignmentOutput struct {
-	*pulumi.OutputState
-}
+type AssignmentOutput struct{ *pulumi.OutputState }
 
 func (AssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Assignment)(nil))
@@ -358,14 +356,12 @@ func (o AssignmentOutput) ToAssignmentPtrOutput() AssignmentPtrOutput {
 }
 
 func (o AssignmentOutput) ToAssignmentPtrOutputWithContext(ctx context.Context) AssignmentPtrOutput {
-	return o.ApplyT(func(v Assignment) *Assignment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Assignment) *Assignment {
 		return &v
 	}).(AssignmentPtrOutput)
 }
 
-type AssignmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type AssignmentPtrOutput struct{ *pulumi.OutputState }
 
 func (AssignmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Assignment)(nil))
@@ -377,6 +373,16 @@ func (o AssignmentPtrOutput) ToAssignmentPtrOutput() AssignmentPtrOutput {
 
 func (o AssignmentPtrOutput) ToAssignmentPtrOutputWithContext(ctx context.Context) AssignmentPtrOutput {
 	return o
+}
+
+func (o AssignmentPtrOutput) Elem() AssignmentOutput {
+	return o.ApplyT(func(v *Assignment) Assignment {
+		if v != nil {
+			return *v
+		}
+		var ret Assignment
+		return ret
+	}).(AssignmentOutput)
 }
 
 type AssignmentArrayOutput struct{ *pulumi.OutputState }

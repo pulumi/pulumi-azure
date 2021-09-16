@@ -111,7 +111,7 @@ func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPt
 }
 
 func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
-	return o.ApplyT(func(v AssessmentStatus) *AssessmentStatus {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatus) *AssessmentStatus {
 		return &v
 	}).(AssessmentStatusPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx co
 }
 
 func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {
-	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus { return *v }).(AssessmentStatusOutput)
+	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentStatus
+		return ret
+	}).(AssessmentStatusOutput)
 }
 
 // Specifies the cause of the assessment status.

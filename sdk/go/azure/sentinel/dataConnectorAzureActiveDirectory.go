@@ -208,7 +208,7 @@ type DataConnectorAzureActiveDirectoryArrayInput interface {
 type DataConnectorAzureActiveDirectoryArray []DataConnectorAzureActiveDirectoryInput
 
 func (DataConnectorAzureActiveDirectoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DataConnectorAzureActiveDirectory)(nil))
+	return reflect.TypeOf((*[]*DataConnectorAzureActiveDirectory)(nil)).Elem()
 }
 
 func (i DataConnectorAzureActiveDirectoryArray) ToDataConnectorAzureActiveDirectoryArrayOutput() DataConnectorAzureActiveDirectoryArrayOutput {
@@ -233,7 +233,7 @@ type DataConnectorAzureActiveDirectoryMapInput interface {
 type DataConnectorAzureActiveDirectoryMap map[string]DataConnectorAzureActiveDirectoryInput
 
 func (DataConnectorAzureActiveDirectoryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DataConnectorAzureActiveDirectory)(nil))
+	return reflect.TypeOf((*map[string]*DataConnectorAzureActiveDirectory)(nil)).Elem()
 }
 
 func (i DataConnectorAzureActiveDirectoryMap) ToDataConnectorAzureActiveDirectoryMapOutput() DataConnectorAzureActiveDirectoryMapOutput {
@@ -244,9 +244,7 @@ func (i DataConnectorAzureActiveDirectoryMap) ToDataConnectorAzureActiveDirector
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureActiveDirectoryMapOutput)
 }
 
-type DataConnectorAzureActiveDirectoryOutput struct {
-	*pulumi.OutputState
-}
+type DataConnectorAzureActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAzureActiveDirectoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataConnectorAzureActiveDirectory)(nil))
@@ -265,14 +263,12 @@ func (o DataConnectorAzureActiveDirectoryOutput) ToDataConnectorAzureActiveDirec
 }
 
 func (o DataConnectorAzureActiveDirectoryOutput) ToDataConnectorAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) DataConnectorAzureActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v DataConnectorAzureActiveDirectory) *DataConnectorAzureActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorAzureActiveDirectory) *DataConnectorAzureActiveDirectory {
 		return &v
 	}).(DataConnectorAzureActiveDirectoryPtrOutput)
 }
 
-type DataConnectorAzureActiveDirectoryPtrOutput struct {
-	*pulumi.OutputState
-}
+type DataConnectorAzureActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAzureActiveDirectoryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DataConnectorAzureActiveDirectory)(nil))
@@ -284,6 +280,16 @@ func (o DataConnectorAzureActiveDirectoryPtrOutput) ToDataConnectorAzureActiveDi
 
 func (o DataConnectorAzureActiveDirectoryPtrOutput) ToDataConnectorAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) DataConnectorAzureActiveDirectoryPtrOutput {
 	return o
+}
+
+func (o DataConnectorAzureActiveDirectoryPtrOutput) Elem() DataConnectorAzureActiveDirectoryOutput {
+	return o.ApplyT(func(v *DataConnectorAzureActiveDirectory) DataConnectorAzureActiveDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret DataConnectorAzureActiveDirectory
+		return ret
+	}).(DataConnectorAzureActiveDirectoryOutput)
 }
 
 type DataConnectorAzureActiveDirectoryArrayOutput struct{ *pulumi.OutputState }

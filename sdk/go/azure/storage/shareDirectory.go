@@ -229,7 +229,7 @@ type ShareDirectoryArrayInput interface {
 type ShareDirectoryArray []ShareDirectoryInput
 
 func (ShareDirectoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ShareDirectory)(nil))
+	return reflect.TypeOf((*[]*ShareDirectory)(nil)).Elem()
 }
 
 func (i ShareDirectoryArray) ToShareDirectoryArrayOutput() ShareDirectoryArrayOutput {
@@ -254,7 +254,7 @@ type ShareDirectoryMapInput interface {
 type ShareDirectoryMap map[string]ShareDirectoryInput
 
 func (ShareDirectoryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ShareDirectory)(nil))
+	return reflect.TypeOf((*map[string]*ShareDirectory)(nil)).Elem()
 }
 
 func (i ShareDirectoryMap) ToShareDirectoryMapOutput() ShareDirectoryMapOutput {
@@ -265,9 +265,7 @@ func (i ShareDirectoryMap) ToShareDirectoryMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ShareDirectoryMapOutput)
 }
 
-type ShareDirectoryOutput struct {
-	*pulumi.OutputState
-}
+type ShareDirectoryOutput struct{ *pulumi.OutputState }
 
 func (ShareDirectoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ShareDirectory)(nil))
@@ -286,14 +284,12 @@ func (o ShareDirectoryOutput) ToShareDirectoryPtrOutput() ShareDirectoryPtrOutpu
 }
 
 func (o ShareDirectoryOutput) ToShareDirectoryPtrOutputWithContext(ctx context.Context) ShareDirectoryPtrOutput {
-	return o.ApplyT(func(v ShareDirectory) *ShareDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShareDirectory) *ShareDirectory {
 		return &v
 	}).(ShareDirectoryPtrOutput)
 }
 
-type ShareDirectoryPtrOutput struct {
-	*pulumi.OutputState
-}
+type ShareDirectoryPtrOutput struct{ *pulumi.OutputState }
 
 func (ShareDirectoryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ShareDirectory)(nil))
@@ -305,6 +301,16 @@ func (o ShareDirectoryPtrOutput) ToShareDirectoryPtrOutput() ShareDirectoryPtrOu
 
 func (o ShareDirectoryPtrOutput) ToShareDirectoryPtrOutputWithContext(ctx context.Context) ShareDirectoryPtrOutput {
 	return o
+}
+
+func (o ShareDirectoryPtrOutput) Elem() ShareDirectoryOutput {
+	return o.ApplyT(func(v *ShareDirectory) ShareDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret ShareDirectory
+		return ret
+	}).(ShareDirectoryOutput)
 }
 
 type ShareDirectoryArrayOutput struct{ *pulumi.OutputState }

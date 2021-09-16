@@ -335,7 +335,7 @@ type WindowsVirtualMachineArrayInput interface {
 type WindowsVirtualMachineArray []WindowsVirtualMachineInput
 
 func (WindowsVirtualMachineArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*WindowsVirtualMachine)(nil))
+	return reflect.TypeOf((*[]*WindowsVirtualMachine)(nil)).Elem()
 }
 
 func (i WindowsVirtualMachineArray) ToWindowsVirtualMachineArrayOutput() WindowsVirtualMachineArrayOutput {
@@ -360,7 +360,7 @@ type WindowsVirtualMachineMapInput interface {
 type WindowsVirtualMachineMap map[string]WindowsVirtualMachineInput
 
 func (WindowsVirtualMachineMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*WindowsVirtualMachine)(nil))
+	return reflect.TypeOf((*map[string]*WindowsVirtualMachine)(nil)).Elem()
 }
 
 func (i WindowsVirtualMachineMap) ToWindowsVirtualMachineMapOutput() WindowsVirtualMachineMapOutput {
@@ -371,9 +371,7 @@ func (i WindowsVirtualMachineMap) ToWindowsVirtualMachineMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineMapOutput)
 }
 
-type WindowsVirtualMachineOutput struct {
-	*pulumi.OutputState
-}
+type WindowsVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachine)(nil))
@@ -392,14 +390,12 @@ func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachinePtrOutput() WindowsV
 }
 
 func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachinePtrOutputWithContext(ctx context.Context) WindowsVirtualMachinePtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachine) *WindowsVirtualMachine {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachine) *WindowsVirtualMachine {
 		return &v
 	}).(WindowsVirtualMachinePtrOutput)
 }
 
-type WindowsVirtualMachinePtrOutput struct {
-	*pulumi.OutputState
-}
+type WindowsVirtualMachinePtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachinePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachine)(nil))
@@ -411,6 +407,16 @@ func (o WindowsVirtualMachinePtrOutput) ToWindowsVirtualMachinePtrOutput() Windo
 
 func (o WindowsVirtualMachinePtrOutput) ToWindowsVirtualMachinePtrOutputWithContext(ctx context.Context) WindowsVirtualMachinePtrOutput {
 	return o
+}
+
+func (o WindowsVirtualMachinePtrOutput) Elem() WindowsVirtualMachineOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachine) WindowsVirtualMachine {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachine
+		return ret
+	}).(WindowsVirtualMachineOutput)
 }
 
 type WindowsVirtualMachineArrayOutput struct{ *pulumi.OutputState }

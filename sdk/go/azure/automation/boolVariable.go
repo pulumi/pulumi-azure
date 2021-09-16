@@ -202,7 +202,7 @@ type BoolVariableArrayInput interface {
 type BoolVariableArray []BoolVariableInput
 
 func (BoolVariableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BoolVariable)(nil))
+	return reflect.TypeOf((*[]*BoolVariable)(nil)).Elem()
 }
 
 func (i BoolVariableArray) ToBoolVariableArrayOutput() BoolVariableArrayOutput {
@@ -227,7 +227,7 @@ type BoolVariableMapInput interface {
 type BoolVariableMap map[string]BoolVariableInput
 
 func (BoolVariableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BoolVariable)(nil))
+	return reflect.TypeOf((*map[string]*BoolVariable)(nil)).Elem()
 }
 
 func (i BoolVariableMap) ToBoolVariableMapOutput() BoolVariableMapOutput {
@@ -238,9 +238,7 @@ func (i BoolVariableMap) ToBoolVariableMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BoolVariableMapOutput)
 }
 
-type BoolVariableOutput struct {
-	*pulumi.OutputState
-}
+type BoolVariableOutput struct{ *pulumi.OutputState }
 
 func (BoolVariableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BoolVariable)(nil))
@@ -259,14 +257,12 @@ func (o BoolVariableOutput) ToBoolVariablePtrOutput() BoolVariablePtrOutput {
 }
 
 func (o BoolVariableOutput) ToBoolVariablePtrOutputWithContext(ctx context.Context) BoolVariablePtrOutput {
-	return o.ApplyT(func(v BoolVariable) *BoolVariable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BoolVariable) *BoolVariable {
 		return &v
 	}).(BoolVariablePtrOutput)
 }
 
-type BoolVariablePtrOutput struct {
-	*pulumi.OutputState
-}
+type BoolVariablePtrOutput struct{ *pulumi.OutputState }
 
 func (BoolVariablePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BoolVariable)(nil))
@@ -278,6 +274,16 @@ func (o BoolVariablePtrOutput) ToBoolVariablePtrOutput() BoolVariablePtrOutput {
 
 func (o BoolVariablePtrOutput) ToBoolVariablePtrOutputWithContext(ctx context.Context) BoolVariablePtrOutput {
 	return o
+}
+
+func (o BoolVariablePtrOutput) Elem() BoolVariableOutput {
+	return o.ApplyT(func(v *BoolVariable) BoolVariable {
+		if v != nil {
+			return *v
+		}
+		var ret BoolVariable
+		return ret
+	}).(BoolVariableOutput)
 }
 
 type BoolVariableArrayOutput struct{ *pulumi.OutputState }

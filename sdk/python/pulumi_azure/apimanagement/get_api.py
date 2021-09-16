@@ -13,6 +13,7 @@ __all__ = [
     'GetApiResult',
     'AwaitableGetApiResult',
     'get_api',
+    'get_api_output',
 ]
 
 @pulumi.output_type
@@ -279,3 +280,34 @@ def get_api(api_management_name: Optional[str] = None,
         subscription_required=__ret__.subscription_required,
         version=__ret__.version,
         version_set_id=__ret__.version_set_id)
+
+
+@_utilities.lift_output_func(get_api)
+def get_api_output(api_management_name: Optional[pulumi.Input[str]] = None,
+                   name: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   revision: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiResult]:
+    """
+    Use this data source to access information about an existing API Management API.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_api(name="search-api",
+        api_management_name="search-api-management",
+        resource_group_name="search-service",
+        revision="2")
+    pulumi.export("apiManagementApiId", example.id)
+    ```
+
+
+    :param str api_management_name: The name of the API Management Service in which the API Management API exists.
+    :param str name: The name of the API Management API.
+    :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
+    :param str revision: The Revision of the API Management API.
+    """
+    ...

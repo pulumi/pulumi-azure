@@ -337,7 +337,7 @@ type NetworkWatcherFlowLogArrayInput interface {
 type NetworkWatcherFlowLogArray []NetworkWatcherFlowLogInput
 
 func (NetworkWatcherFlowLogArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkWatcherFlowLog)(nil))
+	return reflect.TypeOf((*[]*NetworkWatcherFlowLog)(nil)).Elem()
 }
 
 func (i NetworkWatcherFlowLogArray) ToNetworkWatcherFlowLogArrayOutput() NetworkWatcherFlowLogArrayOutput {
@@ -362,7 +362,7 @@ type NetworkWatcherFlowLogMapInput interface {
 type NetworkWatcherFlowLogMap map[string]NetworkWatcherFlowLogInput
 
 func (NetworkWatcherFlowLogMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkWatcherFlowLog)(nil))
+	return reflect.TypeOf((*map[string]*NetworkWatcherFlowLog)(nil)).Elem()
 }
 
 func (i NetworkWatcherFlowLogMap) ToNetworkWatcherFlowLogMapOutput() NetworkWatcherFlowLogMapOutput {
@@ -373,9 +373,7 @@ func (i NetworkWatcherFlowLogMap) ToNetworkWatcherFlowLogMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherFlowLogMapOutput)
 }
 
-type NetworkWatcherFlowLogOutput struct {
-	*pulumi.OutputState
-}
+type NetworkWatcherFlowLogOutput struct{ *pulumi.OutputState }
 
 func (NetworkWatcherFlowLogOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkWatcherFlowLog)(nil))
@@ -394,14 +392,12 @@ func (o NetworkWatcherFlowLogOutput) ToNetworkWatcherFlowLogPtrOutput() NetworkW
 }
 
 func (o NetworkWatcherFlowLogOutput) ToNetworkWatcherFlowLogPtrOutputWithContext(ctx context.Context) NetworkWatcherFlowLogPtrOutput {
-	return o.ApplyT(func(v NetworkWatcherFlowLog) *NetworkWatcherFlowLog {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkWatcherFlowLog) *NetworkWatcherFlowLog {
 		return &v
 	}).(NetworkWatcherFlowLogPtrOutput)
 }
 
-type NetworkWatcherFlowLogPtrOutput struct {
-	*pulumi.OutputState
-}
+type NetworkWatcherFlowLogPtrOutput struct{ *pulumi.OutputState }
 
 func (NetworkWatcherFlowLogPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NetworkWatcherFlowLog)(nil))
@@ -413,6 +409,16 @@ func (o NetworkWatcherFlowLogPtrOutput) ToNetworkWatcherFlowLogPtrOutput() Netwo
 
 func (o NetworkWatcherFlowLogPtrOutput) ToNetworkWatcherFlowLogPtrOutputWithContext(ctx context.Context) NetworkWatcherFlowLogPtrOutput {
 	return o
+}
+
+func (o NetworkWatcherFlowLogPtrOutput) Elem() NetworkWatcherFlowLogOutput {
+	return o.ApplyT(func(v *NetworkWatcherFlowLog) NetworkWatcherFlowLog {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkWatcherFlowLog
+		return ret
+	}).(NetworkWatcherFlowLogOutput)
 }
 
 type NetworkWatcherFlowLogArrayOutput struct{ *pulumi.OutputState }

@@ -4,6 +4,9 @@
 package lb
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -89,4 +92,118 @@ type GetLBRuleResult struct {
 	// The transport protocol for the external endpoint.
 	Protocol          string `pulumi:"protocol"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+func GetLBRuleOutput(ctx *pulumi.Context, args GetLBRuleOutputArgs, opts ...pulumi.InvokeOption) GetLBRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetLBRuleResult, error) {
+			args := v.(GetLBRuleArgs)
+			r, err := GetLBRule(ctx, &args, opts...)
+			return *r, err
+		}).(GetLBRuleResultOutput)
+}
+
+// A collection of arguments for invoking getLBRule.
+type GetLBRuleOutputArgs struct {
+	// The ID of the Load Balancer Rule.
+	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
+	// The name of this Load Balancer Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Load Balancer Rule exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetLBRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLBRuleArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLBRule.
+type GetLBRuleResultOutput struct{ *pulumi.OutputState }
+
+func (GetLBRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLBRuleResult)(nil)).Elem()
+}
+
+func (o GetLBRuleResultOutput) ToGetLBRuleResultOutput() GetLBRuleResultOutput {
+	return o
+}
+
+func (o GetLBRuleResultOutput) ToGetLBRuleResultOutputWithContext(ctx context.Context) GetLBRuleResultOutput {
+	return o
+}
+
+// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+func (o GetLBRuleResultOutput) BackendAddressPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLBRuleResult) string { return v.BackendAddressPoolId }).(pulumi.StringOutput)
+}
+
+// The port used for internal connections on the endpoint.
+func (o GetLBRuleResultOutput) BackendPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLBRuleResult) int { return v.BackendPort }).(pulumi.IntOutput)
+}
+
+// If outbound SNAT is enabled for this Load Balancer Rule.
+func (o GetLBRuleResultOutput) DisableOutboundSnat() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLBRuleResult) bool { return v.DisableOutboundSnat }).(pulumi.BoolOutput)
+}
+
+// If Floating IPs are enabled for this Load Balancer Rule
+func (o GetLBRuleResultOutput) EnableFloatingIp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLBRuleResult) bool { return v.EnableFloatingIp }).(pulumi.BoolOutput)
+}
+
+// If TCP Reset is enabled for this Load Balancer Rule.
+func (o GetLBRuleResultOutput) EnableTcpReset() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLBRuleResult) bool { return v.EnableTcpReset }).(pulumi.BoolOutput)
+}
+
+// The name of the frontend IP configuration to which the rule is associated.
+func (o GetLBRuleResultOutput) FrontendIpConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLBRuleResult) string { return v.FrontendIpConfigurationName }).(pulumi.StringOutput)
+}
+
+// The port for the external endpoint.
+func (o GetLBRuleResultOutput) FrontendPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLBRuleResult) int { return v.FrontendPort }).(pulumi.IntOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetLBRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLBRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the idle timeout in minutes for TCP connections.
+func (o GetLBRuleResultOutput) IdleTimeoutInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLBRuleResult) int { return v.IdleTimeoutInMinutes }).(pulumi.IntOutput)
+}
+
+// Specifies the load balancing distribution type used by the Load Balancer.
+func (o GetLBRuleResultOutput) LoadDistribution() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLBRuleResult) string { return v.LoadDistribution }).(pulumi.StringOutput)
+}
+
+func (o GetLBRuleResultOutput) LoadbalancerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLBRuleResult) string { return v.LoadbalancerId }).(pulumi.StringOutput)
+}
+
+func (o GetLBRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLBRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A reference to a Probe used by this Load Balancing Rule.
+func (o GetLBRuleResultOutput) ProbeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLBRuleResult) string { return v.ProbeId }).(pulumi.StringOutput)
+}
+
+// The transport protocol for the external endpoint.
+func (o GetLBRuleResultOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLBRuleResult) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o GetLBRuleResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLBRuleResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLBRuleResultOutput{})
 }

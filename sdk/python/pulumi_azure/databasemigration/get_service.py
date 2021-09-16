@@ -12,6 +12,7 @@ __all__ = [
     'GetServiceResult',
     'AwaitableGetServiceResult',
     'get_service',
+    'get_service_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,28 @@ def get_service(name: Optional[str] = None,
         sku_name=__ret__.sku_name,
         subnet_id=__ret__.subnet_id,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_service)
+def get_service_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+    """
+    Use this data source to access information about an existing Database Migration Service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.databasemigration.get_service(name="example-dms",
+        resource_group_name="example-rg")
+    pulumi.export("azurermDmsId", example.id)
+    ```
+
+
+    :param str name: Specify the name of the database migration service.
+    :param str resource_group_name: Specifies the Name of the Resource Group within which the database migration service exists
+    """
+    ...

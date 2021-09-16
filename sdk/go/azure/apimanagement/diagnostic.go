@@ -397,7 +397,7 @@ type DiagnosticArrayInput interface {
 type DiagnosticArray []DiagnosticInput
 
 func (DiagnosticArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Diagnostic)(nil))
+	return reflect.TypeOf((*[]*Diagnostic)(nil)).Elem()
 }
 
 func (i DiagnosticArray) ToDiagnosticArrayOutput() DiagnosticArrayOutput {
@@ -422,7 +422,7 @@ type DiagnosticMapInput interface {
 type DiagnosticMap map[string]DiagnosticInput
 
 func (DiagnosticMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Diagnostic)(nil))
+	return reflect.TypeOf((*map[string]*Diagnostic)(nil)).Elem()
 }
 
 func (i DiagnosticMap) ToDiagnosticMapOutput() DiagnosticMapOutput {
@@ -433,9 +433,7 @@ func (i DiagnosticMap) ToDiagnosticMapOutputWithContext(ctx context.Context) Dia
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticMapOutput)
 }
 
-type DiagnosticOutput struct {
-	*pulumi.OutputState
-}
+type DiagnosticOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Diagnostic)(nil))
@@ -454,14 +452,12 @@ func (o DiagnosticOutput) ToDiagnosticPtrOutput() DiagnosticPtrOutput {
 }
 
 func (o DiagnosticOutput) ToDiagnosticPtrOutputWithContext(ctx context.Context) DiagnosticPtrOutput {
-	return o.ApplyT(func(v Diagnostic) *Diagnostic {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Diagnostic) *Diagnostic {
 		return &v
 	}).(DiagnosticPtrOutput)
 }
 
-type DiagnosticPtrOutput struct {
-	*pulumi.OutputState
-}
+type DiagnosticPtrOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Diagnostic)(nil))
@@ -473,6 +469,16 @@ func (o DiagnosticPtrOutput) ToDiagnosticPtrOutput() DiagnosticPtrOutput {
 
 func (o DiagnosticPtrOutput) ToDiagnosticPtrOutputWithContext(ctx context.Context) DiagnosticPtrOutput {
 	return o
+}
+
+func (o DiagnosticPtrOutput) Elem() DiagnosticOutput {
+	return o.ApplyT(func(v *Diagnostic) Diagnostic {
+		if v != nil {
+			return *v
+		}
+		var ret Diagnostic
+		return ret
+	}).(DiagnosticOutput)
 }
 
 type DiagnosticArrayOutput struct{ *pulumi.OutputState }

@@ -252,7 +252,7 @@ type EndpointServicebusQueueArrayInput interface {
 type EndpointServicebusQueueArray []EndpointServicebusQueueInput
 
 func (EndpointServicebusQueueArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EndpointServicebusQueue)(nil))
+	return reflect.TypeOf((*[]*EndpointServicebusQueue)(nil)).Elem()
 }
 
 func (i EndpointServicebusQueueArray) ToEndpointServicebusQueueArrayOutput() EndpointServicebusQueueArrayOutput {
@@ -277,7 +277,7 @@ type EndpointServicebusQueueMapInput interface {
 type EndpointServicebusQueueMap map[string]EndpointServicebusQueueInput
 
 func (EndpointServicebusQueueMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EndpointServicebusQueue)(nil))
+	return reflect.TypeOf((*map[string]*EndpointServicebusQueue)(nil)).Elem()
 }
 
 func (i EndpointServicebusQueueMap) ToEndpointServicebusQueueMapOutput() EndpointServicebusQueueMapOutput {
@@ -288,9 +288,7 @@ func (i EndpointServicebusQueueMap) ToEndpointServicebusQueueMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusQueueMapOutput)
 }
 
-type EndpointServicebusQueueOutput struct {
-	*pulumi.OutputState
-}
+type EndpointServicebusQueueOutput struct{ *pulumi.OutputState }
 
 func (EndpointServicebusQueueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EndpointServicebusQueue)(nil))
@@ -309,14 +307,12 @@ func (o EndpointServicebusQueueOutput) ToEndpointServicebusQueuePtrOutput() Endp
 }
 
 func (o EndpointServicebusQueueOutput) ToEndpointServicebusQueuePtrOutputWithContext(ctx context.Context) EndpointServicebusQueuePtrOutput {
-	return o.ApplyT(func(v EndpointServicebusQueue) *EndpointServicebusQueue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointServicebusQueue) *EndpointServicebusQueue {
 		return &v
 	}).(EndpointServicebusQueuePtrOutput)
 }
 
-type EndpointServicebusQueuePtrOutput struct {
-	*pulumi.OutputState
-}
+type EndpointServicebusQueuePtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointServicebusQueuePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EndpointServicebusQueue)(nil))
@@ -328,6 +324,16 @@ func (o EndpointServicebusQueuePtrOutput) ToEndpointServicebusQueuePtrOutput() E
 
 func (o EndpointServicebusQueuePtrOutput) ToEndpointServicebusQueuePtrOutputWithContext(ctx context.Context) EndpointServicebusQueuePtrOutput {
 	return o
+}
+
+func (o EndpointServicebusQueuePtrOutput) Elem() EndpointServicebusQueueOutput {
+	return o.ApplyT(func(v *EndpointServicebusQueue) EndpointServicebusQueue {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointServicebusQueue
+		return ret
+	}).(EndpointServicebusQueueOutput)
 }
 
 type EndpointServicebusQueueArrayOutput struct{ *pulumi.OutputState }

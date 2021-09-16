@@ -12,6 +12,7 @@ __all__ = [
     'GetPoolResult',
     'AwaitableGetPoolResult',
     'get_pool',
+    'get_pool_output',
 ]
 
 @pulumi.output_type
@@ -147,3 +148,31 @@ def get_pool(account_name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         service_level=__ret__.service_level,
         size_in_tb=__ret__.size_in_tb)
+
+
+@_utilities.lift_output_func(get_pool)
+def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
+                    name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
+    """
+    Uses this data source to access information about an existing NetApp Pool.
+
+    ## NetApp Pool Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.netapp.get_pool(resource_group_name="acctestRG",
+        account_name="acctestnetappaccount",
+        name="acctestnetapppool")
+    pulumi.export("netappPoolId", example.id)
+    ```
+
+
+    :param str account_name: The name of the NetApp account where the NetApp pool exists.
+    :param str name: The name of the NetApp Pool.
+    :param str resource_group_name: The Name of the Resource Group where the NetApp Pool exists.
+    """
+    ...

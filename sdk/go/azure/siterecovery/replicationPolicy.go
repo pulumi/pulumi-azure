@@ -240,7 +240,7 @@ type ReplicationPolicyArrayInput interface {
 type ReplicationPolicyArray []ReplicationPolicyInput
 
 func (ReplicationPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ReplicationPolicy)(nil))
+	return reflect.TypeOf((*[]*ReplicationPolicy)(nil)).Elem()
 }
 
 func (i ReplicationPolicyArray) ToReplicationPolicyArrayOutput() ReplicationPolicyArrayOutput {
@@ -265,7 +265,7 @@ type ReplicationPolicyMapInput interface {
 type ReplicationPolicyMap map[string]ReplicationPolicyInput
 
 func (ReplicationPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ReplicationPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ReplicationPolicy)(nil)).Elem()
 }
 
 func (i ReplicationPolicyMap) ToReplicationPolicyMapOutput() ReplicationPolicyMapOutput {
@@ -276,9 +276,7 @@ func (i ReplicationPolicyMap) ToReplicationPolicyMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationPolicyMapOutput)
 }
 
-type ReplicationPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationPolicyOutput struct{ *pulumi.OutputState }
 
 func (ReplicationPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationPolicy)(nil))
@@ -297,14 +295,12 @@ func (o ReplicationPolicyOutput) ToReplicationPolicyPtrOutput() ReplicationPolic
 }
 
 func (o ReplicationPolicyOutput) ToReplicationPolicyPtrOutputWithContext(ctx context.Context) ReplicationPolicyPtrOutput {
-	return o.ApplyT(func(v ReplicationPolicy) *ReplicationPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationPolicy) *ReplicationPolicy {
 		return &v
 	}).(ReplicationPolicyPtrOutput)
 }
 
-type ReplicationPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ReplicationPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ReplicationPolicy)(nil))
@@ -316,6 +312,16 @@ func (o ReplicationPolicyPtrOutput) ToReplicationPolicyPtrOutput() ReplicationPo
 
 func (o ReplicationPolicyPtrOutput) ToReplicationPolicyPtrOutputWithContext(ctx context.Context) ReplicationPolicyPtrOutput {
 	return o
+}
+
+func (o ReplicationPolicyPtrOutput) Elem() ReplicationPolicyOutput {
+	return o.ApplyT(func(v *ReplicationPolicy) ReplicationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationPolicy
+		return ret
+	}).(ReplicationPolicyOutput)
 }
 
 type ReplicationPolicyArrayOutput struct{ *pulumi.OutputState }

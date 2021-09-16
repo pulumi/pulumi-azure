@@ -12,6 +12,7 @@ __all__ = [
     'GetSubscriptionResult',
     'AwaitableGetSubscriptionResult',
     'get_subscription',
+    'get_subscription_output',
 ]
 
 @pulumi.output_type
@@ -252,3 +253,34 @@ def get_subscription(name: Optional[str] = None,
         requires_session=__ret__.requires_session,
         resource_group_name=__ret__.resource_group_name,
         topic_name=__ret__.topic_name)
+
+
+@_utilities.lift_output_func(get_subscription)
+def get_subscription_output(name: Optional[pulumi.Input[str]] = None,
+                            namespace_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            topic_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
+    """
+    Use this data source to access information about an existing ServiceBus Subscription.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.servicebus.get_subscription(name="examplesubscription",
+        resource_group_name="exampleresources",
+        namespace_name="examplenamespace",
+        topic_name="exampletopic")
+    pulumi.export("servicebusSubscription", data["azurerm_servicebus_namespace"]["example"])
+    ```
+
+
+    :param str name: Specifies the name of the ServiceBus Subscription.
+    :param str namespace_name: The name of the ServiceBus Namespace.
+    :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+    :param str topic_name: The name of the ServiceBus Topic.
+    """
+    ...

@@ -161,7 +161,7 @@ type ProviderArrayInput interface {
 type ProviderArray []ProviderInput
 
 func (ProviderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Provider)(nil))
+	return reflect.TypeOf((*[]*Provider)(nil)).Elem()
 }
 
 func (i ProviderArray) ToProviderArrayOutput() ProviderArrayOutput {
@@ -186,7 +186,7 @@ type ProviderMapInput interface {
 type ProviderMap map[string]ProviderInput
 
 func (ProviderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Provider)(nil))
+	return reflect.TypeOf((*map[string]*Provider)(nil)).Elem()
 }
 
 func (i ProviderMap) ToProviderMapOutput() ProviderMapOutput {
@@ -197,9 +197,7 @@ func (i ProviderMap) ToProviderMapOutputWithContext(ctx context.Context) Provide
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderMapOutput)
 }
 
-type ProviderOutput struct {
-	*pulumi.OutputState
-}
+type ProviderOutput struct{ *pulumi.OutputState }
 
 func (ProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Provider)(nil))
@@ -218,14 +216,12 @@ func (o ProviderOutput) ToProviderPtrOutput() ProviderPtrOutput {
 }
 
 func (o ProviderOutput) ToProviderPtrOutputWithContext(ctx context.Context) ProviderPtrOutput {
-	return o.ApplyT(func(v Provider) *Provider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Provider) *Provider {
 		return &v
 	}).(ProviderPtrOutput)
 }
 
-type ProviderPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (ProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Provider)(nil))
@@ -237,6 +233,16 @@ func (o ProviderPtrOutput) ToProviderPtrOutput() ProviderPtrOutput {
 
 func (o ProviderPtrOutput) ToProviderPtrOutputWithContext(ctx context.Context) ProviderPtrOutput {
 	return o
+}
+
+func (o ProviderPtrOutput) Elem() ProviderOutput {
+	return o.ApplyT(func(v *Provider) Provider {
+		if v != nil {
+			return *v
+		}
+		var ret Provider
+		return ret
+	}).(ProviderOutput)
 }
 
 type ProviderArrayOutput struct{ *pulumi.OutputState }

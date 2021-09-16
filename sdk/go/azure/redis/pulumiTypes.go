@@ -261,7 +261,7 @@ func (o CacheRedisConfigurationOutput) ToCacheRedisConfigurationPtrOutput() Cach
 }
 
 func (o CacheRedisConfigurationOutput) ToCacheRedisConfigurationPtrOutputWithContext(ctx context.Context) CacheRedisConfigurationPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *CacheRedisConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheRedisConfiguration) *CacheRedisConfiguration {
 		return &v
 	}).(CacheRedisConfigurationPtrOutput)
 }
@@ -351,7 +351,13 @@ func (o CacheRedisConfigurationPtrOutput) ToCacheRedisConfigurationPtrOutputWith
 }
 
 func (o CacheRedisConfigurationPtrOutput) Elem() CacheRedisConfigurationOutput {
-	return o.ApplyT(func(v *CacheRedisConfiguration) CacheRedisConfiguration { return *v }).(CacheRedisConfigurationOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) CacheRedisConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CacheRedisConfiguration
+		return ret
+	}).(CacheRedisConfigurationOutput)
 }
 
 // Enable or disable AOF persistence for this Redis Cache.

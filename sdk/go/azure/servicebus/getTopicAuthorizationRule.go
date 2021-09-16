@@ -4,6 +4,9 @@
 package servicebus
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,4 +82,111 @@ type LookupTopicAuthorizationRuleResult struct {
 	SecondaryKey string `pulumi:"secondaryKey"`
 	Send         bool   `pulumi:"send"`
 	TopicName    string `pulumi:"topicName"`
+}
+
+func LookupTopicAuthorizationRuleOutput(ctx *pulumi.Context, args LookupTopicAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupTopicAuthorizationRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTopicAuthorizationRuleResult, error) {
+			args := v.(LookupTopicAuthorizationRuleArgs)
+			r, err := LookupTopicAuthorizationRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTopicAuthorizationRuleResultOutput)
+}
+
+// A collection of arguments for invoking getTopicAuthorizationRule.
+type LookupTopicAuthorizationRuleOutputArgs struct {
+	// The name of the ServiceBus Topic Authorization Rule resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the ServiceBus Namespace.
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// The name of the resource group in which the ServiceBus Namespace exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the ServiceBus Topic.
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (LookupTopicAuthorizationRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicAuthorizationRuleArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTopicAuthorizationRule.
+type LookupTopicAuthorizationRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTopicAuthorizationRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicAuthorizationRuleResult)(nil)).Elem()
+}
+
+func (o LookupTopicAuthorizationRuleResultOutput) ToLookupTopicAuthorizationRuleResultOutput() LookupTopicAuthorizationRuleResultOutput {
+	return o
+}
+
+func (o LookupTopicAuthorizationRuleResultOutput) ToLookupTopicAuthorizationRuleResultOutputWithContext(ctx context.Context) LookupTopicAuthorizationRuleResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupTopicAuthorizationRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupTopicAuthorizationRuleResultOutput) Listen() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) bool { return v.Listen }).(pulumi.BoolOutput)
+}
+
+func (o LookupTopicAuthorizationRuleResultOutput) Manage() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) bool { return v.Manage }).(pulumi.BoolOutput)
+}
+
+func (o LookupTopicAuthorizationRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupTopicAuthorizationRuleResultOutput) NamespaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.NamespaceName }).(pulumi.StringOutput)
+}
+
+// The Primary Connection String for the ServiceBus Topic authorization Rule.
+func (o LookupTopicAuthorizationRuleResultOutput) PrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
+func (o LookupTopicAuthorizationRuleResultOutput) PrimaryConnectionStringAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.PrimaryConnectionStringAlias }).(pulumi.StringOutput)
+}
+
+// The Primary Key for the ServiceBus Topic authorization Rule.
+func (o LookupTopicAuthorizationRuleResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+func (o LookupTopicAuthorizationRuleResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Secondary Connection String for the ServiceBus Topic authorization Rule.
+func (o LookupTopicAuthorizationRuleResultOutput) SecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.SecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The alias Secondary Connection String for the ServiceBus Namespace
+func (o LookupTopicAuthorizationRuleResultOutput) SecondaryConnectionStringAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.SecondaryConnectionStringAlias }).(pulumi.StringOutput)
+}
+
+// The Secondary Key for the ServiceBus Topic authorization Rule.
+func (o LookupTopicAuthorizationRuleResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func (o LookupTopicAuthorizationRuleResultOutput) Send() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) bool { return v.Send }).(pulumi.BoolOutput)
+}
+
+func (o LookupTopicAuthorizationRuleResultOutput) TopicName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.TopicName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTopicAuthorizationRuleResultOutput{})
 }

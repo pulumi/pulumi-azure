@@ -119,7 +119,7 @@ func (o ApplicationPlanOutput) ToApplicationPlanPtrOutput() ApplicationPlanPtrOu
 }
 
 func (o ApplicationPlanOutput) ToApplicationPlanPtrOutputWithContext(ctx context.Context) ApplicationPlanPtrOutput {
-	return o.ApplyT(func(v ApplicationPlan) *ApplicationPlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPlan) *ApplicationPlan {
 		return &v
 	}).(ApplicationPlanPtrOutput)
 }
@@ -164,7 +164,13 @@ func (o ApplicationPlanPtrOutput) ToApplicationPlanPtrOutputWithContext(ctx cont
 }
 
 func (o ApplicationPlanPtrOutput) Elem() ApplicationPlanOutput {
-	return o.ApplyT(func(v *ApplicationPlan) ApplicationPlan { return *v }).(ApplicationPlanOutput)
+	return o.ApplyT(func(v *ApplicationPlan) ApplicationPlan {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationPlan
+		return ret
+	}).(ApplicationPlanOutput)
 }
 
 // Specifies the name of the plan from the marketplace.

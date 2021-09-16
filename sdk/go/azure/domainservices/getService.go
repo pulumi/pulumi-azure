@@ -4,6 +4,9 @@
 package domainservices
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,4 +85,127 @@ type LookupServiceResult struct {
 	Tags     map[string]string `pulumi:"tags"`
 	TenantId string            `pulumi:"tenantId"`
 	Version  int               `pulumi:"version"`
+}
+
+func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceResult, error) {
+			args := v.(LookupServiceArgs)
+			r, err := LookupService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceResultOutput)
+}
+
+// A collection of arguments for invoking getService.
+type LookupServiceOutputArgs struct {
+	// The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getService.
+type LookupServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceResult)(nil)).Elem()
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutput() LookupServiceResultOutput {
+	return o
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx context.Context) LookupServiceResultOutput {
+	return o
+}
+
+// A unique ID for the managed domain deployment.
+func (o LookupServiceResultOutput) DeploymentId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.DeploymentId }).(pulumi.StringOutput)
+}
+
+// The forest type used by the managed domain. One of `ResourceTrusting`, for a _Resource Forest_, or blank, for a _User Forest_.
+func (o LookupServiceResultOutput) DomainConfigurationType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.DomainConfigurationType }).(pulumi.StringOutput)
+}
+
+// The Active Directory domain of the Domain Service. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+func (o LookupServiceResultOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// Whether group-based filtered sync (also called scoped synchronisation) is enabled.
+func (o LookupServiceResultOutput) FilteredSyncEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceResult) bool { return v.FilteredSyncEnabled }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure location in which the replica set resides.
+func (o LookupServiceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `notifications` block as defined below.
+func (o LookupServiceResultOutput) Notifications() GetServiceNotificationArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceNotification { return v.Notifications }).(GetServiceNotificationArrayOutput)
+}
+
+func (o LookupServiceResultOutput) ReplicaSets() GetServiceReplicaSetArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceReplicaSet { return v.ReplicaSets }).(GetServiceReplicaSetArrayOutput)
+}
+
+func (o LookupServiceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// A `secureLdap` block as defined below.
+func (o LookupServiceResultOutput) SecureLdaps() GetServiceSecureLdapArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceSecureLdap { return v.SecureLdaps }).(GetServiceSecureLdapArrayOutput)
+}
+
+// A `security` block as defined below.
+func (o LookupServiceResultOutput) Securities() GetServiceSecurityArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceSecurity { return v.Securities }).(GetServiceSecurityArrayOutput)
+}
+
+// The SKU of the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
+func (o LookupServiceResultOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) SyncOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.SyncOwner }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupServiceResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServiceResult) int { return v.Version }).(pulumi.IntOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceResultOutput{})
 }

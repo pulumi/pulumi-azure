@@ -107,7 +107,7 @@ func (o CertifiateCertificateOutput) ToCertifiateCertificatePtrOutput() Certifia
 }
 
 func (o CertifiateCertificateOutput) ToCertifiateCertificatePtrOutputWithContext(ctx context.Context) CertifiateCertificatePtrOutput {
-	return o.ApplyT(func(v CertifiateCertificate) *CertifiateCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertifiateCertificate) *CertifiateCertificate {
 		return &v
 	}).(CertifiateCertificatePtrOutput)
 }
@@ -137,7 +137,13 @@ func (o CertifiateCertificatePtrOutput) ToCertifiateCertificatePtrOutputWithCont
 }
 
 func (o CertifiateCertificatePtrOutput) Elem() CertifiateCertificateOutput {
-	return o.ApplyT(func(v *CertifiateCertificate) CertifiateCertificate { return *v }).(CertifiateCertificateOutput)
+	return o.ApplyT(func(v *CertifiateCertificate) CertifiateCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret CertifiateCertificate
+		return ret
+	}).(CertifiateCertificateOutput)
 }
 
 // The base64-encoded certificate contents. Changing this forces a new resource to be created.
@@ -411,7 +417,7 @@ func (o CertifiateCertificatePolicyOutput) ToCertifiateCertificatePolicyPtrOutpu
 }
 
 func (o CertifiateCertificatePolicyOutput) ToCertifiateCertificatePolicyPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyPtrOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicy) *CertifiateCertificatePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertifiateCertificatePolicy) *CertifiateCertificatePolicy {
 		return &v
 	}).(CertifiateCertificatePolicyPtrOutput)
 }
@@ -464,7 +470,13 @@ func (o CertifiateCertificatePolicyPtrOutput) ToCertifiateCertificatePolicyPtrOu
 }
 
 func (o CertifiateCertificatePolicyPtrOutput) Elem() CertifiateCertificatePolicyOutput {
-	return o.ApplyT(func(v *CertifiateCertificatePolicy) CertifiateCertificatePolicy { return *v }).(CertifiateCertificatePolicyOutput)
+	return o.ApplyT(func(v *CertifiateCertificatePolicy) CertifiateCertificatePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret CertifiateCertificatePolicy
+		return ret
+	}).(CertifiateCertificatePolicyOutput)
 }
 
 // A `issuerParameters` block as defined below.
@@ -610,7 +622,7 @@ func (o CertifiateCertificatePolicyIssuerParametersOutput) ToCertifiateCertifica
 }
 
 func (o CertifiateCertificatePolicyIssuerParametersOutput) ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyIssuerParametersPtrOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyIssuerParameters) *CertifiateCertificatePolicyIssuerParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertifiateCertificatePolicyIssuerParameters) *CertifiateCertificatePolicyIssuerParameters {
 		return &v
 	}).(CertifiateCertificatePolicyIssuerParametersPtrOutput)
 }
@@ -636,7 +648,11 @@ func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) ToCertifiateCertif
 
 func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) Elem() CertifiateCertificatePolicyIssuerParametersOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyIssuerParameters) CertifiateCertificatePolicyIssuerParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertifiateCertificatePolicyIssuerParameters
+		return ret
 	}).(CertifiateCertificatePolicyIssuerParametersOutput)
 }
 
@@ -759,7 +775,7 @@ func (o CertifiateCertificatePolicyKeyPropertiesOutput) ToCertifiateCertificateP
 }
 
 func (o CertifiateCertificatePolicyKeyPropertiesOutput) ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyKeyPropertiesPtrOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) *CertifiateCertificatePolicyKeyProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertifiateCertificatePolicyKeyProperties) *CertifiateCertificatePolicyKeyProperties {
 		return &v
 	}).(CertifiateCertificatePolicyKeyPropertiesPtrOutput)
 }
@@ -804,7 +820,13 @@ func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) ToCertifiateCertifica
 }
 
 func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Elem() CertifiateCertificatePolicyKeyPropertiesOutput {
-	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) CertifiateCertificatePolicyKeyProperties { return *v }).(CertifiateCertificatePolicyKeyPropertiesOutput)
+	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) CertifiateCertificatePolicyKeyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CertifiateCertificatePolicyKeyProperties
+		return ret
+	}).(CertifiateCertificatePolicyKeyPropertiesOutput)
 }
 
 // Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
@@ -1173,7 +1195,7 @@ func (o CertifiateCertificatePolicySecretPropertiesOutput) ToCertifiateCertifica
 }
 
 func (o CertifiateCertificatePolicySecretPropertiesOutput) ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicySecretPropertiesPtrOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicySecretProperties) *CertifiateCertificatePolicySecretProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertifiateCertificatePolicySecretProperties) *CertifiateCertificatePolicySecretProperties {
 		return &v
 	}).(CertifiateCertificatePolicySecretPropertiesPtrOutput)
 }
@@ -1199,7 +1221,11 @@ func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) ToCertifiateCertif
 
 func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) Elem() CertifiateCertificatePolicySecretPropertiesOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicySecretProperties) CertifiateCertificatePolicySecretProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertifiateCertificatePolicySecretProperties
+		return ret
 	}).(CertifiateCertificatePolicySecretPropertiesOutput)
 }
 
@@ -1322,7 +1348,7 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesOutput) ToCertifiate
 }
 
 func (o CertifiateCertificatePolicyX509CertificatePropertiesOutput) ToCertifiateCertificatePolicyX509CertificatePropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) *CertifiateCertificatePolicyX509CertificateProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertifiateCertificatePolicyX509CertificateProperties) *CertifiateCertificatePolicyX509CertificateProperties {
 		return &v
 	}).(CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput)
 }
@@ -1370,7 +1396,11 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) ToCertifi
 
 func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) Elem() CertifiateCertificatePolicyX509CertificatePropertiesOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificateProperties) CertifiateCertificatePolicyX509CertificateProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertifiateCertificatePolicyX509CertificateProperties
+		return ret
 	}).(CertifiateCertificatePolicyX509CertificatePropertiesOutput)
 }
 
@@ -1525,7 +1555,7 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNa
 }
 
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput) ToCertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
 		return &v
 	}).(CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput)
 }
@@ -1567,7 +1597,11 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNa
 
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) Elem() CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames
+		return ret
 	}).(CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput)
 }
 
@@ -1698,7 +1732,7 @@ func (o CertificateCertificateOutput) ToCertificateCertificatePtrOutput() Certif
 }
 
 func (o CertificateCertificateOutput) ToCertificateCertificatePtrOutputWithContext(ctx context.Context) CertificateCertificatePtrOutput {
-	return o.ApplyT(func(v CertificateCertificate) *CertificateCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCertificate) *CertificateCertificate {
 		return &v
 	}).(CertificateCertificatePtrOutput)
 }
@@ -1728,7 +1762,13 @@ func (o CertificateCertificatePtrOutput) ToCertificateCertificatePtrOutputWithCo
 }
 
 func (o CertificateCertificatePtrOutput) Elem() CertificateCertificateOutput {
-	return o.ApplyT(func(v *CertificateCertificate) CertificateCertificate { return *v }).(CertificateCertificateOutput)
+	return o.ApplyT(func(v *CertificateCertificate) CertificateCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateCertificate
+		return ret
+	}).(CertificateCertificateOutput)
 }
 
 // The base64-encoded certificate contents. Changing this forces a new resource to be created.
@@ -2002,7 +2042,7 @@ func (o CertificateCertificatePolicyOutput) ToCertificateCertificatePolicyPtrOut
 }
 
 func (o CertificateCertificatePolicyOutput) ToCertificateCertificatePolicyPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyPtrOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicy) *CertificateCertificatePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCertificatePolicy) *CertificateCertificatePolicy {
 		return &v
 	}).(CertificateCertificatePolicyPtrOutput)
 }
@@ -2055,7 +2095,13 @@ func (o CertificateCertificatePolicyPtrOutput) ToCertificateCertificatePolicyPtr
 }
 
 func (o CertificateCertificatePolicyPtrOutput) Elem() CertificateCertificatePolicyOutput {
-	return o.ApplyT(func(v *CertificateCertificatePolicy) CertificateCertificatePolicy { return *v }).(CertificateCertificatePolicyOutput)
+	return o.ApplyT(func(v *CertificateCertificatePolicy) CertificateCertificatePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateCertificatePolicy
+		return ret
+	}).(CertificateCertificatePolicyOutput)
 }
 
 // A `issuerParameters` block as defined below.
@@ -2201,7 +2247,7 @@ func (o CertificateCertificatePolicyIssuerParametersOutput) ToCertificateCertifi
 }
 
 func (o CertificateCertificatePolicyIssuerParametersOutput) ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyIssuerParametersPtrOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyIssuerParameters) *CertificateCertificatePolicyIssuerParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCertificatePolicyIssuerParameters) *CertificateCertificatePolicyIssuerParameters {
 		return &v
 	}).(CertificateCertificatePolicyIssuerParametersPtrOutput)
 }
@@ -2227,7 +2273,11 @@ func (o CertificateCertificatePolicyIssuerParametersPtrOutput) ToCertificateCert
 
 func (o CertificateCertificatePolicyIssuerParametersPtrOutput) Elem() CertificateCertificatePolicyIssuerParametersOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyIssuerParameters) CertificateCertificatePolicyIssuerParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertificateCertificatePolicyIssuerParameters
+		return ret
 	}).(CertificateCertificatePolicyIssuerParametersOutput)
 }
 
@@ -2350,7 +2400,7 @@ func (o CertificateCertificatePolicyKeyPropertiesOutput) ToCertificateCertificat
 }
 
 func (o CertificateCertificatePolicyKeyPropertiesOutput) ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyKeyPropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) *CertificateCertificatePolicyKeyProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCertificatePolicyKeyProperties) *CertificateCertificatePolicyKeyProperties {
 		return &v
 	}).(CertificateCertificatePolicyKeyPropertiesPtrOutput)
 }
@@ -2396,7 +2446,11 @@ func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) ToCertificateCertifi
 
 func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Elem() CertificateCertificatePolicyKeyPropertiesOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) CertificateCertificatePolicyKeyProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertificateCertificatePolicyKeyProperties
+		return ret
 	}).(CertificateCertificatePolicyKeyPropertiesOutput)
 }
 
@@ -2766,7 +2820,7 @@ func (o CertificateCertificatePolicySecretPropertiesOutput) ToCertificateCertifi
 }
 
 func (o CertificateCertificatePolicySecretPropertiesOutput) ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicySecretPropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicySecretProperties) *CertificateCertificatePolicySecretProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCertificatePolicySecretProperties) *CertificateCertificatePolicySecretProperties {
 		return &v
 	}).(CertificateCertificatePolicySecretPropertiesPtrOutput)
 }
@@ -2792,7 +2846,11 @@ func (o CertificateCertificatePolicySecretPropertiesPtrOutput) ToCertificateCert
 
 func (o CertificateCertificatePolicySecretPropertiesPtrOutput) Elem() CertificateCertificatePolicySecretPropertiesOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicySecretProperties) CertificateCertificatePolicySecretProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertificateCertificatePolicySecretProperties
+		return ret
 	}).(CertificateCertificatePolicySecretPropertiesOutput)
 }
 
@@ -2915,7 +2973,7 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesOutput) ToCertifica
 }
 
 func (o CertificateCertificatePolicyX509CertificatePropertiesOutput) ToCertificateCertificatePolicyX509CertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyX509CertificatePropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) *CertificateCertificatePolicyX509CertificateProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCertificatePolicyX509CertificateProperties) *CertificateCertificatePolicyX509CertificateProperties {
 		return &v
 	}).(CertificateCertificatePolicyX509CertificatePropertiesPtrOutput)
 }
@@ -2963,7 +3021,11 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) ToCertif
 
 func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) Elem() CertificateCertificatePolicyX509CertificatePropertiesOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificateProperties) CertificateCertificatePolicyX509CertificateProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertificateCertificatePolicyX509CertificateProperties
+		return ret
 	}).(CertificateCertificatePolicyX509CertificatePropertiesOutput)
 }
 
@@ -3118,7 +3180,7 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 }
 
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput) ToCertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
 		return &v
 	}).(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput)
 }
@@ -3160,7 +3222,11 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) Elem() CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames
+		return ret
 	}).(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput)
 }
 
@@ -3689,7 +3755,7 @@ func (o KeyVaultNetworkAclsOutput) ToKeyVaultNetworkAclsPtrOutput() KeyVaultNetw
 }
 
 func (o KeyVaultNetworkAclsOutput) ToKeyVaultNetworkAclsPtrOutputWithContext(ctx context.Context) KeyVaultNetworkAclsPtrOutput {
-	return o.ApplyT(func(v KeyVaultNetworkAcls) *KeyVaultNetworkAcls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultNetworkAcls) *KeyVaultNetworkAcls {
 		return &v
 	}).(KeyVaultNetworkAclsPtrOutput)
 }
@@ -3729,7 +3795,13 @@ func (o KeyVaultNetworkAclsPtrOutput) ToKeyVaultNetworkAclsPtrOutputWithContext(
 }
 
 func (o KeyVaultNetworkAclsPtrOutput) Elem() KeyVaultNetworkAclsOutput {
-	return o.ApplyT(func(v *KeyVaultNetworkAcls) KeyVaultNetworkAcls { return *v }).(KeyVaultNetworkAclsOutput)
+	return o.ApplyT(func(v *KeyVaultNetworkAcls) KeyVaultNetworkAcls {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultNetworkAcls
+		return ret
+	}).(KeyVaultNetworkAclsOutput)
 }
 
 // Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.

@@ -287,7 +287,7 @@ type SpringCloudServiceArrayInput interface {
 type SpringCloudServiceArray []SpringCloudServiceInput
 
 func (SpringCloudServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SpringCloudService)(nil))
+	return reflect.TypeOf((*[]*SpringCloudService)(nil)).Elem()
 }
 
 func (i SpringCloudServiceArray) ToSpringCloudServiceArrayOutput() SpringCloudServiceArrayOutput {
@@ -312,7 +312,7 @@ type SpringCloudServiceMapInput interface {
 type SpringCloudServiceMap map[string]SpringCloudServiceInput
 
 func (SpringCloudServiceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SpringCloudService)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudService)(nil)).Elem()
 }
 
 func (i SpringCloudServiceMap) ToSpringCloudServiceMapOutput() SpringCloudServiceMapOutput {
@@ -323,9 +323,7 @@ func (i SpringCloudServiceMap) ToSpringCloudServiceMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceMapOutput)
 }
 
-type SpringCloudServiceOutput struct {
-	*pulumi.OutputState
-}
+type SpringCloudServiceOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SpringCloudService)(nil))
@@ -344,14 +342,12 @@ func (o SpringCloudServiceOutput) ToSpringCloudServicePtrOutput() SpringCloudSer
 }
 
 func (o SpringCloudServiceOutput) ToSpringCloudServicePtrOutputWithContext(ctx context.Context) SpringCloudServicePtrOutput {
-	return o.ApplyT(func(v SpringCloudService) *SpringCloudService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudService) *SpringCloudService {
 		return &v
 	}).(SpringCloudServicePtrOutput)
 }
 
-type SpringCloudServicePtrOutput struct {
-	*pulumi.OutputState
-}
+type SpringCloudServicePtrOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServicePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SpringCloudService)(nil))
@@ -363,6 +359,16 @@ func (o SpringCloudServicePtrOutput) ToSpringCloudServicePtrOutput() SpringCloud
 
 func (o SpringCloudServicePtrOutput) ToSpringCloudServicePtrOutputWithContext(ctx context.Context) SpringCloudServicePtrOutput {
 	return o
+}
+
+func (o SpringCloudServicePtrOutput) Elem() SpringCloudServiceOutput {
+	return o.ApplyT(func(v *SpringCloudService) SpringCloudService {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudService
+		return ret
+	}).(SpringCloudServiceOutput)
 }
 
 type SpringCloudServiceArrayOutput struct{ *pulumi.OutputState }

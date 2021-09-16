@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -69,4 +72,89 @@ type LookupExpressRouteCircuitResult struct {
 	ServiceProviderProvisioningState string `pulumi:"serviceProviderProvisioningState"`
 	// A `sku` block for the ExpressRoute circuit as documented below.
 	Sku GetExpressRouteCircuitSku `pulumi:"sku"`
+}
+
+func LookupExpressRouteCircuitOutput(ctx *pulumi.Context, args LookupExpressRouteCircuitOutputArgs, opts ...pulumi.InvokeOption) LookupExpressRouteCircuitResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupExpressRouteCircuitResult, error) {
+			args := v.(LookupExpressRouteCircuitArgs)
+			r, err := LookupExpressRouteCircuit(ctx, &args, opts...)
+			return *r, err
+		}).(LookupExpressRouteCircuitResultOutput)
+}
+
+// A collection of arguments for invoking getExpressRouteCircuit.
+type LookupExpressRouteCircuitOutputArgs struct {
+	// The name of the ExpressRoute circuit.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group where the ExpressRoute circuit exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupExpressRouteCircuitOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupExpressRouteCircuitArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getExpressRouteCircuit.
+type LookupExpressRouteCircuitResultOutput struct{ *pulumi.OutputState }
+
+func (LookupExpressRouteCircuitResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupExpressRouteCircuitResult)(nil)).Elem()
+}
+
+func (o LookupExpressRouteCircuitResultOutput) ToLookupExpressRouteCircuitResultOutput() LookupExpressRouteCircuitResultOutput {
+	return o
+}
+
+func (o LookupExpressRouteCircuitResultOutput) ToLookupExpressRouteCircuitResultOutputWithContext(ctx context.Context) LookupExpressRouteCircuitResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupExpressRouteCircuitResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure location where the ExpressRoute circuit exists
+func (o LookupExpressRouteCircuitResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupExpressRouteCircuitResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `peerings` block for the ExpressRoute circuit as documented below
+func (o LookupExpressRouteCircuitResultOutput) Peerings() GetExpressRouteCircuitPeeringTypeArrayOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitResult) []GetExpressRouteCircuitPeeringType { return v.Peerings }).(GetExpressRouteCircuitPeeringTypeArrayOutput)
+}
+
+func (o LookupExpressRouteCircuitResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The string needed by the service provider to provision the ExpressRoute circuit.
+func (o LookupExpressRouteCircuitResultOutput) ServiceKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitResult) string { return v.ServiceKey }).(pulumi.StringOutput)
+}
+
+// A `serviceProviderProperties` block for the ExpressRoute circuit as documented below
+func (o LookupExpressRouteCircuitResultOutput) ServiceProviderProperties() GetExpressRouteCircuitServiceProviderPropertyArrayOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitResult) []GetExpressRouteCircuitServiceProviderProperty {
+		return v.ServiceProviderProperties
+	}).(GetExpressRouteCircuitServiceProviderPropertyArrayOutput)
+}
+
+// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+func (o LookupExpressRouteCircuitResultOutput) ServiceProviderProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitResult) string { return v.ServiceProviderProvisioningState }).(pulumi.StringOutput)
+}
+
+// A `sku` block for the ExpressRoute circuit as documented below.
+func (o LookupExpressRouteCircuitResultOutput) Sku() GetExpressRouteCircuitSkuOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitResult) GetExpressRouteCircuitSku { return v.Sku }).(GetExpressRouteCircuitSkuOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupExpressRouteCircuitResultOutput{})
 }

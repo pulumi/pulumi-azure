@@ -253,7 +253,7 @@ type ProtectedVMArrayInput interface {
 type ProtectedVMArray []ProtectedVMInput
 
 func (ProtectedVMArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProtectedVM)(nil))
+	return reflect.TypeOf((*[]*ProtectedVM)(nil)).Elem()
 }
 
 func (i ProtectedVMArray) ToProtectedVMArrayOutput() ProtectedVMArrayOutput {
@@ -278,7 +278,7 @@ type ProtectedVMMapInput interface {
 type ProtectedVMMap map[string]ProtectedVMInput
 
 func (ProtectedVMMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProtectedVM)(nil))
+	return reflect.TypeOf((*map[string]*ProtectedVM)(nil)).Elem()
 }
 
 func (i ProtectedVMMap) ToProtectedVMMapOutput() ProtectedVMMapOutput {
@@ -289,9 +289,7 @@ func (i ProtectedVMMap) ToProtectedVMMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMMapOutput)
 }
 
-type ProtectedVMOutput struct {
-	*pulumi.OutputState
-}
+type ProtectedVMOutput struct{ *pulumi.OutputState }
 
 func (ProtectedVMOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProtectedVM)(nil))
@@ -310,14 +308,12 @@ func (o ProtectedVMOutput) ToProtectedVMPtrOutput() ProtectedVMPtrOutput {
 }
 
 func (o ProtectedVMOutput) ToProtectedVMPtrOutputWithContext(ctx context.Context) ProtectedVMPtrOutput {
-	return o.ApplyT(func(v ProtectedVM) *ProtectedVM {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectedVM) *ProtectedVM {
 		return &v
 	}).(ProtectedVMPtrOutput)
 }
 
-type ProtectedVMPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProtectedVMPtrOutput struct{ *pulumi.OutputState }
 
 func (ProtectedVMPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProtectedVM)(nil))
@@ -329,6 +325,16 @@ func (o ProtectedVMPtrOutput) ToProtectedVMPtrOutput() ProtectedVMPtrOutput {
 
 func (o ProtectedVMPtrOutput) ToProtectedVMPtrOutputWithContext(ctx context.Context) ProtectedVMPtrOutput {
 	return o
+}
+
+func (o ProtectedVMPtrOutput) Elem() ProtectedVMOutput {
+	return o.ApplyT(func(v *ProtectedVM) ProtectedVM {
+		if v != nil {
+			return *v
+		}
+		var ret ProtectedVM
+		return ret
+	}).(ProtectedVMOutput)
 }
 
 type ProtectedVMArrayOutput struct{ *pulumi.OutputState }

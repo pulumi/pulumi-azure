@@ -275,7 +275,7 @@ type SpringCloudAppArrayInput interface {
 type SpringCloudAppArray []SpringCloudAppInput
 
 func (SpringCloudAppArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SpringCloudApp)(nil))
+	return reflect.TypeOf((*[]*SpringCloudApp)(nil)).Elem()
 }
 
 func (i SpringCloudAppArray) ToSpringCloudAppArrayOutput() SpringCloudAppArrayOutput {
@@ -300,7 +300,7 @@ type SpringCloudAppMapInput interface {
 type SpringCloudAppMap map[string]SpringCloudAppInput
 
 func (SpringCloudAppMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SpringCloudApp)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudApp)(nil)).Elem()
 }
 
 func (i SpringCloudAppMap) ToSpringCloudAppMapOutput() SpringCloudAppMapOutput {
@@ -311,9 +311,7 @@ func (i SpringCloudAppMap) ToSpringCloudAppMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppMapOutput)
 }
 
-type SpringCloudAppOutput struct {
-	*pulumi.OutputState
-}
+type SpringCloudAppOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SpringCloudApp)(nil))
@@ -332,14 +330,12 @@ func (o SpringCloudAppOutput) ToSpringCloudAppPtrOutput() SpringCloudAppPtrOutpu
 }
 
 func (o SpringCloudAppOutput) ToSpringCloudAppPtrOutputWithContext(ctx context.Context) SpringCloudAppPtrOutput {
-	return o.ApplyT(func(v SpringCloudApp) *SpringCloudApp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudApp) *SpringCloudApp {
 		return &v
 	}).(SpringCloudAppPtrOutput)
 }
 
-type SpringCloudAppPtrOutput struct {
-	*pulumi.OutputState
-}
+type SpringCloudAppPtrOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SpringCloudApp)(nil))
@@ -351,6 +347,16 @@ func (o SpringCloudAppPtrOutput) ToSpringCloudAppPtrOutput() SpringCloudAppPtrOu
 
 func (o SpringCloudAppPtrOutput) ToSpringCloudAppPtrOutputWithContext(ctx context.Context) SpringCloudAppPtrOutput {
 	return o
+}
+
+func (o SpringCloudAppPtrOutput) Elem() SpringCloudAppOutput {
+	return o.ApplyT(func(v *SpringCloudApp) SpringCloudApp {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudApp
+		return ret
+	}).(SpringCloudAppOutput)
 }
 
 type SpringCloudAppArrayOutput struct{ *pulumi.OutputState }

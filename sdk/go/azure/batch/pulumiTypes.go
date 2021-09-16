@@ -107,7 +107,7 @@ func (o AccountKeyVaultReferenceOutput) ToAccountKeyVaultReferencePtrOutput() Ac
 }
 
 func (o AccountKeyVaultReferenceOutput) ToAccountKeyVaultReferencePtrOutputWithContext(ctx context.Context) AccountKeyVaultReferencePtrOutput {
-	return o.ApplyT(func(v AccountKeyVaultReference) *AccountKeyVaultReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountKeyVaultReference) *AccountKeyVaultReference {
 		return &v
 	}).(AccountKeyVaultReferencePtrOutput)
 }
@@ -137,7 +137,13 @@ func (o AccountKeyVaultReferencePtrOutput) ToAccountKeyVaultReferencePtrOutputWi
 }
 
 func (o AccountKeyVaultReferencePtrOutput) Elem() AccountKeyVaultReferenceOutput {
-	return o.ApplyT(func(v *AccountKeyVaultReference) AccountKeyVaultReference { return *v }).(AccountKeyVaultReferenceOutput)
+	return o.ApplyT(func(v *AccountKeyVaultReference) AccountKeyVaultReference {
+		if v != nil {
+			return *v
+		}
+		var ret AccountKeyVaultReference
+		return ret
+	}).(AccountKeyVaultReferenceOutput)
 }
 
 // The Azure identifier of the Azure KeyVault to use.
@@ -257,7 +263,7 @@ func (o PoolAutoScaleOutput) ToPoolAutoScalePtrOutput() PoolAutoScalePtrOutput {
 }
 
 func (o PoolAutoScaleOutput) ToPoolAutoScalePtrOutputWithContext(ctx context.Context) PoolAutoScalePtrOutput {
-	return o.ApplyT(func(v PoolAutoScale) *PoolAutoScale {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolAutoScale) *PoolAutoScale {
 		return &v
 	}).(PoolAutoScalePtrOutput)
 }
@@ -287,7 +293,13 @@ func (o PoolAutoScalePtrOutput) ToPoolAutoScalePtrOutputWithContext(ctx context.
 }
 
 func (o PoolAutoScalePtrOutput) Elem() PoolAutoScaleOutput {
-	return o.ApplyT(func(v *PoolAutoScale) PoolAutoScale { return *v }).(PoolAutoScaleOutput)
+	return o.ApplyT(func(v *PoolAutoScale) PoolAutoScale {
+		if v != nil {
+			return *v
+		}
+		var ret PoolAutoScale
+		return ret
+	}).(PoolAutoScaleOutput)
 }
 
 // The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
@@ -535,7 +547,7 @@ func (o PoolContainerConfigurationOutput) ToPoolContainerConfigurationPtrOutput(
 }
 
 func (o PoolContainerConfigurationOutput) ToPoolContainerConfigurationPtrOutputWithContext(ctx context.Context) PoolContainerConfigurationPtrOutput {
-	return o.ApplyT(func(v PoolContainerConfiguration) *PoolContainerConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolContainerConfiguration) *PoolContainerConfiguration {
 		return &v
 	}).(PoolContainerConfigurationPtrOutput)
 }
@@ -572,7 +584,13 @@ func (o PoolContainerConfigurationPtrOutput) ToPoolContainerConfigurationPtrOutp
 }
 
 func (o PoolContainerConfigurationPtrOutput) Elem() PoolContainerConfigurationOutput {
-	return o.ApplyT(func(v *PoolContainerConfiguration) PoolContainerConfiguration { return *v }).(PoolContainerConfigurationOutput)
+	return o.ApplyT(func(v *PoolContainerConfiguration) PoolContainerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PoolContainerConfiguration
+		return ret
+	}).(PoolContainerConfigurationOutput)
 }
 
 // A list of container image names to use, as would be specified by `docker pull`.
@@ -821,7 +839,7 @@ func (o PoolFixedScaleOutput) ToPoolFixedScalePtrOutput() PoolFixedScalePtrOutpu
 }
 
 func (o PoolFixedScaleOutput) ToPoolFixedScalePtrOutputWithContext(ctx context.Context) PoolFixedScalePtrOutput {
-	return o.ApplyT(func(v PoolFixedScale) *PoolFixedScale {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolFixedScale) *PoolFixedScale {
 		return &v
 	}).(PoolFixedScalePtrOutput)
 }
@@ -856,7 +874,13 @@ func (o PoolFixedScalePtrOutput) ToPoolFixedScalePtrOutputWithContext(ctx contex
 }
 
 func (o PoolFixedScalePtrOutput) Elem() PoolFixedScaleOutput {
-	return o.ApplyT(func(v *PoolFixedScale) PoolFixedScale { return *v }).(PoolFixedScaleOutput)
+	return o.ApplyT(func(v *PoolFixedScale) PoolFixedScale {
+		if v != nil {
+			return *v
+		}
+		var ret PoolFixedScale
+		return ret
+	}).(PoolFixedScaleOutput)
 }
 
 // The timeout for resize operations. Defaults to `PT15M`.
@@ -994,7 +1018,7 @@ func (o PoolNetworkConfigurationOutput) ToPoolNetworkConfigurationPtrOutput() Po
 }
 
 func (o PoolNetworkConfigurationOutput) ToPoolNetworkConfigurationPtrOutputWithContext(ctx context.Context) PoolNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v PoolNetworkConfiguration) *PoolNetworkConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolNetworkConfiguration) *PoolNetworkConfiguration {
 		return &v
 	}).(PoolNetworkConfigurationPtrOutput)
 }
@@ -1036,7 +1060,13 @@ func (o PoolNetworkConfigurationPtrOutput) ToPoolNetworkConfigurationPtrOutputWi
 }
 
 func (o PoolNetworkConfigurationPtrOutput) Elem() PoolNetworkConfigurationOutput {
-	return o.ApplyT(func(v *PoolNetworkConfiguration) PoolNetworkConfiguration { return *v }).(PoolNetworkConfigurationOutput)
+	return o.ApplyT(func(v *PoolNetworkConfiguration) PoolNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PoolNetworkConfiguration
+		return ret
+	}).(PoolNetworkConfigurationOutput)
 }
 
 // A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
@@ -1444,7 +1474,7 @@ func (o PoolStartTaskOutput) ToPoolStartTaskPtrOutput() PoolStartTaskPtrOutput {
 }
 
 func (o PoolStartTaskOutput) ToPoolStartTaskPtrOutputWithContext(ctx context.Context) PoolStartTaskPtrOutput {
-	return o.ApplyT(func(v PoolStartTask) *PoolStartTask {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolStartTask) *PoolStartTask {
 		return &v
 	}).(PoolStartTaskPtrOutput)
 }
@@ -1494,7 +1524,13 @@ func (o PoolStartTaskPtrOutput) ToPoolStartTaskPtrOutputWithContext(ctx context.
 }
 
 func (o PoolStartTaskPtrOutput) Elem() PoolStartTaskOutput {
-	return o.ApplyT(func(v *PoolStartTask) PoolStartTask { return *v }).(PoolStartTaskOutput)
+	return o.ApplyT(func(v *PoolStartTask) PoolStartTask {
+		if v != nil {
+			return *v
+		}
+		var ret PoolStartTask
+		return ret
+	}).(PoolStartTaskOutput)
 }
 
 // The command line executed by the start task.
@@ -1796,7 +1832,7 @@ func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityPtrOutput() 
 }
 
 func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityPtrOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityPtrOutput {
-	return o.ApplyT(func(v PoolStartTaskUserIdentity) *PoolStartTaskUserIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolStartTaskUserIdentity) *PoolStartTaskUserIdentity {
 		return &v
 	}).(PoolStartTaskUserIdentityPtrOutput)
 }
@@ -1826,7 +1862,13 @@ func (o PoolStartTaskUserIdentityPtrOutput) ToPoolStartTaskUserIdentityPtrOutput
 }
 
 func (o PoolStartTaskUserIdentityPtrOutput) Elem() PoolStartTaskUserIdentityOutput {
-	return o.ApplyT(func(v *PoolStartTaskUserIdentity) PoolStartTaskUserIdentity { return *v }).(PoolStartTaskUserIdentityOutput)
+	return o.ApplyT(func(v *PoolStartTaskUserIdentity) PoolStartTaskUserIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret PoolStartTaskUserIdentity
+		return ret
+	}).(PoolStartTaskUserIdentityOutput)
 }
 
 // A `autoUser` block that describes the user identity under which the start task runs.
@@ -1946,7 +1988,7 @@ func (o PoolStartTaskUserIdentityAutoUserOutput) ToPoolStartTaskUserIdentityAuto
 }
 
 func (o PoolStartTaskUserIdentityAutoUserOutput) ToPoolStartTaskUserIdentityAutoUserPtrOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityAutoUserPtrOutput {
-	return o.ApplyT(func(v PoolStartTaskUserIdentityAutoUser) *PoolStartTaskUserIdentityAutoUser {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolStartTaskUserIdentityAutoUser) *PoolStartTaskUserIdentityAutoUser {
 		return &v
 	}).(PoolStartTaskUserIdentityAutoUserPtrOutput)
 }
@@ -1976,7 +2018,13 @@ func (o PoolStartTaskUserIdentityAutoUserPtrOutput) ToPoolStartTaskUserIdentityA
 }
 
 func (o PoolStartTaskUserIdentityAutoUserPtrOutput) Elem() PoolStartTaskUserIdentityAutoUserOutput {
-	return o.ApplyT(func(v *PoolStartTaskUserIdentityAutoUser) PoolStartTaskUserIdentityAutoUser { return *v }).(PoolStartTaskUserIdentityAutoUserOutput)
+	return o.ApplyT(func(v *PoolStartTaskUserIdentityAutoUser) PoolStartTaskUserIdentityAutoUser {
+		if v != nil {
+			return *v
+		}
+		var ret PoolStartTaskUserIdentityAutoUser
+		return ret
+	}).(PoolStartTaskUserIdentityAutoUserOutput)
 }
 
 // The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
@@ -2110,7 +2158,7 @@ func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferencePtrOutput() 
 }
 
 func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferencePtrOutputWithContext(ctx context.Context) PoolStorageImageReferencePtrOutput {
-	return o.ApplyT(func(v PoolStorageImageReference) *PoolStorageImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolStorageImageReference) *PoolStorageImageReference {
 		return &v
 	}).(PoolStorageImageReferencePtrOutput)
 }
@@ -2156,7 +2204,13 @@ func (o PoolStorageImageReferencePtrOutput) ToPoolStorageImageReferencePtrOutput
 }
 
 func (o PoolStorageImageReferencePtrOutput) Elem() PoolStorageImageReferenceOutput {
-	return o.ApplyT(func(v *PoolStorageImageReference) PoolStorageImageReference { return *v }).(PoolStorageImageReferenceOutput)
+	return o.ApplyT(func(v *PoolStorageImageReference) PoolStorageImageReference {
+		if v != nil {
+			return *v
+		}
+		var ret PoolStorageImageReference
+		return ret
+	}).(PoolStorageImageReferenceOutput)
 }
 
 // Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
@@ -3220,6 +3274,47 @@ func (i GetPoolStartTaskArgs) ToGetPoolStartTaskOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskOutput)
 }
 
+func (i GetPoolStartTaskArgs) ToGetPoolStartTaskPtrOutput() GetPoolStartTaskPtrOutput {
+	return i.ToGetPoolStartTaskPtrOutputWithContext(context.Background())
+}
+
+func (i GetPoolStartTaskArgs) ToGetPoolStartTaskPtrOutputWithContext(ctx context.Context) GetPoolStartTaskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskOutput).ToGetPoolStartTaskPtrOutputWithContext(ctx)
+}
+
+// GetPoolStartTaskPtrInput is an input type that accepts GetPoolStartTaskArgs, GetPoolStartTaskPtr and GetPoolStartTaskPtrOutput values.
+// You can construct a concrete instance of `GetPoolStartTaskPtrInput` via:
+//
+//          GetPoolStartTaskArgs{...}
+//
+//  or:
+//
+//          nil
+type GetPoolStartTaskPtrInput interface {
+	pulumi.Input
+
+	ToGetPoolStartTaskPtrOutput() GetPoolStartTaskPtrOutput
+	ToGetPoolStartTaskPtrOutputWithContext(context.Context) GetPoolStartTaskPtrOutput
+}
+
+type getPoolStartTaskPtrType GetPoolStartTaskArgs
+
+func GetPoolStartTaskPtr(v *GetPoolStartTaskArgs) GetPoolStartTaskPtrInput {
+	return (*getPoolStartTaskPtrType)(v)
+}
+
+func (*getPoolStartTaskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPoolStartTask)(nil)).Elem()
+}
+
+func (i *getPoolStartTaskPtrType) ToGetPoolStartTaskPtrOutput() GetPoolStartTaskPtrOutput {
+	return i.ToGetPoolStartTaskPtrOutputWithContext(context.Background())
+}
+
+func (i *getPoolStartTaskPtrType) ToGetPoolStartTaskPtrOutputWithContext(ctx context.Context) GetPoolStartTaskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskPtrOutput)
+}
+
 type GetPoolStartTaskOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskOutput) ElementType() reflect.Type {
@@ -3232,6 +3327,16 @@ func (o GetPoolStartTaskOutput) ToGetPoolStartTaskOutput() GetPoolStartTaskOutpu
 
 func (o GetPoolStartTaskOutput) ToGetPoolStartTaskOutputWithContext(ctx context.Context) GetPoolStartTaskOutput {
 	return o
+}
+
+func (o GetPoolStartTaskOutput) ToGetPoolStartTaskPtrOutput() GetPoolStartTaskPtrOutput {
+	return o.ToGetPoolStartTaskPtrOutputWithContext(context.Background())
+}
+
+func (o GetPoolStartTaskOutput) ToGetPoolStartTaskPtrOutputWithContext(ctx context.Context) GetPoolStartTaskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPoolStartTask) *GetPoolStartTask {
+		return &v
+	}).(GetPoolStartTaskPtrOutput)
 }
 
 // The command line executed by the start task.
@@ -3262,6 +3367,90 @@ func (o GetPoolStartTaskOutput) UserIdentities() GetPoolStartTaskUserIdentityArr
 // A flag that indicates if the Batch pool should wait for the start task to be completed.
 func (o GetPoolStartTaskOutput) WaitForSuccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetPoolStartTask) *bool { return v.WaitForSuccess }).(pulumi.BoolPtrOutput)
+}
+
+type GetPoolStartTaskPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPoolStartTaskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPoolStartTask)(nil)).Elem()
+}
+
+func (o GetPoolStartTaskPtrOutput) ToGetPoolStartTaskPtrOutput() GetPoolStartTaskPtrOutput {
+	return o
+}
+
+func (o GetPoolStartTaskPtrOutput) ToGetPoolStartTaskPtrOutputWithContext(ctx context.Context) GetPoolStartTaskPtrOutput {
+	return o
+}
+
+func (o GetPoolStartTaskPtrOutput) Elem() GetPoolStartTaskOutput {
+	return o.ApplyT(func(v *GetPoolStartTask) GetPoolStartTask {
+		if v != nil {
+			return *v
+		}
+		var ret GetPoolStartTask
+		return ret
+	}).(GetPoolStartTaskOutput)
+}
+
+// The command line executed by the start task.
+func (o GetPoolStartTaskPtrOutput) CommandLine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPoolStartTask) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CommandLine
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of strings (key,value) that represents the environment variables to set in the start task.
+func (o GetPoolStartTaskPtrOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GetPoolStartTask) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(pulumi.StringMapOutput)
+}
+
+// The number of retry count.
+func (o GetPoolStartTaskPtrOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetPoolStartTask) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTaskRetryCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+func (o GetPoolStartTaskPtrOutput) ResourceFiles() GetPoolStartTaskResourceFileArrayOutput {
+	return o.ApplyT(func(v *GetPoolStartTask) []GetPoolStartTaskResourceFile {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceFiles
+	}).(GetPoolStartTaskResourceFileArrayOutput)
+}
+
+// A `userIdentity` block that describes the user identity under which the start task runs.
+func (o GetPoolStartTaskPtrOutput) UserIdentities() GetPoolStartTaskUserIdentityArrayOutput {
+	return o.ApplyT(func(v *GetPoolStartTask) []GetPoolStartTaskUserIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.UserIdentities
+	}).(GetPoolStartTaskUserIdentityArrayOutput)
+}
+
+// A flag that indicates if the Batch pool should wait for the start task to be completed.
+func (o GetPoolStartTaskPtrOutput) WaitForSuccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetPoolStartTask) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WaitForSuccess
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GetPoolStartTaskResourceFile struct {
@@ -3785,6 +3974,7 @@ func init() {
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput{})
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskOutput{})
+	pulumi.RegisterOutputType(GetPoolStartTaskPtrOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskResourceFileOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskResourceFileArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskUserIdentityOutput{})

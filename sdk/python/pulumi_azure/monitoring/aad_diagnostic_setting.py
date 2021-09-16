@@ -255,49 +255,49 @@ class AadDiagnosticSetting(pulumi.CustomResource):
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="SignInLogs",
                     enabled=True,
-                    retention_policy={
-                        "enabled": True,
-                        "days": 1,
-                    },
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
                 ),
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="AuditLogs",
                     enabled=True,
-                    retention_policy={
-                        "enabled": True,
-                        "days": 1,
-                    },
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
                 ),
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="NonInteractiveUserSignInLogs",
                     enabled=True,
-                    retention_policy={
-                        "enabled": True,
-                        "days": 1,
-                    },
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
                 ),
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="ServicePrincipalSignInLogs",
                     enabled=True,
-                    retention_policy={
-                        "enabled": True,
-                        "days": 1,
-                    },
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
                 ),
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="ManagedIdentitySignInLogs",
                     enabled=False,
-                    retention_policy={},
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(),
                 ),
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="ProvisioningLogs",
                     enabled=False,
-                    retention_policy={},
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(),
                 ),
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="ADFSSignInLogs",
                     enabled=False,
-                    retention_policy={},
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(),
                 ),
             ])
         ```
@@ -349,49 +349,49 @@ class AadDiagnosticSetting(pulumi.CustomResource):
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="SignInLogs",
                     enabled=True,
-                    retention_policy={
-                        "enabled": True,
-                        "days": 1,
-                    },
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
                 ),
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="AuditLogs",
                     enabled=True,
-                    retention_policy={
-                        "enabled": True,
-                        "days": 1,
-                    },
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
                 ),
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="NonInteractiveUserSignInLogs",
                     enabled=True,
-                    retention_policy={
-                        "enabled": True,
-                        "days": 1,
-                    },
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
                 ),
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="ServicePrincipalSignInLogs",
                     enabled=True,
-                    retention_policy={
-                        "enabled": True,
-                        "days": 1,
-                    },
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(
+                        enabled=True,
+                        days=1,
+                    ),
                 ),
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="ManagedIdentitySignInLogs",
                     enabled=False,
-                    retention_policy={},
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(),
                 ),
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="ProvisioningLogs",
                     enabled=False,
-                    retention_policy={},
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(),
                 ),
                 azure.monitoring.AadDiagnosticSettingLogArgs(
                     category="ADFSSignInLogs",
                     enabled=False,
-                    retention_policy={},
+                    retention_policy=azure.monitoring.AadDiagnosticSettingLogRetentionPolicyArgs(),
                 ),
             ])
         ```

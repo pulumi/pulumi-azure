@@ -4,6 +4,9 @@
 package dns
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,79 @@ type LookupZoneResult struct {
 	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the EventHub Namespace.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupZoneOutput(ctx *pulumi.Context, args LookupZoneOutputArgs, opts ...pulumi.InvokeOption) LookupZoneResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupZoneResult, error) {
+			args := v.(LookupZoneArgs)
+			r, err := LookupZone(ctx, &args, opts...)
+			return *r, err
+		}).(LookupZoneResultOutput)
+}
+
+// A collection of arguments for invoking getZone.
+type LookupZoneOutputArgs struct {
+	// The name of the DNS Zone.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group where the DNS Zone exists.
+	// If the Name of the Resource Group is not provided, the first DNS Zone from the list of DNS Zones
+	// in your subscription that matches `name` will be returned.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupZoneOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupZoneArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getZone.
+type LookupZoneResultOutput struct{ *pulumi.OutputState }
+
+func (LookupZoneResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupZoneResult)(nil)).Elem()
+}
+
+func (o LookupZoneResultOutput) ToLookupZoneResultOutput() LookupZoneResultOutput {
+	return o
+}
+
+func (o LookupZoneResultOutput) ToLookupZoneResultOutputWithContext(ctx context.Context) LookupZoneResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupZoneResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Maximum number of Records in the zone.
+func (o LookupZoneResultOutput) MaxNumberOfRecordSets() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupZoneResult) int { return v.MaxNumberOfRecordSets }).(pulumi.IntOutput)
+}
+
+func (o LookupZoneResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of values that make up the NS record for the zone.
+func (o LookupZoneResultOutput) NameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupZoneResult) []string { return v.NameServers }).(pulumi.StringArrayOutput)
+}
+
+// The number of records already in the zone.
+func (o LookupZoneResultOutput) NumberOfRecordSets() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupZoneResult) int { return v.NumberOfRecordSets }).(pulumi.IntOutput)
+}
+
+func (o LookupZoneResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the EventHub Namespace.
+func (o LookupZoneResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupZoneResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupZoneResultOutput{})
 }

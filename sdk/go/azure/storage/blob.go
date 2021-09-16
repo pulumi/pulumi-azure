@@ -340,7 +340,7 @@ type BlobArrayInput interface {
 type BlobArray []BlobInput
 
 func (BlobArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Blob)(nil))
+	return reflect.TypeOf((*[]*Blob)(nil)).Elem()
 }
 
 func (i BlobArray) ToBlobArrayOutput() BlobArrayOutput {
@@ -365,7 +365,7 @@ type BlobMapInput interface {
 type BlobMap map[string]BlobInput
 
 func (BlobMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Blob)(nil))
+	return reflect.TypeOf((*map[string]*Blob)(nil)).Elem()
 }
 
 func (i BlobMap) ToBlobMapOutput() BlobMapOutput {
@@ -376,9 +376,7 @@ func (i BlobMap) ToBlobMapOutputWithContext(ctx context.Context) BlobMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlobMapOutput)
 }
 
-type BlobOutput struct {
-	*pulumi.OutputState
-}
+type BlobOutput struct{ *pulumi.OutputState }
 
 func (BlobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Blob)(nil))
@@ -397,14 +395,12 @@ func (o BlobOutput) ToBlobPtrOutput() BlobPtrOutput {
 }
 
 func (o BlobOutput) ToBlobPtrOutputWithContext(ctx context.Context) BlobPtrOutput {
-	return o.ApplyT(func(v Blob) *Blob {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Blob) *Blob {
 		return &v
 	}).(BlobPtrOutput)
 }
 
-type BlobPtrOutput struct {
-	*pulumi.OutputState
-}
+type BlobPtrOutput struct{ *pulumi.OutputState }
 
 func (BlobPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Blob)(nil))
@@ -416,6 +412,16 @@ func (o BlobPtrOutput) ToBlobPtrOutput() BlobPtrOutput {
 
 func (o BlobPtrOutput) ToBlobPtrOutputWithContext(ctx context.Context) BlobPtrOutput {
 	return o
+}
+
+func (o BlobPtrOutput) Elem() BlobOutput {
+	return o.ApplyT(func(v *Blob) Blob {
+		if v != nil {
+			return *v
+		}
+		var ret Blob
+		return ret
+	}).(BlobOutput)
 }
 
 type BlobArrayOutput struct{ *pulumi.OutputState }

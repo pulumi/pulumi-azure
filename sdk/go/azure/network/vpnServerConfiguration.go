@@ -314,7 +314,7 @@ type VpnServerConfigurationArrayInput interface {
 type VpnServerConfigurationArray []VpnServerConfigurationInput
 
 func (VpnServerConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpnServerConfiguration)(nil))
+	return reflect.TypeOf((*[]*VpnServerConfiguration)(nil)).Elem()
 }
 
 func (i VpnServerConfigurationArray) ToVpnServerConfigurationArrayOutput() VpnServerConfigurationArrayOutput {
@@ -339,7 +339,7 @@ type VpnServerConfigurationMapInput interface {
 type VpnServerConfigurationMap map[string]VpnServerConfigurationInput
 
 func (VpnServerConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpnServerConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*VpnServerConfiguration)(nil)).Elem()
 }
 
 func (i VpnServerConfigurationMap) ToVpnServerConfigurationMapOutput() VpnServerConfigurationMapOutput {
@@ -350,9 +350,7 @@ func (i VpnServerConfigurationMap) ToVpnServerConfigurationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationMapOutput)
 }
 
-type VpnServerConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type VpnServerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VpnServerConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpnServerConfiguration)(nil))
@@ -371,14 +369,12 @@ func (o VpnServerConfigurationOutput) ToVpnServerConfigurationPtrOutput() VpnSer
 }
 
 func (o VpnServerConfigurationOutput) ToVpnServerConfigurationPtrOutputWithContext(ctx context.Context) VpnServerConfigurationPtrOutput {
-	return o.ApplyT(func(v VpnServerConfiguration) *VpnServerConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnServerConfiguration) *VpnServerConfiguration {
 		return &v
 	}).(VpnServerConfigurationPtrOutput)
 }
 
-type VpnServerConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type VpnServerConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (VpnServerConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VpnServerConfiguration)(nil))
@@ -390,6 +386,16 @@ func (o VpnServerConfigurationPtrOutput) ToVpnServerConfigurationPtrOutput() Vpn
 
 func (o VpnServerConfigurationPtrOutput) ToVpnServerConfigurationPtrOutputWithContext(ctx context.Context) VpnServerConfigurationPtrOutput {
 	return o
+}
+
+func (o VpnServerConfigurationPtrOutput) Elem() VpnServerConfigurationOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) VpnServerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VpnServerConfiguration
+		return ret
+	}).(VpnServerConfigurationOutput)
 }
 
 type VpnServerConfigurationArrayOutput struct{ *pulumi.OutputState }

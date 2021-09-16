@@ -13,6 +13,7 @@ __all__ = [
     'GetConfigurationStoreResult',
     'AwaitableGetConfigurationStoreResult',
     'get_configuration_store',
+    'get_configuration_store_output',
 ]
 
 @pulumi.output_type
@@ -199,3 +200,28 @@ def get_configuration_store(name: Optional[str] = None,
         secondary_write_keys=__ret__.secondary_write_keys,
         sku=__ret__.sku,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_configuration_store)
+def get_configuration_store_output(name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationStoreResult]:
+    """
+    Use this data source to access information about an existing App Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appconfiguration.get_configuration_store(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The Name of this App Configuration.
+    :param str resource_group_name: The name of the Resource Group where the App Configuration exists.
+    """
+    ...

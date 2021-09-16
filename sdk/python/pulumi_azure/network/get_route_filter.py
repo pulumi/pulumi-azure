@@ -13,6 +13,7 @@ __all__ = [
     'GetRouteFilterResult',
     'AwaitableGetRouteFilterResult',
     'get_route_filter',
+    'get_route_filter_output',
 ]
 
 @pulumi.output_type
@@ -137,3 +138,28 @@ def get_route_filter(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         rules=__ret__.rules,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_route_filter)
+def get_route_filter_output(name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteFilterResult]:
+    """
+    Use this data source to access information about an existing Route Filter.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_route_filter(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The Name of this Route Filter.
+    :param str resource_group_name: The name of the Resource Group where the Route Filter exists.
+    """
+    ...

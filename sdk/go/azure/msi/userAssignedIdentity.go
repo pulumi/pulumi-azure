@@ -160,7 +160,7 @@ type UserAssignedIdentityArrayInput interface {
 type UserAssignedIdentityArray []UserAssignedIdentityInput
 
 func (UserAssignedIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserAssignedIdentity)(nil))
+	return reflect.TypeOf((*[]*UserAssignedIdentity)(nil)).Elem()
 }
 
 func (i UserAssignedIdentityArray) ToUserAssignedIdentityArrayOutput() UserAssignedIdentityArrayOutput {
@@ -185,7 +185,7 @@ type UserAssignedIdentityMapInput interface {
 type UserAssignedIdentityMap map[string]UserAssignedIdentityInput
 
 func (UserAssignedIdentityMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserAssignedIdentity)(nil))
+	return reflect.TypeOf((*map[string]*UserAssignedIdentity)(nil)).Elem()
 }
 
 func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput {
@@ -196,9 +196,7 @@ func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapOutput)
 }
 
-type UserAssignedIdentityOutput struct {
-	*pulumi.OutputState
-}
+type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserAssignedIdentity)(nil))
@@ -217,14 +215,12 @@ func (o UserAssignedIdentityOutput) ToUserAssignedIdentityPtrOutput() UserAssign
 }
 
 func (o UserAssignedIdentityOutput) ToUserAssignedIdentityPtrOutputWithContext(ctx context.Context) UserAssignedIdentityPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentity) *UserAssignedIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAssignedIdentity) *UserAssignedIdentity {
 		return &v
 	}).(UserAssignedIdentityPtrOutput)
 }
 
-type UserAssignedIdentityPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserAssignedIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserAssignedIdentity)(nil))
@@ -236,6 +232,16 @@ func (o UserAssignedIdentityPtrOutput) ToUserAssignedIdentityPtrOutput() UserAss
 
 func (o UserAssignedIdentityPtrOutput) ToUserAssignedIdentityPtrOutputWithContext(ctx context.Context) UserAssignedIdentityPtrOutput {
 	return o
+}
+
+func (o UserAssignedIdentityPtrOutput) Elem() UserAssignedIdentityOutput {
+	return o.ApplyT(func(v *UserAssignedIdentity) UserAssignedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret UserAssignedIdentity
+		return ret
+	}).(UserAssignedIdentityOutput)
 }
 
 type UserAssignedIdentityArrayOutput struct{ *pulumi.OutputState }

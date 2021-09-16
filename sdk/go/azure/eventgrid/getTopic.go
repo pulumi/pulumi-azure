@@ -4,6 +4,9 @@
 package eventgrid
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,81 @@ type LookupTopicResult struct {
 	// The Secondary Shared Access Key associated with the EventGrid Topic.
 	SecondaryAccessKey string            `pulumi:"secondaryAccessKey"`
 	Tags               map[string]string `pulumi:"tags"`
+}
+
+func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTopicResult, error) {
+			args := v.(LookupTopicArgs)
+			r, err := LookupTopic(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTopicResultOutput)
+}
+
+// A collection of arguments for invoking getTopic.
+type LookupTopicOutputArgs struct {
+	// The name of the EventGrid Topic resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group in which the EventGrid Topic exists.
+	ResourceGroupName pulumi.StringInput    `pulumi:"resourceGroupName"`
+	Tags              pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupTopicOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTopic.
+type LookupTopicResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTopicResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicResult)(nil)).Elem()
+}
+
+func (o LookupTopicResultOutput) ToLookupTopicResultOutput() LookupTopicResultOutput {
+	return o
+}
+
+func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx context.Context) LookupTopicResultOutput {
+	return o
+}
+
+// The Endpoint associated with the EventGrid Topic.
+func (o LookupTopicResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupTopicResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupTopicResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Primary Shared Access Key associated with the EventGrid Topic.
+func (o LookupTopicResultOutput) PrimaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.PrimaryAccessKey }).(pulumi.StringOutput)
+}
+
+func (o LookupTopicResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Secondary Shared Access Key associated with the EventGrid Topic.
+func (o LookupTopicResultOutput) SecondaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.SecondaryAccessKey }).(pulumi.StringOutput)
+}
+
+func (o LookupTopicResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupTopicResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTopicResultOutput{})
 }

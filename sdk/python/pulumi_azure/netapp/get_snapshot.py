@@ -12,6 +12,7 @@ __all__ = [
     'GetSnapshotResult',
     'AwaitableGetSnapshotResult',
     'get_snapshot',
+    'get_snapshot_output',
 ]
 
 @pulumi.output_type
@@ -149,3 +150,37 @@ def get_snapshot(account_name: Optional[str] = None,
         pool_name=__ret__.pool_name,
         resource_group_name=__ret__.resource_group_name,
         volume_name=__ret__.volume_name)
+
+
+@_utilities.lift_output_func(get_snapshot)
+def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
+                        name: Optional[pulumi.Input[str]] = None,
+                        pool_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        volume_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
+    """
+    Uses this data source to access information about an existing NetApp Snapshot.
+
+    ## NetApp Snapshot Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    test = azure.netapp.get_snapshot(resource_group_name="acctestRG",
+        name="acctestnetappsnapshot",
+        account_name="acctestnetappaccount",
+        pool_name="acctestnetapppool",
+        volume_name="acctestnetappvolume")
+    pulumi.export("netappSnapshotId", data["azurerm_netapp_snapshot"]["example"]["id"])
+    ```
+
+
+    :param str account_name: The name of the NetApp Account where the NetApp Pool exists.
+    :param str name: The name of the NetApp Snapshot.
+    :param str pool_name: The name of the NetApp Pool where the NetApp Volume exists.
+    :param str resource_group_name: The Name of the Resource Group where the NetApp Snapshot exists.
+    :param str volume_name: The name of the NetApp Volume where the NetApp Snapshot exists.
+    """
+    ...

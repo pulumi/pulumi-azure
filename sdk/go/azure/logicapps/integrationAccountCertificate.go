@@ -242,7 +242,7 @@ type IntegrationAccountCertificateArrayInput interface {
 type IntegrationAccountCertificateArray []IntegrationAccountCertificateInput
 
 func (IntegrationAccountCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntegrationAccountCertificate)(nil))
+	return reflect.TypeOf((*[]*IntegrationAccountCertificate)(nil)).Elem()
 }
 
 func (i IntegrationAccountCertificateArray) ToIntegrationAccountCertificateArrayOutput() IntegrationAccountCertificateArrayOutput {
@@ -267,7 +267,7 @@ type IntegrationAccountCertificateMapInput interface {
 type IntegrationAccountCertificateMap map[string]IntegrationAccountCertificateInput
 
 func (IntegrationAccountCertificateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntegrationAccountCertificate)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationAccountCertificate)(nil)).Elem()
 }
 
 func (i IntegrationAccountCertificateMap) ToIntegrationAccountCertificateMapOutput() IntegrationAccountCertificateMapOutput {
@@ -278,9 +278,7 @@ func (i IntegrationAccountCertificateMap) ToIntegrationAccountCertificateMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCertificateMapOutput)
 }
 
-type IntegrationAccountCertificateOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountCertificateOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountCertificate)(nil))
@@ -299,14 +297,12 @@ func (o IntegrationAccountCertificateOutput) ToIntegrationAccountCertificatePtrO
 }
 
 func (o IntegrationAccountCertificateOutput) ToIntegrationAccountCertificatePtrOutputWithContext(ctx context.Context) IntegrationAccountCertificatePtrOutput {
-	return o.ApplyT(func(v IntegrationAccountCertificate) *IntegrationAccountCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountCertificate) *IntegrationAccountCertificate {
 		return &v
 	}).(IntegrationAccountCertificatePtrOutput)
 }
 
-type IntegrationAccountCertificatePtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountCertificatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationAccountCertificate)(nil))
@@ -318,6 +314,16 @@ func (o IntegrationAccountCertificatePtrOutput) ToIntegrationAccountCertificateP
 
 func (o IntegrationAccountCertificatePtrOutput) ToIntegrationAccountCertificatePtrOutputWithContext(ctx context.Context) IntegrationAccountCertificatePtrOutput {
 	return o
+}
+
+func (o IntegrationAccountCertificatePtrOutput) Elem() IntegrationAccountCertificateOutput {
+	return o.ApplyT(func(v *IntegrationAccountCertificate) IntegrationAccountCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountCertificate
+		return ret
+	}).(IntegrationAccountCertificateOutput)
 }
 
 type IntegrationAccountCertificateArrayOutput struct{ *pulumi.OutputState }

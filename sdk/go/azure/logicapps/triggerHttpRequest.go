@@ -238,7 +238,7 @@ type TriggerHttpRequestArrayInput interface {
 type TriggerHttpRequestArray []TriggerHttpRequestInput
 
 func (TriggerHttpRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TriggerHttpRequest)(nil))
+	return reflect.TypeOf((*[]*TriggerHttpRequest)(nil)).Elem()
 }
 
 func (i TriggerHttpRequestArray) ToTriggerHttpRequestArrayOutput() TriggerHttpRequestArrayOutput {
@@ -263,7 +263,7 @@ type TriggerHttpRequestMapInput interface {
 type TriggerHttpRequestMap map[string]TriggerHttpRequestInput
 
 func (TriggerHttpRequestMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TriggerHttpRequest)(nil))
+	return reflect.TypeOf((*map[string]*TriggerHttpRequest)(nil)).Elem()
 }
 
 func (i TriggerHttpRequestMap) ToTriggerHttpRequestMapOutput() TriggerHttpRequestMapOutput {
@@ -274,9 +274,7 @@ func (i TriggerHttpRequestMap) ToTriggerHttpRequestMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestMapOutput)
 }
 
-type TriggerHttpRequestOutput struct {
-	*pulumi.OutputState
-}
+type TriggerHttpRequestOutput struct{ *pulumi.OutputState }
 
 func (TriggerHttpRequestOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TriggerHttpRequest)(nil))
@@ -295,14 +293,12 @@ func (o TriggerHttpRequestOutput) ToTriggerHttpRequestPtrOutput() TriggerHttpReq
 }
 
 func (o TriggerHttpRequestOutput) ToTriggerHttpRequestPtrOutputWithContext(ctx context.Context) TriggerHttpRequestPtrOutput {
-	return o.ApplyT(func(v TriggerHttpRequest) *TriggerHttpRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerHttpRequest) *TriggerHttpRequest {
 		return &v
 	}).(TriggerHttpRequestPtrOutput)
 }
 
-type TriggerHttpRequestPtrOutput struct {
-	*pulumi.OutputState
-}
+type TriggerHttpRequestPtrOutput struct{ *pulumi.OutputState }
 
 func (TriggerHttpRequestPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TriggerHttpRequest)(nil))
@@ -314,6 +310,16 @@ func (o TriggerHttpRequestPtrOutput) ToTriggerHttpRequestPtrOutput() TriggerHttp
 
 func (o TriggerHttpRequestPtrOutput) ToTriggerHttpRequestPtrOutputWithContext(ctx context.Context) TriggerHttpRequestPtrOutput {
 	return o
+}
+
+func (o TriggerHttpRequestPtrOutput) Elem() TriggerHttpRequestOutput {
+	return o.ApplyT(func(v *TriggerHttpRequest) TriggerHttpRequest {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerHttpRequest
+		return ret
+	}).(TriggerHttpRequestOutput)
 }
 
 type TriggerHttpRequestArrayOutput struct{ *pulumi.OutputState }

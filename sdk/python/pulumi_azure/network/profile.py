@@ -243,10 +243,10 @@ class Profile(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             container_network_interface=azure.network.ProfileContainerNetworkInterfaceArgs(
                 name="examplecnic",
-                ip_configurations=[{
-                    "name": "exampleipconfig",
-                    "subnet_id": example_subnet.id,
-                }],
+                ip_configurations=[azure.network.ProfileContainerNetworkInterfaceIpConfigurationArgs(
+                    name="exampleipconfig",
+                    subnet_id=example_subnet.id,
+                )],
             ))
         ```
 
@@ -302,10 +302,10 @@ class Profile(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             container_network_interface=azure.network.ProfileContainerNetworkInterfaceArgs(
                 name="examplecnic",
-                ip_configurations=[{
-                    "name": "exampleipconfig",
-                    "subnet_id": example_subnet.id,
-                }],
+                ip_configurations=[azure.network.ProfileContainerNetworkInterfaceIpConfigurationArgs(
+                    name="exampleipconfig",
+                    subnet_id=example_subnet.id,
+                )],
             ))
         ```
 

@@ -291,7 +291,7 @@ type SubscriptionPolicyAssignmentArrayInput interface {
 type SubscriptionPolicyAssignmentArray []SubscriptionPolicyAssignmentInput
 
 func (SubscriptionPolicyAssignmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SubscriptionPolicyAssignment)(nil))
+	return reflect.TypeOf((*[]*SubscriptionPolicyAssignment)(nil)).Elem()
 }
 
 func (i SubscriptionPolicyAssignmentArray) ToSubscriptionPolicyAssignmentArrayOutput() SubscriptionPolicyAssignmentArrayOutput {
@@ -316,7 +316,7 @@ type SubscriptionPolicyAssignmentMapInput interface {
 type SubscriptionPolicyAssignmentMap map[string]SubscriptionPolicyAssignmentInput
 
 func (SubscriptionPolicyAssignmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SubscriptionPolicyAssignment)(nil))
+	return reflect.TypeOf((*map[string]*SubscriptionPolicyAssignment)(nil)).Elem()
 }
 
 func (i SubscriptionPolicyAssignmentMap) ToSubscriptionPolicyAssignmentMapOutput() SubscriptionPolicyAssignmentMapOutput {
@@ -327,9 +327,7 @@ func (i SubscriptionPolicyAssignmentMap) ToSubscriptionPolicyAssignmentMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentMapOutput)
 }
 
-type SubscriptionPolicyAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPolicyAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionPolicyAssignment)(nil))
@@ -348,14 +346,12 @@ func (o SubscriptionPolicyAssignmentOutput) ToSubscriptionPolicyAssignmentPtrOut
 }
 
 func (o SubscriptionPolicyAssignmentOutput) ToSubscriptionPolicyAssignmentPtrOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentPtrOutput {
-	return o.ApplyT(func(v SubscriptionPolicyAssignment) *SubscriptionPolicyAssignment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionPolicyAssignment) *SubscriptionPolicyAssignment {
 		return &v
 	}).(SubscriptionPolicyAssignmentPtrOutput)
 }
 
-type SubscriptionPolicyAssignmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionPolicyAssignmentPtrOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPolicyAssignmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SubscriptionPolicyAssignment)(nil))
@@ -367,6 +363,16 @@ func (o SubscriptionPolicyAssignmentPtrOutput) ToSubscriptionPolicyAssignmentPtr
 
 func (o SubscriptionPolicyAssignmentPtrOutput) ToSubscriptionPolicyAssignmentPtrOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentPtrOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentPtrOutput) Elem() SubscriptionPolicyAssignmentOutput {
+	return o.ApplyT(func(v *SubscriptionPolicyAssignment) SubscriptionPolicyAssignment {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionPolicyAssignment
+		return ret
+	}).(SubscriptionPolicyAssignmentOutput)
 }
 
 type SubscriptionPolicyAssignmentArrayOutput struct{ *pulumi.OutputState }

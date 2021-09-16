@@ -405,7 +405,7 @@ type ActionGroupArrayInput interface {
 type ActionGroupArray []ActionGroupInput
 
 func (ActionGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ActionGroup)(nil))
+	return reflect.TypeOf((*[]*ActionGroup)(nil)).Elem()
 }
 
 func (i ActionGroupArray) ToActionGroupArrayOutput() ActionGroupArrayOutput {
@@ -430,7 +430,7 @@ type ActionGroupMapInput interface {
 type ActionGroupMap map[string]ActionGroupInput
 
 func (ActionGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ActionGroup)(nil))
+	return reflect.TypeOf((*map[string]*ActionGroup)(nil)).Elem()
 }
 
 func (i ActionGroupMap) ToActionGroupMapOutput() ActionGroupMapOutput {
@@ -441,9 +441,7 @@ func (i ActionGroupMap) ToActionGroupMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupMapOutput)
 }
 
-type ActionGroupOutput struct {
-	*pulumi.OutputState
-}
+type ActionGroupOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionGroup)(nil))
@@ -462,14 +460,12 @@ func (o ActionGroupOutput) ToActionGroupPtrOutput() ActionGroupPtrOutput {
 }
 
 func (o ActionGroupOutput) ToActionGroupPtrOutputWithContext(ctx context.Context) ActionGroupPtrOutput {
-	return o.ApplyT(func(v ActionGroup) *ActionGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionGroup) *ActionGroup {
 		return &v
 	}).(ActionGroupPtrOutput)
 }
 
-type ActionGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type ActionGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ActionGroup)(nil))
@@ -481,6 +477,16 @@ func (o ActionGroupPtrOutput) ToActionGroupPtrOutput() ActionGroupPtrOutput {
 
 func (o ActionGroupPtrOutput) ToActionGroupPtrOutputWithContext(ctx context.Context) ActionGroupPtrOutput {
 	return o
+}
+
+func (o ActionGroupPtrOutput) Elem() ActionGroupOutput {
+	return o.ApplyT(func(v *ActionGroup) ActionGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ActionGroup
+		return ret
+	}).(ActionGroupOutput)
 }
 
 type ActionGroupArrayOutput struct{ *pulumi.OutputState }

@@ -334,7 +334,7 @@ type TransformArrayInput interface {
 type TransformArray []TransformInput
 
 func (TransformArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Transform)(nil))
+	return reflect.TypeOf((*[]*Transform)(nil)).Elem()
 }
 
 func (i TransformArray) ToTransformArrayOutput() TransformArrayOutput {
@@ -359,7 +359,7 @@ type TransformMapInput interface {
 type TransformMap map[string]TransformInput
 
 func (TransformMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Transform)(nil))
+	return reflect.TypeOf((*map[string]*Transform)(nil)).Elem()
 }
 
 func (i TransformMap) ToTransformMapOutput() TransformMapOutput {
@@ -370,9 +370,7 @@ func (i TransformMap) ToTransformMapOutputWithContext(ctx context.Context) Trans
 	return pulumi.ToOutputWithContext(ctx, i).(TransformMapOutput)
 }
 
-type TransformOutput struct {
-	*pulumi.OutputState
-}
+type TransformOutput struct{ *pulumi.OutputState }
 
 func (TransformOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Transform)(nil))
@@ -391,14 +389,12 @@ func (o TransformOutput) ToTransformPtrOutput() TransformPtrOutput {
 }
 
 func (o TransformOutput) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
-	return o.ApplyT(func(v Transform) *Transform {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Transform) *Transform {
 		return &v
 	}).(TransformPtrOutput)
 }
 
-type TransformPtrOutput struct {
-	*pulumi.OutputState
-}
+type TransformPtrOutput struct{ *pulumi.OutputState }
 
 func (TransformPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Transform)(nil))
@@ -410,6 +406,16 @@ func (o TransformPtrOutput) ToTransformPtrOutput() TransformPtrOutput {
 
 func (o TransformPtrOutput) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
 	return o
+}
+
+func (o TransformPtrOutput) Elem() TransformOutput {
+	return o.ApplyT(func(v *Transform) Transform {
+		if v != nil {
+			return *v
+		}
+		var ret Transform
+		return ret
+	}).(TransformOutput)
 }
 
 type TransformArrayOutput struct{ *pulumi.OutputState }

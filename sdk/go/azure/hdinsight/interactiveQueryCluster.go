@@ -414,7 +414,7 @@ type InteractiveQueryClusterArrayInput interface {
 type InteractiveQueryClusterArray []InteractiveQueryClusterInput
 
 func (InteractiveQueryClusterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*InteractiveQueryCluster)(nil))
+	return reflect.TypeOf((*[]*InteractiveQueryCluster)(nil)).Elem()
 }
 
 func (i InteractiveQueryClusterArray) ToInteractiveQueryClusterArrayOutput() InteractiveQueryClusterArrayOutput {
@@ -439,7 +439,7 @@ type InteractiveQueryClusterMapInput interface {
 type InteractiveQueryClusterMap map[string]InteractiveQueryClusterInput
 
 func (InteractiveQueryClusterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*InteractiveQueryCluster)(nil))
+	return reflect.TypeOf((*map[string]*InteractiveQueryCluster)(nil)).Elem()
 }
 
 func (i InteractiveQueryClusterMap) ToInteractiveQueryClusterMapOutput() InteractiveQueryClusterMapOutput {
@@ -450,9 +450,7 @@ func (i InteractiveQueryClusterMap) ToInteractiveQueryClusterMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMapOutput)
 }
 
-type InteractiveQueryClusterOutput struct {
-	*pulumi.OutputState
-}
+type InteractiveQueryClusterOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InteractiveQueryCluster)(nil))
@@ -471,14 +469,12 @@ func (o InteractiveQueryClusterOutput) ToInteractiveQueryClusterPtrOutput() Inte
 }
 
 func (o InteractiveQueryClusterOutput) ToInteractiveQueryClusterPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPtrOutput {
-	return o.ApplyT(func(v InteractiveQueryCluster) *InteractiveQueryCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryCluster) *InteractiveQueryCluster {
 		return &v
 	}).(InteractiveQueryClusterPtrOutput)
 }
 
-type InteractiveQueryClusterPtrOutput struct {
-	*pulumi.OutputState
-}
+type InteractiveQueryClusterPtrOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InteractiveQueryCluster)(nil))
@@ -490,6 +486,16 @@ func (o InteractiveQueryClusterPtrOutput) ToInteractiveQueryClusterPtrOutput() I
 
 func (o InteractiveQueryClusterPtrOutput) ToInteractiveQueryClusterPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPtrOutput {
 	return o
+}
+
+func (o InteractiveQueryClusterPtrOutput) Elem() InteractiveQueryClusterOutput {
+	return o.ApplyT(func(v *InteractiveQueryCluster) InteractiveQueryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryCluster
+		return ret
+	}).(InteractiveQueryClusterOutput)
 }
 
 type InteractiveQueryClusterArrayOutput struct{ *pulumi.OutputState }

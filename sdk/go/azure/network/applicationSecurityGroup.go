@@ -213,7 +213,7 @@ type ApplicationSecurityGroupArrayInput interface {
 type ApplicationSecurityGroupArray []ApplicationSecurityGroupInput
 
 func (ApplicationSecurityGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApplicationSecurityGroup)(nil))
+	return reflect.TypeOf((*[]*ApplicationSecurityGroup)(nil)).Elem()
 }
 
 func (i ApplicationSecurityGroupArray) ToApplicationSecurityGroupArrayOutput() ApplicationSecurityGroupArrayOutput {
@@ -238,7 +238,7 @@ type ApplicationSecurityGroupMapInput interface {
 type ApplicationSecurityGroupMap map[string]ApplicationSecurityGroupInput
 
 func (ApplicationSecurityGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApplicationSecurityGroup)(nil))
+	return reflect.TypeOf((*map[string]*ApplicationSecurityGroup)(nil)).Elem()
 }
 
 func (i ApplicationSecurityGroupMap) ToApplicationSecurityGroupMapOutput() ApplicationSecurityGroupMapOutput {
@@ -249,9 +249,7 @@ func (i ApplicationSecurityGroupMap) ToApplicationSecurityGroupMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSecurityGroupMapOutput)
 }
 
-type ApplicationSecurityGroupOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSecurityGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationSecurityGroup)(nil))
@@ -270,14 +268,12 @@ func (o ApplicationSecurityGroupOutput) ToApplicationSecurityGroupPtrOutput() Ap
 }
 
 func (o ApplicationSecurityGroupOutput) ToApplicationSecurityGroupPtrOutputWithContext(ctx context.Context) ApplicationSecurityGroupPtrOutput {
-	return o.ApplyT(func(v ApplicationSecurityGroup) *ApplicationSecurityGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSecurityGroup) *ApplicationSecurityGroup {
 		return &v
 	}).(ApplicationSecurityGroupPtrOutput)
 }
 
-type ApplicationSecurityGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationSecurityGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSecurityGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApplicationSecurityGroup)(nil))
@@ -289,6 +285,16 @@ func (o ApplicationSecurityGroupPtrOutput) ToApplicationSecurityGroupPtrOutput()
 
 func (o ApplicationSecurityGroupPtrOutput) ToApplicationSecurityGroupPtrOutputWithContext(ctx context.Context) ApplicationSecurityGroupPtrOutput {
 	return o
+}
+
+func (o ApplicationSecurityGroupPtrOutput) Elem() ApplicationSecurityGroupOutput {
+	return o.ApplyT(func(v *ApplicationSecurityGroup) ApplicationSecurityGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSecurityGroup
+		return ret
+	}).(ApplicationSecurityGroupOutput)
 }
 
 type ApplicationSecurityGroupArrayOutput struct{ *pulumi.OutputState }

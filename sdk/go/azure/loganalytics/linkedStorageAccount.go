@@ -242,7 +242,7 @@ type LinkedStorageAccountArrayInput interface {
 type LinkedStorageAccountArray []LinkedStorageAccountInput
 
 func (LinkedStorageAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LinkedStorageAccount)(nil))
+	return reflect.TypeOf((*[]*LinkedStorageAccount)(nil)).Elem()
 }
 
 func (i LinkedStorageAccountArray) ToLinkedStorageAccountArrayOutput() LinkedStorageAccountArrayOutput {
@@ -267,7 +267,7 @@ type LinkedStorageAccountMapInput interface {
 type LinkedStorageAccountMap map[string]LinkedStorageAccountInput
 
 func (LinkedStorageAccountMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LinkedStorageAccount)(nil))
+	return reflect.TypeOf((*map[string]*LinkedStorageAccount)(nil)).Elem()
 }
 
 func (i LinkedStorageAccountMap) ToLinkedStorageAccountMapOutput() LinkedStorageAccountMapOutput {
@@ -278,9 +278,7 @@ func (i LinkedStorageAccountMap) ToLinkedStorageAccountMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedStorageAccountMapOutput)
 }
 
-type LinkedStorageAccountOutput struct {
-	*pulumi.OutputState
-}
+type LinkedStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (LinkedStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedStorageAccount)(nil))
@@ -299,14 +297,12 @@ func (o LinkedStorageAccountOutput) ToLinkedStorageAccountPtrOutput() LinkedStor
 }
 
 func (o LinkedStorageAccountOutput) ToLinkedStorageAccountPtrOutputWithContext(ctx context.Context) LinkedStorageAccountPtrOutput {
-	return o.ApplyT(func(v LinkedStorageAccount) *LinkedStorageAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedStorageAccount) *LinkedStorageAccount {
 		return &v
 	}).(LinkedStorageAccountPtrOutput)
 }
 
-type LinkedStorageAccountPtrOutput struct {
-	*pulumi.OutputState
-}
+type LinkedStorageAccountPtrOutput struct{ *pulumi.OutputState }
 
 func (LinkedStorageAccountPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinkedStorageAccount)(nil))
@@ -318,6 +314,16 @@ func (o LinkedStorageAccountPtrOutput) ToLinkedStorageAccountPtrOutput() LinkedS
 
 func (o LinkedStorageAccountPtrOutput) ToLinkedStorageAccountPtrOutputWithContext(ctx context.Context) LinkedStorageAccountPtrOutput {
 	return o
+}
+
+func (o LinkedStorageAccountPtrOutput) Elem() LinkedStorageAccountOutput {
+	return o.ApplyT(func(v *LinkedStorageAccount) LinkedStorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedStorageAccount
+		return ret
+	}).(LinkedStorageAccountOutput)
 }
 
 type LinkedStorageAccountArrayOutput struct{ *pulumi.OutputState }

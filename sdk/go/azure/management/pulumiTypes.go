@@ -111,7 +111,7 @@ func (o GroupPolicyAssignmentIdentityOutput) ToGroupPolicyAssignmentIdentityPtrO
 }
 
 func (o GroupPolicyAssignmentIdentityOutput) ToGroupPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) GroupPolicyAssignmentIdentityPtrOutput {
-	return o.ApplyT(func(v GroupPolicyAssignmentIdentity) *GroupPolicyAssignmentIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupPolicyAssignmentIdentity) *GroupPolicyAssignmentIdentity {
 		return &v
 	}).(GroupPolicyAssignmentIdentityPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o GroupPolicyAssignmentIdentityPtrOutput) ToGroupPolicyAssignmentIdentityP
 }
 
 func (o GroupPolicyAssignmentIdentityPtrOutput) Elem() GroupPolicyAssignmentIdentityOutput {
-	return o.ApplyT(func(v *GroupPolicyAssignmentIdentity) GroupPolicyAssignmentIdentity { return *v }).(GroupPolicyAssignmentIdentityOutput)
+	return o.ApplyT(func(v *GroupPolicyAssignmentIdentity) GroupPolicyAssignmentIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret GroupPolicyAssignmentIdentity
+		return ret
+	}).(GroupPolicyAssignmentIdentityOutput)
 }
 
 // The Principal ID of the Policy Assignment for this Management Group.

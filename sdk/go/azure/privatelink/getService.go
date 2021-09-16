@@ -4,6 +4,9 @@
 package privatelink
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,4 +76,98 @@ type GetServiceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The list of subscription(s) globally unique identifiers(GUID) that will be able to see the private link service.
 	VisibilitySubscriptionIds []string `pulumi:"visibilitySubscriptionIds"`
+}
+
+func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pulumi.InvokeOption) GetServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetServiceResult, error) {
+			args := v.(GetServiceArgs)
+			r, err := GetService(ctx, &args, opts...)
+			return *r, err
+		}).(GetServiceResultOutput)
+}
+
+// A collection of arguments for invoking getService.
+type GetServiceOutputArgs struct {
+	// The name of the private link service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group in which the private link service resides.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getService.
+type GetServiceResultOutput struct{ *pulumi.OutputState }
+
+func (GetServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceResult)(nil)).Elem()
+}
+
+func (o GetServiceResultOutput) ToGetServiceResultOutput() GetServiceResultOutput {
+	return o
+}
+
+func (o GetServiceResultOutput) ToGetServiceResultOutputWithContext(ctx context.Context) GetServiceResultOutput {
+	return o
+}
+
+// The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
+func (o GetServiceResultOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceResult) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+// The list of subscription(s) globally unique identifiers that will be auto approved to use the private link service.
+func (o GetServiceResultOutput) AutoApprovalSubscriptionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceResult) []string { return v.AutoApprovalSubscriptionIds }).(pulumi.StringArrayOutput)
+}
+
+// Does the Private Link Service support the Proxy Protocol?
+func (o GetServiceResultOutput) EnableProxyProtocol() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceResult) bool { return v.EnableProxyProtocol }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
+func (o GetServiceResultOutput) LoadBalancerFrontendIpConfigurationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceResult) []string { return v.LoadBalancerFrontendIpConfigurationIds }).(pulumi.StringArrayOutput)
+}
+
+// The supported Azure location where the resource exists.
+func (o GetServiceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of private link service NAT IP configuration.
+func (o GetServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The `natIpConfiguration` block as defined below.
+func (o GetServiceResultOutput) NatIpConfigurations() GetServiceNatIpConfigurationArrayOutput {
+	return o.ApplyT(func(v GetServiceResult) []GetServiceNatIpConfiguration { return v.NatIpConfigurations }).(GetServiceNatIpConfigurationArrayOutput)
+}
+
+func (o GetServiceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o GetServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The list of subscription(s) globally unique identifiers(GUID) that will be able to see the private link service.
+func (o GetServiceResultOutput) VisibilitySubscriptionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceResult) []string { return v.VisibilitySubscriptionIds }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetServiceResultOutput{})
 }

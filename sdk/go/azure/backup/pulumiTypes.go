@@ -107,7 +107,7 @@ func (o PolicyFileShareBackupOutput) ToPolicyFileShareBackupPtrOutput() PolicyFi
 }
 
 func (o PolicyFileShareBackupOutput) ToPolicyFileShareBackupPtrOutputWithContext(ctx context.Context) PolicyFileShareBackupPtrOutput {
-	return o.ApplyT(func(v PolicyFileShareBackup) *PolicyFileShareBackup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFileShareBackup) *PolicyFileShareBackup {
 		return &v
 	}).(PolicyFileShareBackupPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o PolicyFileShareBackupPtrOutput) ToPolicyFileShareBackupPtrOutputWithCont
 }
 
 func (o PolicyFileShareBackupPtrOutput) Elem() PolicyFileShareBackupOutput {
-	return o.ApplyT(func(v *PolicyFileShareBackup) PolicyFileShareBackup { return *v }).(PolicyFileShareBackupOutput)
+	return o.ApplyT(func(v *PolicyFileShareBackup) PolicyFileShareBackup {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyFileShareBackup
+		return ret
+	}).(PolicyFileShareBackupOutput)
 }
 
 // Sets the backup frequency. Currently, only `Daily` is supported
@@ -253,7 +259,7 @@ func (o PolicyFileShareRetentionDailyOutput) ToPolicyFileShareRetentionDailyPtrO
 }
 
 func (o PolicyFileShareRetentionDailyOutput) ToPolicyFileShareRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyFileShareRetentionDailyPtrOutput {
-	return o.ApplyT(func(v PolicyFileShareRetentionDaily) *PolicyFileShareRetentionDaily {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFileShareRetentionDaily) *PolicyFileShareRetentionDaily {
 		return &v
 	}).(PolicyFileShareRetentionDailyPtrOutput)
 }
@@ -278,7 +284,13 @@ func (o PolicyFileShareRetentionDailyPtrOutput) ToPolicyFileShareRetentionDailyP
 }
 
 func (o PolicyFileShareRetentionDailyPtrOutput) Elem() PolicyFileShareRetentionDailyOutput {
-	return o.ApplyT(func(v *PolicyFileShareRetentionDaily) PolicyFileShareRetentionDaily { return *v }).(PolicyFileShareRetentionDailyOutput)
+	return o.ApplyT(func(v *PolicyFileShareRetentionDaily) PolicyFileShareRetentionDaily {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyFileShareRetentionDaily
+		return ret
+	}).(PolicyFileShareRetentionDailyOutput)
 }
 
 // The number of yearly backups to keep. Must be between `1` and `10`
@@ -392,7 +404,7 @@ func (o PolicyFileShareRetentionMonthlyOutput) ToPolicyFileShareRetentionMonthly
 }
 
 func (o PolicyFileShareRetentionMonthlyOutput) ToPolicyFileShareRetentionMonthlyPtrOutputWithContext(ctx context.Context) PolicyFileShareRetentionMonthlyPtrOutput {
-	return o.ApplyT(func(v PolicyFileShareRetentionMonthly) *PolicyFileShareRetentionMonthly {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFileShareRetentionMonthly) *PolicyFileShareRetentionMonthly {
 		return &v
 	}).(PolicyFileShareRetentionMonthlyPtrOutput)
 }
@@ -427,7 +439,13 @@ func (o PolicyFileShareRetentionMonthlyPtrOutput) ToPolicyFileShareRetentionMont
 }
 
 func (o PolicyFileShareRetentionMonthlyPtrOutput) Elem() PolicyFileShareRetentionMonthlyOutput {
-	return o.ApplyT(func(v *PolicyFileShareRetentionMonthly) PolicyFileShareRetentionMonthly { return *v }).(PolicyFileShareRetentionMonthlyOutput)
+	return o.ApplyT(func(v *PolicyFileShareRetentionMonthly) PolicyFileShareRetentionMonthly {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyFileShareRetentionMonthly
+		return ret
+	}).(PolicyFileShareRetentionMonthlyOutput)
 }
 
 // The number of yearly backups to keep. Must be between `1` and `10`
@@ -557,7 +575,7 @@ func (o PolicyFileShareRetentionWeeklyOutput) ToPolicyFileShareRetentionWeeklyPt
 }
 
 func (o PolicyFileShareRetentionWeeklyOutput) ToPolicyFileShareRetentionWeeklyPtrOutputWithContext(ctx context.Context) PolicyFileShareRetentionWeeklyPtrOutput {
-	return o.ApplyT(func(v PolicyFileShareRetentionWeekly) *PolicyFileShareRetentionWeekly {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFileShareRetentionWeekly) *PolicyFileShareRetentionWeekly {
 		return &v
 	}).(PolicyFileShareRetentionWeeklyPtrOutput)
 }
@@ -587,7 +605,13 @@ func (o PolicyFileShareRetentionWeeklyPtrOutput) ToPolicyFileShareRetentionWeekl
 }
 
 func (o PolicyFileShareRetentionWeeklyPtrOutput) Elem() PolicyFileShareRetentionWeeklyOutput {
-	return o.ApplyT(func(v *PolicyFileShareRetentionWeekly) PolicyFileShareRetentionWeekly { return *v }).(PolicyFileShareRetentionWeeklyOutput)
+	return o.ApplyT(func(v *PolicyFileShareRetentionWeekly) PolicyFileShareRetentionWeekly {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyFileShareRetentionWeekly
+		return ret
+	}).(PolicyFileShareRetentionWeeklyOutput)
 }
 
 // The number of yearly backups to keep. Must be between `1` and `10`
@@ -715,7 +739,7 @@ func (o PolicyFileShareRetentionYearlyOutput) ToPolicyFileShareRetentionYearlyPt
 }
 
 func (o PolicyFileShareRetentionYearlyOutput) ToPolicyFileShareRetentionYearlyPtrOutputWithContext(ctx context.Context) PolicyFileShareRetentionYearlyPtrOutput {
-	return o.ApplyT(func(v PolicyFileShareRetentionYearly) *PolicyFileShareRetentionYearly {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFileShareRetentionYearly) *PolicyFileShareRetentionYearly {
 		return &v
 	}).(PolicyFileShareRetentionYearlyPtrOutput)
 }
@@ -755,7 +779,13 @@ func (o PolicyFileShareRetentionYearlyPtrOutput) ToPolicyFileShareRetentionYearl
 }
 
 func (o PolicyFileShareRetentionYearlyPtrOutput) Elem() PolicyFileShareRetentionYearlyOutput {
-	return o.ApplyT(func(v *PolicyFileShareRetentionYearly) PolicyFileShareRetentionYearly { return *v }).(PolicyFileShareRetentionYearlyOutput)
+	return o.ApplyT(func(v *PolicyFileShareRetentionYearly) PolicyFileShareRetentionYearly {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyFileShareRetentionYearly
+		return ret
+	}).(PolicyFileShareRetentionYearlyOutput)
 }
 
 // The number of yearly backups to keep. Must be between `1` and `10`
@@ -899,7 +929,7 @@ func (o PolicyVMBackupOutput) ToPolicyVMBackupPtrOutput() PolicyVMBackupPtrOutpu
 }
 
 func (o PolicyVMBackupOutput) ToPolicyVMBackupPtrOutputWithContext(ctx context.Context) PolicyVMBackupPtrOutput {
-	return o.ApplyT(func(v PolicyVMBackup) *PolicyVMBackup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMBackup) *PolicyVMBackup {
 		return &v
 	}).(PolicyVMBackupPtrOutput)
 }
@@ -934,7 +964,13 @@ func (o PolicyVMBackupPtrOutput) ToPolicyVMBackupPtrOutputWithContext(ctx contex
 }
 
 func (o PolicyVMBackupPtrOutput) Elem() PolicyVMBackupOutput {
-	return o.ApplyT(func(v *PolicyVMBackup) PolicyVMBackup { return *v }).(PolicyVMBackupOutput)
+	return o.ApplyT(func(v *PolicyVMBackup) PolicyVMBackup {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMBackup
+		return ret
+	}).(PolicyVMBackupOutput)
 }
 
 // Sets the backup frequency. Must be either `Daily` or`Weekly`.
@@ -1060,7 +1096,7 @@ func (o PolicyVMRetentionDailyOutput) ToPolicyVMRetentionDailyPtrOutput() Policy
 }
 
 func (o PolicyVMRetentionDailyOutput) ToPolicyVMRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyVMRetentionDailyPtrOutput {
-	return o.ApplyT(func(v PolicyVMRetentionDaily) *PolicyVMRetentionDaily {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMRetentionDaily) *PolicyVMRetentionDaily {
 		return &v
 	}).(PolicyVMRetentionDailyPtrOutput)
 }
@@ -1085,7 +1121,13 @@ func (o PolicyVMRetentionDailyPtrOutput) ToPolicyVMRetentionDailyPtrOutputWithCo
 }
 
 func (o PolicyVMRetentionDailyPtrOutput) Elem() PolicyVMRetentionDailyOutput {
-	return o.ApplyT(func(v *PolicyVMRetentionDaily) PolicyVMRetentionDaily { return *v }).(PolicyVMRetentionDailyOutput)
+	return o.ApplyT(func(v *PolicyVMRetentionDaily) PolicyVMRetentionDaily {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMRetentionDaily
+		return ret
+	}).(PolicyVMRetentionDailyOutput)
 }
 
 // The number of yearly backups to keep. Must be between `1` and `9999`
@@ -1199,7 +1241,7 @@ func (o PolicyVMRetentionMonthlyOutput) ToPolicyVMRetentionMonthlyPtrOutput() Po
 }
 
 func (o PolicyVMRetentionMonthlyOutput) ToPolicyVMRetentionMonthlyPtrOutputWithContext(ctx context.Context) PolicyVMRetentionMonthlyPtrOutput {
-	return o.ApplyT(func(v PolicyVMRetentionMonthly) *PolicyVMRetentionMonthly {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMRetentionMonthly) *PolicyVMRetentionMonthly {
 		return &v
 	}).(PolicyVMRetentionMonthlyPtrOutput)
 }
@@ -1234,7 +1276,13 @@ func (o PolicyVMRetentionMonthlyPtrOutput) ToPolicyVMRetentionMonthlyPtrOutputWi
 }
 
 func (o PolicyVMRetentionMonthlyPtrOutput) Elem() PolicyVMRetentionMonthlyOutput {
-	return o.ApplyT(func(v *PolicyVMRetentionMonthly) PolicyVMRetentionMonthly { return *v }).(PolicyVMRetentionMonthlyOutput)
+	return o.ApplyT(func(v *PolicyVMRetentionMonthly) PolicyVMRetentionMonthly {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMRetentionMonthly
+		return ret
+	}).(PolicyVMRetentionMonthlyOutput)
 }
 
 // The number of yearly backups to keep. Must be between `1` and `9999`
@@ -1364,7 +1412,7 @@ func (o PolicyVMRetentionWeeklyOutput) ToPolicyVMRetentionWeeklyPtrOutput() Poli
 }
 
 func (o PolicyVMRetentionWeeklyOutput) ToPolicyVMRetentionWeeklyPtrOutputWithContext(ctx context.Context) PolicyVMRetentionWeeklyPtrOutput {
-	return o.ApplyT(func(v PolicyVMRetentionWeekly) *PolicyVMRetentionWeekly {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMRetentionWeekly) *PolicyVMRetentionWeekly {
 		return &v
 	}).(PolicyVMRetentionWeeklyPtrOutput)
 }
@@ -1394,7 +1442,13 @@ func (o PolicyVMRetentionWeeklyPtrOutput) ToPolicyVMRetentionWeeklyPtrOutputWith
 }
 
 func (o PolicyVMRetentionWeeklyPtrOutput) Elem() PolicyVMRetentionWeeklyOutput {
-	return o.ApplyT(func(v *PolicyVMRetentionWeekly) PolicyVMRetentionWeekly { return *v }).(PolicyVMRetentionWeeklyOutput)
+	return o.ApplyT(func(v *PolicyVMRetentionWeekly) PolicyVMRetentionWeekly {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMRetentionWeekly
+		return ret
+	}).(PolicyVMRetentionWeeklyOutput)
 }
 
 // The number of yearly backups to keep. Must be between `1` and `9999`
@@ -1522,7 +1576,7 @@ func (o PolicyVMRetentionYearlyOutput) ToPolicyVMRetentionYearlyPtrOutput() Poli
 }
 
 func (o PolicyVMRetentionYearlyOutput) ToPolicyVMRetentionYearlyPtrOutputWithContext(ctx context.Context) PolicyVMRetentionYearlyPtrOutput {
-	return o.ApplyT(func(v PolicyVMRetentionYearly) *PolicyVMRetentionYearly {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMRetentionYearly) *PolicyVMRetentionYearly {
 		return &v
 	}).(PolicyVMRetentionYearlyPtrOutput)
 }
@@ -1562,7 +1616,13 @@ func (o PolicyVMRetentionYearlyPtrOutput) ToPolicyVMRetentionYearlyPtrOutputWith
 }
 
 func (o PolicyVMRetentionYearlyPtrOutput) Elem() PolicyVMRetentionYearlyOutput {
-	return o.ApplyT(func(v *PolicyVMRetentionYearly) PolicyVMRetentionYearly { return *v }).(PolicyVMRetentionYearlyOutput)
+	return o.ApplyT(func(v *PolicyVMRetentionYearly) PolicyVMRetentionYearly {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMRetentionYearly
+		return ret
+	}).(PolicyVMRetentionYearlyOutput)
 }
 
 // The number of yearly backups to keep. Must be between `1` and `9999`

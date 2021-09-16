@@ -306,7 +306,7 @@ type TrafficManagerProfileArrayInput interface {
 type TrafficManagerProfileArray []TrafficManagerProfileInput
 
 func (TrafficManagerProfileArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TrafficManagerProfile)(nil))
+	return reflect.TypeOf((*[]*TrafficManagerProfile)(nil)).Elem()
 }
 
 func (i TrafficManagerProfileArray) ToTrafficManagerProfileArrayOutput() TrafficManagerProfileArrayOutput {
@@ -331,7 +331,7 @@ type TrafficManagerProfileMapInput interface {
 type TrafficManagerProfileMap map[string]TrafficManagerProfileInput
 
 func (TrafficManagerProfileMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TrafficManagerProfile)(nil))
+	return reflect.TypeOf((*map[string]*TrafficManagerProfile)(nil)).Elem()
 }
 
 func (i TrafficManagerProfileMap) ToTrafficManagerProfileMapOutput() TrafficManagerProfileMapOutput {
@@ -342,9 +342,7 @@ func (i TrafficManagerProfileMap) ToTrafficManagerProfileMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerProfileMapOutput)
 }
 
-type TrafficManagerProfileOutput struct {
-	*pulumi.OutputState
-}
+type TrafficManagerProfileOutput struct{ *pulumi.OutputState }
 
 func (TrafficManagerProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TrafficManagerProfile)(nil))
@@ -363,14 +361,12 @@ func (o TrafficManagerProfileOutput) ToTrafficManagerProfilePtrOutput() TrafficM
 }
 
 func (o TrafficManagerProfileOutput) ToTrafficManagerProfilePtrOutputWithContext(ctx context.Context) TrafficManagerProfilePtrOutput {
-	return o.ApplyT(func(v TrafficManagerProfile) *TrafficManagerProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficManagerProfile) *TrafficManagerProfile {
 		return &v
 	}).(TrafficManagerProfilePtrOutput)
 }
 
-type TrafficManagerProfilePtrOutput struct {
-	*pulumi.OutputState
-}
+type TrafficManagerProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (TrafficManagerProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TrafficManagerProfile)(nil))
@@ -382,6 +378,16 @@ func (o TrafficManagerProfilePtrOutput) ToTrafficManagerProfilePtrOutput() Traff
 
 func (o TrafficManagerProfilePtrOutput) ToTrafficManagerProfilePtrOutputWithContext(ctx context.Context) TrafficManagerProfilePtrOutput {
 	return o
+}
+
+func (o TrafficManagerProfilePtrOutput) Elem() TrafficManagerProfileOutput {
+	return o.ApplyT(func(v *TrafficManagerProfile) TrafficManagerProfile {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficManagerProfile
+		return ret
+	}).(TrafficManagerProfileOutput)
 }
 
 type TrafficManagerProfileArrayOutput struct{ *pulumi.OutputState }

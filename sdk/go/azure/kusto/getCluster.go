@@ -4,6 +4,9 @@
 package kusto
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,4 +64,75 @@ type LookupClusterResult struct {
 	Tags              map[string]string `pulumi:"tags"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri string `pulumi:"uri"`
+}
+
+func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupClusterResult, error) {
+			args := v.(LookupClusterArgs)
+			r, err := LookupCluster(ctx, &args, opts...)
+			return *r, err
+		}).(LookupClusterResultOutput)
+}
+
+// A collection of arguments for invoking getCluster.
+type LookupClusterOutputArgs struct {
+	// Specifies the name of the Kusto Cluster.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Kusto Cluster exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCluster.
+type LookupClusterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterResult)(nil)).Elem()
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutput() LookupClusterResultOutput {
+	return o
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx context.Context) LookupClusterResultOutput {
+	return o
+}
+
+// The Kusto Cluster URI to be used for data ingestion.
+func (o LookupClusterResultOutput) DataIngestionUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.DataIngestionUri }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The FQDN of the Azure Kusto Cluster.
+func (o LookupClusterResultOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupClusterResultOutput{})
 }

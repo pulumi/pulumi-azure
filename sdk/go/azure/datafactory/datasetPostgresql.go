@@ -302,7 +302,7 @@ type DatasetPostgresqlArrayInput interface {
 type DatasetPostgresqlArray []DatasetPostgresqlInput
 
 func (DatasetPostgresqlArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DatasetPostgresql)(nil))
+	return reflect.TypeOf((*[]*DatasetPostgresql)(nil)).Elem()
 }
 
 func (i DatasetPostgresqlArray) ToDatasetPostgresqlArrayOutput() DatasetPostgresqlArrayOutput {
@@ -327,7 +327,7 @@ type DatasetPostgresqlMapInput interface {
 type DatasetPostgresqlMap map[string]DatasetPostgresqlInput
 
 func (DatasetPostgresqlMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DatasetPostgresql)(nil))
+	return reflect.TypeOf((*map[string]*DatasetPostgresql)(nil)).Elem()
 }
 
 func (i DatasetPostgresqlMap) ToDatasetPostgresqlMapOutput() DatasetPostgresqlMapOutput {
@@ -338,9 +338,7 @@ func (i DatasetPostgresqlMap) ToDatasetPostgresqlMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlMapOutput)
 }
 
-type DatasetPostgresqlOutput struct {
-	*pulumi.OutputState
-}
+type DatasetPostgresqlOutput struct{ *pulumi.OutputState }
 
 func (DatasetPostgresqlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetPostgresql)(nil))
@@ -359,14 +357,12 @@ func (o DatasetPostgresqlOutput) ToDatasetPostgresqlPtrOutput() DatasetPostgresq
 }
 
 func (o DatasetPostgresqlOutput) ToDatasetPostgresqlPtrOutputWithContext(ctx context.Context) DatasetPostgresqlPtrOutput {
-	return o.ApplyT(func(v DatasetPostgresql) *DatasetPostgresql {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetPostgresql) *DatasetPostgresql {
 		return &v
 	}).(DatasetPostgresqlPtrOutput)
 }
 
-type DatasetPostgresqlPtrOutput struct {
-	*pulumi.OutputState
-}
+type DatasetPostgresqlPtrOutput struct{ *pulumi.OutputState }
 
 func (DatasetPostgresqlPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DatasetPostgresql)(nil))
@@ -378,6 +374,16 @@ func (o DatasetPostgresqlPtrOutput) ToDatasetPostgresqlPtrOutput() DatasetPostgr
 
 func (o DatasetPostgresqlPtrOutput) ToDatasetPostgresqlPtrOutputWithContext(ctx context.Context) DatasetPostgresqlPtrOutput {
 	return o
+}
+
+func (o DatasetPostgresqlPtrOutput) Elem() DatasetPostgresqlOutput {
+	return o.ApplyT(func(v *DatasetPostgresql) DatasetPostgresql {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetPostgresql
+		return ret
+	}).(DatasetPostgresqlOutput)
 }
 
 type DatasetPostgresqlArrayOutput struct{ *pulumi.OutputState }

@@ -369,7 +369,7 @@ type CertifiateArrayInput interface {
 type CertifiateArray []CertifiateInput
 
 func (CertifiateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Certifiate)(nil))
+	return reflect.TypeOf((*[]*Certifiate)(nil)).Elem()
 }
 
 func (i CertifiateArray) ToCertifiateArrayOutput() CertifiateArrayOutput {
@@ -394,7 +394,7 @@ type CertifiateMapInput interface {
 type CertifiateMap map[string]CertifiateInput
 
 func (CertifiateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Certifiate)(nil))
+	return reflect.TypeOf((*map[string]*Certifiate)(nil)).Elem()
 }
 
 func (i CertifiateMap) ToCertifiateMapOutput() CertifiateMapOutput {
@@ -405,9 +405,7 @@ func (i CertifiateMap) ToCertifiateMapOutputWithContext(ctx context.Context) Cer
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateMapOutput)
 }
 
-type CertifiateOutput struct {
-	*pulumi.OutputState
-}
+type CertifiateOutput struct{ *pulumi.OutputState }
 
 func (CertifiateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Certifiate)(nil))
@@ -426,14 +424,12 @@ func (o CertifiateOutput) ToCertifiatePtrOutput() CertifiatePtrOutput {
 }
 
 func (o CertifiateOutput) ToCertifiatePtrOutputWithContext(ctx context.Context) CertifiatePtrOutput {
-	return o.ApplyT(func(v Certifiate) *Certifiate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Certifiate) *Certifiate {
 		return &v
 	}).(CertifiatePtrOutput)
 }
 
-type CertifiatePtrOutput struct {
-	*pulumi.OutputState
-}
+type CertifiatePtrOutput struct{ *pulumi.OutputState }
 
 func (CertifiatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Certifiate)(nil))
@@ -445,6 +441,16 @@ func (o CertifiatePtrOutput) ToCertifiatePtrOutput() CertifiatePtrOutput {
 
 func (o CertifiatePtrOutput) ToCertifiatePtrOutputWithContext(ctx context.Context) CertifiatePtrOutput {
 	return o
+}
+
+func (o CertifiatePtrOutput) Elem() CertifiateOutput {
+	return o.ApplyT(func(v *Certifiate) Certifiate {
+		if v != nil {
+			return *v
+		}
+		var ret Certifiate
+		return ret
+	}).(CertifiateOutput)
 }
 
 type CertifiateArrayOutput struct{ *pulumi.OutputState }

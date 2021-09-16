@@ -291,7 +291,7 @@ type SqlPoolArrayInput interface {
 type SqlPoolArray []SqlPoolInput
 
 func (SqlPoolArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SqlPool)(nil))
+	return reflect.TypeOf((*[]*SqlPool)(nil)).Elem()
 }
 
 func (i SqlPoolArray) ToSqlPoolArrayOutput() SqlPoolArrayOutput {
@@ -316,7 +316,7 @@ type SqlPoolMapInput interface {
 type SqlPoolMap map[string]SqlPoolInput
 
 func (SqlPoolMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SqlPool)(nil))
+	return reflect.TypeOf((*map[string]*SqlPool)(nil)).Elem()
 }
 
 func (i SqlPoolMap) ToSqlPoolMapOutput() SqlPoolMapOutput {
@@ -327,9 +327,7 @@ func (i SqlPoolMap) ToSqlPoolMapOutputWithContext(ctx context.Context) SqlPoolMa
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolMapOutput)
 }
 
-type SqlPoolOutput struct {
-	*pulumi.OutputState
-}
+type SqlPoolOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPool)(nil))
@@ -348,14 +346,12 @@ func (o SqlPoolOutput) ToSqlPoolPtrOutput() SqlPoolPtrOutput {
 }
 
 func (o SqlPoolOutput) ToSqlPoolPtrOutputWithContext(ctx context.Context) SqlPoolPtrOutput {
-	return o.ApplyT(func(v SqlPool) *SqlPool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlPool) *SqlPool {
 		return &v
 	}).(SqlPoolPtrOutput)
 }
 
-type SqlPoolPtrOutput struct {
-	*pulumi.OutputState
-}
+type SqlPoolPtrOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SqlPool)(nil))
@@ -367,6 +363,16 @@ func (o SqlPoolPtrOutput) ToSqlPoolPtrOutput() SqlPoolPtrOutput {
 
 func (o SqlPoolPtrOutput) ToSqlPoolPtrOutputWithContext(ctx context.Context) SqlPoolPtrOutput {
 	return o
+}
+
+func (o SqlPoolPtrOutput) Elem() SqlPoolOutput {
+	return o.ApplyT(func(v *SqlPool) SqlPool {
+		if v != nil {
+			return *v
+		}
+		var ret SqlPool
+		return ret
+	}).(SqlPoolOutput)
 }
 
 type SqlPoolArrayOutput struct{ *pulumi.OutputState }

@@ -123,7 +123,7 @@ func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) ToCustomHttpsCon
 }
 
 func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
-	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *CustomHttpsConfigurationCustomHttpsConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomHttpsConfigurationCustomHttpsConfiguration) *CustomHttpsConfigurationCustomHttpsConfiguration {
 		return &v
 	}).(CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput)
 }
@@ -183,7 +183,11 @@ func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) ToCustomHttps
 
 func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) Elem() CustomHttpsConfigurationCustomHttpsConfigurationOutput {
 	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) CustomHttpsConfigurationCustomHttpsConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CustomHttpsConfigurationCustomHttpsConfiguration
+		return ret
 	}).(CustomHttpsConfigurationCustomHttpsConfigurationOutput)
 }
 
@@ -2382,7 +2386,7 @@ func (o FrontdoorRoutingRuleForwardingConfigurationOutput) ToFrontdoorRoutingRul
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) ToFrontdoorRoutingRuleForwardingConfigurationPtrOutputWithContext(ctx context.Context) FrontdoorRoutingRuleForwardingConfigurationPtrOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *FrontdoorRoutingRuleForwardingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorRoutingRuleForwardingConfiguration) *FrontdoorRoutingRuleForwardingConfiguration {
 		return &v
 	}).(FrontdoorRoutingRuleForwardingConfigurationPtrOutput)
 }
@@ -2445,7 +2449,11 @@ func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) ToFrontdoorRouting
 
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) Elem() FrontdoorRoutingRuleForwardingConfigurationOutput {
 	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) FrontdoorRoutingRuleForwardingConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorRoutingRuleForwardingConfiguration
+		return ret
 	}).(FrontdoorRoutingRuleForwardingConfigurationOutput)
 }
 
@@ -2642,7 +2650,7 @@ func (o FrontdoorRoutingRuleRedirectConfigurationOutput) ToFrontdoorRoutingRuleR
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) ToFrontdoorRoutingRuleRedirectConfigurationPtrOutputWithContext(ctx context.Context) FrontdoorRoutingRuleRedirectConfigurationPtrOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *FrontdoorRoutingRuleRedirectConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorRoutingRuleRedirectConfiguration) *FrontdoorRoutingRuleRedirectConfiguration {
 		return &v
 	}).(FrontdoorRoutingRuleRedirectConfigurationPtrOutput)
 }
@@ -2693,7 +2701,11 @@ func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) ToFrontdoorRoutingRu
 
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) Elem() FrontdoorRoutingRuleRedirectConfigurationOutput {
 	return o.ApplyT(func(v *FrontdoorRoutingRuleRedirectConfiguration) FrontdoorRoutingRuleRedirectConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorRoutingRuleRedirectConfiguration
+		return ret
 	}).(FrontdoorRoutingRuleRedirectConfigurationOutput)
 }
 

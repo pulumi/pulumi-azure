@@ -4,6 +4,9 @@
 package batch
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,4 +76,98 @@ type LookupAccountResult struct {
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// A map of tags assigned to the Batch account.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAccountResult, error) {
+			args := v.(LookupAccountArgs)
+			r, err := LookupAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAccountResultOutput)
+}
+
+// A collection of arguments for invoking getAccount.
+type LookupAccountOutputArgs struct {
+	// The name of the Batch account.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group where this Batch account exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAccount.
+type LookupAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountResult)(nil)).Elem()
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutput() LookupAccountResultOutput {
+	return o
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx context.Context) LookupAccountResultOutput {
+	return o
+}
+
+// The account endpoint used to interact with the Batch service.
+func (o LookupAccountResultOutput) AccountEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.AccountEndpoint }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+func (o LookupAccountResultOutput) KeyVaultReferences() GetAccountKeyVaultReferenceArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountKeyVaultReference { return v.KeyVaultReferences }).(GetAccountKeyVaultReferenceArrayOutput)
+}
+
+// The Azure Region in which this Batch account exists.
+func (o LookupAccountResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The Batch account name.
+func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The pool allocation mode configured for this Batch account.
+func (o LookupAccountResultOutput) PoolAllocationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PoolAllocationMode }).(pulumi.StringOutput)
+}
+
+// The Batch account primary access key.
+func (o LookupAccountResultOutput) PrimaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryAccessKey }).(pulumi.StringOutput)
+}
+
+func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Batch account secondary access key.
+func (o LookupAccountResultOutput) SecondaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryAccessKey }).(pulumi.StringOutput)
+}
+
+// The ID of the Storage Account used for this Batch account.
+func (o LookupAccountResultOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the Batch account.
+func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAccountResultOutput{})
 }

@@ -259,7 +259,7 @@ type LabArrayInput interface {
 type LabArray []LabInput
 
 func (LabArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Lab)(nil))
+	return reflect.TypeOf((*[]*Lab)(nil)).Elem()
 }
 
 func (i LabArray) ToLabArrayOutput() LabArrayOutput {
@@ -284,7 +284,7 @@ type LabMapInput interface {
 type LabMap map[string]LabInput
 
 func (LabMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Lab)(nil))
+	return reflect.TypeOf((*map[string]*Lab)(nil)).Elem()
 }
 
 func (i LabMap) ToLabMapOutput() LabMapOutput {
@@ -295,9 +295,7 @@ func (i LabMap) ToLabMapOutputWithContext(ctx context.Context) LabMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LabMapOutput)
 }
 
-type LabOutput struct {
-	*pulumi.OutputState
-}
+type LabOutput struct{ *pulumi.OutputState }
 
 func (LabOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Lab)(nil))
@@ -316,14 +314,12 @@ func (o LabOutput) ToLabPtrOutput() LabPtrOutput {
 }
 
 func (o LabOutput) ToLabPtrOutputWithContext(ctx context.Context) LabPtrOutput {
-	return o.ApplyT(func(v Lab) *Lab {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Lab) *Lab {
 		return &v
 	}).(LabPtrOutput)
 }
 
-type LabPtrOutput struct {
-	*pulumi.OutputState
-}
+type LabPtrOutput struct{ *pulumi.OutputState }
 
 func (LabPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Lab)(nil))
@@ -335,6 +331,16 @@ func (o LabPtrOutput) ToLabPtrOutput() LabPtrOutput {
 
 func (o LabPtrOutput) ToLabPtrOutputWithContext(ctx context.Context) LabPtrOutput {
 	return o
+}
+
+func (o LabPtrOutput) Elem() LabOutput {
+	return o.ApplyT(func(v *Lab) Lab {
+		if v != nil {
+			return *v
+		}
+		var ret Lab
+		return ret
+	}).(LabOutput)
 }
 
 type LabArrayOutput struct{ *pulumi.OutputState }

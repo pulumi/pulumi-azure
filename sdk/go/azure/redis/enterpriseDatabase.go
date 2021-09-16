@@ -273,7 +273,7 @@ type EnterpriseDatabaseArrayInput interface {
 type EnterpriseDatabaseArray []EnterpriseDatabaseInput
 
 func (EnterpriseDatabaseArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EnterpriseDatabase)(nil))
+	return reflect.TypeOf((*[]*EnterpriseDatabase)(nil)).Elem()
 }
 
 func (i EnterpriseDatabaseArray) ToEnterpriseDatabaseArrayOutput() EnterpriseDatabaseArrayOutput {
@@ -298,7 +298,7 @@ type EnterpriseDatabaseMapInput interface {
 type EnterpriseDatabaseMap map[string]EnterpriseDatabaseInput
 
 func (EnterpriseDatabaseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EnterpriseDatabase)(nil))
+	return reflect.TypeOf((*map[string]*EnterpriseDatabase)(nil)).Elem()
 }
 
 func (i EnterpriseDatabaseMap) ToEnterpriseDatabaseMapOutput() EnterpriseDatabaseMapOutput {
@@ -309,9 +309,7 @@ func (i EnterpriseDatabaseMap) ToEnterpriseDatabaseMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseDatabaseMapOutput)
 }
 
-type EnterpriseDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type EnterpriseDatabaseOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnterpriseDatabase)(nil))
@@ -330,14 +328,12 @@ func (o EnterpriseDatabaseOutput) ToEnterpriseDatabasePtrOutput() EnterpriseData
 }
 
 func (o EnterpriseDatabaseOutput) ToEnterpriseDatabasePtrOutputWithContext(ctx context.Context) EnterpriseDatabasePtrOutput {
-	return o.ApplyT(func(v EnterpriseDatabase) *EnterpriseDatabase {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterpriseDatabase) *EnterpriseDatabase {
 		return &v
 	}).(EnterpriseDatabasePtrOutput)
 }
 
-type EnterpriseDatabasePtrOutput struct {
-	*pulumi.OutputState
-}
+type EnterpriseDatabasePtrOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseDatabasePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EnterpriseDatabase)(nil))
@@ -349,6 +345,16 @@ func (o EnterpriseDatabasePtrOutput) ToEnterpriseDatabasePtrOutput() EnterpriseD
 
 func (o EnterpriseDatabasePtrOutput) ToEnterpriseDatabasePtrOutputWithContext(ctx context.Context) EnterpriseDatabasePtrOutput {
 	return o
+}
+
+func (o EnterpriseDatabasePtrOutput) Elem() EnterpriseDatabaseOutput {
+	return o.ApplyT(func(v *EnterpriseDatabase) EnterpriseDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret EnterpriseDatabase
+		return ret
+	}).(EnterpriseDatabaseOutput)
 }
 
 type EnterpriseDatabaseArrayOutput struct{ *pulumi.OutputState }

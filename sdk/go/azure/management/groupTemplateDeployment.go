@@ -224,7 +224,7 @@ type GroupTemplateDeploymentArrayInput interface {
 type GroupTemplateDeploymentArray []GroupTemplateDeploymentInput
 
 func (GroupTemplateDeploymentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GroupTemplateDeployment)(nil))
+	return reflect.TypeOf((*[]*GroupTemplateDeployment)(nil)).Elem()
 }
 
 func (i GroupTemplateDeploymentArray) ToGroupTemplateDeploymentArrayOutput() GroupTemplateDeploymentArrayOutput {
@@ -249,7 +249,7 @@ type GroupTemplateDeploymentMapInput interface {
 type GroupTemplateDeploymentMap map[string]GroupTemplateDeploymentInput
 
 func (GroupTemplateDeploymentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GroupTemplateDeployment)(nil))
+	return reflect.TypeOf((*map[string]*GroupTemplateDeployment)(nil)).Elem()
 }
 
 func (i GroupTemplateDeploymentMap) ToGroupTemplateDeploymentMapOutput() GroupTemplateDeploymentMapOutput {
@@ -260,9 +260,7 @@ func (i GroupTemplateDeploymentMap) ToGroupTemplateDeploymentMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTemplateDeploymentMapOutput)
 }
 
-type GroupTemplateDeploymentOutput struct {
-	*pulumi.OutputState
-}
+type GroupTemplateDeploymentOutput struct{ *pulumi.OutputState }
 
 func (GroupTemplateDeploymentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupTemplateDeployment)(nil))
@@ -281,14 +279,12 @@ func (o GroupTemplateDeploymentOutput) ToGroupTemplateDeploymentPtrOutput() Grou
 }
 
 func (o GroupTemplateDeploymentOutput) ToGroupTemplateDeploymentPtrOutputWithContext(ctx context.Context) GroupTemplateDeploymentPtrOutput {
-	return o.ApplyT(func(v GroupTemplateDeployment) *GroupTemplateDeployment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupTemplateDeployment) *GroupTemplateDeployment {
 		return &v
 	}).(GroupTemplateDeploymentPtrOutput)
 }
 
-type GroupTemplateDeploymentPtrOutput struct {
-	*pulumi.OutputState
-}
+type GroupTemplateDeploymentPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupTemplateDeploymentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupTemplateDeployment)(nil))
@@ -300,6 +296,16 @@ func (o GroupTemplateDeploymentPtrOutput) ToGroupTemplateDeploymentPtrOutput() G
 
 func (o GroupTemplateDeploymentPtrOutput) ToGroupTemplateDeploymentPtrOutputWithContext(ctx context.Context) GroupTemplateDeploymentPtrOutput {
 	return o
+}
+
+func (o GroupTemplateDeploymentPtrOutput) Elem() GroupTemplateDeploymentOutput {
+	return o.ApplyT(func(v *GroupTemplateDeployment) GroupTemplateDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret GroupTemplateDeployment
+		return ret
+	}).(GroupTemplateDeploymentOutput)
 }
 
 type GroupTemplateDeploymentArrayOutput struct{ *pulumi.OutputState }

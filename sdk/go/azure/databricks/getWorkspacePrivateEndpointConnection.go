@@ -4,6 +4,9 @@
 package databricks
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,66 @@ type GetWorkspacePrivateEndpointConnectionResult struct {
 	PrivateEndpointId string `pulumi:"privateEndpointId"`
 	// The resource ID of the Databricks Workspace.
 	WorkspaceId string `pulumi:"workspaceId"`
+}
+
+func GetWorkspacePrivateEndpointConnectionOutput(ctx *pulumi.Context, args GetWorkspacePrivateEndpointConnectionOutputArgs, opts ...pulumi.InvokeOption) GetWorkspacePrivateEndpointConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetWorkspacePrivateEndpointConnectionResult, error) {
+			args := v.(GetWorkspacePrivateEndpointConnectionArgs)
+			r, err := GetWorkspacePrivateEndpointConnection(ctx, &args, opts...)
+			return *r, err
+		}).(GetWorkspacePrivateEndpointConnectionResultOutput)
+}
+
+// A collection of arguments for invoking getWorkspacePrivateEndpointConnection.
+type GetWorkspacePrivateEndpointConnectionOutputArgs struct {
+	// The resource ID of the Private Endpoint.
+	PrivateEndpointId pulumi.StringInput `pulumi:"privateEndpointId"`
+	// The resource ID of the Databricks Workspace.
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+}
+
+func (GetWorkspacePrivateEndpointConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getWorkspacePrivateEndpointConnection.
+type GetWorkspacePrivateEndpointConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspacePrivateEndpointConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionResult)(nil)).Elem()
+}
+
+func (o GetWorkspacePrivateEndpointConnectionResultOutput) ToGetWorkspacePrivateEndpointConnectionResultOutput() GetWorkspacePrivateEndpointConnectionResultOutput {
+	return o
+}
+
+func (o GetWorkspacePrivateEndpointConnectionResultOutput) ToGetWorkspacePrivateEndpointConnectionResultOutputWithContext(ctx context.Context) GetWorkspacePrivateEndpointConnectionResultOutput {
+	return o
+}
+
+// A `connections` block as documented below.
+func (o GetWorkspacePrivateEndpointConnectionResultOutput) Connections() GetWorkspacePrivateEndpointConnectionConnectionArrayOutput {
+	return o.ApplyT(func(v GetWorkspacePrivateEndpointConnectionResult) []GetWorkspacePrivateEndpointConnectionConnection {
+		return v.Connections
+	}).(GetWorkspacePrivateEndpointConnectionConnectionArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetWorkspacePrivateEndpointConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspacePrivateEndpointConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource ID of the Private Endpoint.
+func (o GetWorkspacePrivateEndpointConnectionResultOutput) PrivateEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspacePrivateEndpointConnectionResult) string { return v.PrivateEndpointId }).(pulumi.StringOutput)
+}
+
+// The resource ID of the Databricks Workspace.
+func (o GetWorkspacePrivateEndpointConnectionResultOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspacePrivateEndpointConnectionResult) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetWorkspacePrivateEndpointConnectionResultOutput{})
 }

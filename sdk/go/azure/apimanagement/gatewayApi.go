@@ -210,7 +210,7 @@ type GatewayApiArrayInput interface {
 type GatewayApiArray []GatewayApiInput
 
 func (GatewayApiArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GatewayApi)(nil))
+	return reflect.TypeOf((*[]*GatewayApi)(nil)).Elem()
 }
 
 func (i GatewayApiArray) ToGatewayApiArrayOutput() GatewayApiArrayOutput {
@@ -235,7 +235,7 @@ type GatewayApiMapInput interface {
 type GatewayApiMap map[string]GatewayApiInput
 
 func (GatewayApiMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GatewayApi)(nil))
+	return reflect.TypeOf((*map[string]*GatewayApi)(nil)).Elem()
 }
 
 func (i GatewayApiMap) ToGatewayApiMapOutput() GatewayApiMapOutput {
@@ -246,9 +246,7 @@ func (i GatewayApiMap) ToGatewayApiMapOutputWithContext(ctx context.Context) Gat
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayApiMapOutput)
 }
 
-type GatewayApiOutput struct {
-	*pulumi.OutputState
-}
+type GatewayApiOutput struct{ *pulumi.OutputState }
 
 func (GatewayApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GatewayApi)(nil))
@@ -267,14 +265,12 @@ func (o GatewayApiOutput) ToGatewayApiPtrOutput() GatewayApiPtrOutput {
 }
 
 func (o GatewayApiOutput) ToGatewayApiPtrOutputWithContext(ctx context.Context) GatewayApiPtrOutput {
-	return o.ApplyT(func(v GatewayApi) *GatewayApi {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayApi) *GatewayApi {
 		return &v
 	}).(GatewayApiPtrOutput)
 }
 
-type GatewayApiPtrOutput struct {
-	*pulumi.OutputState
-}
+type GatewayApiPtrOutput struct{ *pulumi.OutputState }
 
 func (GatewayApiPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GatewayApi)(nil))
@@ -286,6 +282,16 @@ func (o GatewayApiPtrOutput) ToGatewayApiPtrOutput() GatewayApiPtrOutput {
 
 func (o GatewayApiPtrOutput) ToGatewayApiPtrOutputWithContext(ctx context.Context) GatewayApiPtrOutput {
 	return o
+}
+
+func (o GatewayApiPtrOutput) Elem() GatewayApiOutput {
+	return o.ApplyT(func(v *GatewayApi) GatewayApi {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayApi
+		return ret
+	}).(GatewayApiOutput)
 }
 
 type GatewayApiArrayOutput struct{ *pulumi.OutputState }

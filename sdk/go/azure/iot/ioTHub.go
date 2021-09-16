@@ -473,7 +473,7 @@ type IoTHubArrayInput interface {
 type IoTHubArray []IoTHubInput
 
 func (IoTHubArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IoTHub)(nil))
+	return reflect.TypeOf((*[]*IoTHub)(nil)).Elem()
 }
 
 func (i IoTHubArray) ToIoTHubArrayOutput() IoTHubArrayOutput {
@@ -498,7 +498,7 @@ type IoTHubMapInput interface {
 type IoTHubMap map[string]IoTHubInput
 
 func (IoTHubMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IoTHub)(nil))
+	return reflect.TypeOf((*map[string]*IoTHub)(nil)).Elem()
 }
 
 func (i IoTHubMap) ToIoTHubMapOutput() IoTHubMapOutput {
@@ -509,9 +509,7 @@ func (i IoTHubMap) ToIoTHubMapOutputWithContext(ctx context.Context) IoTHubMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubMapOutput)
 }
 
-type IoTHubOutput struct {
-	*pulumi.OutputState
-}
+type IoTHubOutput struct{ *pulumi.OutputState }
 
 func (IoTHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IoTHub)(nil))
@@ -530,14 +528,12 @@ func (o IoTHubOutput) ToIoTHubPtrOutput() IoTHubPtrOutput {
 }
 
 func (o IoTHubOutput) ToIoTHubPtrOutputWithContext(ctx context.Context) IoTHubPtrOutput {
-	return o.ApplyT(func(v IoTHub) *IoTHub {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTHub) *IoTHub {
 		return &v
 	}).(IoTHubPtrOutput)
 }
 
-type IoTHubPtrOutput struct {
-	*pulumi.OutputState
-}
+type IoTHubPtrOutput struct{ *pulumi.OutputState }
 
 func (IoTHubPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IoTHub)(nil))
@@ -549,6 +545,16 @@ func (o IoTHubPtrOutput) ToIoTHubPtrOutput() IoTHubPtrOutput {
 
 func (o IoTHubPtrOutput) ToIoTHubPtrOutputWithContext(ctx context.Context) IoTHubPtrOutput {
 	return o
+}
+
+func (o IoTHubPtrOutput) Elem() IoTHubOutput {
+	return o.ApplyT(func(v *IoTHub) IoTHub {
+		if v != nil {
+			return *v
+		}
+		var ret IoTHub
+		return ret
+	}).(IoTHubOutput)
 }
 
 type IoTHubArrayOutput struct{ *pulumi.OutputState }

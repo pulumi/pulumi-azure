@@ -107,7 +107,7 @@ func (o AnalyzerIdentityOutput) ToAnalyzerIdentityPtrOutput() AnalyzerIdentityPt
 }
 
 func (o AnalyzerIdentityOutput) ToAnalyzerIdentityPtrOutputWithContext(ctx context.Context) AnalyzerIdentityPtrOutput {
-	return o.ApplyT(func(v AnalyzerIdentity) *AnalyzerIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyzerIdentity) *AnalyzerIdentity {
 		return &v
 	}).(AnalyzerIdentityPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o AnalyzerIdentityPtrOutput) ToAnalyzerIdentityPtrOutputWithContext(ctx co
 }
 
 func (o AnalyzerIdentityPtrOutput) Elem() AnalyzerIdentityOutput {
-	return o.ApplyT(func(v *AnalyzerIdentity) AnalyzerIdentity { return *v }).(AnalyzerIdentityOutput)
+	return o.ApplyT(func(v *AnalyzerIdentity) AnalyzerIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyzerIdentity
+		return ret
+	}).(AnalyzerIdentityOutput)
 }
 
 // A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
@@ -257,7 +263,7 @@ func (o AnalyzerStorageAccountOutput) ToAnalyzerStorageAccountPtrOutput() Analyz
 }
 
 func (o AnalyzerStorageAccountOutput) ToAnalyzerStorageAccountPtrOutputWithContext(ctx context.Context) AnalyzerStorageAccountPtrOutput {
-	return o.ApplyT(func(v AnalyzerStorageAccount) *AnalyzerStorageAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyzerStorageAccount) *AnalyzerStorageAccount {
 		return &v
 	}).(AnalyzerStorageAccountPtrOutput)
 }
@@ -287,7 +293,13 @@ func (o AnalyzerStorageAccountPtrOutput) ToAnalyzerStorageAccountPtrOutputWithCo
 }
 
 func (o AnalyzerStorageAccountPtrOutput) Elem() AnalyzerStorageAccountOutput {
-	return o.ApplyT(func(v *AnalyzerStorageAccount) AnalyzerStorageAccount { return *v }).(AnalyzerStorageAccountOutput)
+	return o.ApplyT(func(v *AnalyzerStorageAccount) AnalyzerStorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyzerStorageAccount
+		return ret
+	}).(AnalyzerStorageAccountOutput)
 }
 
 // Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.

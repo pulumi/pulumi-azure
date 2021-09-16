@@ -281,7 +281,7 @@ type IntegrationRuntimeRuleArrayInput interface {
 type IntegrationRuntimeRuleArray []IntegrationRuntimeRuleInput
 
 func (IntegrationRuntimeRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntegrationRuntimeRule)(nil))
+	return reflect.TypeOf((*[]*IntegrationRuntimeRule)(nil)).Elem()
 }
 
 func (i IntegrationRuntimeRuleArray) ToIntegrationRuntimeRuleArrayOutput() IntegrationRuntimeRuleArrayOutput {
@@ -306,7 +306,7 @@ type IntegrationRuntimeRuleMapInput interface {
 type IntegrationRuntimeRuleMap map[string]IntegrationRuntimeRuleInput
 
 func (IntegrationRuntimeRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntegrationRuntimeRule)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationRuntimeRule)(nil)).Elem()
 }
 
 func (i IntegrationRuntimeRuleMap) ToIntegrationRuntimeRuleMapOutput() IntegrationRuntimeRuleMapOutput {
@@ -317,9 +317,7 @@ func (i IntegrationRuntimeRuleMap) ToIntegrationRuntimeRuleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeRuleMapOutput)
 }
 
-type IntegrationRuntimeRuleOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationRuntimeRuleOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationRuntimeRule)(nil))
@@ -338,14 +336,12 @@ func (o IntegrationRuntimeRuleOutput) ToIntegrationRuntimeRulePtrOutput() Integr
 }
 
 func (o IntegrationRuntimeRuleOutput) ToIntegrationRuntimeRulePtrOutputWithContext(ctx context.Context) IntegrationRuntimeRulePtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeRule) *IntegrationRuntimeRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeRule) *IntegrationRuntimeRule {
 		return &v
 	}).(IntegrationRuntimeRulePtrOutput)
 }
 
-type IntegrationRuntimeRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationRuntimeRulePtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationRuntimeRule)(nil))
@@ -357,6 +353,16 @@ func (o IntegrationRuntimeRulePtrOutput) ToIntegrationRuntimeRulePtrOutput() Int
 
 func (o IntegrationRuntimeRulePtrOutput) ToIntegrationRuntimeRulePtrOutputWithContext(ctx context.Context) IntegrationRuntimeRulePtrOutput {
 	return o
+}
+
+func (o IntegrationRuntimeRulePtrOutput) Elem() IntegrationRuntimeRuleOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeRule) IntegrationRuntimeRule {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeRule
+		return ret
+	}).(IntegrationRuntimeRuleOutput)
 }
 
 type IntegrationRuntimeRuleArrayOutput struct{ *pulumi.OutputState }

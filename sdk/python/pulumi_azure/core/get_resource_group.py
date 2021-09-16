@@ -12,6 +12,7 @@ __all__ = [
     'GetResourceGroupResult',
     'AwaitableGetResourceGroupResult',
     'get_resource_group',
+    'get_resource_group_output',
 ]
 
 @pulumi.output_type
@@ -106,3 +107,25 @@ def get_resource_group(name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_resource_group)
+def get_resource_group_output(name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGroupResult]:
+    """
+    Use this data source to access information about an existing Resource Group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.core.get_resource_group(name="existing")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The Name of this Resource Group.
+    """
+    ...

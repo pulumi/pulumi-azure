@@ -365,7 +365,7 @@ type RServerClusterArrayInput interface {
 type RServerClusterArray []RServerClusterInput
 
 func (RServerClusterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RServerCluster)(nil))
+	return reflect.TypeOf((*[]*RServerCluster)(nil)).Elem()
 }
 
 func (i RServerClusterArray) ToRServerClusterArrayOutput() RServerClusterArrayOutput {
@@ -390,7 +390,7 @@ type RServerClusterMapInput interface {
 type RServerClusterMap map[string]RServerClusterInput
 
 func (RServerClusterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RServerCluster)(nil))
+	return reflect.TypeOf((*map[string]*RServerCluster)(nil)).Elem()
 }
 
 func (i RServerClusterMap) ToRServerClusterMapOutput() RServerClusterMapOutput {
@@ -401,9 +401,7 @@ func (i RServerClusterMap) ToRServerClusterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterMapOutput)
 }
 
-type RServerClusterOutput struct {
-	*pulumi.OutputState
-}
+type RServerClusterOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RServerCluster)(nil))
@@ -422,14 +420,12 @@ func (o RServerClusterOutput) ToRServerClusterPtrOutput() RServerClusterPtrOutpu
 }
 
 func (o RServerClusterOutput) ToRServerClusterPtrOutputWithContext(ctx context.Context) RServerClusterPtrOutput {
-	return o.ApplyT(func(v RServerCluster) *RServerCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerCluster) *RServerCluster {
 		return &v
 	}).(RServerClusterPtrOutput)
 }
 
-type RServerClusterPtrOutput struct {
-	*pulumi.OutputState
-}
+type RServerClusterPtrOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RServerCluster)(nil))
@@ -441,6 +437,16 @@ func (o RServerClusterPtrOutput) ToRServerClusterPtrOutput() RServerClusterPtrOu
 
 func (o RServerClusterPtrOutput) ToRServerClusterPtrOutputWithContext(ctx context.Context) RServerClusterPtrOutput {
 	return o
+}
+
+func (o RServerClusterPtrOutput) Elem() RServerClusterOutput {
+	return o.ApplyT(func(v *RServerCluster) RServerCluster {
+		if v != nil {
+			return *v
+		}
+		var ret RServerCluster
+		return ret
+	}).(RServerClusterOutput)
 }
 
 type RServerClusterArrayOutput struct{ *pulumi.OutputState }

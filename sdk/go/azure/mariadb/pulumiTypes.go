@@ -123,7 +123,7 @@ func (o ServerStorageProfileOutput) ToServerStorageProfilePtrOutput() ServerStor
 }
 
 func (o ServerStorageProfileOutput) ToServerStorageProfilePtrOutputWithContext(ctx context.Context) ServerStorageProfilePtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *ServerStorageProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerStorageProfile) *ServerStorageProfile {
 		return &v
 	}).(ServerStorageProfilePtrOutput)
 }
@@ -167,7 +167,13 @@ func (o ServerStorageProfilePtrOutput) ToServerStorageProfilePtrOutputWithContex
 }
 
 func (o ServerStorageProfilePtrOutput) Elem() ServerStorageProfileOutput {
-	return o.ApplyT(func(v *ServerStorageProfile) ServerStorageProfile { return *v }).(ServerStorageProfileOutput)
+	return o.ApplyT(func(v *ServerStorageProfile) ServerStorageProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ServerStorageProfile
+		return ret
+	}).(ServerStorageProfileOutput)
 }
 
 // Deprecated: this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.

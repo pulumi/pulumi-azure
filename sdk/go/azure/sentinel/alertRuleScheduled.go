@@ -362,7 +362,7 @@ type AlertRuleScheduledArrayInput interface {
 type AlertRuleScheduledArray []AlertRuleScheduledInput
 
 func (AlertRuleScheduledArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AlertRuleScheduled)(nil))
+	return reflect.TypeOf((*[]*AlertRuleScheduled)(nil)).Elem()
 }
 
 func (i AlertRuleScheduledArray) ToAlertRuleScheduledArrayOutput() AlertRuleScheduledArrayOutput {
@@ -387,7 +387,7 @@ type AlertRuleScheduledMapInput interface {
 type AlertRuleScheduledMap map[string]AlertRuleScheduledInput
 
 func (AlertRuleScheduledMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AlertRuleScheduled)(nil))
+	return reflect.TypeOf((*map[string]*AlertRuleScheduled)(nil)).Elem()
 }
 
 func (i AlertRuleScheduledMap) ToAlertRuleScheduledMapOutput() AlertRuleScheduledMapOutput {
@@ -398,9 +398,7 @@ func (i AlertRuleScheduledMap) ToAlertRuleScheduledMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledMapOutput)
 }
 
-type AlertRuleScheduledOutput struct {
-	*pulumi.OutputState
-}
+type AlertRuleScheduledOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertRuleScheduled)(nil))
@@ -419,14 +417,12 @@ func (o AlertRuleScheduledOutput) ToAlertRuleScheduledPtrOutput() AlertRuleSched
 }
 
 func (o AlertRuleScheduledOutput) ToAlertRuleScheduledPtrOutputWithContext(ctx context.Context) AlertRuleScheduledPtrOutput {
-	return o.ApplyT(func(v AlertRuleScheduled) *AlertRuleScheduled {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleScheduled) *AlertRuleScheduled {
 		return &v
 	}).(AlertRuleScheduledPtrOutput)
 }
 
-type AlertRuleScheduledPtrOutput struct {
-	*pulumi.OutputState
-}
+type AlertRuleScheduledPtrOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AlertRuleScheduled)(nil))
@@ -438,6 +434,16 @@ func (o AlertRuleScheduledPtrOutput) ToAlertRuleScheduledPtrOutput() AlertRuleSc
 
 func (o AlertRuleScheduledPtrOutput) ToAlertRuleScheduledPtrOutputWithContext(ctx context.Context) AlertRuleScheduledPtrOutput {
 	return o
+}
+
+func (o AlertRuleScheduledPtrOutput) Elem() AlertRuleScheduledOutput {
+	return o.ApplyT(func(v *AlertRuleScheduled) AlertRuleScheduled {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleScheduled
+		return ret
+	}).(AlertRuleScheduledOutput)
 }
 
 type AlertRuleScheduledArrayOutput struct{ *pulumi.OutputState }

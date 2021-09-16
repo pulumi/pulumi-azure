@@ -291,7 +291,7 @@ type StreamingPolicyArrayInput interface {
 type StreamingPolicyArray []StreamingPolicyInput
 
 func (StreamingPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StreamingPolicy)(nil))
+	return reflect.TypeOf((*[]*StreamingPolicy)(nil)).Elem()
 }
 
 func (i StreamingPolicyArray) ToStreamingPolicyArrayOutput() StreamingPolicyArrayOutput {
@@ -316,7 +316,7 @@ type StreamingPolicyMapInput interface {
 type StreamingPolicyMap map[string]StreamingPolicyInput
 
 func (StreamingPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StreamingPolicy)(nil))
+	return reflect.TypeOf((*map[string]*StreamingPolicy)(nil)).Elem()
 }
 
 func (i StreamingPolicyMap) ToStreamingPolicyMapOutput() StreamingPolicyMapOutput {
@@ -327,9 +327,7 @@ func (i StreamingPolicyMap) ToStreamingPolicyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyMapOutput)
 }
 
-type StreamingPolicyOutput struct {
-	*pulumi.OutputState
-}
+type StreamingPolicyOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamingPolicy)(nil))
@@ -348,14 +346,12 @@ func (o StreamingPolicyOutput) ToStreamingPolicyPtrOutput() StreamingPolicyPtrOu
 }
 
 func (o StreamingPolicyOutput) ToStreamingPolicyPtrOutputWithContext(ctx context.Context) StreamingPolicyPtrOutput {
-	return o.ApplyT(func(v StreamingPolicy) *StreamingPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicy) *StreamingPolicy {
 		return &v
 	}).(StreamingPolicyPtrOutput)
 }
 
-type StreamingPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type StreamingPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StreamingPolicy)(nil))
@@ -367,6 +363,16 @@ func (o StreamingPolicyPtrOutput) ToStreamingPolicyPtrOutput() StreamingPolicyPt
 
 func (o StreamingPolicyPtrOutput) ToStreamingPolicyPtrOutputWithContext(ctx context.Context) StreamingPolicyPtrOutput {
 	return o
+}
+
+func (o StreamingPolicyPtrOutput) Elem() StreamingPolicyOutput {
+	return o.ApplyT(func(v *StreamingPolicy) StreamingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicy
+		return ret
+	}).(StreamingPolicyOutput)
 }
 
 type StreamingPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -255,7 +255,7 @@ type PtrRecordArrayInput interface {
 type PtrRecordArray []PtrRecordInput
 
 func (PtrRecordArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PtrRecord)(nil))
+	return reflect.TypeOf((*[]*PtrRecord)(nil)).Elem()
 }
 
 func (i PtrRecordArray) ToPtrRecordArrayOutput() PtrRecordArrayOutput {
@@ -280,7 +280,7 @@ type PtrRecordMapInput interface {
 type PtrRecordMap map[string]PtrRecordInput
 
 func (PtrRecordMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PtrRecord)(nil))
+	return reflect.TypeOf((*map[string]*PtrRecord)(nil)).Elem()
 }
 
 func (i PtrRecordMap) ToPtrRecordMapOutput() PtrRecordMapOutput {
@@ -291,9 +291,7 @@ func (i PtrRecordMap) ToPtrRecordMapOutputWithContext(ctx context.Context) PtrRe
 	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordMapOutput)
 }
 
-type PtrRecordOutput struct {
-	*pulumi.OutputState
-}
+type PtrRecordOutput struct{ *pulumi.OutputState }
 
 func (PtrRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PtrRecord)(nil))
@@ -312,14 +310,12 @@ func (o PtrRecordOutput) ToPtrRecordPtrOutput() PtrRecordPtrOutput {
 }
 
 func (o PtrRecordOutput) ToPtrRecordPtrOutputWithContext(ctx context.Context) PtrRecordPtrOutput {
-	return o.ApplyT(func(v PtrRecord) *PtrRecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PtrRecord) *PtrRecord {
 		return &v
 	}).(PtrRecordPtrOutput)
 }
 
-type PtrRecordPtrOutput struct {
-	*pulumi.OutputState
-}
+type PtrRecordPtrOutput struct{ *pulumi.OutputState }
 
 func (PtrRecordPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PtrRecord)(nil))
@@ -331,6 +327,16 @@ func (o PtrRecordPtrOutput) ToPtrRecordPtrOutput() PtrRecordPtrOutput {
 
 func (o PtrRecordPtrOutput) ToPtrRecordPtrOutputWithContext(ctx context.Context) PtrRecordPtrOutput {
 	return o
+}
+
+func (o PtrRecordPtrOutput) Elem() PtrRecordOutput {
+	return o.ApplyT(func(v *PtrRecord) PtrRecord {
+		if v != nil {
+			return *v
+		}
+		var ret PtrRecord
+		return ret
+	}).(PtrRecordOutput)
 }
 
 type PtrRecordArrayOutput struct{ *pulumi.OutputState }

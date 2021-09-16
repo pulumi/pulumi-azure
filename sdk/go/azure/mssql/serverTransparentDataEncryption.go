@@ -218,7 +218,7 @@ type ServerTransparentDataEncryptionArrayInput interface {
 type ServerTransparentDataEncryptionArray []ServerTransparentDataEncryptionInput
 
 func (ServerTransparentDataEncryptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServerTransparentDataEncryption)(nil))
+	return reflect.TypeOf((*[]*ServerTransparentDataEncryption)(nil)).Elem()
 }
 
 func (i ServerTransparentDataEncryptionArray) ToServerTransparentDataEncryptionArrayOutput() ServerTransparentDataEncryptionArrayOutput {
@@ -243,7 +243,7 @@ type ServerTransparentDataEncryptionMapInput interface {
 type ServerTransparentDataEncryptionMap map[string]ServerTransparentDataEncryptionInput
 
 func (ServerTransparentDataEncryptionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServerTransparentDataEncryption)(nil))
+	return reflect.TypeOf((*map[string]*ServerTransparentDataEncryption)(nil)).Elem()
 }
 
 func (i ServerTransparentDataEncryptionMap) ToServerTransparentDataEncryptionMapOutput() ServerTransparentDataEncryptionMapOutput {
@@ -254,9 +254,7 @@ func (i ServerTransparentDataEncryptionMap) ToServerTransparentDataEncryptionMap
 	return pulumi.ToOutputWithContext(ctx, i).(ServerTransparentDataEncryptionMapOutput)
 }
 
-type ServerTransparentDataEncryptionOutput struct {
-	*pulumi.OutputState
-}
+type ServerTransparentDataEncryptionOutput struct{ *pulumi.OutputState }
 
 func (ServerTransparentDataEncryptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerTransparentDataEncryption)(nil))
@@ -275,14 +273,12 @@ func (o ServerTransparentDataEncryptionOutput) ToServerTransparentDataEncryption
 }
 
 func (o ServerTransparentDataEncryptionOutput) ToServerTransparentDataEncryptionPtrOutputWithContext(ctx context.Context) ServerTransparentDataEncryptionPtrOutput {
-	return o.ApplyT(func(v ServerTransparentDataEncryption) *ServerTransparentDataEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerTransparentDataEncryption) *ServerTransparentDataEncryption {
 		return &v
 	}).(ServerTransparentDataEncryptionPtrOutput)
 }
 
-type ServerTransparentDataEncryptionPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServerTransparentDataEncryptionPtrOutput struct{ *pulumi.OutputState }
 
 func (ServerTransparentDataEncryptionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServerTransparentDataEncryption)(nil))
@@ -294,6 +290,16 @@ func (o ServerTransparentDataEncryptionPtrOutput) ToServerTransparentDataEncrypt
 
 func (o ServerTransparentDataEncryptionPtrOutput) ToServerTransparentDataEncryptionPtrOutputWithContext(ctx context.Context) ServerTransparentDataEncryptionPtrOutput {
 	return o
+}
+
+func (o ServerTransparentDataEncryptionPtrOutput) Elem() ServerTransparentDataEncryptionOutput {
+	return o.ApplyT(func(v *ServerTransparentDataEncryption) ServerTransparentDataEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret ServerTransparentDataEncryption
+		return ret
+	}).(ServerTransparentDataEncryptionOutput)
 }
 
 type ServerTransparentDataEncryptionArrayOutput struct{ *pulumi.OutputState }

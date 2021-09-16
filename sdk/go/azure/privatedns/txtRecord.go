@@ -252,7 +252,7 @@ type TxtRecordArrayInput interface {
 type TxtRecordArray []TxtRecordInput
 
 func (TxtRecordArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TxtRecord)(nil))
+	return reflect.TypeOf((*[]*TxtRecord)(nil)).Elem()
 }
 
 func (i TxtRecordArray) ToTxtRecordArrayOutput() TxtRecordArrayOutput {
@@ -277,7 +277,7 @@ type TxtRecordMapInput interface {
 type TxtRecordMap map[string]TxtRecordInput
 
 func (TxtRecordMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TxtRecord)(nil))
+	return reflect.TypeOf((*map[string]*TxtRecord)(nil)).Elem()
 }
 
 func (i TxtRecordMap) ToTxtRecordMapOutput() TxtRecordMapOutput {
@@ -288,9 +288,7 @@ func (i TxtRecordMap) ToTxtRecordMapOutputWithContext(ctx context.Context) TxtRe
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordMapOutput)
 }
 
-type TxtRecordOutput struct {
-	*pulumi.OutputState
-}
+type TxtRecordOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TxtRecord)(nil))
@@ -309,14 +307,12 @@ func (o TxtRecordOutput) ToTxtRecordPtrOutput() TxtRecordPtrOutput {
 }
 
 func (o TxtRecordOutput) ToTxtRecordPtrOutputWithContext(ctx context.Context) TxtRecordPtrOutput {
-	return o.ApplyT(func(v TxtRecord) *TxtRecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TxtRecord) *TxtRecord {
 		return &v
 	}).(TxtRecordPtrOutput)
 }
 
-type TxtRecordPtrOutput struct {
-	*pulumi.OutputState
-}
+type TxtRecordPtrOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TxtRecord)(nil))
@@ -328,6 +324,16 @@ func (o TxtRecordPtrOutput) ToTxtRecordPtrOutput() TxtRecordPtrOutput {
 
 func (o TxtRecordPtrOutput) ToTxtRecordPtrOutputWithContext(ctx context.Context) TxtRecordPtrOutput {
 	return o
+}
+
+func (o TxtRecordPtrOutput) Elem() TxtRecordOutput {
+	return o.ApplyT(func(v *TxtRecord) TxtRecord {
+		if v != nil {
+			return *v
+		}
+		var ret TxtRecord
+		return ret
+	}).(TxtRecordOutput)
 }
 
 type TxtRecordArrayOutput struct{ *pulumi.OutputState }

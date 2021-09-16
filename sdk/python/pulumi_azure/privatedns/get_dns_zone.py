@@ -12,6 +12,7 @@ __all__ = [
     'GetDnsZoneResult',
     'AwaitableGetDnsZoneResult',
     'get_dns_zone',
+    'get_dns_zone_output',
 ]
 
 @pulumi.output_type
@@ -161,3 +162,30 @@ def get_dns_zone(name: Optional[str] = None,
         number_of_record_sets=__ret__.number_of_record_sets,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_dns_zone)
+def get_dns_zone_output(name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsZoneResult]:
+    """
+    Use this data source to access information about an existing Private DNS Zone.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatedns.get_dns_zone(name="contoso.internal",
+        resource_group_name="contoso-dns")
+    pulumi.export("privateDnsZoneId", example.id)
+    ```
+
+
+    :param str name: The name of the Private DNS Zone.
+    :param str resource_group_name: The Name of the Resource Group where the Private DNS Zone exists.
+           If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private
+           DNS Zones in your subscription that matches `name` will be returned.
+    """
+    ...

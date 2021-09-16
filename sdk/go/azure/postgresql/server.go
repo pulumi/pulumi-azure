@@ -423,7 +423,7 @@ type ServerArrayInput interface {
 type ServerArray []ServerInput
 
 func (ServerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Server)(nil))
+	return reflect.TypeOf((*[]*Server)(nil)).Elem()
 }
 
 func (i ServerArray) ToServerArrayOutput() ServerArrayOutput {
@@ -448,7 +448,7 @@ type ServerMapInput interface {
 type ServerMap map[string]ServerInput
 
 func (ServerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Server)(nil))
+	return reflect.TypeOf((*map[string]*Server)(nil)).Elem()
 }
 
 func (i ServerMap) ToServerMapOutput() ServerMapOutput {
@@ -459,9 +459,7 @@ func (i ServerMap) ToServerMapOutputWithContext(ctx context.Context) ServerMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServerMapOutput)
 }
 
-type ServerOutput struct {
-	*pulumi.OutputState
-}
+type ServerOutput struct{ *pulumi.OutputState }
 
 func (ServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Server)(nil))
@@ -480,14 +478,12 @@ func (o ServerOutput) ToServerPtrOutput() ServerPtrOutput {
 }
 
 func (o ServerOutput) ToServerPtrOutputWithContext(ctx context.Context) ServerPtrOutput {
-	return o.ApplyT(func(v Server) *Server {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Server) *Server {
 		return &v
 	}).(ServerPtrOutput)
 }
 
-type ServerPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServerPtrOutput struct{ *pulumi.OutputState }
 
 func (ServerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Server)(nil))
@@ -499,6 +495,16 @@ func (o ServerPtrOutput) ToServerPtrOutput() ServerPtrOutput {
 
 func (o ServerPtrOutput) ToServerPtrOutputWithContext(ctx context.Context) ServerPtrOutput {
 	return o
+}
+
+func (o ServerPtrOutput) Elem() ServerOutput {
+	return o.ApplyT(func(v *Server) Server {
+		if v != nil {
+			return *v
+		}
+		var ret Server
+		return ret
+	}).(ServerOutput)
 }
 
 type ServerArrayOutput struct{ *pulumi.OutputState }

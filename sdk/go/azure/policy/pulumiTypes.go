@@ -111,7 +111,7 @@ func (o AssignmentIdentityOutput) ToAssignmentIdentityPtrOutput() AssignmentIden
 }
 
 func (o AssignmentIdentityOutput) ToAssignmentIdentityPtrOutputWithContext(ctx context.Context) AssignmentIdentityPtrOutput {
-	return o.ApplyT(func(v AssignmentIdentity) *AssignmentIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentIdentity) *AssignmentIdentity {
 		return &v
 	}).(AssignmentIdentityPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o AssignmentIdentityPtrOutput) ToAssignmentIdentityPtrOutputWithContext(ct
 }
 
 func (o AssignmentIdentityPtrOutput) Elem() AssignmentIdentityOutput {
-	return o.ApplyT(func(v *AssignmentIdentity) AssignmentIdentity { return *v }).(AssignmentIdentityOutput)
+	return o.ApplyT(func(v *AssignmentIdentity) AssignmentIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AssignmentIdentity
+		return ret
+	}).(AssignmentIdentityOutput)
 }
 
 // The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
@@ -568,7 +574,7 @@ func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ToVirtualMachi
 }
 
 func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentConfigurationPtrOutput {
-	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) *VirtualMachineConfigurationAssignmentConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineConfigurationAssignmentConfiguration) *VirtualMachineConfigurationAssignmentConfiguration {
 		return &v
 	}).(VirtualMachineConfigurationAssignmentConfigurationPtrOutput)
 }
@@ -623,7 +629,11 @@ func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ToVirtualMa
 
 func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) Elem() VirtualMachineConfigurationAssignmentConfigurationOutput {
 	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) VirtualMachineConfigurationAssignmentConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineConfigurationAssignmentConfiguration
+		return ret
 	}).(VirtualMachineConfigurationAssignmentConfigurationOutput)
 }
 

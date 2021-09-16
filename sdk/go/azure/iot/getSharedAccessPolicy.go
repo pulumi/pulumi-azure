@@ -4,6 +4,9 @@
 package iot
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,83 @@ type LookupSharedAccessPolicyResult struct {
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
 	// The secondary key used to create the authentication token.
 	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+func LookupSharedAccessPolicyOutput(ctx *pulumi.Context, args LookupSharedAccessPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupSharedAccessPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSharedAccessPolicyResult, error) {
+			args := v.(LookupSharedAccessPolicyArgs)
+			r, err := LookupSharedAccessPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSharedAccessPolicyResultOutput)
+}
+
+// A collection of arguments for invoking getSharedAccessPolicy.
+type LookupSharedAccessPolicyOutputArgs struct {
+	// The name of the IoTHub to which this Shared Access Policy belongs.
+	IothubName pulumi.StringInput `pulumi:"iothubName"`
+	// Specifies the name of the IotHub Shared Access Policy resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group under which the IotHub Shared Access Policy resource has to be created.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupSharedAccessPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSharedAccessPolicyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSharedAccessPolicy.
+type LookupSharedAccessPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSharedAccessPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSharedAccessPolicyResult)(nil)).Elem()
+}
+
+func (o LookupSharedAccessPolicyResultOutput) ToLookupSharedAccessPolicyResultOutput() LookupSharedAccessPolicyResultOutput {
+	return o
+}
+
+func (o LookupSharedAccessPolicyResultOutput) ToLookupSharedAccessPolicyResultOutputWithContext(ctx context.Context) LookupSharedAccessPolicyResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSharedAccessPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedAccessPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupSharedAccessPolicyResultOutput) IothubName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedAccessPolicyResult) string { return v.IothubName }).(pulumi.StringOutput)
+}
+
+func (o LookupSharedAccessPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedAccessPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The primary connection string of the Shared Access Policy.
+func (o LookupSharedAccessPolicyResultOutput) PrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedAccessPolicyResult) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The primary key used to create the authentication token.
+func (o LookupSharedAccessPolicyResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedAccessPolicyResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+func (o LookupSharedAccessPolicyResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedAccessPolicyResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The secondary connection string of the Shared Access Policy.
+func (o LookupSharedAccessPolicyResultOutput) SecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedAccessPolicyResult) string { return v.SecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The secondary key used to create the authentication token.
+func (o LookupSharedAccessPolicyResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedAccessPolicyResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSharedAccessPolicyResultOutput{})
 }

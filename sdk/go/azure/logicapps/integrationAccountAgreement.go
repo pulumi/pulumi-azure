@@ -260,7 +260,7 @@ type IntegrationAccountAgreementArrayInput interface {
 type IntegrationAccountAgreementArray []IntegrationAccountAgreementInput
 
 func (IntegrationAccountAgreementArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntegrationAccountAgreement)(nil))
+	return reflect.TypeOf((*[]*IntegrationAccountAgreement)(nil)).Elem()
 }
 
 func (i IntegrationAccountAgreementArray) ToIntegrationAccountAgreementArrayOutput() IntegrationAccountAgreementArrayOutput {
@@ -285,7 +285,7 @@ type IntegrationAccountAgreementMapInput interface {
 type IntegrationAccountAgreementMap map[string]IntegrationAccountAgreementInput
 
 func (IntegrationAccountAgreementMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntegrationAccountAgreement)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationAccountAgreement)(nil)).Elem()
 }
 
 func (i IntegrationAccountAgreementMap) ToIntegrationAccountAgreementMapOutput() IntegrationAccountAgreementMapOutput {
@@ -296,9 +296,7 @@ func (i IntegrationAccountAgreementMap) ToIntegrationAccountAgreementMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementMapOutput)
 }
 
-type IntegrationAccountAgreementOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountAgreementOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAgreementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountAgreement)(nil))
@@ -317,14 +315,12 @@ func (o IntegrationAccountAgreementOutput) ToIntegrationAccountAgreementPtrOutpu
 }
 
 func (o IntegrationAccountAgreementOutput) ToIntegrationAccountAgreementPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountAgreement) *IntegrationAccountAgreement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountAgreement) *IntegrationAccountAgreement {
 		return &v
 	}).(IntegrationAccountAgreementPtrOutput)
 }
 
-type IntegrationAccountAgreementPtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountAgreementPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAgreementPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationAccountAgreement)(nil))
@@ -336,6 +332,16 @@ func (o IntegrationAccountAgreementPtrOutput) ToIntegrationAccountAgreementPtrOu
 
 func (o IntegrationAccountAgreementPtrOutput) ToIntegrationAccountAgreementPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementPtrOutput {
 	return o
+}
+
+func (o IntegrationAccountAgreementPtrOutput) Elem() IntegrationAccountAgreementOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) IntegrationAccountAgreement {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountAgreement
+		return ret
+	}).(IntegrationAccountAgreementOutput)
 }
 
 type IntegrationAccountAgreementArrayOutput struct{ *pulumi.OutputState }

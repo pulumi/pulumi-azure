@@ -302,7 +302,7 @@ type AlertRuleMsSecurityIncidentArrayInput interface {
 type AlertRuleMsSecurityIncidentArray []AlertRuleMsSecurityIncidentInput
 
 func (AlertRuleMsSecurityIncidentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AlertRuleMsSecurityIncident)(nil))
+	return reflect.TypeOf((*[]*AlertRuleMsSecurityIncident)(nil)).Elem()
 }
 
 func (i AlertRuleMsSecurityIncidentArray) ToAlertRuleMsSecurityIncidentArrayOutput() AlertRuleMsSecurityIncidentArrayOutput {
@@ -327,7 +327,7 @@ type AlertRuleMsSecurityIncidentMapInput interface {
 type AlertRuleMsSecurityIncidentMap map[string]AlertRuleMsSecurityIncidentInput
 
 func (AlertRuleMsSecurityIncidentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AlertRuleMsSecurityIncident)(nil))
+	return reflect.TypeOf((*map[string]*AlertRuleMsSecurityIncident)(nil)).Elem()
 }
 
 func (i AlertRuleMsSecurityIncidentMap) ToAlertRuleMsSecurityIncidentMapOutput() AlertRuleMsSecurityIncidentMapOutput {
@@ -338,9 +338,7 @@ func (i AlertRuleMsSecurityIncidentMap) ToAlertRuleMsSecurityIncidentMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMsSecurityIncidentMapOutput)
 }
 
-type AlertRuleMsSecurityIncidentOutput struct {
-	*pulumi.OutputState
-}
+type AlertRuleMsSecurityIncidentOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleMsSecurityIncidentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertRuleMsSecurityIncident)(nil))
@@ -359,14 +357,12 @@ func (o AlertRuleMsSecurityIncidentOutput) ToAlertRuleMsSecurityIncidentPtrOutpu
 }
 
 func (o AlertRuleMsSecurityIncidentOutput) ToAlertRuleMsSecurityIncidentPtrOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentPtrOutput {
-	return o.ApplyT(func(v AlertRuleMsSecurityIncident) *AlertRuleMsSecurityIncident {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleMsSecurityIncident) *AlertRuleMsSecurityIncident {
 		return &v
 	}).(AlertRuleMsSecurityIncidentPtrOutput)
 }
 
-type AlertRuleMsSecurityIncidentPtrOutput struct {
-	*pulumi.OutputState
-}
+type AlertRuleMsSecurityIncidentPtrOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleMsSecurityIncidentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AlertRuleMsSecurityIncident)(nil))
@@ -378,6 +374,16 @@ func (o AlertRuleMsSecurityIncidentPtrOutput) ToAlertRuleMsSecurityIncidentPtrOu
 
 func (o AlertRuleMsSecurityIncidentPtrOutput) ToAlertRuleMsSecurityIncidentPtrOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentPtrOutput {
 	return o
+}
+
+func (o AlertRuleMsSecurityIncidentPtrOutput) Elem() AlertRuleMsSecurityIncidentOutput {
+	return o.ApplyT(func(v *AlertRuleMsSecurityIncident) AlertRuleMsSecurityIncident {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleMsSecurityIncident
+		return ret
+	}).(AlertRuleMsSecurityIncidentOutput)
 }
 
 type AlertRuleMsSecurityIncidentArrayOutput struct{ *pulumi.OutputState }

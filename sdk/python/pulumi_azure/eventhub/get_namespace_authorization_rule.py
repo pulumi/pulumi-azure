@@ -12,6 +12,7 @@ __all__ = [
     'GetNamespaceAuthorizationRuleResult',
     'AwaitableGetNamespaceAuthorizationRuleResult',
     'get_namespace_authorization_rule',
+    'get_namespace_authorization_rule_output',
 ]
 
 @pulumi.output_type
@@ -225,3 +226,31 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
         secondary_connection_string_alias=__ret__.secondary_connection_string_alias,
         secondary_key=__ret__.secondary_key,
         send=__ret__.send)
+
+
+@_utilities.lift_output_func(get_namespace_authorization_rule)
+def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = None,
+                                            namespace_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceAuthorizationRuleResult]:
+    """
+    Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.eventhub.get_namespace_authorization_rule(name="navi",
+        resource_group_name="example-resources",
+        namespace_name="example-ns")
+    pulumi.export("eventhubAuthorizationRuleId", data["azurem_eventhub_namespace_authorization_rule"]["example"]["id"])
+    ```
+
+
+    :param str name: The name of the EventHub Authorization Rule resource.
+    :param str namespace_name: Specifies the name of the EventHub Namespace.
+    :param str resource_group_name: The name of the resource group in which the EventHub Namespace exists.
+    """
+    ...

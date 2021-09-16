@@ -13,6 +13,7 @@ __all__ = [
     'GetTrafficManagerProfileResult',
     'AwaitableGetTrafficManagerProfileResult',
     'get_traffic_manager_profile',
+    'get_traffic_manager_profile_output',
 ]
 
 @pulumi.output_type
@@ -195,3 +196,32 @@ def get_traffic_manager_profile(name: Optional[str] = None,
         tags=__ret__.tags,
         traffic_routing_method=__ret__.traffic_routing_method,
         traffic_view_enabled=__ret__.traffic_view_enabled)
+
+
+@_utilities.lift_output_func(get_traffic_manager_profile)
+def get_traffic_manager_profile_output(name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                       traffic_view_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficManagerProfileResult]:
+    """
+    Use this data source to access information about an existing Traffic Manager Profile.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_traffic_manager_profile(name="test",
+        resource_group_name="test")
+    pulumi.export("trafficRoutingMethod", data["azurerm_traffic_manager_profile"]["traffic_routing_method"])
+    ```
+
+
+    :param str name: Specifies the name of the Traffic Manager Profile.
+    :param str resource_group_name: Specifies the name of the resource group the Traffic Manager Profile is located in.
+    :param Mapping[str, str] tags: A mapping of tags to assign to the resource.
+    :param bool traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
+    """
+    ...

@@ -107,10 +107,11 @@ func (o VaultIdentityOutput) ToVaultIdentityPtrOutput() VaultIdentityPtrOutput {
 }
 
 func (o VaultIdentityOutput) ToVaultIdentityPtrOutputWithContext(ctx context.Context) VaultIdentityPtrOutput {
-	return o.ApplyT(func(v VaultIdentity) *VaultIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultIdentity) *VaultIdentity {
 		return &v
 	}).(VaultIdentityPtrOutput)
 }
+
 func (o VaultIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -139,7 +140,13 @@ func (o VaultIdentityPtrOutput) ToVaultIdentityPtrOutputWithContext(ctx context.
 }
 
 func (o VaultIdentityPtrOutput) Elem() VaultIdentityOutput {
-	return o.ApplyT(func(v *VaultIdentity) VaultIdentity { return *v }).(VaultIdentityOutput)
+	return o.ApplyT(func(v *VaultIdentity) VaultIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret VaultIdentity
+		return ret
+	}).(VaultIdentityOutput)
 }
 
 func (o VaultIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {

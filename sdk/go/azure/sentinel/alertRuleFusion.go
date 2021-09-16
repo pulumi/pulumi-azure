@@ -222,7 +222,7 @@ type AlertRuleFusionArrayInput interface {
 type AlertRuleFusionArray []AlertRuleFusionInput
 
 func (AlertRuleFusionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AlertRuleFusion)(nil))
+	return reflect.TypeOf((*[]*AlertRuleFusion)(nil)).Elem()
 }
 
 func (i AlertRuleFusionArray) ToAlertRuleFusionArrayOutput() AlertRuleFusionArrayOutput {
@@ -247,7 +247,7 @@ type AlertRuleFusionMapInput interface {
 type AlertRuleFusionMap map[string]AlertRuleFusionInput
 
 func (AlertRuleFusionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AlertRuleFusion)(nil))
+	return reflect.TypeOf((*map[string]*AlertRuleFusion)(nil)).Elem()
 }
 
 func (i AlertRuleFusionMap) ToAlertRuleFusionMapOutput() AlertRuleFusionMapOutput {
@@ -258,9 +258,7 @@ func (i AlertRuleFusionMap) ToAlertRuleFusionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionMapOutput)
 }
 
-type AlertRuleFusionOutput struct {
-	*pulumi.OutputState
-}
+type AlertRuleFusionOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleFusionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertRuleFusion)(nil))
@@ -279,14 +277,12 @@ func (o AlertRuleFusionOutput) ToAlertRuleFusionPtrOutput() AlertRuleFusionPtrOu
 }
 
 func (o AlertRuleFusionOutput) ToAlertRuleFusionPtrOutputWithContext(ctx context.Context) AlertRuleFusionPtrOutput {
-	return o.ApplyT(func(v AlertRuleFusion) *AlertRuleFusion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleFusion) *AlertRuleFusion {
 		return &v
 	}).(AlertRuleFusionPtrOutput)
 }
 
-type AlertRuleFusionPtrOutput struct {
-	*pulumi.OutputState
-}
+type AlertRuleFusionPtrOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleFusionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AlertRuleFusion)(nil))
@@ -298,6 +294,16 @@ func (o AlertRuleFusionPtrOutput) ToAlertRuleFusionPtrOutput() AlertRuleFusionPt
 
 func (o AlertRuleFusionPtrOutput) ToAlertRuleFusionPtrOutputWithContext(ctx context.Context) AlertRuleFusionPtrOutput {
 	return o
+}
+
+func (o AlertRuleFusionPtrOutput) Elem() AlertRuleFusionOutput {
+	return o.ApplyT(func(v *AlertRuleFusion) AlertRuleFusion {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleFusion
+		return ret
+	}).(AlertRuleFusionOutput)
 }
 
 type AlertRuleFusionArrayOutput struct{ *pulumi.OutputState }

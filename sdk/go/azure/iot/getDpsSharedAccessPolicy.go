@@ -4,6 +4,9 @@
 package iot
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,83 @@ type LookupDpsSharedAccessPolicyResult struct {
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
 	// The secondary key used to create the authentication token.
 	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+func LookupDpsSharedAccessPolicyOutput(ctx *pulumi.Context, args LookupDpsSharedAccessPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupDpsSharedAccessPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDpsSharedAccessPolicyResult, error) {
+			args := v.(LookupDpsSharedAccessPolicyArgs)
+			r, err := LookupDpsSharedAccessPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDpsSharedAccessPolicyResultOutput)
+}
+
+// A collection of arguments for invoking getDpsSharedAccessPolicy.
+type LookupDpsSharedAccessPolicyOutputArgs struct {
+	// Specifies the name of the IoT Hub Device Provisioning service to which the Shared Access Policy belongs.
+	IothubDpsName pulumi.StringInput `pulumi:"iothubDpsName"`
+	// Specifies the name of the IotHub Shared Access Policy.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group under which the IotHub Shared Access Policy resource exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDpsSharedAccessPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDpsSharedAccessPolicyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDpsSharedAccessPolicy.
+type LookupDpsSharedAccessPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDpsSharedAccessPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDpsSharedAccessPolicyResult)(nil)).Elem()
+}
+
+func (o LookupDpsSharedAccessPolicyResultOutput) ToLookupDpsSharedAccessPolicyResultOutput() LookupDpsSharedAccessPolicyResultOutput {
+	return o
+}
+
+func (o LookupDpsSharedAccessPolicyResultOutput) ToLookupDpsSharedAccessPolicyResultOutputWithContext(ctx context.Context) LookupDpsSharedAccessPolicyResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupDpsSharedAccessPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDpsSharedAccessPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupDpsSharedAccessPolicyResultOutput) IothubDpsName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDpsSharedAccessPolicyResult) string { return v.IothubDpsName }).(pulumi.StringOutput)
+}
+
+func (o LookupDpsSharedAccessPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDpsSharedAccessPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The primary connection string of the Shared Access Policy.
+func (o LookupDpsSharedAccessPolicyResultOutput) PrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDpsSharedAccessPolicyResult) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The primary key used to create the authentication token.
+func (o LookupDpsSharedAccessPolicyResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDpsSharedAccessPolicyResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+func (o LookupDpsSharedAccessPolicyResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDpsSharedAccessPolicyResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The secondary connection string of the Shared Access Policy.
+func (o LookupDpsSharedAccessPolicyResultOutput) SecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDpsSharedAccessPolicyResult) string { return v.SecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The secondary key used to create the authentication token.
+func (o LookupDpsSharedAccessPolicyResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDpsSharedAccessPolicyResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDpsSharedAccessPolicyResultOutput{})
 }

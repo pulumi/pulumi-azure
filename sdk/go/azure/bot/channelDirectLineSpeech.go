@@ -275,7 +275,7 @@ type ChannelDirectLineSpeechArrayInput interface {
 type ChannelDirectLineSpeechArray []ChannelDirectLineSpeechInput
 
 func (ChannelDirectLineSpeechArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ChannelDirectLineSpeech)(nil))
+	return reflect.TypeOf((*[]*ChannelDirectLineSpeech)(nil)).Elem()
 }
 
 func (i ChannelDirectLineSpeechArray) ToChannelDirectLineSpeechArrayOutput() ChannelDirectLineSpeechArrayOutput {
@@ -300,7 +300,7 @@ type ChannelDirectLineSpeechMapInput interface {
 type ChannelDirectLineSpeechMap map[string]ChannelDirectLineSpeechInput
 
 func (ChannelDirectLineSpeechMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ChannelDirectLineSpeech)(nil))
+	return reflect.TypeOf((*map[string]*ChannelDirectLineSpeech)(nil)).Elem()
 }
 
 func (i ChannelDirectLineSpeechMap) ToChannelDirectLineSpeechMapOutput() ChannelDirectLineSpeechMapOutput {
@@ -311,9 +311,7 @@ func (i ChannelDirectLineSpeechMap) ToChannelDirectLineSpeechMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDirectLineSpeechMapOutput)
 }
 
-type ChannelDirectLineSpeechOutput struct {
-	*pulumi.OutputState
-}
+type ChannelDirectLineSpeechOutput struct{ *pulumi.OutputState }
 
 func (ChannelDirectLineSpeechOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelDirectLineSpeech)(nil))
@@ -332,14 +330,12 @@ func (o ChannelDirectLineSpeechOutput) ToChannelDirectLineSpeechPtrOutput() Chan
 }
 
 func (o ChannelDirectLineSpeechOutput) ToChannelDirectLineSpeechPtrOutputWithContext(ctx context.Context) ChannelDirectLineSpeechPtrOutput {
-	return o.ApplyT(func(v ChannelDirectLineSpeech) *ChannelDirectLineSpeech {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelDirectLineSpeech) *ChannelDirectLineSpeech {
 		return &v
 	}).(ChannelDirectLineSpeechPtrOutput)
 }
 
-type ChannelDirectLineSpeechPtrOutput struct {
-	*pulumi.OutputState
-}
+type ChannelDirectLineSpeechPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelDirectLineSpeechPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ChannelDirectLineSpeech)(nil))
@@ -351,6 +347,16 @@ func (o ChannelDirectLineSpeechPtrOutput) ToChannelDirectLineSpeechPtrOutput() C
 
 func (o ChannelDirectLineSpeechPtrOutput) ToChannelDirectLineSpeechPtrOutputWithContext(ctx context.Context) ChannelDirectLineSpeechPtrOutput {
 	return o
+}
+
+func (o ChannelDirectLineSpeechPtrOutput) Elem() ChannelDirectLineSpeechOutput {
+	return o.ApplyT(func(v *ChannelDirectLineSpeech) ChannelDirectLineSpeech {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelDirectLineSpeech
+		return ret
+	}).(ChannelDirectLineSpeechOutput)
 }
 
 type ChannelDirectLineSpeechArrayOutput struct{ *pulumi.OutputState }

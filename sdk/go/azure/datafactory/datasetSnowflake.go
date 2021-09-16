@@ -314,7 +314,7 @@ type DatasetSnowflakeArrayInput interface {
 type DatasetSnowflakeArray []DatasetSnowflakeInput
 
 func (DatasetSnowflakeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DatasetSnowflake)(nil))
+	return reflect.TypeOf((*[]*DatasetSnowflake)(nil)).Elem()
 }
 
 func (i DatasetSnowflakeArray) ToDatasetSnowflakeArrayOutput() DatasetSnowflakeArrayOutput {
@@ -339,7 +339,7 @@ type DatasetSnowflakeMapInput interface {
 type DatasetSnowflakeMap map[string]DatasetSnowflakeInput
 
 func (DatasetSnowflakeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DatasetSnowflake)(nil))
+	return reflect.TypeOf((*map[string]*DatasetSnowflake)(nil)).Elem()
 }
 
 func (i DatasetSnowflakeMap) ToDatasetSnowflakeMapOutput() DatasetSnowflakeMapOutput {
@@ -350,9 +350,7 @@ func (i DatasetSnowflakeMap) ToDatasetSnowflakeMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakeMapOutput)
 }
 
-type DatasetSnowflakeOutput struct {
-	*pulumi.OutputState
-}
+type DatasetSnowflakeOutput struct{ *pulumi.OutputState }
 
 func (DatasetSnowflakeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetSnowflake)(nil))
@@ -371,14 +369,12 @@ func (o DatasetSnowflakeOutput) ToDatasetSnowflakePtrOutput() DatasetSnowflakePt
 }
 
 func (o DatasetSnowflakeOutput) ToDatasetSnowflakePtrOutputWithContext(ctx context.Context) DatasetSnowflakePtrOutput {
-	return o.ApplyT(func(v DatasetSnowflake) *DatasetSnowflake {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetSnowflake) *DatasetSnowflake {
 		return &v
 	}).(DatasetSnowflakePtrOutput)
 }
 
-type DatasetSnowflakePtrOutput struct {
-	*pulumi.OutputState
-}
+type DatasetSnowflakePtrOutput struct{ *pulumi.OutputState }
 
 func (DatasetSnowflakePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DatasetSnowflake)(nil))
@@ -390,6 +386,16 @@ func (o DatasetSnowflakePtrOutput) ToDatasetSnowflakePtrOutput() DatasetSnowflak
 
 func (o DatasetSnowflakePtrOutput) ToDatasetSnowflakePtrOutputWithContext(ctx context.Context) DatasetSnowflakePtrOutput {
 	return o
+}
+
+func (o DatasetSnowflakePtrOutput) Elem() DatasetSnowflakeOutput {
+	return o.ApplyT(func(v *DatasetSnowflake) DatasetSnowflake {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetSnowflake
+		return ret
+	}).(DatasetSnowflakeOutput)
 }
 
 type DatasetSnowflakeArrayOutput struct{ *pulumi.OutputState }

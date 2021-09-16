@@ -415,7 +415,7 @@ type SystemTopicEventSubscriptionArrayInput interface {
 type SystemTopicEventSubscriptionArray []SystemTopicEventSubscriptionInput
 
 func (SystemTopicEventSubscriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SystemTopicEventSubscription)(nil))
+	return reflect.TypeOf((*[]*SystemTopicEventSubscription)(nil)).Elem()
 }
 
 func (i SystemTopicEventSubscriptionArray) ToSystemTopicEventSubscriptionArrayOutput() SystemTopicEventSubscriptionArrayOutput {
@@ -440,7 +440,7 @@ type SystemTopicEventSubscriptionMapInput interface {
 type SystemTopicEventSubscriptionMap map[string]SystemTopicEventSubscriptionInput
 
 func (SystemTopicEventSubscriptionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SystemTopicEventSubscription)(nil))
+	return reflect.TypeOf((*map[string]*SystemTopicEventSubscription)(nil)).Elem()
 }
 
 func (i SystemTopicEventSubscriptionMap) ToSystemTopicEventSubscriptionMapOutput() SystemTopicEventSubscriptionMapOutput {
@@ -451,9 +451,7 @@ func (i SystemTopicEventSubscriptionMap) ToSystemTopicEventSubscriptionMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionMapOutput)
 }
 
-type SystemTopicEventSubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type SystemTopicEventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SystemTopicEventSubscription)(nil))
@@ -472,14 +470,12 @@ func (o SystemTopicEventSubscriptionOutput) ToSystemTopicEventSubscriptionPtrOut
 }
 
 func (o SystemTopicEventSubscriptionOutput) ToSystemTopicEventSubscriptionPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionPtrOutput {
-	return o.ApplyT(func(v SystemTopicEventSubscription) *SystemTopicEventSubscription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscription) *SystemTopicEventSubscription {
 		return &v
 	}).(SystemTopicEventSubscriptionPtrOutput)
 }
 
-type SystemTopicEventSubscriptionPtrOutput struct {
-	*pulumi.OutputState
-}
+type SystemTopicEventSubscriptionPtrOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SystemTopicEventSubscription)(nil))
@@ -491,6 +487,16 @@ func (o SystemTopicEventSubscriptionPtrOutput) ToSystemTopicEventSubscriptionPtr
 
 func (o SystemTopicEventSubscriptionPtrOutput) ToSystemTopicEventSubscriptionPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionPtrOutput {
 	return o
+}
+
+func (o SystemTopicEventSubscriptionPtrOutput) Elem() SystemTopicEventSubscriptionOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) SystemTopicEventSubscription {
+		if v != nil {
+			return *v
+		}
+		var ret SystemTopicEventSubscription
+		return ret
+	}).(SystemTopicEventSubscriptionOutput)
 }
 
 type SystemTopicEventSubscriptionArrayOutput struct{ *pulumi.OutputState }

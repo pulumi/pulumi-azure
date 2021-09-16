@@ -162,7 +162,7 @@ type ServerKeyArrayInput interface {
 type ServerKeyArray []ServerKeyInput
 
 func (ServerKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServerKey)(nil))
+	return reflect.TypeOf((*[]*ServerKey)(nil)).Elem()
 }
 
 func (i ServerKeyArray) ToServerKeyArrayOutput() ServerKeyArrayOutput {
@@ -187,7 +187,7 @@ type ServerKeyMapInput interface {
 type ServerKeyMap map[string]ServerKeyInput
 
 func (ServerKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServerKey)(nil))
+	return reflect.TypeOf((*map[string]*ServerKey)(nil)).Elem()
 }
 
 func (i ServerKeyMap) ToServerKeyMapOutput() ServerKeyMapOutput {
@@ -198,9 +198,7 @@ func (i ServerKeyMap) ToServerKeyMapOutputWithContext(ctx context.Context) Serve
 	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyMapOutput)
 }
 
-type ServerKeyOutput struct {
-	*pulumi.OutputState
-}
+type ServerKeyOutput struct{ *pulumi.OutputState }
 
 func (ServerKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerKey)(nil))
@@ -219,14 +217,12 @@ func (o ServerKeyOutput) ToServerKeyPtrOutput() ServerKeyPtrOutput {
 }
 
 func (o ServerKeyOutput) ToServerKeyPtrOutputWithContext(ctx context.Context) ServerKeyPtrOutput {
-	return o.ApplyT(func(v ServerKey) *ServerKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerKey) *ServerKey {
 		return &v
 	}).(ServerKeyPtrOutput)
 }
 
-type ServerKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServerKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ServerKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServerKey)(nil))
@@ -238,6 +234,16 @@ func (o ServerKeyPtrOutput) ToServerKeyPtrOutput() ServerKeyPtrOutput {
 
 func (o ServerKeyPtrOutput) ToServerKeyPtrOutputWithContext(ctx context.Context) ServerKeyPtrOutput {
 	return o
+}
+
+func (o ServerKeyPtrOutput) Elem() ServerKeyOutput {
+	return o.ApplyT(func(v *ServerKey) ServerKey {
+		if v != nil {
+			return *v
+		}
+		var ret ServerKey
+		return ret
+	}).(ServerKeyOutput)
 }
 
 type ServerKeyArrayOutput struct{ *pulumi.OutputState }

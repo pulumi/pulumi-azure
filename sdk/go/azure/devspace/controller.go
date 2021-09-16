@@ -234,7 +234,7 @@ type ControllerArrayInput interface {
 type ControllerArray []ControllerInput
 
 func (ControllerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Controller)(nil))
+	return reflect.TypeOf((*[]*Controller)(nil)).Elem()
 }
 
 func (i ControllerArray) ToControllerArrayOutput() ControllerArrayOutput {
@@ -259,7 +259,7 @@ type ControllerMapInput interface {
 type ControllerMap map[string]ControllerInput
 
 func (ControllerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Controller)(nil))
+	return reflect.TypeOf((*map[string]*Controller)(nil)).Elem()
 }
 
 func (i ControllerMap) ToControllerMapOutput() ControllerMapOutput {
@@ -270,9 +270,7 @@ func (i ControllerMap) ToControllerMapOutputWithContext(ctx context.Context) Con
 	return pulumi.ToOutputWithContext(ctx, i).(ControllerMapOutput)
 }
 
-type ControllerOutput struct {
-	*pulumi.OutputState
-}
+type ControllerOutput struct{ *pulumi.OutputState }
 
 func (ControllerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Controller)(nil))
@@ -291,14 +289,12 @@ func (o ControllerOutput) ToControllerPtrOutput() ControllerPtrOutput {
 }
 
 func (o ControllerOutput) ToControllerPtrOutputWithContext(ctx context.Context) ControllerPtrOutput {
-	return o.ApplyT(func(v Controller) *Controller {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Controller) *Controller {
 		return &v
 	}).(ControllerPtrOutput)
 }
 
-type ControllerPtrOutput struct {
-	*pulumi.OutputState
-}
+type ControllerPtrOutput struct{ *pulumi.OutputState }
 
 func (ControllerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Controller)(nil))
@@ -310,6 +306,16 @@ func (o ControllerPtrOutput) ToControllerPtrOutput() ControllerPtrOutput {
 
 func (o ControllerPtrOutput) ToControllerPtrOutputWithContext(ctx context.Context) ControllerPtrOutput {
 	return o
+}
+
+func (o ControllerPtrOutput) Elem() ControllerOutput {
+	return o.ApplyT(func(v *Controller) Controller {
+		if v != nil {
+			return *v
+		}
+		var ret Controller
+		return ret
+	}).(ControllerOutput)
 }
 
 type ControllerArrayOutput struct{ *pulumi.OutputState }

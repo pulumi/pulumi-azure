@@ -302,7 +302,7 @@ type DatasetSqlServerTableArrayInput interface {
 type DatasetSqlServerTableArray []DatasetSqlServerTableInput
 
 func (DatasetSqlServerTableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DatasetSqlServerTable)(nil))
+	return reflect.TypeOf((*[]*DatasetSqlServerTable)(nil)).Elem()
 }
 
 func (i DatasetSqlServerTableArray) ToDatasetSqlServerTableArrayOutput() DatasetSqlServerTableArrayOutput {
@@ -327,7 +327,7 @@ type DatasetSqlServerTableMapInput interface {
 type DatasetSqlServerTableMap map[string]DatasetSqlServerTableInput
 
 func (DatasetSqlServerTableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DatasetSqlServerTable)(nil))
+	return reflect.TypeOf((*map[string]*DatasetSqlServerTable)(nil)).Elem()
 }
 
 func (i DatasetSqlServerTableMap) ToDatasetSqlServerTableMapOutput() DatasetSqlServerTableMapOutput {
@@ -338,9 +338,7 @@ func (i DatasetSqlServerTableMap) ToDatasetSqlServerTableMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSqlServerTableMapOutput)
 }
 
-type DatasetSqlServerTableOutput struct {
-	*pulumi.OutputState
-}
+type DatasetSqlServerTableOutput struct{ *pulumi.OutputState }
 
 func (DatasetSqlServerTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetSqlServerTable)(nil))
@@ -359,14 +357,12 @@ func (o DatasetSqlServerTableOutput) ToDatasetSqlServerTablePtrOutput() DatasetS
 }
 
 func (o DatasetSqlServerTableOutput) ToDatasetSqlServerTablePtrOutputWithContext(ctx context.Context) DatasetSqlServerTablePtrOutput {
-	return o.ApplyT(func(v DatasetSqlServerTable) *DatasetSqlServerTable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetSqlServerTable) *DatasetSqlServerTable {
 		return &v
 	}).(DatasetSqlServerTablePtrOutput)
 }
 
-type DatasetSqlServerTablePtrOutput struct {
-	*pulumi.OutputState
-}
+type DatasetSqlServerTablePtrOutput struct{ *pulumi.OutputState }
 
 func (DatasetSqlServerTablePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DatasetSqlServerTable)(nil))
@@ -378,6 +374,16 @@ func (o DatasetSqlServerTablePtrOutput) ToDatasetSqlServerTablePtrOutput() Datas
 
 func (o DatasetSqlServerTablePtrOutput) ToDatasetSqlServerTablePtrOutputWithContext(ctx context.Context) DatasetSqlServerTablePtrOutput {
 	return o
+}
+
+func (o DatasetSqlServerTablePtrOutput) Elem() DatasetSqlServerTableOutput {
+	return o.ApplyT(func(v *DatasetSqlServerTable) DatasetSqlServerTable {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetSqlServerTable
+		return ret
+	}).(DatasetSqlServerTableOutput)
 }
 
 type DatasetSqlServerTableArrayOutput struct{ *pulumi.OutputState }

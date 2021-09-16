@@ -12,6 +12,7 @@ __all__ = [
     'GetDefinitionResult',
     'AwaitableGetDefinitionResult',
     'get_definition',
+    'get_definition_output',
 ]
 
 @pulumi.output_type
@@ -175,3 +176,31 @@ def get_definition(name: Optional[str] = None,
         target_scope=__ret__.target_scope,
         time_created=__ret__.time_created,
         versions=__ret__.versions)
+
+
+@_utilities.lift_output_func(get_definition)
+def get_definition_output(name: Optional[pulumi.Input[str]] = None,
+                          scope_id: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefinitionResult]:
+    """
+    Use this data source to access information about an existing Azure Blueprint Definition
+
+    > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    current = azure.core.get_client_config()
+    root = azure.management.get_group(name=current.tenant_id)
+    example = azure.blueprint.get_definition(name="exampleManagementGroupBP",
+        scope_id=root.id)
+    ```
+
+
+    :param str name: The name of the Blueprint.
+    :param str scope_id: The ID of the Subscription or Management Group, as the scope at which the blueprint definition is stored.
+    """
+    ...

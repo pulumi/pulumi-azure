@@ -350,15 +350,15 @@ class DiagnosticSetting(pulumi.CustomResource):
             logs=[azure.monitoring.DiagnosticSettingLogArgs(
                 category="AuditEvent",
                 enabled=False,
-                retention_policy={
-                    "enabled": False,
-                },
+                retention_policy=azure.monitoring.DiagnosticSettingLogRetentionPolicyArgs(
+                    enabled=False,
+                ),
             )],
             metrics=[azure.monitoring.DiagnosticSettingMetricArgs(
                 category="AllMetrics",
-                retention_policy={
-                    "enabled": False,
-                },
+                retention_policy=azure.monitoring.DiagnosticSettingMetricRetentionPolicyArgs(
+                    enabled=False,
+                ),
             )])
         ```
 
@@ -408,15 +408,15 @@ class DiagnosticSetting(pulumi.CustomResource):
             logs=[azure.monitoring.DiagnosticSettingLogArgs(
                 category="AuditEvent",
                 enabled=False,
-                retention_policy={
-                    "enabled": False,
-                },
+                retention_policy=azure.monitoring.DiagnosticSettingLogRetentionPolicyArgs(
+                    enabled=False,
+                ),
             )],
             metrics=[azure.monitoring.DiagnosticSettingMetricArgs(
                 category="AllMetrics",
-                retention_policy={
-                    "enabled": False,
-                },
+                retention_policy=azure.monitoring.DiagnosticSettingMetricRetentionPolicyArgs(
+                    enabled=False,
+                ),
             )])
         ```
 

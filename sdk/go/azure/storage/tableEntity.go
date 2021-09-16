@@ -262,7 +262,7 @@ type TableEntityArrayInput interface {
 type TableEntityArray []TableEntityInput
 
 func (TableEntityArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TableEntity)(nil))
+	return reflect.TypeOf((*[]*TableEntity)(nil)).Elem()
 }
 
 func (i TableEntityArray) ToTableEntityArrayOutput() TableEntityArrayOutput {
@@ -287,7 +287,7 @@ type TableEntityMapInput interface {
 type TableEntityMap map[string]TableEntityInput
 
 func (TableEntityMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TableEntity)(nil))
+	return reflect.TypeOf((*map[string]*TableEntity)(nil)).Elem()
 }
 
 func (i TableEntityMap) ToTableEntityMapOutput() TableEntityMapOutput {
@@ -298,9 +298,7 @@ func (i TableEntityMap) ToTableEntityMapOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TableEntityMapOutput)
 }
 
-type TableEntityOutput struct {
-	*pulumi.OutputState
-}
+type TableEntityOutput struct{ *pulumi.OutputState }
 
 func (TableEntityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TableEntity)(nil))
@@ -319,14 +317,12 @@ func (o TableEntityOutput) ToTableEntityPtrOutput() TableEntityPtrOutput {
 }
 
 func (o TableEntityOutput) ToTableEntityPtrOutputWithContext(ctx context.Context) TableEntityPtrOutput {
-	return o.ApplyT(func(v TableEntity) *TableEntity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableEntity) *TableEntity {
 		return &v
 	}).(TableEntityPtrOutput)
 }
 
-type TableEntityPtrOutput struct {
-	*pulumi.OutputState
-}
+type TableEntityPtrOutput struct{ *pulumi.OutputState }
 
 func (TableEntityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TableEntity)(nil))
@@ -338,6 +334,16 @@ func (o TableEntityPtrOutput) ToTableEntityPtrOutput() TableEntityPtrOutput {
 
 func (o TableEntityPtrOutput) ToTableEntityPtrOutputWithContext(ctx context.Context) TableEntityPtrOutput {
 	return o
+}
+
+func (o TableEntityPtrOutput) Elem() TableEntityOutput {
+	return o.ApplyT(func(v *TableEntity) TableEntity {
+		if v != nil {
+			return *v
+		}
+		var ret TableEntity
+		return ret
+	}).(TableEntityOutput)
 }
 
 type TableEntityArrayOutput struct{ *pulumi.OutputState }

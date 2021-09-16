@@ -248,7 +248,7 @@ type StoreVirtualNetworkRuleArrayInput interface {
 type StoreVirtualNetworkRuleArray []StoreVirtualNetworkRuleInput
 
 func (StoreVirtualNetworkRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StoreVirtualNetworkRule)(nil))
+	return reflect.TypeOf((*[]*StoreVirtualNetworkRule)(nil)).Elem()
 }
 
 func (i StoreVirtualNetworkRuleArray) ToStoreVirtualNetworkRuleArrayOutput() StoreVirtualNetworkRuleArrayOutput {
@@ -273,7 +273,7 @@ type StoreVirtualNetworkRuleMapInput interface {
 type StoreVirtualNetworkRuleMap map[string]StoreVirtualNetworkRuleInput
 
 func (StoreVirtualNetworkRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StoreVirtualNetworkRule)(nil))
+	return reflect.TypeOf((*map[string]*StoreVirtualNetworkRule)(nil)).Elem()
 }
 
 func (i StoreVirtualNetworkRuleMap) ToStoreVirtualNetworkRuleMapOutput() StoreVirtualNetworkRuleMapOutput {
@@ -284,9 +284,7 @@ func (i StoreVirtualNetworkRuleMap) ToStoreVirtualNetworkRuleMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StoreVirtualNetworkRuleMapOutput)
 }
 
-type StoreVirtualNetworkRuleOutput struct {
-	*pulumi.OutputState
-}
+type StoreVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (StoreVirtualNetworkRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StoreVirtualNetworkRule)(nil))
@@ -305,14 +303,12 @@ func (o StoreVirtualNetworkRuleOutput) ToStoreVirtualNetworkRulePtrOutput() Stor
 }
 
 func (o StoreVirtualNetworkRuleOutput) ToStoreVirtualNetworkRulePtrOutputWithContext(ctx context.Context) StoreVirtualNetworkRulePtrOutput {
-	return o.ApplyT(func(v StoreVirtualNetworkRule) *StoreVirtualNetworkRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StoreVirtualNetworkRule) *StoreVirtualNetworkRule {
 		return &v
 	}).(StoreVirtualNetworkRulePtrOutput)
 }
 
-type StoreVirtualNetworkRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type StoreVirtualNetworkRulePtrOutput struct{ *pulumi.OutputState }
 
 func (StoreVirtualNetworkRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StoreVirtualNetworkRule)(nil))
@@ -324,6 +320,16 @@ func (o StoreVirtualNetworkRulePtrOutput) ToStoreVirtualNetworkRulePtrOutput() S
 
 func (o StoreVirtualNetworkRulePtrOutput) ToStoreVirtualNetworkRulePtrOutputWithContext(ctx context.Context) StoreVirtualNetworkRulePtrOutput {
 	return o
+}
+
+func (o StoreVirtualNetworkRulePtrOutput) Elem() StoreVirtualNetworkRuleOutput {
+	return o.ApplyT(func(v *StoreVirtualNetworkRule) StoreVirtualNetworkRule {
+		if v != nil {
+			return *v
+		}
+		var ret StoreVirtualNetworkRule
+		return ret
+	}).(StoreVirtualNetworkRuleOutput)
 }
 
 type StoreVirtualNetworkRuleArrayOutput struct{ *pulumi.OutputState }

@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,82 @@ type LookupVpnGatewayResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Virtual Hub within which this VPN Gateway has been created.
 	VirtualHubId string `pulumi:"virtualHubId"`
+}
+
+func LookupVpnGatewayOutput(ctx *pulumi.Context, args LookupVpnGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupVpnGatewayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVpnGatewayResult, error) {
+			args := v.(LookupVpnGatewayArgs)
+			r, err := LookupVpnGateway(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVpnGatewayResultOutput)
+}
+
+// A collection of arguments for invoking getVpnGateway.
+type LookupVpnGatewayOutputArgs struct {
+	// The Name of the VPN Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the VPN Gateway exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupVpnGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpnGatewayArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVpnGateway.
+type LookupVpnGatewayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVpnGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpnGatewayResult)(nil)).Elem()
+}
+
+func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutput() LookupVpnGatewayResultOutput {
+	return o
+}
+
+func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutputWithContext(ctx context.Context) LookupVpnGatewayResultOutput {
+	return o
+}
+
+// A `bgpSettings` block as defined below.
+func (o LookupVpnGatewayResultOutput) BgpSettings() GetVpnGatewayBgpSettingArrayOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) []GetVpnGatewayBgpSetting { return v.BgpSettings }).(GetVpnGatewayBgpSettingArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupVpnGatewayResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure location where the VPN Gateway exists.
+func (o LookupVpnGatewayResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupVpnGatewayResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupVpnGatewayResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Scale Unit of this VPN Gateway.
+func (o LookupVpnGatewayResultOutput) ScaleUnit() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) int { return v.ScaleUnit }).(pulumi.IntOutput)
+}
+
+// A mapping of tags assigned to the VPN Gateway.
+func (o LookupVpnGatewayResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The ID of the Virtual Hub within which this VPN Gateway has been created.
+func (o LookupVpnGatewayResultOutput) VirtualHubId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.VirtualHubId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVpnGatewayResultOutput{})
 }

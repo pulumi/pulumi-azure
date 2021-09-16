@@ -13,6 +13,7 @@ __all__ = [
     'GetBackupVaultResult',
     'AwaitableGetBackupVaultResult',
     'get_backup_vault',
+    'get_backup_vault_output',
 ]
 
 @pulumi.output_type
@@ -161,3 +162,29 @@ def get_backup_vault(name: Optional[str] = None,
         redundancy=__ret__.redundancy,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_backup_vault)
+def get_backup_vault_output(name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupVaultResult]:
+    """
+    Use this data source to access information about an existing Backup Vault.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.dataprotection.get_backup_vault(name="existing-backup-vault",
+        resource_group_name="existing-resource-group")
+    pulumi.export("azurermDataProtectionBackupVaultId", data["azurerm_vpn_gateway"]["example"]["id"])
+    pulumi.export("azurermDataProtectionBackupVaultPrincipalId", example.identities[0].principal_id)
+    ```
+
+
+    :param str name: Specifies the name of the Backup Vault.
+    :param str resource_group_name: The name of the Resource Group where the Backup Vault exists.
+    """
+    ...

@@ -4,6 +4,9 @@
 package maintenance
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,87 @@ type LookupConfigurationResult struct {
 	Visibility string `pulumi:"visibility"`
 	// A `window` block as defined below.
 	Windows []GetConfigurationWindow `pulumi:"windows"`
+}
+
+func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConfigurationResult, error) {
+			args := v.(LookupConfigurationArgs)
+			r, err := LookupConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConfigurationResultOutput)
+}
+
+// A collection of arguments for invoking getConfiguration.
+type LookupConfigurationOutputArgs struct {
+	// Specifies the name of the Maintenance Configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the Resource Group where this Maintenance Configuration exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getConfiguration.
+type LookupConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutput() LookupConfigurationResultOutput {
+	return o
+}
+
+func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutputWithContext(ctx context.Context) LookupConfigurationResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupConfigurationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure location where the resource exists.
+func (o LookupConfigurationResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupConfigurationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties assigned to the resource.
+func (o LookupConfigurationResultOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+func (o LookupConfigurationResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The scope of the Maintenance Configuration.
+func (o LookupConfigurationResultOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupConfigurationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The visibility of the Maintenance Configuration.
+func (o LookupConfigurationResultOutput) Visibility() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Visibility }).(pulumi.StringOutput)
+}
+
+// A `window` block as defined below.
+func (o LookupConfigurationResultOutput) Windows() GetConfigurationWindowArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) []GetConfigurationWindow { return v.Windows }).(GetConfigurationWindowArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConfigurationResultOutput{})
 }

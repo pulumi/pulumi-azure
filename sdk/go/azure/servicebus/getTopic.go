@@ -4,6 +4,9 @@
 package servicebus
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,4 +83,113 @@ type LookupTopicResult struct {
 	Status string `pulumi:"status"`
 	// Boolean flag which controls whether the Topic supports ordering.
 	SupportOrdering bool `pulumi:"supportOrdering"`
+}
+
+func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTopicResult, error) {
+			args := v.(LookupTopicArgs)
+			r, err := LookupTopic(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTopicResultOutput)
+}
+
+// A collection of arguments for invoking getTopic.
+type LookupTopicOutputArgs struct {
+	// The name of this Service Bus Topic.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Service Bus Namespace.
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// The name of the Resource Group where the Service Bus Topic exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupTopicOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTopic.
+type LookupTopicResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTopicResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicResult)(nil)).Elem()
+}
+
+func (o LookupTopicResultOutput) ToLookupTopicResultOutput() LookupTopicResultOutput {
+	return o
+}
+
+func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx context.Context) LookupTopicResultOutput {
+	return o
+}
+
+// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
+func (o LookupTopicResultOutput) AutoDeleteOnIdle() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.AutoDeleteOnIdle }).(pulumi.StringOutput)
+}
+
+// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
+func (o LookupTopicResultOutput) DefaultMessageTtl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.DefaultMessageTtl }).(pulumi.StringOutput)
+}
+
+// The ISO 8601 timespan duration during which duplicates can be detected.
+func (o LookupTopicResultOutput) DuplicateDetectionHistoryTimeWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.DuplicateDetectionHistoryTimeWindow }).(pulumi.StringOutput)
+}
+
+// Boolean flag which controls if server-side batched operations are enabled.
+func (o LookupTopicResultOutput) EnableBatchedOperations() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTopicResult) bool { return v.EnableBatchedOperations }).(pulumi.BoolOutput)
+}
+
+// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+func (o LookupTopicResultOutput) EnableExpress() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTopicResult) bool { return v.EnableExpress }).(pulumi.BoolOutput)
+}
+
+// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
+func (o LookupTopicResultOutput) EnablePartitioning() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTopicResult) bool { return v.EnablePartitioning }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+func (o LookupTopicResultOutput) MaxSizeInMegabytes() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupTopicResult) int { return v.MaxSizeInMegabytes }).(pulumi.IntOutput)
+}
+
+func (o LookupTopicResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupTopicResultOutput) NamespaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.NamespaceName }).(pulumi.StringOutput)
+}
+
+// Boolean flag which controls whether the Topic requires duplicate detection.
+func (o LookupTopicResultOutput) RequiresDuplicateDetection() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTopicResult) bool { return v.RequiresDuplicateDetection }).(pulumi.BoolOutput)
+}
+
+func (o LookupTopicResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
+func (o LookupTopicResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Boolean flag which controls whether the Topic supports ordering.
+func (o LookupTopicResultOutput) SupportOrdering() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTopicResult) bool { return v.SupportOrdering }).(pulumi.BoolOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTopicResultOutput{})
 }

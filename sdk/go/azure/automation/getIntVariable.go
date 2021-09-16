@@ -4,6 +4,9 @@
 package automation
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,78 @@ type LookupIntVariableResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The value of the Automation Variable as a `integer`.
 	Value int `pulumi:"value"`
+}
+
+func LookupIntVariableOutput(ctx *pulumi.Context, args LookupIntVariableOutputArgs, opts ...pulumi.InvokeOption) LookupIntVariableResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIntVariableResult, error) {
+			args := v.(LookupIntVariableArgs)
+			r, err := LookupIntVariable(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIntVariableResultOutput)
+}
+
+// A collection of arguments for invoking getIntVariable.
+type LookupIntVariableOutputArgs struct {
+	// The name of the automation account in which the Automation Variable exists.
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
+	// The name of the Automation Variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group where the automation account exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIntVariableOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntVariableArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getIntVariable.
+type LookupIntVariableResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIntVariableResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntVariableResult)(nil)).Elem()
+}
+
+func (o LookupIntVariableResultOutput) ToLookupIntVariableResultOutput() LookupIntVariableResultOutput {
+	return o
+}
+
+func (o LookupIntVariableResultOutput) ToLookupIntVariableResultOutputWithContext(ctx context.Context) LookupIntVariableResultOutput {
+	return o
+}
+
+func (o LookupIntVariableResultOutput) AutomationAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntVariableResult) string { return v.AutomationAccountName }).(pulumi.StringOutput)
+}
+
+// The description of the Automation Variable.
+func (o LookupIntVariableResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntVariableResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Specifies if the Automation Variable is encrypted. Defaults to `false`.
+func (o LookupIntVariableResultOutput) Encrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupIntVariableResult) bool { return v.Encrypted }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupIntVariableResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntVariableResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupIntVariableResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntVariableResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupIntVariableResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntVariableResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The value of the Automation Variable as a `integer`.
+func (o LookupIntVariableResultOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupIntVariableResult) int { return v.Value }).(pulumi.IntOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIntVariableResultOutput{})
 }

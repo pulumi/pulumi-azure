@@ -236,7 +236,7 @@ type ChannelDirectLineArrayInput interface {
 type ChannelDirectLineArray []ChannelDirectLineInput
 
 func (ChannelDirectLineArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ChannelDirectLine)(nil))
+	return reflect.TypeOf((*[]*ChannelDirectLine)(nil)).Elem()
 }
 
 func (i ChannelDirectLineArray) ToChannelDirectLineArrayOutput() ChannelDirectLineArrayOutput {
@@ -261,7 +261,7 @@ type ChannelDirectLineMapInput interface {
 type ChannelDirectLineMap map[string]ChannelDirectLineInput
 
 func (ChannelDirectLineMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ChannelDirectLine)(nil))
+	return reflect.TypeOf((*map[string]*ChannelDirectLine)(nil)).Elem()
 }
 
 func (i ChannelDirectLineMap) ToChannelDirectLineMapOutput() ChannelDirectLineMapOutput {
@@ -272,9 +272,7 @@ func (i ChannelDirectLineMap) ToChannelDirectLineMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDirectLineMapOutput)
 }
 
-type ChannelDirectLineOutput struct {
-	*pulumi.OutputState
-}
+type ChannelDirectLineOutput struct{ *pulumi.OutputState }
 
 func (ChannelDirectLineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelDirectLine)(nil))
@@ -293,14 +291,12 @@ func (o ChannelDirectLineOutput) ToChannelDirectLinePtrOutput() ChannelDirectLin
 }
 
 func (o ChannelDirectLineOutput) ToChannelDirectLinePtrOutputWithContext(ctx context.Context) ChannelDirectLinePtrOutput {
-	return o.ApplyT(func(v ChannelDirectLine) *ChannelDirectLine {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelDirectLine) *ChannelDirectLine {
 		return &v
 	}).(ChannelDirectLinePtrOutput)
 }
 
-type ChannelDirectLinePtrOutput struct {
-	*pulumi.OutputState
-}
+type ChannelDirectLinePtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelDirectLinePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ChannelDirectLine)(nil))
@@ -312,6 +308,16 @@ func (o ChannelDirectLinePtrOutput) ToChannelDirectLinePtrOutput() ChannelDirect
 
 func (o ChannelDirectLinePtrOutput) ToChannelDirectLinePtrOutputWithContext(ctx context.Context) ChannelDirectLinePtrOutput {
 	return o
+}
+
+func (o ChannelDirectLinePtrOutput) Elem() ChannelDirectLineOutput {
+	return o.ApplyT(func(v *ChannelDirectLine) ChannelDirectLine {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelDirectLine
+		return ret
+	}).(ChannelDirectLineOutput)
 }
 
 type ChannelDirectLineArrayOutput struct{ *pulumi.OutputState }

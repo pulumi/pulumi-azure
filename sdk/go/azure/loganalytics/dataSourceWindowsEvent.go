@@ -242,7 +242,7 @@ type DataSourceWindowsEventArrayInput interface {
 type DataSourceWindowsEventArray []DataSourceWindowsEventInput
 
 func (DataSourceWindowsEventArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DataSourceWindowsEvent)(nil))
+	return reflect.TypeOf((*[]*DataSourceWindowsEvent)(nil)).Elem()
 }
 
 func (i DataSourceWindowsEventArray) ToDataSourceWindowsEventArrayOutput() DataSourceWindowsEventArrayOutput {
@@ -267,7 +267,7 @@ type DataSourceWindowsEventMapInput interface {
 type DataSourceWindowsEventMap map[string]DataSourceWindowsEventInput
 
 func (DataSourceWindowsEventMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DataSourceWindowsEvent)(nil))
+	return reflect.TypeOf((*map[string]*DataSourceWindowsEvent)(nil)).Elem()
 }
 
 func (i DataSourceWindowsEventMap) ToDataSourceWindowsEventMapOutput() DataSourceWindowsEventMapOutput {
@@ -278,9 +278,7 @@ func (i DataSourceWindowsEventMap) ToDataSourceWindowsEventMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWindowsEventMapOutput)
 }
 
-type DataSourceWindowsEventOutput struct {
-	*pulumi.OutputState
-}
+type DataSourceWindowsEventOutput struct{ *pulumi.OutputState }
 
 func (DataSourceWindowsEventOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataSourceWindowsEvent)(nil))
@@ -299,14 +297,12 @@ func (o DataSourceWindowsEventOutput) ToDataSourceWindowsEventPtrOutput() DataSo
 }
 
 func (o DataSourceWindowsEventOutput) ToDataSourceWindowsEventPtrOutputWithContext(ctx context.Context) DataSourceWindowsEventPtrOutput {
-	return o.ApplyT(func(v DataSourceWindowsEvent) *DataSourceWindowsEvent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceWindowsEvent) *DataSourceWindowsEvent {
 		return &v
 	}).(DataSourceWindowsEventPtrOutput)
 }
 
-type DataSourceWindowsEventPtrOutput struct {
-	*pulumi.OutputState
-}
+type DataSourceWindowsEventPtrOutput struct{ *pulumi.OutputState }
 
 func (DataSourceWindowsEventPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DataSourceWindowsEvent)(nil))
@@ -318,6 +314,16 @@ func (o DataSourceWindowsEventPtrOutput) ToDataSourceWindowsEventPtrOutput() Dat
 
 func (o DataSourceWindowsEventPtrOutput) ToDataSourceWindowsEventPtrOutputWithContext(ctx context.Context) DataSourceWindowsEventPtrOutput {
 	return o
+}
+
+func (o DataSourceWindowsEventPtrOutput) Elem() DataSourceWindowsEventOutput {
+	return o.ApplyT(func(v *DataSourceWindowsEvent) DataSourceWindowsEvent {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceWindowsEvent
+		return ret
+	}).(DataSourceWindowsEventOutput)
 }
 
 type DataSourceWindowsEventArrayOutput struct{ *pulumi.OutputState }

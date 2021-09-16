@@ -12,6 +12,7 @@ __all__ = [
     'GetSubnetResult',
     'AwaitableGetSubnetResult',
     'get_subnet',
+    'get_subnet_output',
 ]
 
 @pulumi.output_type
@@ -199,3 +200,31 @@ def get_subnet(name: Optional[str] = None,
         route_table_id=__ret__.route_table_id,
         service_endpoints=__ret__.service_endpoints,
         virtual_network_name=__ret__.virtual_network_name)
+
+
+@_utilities.lift_output_func(get_subnet)
+def get_subnet_output(name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      virtual_network_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
+    """
+    Use this data source to access information about an existing Subnet within a Virtual Network.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_subnet(name="backend",
+        virtual_network_name="production",
+        resource_group_name="networking")
+    pulumi.export("subnetId", example.id)
+    ```
+
+
+    :param str name: Specifies the name of the Subnet.
+    :param str resource_group_name: Specifies the name of the resource group the Virtual Network is located in.
+    :param str virtual_network_name: Specifies the name of the Virtual Network this Subnet is located within.
+    """
+    ...

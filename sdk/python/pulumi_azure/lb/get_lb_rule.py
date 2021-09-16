@@ -12,6 +12,7 @@ __all__ = [
     'GetLBRuleResult',
     'AwaitableGetLBRuleResult',
     'get_lb_rule',
+    'get_lb_rule_output',
 ]
 
 @pulumi.output_type
@@ -253,3 +254,33 @@ def get_lb_rule(loadbalancer_id: Optional[str] = None,
         probe_id=__ret__.probe_id,
         protocol=__ret__.protocol,
         resource_group_name=__ret__.resource_group_name)
+
+
+@_utilities.lift_output_func(get_lb_rule)
+def get_lb_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = None,
+                       name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLBRuleResult]:
+    """
+    Use this data source to access information about an existing Load Balancer Rule.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_lb = azure.lb.get_lb(name="example-lb",
+        resource_group_name="example-resources")
+    example_lb_rule = azure.lb.get_lb_rule(name="first",
+        resource_group_name="example-resources",
+        loadbalancer_id=example_lb.id)
+    pulumi.export("lbRuleId", example_lb_rule.id)
+    ```
+
+
+    :param str loadbalancer_id: The ID of the Load Balancer Rule.
+    :param str name: The name of this Load Balancer Rule.
+    :param str resource_group_name: The name of the Resource Group where the Load Balancer Rule exists.
+    """
+    ...

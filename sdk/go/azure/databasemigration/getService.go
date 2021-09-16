@@ -4,6 +4,9 @@
 package databasemigration
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,77 @@ type LookupServiceResult struct {
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceResult, error) {
+			args := v.(LookupServiceArgs)
+			r, err := LookupService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceResultOutput)
+}
+
+// A collection of arguments for invoking getService.
+type LookupServiceOutputArgs struct {
+	// Specify the name of the database migration service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the Name of the Resource Group within which the database migration service exists
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getService.
+type LookupServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceResult)(nil)).Elem()
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutput() LookupServiceResultOutput {
+	return o
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx context.Context) LookupServiceResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure location where the resource exists.
+func (o LookupServiceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The sku name of database migration service.
+func (o LookupServiceResultOutput) SkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.SkuName }).(pulumi.StringOutput)
+}
+
+// The ID of the virtual subnet resource to which the database migration service exists.
+func (o LookupServiceResultOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assigned to the resource.
+func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceResultOutput{})
 }

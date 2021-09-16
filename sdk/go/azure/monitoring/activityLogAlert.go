@@ -295,7 +295,7 @@ type ActivityLogAlertArrayInput interface {
 type ActivityLogAlertArray []ActivityLogAlertInput
 
 func (ActivityLogAlertArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ActivityLogAlert)(nil))
+	return reflect.TypeOf((*[]*ActivityLogAlert)(nil)).Elem()
 }
 
 func (i ActivityLogAlertArray) ToActivityLogAlertArrayOutput() ActivityLogAlertArrayOutput {
@@ -320,7 +320,7 @@ type ActivityLogAlertMapInput interface {
 type ActivityLogAlertMap map[string]ActivityLogAlertInput
 
 func (ActivityLogAlertMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ActivityLogAlert)(nil))
+	return reflect.TypeOf((*map[string]*ActivityLogAlert)(nil)).Elem()
 }
 
 func (i ActivityLogAlertMap) ToActivityLogAlertMapOutput() ActivityLogAlertMapOutput {
@@ -331,9 +331,7 @@ func (i ActivityLogAlertMap) ToActivityLogAlertMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertMapOutput)
 }
 
-type ActivityLogAlertOutput struct {
-	*pulumi.OutputState
-}
+type ActivityLogAlertOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActivityLogAlert)(nil))
@@ -352,14 +350,12 @@ func (o ActivityLogAlertOutput) ToActivityLogAlertPtrOutput() ActivityLogAlertPt
 }
 
 func (o ActivityLogAlertOutput) ToActivityLogAlertPtrOutputWithContext(ctx context.Context) ActivityLogAlertPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlert) *ActivityLogAlert {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlert) *ActivityLogAlert {
 		return &v
 	}).(ActivityLogAlertPtrOutput)
 }
 
-type ActivityLogAlertPtrOutput struct {
-	*pulumi.OutputState
-}
+type ActivityLogAlertPtrOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ActivityLogAlert)(nil))
@@ -371,6 +367,16 @@ func (o ActivityLogAlertPtrOutput) ToActivityLogAlertPtrOutput() ActivityLogAler
 
 func (o ActivityLogAlertPtrOutput) ToActivityLogAlertPtrOutputWithContext(ctx context.Context) ActivityLogAlertPtrOutput {
 	return o
+}
+
+func (o ActivityLogAlertPtrOutput) Elem() ActivityLogAlertOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) ActivityLogAlert {
+		if v != nil {
+			return *v
+		}
+		var ret ActivityLogAlert
+		return ret
+	}).(ActivityLogAlertOutput)
 }
 
 type ActivityLogAlertArrayOutput struct{ *pulumi.OutputState }
