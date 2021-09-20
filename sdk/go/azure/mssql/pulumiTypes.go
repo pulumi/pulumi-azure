@@ -3405,6 +3405,130 @@ func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) Luns() pulumi
 	}).(pulumi.IntArrayOutput)
 }
 
+type GetElasticPoolSkus struct {
+	// The scale up/out capacity, representing server's compute units.
+	Capacity int `pulumi:"capacity"`
+	// The `family` of hardware.
+	Family string `pulumi:"family"`
+	// The name of the elastic pool.
+	Name string `pulumi:"name"`
+	// The tier of the particular SKU.
+	Tier string `pulumi:"tier"`
+}
+
+// GetElasticPoolSkusInput is an input type that accepts GetElasticPoolSkusArgs and GetElasticPoolSkusOutput values.
+// You can construct a concrete instance of `GetElasticPoolSkusInput` via:
+//
+//          GetElasticPoolSkusArgs{...}
+type GetElasticPoolSkusInput interface {
+	pulumi.Input
+
+	ToGetElasticPoolSkusOutput() GetElasticPoolSkusOutput
+	ToGetElasticPoolSkusOutputWithContext(context.Context) GetElasticPoolSkusOutput
+}
+
+type GetElasticPoolSkusArgs struct {
+	// The scale up/out capacity, representing server's compute units.
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// The `family` of hardware.
+	Family pulumi.StringInput `pulumi:"family"`
+	// The name of the elastic pool.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The tier of the particular SKU.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (GetElasticPoolSkusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetElasticPoolSkus)(nil)).Elem()
+}
+
+func (i GetElasticPoolSkusArgs) ToGetElasticPoolSkusOutput() GetElasticPoolSkusOutput {
+	return i.ToGetElasticPoolSkusOutputWithContext(context.Background())
+}
+
+func (i GetElasticPoolSkusArgs) ToGetElasticPoolSkusOutputWithContext(ctx context.Context) GetElasticPoolSkusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetElasticPoolSkusOutput)
+}
+
+// GetElasticPoolSkusArrayInput is an input type that accepts GetElasticPoolSkusArray and GetElasticPoolSkusArrayOutput values.
+// You can construct a concrete instance of `GetElasticPoolSkusArrayInput` via:
+//
+//          GetElasticPoolSkusArray{ GetElasticPoolSkusArgs{...} }
+type GetElasticPoolSkusArrayInput interface {
+	pulumi.Input
+
+	ToGetElasticPoolSkusArrayOutput() GetElasticPoolSkusArrayOutput
+	ToGetElasticPoolSkusArrayOutputWithContext(context.Context) GetElasticPoolSkusArrayOutput
+}
+
+type GetElasticPoolSkusArray []GetElasticPoolSkusInput
+
+func (GetElasticPoolSkusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetElasticPoolSkus)(nil)).Elem()
+}
+
+func (i GetElasticPoolSkusArray) ToGetElasticPoolSkusArrayOutput() GetElasticPoolSkusArrayOutput {
+	return i.ToGetElasticPoolSkusArrayOutputWithContext(context.Background())
+}
+
+func (i GetElasticPoolSkusArray) ToGetElasticPoolSkusArrayOutputWithContext(ctx context.Context) GetElasticPoolSkusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetElasticPoolSkusArrayOutput)
+}
+
+type GetElasticPoolSkusOutput struct{ *pulumi.OutputState }
+
+func (GetElasticPoolSkusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetElasticPoolSkus)(nil)).Elem()
+}
+
+func (o GetElasticPoolSkusOutput) ToGetElasticPoolSkusOutput() GetElasticPoolSkusOutput {
+	return o
+}
+
+func (o GetElasticPoolSkusOutput) ToGetElasticPoolSkusOutputWithContext(ctx context.Context) GetElasticPoolSkusOutput {
+	return o
+}
+
+// The scale up/out capacity, representing server's compute units.
+func (o GetElasticPoolSkusOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v GetElasticPoolSkus) int { return v.Capacity }).(pulumi.IntOutput)
+}
+
+// The `family` of hardware.
+func (o GetElasticPoolSkusOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v GetElasticPoolSkus) string { return v.Family }).(pulumi.StringOutput)
+}
+
+// The name of the elastic pool.
+func (o GetElasticPoolSkusOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetElasticPoolSkus) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tier of the particular SKU.
+func (o GetElasticPoolSkusOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetElasticPoolSkus) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+type GetElasticPoolSkusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetElasticPoolSkusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetElasticPoolSkus)(nil)).Elem()
+}
+
+func (o GetElasticPoolSkusArrayOutput) ToGetElasticPoolSkusArrayOutput() GetElasticPoolSkusArrayOutput {
+	return o
+}
+
+func (o GetElasticPoolSkusArrayOutput) ToGetElasticPoolSkusArrayOutputWithContext(ctx context.Context) GetElasticPoolSkusArrayOutput {
+	return o
+}
+
+func (o GetElasticPoolSkusArrayOutput) Index(i pulumi.IntInput) GetElasticPoolSkusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetElasticPoolSkus {
+		return vs[0].([]GetElasticPoolSkus)[vs[1].(int)]
+	}).(GetElasticPoolSkusOutput)
+}
+
 type GetServerIdentity struct {
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId string `pulumi:"principalId"`
@@ -3559,6 +3683,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationLogSettingsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationTempDbSettingsOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetElasticPoolSkusOutput{})
+	pulumi.RegisterOutputType(GetElasticPoolSkusArrayOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityArrayOutput{})
 }

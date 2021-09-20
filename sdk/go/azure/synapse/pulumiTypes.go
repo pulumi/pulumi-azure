@@ -10,6 +10,156 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type LinkedServiceIntegrationRuntime struct {
+	// The integration runtime reference to associate with the Synapse Linked Service.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the integration runtime.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// LinkedServiceIntegrationRuntimeInput is an input type that accepts LinkedServiceIntegrationRuntimeArgs and LinkedServiceIntegrationRuntimeOutput values.
+// You can construct a concrete instance of `LinkedServiceIntegrationRuntimeInput` via:
+//
+//          LinkedServiceIntegrationRuntimeArgs{...}
+type LinkedServiceIntegrationRuntimeInput interface {
+	pulumi.Input
+
+	ToLinkedServiceIntegrationRuntimeOutput() LinkedServiceIntegrationRuntimeOutput
+	ToLinkedServiceIntegrationRuntimeOutputWithContext(context.Context) LinkedServiceIntegrationRuntimeOutput
+}
+
+type LinkedServiceIntegrationRuntimeArgs struct {
+	// The integration runtime reference to associate with the Synapse Linked Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the integration runtime.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (LinkedServiceIntegrationRuntimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceIntegrationRuntime)(nil)).Elem()
+}
+
+func (i LinkedServiceIntegrationRuntimeArgs) ToLinkedServiceIntegrationRuntimeOutput() LinkedServiceIntegrationRuntimeOutput {
+	return i.ToLinkedServiceIntegrationRuntimeOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceIntegrationRuntimeArgs) ToLinkedServiceIntegrationRuntimeOutputWithContext(ctx context.Context) LinkedServiceIntegrationRuntimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceIntegrationRuntimeOutput)
+}
+
+func (i LinkedServiceIntegrationRuntimeArgs) ToLinkedServiceIntegrationRuntimePtrOutput() LinkedServiceIntegrationRuntimePtrOutput {
+	return i.ToLinkedServiceIntegrationRuntimePtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceIntegrationRuntimeArgs) ToLinkedServiceIntegrationRuntimePtrOutputWithContext(ctx context.Context) LinkedServiceIntegrationRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceIntegrationRuntimeOutput).ToLinkedServiceIntegrationRuntimePtrOutputWithContext(ctx)
+}
+
+// LinkedServiceIntegrationRuntimePtrInput is an input type that accepts LinkedServiceIntegrationRuntimeArgs, LinkedServiceIntegrationRuntimePtr and LinkedServiceIntegrationRuntimePtrOutput values.
+// You can construct a concrete instance of `LinkedServiceIntegrationRuntimePtrInput` via:
+//
+//          LinkedServiceIntegrationRuntimeArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceIntegrationRuntimePtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceIntegrationRuntimePtrOutput() LinkedServiceIntegrationRuntimePtrOutput
+	ToLinkedServiceIntegrationRuntimePtrOutputWithContext(context.Context) LinkedServiceIntegrationRuntimePtrOutput
+}
+
+type linkedServiceIntegrationRuntimePtrType LinkedServiceIntegrationRuntimeArgs
+
+func LinkedServiceIntegrationRuntimePtr(v *LinkedServiceIntegrationRuntimeArgs) LinkedServiceIntegrationRuntimePtrInput {
+	return (*linkedServiceIntegrationRuntimePtrType)(v)
+}
+
+func (*linkedServiceIntegrationRuntimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceIntegrationRuntime)(nil)).Elem()
+}
+
+func (i *linkedServiceIntegrationRuntimePtrType) ToLinkedServiceIntegrationRuntimePtrOutput() LinkedServiceIntegrationRuntimePtrOutput {
+	return i.ToLinkedServiceIntegrationRuntimePtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceIntegrationRuntimePtrType) ToLinkedServiceIntegrationRuntimePtrOutputWithContext(ctx context.Context) LinkedServiceIntegrationRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceIntegrationRuntimePtrOutput)
+}
+
+type LinkedServiceIntegrationRuntimeOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceIntegrationRuntimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceIntegrationRuntime)(nil)).Elem()
+}
+
+func (o LinkedServiceIntegrationRuntimeOutput) ToLinkedServiceIntegrationRuntimeOutput() LinkedServiceIntegrationRuntimeOutput {
+	return o
+}
+
+func (o LinkedServiceIntegrationRuntimeOutput) ToLinkedServiceIntegrationRuntimeOutputWithContext(ctx context.Context) LinkedServiceIntegrationRuntimeOutput {
+	return o
+}
+
+func (o LinkedServiceIntegrationRuntimeOutput) ToLinkedServiceIntegrationRuntimePtrOutput() LinkedServiceIntegrationRuntimePtrOutput {
+	return o.ToLinkedServiceIntegrationRuntimePtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceIntegrationRuntimeOutput) ToLinkedServiceIntegrationRuntimePtrOutputWithContext(ctx context.Context) LinkedServiceIntegrationRuntimePtrOutput {
+	return o.ApplyT(func(v LinkedServiceIntegrationRuntime) *LinkedServiceIntegrationRuntime {
+		return &v
+	}).(LinkedServiceIntegrationRuntimePtrOutput)
+}
+
+// The integration runtime reference to associate with the Synapse Linked Service.
+func (o LinkedServiceIntegrationRuntimeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceIntegrationRuntime) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the integration runtime.
+func (o LinkedServiceIntegrationRuntimeOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LinkedServiceIntegrationRuntime) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type LinkedServiceIntegrationRuntimePtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceIntegrationRuntimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceIntegrationRuntime)(nil)).Elem()
+}
+
+func (o LinkedServiceIntegrationRuntimePtrOutput) ToLinkedServiceIntegrationRuntimePtrOutput() LinkedServiceIntegrationRuntimePtrOutput {
+	return o
+}
+
+func (o LinkedServiceIntegrationRuntimePtrOutput) ToLinkedServiceIntegrationRuntimePtrOutputWithContext(ctx context.Context) LinkedServiceIntegrationRuntimePtrOutput {
+	return o
+}
+
+func (o LinkedServiceIntegrationRuntimePtrOutput) Elem() LinkedServiceIntegrationRuntimeOutput {
+	return o.ApplyT(func(v *LinkedServiceIntegrationRuntime) LinkedServiceIntegrationRuntime { return *v }).(LinkedServiceIntegrationRuntimeOutput)
+}
+
+// The integration runtime reference to associate with the Synapse Linked Service.
+func (o LinkedServiceIntegrationRuntimePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceIntegrationRuntime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the integration runtime.
+func (o LinkedServiceIntegrationRuntimePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LinkedServiceIntegrationRuntime) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
 type SparkPoolAutoPause struct {
 	// Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
 	DelayInMinutes int `pulumi:"delayInMinutes"`
@@ -591,6 +741,177 @@ func (o SqlPoolRestorePtrOutput) SourceDatabaseId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SqlPoolVulnerabilityAssessmentRecurringScans struct {
+	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+	EmailSubscriptionAdminsEnabled *bool `pulumi:"emailSubscriptionAdminsEnabled"`
+	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	Emails []string `pulumi:"emails"`
+	// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// SqlPoolVulnerabilityAssessmentRecurringScansInput is an input type that accepts SqlPoolVulnerabilityAssessmentRecurringScansArgs and SqlPoolVulnerabilityAssessmentRecurringScansOutput values.
+// You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentRecurringScansInput` via:
+//
+//          SqlPoolVulnerabilityAssessmentRecurringScansArgs{...}
+type SqlPoolVulnerabilityAssessmentRecurringScansInput interface {
+	pulumi.Input
+
+	ToSqlPoolVulnerabilityAssessmentRecurringScansOutput() SqlPoolVulnerabilityAssessmentRecurringScansOutput
+	ToSqlPoolVulnerabilityAssessmentRecurringScansOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentRecurringScansOutput
+}
+
+type SqlPoolVulnerabilityAssessmentRecurringScansArgs struct {
+	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+	EmailSubscriptionAdminsEnabled pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdminsEnabled"`
+	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	Emails pulumi.StringArrayInput `pulumi:"emails"`
+	// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (SqlPoolVulnerabilityAssessmentRecurringScansArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRecurringScans)(nil)).Elem()
+}
+
+func (i SqlPoolVulnerabilityAssessmentRecurringScansArgs) ToSqlPoolVulnerabilityAssessmentRecurringScansOutput() SqlPoolVulnerabilityAssessmentRecurringScansOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentRecurringScansOutputWithContext(context.Background())
+}
+
+func (i SqlPoolVulnerabilityAssessmentRecurringScansArgs) ToSqlPoolVulnerabilityAssessmentRecurringScansOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRecurringScansOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRecurringScansOutput)
+}
+
+func (i SqlPoolVulnerabilityAssessmentRecurringScansArgs) ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutput() SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
+}
+
+func (i SqlPoolVulnerabilityAssessmentRecurringScansArgs) ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRecurringScansOutput).ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx)
+}
+
+// SqlPoolVulnerabilityAssessmentRecurringScansPtrInput is an input type that accepts SqlPoolVulnerabilityAssessmentRecurringScansArgs, SqlPoolVulnerabilityAssessmentRecurringScansPtr and SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput values.
+// You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentRecurringScansPtrInput` via:
+//
+//          SqlPoolVulnerabilityAssessmentRecurringScansArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlPoolVulnerabilityAssessmentRecurringScansPtrInput interface {
+	pulumi.Input
+
+	ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutput() SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput
+	ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput
+}
+
+type sqlPoolVulnerabilityAssessmentRecurringScansPtrType SqlPoolVulnerabilityAssessmentRecurringScansArgs
+
+func SqlPoolVulnerabilityAssessmentRecurringScansPtr(v *SqlPoolVulnerabilityAssessmentRecurringScansArgs) SqlPoolVulnerabilityAssessmentRecurringScansPtrInput {
+	return (*sqlPoolVulnerabilityAssessmentRecurringScansPtrType)(v)
+}
+
+func (*sqlPoolVulnerabilityAssessmentRecurringScansPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlPoolVulnerabilityAssessmentRecurringScans)(nil)).Elem()
+}
+
+func (i *sqlPoolVulnerabilityAssessmentRecurringScansPtrType) ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutput() SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlPoolVulnerabilityAssessmentRecurringScansPtrType) ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput)
+}
+
+type SqlPoolVulnerabilityAssessmentRecurringScansOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolVulnerabilityAssessmentRecurringScansOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRecurringScans)(nil)).Elem()
+}
+
+func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) ToSqlPoolVulnerabilityAssessmentRecurringScansOutput() SqlPoolVulnerabilityAssessmentRecurringScansOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) ToSqlPoolVulnerabilityAssessmentRecurringScansOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRecurringScansOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutput() SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput {
+	return o.ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
+}
+
+func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput {
+	return o.ApplyT(func(v SqlPoolVulnerabilityAssessmentRecurringScans) *SqlPoolVulnerabilityAssessmentRecurringScans {
+		return &v
+	}).(SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput)
+}
+
+// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) EmailSubscriptionAdminsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SqlPoolVulnerabilityAssessmentRecurringScans) *bool { return v.EmailSubscriptionAdminsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an array of e-mail addresses to which the scan notification is sent.
+func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) Emails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SqlPoolVulnerabilityAssessmentRecurringScans) []string { return v.Emails }).(pulumi.StringArrayOutput)
+}
+
+// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SqlPoolVulnerabilityAssessmentRecurringScans) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlPoolVulnerabilityAssessmentRecurringScans)(nil)).Elem()
+}
+
+func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutput() SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) Elem() SqlPoolVulnerabilityAssessmentRecurringScansOutput {
+	return o.ApplyT(func(v *SqlPoolVulnerabilityAssessmentRecurringScans) SqlPoolVulnerabilityAssessmentRecurringScans {
+		return *v
+	}).(SqlPoolVulnerabilityAssessmentRecurringScansOutput)
+}
+
+// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) EmailSubscriptionAdminsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SqlPoolVulnerabilityAssessmentRecurringScans) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EmailSubscriptionAdminsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an array of e-mail addresses to which the scan notification is sent.
+func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) Emails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SqlPoolVulnerabilityAssessmentRecurringScans) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Emails
+	}).(pulumi.StringArrayOutput)
+}
+
+// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SqlPoolVulnerabilityAssessmentRecurringScans) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type WorkspaceAadAdmin struct {
 	// The login name of the Azure AD Administrator of this Synapse Workspace.
 	Login string `pulumi:"login"`
@@ -986,6 +1307,156 @@ func (o WorkspaceAzureDevopsRepoPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkspaceCustomerManagedKey struct {
+	// An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+	KeyName *string `pulumi:"keyName"`
+	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+	KeyVersionlessId string `pulumi:"keyVersionlessId"`
+}
+
+// WorkspaceCustomerManagedKeyInput is an input type that accepts WorkspaceCustomerManagedKeyArgs and WorkspaceCustomerManagedKeyOutput values.
+// You can construct a concrete instance of `WorkspaceCustomerManagedKeyInput` via:
+//
+//          WorkspaceCustomerManagedKeyArgs{...}
+type WorkspaceCustomerManagedKeyInput interface {
+	pulumi.Input
+
+	ToWorkspaceCustomerManagedKeyOutput() WorkspaceCustomerManagedKeyOutput
+	ToWorkspaceCustomerManagedKeyOutputWithContext(context.Context) WorkspaceCustomerManagedKeyOutput
+}
+
+type WorkspaceCustomerManagedKeyArgs struct {
+	// An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+	KeyVersionlessId pulumi.StringInput `pulumi:"keyVersionlessId"`
+}
+
+func (WorkspaceCustomerManagedKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCustomerManagedKey)(nil)).Elem()
+}
+
+func (i WorkspaceCustomerManagedKeyArgs) ToWorkspaceCustomerManagedKeyOutput() WorkspaceCustomerManagedKeyOutput {
+	return i.ToWorkspaceCustomerManagedKeyOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCustomerManagedKeyArgs) ToWorkspaceCustomerManagedKeyOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomerManagedKeyOutput)
+}
+
+func (i WorkspaceCustomerManagedKeyArgs) ToWorkspaceCustomerManagedKeyPtrOutput() WorkspaceCustomerManagedKeyPtrOutput {
+	return i.ToWorkspaceCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCustomerManagedKeyArgs) ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomerManagedKeyOutput).ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx)
+}
+
+// WorkspaceCustomerManagedKeyPtrInput is an input type that accepts WorkspaceCustomerManagedKeyArgs, WorkspaceCustomerManagedKeyPtr and WorkspaceCustomerManagedKeyPtrOutput values.
+// You can construct a concrete instance of `WorkspaceCustomerManagedKeyPtrInput` via:
+//
+//          WorkspaceCustomerManagedKeyArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceCustomerManagedKeyPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceCustomerManagedKeyPtrOutput() WorkspaceCustomerManagedKeyPtrOutput
+	ToWorkspaceCustomerManagedKeyPtrOutputWithContext(context.Context) WorkspaceCustomerManagedKeyPtrOutput
+}
+
+type workspaceCustomerManagedKeyPtrType WorkspaceCustomerManagedKeyArgs
+
+func WorkspaceCustomerManagedKeyPtr(v *WorkspaceCustomerManagedKeyArgs) WorkspaceCustomerManagedKeyPtrInput {
+	return (*workspaceCustomerManagedKeyPtrType)(v)
+}
+
+func (*workspaceCustomerManagedKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceCustomerManagedKey)(nil)).Elem()
+}
+
+func (i *workspaceCustomerManagedKeyPtrType) ToWorkspaceCustomerManagedKeyPtrOutput() WorkspaceCustomerManagedKeyPtrOutput {
+	return i.ToWorkspaceCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceCustomerManagedKeyPtrType) ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomerManagedKeyPtrOutput)
+}
+
+type WorkspaceCustomerManagedKeyOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCustomerManagedKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCustomerManagedKey)(nil)).Elem()
+}
+
+func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyOutput() WorkspaceCustomerManagedKeyOutput {
+	return o
+}
+
+func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyOutput {
+	return o
+}
+
+func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyPtrOutput() WorkspaceCustomerManagedKeyPtrOutput {
+	return o.ToWorkspaceCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomerManagedKey) *WorkspaceCustomerManagedKey {
+		return &v
+	}).(WorkspaceCustomerManagedKeyPtrOutput)
+}
+
+// An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+func (o WorkspaceCustomerManagedKeyOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomerManagedKey) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+func (o WorkspaceCustomerManagedKeyOutput) KeyVersionlessId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceCustomerManagedKey) string { return v.KeyVersionlessId }).(pulumi.StringOutput)
+}
+
+type WorkspaceCustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCustomerManagedKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceCustomerManagedKey)(nil)).Elem()
+}
+
+func (o WorkspaceCustomerManagedKeyPtrOutput) ToWorkspaceCustomerManagedKeyPtrOutput() WorkspaceCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o WorkspaceCustomerManagedKeyPtrOutput) ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o WorkspaceCustomerManagedKeyPtrOutput) Elem() WorkspaceCustomerManagedKeyOutput {
+	return o.ApplyT(func(v *WorkspaceCustomerManagedKey) WorkspaceCustomerManagedKey { return *v }).(WorkspaceCustomerManagedKeyOutput)
+}
+
+// An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+func (o WorkspaceCustomerManagedKeyPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+func (o WorkspaceCustomerManagedKeyPtrOutput) KeyVersionlessId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVersionlessId
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceGithubRepo struct {
 	// Specifies the GitHub account name.
 	AccountName string `pulumi:"accountName"`
@@ -1308,6 +1779,177 @@ func (o WorkspaceIdentityArrayOutput) Index(i pulumi.IntInput) WorkspaceIdentity
 	}).(WorkspaceIdentityOutput)
 }
 
+type WorkspaceVulnerabilityAssessmentRecurringScans struct {
+	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+	EmailSubscriptionAdminsEnabled *bool `pulumi:"emailSubscriptionAdminsEnabled"`
+	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	Emails []string `pulumi:"emails"`
+	// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// WorkspaceVulnerabilityAssessmentRecurringScansInput is an input type that accepts WorkspaceVulnerabilityAssessmentRecurringScansArgs and WorkspaceVulnerabilityAssessmentRecurringScansOutput values.
+// You can construct a concrete instance of `WorkspaceVulnerabilityAssessmentRecurringScansInput` via:
+//
+//          WorkspaceVulnerabilityAssessmentRecurringScansArgs{...}
+type WorkspaceVulnerabilityAssessmentRecurringScansInput interface {
+	pulumi.Input
+
+	ToWorkspaceVulnerabilityAssessmentRecurringScansOutput() WorkspaceVulnerabilityAssessmentRecurringScansOutput
+	ToWorkspaceVulnerabilityAssessmentRecurringScansOutputWithContext(context.Context) WorkspaceVulnerabilityAssessmentRecurringScansOutput
+}
+
+type WorkspaceVulnerabilityAssessmentRecurringScansArgs struct {
+	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+	EmailSubscriptionAdminsEnabled pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdminsEnabled"`
+	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	Emails pulumi.StringArrayInput `pulumi:"emails"`
+	// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (WorkspaceVulnerabilityAssessmentRecurringScansArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceVulnerabilityAssessmentRecurringScans)(nil)).Elem()
+}
+
+func (i WorkspaceVulnerabilityAssessmentRecurringScansArgs) ToWorkspaceVulnerabilityAssessmentRecurringScansOutput() WorkspaceVulnerabilityAssessmentRecurringScansOutput {
+	return i.ToWorkspaceVulnerabilityAssessmentRecurringScansOutputWithContext(context.Background())
+}
+
+func (i WorkspaceVulnerabilityAssessmentRecurringScansArgs) ToWorkspaceVulnerabilityAssessmentRecurringScansOutputWithContext(ctx context.Context) WorkspaceVulnerabilityAssessmentRecurringScansOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceVulnerabilityAssessmentRecurringScansOutput)
+}
+
+func (i WorkspaceVulnerabilityAssessmentRecurringScansArgs) ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutput() WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return i.ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceVulnerabilityAssessmentRecurringScansArgs) ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceVulnerabilityAssessmentRecurringScansOutput).ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx)
+}
+
+// WorkspaceVulnerabilityAssessmentRecurringScansPtrInput is an input type that accepts WorkspaceVulnerabilityAssessmentRecurringScansArgs, WorkspaceVulnerabilityAssessmentRecurringScansPtr and WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput values.
+// You can construct a concrete instance of `WorkspaceVulnerabilityAssessmentRecurringScansPtrInput` via:
+//
+//          WorkspaceVulnerabilityAssessmentRecurringScansArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceVulnerabilityAssessmentRecurringScansPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutput() WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput
+	ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Context) WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput
+}
+
+type workspaceVulnerabilityAssessmentRecurringScansPtrType WorkspaceVulnerabilityAssessmentRecurringScansArgs
+
+func WorkspaceVulnerabilityAssessmentRecurringScansPtr(v *WorkspaceVulnerabilityAssessmentRecurringScansArgs) WorkspaceVulnerabilityAssessmentRecurringScansPtrInput {
+	return (*workspaceVulnerabilityAssessmentRecurringScansPtrType)(v)
+}
+
+func (*workspaceVulnerabilityAssessmentRecurringScansPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceVulnerabilityAssessmentRecurringScans)(nil)).Elem()
+}
+
+func (i *workspaceVulnerabilityAssessmentRecurringScansPtrType) ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutput() WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return i.ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceVulnerabilityAssessmentRecurringScansPtrType) ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput)
+}
+
+type WorkspaceVulnerabilityAssessmentRecurringScansOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceVulnerabilityAssessmentRecurringScansOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceVulnerabilityAssessmentRecurringScans)(nil)).Elem()
+}
+
+func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) ToWorkspaceVulnerabilityAssessmentRecurringScansOutput() WorkspaceVulnerabilityAssessmentRecurringScansOutput {
+	return o
+}
+
+func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) ToWorkspaceVulnerabilityAssessmentRecurringScansOutputWithContext(ctx context.Context) WorkspaceVulnerabilityAssessmentRecurringScansOutput {
+	return o
+}
+
+func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutput() WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return o.ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return o.ApplyT(func(v WorkspaceVulnerabilityAssessmentRecurringScans) *WorkspaceVulnerabilityAssessmentRecurringScans {
+		return &v
+	}).(WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput)
+}
+
+// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) EmailSubscriptionAdminsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceVulnerabilityAssessmentRecurringScans) *bool { return v.EmailSubscriptionAdminsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an array of e-mail addresses to which the scan notification is sent.
+func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) Emails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkspaceVulnerabilityAssessmentRecurringScans) []string { return v.Emails }).(pulumi.StringArrayOutput)
+}
+
+// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceVulnerabilityAssessmentRecurringScans) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceVulnerabilityAssessmentRecurringScans)(nil)).Elem()
+}
+
+func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutput() WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return o
+}
+
+func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return o
+}
+
+func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) Elem() WorkspaceVulnerabilityAssessmentRecurringScansOutput {
+	return o.ApplyT(func(v *WorkspaceVulnerabilityAssessmentRecurringScans) WorkspaceVulnerabilityAssessmentRecurringScans {
+		return *v
+	}).(WorkspaceVulnerabilityAssessmentRecurringScansOutput)
+}
+
+// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) EmailSubscriptionAdminsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceVulnerabilityAssessmentRecurringScans) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EmailSubscriptionAdminsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an array of e-mail addresses to which the scan notification is sent.
+func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) Emails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkspaceVulnerabilityAssessmentRecurringScans) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Emails
+	}).(pulumi.StringArrayOutput)
+}
+
+// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceVulnerabilityAssessmentRecurringScans) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type GetWorkspaceIdentity struct {
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 	PrincipalId string `pulumi:"principalId"`
@@ -1424,6 +2066,8 @@ func (o GetWorkspaceIdentityArrayOutput) Index(i pulumi.IntInput) GetWorkspaceId
 }
 
 func init() {
+	pulumi.RegisterOutputType(LinkedServiceIntegrationRuntimeOutput{})
+	pulumi.RegisterOutputType(LinkedServiceIntegrationRuntimePtrOutput{})
 	pulumi.RegisterOutputType(SparkPoolAutoPauseOutput{})
 	pulumi.RegisterOutputType(SparkPoolAutoPausePtrOutput{})
 	pulumi.RegisterOutputType(SparkPoolAutoScaleOutput{})
@@ -1432,14 +2076,20 @@ func init() {
 	pulumi.RegisterOutputType(SparkPoolLibraryRequirementPtrOutput{})
 	pulumi.RegisterOutputType(SqlPoolRestoreOutput{})
 	pulumi.RegisterOutputType(SqlPoolRestorePtrOutput{})
+	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRecurringScansOutput{})
+	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceAzureDevopsRepoOutput{})
 	pulumi.RegisterOutputType(WorkspaceAzureDevopsRepoPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceCustomerManagedKeyOutput{})
+	pulumi.RegisterOutputType(WorkspaceCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceGithubRepoOutput{})
 	pulumi.RegisterOutputType(WorkspaceGithubRepoPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceVulnerabilityAssessmentRecurringScansOutput{})
+	pulumi.RegisterOutputType(WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityArrayOutput{})
 }

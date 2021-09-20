@@ -127,7 +127,7 @@ namespace Pulumi.Azure.MachineLearning
         /// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ComputeClusterIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.ComputeClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -152,6 +152,18 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Output("scaleSettings")]
         public Output<Outputs.ComputeClusterScaleSettings> ScaleSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        [Output("ssh")]
+        public Output<Outputs.ComputeClusterSsh?> Ssh { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        [Output("sshPublicAccessEnabled")]
+        public Output<bool> SshPublicAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -232,8 +244,8 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
-        [Input("identity", required: true)]
-        public Input<Inputs.ComputeClusterIdentityArgs> Identity { get; set; } = null!;
+        [Input("identity")]
+        public Input<Inputs.ComputeClusterIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -258,6 +270,18 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("scaleSettings", required: true)]
         public Input<Inputs.ComputeClusterScaleSettingsArgs> ScaleSettings { get; set; } = null!;
+
+        /// <summary>
+        /// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        [Input("ssh")]
+        public Input<Inputs.ComputeClusterSshArgs>? Ssh { get; set; }
+
+        /// <summary>
+        /// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        [Input("sshPublicAccessEnabled")]
+        public Input<bool>? SshPublicAccessEnabled { get; set; }
 
         /// <summary>
         /// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -331,6 +355,18 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("scaleSettings")]
         public Input<Inputs.ComputeClusterScaleSettingsGetArgs>? ScaleSettings { get; set; }
+
+        /// <summary>
+        /// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        [Input("ssh")]
+        public Input<Inputs.ComputeClusterSshGetArgs>? Ssh { get; set; }
+
+        /// <summary>
+        /// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        [Input("sshPublicAccessEnabled")]
+        public Input<bool>? SshPublicAccessEnabled { get; set; }
 
         /// <summary>
         /// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.

@@ -13,10 +13,13 @@ namespace Pulumi.Azure.AppPlatform.Inputs
     public sealed class SpringCloudServiceTraceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Instrumentation Key used for Application Insights.
+        /// The connection string used for Application Insights.
         /// </summary>
-        [Input("instrumentationKey", required: true)]
-        public Input<string> InstrumentationKey { get; set; } = null!;
+        [Input("connectionString")]
+        public Input<string>? ConnectionString { get; set; }
+
+        [Input("instrumentationKey")]
+        public Input<string>? InstrumentationKey { get; set; }
 
         /// <summary>
         /// The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.

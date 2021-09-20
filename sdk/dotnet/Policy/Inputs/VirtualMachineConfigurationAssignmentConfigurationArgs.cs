@@ -31,10 +31,10 @@ namespace Pulumi.Azure.Policy.Inputs
         public Input<string>? ContentUri { get; set; }
 
         /// <summary>
-        /// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+        /// This field is no longer used and will be removed in the next major version of the Azure Provider.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs>? _parameters;

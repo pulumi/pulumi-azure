@@ -7,21 +7,37 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./firewallRule";
 export * from "./getWorkspace";
+export * from "./integrationRuntimeAzure";
+export * from "./integrationRuntimeSelfHosted";
+export * from "./linkedService";
 export * from "./managedPrivateEndpoint";
 export * from "./privateLinkHub";
 export * from "./roleAssignment";
 export * from "./sparkPool";
 export * from "./sqlPool";
+export * from "./sqlPoolSecurityAlertPolicy";
+export * from "./sqlPoolVulnerabilityAssessment";
 export * from "./workspace";
+export * from "./workspaceKey";
+export * from "./workspaceSecurityAlertPolicy";
+export * from "./workspaceVulnerabilityAssessment";
 
 // Import resources to register:
 import { FirewallRule } from "./firewallRule";
+import { IntegrationRuntimeAzure } from "./integrationRuntimeAzure";
+import { IntegrationRuntimeSelfHosted } from "./integrationRuntimeSelfHosted";
+import { LinkedService } from "./linkedService";
 import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
 import { PrivateLinkHub } from "./privateLinkHub";
 import { RoleAssignment } from "./roleAssignment";
 import { SparkPool } from "./sparkPool";
 import { SqlPool } from "./sqlPool";
+import { SqlPoolSecurityAlertPolicy } from "./sqlPoolSecurityAlertPolicy";
+import { SqlPoolVulnerabilityAssessment } from "./sqlPoolVulnerabilityAssessment";
 import { Workspace } from "./workspace";
+import { WorkspaceKey } from "./workspaceKey";
+import { WorkspaceSecurityAlertPolicy } from "./workspaceSecurityAlertPolicy";
+import { WorkspaceVulnerabilityAssessment } from "./workspaceVulnerabilityAssessment";
 
 const _module = {
     version: utilities.getVersion(),
@@ -29,6 +45,12 @@ const _module = {
         switch (type) {
             case "azure:synapse/firewallRule:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
+            case "azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure":
+                return new IntegrationRuntimeAzure(name, <any>undefined, { urn })
+            case "azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted":
+                return new IntegrationRuntimeSelfHosted(name, <any>undefined, { urn })
+            case "azure:synapse/linkedService:LinkedService":
+                return new LinkedService(name, <any>undefined, { urn })
             case "azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint":
                 return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
             case "azure:synapse/privateLinkHub:PrivateLinkHub":
@@ -39,17 +61,35 @@ const _module = {
                 return new SparkPool(name, <any>undefined, { urn })
             case "azure:synapse/sqlPool:SqlPool":
                 return new SqlPool(name, <any>undefined, { urn })
+            case "azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy":
+                return new SqlPoolSecurityAlertPolicy(name, <any>undefined, { urn })
+            case "azure:synapse/sqlPoolVulnerabilityAssessment:SqlPoolVulnerabilityAssessment":
+                return new SqlPoolVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure:synapse/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
+            case "azure:synapse/workspaceKey:WorkspaceKey":
+                return new WorkspaceKey(name, <any>undefined, { urn })
+            case "azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy":
+                return new WorkspaceSecurityAlertPolicy(name, <any>undefined, { urn })
+            case "azure:synapse/workspaceVulnerabilityAssessment:WorkspaceVulnerabilityAssessment":
+                return new WorkspaceVulnerabilityAssessment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "synapse/firewallRule", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/integrationRuntimeAzure", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/integrationRuntimeSelfHosted", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/linkedService", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/managedPrivateEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/privateLinkHub", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/roleAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/sparkPool", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/sqlPool", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolSecurityAlertPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspace", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/workspaceKey", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/workspaceSecurityAlertPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/workspaceVulnerabilityAssessment", _module)

@@ -718,26 +718,42 @@ class SpringCloudServiceRequiredNetworkTrafficRuleArgs:
 @pulumi.input_type
 class SpringCloudServiceTraceArgs:
     def __init__(__self__, *,
-                 instrumentation_key: pulumi.Input[str],
+                 connection_string: Optional[pulumi.Input[str]] = None,
+                 instrumentation_key: Optional[pulumi.Input[str]] = None,
                  sample_rate: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[str] instrumentation_key: The Instrumentation Key used for Application Insights.
+        :param pulumi.Input[str] connection_string: The connection string used for Application Insights.
         :param pulumi.Input[float] sample_rate: The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
         """
-        pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if instrumentation_key is not None:
+            warnings.warn("""This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.""", DeprecationWarning)
+            pulumi.log.warn("""instrumentation_key is deprecated: This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.""")
+        if instrumentation_key is not None:
+            pulumi.set(__self__, "instrumentation_key", instrumentation_key)
         if sample_rate is not None:
             pulumi.set(__self__, "sample_rate", sample_rate)
 
     @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection string used for Application Insights.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
     @pulumi.getter(name="instrumentationKey")
-    def instrumentation_key(self) -> pulumi.Input[str]:
-        """
-        The Instrumentation Key used for Application Insights.
-        """
+    def instrumentation_key(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "instrumentation_key")
 
     @instrumentation_key.setter
-    def instrumentation_key(self, value: pulumi.Input[str]):
+    def instrumentation_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instrumentation_key", value)
 
     @property

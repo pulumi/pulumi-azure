@@ -53,6 +53,11 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
      */
     public readonly authorizedResourceIds!: pulumi.Output<string[] | undefined>;
     /**
+     * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+     * > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
+     */
+    public readonly autoMitigationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The resource URI over which log search query is to be run.
      */
     public readonly dataSourceId!: pulumi.Output<string>;
@@ -115,6 +120,7 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
             const state = argsOrState as ScheduledQueryRulesAlertState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["authorizedResourceIds"] = state ? state.authorizedResourceIds : undefined;
+            inputs["autoMitigationEnabled"] = state ? state.autoMitigationEnabled : undefined;
             inputs["dataSourceId"] = state ? state.dataSourceId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -154,6 +160,7 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
             }
             inputs["action"] = args ? args.action : undefined;
             inputs["authorizedResourceIds"] = args ? args.authorizedResourceIds : undefined;
+            inputs["autoMitigationEnabled"] = args ? args.autoMitigationEnabled : undefined;
             inputs["dataSourceId"] = args ? args.dataSourceId : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -188,6 +195,11 @@ export interface ScheduledQueryRulesAlertState {
      * List of Resource IDs referred into query.
      */
     authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+     * > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
+     */
+    autoMitigationEnabled?: pulumi.Input<boolean>;
     /**
      * The resource URI over which log search query is to be run.
      */
@@ -249,6 +261,11 @@ export interface ScheduledQueryRulesAlertArgs {
      * List of Resource IDs referred into query.
      */
     authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+     * > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
+     */
+    autoMitigationEnabled?: pulumi.Input<boolean>;
     /**
      * The resource URI over which log search query is to be run.
      */

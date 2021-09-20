@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -57,6 +58,10 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /**
+     * A `accessControl` block as defined below.
+     */
+    public readonly accessControl!: pulumi.Output<outputs.logicapps.WorkflowAccessControl | undefined>;
+    /**
      * The Access Endpoint for the Logic App Workflow.
      */
     public /*out*/ readonly accessEndpoint!: pulumi.Output<string>;
@@ -68,6 +73,7 @@ export class Workflow extends pulumi.CustomResource {
      * The list of outgoing ip addresses of connector.
      */
     public /*out*/ readonly connectorOutboundIpAddresses!: pulumi.Output<string[]>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
      */
@@ -130,9 +136,11 @@ export class Workflow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkflowState | undefined;
+            inputs["accessControl"] = state ? state.accessControl : undefined;
             inputs["accessEndpoint"] = state ? state.accessEndpoint : undefined;
             inputs["connectorEndpointIpAddresses"] = state ? state.connectorEndpointIpAddresses : undefined;
             inputs["connectorOutboundIpAddresses"] = state ? state.connectorOutboundIpAddresses : undefined;
+            inputs["enabled"] = state ? state.enabled : undefined;
             inputs["integrationServiceEnvironmentId"] = state ? state.integrationServiceEnvironmentId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["logicAppIntegrationAccountId"] = state ? state.logicAppIntegrationAccountId : undefined;
@@ -150,6 +158,8 @@ export class Workflow extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accessControl"] = args ? args.accessControl : undefined;
+            inputs["enabled"] = args ? args.enabled : undefined;
             inputs["integrationServiceEnvironmentId"] = args ? args.integrationServiceEnvironmentId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["logicAppIntegrationAccountId"] = args ? args.logicAppIntegrationAccountId : undefined;
@@ -178,6 +188,10 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowState {
     /**
+     * A `accessControl` block as defined below.
+     */
+    accessControl?: pulumi.Input<inputs.logicapps.WorkflowAccessControl>;
+    /**
      * The Access Endpoint for the Logic App Workflow.
      */
     accessEndpoint?: pulumi.Input<string>;
@@ -189,6 +203,7 @@ export interface WorkflowState {
      * The list of outgoing ip addresses of connector.
      */
     connectorOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
      */
@@ -243,6 +258,11 @@ export interface WorkflowState {
  * The set of arguments for constructing a Workflow resource.
  */
 export interface WorkflowArgs {
+    /**
+     * A `accessControl` block as defined below.
+     */
+    accessControl?: pulumi.Input<inputs.logicapps.WorkflowAccessControl>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
      */

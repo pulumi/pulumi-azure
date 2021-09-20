@@ -356,7 +356,7 @@ class SpringCloudService(pulumi.CustomResource):
                 ],
             ),
             trace=azure.appplatform.SpringCloudServiceTraceArgs(
-                instrumentation_key=example_insights.instrumentation_key,
+                connection_string=example_insights.connection_string,
                 sample_rate=10,
             ),
             tags={
@@ -416,7 +416,7 @@ class SpringCloudService(pulumi.CustomResource):
                 ],
             ),
             trace=azure.appplatform.SpringCloudServiceTraceArgs(
-                instrumentation_key=example_insights.instrumentation_key,
+                connection_string=example_insights.connection_string,
                 sample_rate=10,
             ),
             tags={

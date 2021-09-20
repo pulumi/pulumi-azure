@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Policy
 {
     /// <summary>
-    /// Applies a Configuration Policy to a Virtual Machine.
+    /// Applies a Guest Configuration Policy to a Virtual Machine.
+    /// 
+    /// &gt; **NOTE:** You can create Guest Configuration Policies without defining a `azure.compute.Extension` resource, however the policies will not be executed until a `azure.compute.Extension` has been provisioned to the virtual machine.
     /// 
     /// ## Example Usage
     /// 
@@ -100,7 +102,7 @@ namespace Pulumi.Azure.Policy
     ///             VirtualMachineId = exampleWindowsVirtualMachine.Id,
     ///             Configuration = new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationArgs
     ///             {
-    ///                 Name = "AzureWindowsBaseline",
+    ///                 AssignmentType = "ApplyAndMonitor",
     ///                 Version = "1.*",
     ///                 Parameters = 
     ///                 {
@@ -161,7 +163,7 @@ namespace Pulumi.Azure.Policy
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+        /// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -231,7 +233,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+        /// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -262,7 +264,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+        /// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  *     trace: {
- *         instrumentationKey: exampleInsights.instrumentationKey,
+ *         connectionString: exampleInsights.connectionString,
  *         sampleRate: 10,
  *     },
  *     tags: {

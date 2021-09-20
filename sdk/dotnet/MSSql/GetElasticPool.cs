@@ -96,6 +96,9 @@ namespace Pulumi.Azure.MSSql
         /// The max data size of the elastic pool in gigabytes.
         /// </summary>
         public readonly double MaxSizeGb;
+        /// <summary>
+        /// Specifies the SKU Name for this Elasticpool.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// The maximum capacity any one database can consume.
@@ -107,6 +110,10 @@ namespace Pulumi.Azure.MSSql
         public readonly int PerDbMinCapacity;
         public readonly string ResourceGroupName;
         public readonly string ServerName;
+        /// <summary>
+        /// A `sku` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetElasticPoolSkusResult> Skus;
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
@@ -138,6 +145,8 @@ namespace Pulumi.Azure.MSSql
 
             string serverName,
 
+            ImmutableArray<Outputs.GetElasticPoolSkusResult> skus,
+
             ImmutableDictionary<string, string> tags,
 
             bool zoneRedundant)
@@ -152,6 +161,7 @@ namespace Pulumi.Azure.MSSql
             PerDbMinCapacity = perDbMinCapacity;
             ResourceGroupName = resourceGroupName;
             ServerName = serverName;
+            Skus = skus;
             Tags = tags;
             ZoneRedundant = zoneRedundant;
         }

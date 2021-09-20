@@ -26,9 +26,9 @@ namespace Pulumi.Azure.Policy.Outputs
         /// </summary>
         public readonly string? ContentUri;
         /// <summary>
-        /// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+        /// This field is no longer used and will be removed in the next major version of the Azure Provider.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// One or more `parameter` blocks which define what configuration parameters and values against.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Policy.Outputs
 
             string? contentUri,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.VirtualMachineConfigurationAssignmentConfigurationParameter> parameters,
 

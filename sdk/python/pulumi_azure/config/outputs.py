@@ -11,6 +11,7 @@ from . import outputs
 
 __all__ = [
     'Features',
+    'FeaturesApiManagement',
     'FeaturesCognitiveAccount',
     'FeaturesKeyVault',
     'FeaturesLogAnalyticsWorkspace',
@@ -24,6 +25,7 @@ __all__ = [
 @pulumi.output_type
 class Features(dict):
     def __init__(__self__, *,
+                 api_management: Optional['outputs.FeaturesApiManagement'] = None,
                  cognitive_account: Optional['outputs.FeaturesCognitiveAccount'] = None,
                  key_vault: Optional['outputs.FeaturesKeyVault'] = None,
                  log_analytics_workspace: Optional['outputs.FeaturesLogAnalyticsWorkspace'] = None,
@@ -32,6 +34,8 @@ class Features(dict):
                  template_deployment: Optional['outputs.FeaturesTemplateDeployment'] = None,
                  virtual_machine: Optional['outputs.FeaturesVirtualMachine'] = None,
                  virtual_machine_scale_set: Optional['outputs.FeaturesVirtualMachineScaleSet'] = None):
+        if api_management is not None:
+            pulumi.set(__self__, "api_management", api_management)
         if cognitive_account is not None:
             pulumi.set(__self__, "cognitive_account", cognitive_account)
         if key_vault is not None:
@@ -48,6 +52,11 @@ class Features(dict):
             pulumi.set(__self__, "virtual_machine", virtual_machine)
         if virtual_machine_scale_set is not None:
             pulumi.set(__self__, "virtual_machine_scale_set", virtual_machine_scale_set)
+
+    @property
+    @pulumi.getter(name="apiManagement")
+    def api_management(self) -> Optional['outputs.FeaturesApiManagement']:
+        return pulumi.get(self, "api_management")
 
     @property
     @pulumi.getter(name="cognitiveAccount")
@@ -88,6 +97,19 @@ class Features(dict):
     @pulumi.getter(name="virtualMachineScaleSet")
     def virtual_machine_scale_set(self) -> Optional['outputs.FeaturesVirtualMachineScaleSet']:
         return pulumi.get(self, "virtual_machine_scale_set")
+
+
+@pulumi.output_type
+class FeaturesApiManagement(dict):
+    def __init__(__self__, *,
+                 purge_soft_delete_on_destroy: Optional[bool] = None):
+        if purge_soft_delete_on_destroy is not None:
+            pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
+
+    @property
+    @pulumi.getter(name="purgeSoftDeleteOnDestroy")
+    def purge_soft_delete_on_destroy(self) -> Optional[bool]:
+        return pulumi.get(self, "purge_soft_delete_on_destroy")
 
 
 @pulumi.output_type

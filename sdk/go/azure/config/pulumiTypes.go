@@ -11,6 +11,7 @@ import (
 )
 
 type Features struct {
+	ApiManagement          *FeaturesApiManagement          `pulumi:"apiManagement"`
 	CognitiveAccount       *FeaturesCognitiveAccount       `pulumi:"cognitiveAccount"`
 	KeyVault               *FeaturesKeyVault               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  *FeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
@@ -33,6 +34,7 @@ type FeaturesInput interface {
 }
 
 type FeaturesArgs struct {
+	ApiManagement          FeaturesApiManagementPtrInput          `pulumi:"apiManagement"`
 	CognitiveAccount       FeaturesCognitiveAccountPtrInput       `pulumi:"cognitiveAccount"`
 	KeyVault               FeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  FeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
@@ -69,6 +71,10 @@ func (o FeaturesOutput) ToFeaturesOutputWithContext(ctx context.Context) Feature
 	return o
 }
 
+func (o FeaturesOutput) ApiManagement() FeaturesApiManagementPtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesApiManagement { return v.ApiManagement }).(FeaturesApiManagementPtrOutput)
+}
+
 func (o FeaturesOutput) CognitiveAccount() FeaturesCognitiveAccountPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesCognitiveAccount { return v.CognitiveAccount }).(FeaturesCognitiveAccountPtrOutput)
 }
@@ -99,6 +105,132 @@ func (o FeaturesOutput) VirtualMachine() FeaturesVirtualMachinePtrOutput {
 
 func (o FeaturesOutput) VirtualMachineScaleSet() FeaturesVirtualMachineScaleSetPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesVirtualMachineScaleSet { return v.VirtualMachineScaleSet }).(FeaturesVirtualMachineScaleSetPtrOutput)
+}
+
+type FeaturesApiManagement struct {
+	PurgeSoftDeleteOnDestroy *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+}
+
+// FeaturesApiManagementInput is an input type that accepts FeaturesApiManagementArgs and FeaturesApiManagementOutput values.
+// You can construct a concrete instance of `FeaturesApiManagementInput` via:
+//
+//          FeaturesApiManagementArgs{...}
+type FeaturesApiManagementInput interface {
+	pulumi.Input
+
+	ToFeaturesApiManagementOutput() FeaturesApiManagementOutput
+	ToFeaturesApiManagementOutputWithContext(context.Context) FeaturesApiManagementOutput
+}
+
+type FeaturesApiManagementArgs struct {
+	PurgeSoftDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+}
+
+func (FeaturesApiManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesApiManagement)(nil)).Elem()
+}
+
+func (i FeaturesApiManagementArgs) ToFeaturesApiManagementOutput() FeaturesApiManagementOutput {
+	return i.ToFeaturesApiManagementOutputWithContext(context.Background())
+}
+
+func (i FeaturesApiManagementArgs) ToFeaturesApiManagementOutputWithContext(ctx context.Context) FeaturesApiManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesApiManagementOutput)
+}
+
+func (i FeaturesApiManagementArgs) ToFeaturesApiManagementPtrOutput() FeaturesApiManagementPtrOutput {
+	return i.ToFeaturesApiManagementPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesApiManagementArgs) ToFeaturesApiManagementPtrOutputWithContext(ctx context.Context) FeaturesApiManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesApiManagementOutput).ToFeaturesApiManagementPtrOutputWithContext(ctx)
+}
+
+// FeaturesApiManagementPtrInput is an input type that accepts FeaturesApiManagementArgs, FeaturesApiManagementPtr and FeaturesApiManagementPtrOutput values.
+// You can construct a concrete instance of `FeaturesApiManagementPtrInput` via:
+//
+//          FeaturesApiManagementArgs{...}
+//
+//  or:
+//
+//          nil
+type FeaturesApiManagementPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesApiManagementPtrOutput() FeaturesApiManagementPtrOutput
+	ToFeaturesApiManagementPtrOutputWithContext(context.Context) FeaturesApiManagementPtrOutput
+}
+
+type featuresApiManagementPtrType FeaturesApiManagementArgs
+
+func FeaturesApiManagementPtr(v *FeaturesApiManagementArgs) FeaturesApiManagementPtrInput {
+	return (*featuresApiManagementPtrType)(v)
+}
+
+func (*featuresApiManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesApiManagement)(nil)).Elem()
+}
+
+func (i *featuresApiManagementPtrType) ToFeaturesApiManagementPtrOutput() FeaturesApiManagementPtrOutput {
+	return i.ToFeaturesApiManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresApiManagementPtrType) ToFeaturesApiManagementPtrOutputWithContext(ctx context.Context) FeaturesApiManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesApiManagementPtrOutput)
+}
+
+type FeaturesApiManagementOutput struct{ *pulumi.OutputState }
+
+func (FeaturesApiManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesApiManagement)(nil)).Elem()
+}
+
+func (o FeaturesApiManagementOutput) ToFeaturesApiManagementOutput() FeaturesApiManagementOutput {
+	return o
+}
+
+func (o FeaturesApiManagementOutput) ToFeaturesApiManagementOutputWithContext(ctx context.Context) FeaturesApiManagementOutput {
+	return o
+}
+
+func (o FeaturesApiManagementOutput) ToFeaturesApiManagementPtrOutput() FeaturesApiManagementPtrOutput {
+	return o.ToFeaturesApiManagementPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesApiManagementOutput) ToFeaturesApiManagementPtrOutputWithContext(ctx context.Context) FeaturesApiManagementPtrOutput {
+	return o.ApplyT(func(v FeaturesApiManagement) *FeaturesApiManagement {
+		return &v
+	}).(FeaturesApiManagementPtrOutput)
+}
+func (o FeaturesApiManagementOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesApiManagement) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesApiManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesApiManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesApiManagement)(nil)).Elem()
+}
+
+func (o FeaturesApiManagementPtrOutput) ToFeaturesApiManagementPtrOutput() FeaturesApiManagementPtrOutput {
+	return o
+}
+
+func (o FeaturesApiManagementPtrOutput) ToFeaturesApiManagementPtrOutputWithContext(ctx context.Context) FeaturesApiManagementPtrOutput {
+	return o
+}
+
+func (o FeaturesApiManagementPtrOutput) Elem() FeaturesApiManagementOutput {
+	return o.ApplyT(func(v *FeaturesApiManagement) FeaturesApiManagement { return *v }).(FeaturesApiManagementOutput)
+}
+
+func (o FeaturesApiManagementPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesApiManagement) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeSoftDeleteOnDestroy
+	}).(pulumi.BoolPtrOutput)
 }
 
 type FeaturesCognitiveAccount struct {
@@ -1171,6 +1303,8 @@ func (o FeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequired() pul
 
 func init() {
 	pulumi.RegisterOutputType(FeaturesOutput{})
+	pulumi.RegisterOutputType(FeaturesApiManagementOutput{})
+	pulumi.RegisterOutputType(FeaturesApiManagementPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesCognitiveAccountOutput{})
 	pulumi.RegisterOutputType(FeaturesCognitiveAccountPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesKeyVaultOutput{})

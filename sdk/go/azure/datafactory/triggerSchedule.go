@@ -71,6 +71,8 @@ import (
 type TriggerSchedule struct {
 	pulumi.CustomResourceState
 
+	// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+	Activated pulumi.BoolOutput `pulumi:"activated"`
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
@@ -135,6 +137,8 @@ func GetTriggerSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TriggerSchedule resources.
 type triggerScheduleState struct {
+	// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+	Activated *bool `pulumi:"activated"`
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
@@ -162,6 +166,8 @@ type triggerScheduleState struct {
 }
 
 type TriggerScheduleState struct {
+	// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+	Activated pulumi.BoolPtrInput
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations pulumi.StringArrayInput
 	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
@@ -193,6 +199,8 @@ func (TriggerScheduleState) ElementType() reflect.Type {
 }
 
 type triggerScheduleArgs struct {
+	// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+	Activated *bool `pulumi:"activated"`
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
@@ -221,6 +229,8 @@ type triggerScheduleArgs struct {
 
 // The set of arguments for constructing a TriggerSchedule resource.
 type TriggerScheduleArgs struct {
+	// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+	Activated pulumi.BoolPtrInput
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations pulumi.StringArrayInput
 	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.

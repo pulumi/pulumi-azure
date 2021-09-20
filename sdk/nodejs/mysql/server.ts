@@ -162,7 +162,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly threatDetectionPolicy!: pulumi.Output<outputs.mysql.ServerThreatDetectionPolicy | undefined>;
     /**
-     * Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+     * Specifies the version of MySQL to use. Valid values are `5.7`, or `8.0`. Changing this forces a new resource to be created.
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -343,7 +343,7 @@ export interface ServerState {
      */
     threatDetectionPolicy?: pulumi.Input<inputs.mysql.ServerThreatDetectionPolicy>;
     /**
-     * Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+     * Specifies the version of MySQL to use. Valid values are `5.7`, or `8.0`. Changing this forces a new resource to be created.
      */
     version?: pulumi.Input<string>;
 }
@@ -441,7 +441,7 @@ export interface ServerArgs {
      */
     threatDetectionPolicy?: pulumi.Input<inputs.mysql.ServerThreatDetectionPolicy>;
     /**
-     * Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+     * Specifies the version of MySQL to use. Valid values are `5.7`, or `8.0`. Changing this forces a new resource to be created.
      */
     version: pulumi.Input<string>;
 }

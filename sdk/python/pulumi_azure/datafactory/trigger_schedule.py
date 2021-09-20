@@ -18,6 +18,7 @@ class TriggerScheduleArgs:
                  data_factory_name: pulumi.Input[str],
                  pipeline_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 activated: Optional[pulumi.Input[bool]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class TriggerScheduleArgs:
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
         :param pulumi.Input[str] pipeline_name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
+        :param pulumi.Input[bool] activated: Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
         :param pulumi.Input[str] description: The Schedule Trigger's description.
         :param pulumi.Input[str] end_time: The time the Schedule Trigger should end. The time will be represented in UTC.
@@ -45,6 +47,8 @@ class TriggerScheduleArgs:
         pulumi.set(__self__, "data_factory_name", data_factory_name)
         pulumi.set(__self__, "pipeline_name", pipeline_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if activated is not None:
+            pulumi.set(__self__, "activated", activated)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -99,6 +103,18 @@ class TriggerScheduleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def activated(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+        """
+        return pulumi.get(self, "activated")
+
+    @activated.setter
+    def activated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "activated", value)
 
     @property
     @pulumi.getter
@@ -212,6 +228,7 @@ class TriggerScheduleArgs:
 @pulumi.input_type
 class _TriggerScheduleState:
     def __init__(__self__, *,
+                 activated: Optional[pulumi.Input[bool]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -226,6 +243,7 @@ class _TriggerScheduleState:
                  start_time: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TriggerSchedule resources.
+        :param pulumi.Input[bool] activated: Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The Schedule Trigger's description.
@@ -239,6 +257,8 @@ class _TriggerScheduleState:
         :param pulumi.Input['TriggerScheduleScheduleArgs'] schedule: A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         """
+        if activated is not None:
+            pulumi.set(__self__, "activated", activated)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if data_factory_name is not None:
@@ -263,6 +283,18 @@ class _TriggerScheduleState:
             pulumi.set(__self__, "schedule", schedule)
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter
+    def activated(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+        """
+        return pulumi.get(self, "activated")
+
+    @activated.setter
+    def activated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "activated", value)
 
     @property
     @pulumi.getter
@@ -414,6 +446,7 @@ class TriggerSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 activated: Optional[pulumi.Input[bool]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -461,6 +494,7 @@ class TriggerSchedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] activated: Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The Schedule Trigger's description.
@@ -527,6 +561,7 @@ class TriggerSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 activated: Optional[pulumi.Input[bool]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -551,6 +586,7 @@ class TriggerSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TriggerScheduleArgs.__new__(TriggerScheduleArgs)
 
+            __props__.__dict__["activated"] = activated
             __props__.__dict__["annotations"] = annotations
             if data_factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_name'")
@@ -579,6 +615,7 @@ class TriggerSchedule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            activated: Optional[pulumi.Input[bool]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -598,6 +635,7 @@ class TriggerSchedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] activated: Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The Schedule Trigger's description.
@@ -615,6 +653,7 @@ class TriggerSchedule(pulumi.CustomResource):
 
         __props__ = _TriggerScheduleState.__new__(_TriggerScheduleState)
 
+        __props__.__dict__["activated"] = activated
         __props__.__dict__["annotations"] = annotations
         __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
@@ -628,6 +667,14 @@ class TriggerSchedule(pulumi.CustomResource):
         __props__.__dict__["schedule"] = schedule
         __props__.__dict__["start_time"] = start_time
         return TriggerSchedule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def activated(self) -> pulumi.Output[bool]:
+        """
+        Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+        """
+        return pulumi.get(self, "activated")
 
     @property
     @pulumi.getter

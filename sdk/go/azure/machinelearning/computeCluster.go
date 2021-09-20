@@ -140,7 +140,7 @@ type ComputeCluster struct {
 	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
-	Identity ComputeClusterIdentityOutput `pulumi:"identity"`
+	Identity ComputeClusterIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -149,6 +149,10 @@ type ComputeCluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings ComputeClusterScaleSettingsOutput `pulumi:"scaleSettings"`
+	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	Ssh ComputeClusterSshPtrOutput `pulumi:"ssh"`
+	// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+	SshPublicAccessEnabled pulumi.BoolOutput `pulumi:"sshPublicAccessEnabled"`
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId pulumi.StringPtrOutput `pulumi:"subnetResourceId"`
 	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -166,9 +170,6 @@ func NewComputeCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Identity == nil {
-		return nil, errors.New("invalid value for required argument 'Identity'")
-	}
 	if args.MachineLearningWorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'MachineLearningWorkspaceId'")
 	}
@@ -215,6 +216,10 @@ type computeClusterState struct {
 	Name *string `pulumi:"name"`
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings *ComputeClusterScaleSettings `pulumi:"scaleSettings"`
+	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	Ssh *ComputeClusterSsh `pulumi:"ssh"`
+	// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+	SshPublicAccessEnabled *bool `pulumi:"sshPublicAccessEnabled"`
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
 	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -238,6 +243,10 @@ type ComputeClusterState struct {
 	Name pulumi.StringPtrInput
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings ComputeClusterScaleSettingsPtrInput
+	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	Ssh ComputeClusterSshPtrInput
+	// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+	SshPublicAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -256,7 +265,7 @@ type computeClusterArgs struct {
 	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Description *string `pulumi:"description"`
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
-	Identity ComputeClusterIdentity `pulumi:"identity"`
+	Identity *ComputeClusterIdentity `pulumi:"identity"`
 	// The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Location *string `pulumi:"location"`
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -265,6 +274,10 @@ type computeClusterArgs struct {
 	Name *string `pulumi:"name"`
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings ComputeClusterScaleSettings `pulumi:"scaleSettings"`
+	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	Ssh *ComputeClusterSsh `pulumi:"ssh"`
+	// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+	SshPublicAccessEnabled *bool `pulumi:"sshPublicAccessEnabled"`
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
 	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -280,7 +293,7 @@ type ComputeClusterArgs struct {
 	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Description pulumi.StringPtrInput
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
-	Identity ComputeClusterIdentityInput
+	Identity ComputeClusterIdentityPtrInput
 	// The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Location pulumi.StringPtrInput
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -289,6 +302,10 @@ type ComputeClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings ComputeClusterScaleSettingsInput
+	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	Ssh ComputeClusterSshPtrInput
+	// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+	SshPublicAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.

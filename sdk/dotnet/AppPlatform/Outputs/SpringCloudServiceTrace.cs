@@ -14,9 +14,10 @@ namespace Pulumi.Azure.AppPlatform.Outputs
     public sealed class SpringCloudServiceTrace
     {
         /// <summary>
-        /// The Instrumentation Key used for Application Insights.
+        /// The connection string used for Application Insights.
         /// </summary>
-        public readonly string InstrumentationKey;
+        public readonly string? ConnectionString;
+        public readonly string? InstrumentationKey;
         /// <summary>
         /// The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
         /// </summary>
@@ -24,10 +25,13 @@ namespace Pulumi.Azure.AppPlatform.Outputs
 
         [OutputConstructor]
         private SpringCloudServiceTrace(
-            string instrumentationKey,
+            string? connectionString,
+
+            string? instrumentationKey,
 
             double? sampleRate)
         {
+            ConnectionString = connectionString;
             InstrumentationKey = instrumentationKey;
             SampleRate = sampleRate;
         }

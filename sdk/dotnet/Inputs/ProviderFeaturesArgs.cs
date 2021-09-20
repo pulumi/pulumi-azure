@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Inputs
 
     public sealed class ProviderFeaturesArgs : Pulumi.ResourceArgs
     {
+        [Input("apiManagement")]
+        public Input<Inputs.ProviderFeaturesApiManagementArgs>? ApiManagement { get; set; }
+
         [Input("cognitiveAccount")]
         public Input<Inputs.ProviderFeaturesCognitiveAccountArgs>? CognitiveAccount { get; set; }
 

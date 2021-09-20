@@ -6,7 +6,9 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Applies a Configuration Policy to a Virtual Machine.
+ * Applies a Guest Configuration Policy to a Virtual Machine.
+ *
+ * > **NOTE:** You can create Guest Configuration Policies without defining a `azure.compute.Extension` resource, however the policies will not be executed until a `azure.compute.Extension` has been provisioned to the virtual machine.
  *
  * ## Example Usage
  *
@@ -66,7 +68,7 @@ import * as utilities from "../utilities";
  *     location: exampleWindowsVirtualMachine.location,
  *     virtualMachineId: exampleWindowsVirtualMachine.id,
  *     configuration: {
- *         name: "AzureWindowsBaseline",
+ *         assignmentType: "ApplyAndMonitor",
  *         version: "1.*",
  *         parameters: [
  *             {
@@ -139,7 +141,7 @@ export class VirtualMachineConfigurationAssignment extends pulumi.CustomResource
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+     * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -197,7 +199,7 @@ export interface VirtualMachineConfigurationAssignmentState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+     * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -219,7 +221,7 @@ export interface VirtualMachineConfigurationAssignmentArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+     * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

@@ -1740,8 +1740,10 @@ func (o SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) Index(i pulumi.
 }
 
 type SpringCloudServiceTrace struct {
-	// The Instrumentation Key used for Application Insights.
-	InstrumentationKey string `pulumi:"instrumentationKey"`
+	// The connection string used for Application Insights.
+	ConnectionString *string `pulumi:"connectionString"`
+	// Deprecated: This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.
+	InstrumentationKey *string `pulumi:"instrumentationKey"`
 	// The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
 	SampleRate *float64 `pulumi:"sampleRate"`
 }
@@ -1758,8 +1760,10 @@ type SpringCloudServiceTraceInput interface {
 }
 
 type SpringCloudServiceTraceArgs struct {
-	// The Instrumentation Key used for Application Insights.
-	InstrumentationKey pulumi.StringInput `pulumi:"instrumentationKey"`
+	// The connection string used for Application Insights.
+	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
+	// Deprecated: This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.
+	InstrumentationKey pulumi.StringPtrInput `pulumi:"instrumentationKey"`
 	// The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
 	SampleRate pulumi.Float64PtrInput `pulumi:"sampleRate"`
 }
@@ -1841,9 +1845,14 @@ func (o SpringCloudServiceTraceOutput) ToSpringCloudServiceTracePtrOutputWithCon
 	}).(SpringCloudServiceTracePtrOutput)
 }
 
-// The Instrumentation Key used for Application Insights.
-func (o SpringCloudServiceTraceOutput) InstrumentationKey() pulumi.StringOutput {
-	return o.ApplyT(func(v SpringCloudServiceTrace) string { return v.InstrumentationKey }).(pulumi.StringOutput)
+// The connection string used for Application Insights.
+func (o SpringCloudServiceTraceOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceTrace) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.
+func (o SpringCloudServiceTraceOutput) InstrumentationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceTrace) *string { return v.InstrumentationKey }).(pulumi.StringPtrOutput)
 }
 
 // The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
@@ -1869,13 +1878,23 @@ func (o SpringCloudServiceTracePtrOutput) Elem() SpringCloudServiceTraceOutput {
 	return o.ApplyT(func(v *SpringCloudServiceTrace) SpringCloudServiceTrace { return *v }).(SpringCloudServiceTraceOutput)
 }
 
-// The Instrumentation Key used for Application Insights.
+// The connection string used for Application Insights.
+func (o SpringCloudServiceTracePtrOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceTrace) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.
 func (o SpringCloudServiceTracePtrOutput) InstrumentationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudServiceTrace) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.InstrumentationKey
+		return v.InstrumentationKey
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
 export interface ProviderFeatures {
+    apiManagement?: pulumi.Input<inputs.ProviderFeaturesApiManagement>;
     cognitiveAccount?: pulumi.Input<inputs.ProviderFeaturesCognitiveAccount>;
     keyVault?: pulumi.Input<inputs.ProviderFeaturesKeyVault>;
     logAnalyticsWorkspace?: pulumi.Input<inputs.ProviderFeaturesLogAnalyticsWorkspace>;
@@ -13,6 +14,10 @@ export interface ProviderFeatures {
     templateDeployment?: pulumi.Input<inputs.ProviderFeaturesTemplateDeployment>;
     virtualMachine?: pulumi.Input<inputs.ProviderFeaturesVirtualMachine>;
     virtualMachineScaleSet?: pulumi.Input<inputs.ProviderFeaturesVirtualMachineScaleSet>;
+}
+
+export interface ProviderFeaturesApiManagement {
+    purgeSoftDeleteOnDestroy?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesCognitiveAccount {
@@ -1683,9 +1688,13 @@ export namespace appplatform {
 
     export interface SpringCloudServiceTrace {
         /**
-         * The Instrumentation Key used for Application Insights.
+         * The connection string used for Application Insights.
          */
-        instrumentationKey: pulumi.Input<string>;
+        connectionString?: pulumi.Input<string>;
+        /**
+         * @deprecated This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.
+         */
+        instrumentationKey?: pulumi.Input<string>;
         /**
          * The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
          */
@@ -16043,7 +16052,7 @@ export namespace lb {
 
     export interface LoadBalancerFrontendIpConfiguration {
         /**
-         * A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+         * A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`. 
          * `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
          */
         availabilityZone?: pulumi.Input<string>;
@@ -16316,14 +16325,71 @@ export namespace logicapps {
          */
         onTheseDays?: pulumi.Input<pulumi.Input<string>[]>;
     }
+
+    export interface WorkflowAccessControl {
+        /**
+         * A `action` block as defined below.
+         */
+        action?: pulumi.Input<inputs.logicapps.WorkflowAccessControlAction>;
+        /**
+         * A `content` block as defined below.
+         */
+        content?: pulumi.Input<inputs.logicapps.WorkflowAccessControlContent>;
+        /**
+         * A `trigger` block as defined below.
+         */
+        trigger?: pulumi.Input<inputs.logicapps.WorkflowAccessControlTrigger>;
+        /**
+         * A `workflowManagement` block as defined below.
+         */
+        workflowManagement?: pulumi.Input<inputs.logicapps.WorkflowAccessControlWorkflowManagement>;
+    }
+
+    export interface WorkflowAccessControlAction {
+        /**
+         * A list of the allowed caller IP address ranges.
+         */
+        allowedCallerIpAddressRanges: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WorkflowAccessControlContent {
+        /**
+         * A list of the allowed caller IP address ranges.
+         */
+        allowedCallerIpAddressRanges: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WorkflowAccessControlTrigger {
+        /**
+         * A list of the allowed caller IP address ranges.
+         */
+        allowedCallerIpAddressRanges: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WorkflowAccessControlWorkflowManagement {
+        /**
+         * A list of the allowed caller IP address ranges.
+         */
+        allowedCallerIpAddressRanges: pulumi.Input<pulumi.Input<string>[]>;
+    }
 }
 
 export namespace machinelearning {
     export interface ComputeClusterIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+         */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+         */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * The Type of Identity which should be used for this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Cluster to be created.
          */
         type: pulumi.Input<string>;
     }
@@ -16341,6 +16407,21 @@ export namespace machinelearning {
          * Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
          */
         scaleDownNodesAfterIdleDuration: pulumi.Input<string>;
+    }
+
+    export interface ComputeClusterSsh {
+        /**
+         * Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
+        adminPassword?: pulumi.Input<string>;
+        /**
+         * Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
+        adminUsername: pulumi.Input<string>;
+        /**
+         * SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
+        keyValue?: pulumi.Input<string>;
     }
 
     export interface ComputeInstanceAssignToUser {
@@ -16386,6 +16467,25 @@ export namespace machinelearning {
          * The admin username of this Machine Learning Compute Instance.
          */
         username?: pulumi.Input<string>;
+    }
+
+    export interface InferenceClusterIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Identity which should be used for this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Inference Cluster to be created.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface InferenceClusterSsl {
@@ -18695,6 +18795,7 @@ export namespace mssql {
          */
         luns: pulumi.Input<pulumi.Input<number>[]>;
     }
+
 }
 
 export namespace mysql {
@@ -21823,9 +21924,11 @@ export namespace policy {
          */
         contentUri?: pulumi.Input<string>;
         /**
-         * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+         * This field is no longer used and will be removed in the next major version of the Azure Provider.
+         *
+         * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
          */
-        name: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         /**
          * One or more `parameter` blocks which define what configuration parameters and values against.
          */
@@ -24040,6 +24143,17 @@ export namespace streamanalytics {
 }
 
 export namespace synapse {
+    export interface LinkedServiceIntegrationRuntime {
+        /**
+         * The integration runtime reference to associate with the Synapse Linked Service.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the integration runtime.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
     export interface SparkPoolAutoPause {
         /**
          * Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
@@ -24078,6 +24192,21 @@ export namespace synapse {
          * The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
          */
         sourceDatabaseId: pulumi.Input<string>;
+    }
+
+    export interface SqlPoolVulnerabilityAssessmentRecurringScans {
+        /**
+         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+         */
+        emailSubscriptionAdminsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         */
+        emails?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
     }
 
     export interface WorkspaceAadAdmin {
@@ -24122,6 +24251,17 @@ export namespace synapse {
         tenantId?: pulumi.Input<string>;
     }
 
+    export interface WorkspaceCustomerManagedKey {
+        /**
+         * An identifier for the key. Name needs to match the name of the key used with the `azure.synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+         */
+        keyName?: pulumi.Input<string>;
+        /**
+         * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+         */
+        keyVersionlessId: pulumi.Input<string>;
+    }
+
     export interface WorkspaceGithubRepo {
         /**
          * Specifies the GitHub account name.
@@ -24158,6 +24298,21 @@ export namespace synapse {
          * The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface WorkspaceVulnerabilityAssessmentRecurringScans {
+        /**
+         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+         */
+        emailSubscriptionAdminsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         */
+        emails?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
     }
 }
 

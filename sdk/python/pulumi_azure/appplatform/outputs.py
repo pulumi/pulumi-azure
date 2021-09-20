@@ -738,7 +738,9 @@ class SpringCloudServiceTrace(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "instrumentationKey":
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "instrumentationKey":
             suggest = "instrumentation_key"
         elif key == "sampleRate":
             suggest = "sample_rate"
@@ -755,22 +757,31 @@ class SpringCloudServiceTrace(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 instrumentation_key: str,
+                 connection_string: Optional[str] = None,
+                 instrumentation_key: Optional[str] = None,
                  sample_rate: Optional[float] = None):
         """
-        :param str instrumentation_key: The Instrumentation Key used for Application Insights.
+        :param str connection_string: The connection string used for Application Insights.
         :param float sample_rate: The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
         """
-        pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if instrumentation_key is not None:
+            pulumi.set(__self__, "instrumentation_key", instrumentation_key)
         if sample_rate is not None:
             pulumi.set(__self__, "sample_rate", sample_rate)
 
     @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[str]:
+        """
+        The connection string used for Application Insights.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
     @pulumi.getter(name="instrumentationKey")
-    def instrumentation_key(self) -> str:
-        """
-        The Instrumentation Key used for Application Insights.
-        """
+    def instrumentation_key(self) -> Optional[str]:
         return pulumi.get(self, "instrumentation_key")
 
     @property

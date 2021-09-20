@@ -132,10 +132,16 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> ClusterPurpose { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.InferenceClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -226,10 +232,16 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? ClusterPurpose { get; set; }
 
         /// <summary>
-        /// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.InferenceClusterIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -287,10 +299,16 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? ClusterPurpose { get; set; }
 
         /// <summary>
-        /// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.InferenceClusterIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.

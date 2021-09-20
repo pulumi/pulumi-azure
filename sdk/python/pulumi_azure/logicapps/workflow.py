@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['WorkflowArgs', 'Workflow']
 
@@ -14,6 +16,8 @@ __all__ = ['WorkflowArgs', 'Workflow']
 class WorkflowArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 access_control: Optional[pulumi.Input['WorkflowAccessControlArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
@@ -26,6 +30,7 @@ class WorkflowArgs:
         """
         The set of arguments for constructing a Workflow resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input['WorkflowAccessControlArgs'] access_control: A `access_control` block as defined below.
         :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
@@ -37,6 +42,10 @@ class WorkflowArgs:
         :param pulumi.Input[str] workflow_version: Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if access_control is not None:
+            pulumi.set(__self__, "access_control", access_control)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
         if integration_service_environment_id is not None:
             pulumi.set(__self__, "integration_service_environment_id", integration_service_environment_id)
         if location is not None:
@@ -67,6 +76,27 @@ class WorkflowArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="accessControl")
+    def access_control(self) -> Optional[pulumi.Input['WorkflowAccessControlArgs']]:
+        """
+        A `access_control` block as defined below.
+        """
+        return pulumi.get(self, "access_control")
+
+    @access_control.setter
+    def access_control(self, value: Optional[pulumi.Input['WorkflowAccessControlArgs']]):
+        pulumi.set(self, "access_control", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="integrationServiceEnvironmentId")
@@ -180,9 +210,11 @@ class WorkflowArgs:
 @pulumi.input_type
 class _WorkflowState:
     def __init__(__self__, *,
+                 access_control: Optional[pulumi.Input['WorkflowAccessControlArgs']] = None,
                  access_endpoint: Optional[pulumi.Input[str]] = None,
                  connector_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connector_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
@@ -197,6 +229,7 @@ class _WorkflowState:
                  workflow_version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
+        :param pulumi.Input['WorkflowAccessControlArgs'] access_control: A `access_control` block as defined below.
         :param pulumi.Input[str] access_endpoint: The Access Endpoint for the Logic App Workflow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_endpoint_ip_addresses: The list of access endpoint ip addresses of connector.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_outbound_ip_addresses: The list of outgoing ip addresses of connector.
@@ -213,12 +246,16 @@ class _WorkflowState:
         :param pulumi.Input[str] workflow_schema: Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workflow_version: Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         """
+        if access_control is not None:
+            pulumi.set(__self__, "access_control", access_control)
         if access_endpoint is not None:
             pulumi.set(__self__, "access_endpoint", access_endpoint)
         if connector_endpoint_ip_addresses is not None:
             pulumi.set(__self__, "connector_endpoint_ip_addresses", connector_endpoint_ip_addresses)
         if connector_outbound_ip_addresses is not None:
             pulumi.set(__self__, "connector_outbound_ip_addresses", connector_outbound_ip_addresses)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
         if integration_service_environment_id is not None:
             pulumi.set(__self__, "integration_service_environment_id", integration_service_environment_id)
         if location is not None:
@@ -243,6 +280,18 @@ class _WorkflowState:
             pulumi.set(__self__, "workflow_schema", workflow_schema)
         if workflow_version is not None:
             pulumi.set(__self__, "workflow_version", workflow_version)
+
+    @property
+    @pulumi.getter(name="accessControl")
+    def access_control(self) -> Optional[pulumi.Input['WorkflowAccessControlArgs']]:
+        """
+        A `access_control` block as defined below.
+        """
+        return pulumi.get(self, "access_control")
+
+    @access_control.setter
+    def access_control(self, value: Optional[pulumi.Input['WorkflowAccessControlArgs']]):
+        pulumi.set(self, "access_control", value)
 
     @property
     @pulumi.getter(name="accessEndpoint")
@@ -279,6 +328,15 @@ class _WorkflowState:
     @connector_outbound_ip_addresses.setter
     def connector_outbound_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "connector_outbound_ip_addresses", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="integrationServiceEnvironmentId")
@@ -430,6 +488,8 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_control: Optional[pulumi.Input[pulumi.InputType['WorkflowAccessControlArgs']]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
@@ -466,6 +526,7 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['WorkflowAccessControlArgs']] access_control: A `access_control` block as defined below.
         :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
@@ -521,6 +582,8 @@ class Workflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_control: Optional[pulumi.Input[pulumi.InputType['WorkflowAccessControlArgs']]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
@@ -543,6 +606,8 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
+            __props__.__dict__["access_control"] = access_control
+            __props__.__dict__["enabled"] = enabled
             __props__.__dict__["integration_service_environment_id"] = integration_service_environment_id
             __props__.__dict__["location"] = location
             __props__.__dict__["logic_app_integration_account_id"] = logic_app_integration_account_id
@@ -570,9 +635,11 @@ class Workflow(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            access_control: Optional[pulumi.Input[pulumi.InputType['WorkflowAccessControlArgs']]] = None,
             access_endpoint: Optional[pulumi.Input[str]] = None,
             connector_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             connector_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
             integration_service_environment_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
@@ -592,6 +659,7 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['WorkflowAccessControlArgs']] access_control: A `access_control` block as defined below.
         :param pulumi.Input[str] access_endpoint: The Access Endpoint for the Logic App Workflow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_endpoint_ip_addresses: The list of access endpoint ip addresses of connector.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_outbound_ip_addresses: The list of outgoing ip addresses of connector.
@@ -612,9 +680,11 @@ class Workflow(pulumi.CustomResource):
 
         __props__ = _WorkflowState.__new__(_WorkflowState)
 
+        __props__.__dict__["access_control"] = access_control
         __props__.__dict__["access_endpoint"] = access_endpoint
         __props__.__dict__["connector_endpoint_ip_addresses"] = connector_endpoint_ip_addresses
         __props__.__dict__["connector_outbound_ip_addresses"] = connector_outbound_ip_addresses
+        __props__.__dict__["enabled"] = enabled
         __props__.__dict__["integration_service_environment_id"] = integration_service_environment_id
         __props__.__dict__["location"] = location
         __props__.__dict__["logic_app_integration_account_id"] = logic_app_integration_account_id
@@ -628,6 +698,14 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["workflow_schema"] = workflow_schema
         __props__.__dict__["workflow_version"] = workflow_version
         return Workflow(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessControl")
+    def access_control(self) -> pulumi.Output[Optional['outputs.WorkflowAccessControl']]:
+        """
+        A `access_control` block as defined below.
+        """
+        return pulumi.get(self, "access_control")
 
     @property
     @pulumi.getter(name="accessEndpoint")
@@ -652,6 +730,11 @@ class Workflow(pulumi.CustomResource):
         The list of outgoing ip addresses of connector.
         """
         return pulumi.get(self, "connector_outbound_ip_addresses")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="integrationServiceEnvironmentId")

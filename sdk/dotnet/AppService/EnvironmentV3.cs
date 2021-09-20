@@ -14,6 +14,86 @@ namespace Pulumi.Azure.AppService
     /// 
     /// &gt; **NOTE:** App Service Environment V3 is currently in Preview.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
+    ///             Delegations = 
+    ///             {
+    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 {
+    ///                     Name = "delegation",
+    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     {
+    ///                         Name = "Microsoft.Web/hostingEnvironments",
+    ///                         Actions = 
+    ///                         {
+    ///                             "Microsoft.Network/virtualNetworks/subnets/action",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleEnvironmentV3 = new Azure.AppService.EnvironmentV3("exampleEnvironmentV3", new Azure.AppService.EnvironmentV3Args
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SubnetId = exampleSubnet.Id,
+    ///             ClusterSettings = 
+    ///             {
+    ///                 new Azure.AppService.Inputs.EnvironmentV3ClusterSettingArgs
+    ///                 {
+    ///                     Name = "DisableTls1.0",
+    ///                     Value = "1",
+    ///                 },
+    ///                 new Azure.AppService.Inputs.EnvironmentV3ClusterSettingArgs
+    ///                 {
+    ///                     Name = "InternalEncryption",
+    ///                     Value = "true",
+    ///                 },
+    ///                 new Azure.AppService.Inputs.EnvironmentV3ClusterSettingArgs
+    ///                 {
+    ///                     Name = "FrontEndSSLCipherSuiteOrder",
+    ///                     Value = "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "env", "production" },
+    ///                 { "terraformed", "true" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A 3rd Generation (v3) App Service Environment can be imported using the `resource id`, e.g.

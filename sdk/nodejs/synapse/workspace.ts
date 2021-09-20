@@ -90,9 +90,9 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+     * A `customerManagedKey` block as defined below.
      */
-    public readonly customerManagedKeyVersionlessId!: pulumi.Output<string | undefined>;
+    public readonly customerManagedKey!: pulumi.Output<outputs.synapse.WorkspaceCustomerManagedKey | undefined>;
     /**
      * Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
      */
@@ -162,7 +162,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["aadAdmin"] = state ? state.aadAdmin : undefined;
             inputs["azureDevopsRepo"] = state ? state.azureDevopsRepo : undefined;
             inputs["connectivityEndpoints"] = state ? state.connectivityEndpoints : undefined;
-            inputs["customerManagedKeyVersionlessId"] = state ? state.customerManagedKeyVersionlessId : undefined;
+            inputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
             inputs["dataExfiltrationProtectionEnabled"] = state ? state.dataExfiltrationProtectionEnabled : undefined;
             inputs["githubRepo"] = state ? state.githubRepo : undefined;
             inputs["identities"] = state ? state.identities : undefined;
@@ -192,7 +192,7 @@ export class Workspace extends pulumi.CustomResource {
             }
             inputs["aadAdmin"] = args ? args.aadAdmin : undefined;
             inputs["azureDevopsRepo"] = args ? args.azureDevopsRepo : undefined;
-            inputs["customerManagedKeyVersionlessId"] = args ? args.customerManagedKeyVersionlessId : undefined;
+            inputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             inputs["dataExfiltrationProtectionEnabled"] = args ? args.dataExfiltrationProtectionEnabled : undefined;
             inputs["githubRepo"] = args ? args.githubRepo : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -232,9 +232,9 @@ export interface WorkspaceState {
      */
     connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+     * A `customerManagedKey` block as defined below.
      */
-    customerManagedKeyVersionlessId?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<inputs.synapse.WorkspaceCustomerManagedKey>;
     /**
      * Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
      */
@@ -302,9 +302,9 @@ export interface WorkspaceArgs {
      */
     azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
     /**
-     * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+     * A `customerManagedKey` block as defined below.
      */
-    customerManagedKeyVersionlessId?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<inputs.synapse.WorkspaceCustomerManagedKey>;
     /**
      * Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
      */

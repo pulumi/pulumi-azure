@@ -27,6 +27,9 @@ type ScheduledQueryRulesAlert struct {
 	Action ScheduledQueryRulesAlertActionOutput `pulumi:"action"`
 	// List of Resource IDs referred into query.
 	AuthorizedResourceIds pulumi.StringArrayOutput `pulumi:"authorizedResourceIds"`
+	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+	// > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
+	AutoMitigationEnabled pulumi.BoolPtrOutput `pulumi:"autoMitigationEnabled"`
 	// The resource URI over which log search query is to be run.
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
@@ -108,6 +111,9 @@ type scheduledQueryRulesAlertState struct {
 	Action *ScheduledQueryRulesAlertAction `pulumi:"action"`
 	// List of Resource IDs referred into query.
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`
+	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+	// > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
+	AutoMitigationEnabled *bool `pulumi:"autoMitigationEnabled"`
 	// The resource URI over which log search query is to be run.
 	DataSourceId *string `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
@@ -140,6 +146,9 @@ type ScheduledQueryRulesAlertState struct {
 	Action ScheduledQueryRulesAlertActionPtrInput
 	// List of Resource IDs referred into query.
 	AuthorizedResourceIds pulumi.StringArrayInput
+	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+	// > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
+	AutoMitigationEnabled pulumi.BoolPtrInput
 	// The resource URI over which log search query is to be run.
 	DataSourceId pulumi.StringPtrInput
 	// The description of the scheduled query rule.
@@ -176,6 +185,9 @@ type scheduledQueryRulesAlertArgs struct {
 	Action ScheduledQueryRulesAlertAction `pulumi:"action"`
 	// List of Resource IDs referred into query.
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`
+	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+	// > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
+	AutoMitigationEnabled *bool `pulumi:"autoMitigationEnabled"`
 	// The resource URI over which log search query is to be run.
 	DataSourceId string `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
@@ -209,6 +221,9 @@ type ScheduledQueryRulesAlertArgs struct {
 	Action ScheduledQueryRulesAlertActionInput
 	// List of Resource IDs referred into query.
 	AuthorizedResourceIds pulumi.StringArrayInput
+	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+	// > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
+	AutoMitigationEnabled pulumi.BoolPtrInput
 	// The resource URI over which log search query is to be run.
 	DataSourceId pulumi.StringInput
 	// The description of the scheduled query rule.

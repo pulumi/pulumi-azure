@@ -66,7 +66,7 @@ type KubernetesClusterNodePool struct {
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
 	OsDiskType pulumi.StringPtrOutput `pulumi:"osDiskType"`
 	// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
-	OsSku pulumi.StringPtrOutput `pulumi:"osSku"`
+	OsSku pulumi.StringOutput `pulumi:"osSku"`
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.

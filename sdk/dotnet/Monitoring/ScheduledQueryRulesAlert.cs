@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<string>> AuthorizedResourceIds { get; private set; } = null!;
 
         /// <summary>
+        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+        /// &gt; **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+        /// </summary>
+        [Output("autoMitigationEnabled")]
+        public Output<bool?> AutoMitigationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The resource URI over which log search query is to be run.
         /// </summary>
         [Output("dataSourceId")]
@@ -175,6 +182,13 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
+        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+        /// &gt; **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+        /// </summary>
+        [Input("autoMitigationEnabled")]
+        public Input<bool>? AutoMitigationEnabled { get; set; }
+
+        /// <summary>
         /// The resource URI over which log search query is to be run.
         /// </summary>
         [Input("dataSourceId", required: true)]
@@ -278,6 +292,13 @@ namespace Pulumi.Azure.Monitoring
             get => _authorizedResourceIds ?? (_authorizedResourceIds = new InputList<string>());
             set => _authorizedResourceIds = value;
         }
+
+        /// <summary>
+        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+        /// &gt; **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+        /// </summary>
+        [Input("autoMitigationEnabled")]
+        public Input<bool>? AutoMitigationEnabled { get; set; }
 
         /// <summary>
         /// The resource URI over which log search query is to be run.

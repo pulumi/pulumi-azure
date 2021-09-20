@@ -458,8 +458,10 @@ type VirtualMachineConfigurationAssignmentConfiguration struct {
 	ContentHash *string `pulumi:"contentHash"`
 	// The content URI where the Guest Configuration package is stored.
 	ContentUri *string `pulumi:"contentUri"`
-	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-	Name string `pulumi:"name"`
+	// This field is no longer used and will be removed in the next major version of the Azure Provider.
+	//
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
+	Name *string `pulumi:"name"`
 	// One or more `parameter` blocks which define what configuration parameters and values against.
 	Parameters []VirtualMachineConfigurationAssignmentConfigurationParameter `pulumi:"parameters"`
 	// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
@@ -484,8 +486,10 @@ type VirtualMachineConfigurationAssignmentConfigurationArgs struct {
 	ContentHash pulumi.StringPtrInput `pulumi:"contentHash"`
 	// The content URI where the Guest Configuration package is stored.
 	ContentUri pulumi.StringPtrInput `pulumi:"contentUri"`
-	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-	Name pulumi.StringInput `pulumi:"name"`
+	// This field is no longer used and will be removed in the next major version of the Azure Provider.
+	//
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// One or more `parameter` blocks which define what configuration parameters and values against.
 	Parameters VirtualMachineConfigurationAssignmentConfigurationParameterArrayInput `pulumi:"parameters"`
 	// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
@@ -584,9 +588,11 @@ func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ContentUri() p
 	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) *string { return v.ContentUri }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-func (o VirtualMachineConfigurationAssignmentConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) string { return v.Name }).(pulumi.StringOutput)
+// This field is no longer used and will be removed in the next major version of the Azure Provider.
+//
+// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
+func (o VirtualMachineConfigurationAssignmentConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // One or more `parameter` blocks which define what configuration parameters and values against.
@@ -651,13 +657,15 @@ func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ContentUri(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+// This field is no longer used and will be removed in the next major version of the Azure Provider.
+//
+// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Name
+		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 

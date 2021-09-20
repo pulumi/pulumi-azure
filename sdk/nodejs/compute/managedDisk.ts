@@ -158,7 +158,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
-     * The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+     * The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
      */
     public readonly storageAccountType!: pulumi.Output<string>;
     /**
@@ -315,7 +315,7 @@ export interface ManagedDiskState {
      */
     storageAccountId?: pulumi.Input<string>;
     /**
-     * The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+     * The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**
@@ -401,7 +401,7 @@ export interface ManagedDiskArgs {
      */
     storageAccountId?: pulumi.Input<string>;
     /**
-     * The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+     * The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
      */
     storageAccountType: pulumi.Input<string>;
     /**

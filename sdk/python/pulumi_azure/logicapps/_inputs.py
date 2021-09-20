@@ -19,6 +19,11 @@ __all__ = [
     'IntegrationAccountCertificateKeyVaultKeyArgs',
     'IntegrationAccountPartnerBusinessIdentityArgs',
     'TriggerRecurrenceScheduleArgs',
+    'WorkflowAccessControlArgs',
+    'WorkflowAccessControlActionArgs',
+    'WorkflowAccessControlContentArgs',
+    'WorkflowAccessControlTriggerArgs',
+    'WorkflowAccessControlWorkflowManagementArgs',
 ]
 
 @pulumi.input_type
@@ -555,5 +560,164 @@ class TriggerRecurrenceScheduleArgs:
     @on_these_days.setter
     def on_these_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "on_these_days", value)
+
+
+@pulumi.input_type
+class WorkflowAccessControlArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input['WorkflowAccessControlActionArgs']] = None,
+                 content: Optional[pulumi.Input['WorkflowAccessControlContentArgs']] = None,
+                 trigger: Optional[pulumi.Input['WorkflowAccessControlTriggerArgs']] = None,
+                 workflow_management: Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArgs']] = None):
+        """
+        :param pulumi.Input['WorkflowAccessControlActionArgs'] action: A `action` block as defined below.
+        :param pulumi.Input['WorkflowAccessControlContentArgs'] content: A `content` block as defined below.
+        :param pulumi.Input['WorkflowAccessControlTriggerArgs'] trigger: A `trigger` block as defined below.
+        :param pulumi.Input['WorkflowAccessControlWorkflowManagementArgs'] workflow_management: A `workflow_management` block as defined below.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if trigger is not None:
+            pulumi.set(__self__, "trigger", trigger)
+        if workflow_management is not None:
+            pulumi.set(__self__, "workflow_management", workflow_management)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['WorkflowAccessControlActionArgs']]:
+        """
+        A `action` block as defined below.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['WorkflowAccessControlActionArgs']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input['WorkflowAccessControlContentArgs']]:
+        """
+        A `content` block as defined below.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input['WorkflowAccessControlContentArgs']]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> Optional[pulumi.Input['WorkflowAccessControlTriggerArgs']]:
+        """
+        A `trigger` block as defined below.
+        """
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: Optional[pulumi.Input['WorkflowAccessControlTriggerArgs']]):
+        pulumi.set(self, "trigger", value)
+
+    @property
+    @pulumi.getter(name="workflowManagement")
+    def workflow_management(self) -> Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArgs']]:
+        """
+        A `workflow_management` block as defined below.
+        """
+        return pulumi.get(self, "workflow_management")
+
+    @workflow_management.setter
+    def workflow_management(self, value: Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArgs']]):
+        pulumi.set(self, "workflow_management", value)
+
+
+@pulumi.input_type
+class WorkflowAccessControlActionArgs:
+    def __init__(__self__, *,
+                 allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
+        """
+        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+
+    @property
+    @pulumi.getter(name="allowedCallerIpAddressRanges")
+    def allowed_caller_ip_address_ranges(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the allowed caller IP address ranges.
+        """
+        return pulumi.get(self, "allowed_caller_ip_address_ranges")
+
+    @allowed_caller_ip_address_ranges.setter
+    def allowed_caller_ip_address_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_caller_ip_address_ranges", value)
+
+
+@pulumi.input_type
+class WorkflowAccessControlContentArgs:
+    def __init__(__self__, *,
+                 allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
+        """
+        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+
+    @property
+    @pulumi.getter(name="allowedCallerIpAddressRanges")
+    def allowed_caller_ip_address_ranges(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the allowed caller IP address ranges.
+        """
+        return pulumi.get(self, "allowed_caller_ip_address_ranges")
+
+    @allowed_caller_ip_address_ranges.setter
+    def allowed_caller_ip_address_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_caller_ip_address_ranges", value)
+
+
+@pulumi.input_type
+class WorkflowAccessControlTriggerArgs:
+    def __init__(__self__, *,
+                 allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
+        """
+        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+
+    @property
+    @pulumi.getter(name="allowedCallerIpAddressRanges")
+    def allowed_caller_ip_address_ranges(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the allowed caller IP address ranges.
+        """
+        return pulumi.get(self, "allowed_caller_ip_address_ranges")
+
+    @allowed_caller_ip_address_ranges.setter
+    def allowed_caller_ip_address_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_caller_ip_address_ranges", value)
+
+
+@pulumi.input_type
+class WorkflowAccessControlWorkflowManagementArgs:
+    def __init__(__self__, *,
+                 allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
+        """
+        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+
+    @property
+    @pulumi.getter(name="allowedCallerIpAddressRanges")
+    def allowed_caller_ip_address_ranges(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the allowed caller IP address ranges.
+        """
+        return pulumi.get(self, "allowed_caller_ip_address_ranges")
+
+    @allowed_caller_ip_address_ranges.setter
+    def allowed_caller_ip_address_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_caller_ip_address_ranges", value)
 
 

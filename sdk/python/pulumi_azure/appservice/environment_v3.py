@@ -470,6 +470,51 @@ class EnvironmentV3(pulumi.CustomResource):
 
         > **NOTE:** App Service Environment V3 is currently in Preview.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="delegation",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Web/hostingEnvironments",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
+                ),
+            )])
+        example_environment_v3 = azure.appservice.EnvironmentV3("exampleEnvironmentV3",
+            resource_group_name=example_resource_group.name,
+            subnet_id=example_subnet.id,
+            cluster_settings=[
+                azure.appservice.EnvironmentV3ClusterSettingArgs(
+                    name="DisableTls1.0",
+                    value="1",
+                ),
+                azure.appservice.EnvironmentV3ClusterSettingArgs(
+                    name="InternalEncryption",
+                    value="true",
+                ),
+                azure.appservice.EnvironmentV3ClusterSettingArgs(
+                    name="FrontEndSSLCipherSuiteOrder",
+                    value="TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+                ),
+            ],
+            tags={
+                "env": "production",
+                "terraformed": "true",
+            })
+        ```
+
         ## Import
 
         A 3rd Generation (v3) App Service Environment can be imported using the `resource id`, e.g.
@@ -499,6 +544,51 @@ class EnvironmentV3(pulumi.CustomResource):
         Manages a 3rd Generation (v3) App Service Environment.
 
         > **NOTE:** App Service Environment V3 is currently in Preview.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="delegation",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Web/hostingEnvironments",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
+                ),
+            )])
+        example_environment_v3 = azure.appservice.EnvironmentV3("exampleEnvironmentV3",
+            resource_group_name=example_resource_group.name,
+            subnet_id=example_subnet.id,
+            cluster_settings=[
+                azure.appservice.EnvironmentV3ClusterSettingArgs(
+                    name="DisableTls1.0",
+                    value="1",
+                ),
+                azure.appservice.EnvironmentV3ClusterSettingArgs(
+                    name="InternalEncryption",
+                    value="true",
+                ),
+                azure.appservice.EnvironmentV3ClusterSettingArgs(
+                    name="FrontEndSSLCipherSuiteOrder",
+                    value="TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+                ),
+            ],
+            tags={
+                "env": "production",
+                "terraformed": "true",
+            })
+        ```
 
         ## Import
 

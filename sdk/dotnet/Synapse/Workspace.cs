@@ -92,10 +92,10 @@ namespace Pulumi.Azure.Synapse
         public Output<ImmutableDictionary<string, string>> ConnectivityEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        /// A `customer_managed_key` block as defined below.
         /// </summary>
-        [Output("customerManagedKeyVersionlessId")]
-        public Output<string?> CustomerManagedKeyVersionlessId { get; private set; } = null!;
+        [Output("customerManagedKey")]
+        public Output<Outputs.WorkspaceCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
 
         /// <summary>
         /// Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
@@ -234,10 +234,10 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.WorkspaceAzureDevopsRepoArgs>? AzureDevopsRepo { get; set; }
 
         /// <summary>
-        /// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        /// A `customer_managed_key` block as defined below.
         /// </summary>
-        [Input("customerManagedKeyVersionlessId")]
-        public Input<string>? CustomerManagedKeyVersionlessId { get; set; }
+        [Input("customerManagedKey")]
+        public Input<Inputs.WorkspaceCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
         /// Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
@@ -349,10 +349,10 @@ namespace Pulumi.Azure.Synapse
         }
 
         /// <summary>
-        /// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        /// A `customer_managed_key` block as defined below.
         /// </summary>
-        [Input("customerManagedKeyVersionlessId")]
-        public Input<string>? CustomerManagedKeyVersionlessId { get; set; }
+        [Input("customerManagedKey")]
+        public Input<Inputs.WorkspaceCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
         /// Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.

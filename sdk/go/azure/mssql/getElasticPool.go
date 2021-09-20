@@ -65,13 +65,16 @@ type LookupElasticPoolResult struct {
 	MaxSizeBytes int `pulumi:"maxSizeBytes"`
 	// The max data size of the elastic pool in gigabytes.
 	MaxSizeGb float64 `pulumi:"maxSizeGb"`
-	Name      string  `pulumi:"name"`
+	// Specifies the SKU Name for this Elasticpool.
+	Name string `pulumi:"name"`
 	// The maximum capacity any one database can consume.
 	PerDbMaxCapacity int `pulumi:"perDbMaxCapacity"`
 	// The minimum capacity all databases are guaranteed.
 	PerDbMinCapacity  int    `pulumi:"perDbMinCapacity"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	ServerName        string `pulumi:"serverName"`
+	// A `sku` block as defined below.
+	Skus []GetElasticPoolSkus `pulumi:"skus"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this elastic pool is zone redundant.

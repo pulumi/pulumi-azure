@@ -11,6 +11,7 @@ import (
 )
 
 type ProviderFeatures struct {
+	ApiManagement          *ProviderFeaturesApiManagement          `pulumi:"apiManagement"`
 	CognitiveAccount       *ProviderFeaturesCognitiveAccount       `pulumi:"cognitiveAccount"`
 	KeyVault               *ProviderFeaturesKeyVault               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  *ProviderFeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
@@ -33,6 +34,7 @@ type ProviderFeaturesInput interface {
 }
 
 type ProviderFeaturesArgs struct {
+	ApiManagement          ProviderFeaturesApiManagementPtrInput          `pulumi:"apiManagement"`
 	CognitiveAccount       ProviderFeaturesCognitiveAccountPtrInput       `pulumi:"cognitiveAccount"`
 	KeyVault               ProviderFeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  ProviderFeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
@@ -119,6 +121,10 @@ func (o ProviderFeaturesOutput) ToProviderFeaturesPtrOutputWithContext(ctx conte
 		return &v
 	}).(ProviderFeaturesPtrOutput)
 }
+func (o ProviderFeaturesOutput) ApiManagement() ProviderFeaturesApiManagementPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesApiManagement { return v.ApiManagement }).(ProviderFeaturesApiManagementPtrOutput)
+}
+
 func (o ProviderFeaturesOutput) CognitiveAccount() ProviderFeaturesCognitiveAccountPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesCognitiveAccount { return v.CognitiveAccount }).(ProviderFeaturesCognitiveAccountPtrOutput)
 }
@@ -167,6 +173,15 @@ func (o ProviderFeaturesPtrOutput) ToProviderFeaturesPtrOutputWithContext(ctx co
 
 func (o ProviderFeaturesPtrOutput) Elem() ProviderFeaturesOutput {
 	return o.ApplyT(func(v *ProviderFeatures) ProviderFeatures { return *v }).(ProviderFeaturesOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) ApiManagement() ProviderFeaturesApiManagementPtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesApiManagement {
+		if v == nil {
+			return nil
+		}
+		return v.ApiManagement
+	}).(ProviderFeaturesApiManagementPtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) CognitiveAccount() ProviderFeaturesCognitiveAccountPtrOutput {
@@ -239,6 +254,132 @@ func (o ProviderFeaturesPtrOutput) VirtualMachineScaleSet() ProviderFeaturesVirt
 		}
 		return v.VirtualMachineScaleSet
 	}).(ProviderFeaturesVirtualMachineScaleSetPtrOutput)
+}
+
+type ProviderFeaturesApiManagement struct {
+	PurgeSoftDeleteOnDestroy *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+}
+
+// ProviderFeaturesApiManagementInput is an input type that accepts ProviderFeaturesApiManagementArgs and ProviderFeaturesApiManagementOutput values.
+// You can construct a concrete instance of `ProviderFeaturesApiManagementInput` via:
+//
+//          ProviderFeaturesApiManagementArgs{...}
+type ProviderFeaturesApiManagementInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesApiManagementOutput() ProviderFeaturesApiManagementOutput
+	ToProviderFeaturesApiManagementOutputWithContext(context.Context) ProviderFeaturesApiManagementOutput
+}
+
+type ProviderFeaturesApiManagementArgs struct {
+	PurgeSoftDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+}
+
+func (ProviderFeaturesApiManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesApiManagement)(nil)).Elem()
+}
+
+func (i ProviderFeaturesApiManagementArgs) ToProviderFeaturesApiManagementOutput() ProviderFeaturesApiManagementOutput {
+	return i.ToProviderFeaturesApiManagementOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesApiManagementArgs) ToProviderFeaturesApiManagementOutputWithContext(ctx context.Context) ProviderFeaturesApiManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesApiManagementOutput)
+}
+
+func (i ProviderFeaturesApiManagementArgs) ToProviderFeaturesApiManagementPtrOutput() ProviderFeaturesApiManagementPtrOutput {
+	return i.ToProviderFeaturesApiManagementPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesApiManagementArgs) ToProviderFeaturesApiManagementPtrOutputWithContext(ctx context.Context) ProviderFeaturesApiManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesApiManagementOutput).ToProviderFeaturesApiManagementPtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesApiManagementPtrInput is an input type that accepts ProviderFeaturesApiManagementArgs, ProviderFeaturesApiManagementPtr and ProviderFeaturesApiManagementPtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesApiManagementPtrInput` via:
+//
+//          ProviderFeaturesApiManagementArgs{...}
+//
+//  or:
+//
+//          nil
+type ProviderFeaturesApiManagementPtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesApiManagementPtrOutput() ProviderFeaturesApiManagementPtrOutput
+	ToProviderFeaturesApiManagementPtrOutputWithContext(context.Context) ProviderFeaturesApiManagementPtrOutput
+}
+
+type providerFeaturesApiManagementPtrType ProviderFeaturesApiManagementArgs
+
+func ProviderFeaturesApiManagementPtr(v *ProviderFeaturesApiManagementArgs) ProviderFeaturesApiManagementPtrInput {
+	return (*providerFeaturesApiManagementPtrType)(v)
+}
+
+func (*providerFeaturesApiManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesApiManagement)(nil)).Elem()
+}
+
+func (i *providerFeaturesApiManagementPtrType) ToProviderFeaturesApiManagementPtrOutput() ProviderFeaturesApiManagementPtrOutput {
+	return i.ToProviderFeaturesApiManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesApiManagementPtrType) ToProviderFeaturesApiManagementPtrOutputWithContext(ctx context.Context) ProviderFeaturesApiManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesApiManagementPtrOutput)
+}
+
+type ProviderFeaturesApiManagementOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesApiManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesApiManagement)(nil)).Elem()
+}
+
+func (o ProviderFeaturesApiManagementOutput) ToProviderFeaturesApiManagementOutput() ProviderFeaturesApiManagementOutput {
+	return o
+}
+
+func (o ProviderFeaturesApiManagementOutput) ToProviderFeaturesApiManagementOutputWithContext(ctx context.Context) ProviderFeaturesApiManagementOutput {
+	return o
+}
+
+func (o ProviderFeaturesApiManagementOutput) ToProviderFeaturesApiManagementPtrOutput() ProviderFeaturesApiManagementPtrOutput {
+	return o.ToProviderFeaturesApiManagementPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesApiManagementOutput) ToProviderFeaturesApiManagementPtrOutputWithContext(ctx context.Context) ProviderFeaturesApiManagementPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesApiManagement) *ProviderFeaturesApiManagement {
+		return &v
+	}).(ProviderFeaturesApiManagementPtrOutput)
+}
+func (o ProviderFeaturesApiManagementOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesApiManagement) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesApiManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesApiManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesApiManagement)(nil)).Elem()
+}
+
+func (o ProviderFeaturesApiManagementPtrOutput) ToProviderFeaturesApiManagementPtrOutput() ProviderFeaturesApiManagementPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesApiManagementPtrOutput) ToProviderFeaturesApiManagementPtrOutputWithContext(ctx context.Context) ProviderFeaturesApiManagementPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesApiManagementPtrOutput) Elem() ProviderFeaturesApiManagementOutput {
+	return o.ApplyT(func(v *ProviderFeaturesApiManagement) ProviderFeaturesApiManagement { return *v }).(ProviderFeaturesApiManagementOutput)
+}
+
+func (o ProviderFeaturesApiManagementPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesApiManagement) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeSoftDeleteOnDestroy
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ProviderFeaturesCognitiveAccount struct {
@@ -1312,6 +1453,8 @@ func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequir
 func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesApiManagementOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesApiManagementPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesCognitiveAccountOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesCognitiveAccountPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultOutput{})

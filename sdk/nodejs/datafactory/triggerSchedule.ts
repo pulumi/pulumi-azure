@@ -69,6 +69,10 @@ export class TriggerSchedule extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+     */
+    public readonly activated!: pulumi.Output<boolean>;
+    /**
      * List of tags that can be used for describing the Data Factory Schedule Trigger.
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
@@ -130,6 +134,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerScheduleState | undefined;
+            inputs["activated"] = state ? state.activated : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -153,6 +158,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["activated"] = args ? args.activated : undefined;
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -177,6 +183,10 @@ export class TriggerSchedule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TriggerSchedule resources.
  */
 export interface TriggerScheduleState {
+    /**
+     * Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+     */
+    activated?: pulumi.Input<boolean>;
     /**
      * List of tags that can be used for describing the Data Factory Schedule Trigger.
      */
@@ -231,6 +241,10 @@ export interface TriggerScheduleState {
  * The set of arguments for constructing a TriggerSchedule resource.
  */
 export interface TriggerScheduleArgs {
+    /**
+     * Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+     */
+    activated?: pulumi.Input<boolean>;
     /**
      * List of tags that can be used for describing the Data Factory Schedule Trigger.
      */

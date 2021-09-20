@@ -11,9 +11,11 @@ from .. import _utilities
 __all__ = [
     'ComputeClusterIdentity',
     'ComputeClusterScaleSettings',
+    'ComputeClusterSsh',
     'ComputeInstanceAssignToUser',
     'ComputeInstanceIdentity',
     'ComputeInstanceSsh',
+    'InferenceClusterIdentity',
     'InferenceClusterSsl',
     'SynapseSparkIdentity',
     'WorkspaceIdentity',
@@ -25,7 +27,9 @@ class ComputeClusterIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
@@ -43,12 +47,18 @@ class ComputeClusterIdentity(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param str type: The Type of Identity which should be used for this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -58,18 +68,32 @@ class ComputeClusterIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+        The Type of Identity which should be used for this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+        """
         return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+        """
         return pulumi.get(self, "tenant_id")
 
 
@@ -132,6 +156,69 @@ class ComputeClusterScaleSettings(dict):
         Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
         return pulumi.get(self, "scale_down_nodes_after_idle_duration")
+
+
+@pulumi.output_type
+class ComputeClusterSsh(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "adminPassword":
+            suggest = "admin_password"
+        elif key == "keyValue":
+            suggest = "key_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeClusterSsh. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeClusterSsh.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeClusterSsh.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_username: str,
+                 admin_password: Optional[str] = None,
+                 key_value: Optional[str] = None):
+        """
+        :param str admin_username: Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param str admin_password: Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param str key_value: SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        pulumi.set(__self__, "admin_username", admin_username)
+        if admin_password is not None:
+            pulumi.set(__self__, "admin_password", admin_password)
+        if key_value is not None:
+            pulumi.set(__self__, "key_value", key_value)
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> str:
+        """
+        Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @property
+    @pulumi.getter(name="adminPassword")
+    def admin_password(self) -> Optional[str]:
+        """
+        Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "admin_password")
+
+    @property
+    @pulumi.getter(name="keyValue")
+    def key_value(self) -> Optional[str]:
+        """
+        SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "key_value")
 
 
 @pulumi.output_type
@@ -316,6 +403,81 @@ class ComputeInstanceSsh(dict):
         The admin username of this Machine Learning Compute Instance.
         """
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class InferenceClusterIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceClusterIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceClusterIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceClusterIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The Type of Identity which should be used for this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Type of Identity which should be used for this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Inference Cluster to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of User Managed Identity ID's which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
