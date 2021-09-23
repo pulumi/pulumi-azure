@@ -208,7 +208,7 @@ type BackupInstanceDiskArrayInput interface {
 type BackupInstanceDiskArray []BackupInstanceDiskInput
 
 func (BackupInstanceDiskArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BackupInstanceDisk)(nil))
+	return reflect.TypeOf((*[]*BackupInstanceDisk)(nil)).Elem()
 }
 
 func (i BackupInstanceDiskArray) ToBackupInstanceDiskArrayOutput() BackupInstanceDiskArrayOutput {
@@ -233,7 +233,7 @@ type BackupInstanceDiskMapInput interface {
 type BackupInstanceDiskMap map[string]BackupInstanceDiskInput
 
 func (BackupInstanceDiskMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BackupInstanceDisk)(nil))
+	return reflect.TypeOf((*map[string]*BackupInstanceDisk)(nil)).Elem()
 }
 
 func (i BackupInstanceDiskMap) ToBackupInstanceDiskMapOutput() BackupInstanceDiskMapOutput {
@@ -244,9 +244,7 @@ func (i BackupInstanceDiskMap) ToBackupInstanceDiskMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceDiskMapOutput)
 }
 
-type BackupInstanceDiskOutput struct {
-	*pulumi.OutputState
-}
+type BackupInstanceDiskOutput struct{ *pulumi.OutputState }
 
 func (BackupInstanceDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupInstanceDisk)(nil))
@@ -265,14 +263,12 @@ func (o BackupInstanceDiskOutput) ToBackupInstanceDiskPtrOutput() BackupInstance
 }
 
 func (o BackupInstanceDiskOutput) ToBackupInstanceDiskPtrOutputWithContext(ctx context.Context) BackupInstanceDiskPtrOutput {
-	return o.ApplyT(func(v BackupInstanceDisk) *BackupInstanceDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupInstanceDisk) *BackupInstanceDisk {
 		return &v
 	}).(BackupInstanceDiskPtrOutput)
 }
 
-type BackupInstanceDiskPtrOutput struct {
-	*pulumi.OutputState
-}
+type BackupInstanceDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (BackupInstanceDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BackupInstanceDisk)(nil))
@@ -284,6 +280,16 @@ func (o BackupInstanceDiskPtrOutput) ToBackupInstanceDiskPtrOutput() BackupInsta
 
 func (o BackupInstanceDiskPtrOutput) ToBackupInstanceDiskPtrOutputWithContext(ctx context.Context) BackupInstanceDiskPtrOutput {
 	return o
+}
+
+func (o BackupInstanceDiskPtrOutput) Elem() BackupInstanceDiskOutput {
+	return o.ApplyT(func(v *BackupInstanceDisk) BackupInstanceDisk {
+		if v != nil {
+			return *v
+		}
+		var ret BackupInstanceDisk
+		return ret
+	}).(BackupInstanceDiskOutput)
 }
 
 type BackupInstanceDiskArrayOutput struct{ *pulumi.OutputState }

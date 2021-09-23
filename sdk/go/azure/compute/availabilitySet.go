@@ -253,7 +253,7 @@ type AvailabilitySetArrayInput interface {
 type AvailabilitySetArray []AvailabilitySetInput
 
 func (AvailabilitySetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AvailabilitySet)(nil))
+	return reflect.TypeOf((*[]*AvailabilitySet)(nil)).Elem()
 }
 
 func (i AvailabilitySetArray) ToAvailabilitySetArrayOutput() AvailabilitySetArrayOutput {
@@ -278,7 +278,7 @@ type AvailabilitySetMapInput interface {
 type AvailabilitySetMap map[string]AvailabilitySetInput
 
 func (AvailabilitySetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AvailabilitySet)(nil))
+	return reflect.TypeOf((*map[string]*AvailabilitySet)(nil)).Elem()
 }
 
 func (i AvailabilitySetMap) ToAvailabilitySetMapOutput() AvailabilitySetMapOutput {
@@ -289,9 +289,7 @@ func (i AvailabilitySetMap) ToAvailabilitySetMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetMapOutput)
 }
 
-type AvailabilitySetOutput struct {
-	*pulumi.OutputState
-}
+type AvailabilitySetOutput struct{ *pulumi.OutputState }
 
 func (AvailabilitySetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AvailabilitySet)(nil))
@@ -310,14 +308,12 @@ func (o AvailabilitySetOutput) ToAvailabilitySetPtrOutput() AvailabilitySetPtrOu
 }
 
 func (o AvailabilitySetOutput) ToAvailabilitySetPtrOutputWithContext(ctx context.Context) AvailabilitySetPtrOutput {
-	return o.ApplyT(func(v AvailabilitySet) *AvailabilitySet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AvailabilitySet) *AvailabilitySet {
 		return &v
 	}).(AvailabilitySetPtrOutput)
 }
 
-type AvailabilitySetPtrOutput struct {
-	*pulumi.OutputState
-}
+type AvailabilitySetPtrOutput struct{ *pulumi.OutputState }
 
 func (AvailabilitySetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AvailabilitySet)(nil))
@@ -329,6 +325,16 @@ func (o AvailabilitySetPtrOutput) ToAvailabilitySetPtrOutput() AvailabilitySetPt
 
 func (o AvailabilitySetPtrOutput) ToAvailabilitySetPtrOutputWithContext(ctx context.Context) AvailabilitySetPtrOutput {
 	return o
+}
+
+func (o AvailabilitySetPtrOutput) Elem() AvailabilitySetOutput {
+	return o.ApplyT(func(v *AvailabilitySet) AvailabilitySet {
+		if v != nil {
+			return *v
+		}
+		var ret AvailabilitySet
+		return ret
+	}).(AvailabilitySetOutput)
 }
 
 type AvailabilitySetArrayOutput struct{ *pulumi.OutputState }

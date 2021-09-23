@@ -185,7 +185,7 @@ type SubscriptionPricingArrayInput interface {
 type SubscriptionPricingArray []SubscriptionPricingInput
 
 func (SubscriptionPricingArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SubscriptionPricing)(nil))
+	return reflect.TypeOf((*[]*SubscriptionPricing)(nil)).Elem()
 }
 
 func (i SubscriptionPricingArray) ToSubscriptionPricingArrayOutput() SubscriptionPricingArrayOutput {
@@ -210,7 +210,7 @@ type SubscriptionPricingMapInput interface {
 type SubscriptionPricingMap map[string]SubscriptionPricingInput
 
 func (SubscriptionPricingMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SubscriptionPricing)(nil))
+	return reflect.TypeOf((*map[string]*SubscriptionPricing)(nil)).Elem()
 }
 
 func (i SubscriptionPricingMap) ToSubscriptionPricingMapOutput() SubscriptionPricingMapOutput {
@@ -221,9 +221,7 @@ func (i SubscriptionPricingMap) ToSubscriptionPricingMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPricingMapOutput)
 }
 
-type SubscriptionPricingOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionPricingOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPricingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionPricing)(nil))
@@ -242,14 +240,12 @@ func (o SubscriptionPricingOutput) ToSubscriptionPricingPtrOutput() Subscription
 }
 
 func (o SubscriptionPricingOutput) ToSubscriptionPricingPtrOutputWithContext(ctx context.Context) SubscriptionPricingPtrOutput {
-	return o.ApplyT(func(v SubscriptionPricing) *SubscriptionPricing {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionPricing) *SubscriptionPricing {
 		return &v
 	}).(SubscriptionPricingPtrOutput)
 }
 
-type SubscriptionPricingPtrOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionPricingPtrOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPricingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SubscriptionPricing)(nil))
@@ -261,6 +257,16 @@ func (o SubscriptionPricingPtrOutput) ToSubscriptionPricingPtrOutput() Subscript
 
 func (o SubscriptionPricingPtrOutput) ToSubscriptionPricingPtrOutputWithContext(ctx context.Context) SubscriptionPricingPtrOutput {
 	return o
+}
+
+func (o SubscriptionPricingPtrOutput) Elem() SubscriptionPricingOutput {
+	return o.ApplyT(func(v *SubscriptionPricing) SubscriptionPricing {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionPricing
+		return ret
+	}).(SubscriptionPricingOutput)
 }
 
 type SubscriptionPricingArrayOutput struct{ *pulumi.OutputState }

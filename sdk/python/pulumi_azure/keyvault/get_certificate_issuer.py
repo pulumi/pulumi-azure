@@ -13,6 +13,7 @@ __all__ = [
     'GetCertificateIssuerResult',
     'AwaitableGetCertificateIssuerResult',
     'get_certificate_issuer',
+    'get_certificate_issuer_output',
 ]
 
 @pulumi.output_type
@@ -149,3 +150,30 @@ def get_certificate_issuer(key_vault_id: Optional[str] = None,
         name=__ret__.name,
         org_id=__ret__.org_id,
         provider_name=__ret__.provider_name)
+
+
+@_utilities.lift_output_func(get_certificate_issuer)
+def get_certificate_issuer_output(key_vault_id: Optional[pulumi.Input[str]] = None,
+                                  name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateIssuerResult]:
+    """
+    Use this data source to access information about an existing Key Vault Certificate Issuer.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_key_vault = azure.keyvault.get_key_vault(name="mykeyvault",
+        resource_group_name="some-resource-group")
+    example_certificate_issuer = azure.keyvault.get_certificate_issuer(name="existing",
+        key_vault_id=example_key_vault.id)
+    pulumi.export("id", example_certificate_issuer.id)
+    ```
+
+
+    :param str key_vault_id: The ID of the Key Vault in which to locate the Certificate Issuer.
+    :param str name: The name of the Key Vault Certificate Issuer.
+    """
+    ...

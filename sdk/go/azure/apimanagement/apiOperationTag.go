@@ -222,7 +222,7 @@ type ApiOperationTagArrayInput interface {
 type ApiOperationTagArray []ApiOperationTagInput
 
 func (ApiOperationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiOperationTag)(nil))
+	return reflect.TypeOf((*[]*ApiOperationTag)(nil)).Elem()
 }
 
 func (i ApiOperationTagArray) ToApiOperationTagArrayOutput() ApiOperationTagArrayOutput {
@@ -247,7 +247,7 @@ type ApiOperationTagMapInput interface {
 type ApiOperationTagMap map[string]ApiOperationTagInput
 
 func (ApiOperationTagMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiOperationTag)(nil))
+	return reflect.TypeOf((*map[string]*ApiOperationTag)(nil)).Elem()
 }
 
 func (i ApiOperationTagMap) ToApiOperationTagMapOutput() ApiOperationTagMapOutput {
@@ -258,9 +258,7 @@ func (i ApiOperationTagMap) ToApiOperationTagMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationTagMapOutput)
 }
 
-type ApiOperationTagOutput struct {
-	*pulumi.OutputState
-}
+type ApiOperationTagOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationTagOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationTag)(nil))
@@ -279,14 +277,12 @@ func (o ApiOperationTagOutput) ToApiOperationTagPtrOutput() ApiOperationTagPtrOu
 }
 
 func (o ApiOperationTagOutput) ToApiOperationTagPtrOutputWithContext(ctx context.Context) ApiOperationTagPtrOutput {
-	return o.ApplyT(func(v ApiOperationTag) *ApiOperationTag {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOperationTag) *ApiOperationTag {
 		return &v
 	}).(ApiOperationTagPtrOutput)
 }
 
-type ApiOperationTagPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApiOperationTagPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationTagPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiOperationTag)(nil))
@@ -298,6 +294,16 @@ func (o ApiOperationTagPtrOutput) ToApiOperationTagPtrOutput() ApiOperationTagPt
 
 func (o ApiOperationTagPtrOutput) ToApiOperationTagPtrOutputWithContext(ctx context.Context) ApiOperationTagPtrOutput {
 	return o
+}
+
+func (o ApiOperationTagPtrOutput) Elem() ApiOperationTagOutput {
+	return o.ApplyT(func(v *ApiOperationTag) ApiOperationTag {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOperationTag
+		return ret
+	}).(ApiOperationTagOutput)
 }
 
 type ApiOperationTagArrayOutput struct{ *pulumi.OutputState }

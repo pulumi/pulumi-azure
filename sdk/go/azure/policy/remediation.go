@@ -276,7 +276,7 @@ type RemediationArrayInput interface {
 type RemediationArray []RemediationInput
 
 func (RemediationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Remediation)(nil))
+	return reflect.TypeOf((*[]*Remediation)(nil)).Elem()
 }
 
 func (i RemediationArray) ToRemediationArrayOutput() RemediationArrayOutput {
@@ -301,7 +301,7 @@ type RemediationMapInput interface {
 type RemediationMap map[string]RemediationInput
 
 func (RemediationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Remediation)(nil))
+	return reflect.TypeOf((*map[string]*Remediation)(nil)).Elem()
 }
 
 func (i RemediationMap) ToRemediationMapOutput() RemediationMapOutput {
@@ -312,9 +312,7 @@ func (i RemediationMap) ToRemediationMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationMapOutput)
 }
 
-type RemediationOutput struct {
-	*pulumi.OutputState
-}
+type RemediationOutput struct{ *pulumi.OutputState }
 
 func (RemediationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Remediation)(nil))
@@ -333,14 +331,12 @@ func (o RemediationOutput) ToRemediationPtrOutput() RemediationPtrOutput {
 }
 
 func (o RemediationOutput) ToRemediationPtrOutputWithContext(ctx context.Context) RemediationPtrOutput {
-	return o.ApplyT(func(v Remediation) *Remediation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Remediation) *Remediation {
 		return &v
 	}).(RemediationPtrOutput)
 }
 
-type RemediationPtrOutput struct {
-	*pulumi.OutputState
-}
+type RemediationPtrOutput struct{ *pulumi.OutputState }
 
 func (RemediationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Remediation)(nil))
@@ -352,6 +348,16 @@ func (o RemediationPtrOutput) ToRemediationPtrOutput() RemediationPtrOutput {
 
 func (o RemediationPtrOutput) ToRemediationPtrOutputWithContext(ctx context.Context) RemediationPtrOutput {
 	return o
+}
+
+func (o RemediationPtrOutput) Elem() RemediationOutput {
+	return o.ApplyT(func(v *Remediation) Remediation {
+		if v != nil {
+			return *v
+		}
+		var ret Remediation
+		return ret
+	}).(RemediationOutput)
 }
 
 type RemediationArrayOutput struct{ *pulumi.OutputState }

@@ -270,7 +270,7 @@ type ObjectReplicationArrayInput interface {
 type ObjectReplicationArray []ObjectReplicationInput
 
 func (ObjectReplicationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ObjectReplication)(nil))
+	return reflect.TypeOf((*[]*ObjectReplication)(nil)).Elem()
 }
 
 func (i ObjectReplicationArray) ToObjectReplicationArrayOutput() ObjectReplicationArrayOutput {
@@ -295,7 +295,7 @@ type ObjectReplicationMapInput interface {
 type ObjectReplicationMap map[string]ObjectReplicationInput
 
 func (ObjectReplicationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ObjectReplication)(nil))
+	return reflect.TypeOf((*map[string]*ObjectReplication)(nil)).Elem()
 }
 
 func (i ObjectReplicationMap) ToObjectReplicationMapOutput() ObjectReplicationMapOutput {
@@ -306,9 +306,7 @@ func (i ObjectReplicationMap) ToObjectReplicationMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationMapOutput)
 }
 
-type ObjectReplicationOutput struct {
-	*pulumi.OutputState
-}
+type ObjectReplicationOutput struct{ *pulumi.OutputState }
 
 func (ObjectReplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ObjectReplication)(nil))
@@ -327,14 +325,12 @@ func (o ObjectReplicationOutput) ToObjectReplicationPtrOutput() ObjectReplicatio
 }
 
 func (o ObjectReplicationOutput) ToObjectReplicationPtrOutputWithContext(ctx context.Context) ObjectReplicationPtrOutput {
-	return o.ApplyT(func(v ObjectReplication) *ObjectReplication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectReplication) *ObjectReplication {
 		return &v
 	}).(ObjectReplicationPtrOutput)
 }
 
-type ObjectReplicationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ObjectReplicationPtrOutput struct{ *pulumi.OutputState }
 
 func (ObjectReplicationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ObjectReplication)(nil))
@@ -346,6 +342,16 @@ func (o ObjectReplicationPtrOutput) ToObjectReplicationPtrOutput() ObjectReplica
 
 func (o ObjectReplicationPtrOutput) ToObjectReplicationPtrOutputWithContext(ctx context.Context) ObjectReplicationPtrOutput {
 	return o
+}
+
+func (o ObjectReplicationPtrOutput) Elem() ObjectReplicationOutput {
+	return o.ApplyT(func(v *ObjectReplication) ObjectReplication {
+		if v != nil {
+			return *v
+		}
+		var ret ObjectReplication
+		return ret
+	}).(ObjectReplicationOutput)
 }
 
 type ObjectReplicationArrayOutput struct{ *pulumi.OutputState }

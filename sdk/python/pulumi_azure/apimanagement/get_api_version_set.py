@@ -12,6 +12,7 @@ __all__ = [
     'GetApiVersionSetResult',
     'AwaitableGetApiVersionSetResult',
     'get_api_version_set',
+    'get_api_version_set_output',
 ]
 
 @pulumi.output_type
@@ -170,3 +171,31 @@ def get_api_version_set(api_management_name: Optional[str] = None,
         version_header_name=__ret__.version_header_name,
         version_query_name=__ret__.version_query_name,
         versioning_scheme=__ret__.versioning_scheme)
+
+
+@_utilities.lift_output_func(get_api_version_set)
+def get_api_version_set_output(api_management_name: Optional[pulumi.Input[str]] = None,
+                               name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiVersionSetResult]:
+    """
+    Uses this data source to access information about an API Version Set within an API Management Service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_api_version_set(resource_group_name="example-resources",
+        api_management_name="example-api",
+        name="example-api-version-set")
+    pulumi.export("apiManagementApiVersionSetId", example.id)
+    ```
+
+
+    :param str api_management_name: The name of the API Management Service where the API Version Set exists.
+    :param str name: The name of the API Version Set.
+    :param str resource_group_name: The name of the Resource Group in which the parent API Management Service exists.
+    """
+    ...

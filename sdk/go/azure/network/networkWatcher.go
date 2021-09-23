@@ -210,7 +210,7 @@ type NetworkWatcherArrayInput interface {
 type NetworkWatcherArray []NetworkWatcherInput
 
 func (NetworkWatcherArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkWatcher)(nil))
+	return reflect.TypeOf((*[]*NetworkWatcher)(nil)).Elem()
 }
 
 func (i NetworkWatcherArray) ToNetworkWatcherArrayOutput() NetworkWatcherArrayOutput {
@@ -235,7 +235,7 @@ type NetworkWatcherMapInput interface {
 type NetworkWatcherMap map[string]NetworkWatcherInput
 
 func (NetworkWatcherMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkWatcher)(nil))
+	return reflect.TypeOf((*map[string]*NetworkWatcher)(nil)).Elem()
 }
 
 func (i NetworkWatcherMap) ToNetworkWatcherMapOutput() NetworkWatcherMapOutput {
@@ -246,9 +246,7 @@ func (i NetworkWatcherMap) ToNetworkWatcherMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherMapOutput)
 }
 
-type NetworkWatcherOutput struct {
-	*pulumi.OutputState
-}
+type NetworkWatcherOutput struct{ *pulumi.OutputState }
 
 func (NetworkWatcherOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkWatcher)(nil))
@@ -267,14 +265,12 @@ func (o NetworkWatcherOutput) ToNetworkWatcherPtrOutput() NetworkWatcherPtrOutpu
 }
 
 func (o NetworkWatcherOutput) ToNetworkWatcherPtrOutputWithContext(ctx context.Context) NetworkWatcherPtrOutput {
-	return o.ApplyT(func(v NetworkWatcher) *NetworkWatcher {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkWatcher) *NetworkWatcher {
 		return &v
 	}).(NetworkWatcherPtrOutput)
 }
 
-type NetworkWatcherPtrOutput struct {
-	*pulumi.OutputState
-}
+type NetworkWatcherPtrOutput struct{ *pulumi.OutputState }
 
 func (NetworkWatcherPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NetworkWatcher)(nil))
@@ -286,6 +282,16 @@ func (o NetworkWatcherPtrOutput) ToNetworkWatcherPtrOutput() NetworkWatcherPtrOu
 
 func (o NetworkWatcherPtrOutput) ToNetworkWatcherPtrOutputWithContext(ctx context.Context) NetworkWatcherPtrOutput {
 	return o
+}
+
+func (o NetworkWatcherPtrOutput) Elem() NetworkWatcherOutput {
+	return o.ApplyT(func(v *NetworkWatcher) NetworkWatcher {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkWatcher
+		return ret
+	}).(NetworkWatcherOutput)
 }
 
 type NetworkWatcherArrayOutput struct{ *pulumi.OutputState }

@@ -13,6 +13,7 @@ __all__ = [
     'GetPolicySetDefinitionResult',
     'AwaitableGetPolicySetDefinitionResult',
     'get_policy_set_definition',
+    'get_policy_set_definition_output',
 ]
 
 @pulumi.output_type
@@ -204,3 +205,29 @@ def get_policy_set_definition(display_name: Optional[str] = None,
         policy_definition_references=__ret__.policy_definition_references,
         policy_definitions=__ret__.policy_definitions,
         policy_type=__ret__.policy_type)
+
+
+@_utilities.lift_output_func(get_policy_set_definition)
+def get_policy_set_definition_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                     management_group_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                     name: Optional[pulumi.Input[Optional[str]]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionResult]:
+    """
+    Use this data source to access information about an existing Policy Set Definition.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.policy.get_policy_set_definition(display_name="Policy Set Definition Example")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str display_name: Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+    :param str management_group_name: Only retrieve Policy Set Definitions from this Management Group.
+    :param str name: Specifies the name of the Policy Set Definition. Conflicts with `display_name`.
+    """
+    ...

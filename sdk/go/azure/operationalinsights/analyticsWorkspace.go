@@ -291,7 +291,7 @@ type AnalyticsWorkspaceArrayInput interface {
 type AnalyticsWorkspaceArray []AnalyticsWorkspaceInput
 
 func (AnalyticsWorkspaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AnalyticsWorkspace)(nil))
+	return reflect.TypeOf((*[]*AnalyticsWorkspace)(nil)).Elem()
 }
 
 func (i AnalyticsWorkspaceArray) ToAnalyticsWorkspaceArrayOutput() AnalyticsWorkspaceArrayOutput {
@@ -316,7 +316,7 @@ type AnalyticsWorkspaceMapInput interface {
 type AnalyticsWorkspaceMap map[string]AnalyticsWorkspaceInput
 
 func (AnalyticsWorkspaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AnalyticsWorkspace)(nil))
+	return reflect.TypeOf((*map[string]*AnalyticsWorkspace)(nil)).Elem()
 }
 
 func (i AnalyticsWorkspaceMap) ToAnalyticsWorkspaceMapOutput() AnalyticsWorkspaceMapOutput {
@@ -327,9 +327,7 @@ func (i AnalyticsWorkspaceMap) ToAnalyticsWorkspaceMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceMapOutput)
 }
 
-type AnalyticsWorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsWorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AnalyticsWorkspace)(nil))
@@ -348,14 +346,12 @@ func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspacePtrOutput() AnalyticsWorks
 }
 
 func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) AnalyticsWorkspacePtrOutput {
-	return o.ApplyT(func(v AnalyticsWorkspace) *AnalyticsWorkspace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsWorkspace) *AnalyticsWorkspace {
 		return &v
 	}).(AnalyticsWorkspacePtrOutput)
 }
 
-type AnalyticsWorkspacePtrOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsWorkspacePtrOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsWorkspacePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AnalyticsWorkspace)(nil))
@@ -367,6 +363,16 @@ func (o AnalyticsWorkspacePtrOutput) ToAnalyticsWorkspacePtrOutput() AnalyticsWo
 
 func (o AnalyticsWorkspacePtrOutput) ToAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) AnalyticsWorkspacePtrOutput {
 	return o
+}
+
+func (o AnalyticsWorkspacePtrOutput) Elem() AnalyticsWorkspaceOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspace) AnalyticsWorkspace {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsWorkspace
+		return ret
+	}).(AnalyticsWorkspaceOutput)
 }
 
 type AnalyticsWorkspaceArrayOutput struct{ *pulumi.OutputState }

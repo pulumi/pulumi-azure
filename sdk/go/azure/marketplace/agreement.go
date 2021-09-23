@@ -206,7 +206,7 @@ type AgreementArrayInput interface {
 type AgreementArray []AgreementInput
 
 func (AgreementArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Agreement)(nil))
+	return reflect.TypeOf((*[]*Agreement)(nil)).Elem()
 }
 
 func (i AgreementArray) ToAgreementArrayOutput() AgreementArrayOutput {
@@ -231,7 +231,7 @@ type AgreementMapInput interface {
 type AgreementMap map[string]AgreementInput
 
 func (AgreementMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Agreement)(nil))
+	return reflect.TypeOf((*map[string]*Agreement)(nil)).Elem()
 }
 
 func (i AgreementMap) ToAgreementMapOutput() AgreementMapOutput {
@@ -242,9 +242,7 @@ func (i AgreementMap) ToAgreementMapOutputWithContext(ctx context.Context) Agree
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementMapOutput)
 }
 
-type AgreementOutput struct {
-	*pulumi.OutputState
-}
+type AgreementOutput struct{ *pulumi.OutputState }
 
 func (AgreementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Agreement)(nil))
@@ -263,14 +261,12 @@ func (o AgreementOutput) ToAgreementPtrOutput() AgreementPtrOutput {
 }
 
 func (o AgreementOutput) ToAgreementPtrOutputWithContext(ctx context.Context) AgreementPtrOutput {
-	return o.ApplyT(func(v Agreement) *Agreement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Agreement) *Agreement {
 		return &v
 	}).(AgreementPtrOutput)
 }
 
-type AgreementPtrOutput struct {
-	*pulumi.OutputState
-}
+type AgreementPtrOutput struct{ *pulumi.OutputState }
 
 func (AgreementPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Agreement)(nil))
@@ -282,6 +278,16 @@ func (o AgreementPtrOutput) ToAgreementPtrOutput() AgreementPtrOutput {
 
 func (o AgreementPtrOutput) ToAgreementPtrOutputWithContext(ctx context.Context) AgreementPtrOutput {
 	return o
+}
+
+func (o AgreementPtrOutput) Elem() AgreementOutput {
+	return o.ApplyT(func(v *Agreement) Agreement {
+		if v != nil {
+			return *v
+		}
+		var ret Agreement
+		return ret
+	}).(AgreementOutput)
 }
 
 type AgreementArrayOutput struct{ *pulumi.OutputState }

@@ -233,7 +233,7 @@ type ChannelAlexaArrayInput interface {
 type ChannelAlexaArray []ChannelAlexaInput
 
 func (ChannelAlexaArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ChannelAlexa)(nil))
+	return reflect.TypeOf((*[]*ChannelAlexa)(nil)).Elem()
 }
 
 func (i ChannelAlexaArray) ToChannelAlexaArrayOutput() ChannelAlexaArrayOutput {
@@ -258,7 +258,7 @@ type ChannelAlexaMapInput interface {
 type ChannelAlexaMap map[string]ChannelAlexaInput
 
 func (ChannelAlexaMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ChannelAlexa)(nil))
+	return reflect.TypeOf((*map[string]*ChannelAlexa)(nil)).Elem()
 }
 
 func (i ChannelAlexaMap) ToChannelAlexaMapOutput() ChannelAlexaMapOutput {
@@ -269,9 +269,7 @@ func (i ChannelAlexaMap) ToChannelAlexaMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAlexaMapOutput)
 }
 
-type ChannelAlexaOutput struct {
-	*pulumi.OutputState
-}
+type ChannelAlexaOutput struct{ *pulumi.OutputState }
 
 func (ChannelAlexaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelAlexa)(nil))
@@ -290,14 +288,12 @@ func (o ChannelAlexaOutput) ToChannelAlexaPtrOutput() ChannelAlexaPtrOutput {
 }
 
 func (o ChannelAlexaOutput) ToChannelAlexaPtrOutputWithContext(ctx context.Context) ChannelAlexaPtrOutput {
-	return o.ApplyT(func(v ChannelAlexa) *ChannelAlexa {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAlexa) *ChannelAlexa {
 		return &v
 	}).(ChannelAlexaPtrOutput)
 }
 
-type ChannelAlexaPtrOutput struct {
-	*pulumi.OutputState
-}
+type ChannelAlexaPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelAlexaPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ChannelAlexa)(nil))
@@ -309,6 +305,16 @@ func (o ChannelAlexaPtrOutput) ToChannelAlexaPtrOutput() ChannelAlexaPtrOutput {
 
 func (o ChannelAlexaPtrOutput) ToChannelAlexaPtrOutputWithContext(ctx context.Context) ChannelAlexaPtrOutput {
 	return o
+}
+
+func (o ChannelAlexaPtrOutput) Elem() ChannelAlexaOutput {
+	return o.ApplyT(func(v *ChannelAlexa) ChannelAlexa {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelAlexa
+		return ret
+	}).(ChannelAlexaOutput)
 }
 
 type ChannelAlexaArrayOutput struct{ *pulumi.OutputState }

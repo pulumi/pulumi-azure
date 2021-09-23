@@ -12,6 +12,7 @@ __all__ = [
     'GetConsumeGroupResult',
     'AwaitableGetConsumeGroupResult',
     'get_consume_group',
+    'get_consume_group_output',
 ]
 
 @pulumi.output_type
@@ -144,3 +145,33 @@ def get_consume_group(eventhub_name: Optional[str] = None,
         namespace_name=__ret__.namespace_name,
         resource_group_name=__ret__.resource_group_name,
         user_metadata=__ret__.user_metadata)
+
+
+@_utilities.lift_output_func(get_consume_group)
+def get_consume_group_output(eventhub_name: Optional[pulumi.Input[str]] = None,
+                             name: Optional[pulumi.Input[str]] = None,
+                             namespace_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsumeGroupResult]:
+    """
+    Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    test = azure.eventhub.get_consume_group(eventhub_name=azurerm_eventhub["test"]["name"],
+        name=azurerm_eventhub_consumer_group["test"]["name"],
+        namespace_name=azurerm_eventhub_namespace["test"]["name"],
+        resource_group_name=azurerm_resource_group["test"]["name"])
+    ```
+
+
+    :param str eventhub_name: Specifies the name of the EventHub.
+    :param str name: Specifies the name of the EventHub Consumer Group resource.
+    :param str namespace_name: Specifies the name of the grandparent EventHub Namespace.
+    :param str resource_group_name: The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists.
+    """
+    ...

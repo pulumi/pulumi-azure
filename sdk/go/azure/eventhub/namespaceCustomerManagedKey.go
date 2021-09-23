@@ -162,7 +162,7 @@ type NamespaceCustomerManagedKeyArrayInput interface {
 type NamespaceCustomerManagedKeyArray []NamespaceCustomerManagedKeyInput
 
 func (NamespaceCustomerManagedKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NamespaceCustomerManagedKey)(nil))
+	return reflect.TypeOf((*[]*NamespaceCustomerManagedKey)(nil)).Elem()
 }
 
 func (i NamespaceCustomerManagedKeyArray) ToNamespaceCustomerManagedKeyArrayOutput() NamespaceCustomerManagedKeyArrayOutput {
@@ -187,7 +187,7 @@ type NamespaceCustomerManagedKeyMapInput interface {
 type NamespaceCustomerManagedKeyMap map[string]NamespaceCustomerManagedKeyInput
 
 func (NamespaceCustomerManagedKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NamespaceCustomerManagedKey)(nil))
+	return reflect.TypeOf((*map[string]*NamespaceCustomerManagedKey)(nil)).Elem()
 }
 
 func (i NamespaceCustomerManagedKeyMap) ToNamespaceCustomerManagedKeyMapOutput() NamespaceCustomerManagedKeyMapOutput {
@@ -198,9 +198,7 @@ func (i NamespaceCustomerManagedKeyMap) ToNamespaceCustomerManagedKeyMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyMapOutput)
 }
 
-type NamespaceCustomerManagedKeyOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (NamespaceCustomerManagedKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamespaceCustomerManagedKey)(nil))
@@ -219,14 +217,12 @@ func (o NamespaceCustomerManagedKeyOutput) ToNamespaceCustomerManagedKeyPtrOutpu
 }
 
 func (o NamespaceCustomerManagedKeyOutput) ToNamespaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyPtrOutput {
-	return o.ApplyT(func(v NamespaceCustomerManagedKey) *NamespaceCustomerManagedKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceCustomerManagedKey) *NamespaceCustomerManagedKey {
 		return &v
 	}).(NamespaceCustomerManagedKeyPtrOutput)
 }
 
-type NamespaceCustomerManagedKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceCustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (NamespaceCustomerManagedKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NamespaceCustomerManagedKey)(nil))
@@ -238,6 +234,16 @@ func (o NamespaceCustomerManagedKeyPtrOutput) ToNamespaceCustomerManagedKeyPtrOu
 
 func (o NamespaceCustomerManagedKeyPtrOutput) ToNamespaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyPtrOutput {
 	return o
+}
+
+func (o NamespaceCustomerManagedKeyPtrOutput) Elem() NamespaceCustomerManagedKeyOutput {
+	return o.ApplyT(func(v *NamespaceCustomerManagedKey) NamespaceCustomerManagedKey {
+		if v != nil {
+			return *v
+		}
+		var ret NamespaceCustomerManagedKey
+		return ret
+	}).(NamespaceCustomerManagedKeyOutput)
 }
 
 type NamespaceCustomerManagedKeyArrayOutput struct{ *pulumi.OutputState }

@@ -382,7 +382,7 @@ type MetricAlertArrayInput interface {
 type MetricAlertArray []MetricAlertInput
 
 func (MetricAlertArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MetricAlert)(nil))
+	return reflect.TypeOf((*[]*MetricAlert)(nil)).Elem()
 }
 
 func (i MetricAlertArray) ToMetricAlertArrayOutput() MetricAlertArrayOutput {
@@ -407,7 +407,7 @@ type MetricAlertMapInput interface {
 type MetricAlertMap map[string]MetricAlertInput
 
 func (MetricAlertMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MetricAlert)(nil))
+	return reflect.TypeOf((*map[string]*MetricAlert)(nil)).Elem()
 }
 
 func (i MetricAlertMap) ToMetricAlertMapOutput() MetricAlertMapOutput {
@@ -418,9 +418,7 @@ func (i MetricAlertMap) ToMetricAlertMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertMapOutput)
 }
 
-type MetricAlertOutput struct {
-	*pulumi.OutputState
-}
+type MetricAlertOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MetricAlert)(nil))
@@ -439,14 +437,12 @@ func (o MetricAlertOutput) ToMetricAlertPtrOutput() MetricAlertPtrOutput {
 }
 
 func (o MetricAlertOutput) ToMetricAlertPtrOutputWithContext(ctx context.Context) MetricAlertPtrOutput {
-	return o.ApplyT(func(v MetricAlert) *MetricAlert {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlert) *MetricAlert {
 		return &v
 	}).(MetricAlertPtrOutput)
 }
 
-type MetricAlertPtrOutput struct {
-	*pulumi.OutputState
-}
+type MetricAlertPtrOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MetricAlert)(nil))
@@ -458,6 +454,16 @@ func (o MetricAlertPtrOutput) ToMetricAlertPtrOutput() MetricAlertPtrOutput {
 
 func (o MetricAlertPtrOutput) ToMetricAlertPtrOutputWithContext(ctx context.Context) MetricAlertPtrOutput {
 	return o
+}
+
+func (o MetricAlertPtrOutput) Elem() MetricAlertOutput {
+	return o.ApplyT(func(v *MetricAlert) MetricAlert {
+		if v != nil {
+			return *v
+		}
+		var ret MetricAlert
+		return ret
+	}).(MetricAlertOutput)
 }
 
 type MetricAlertArrayOutput struct{ *pulumi.OutputState }

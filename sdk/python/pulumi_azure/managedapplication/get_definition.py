@@ -12,6 +12,7 @@ __all__ = [
     'GetDefinitionResult',
     'AwaitableGetDefinitionResult',
     'get_definition',
+    'get_definition_output',
 ]
 
 @pulumi.output_type
@@ -104,3 +105,28 @@ def get_definition(name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name)
+
+
+@_utilities.lift_output_func(get_definition)
+def get_definition_output(name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefinitionResult]:
+    """
+    Uses this data source to access information about an existing Managed Application Definition.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.managedapplication.get_definition(name="example-managedappdef",
+        resource_group_name="example-resources")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: Specifies the name of the Managed Application Definition.
+    :param str resource_group_name: Specifies the name of the Resource Group where this Managed Application Definition exists.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetDatabaseResult',
     'AwaitableGetDatabaseResult',
     'get_database',
+    'get_database_output',
 ]
 
 @pulumi.output_type
@@ -224,3 +225,33 @@ def get_database(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         server_name=__ret__.server_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_database)
+def get_database_output(name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        server_name: Optional[pulumi.Input[str]] = None,
+                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
+    """
+    Use this data source to access information about an existing SQL Azure Database.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.sql.get_database(name="example_db",
+        server_name="example_db_server",
+        resource_group_name="example-resources")
+    pulumi.export("sqlDatabaseId", example.id)
+    ```
+
+
+    :param str name: The name of the SQL Database.
+    :param str resource_group_name: Specifies the name of the Resource Group where the Azure SQL Database exists.
+    :param str server_name: The name of the SQL Server.
+    :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
+    """
+    ...

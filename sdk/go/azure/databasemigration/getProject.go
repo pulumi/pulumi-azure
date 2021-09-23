@@ -4,6 +4,9 @@
 package databasemigration
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,83 @@ type LookupProjectResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The platform type of the migration target.
 	TargetPlatform string `pulumi:"targetPlatform"`
+}
+
+func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts ...pulumi.InvokeOption) LookupProjectResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupProjectResult, error) {
+			args := v.(LookupProjectArgs)
+			r, err := LookupProject(ctx, &args, opts...)
+			return *r, err
+		}).(LookupProjectResultOutput)
+}
+
+// A collection of arguments for invoking getProject.
+type LookupProjectOutputArgs struct {
+	// Name of the database migration project.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group where resource belongs to.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the database migration service where resource belongs to.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupProjectOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProjectArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getProject.
+type LookupProjectResultOutput struct{ *pulumi.OutputState }
+
+func (LookupProjectResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProjectResult)(nil)).Elem()
+}
+
+func (o LookupProjectResultOutput) ToLookupProjectResultOutput() LookupProjectResultOutput {
+	return o
+}
+
+func (o LookupProjectResultOutput) ToLookupProjectResultOutputWithContext(ctx context.Context) LookupProjectResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupProjectResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure location where the resource exists.
+func (o LookupProjectResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupProjectResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupProjectResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupProjectResultOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+// The platform type of the migration source.
+func (o LookupProjectResultOutput) SourcePlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.SourcePlatform }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assigned to the resource.
+func (o LookupProjectResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupProjectResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The platform type of the migration target.
+func (o LookupProjectResultOutput) TargetPlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.TargetPlatform }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupProjectResultOutput{})
 }

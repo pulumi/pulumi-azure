@@ -12,6 +12,7 @@ __all__ = [
     'GetMcaAccountScopeResult',
     'AwaitableGetMcaAccountScopeResult',
     'get_mca_account_scope',
+    'get_mca_account_scope_output',
 ]
 
 @pulumi.output_type
@@ -108,3 +109,31 @@ def get_mca_account_scope(billing_account_name: Optional[str] = None,
         billing_profile_name=__ret__.billing_profile_name,
         id=__ret__.id,
         invoice_section_name=__ret__.invoice_section_name)
+
+
+@_utilities.lift_output_func(get_mca_account_scope)
+def get_mca_account_scope_output(billing_account_name: Optional[pulumi.Input[str]] = None,
+                                 billing_profile_name: Optional[pulumi.Input[str]] = None,
+                                 invoice_section_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMcaAccountScopeResult]:
+    """
+    Use this data source to access an ID for your MCA Account billing scope.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.billing.get_mca_account_scope(billing_account_name="e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+        billing_profile_name="PE2Q-NOIT-BG7-TGB",
+        invoice_section_name="MTT4-OBS7-PJA-TGB")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str billing_account_name: The Billing Account Name of the MCA account.
+    :param str billing_profile_name: The Billing Profile Name in the above Billing Account.
+    :param str invoice_section_name: The Invoice Section Name in the above Billing Profile.
+    """
+    ...

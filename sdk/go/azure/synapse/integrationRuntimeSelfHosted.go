@@ -253,7 +253,7 @@ type IntegrationRuntimeSelfHostedArrayInput interface {
 type IntegrationRuntimeSelfHostedArray []IntegrationRuntimeSelfHostedInput
 
 func (IntegrationRuntimeSelfHostedArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntegrationRuntimeSelfHosted)(nil))
+	return reflect.TypeOf((*[]*IntegrationRuntimeSelfHosted)(nil)).Elem()
 }
 
 func (i IntegrationRuntimeSelfHostedArray) ToIntegrationRuntimeSelfHostedArrayOutput() IntegrationRuntimeSelfHostedArrayOutput {
@@ -278,7 +278,7 @@ type IntegrationRuntimeSelfHostedMapInput interface {
 type IntegrationRuntimeSelfHostedMap map[string]IntegrationRuntimeSelfHostedInput
 
 func (IntegrationRuntimeSelfHostedMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntegrationRuntimeSelfHosted)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationRuntimeSelfHosted)(nil)).Elem()
 }
 
 func (i IntegrationRuntimeSelfHostedMap) ToIntegrationRuntimeSelfHostedMapOutput() IntegrationRuntimeSelfHostedMapOutput {
@@ -289,9 +289,7 @@ func (i IntegrationRuntimeSelfHostedMap) ToIntegrationRuntimeSelfHostedMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSelfHostedMapOutput)
 }
 
-type IntegrationRuntimeSelfHostedOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationRuntimeSelfHostedOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSelfHostedOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationRuntimeSelfHosted)(nil))
@@ -310,14 +308,12 @@ func (o IntegrationRuntimeSelfHostedOutput) ToIntegrationRuntimeSelfHostedPtrOut
 }
 
 func (o IntegrationRuntimeSelfHostedOutput) ToIntegrationRuntimeSelfHostedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSelfHosted) *IntegrationRuntimeSelfHosted {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSelfHosted) *IntegrationRuntimeSelfHosted {
 		return &v
 	}).(IntegrationRuntimeSelfHostedPtrOutput)
 }
 
-type IntegrationRuntimeSelfHostedPtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationRuntimeSelfHostedPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSelfHostedPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationRuntimeSelfHosted)(nil))
@@ -329,6 +325,16 @@ func (o IntegrationRuntimeSelfHostedPtrOutput) ToIntegrationRuntimeSelfHostedPtr
 
 func (o IntegrationRuntimeSelfHostedPtrOutput) ToIntegrationRuntimeSelfHostedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedPtrOutput {
 	return o
+}
+
+func (o IntegrationRuntimeSelfHostedPtrOutput) Elem() IntegrationRuntimeSelfHostedOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSelfHosted) IntegrationRuntimeSelfHosted {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSelfHosted
+		return ret
+	}).(IntegrationRuntimeSelfHostedOutput)
 }
 
 type IntegrationRuntimeSelfHostedArrayOutput struct{ *pulumi.OutputState }

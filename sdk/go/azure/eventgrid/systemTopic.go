@@ -66,7 +66,7 @@ import (
 // ```sh
 //  $ pulumi import azure:eventgrid/systemTopic:SystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
 // ```
-type SystemTopic struct {
+type SystemTopicResource struct {
 	pulumi.CustomResourceState
 
 	// An `identity` block as defined below.
@@ -88,9 +88,9 @@ type SystemTopic struct {
 	TopicType pulumi.StringOutput `pulumi:"topicType"`
 }
 
-// NewSystemTopic registers a new resource with the given unique name, arguments, and options.
-func NewSystemTopic(ctx *pulumi.Context,
-	name string, args *SystemTopicArgs, opts ...pulumi.ResourceOption) (*SystemTopic, error) {
+// NewSystemTopicResource registers a new resource with the given unique name, arguments, and options.
+func NewSystemTopicResource(ctx *pulumi.Context,
+	name string, args *SystemTopicResourceArgs, opts ...pulumi.ResourceOption) (*SystemTopicResource, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -110,7 +110,7 @@ func NewSystemTopic(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
-	var resource SystemTopic
+	var resource SystemTopicResource
 	err := ctx.RegisterResource("azure:eventgrid/systemTopic:SystemTopic", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -118,11 +118,11 @@ func NewSystemTopic(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// GetSystemTopic gets an existing SystemTopic resource's state with the given name, ID, and optional
+// GetSystemTopicResource gets an existing SystemTopicResource resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetSystemTopic(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *SystemTopicState, opts ...pulumi.ResourceOption) (*SystemTopic, error) {
-	var resource SystemTopic
+func GetSystemTopicResource(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *SystemTopicResourceState, opts ...pulumi.ResourceOption) (*SystemTopicResource, error) {
+	var resource SystemTopicResource
 	err := ctx.ReadResource("azure:eventgrid/systemTopic:SystemTopic", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -130,8 +130,8 @@ func GetSystemTopic(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering SystemTopic resources.
-type systemTopicState struct {
+// Input properties used for looking up and filtering SystemTopicResource resources.
+type systemTopicResourceState struct {
 	// An `identity` block as defined below.
 	Identity *SystemTopicIdentity `pulumi:"identity"`
 	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
@@ -151,7 +151,7 @@ type systemTopicState struct {
 	TopicType *string `pulumi:"topicType"`
 }
 
-type SystemTopicState struct {
+type SystemTopicResourceState struct {
 	// An `identity` block as defined below.
 	Identity SystemTopicIdentityPtrInput
 	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
@@ -171,11 +171,11 @@ type SystemTopicState struct {
 	TopicType pulumi.StringPtrInput
 }
 
-func (SystemTopicState) ElementType() reflect.Type {
-	return reflect.TypeOf((*systemTopicState)(nil)).Elem()
+func (SystemTopicResourceState) ElementType() reflect.Type {
+	return reflect.TypeOf((*systemTopicResourceState)(nil)).Elem()
 }
 
-type systemTopicArgs struct {
+type systemTopicResourceArgs struct {
 	// An `identity` block as defined below.
 	Identity *SystemTopicIdentity `pulumi:"identity"`
 	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
@@ -193,8 +193,8 @@ type systemTopicArgs struct {
 	TopicType string `pulumi:"topicType"`
 }
 
-// The set of arguments for constructing a SystemTopic resource.
-type SystemTopicArgs struct {
+// The set of arguments for constructing a SystemTopicResource resource.
+type SystemTopicResourceArgs struct {
 	// An `identity` block as defined below.
 	Identity SystemTopicIdentityPtrInput
 	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
@@ -212,193 +212,199 @@ type SystemTopicArgs struct {
 	TopicType pulumi.StringInput
 }
 
-func (SystemTopicArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*systemTopicArgs)(nil)).Elem()
+func (SystemTopicResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*systemTopicResourceArgs)(nil)).Elem()
 }
 
-type SystemTopicInput interface {
+type SystemTopicResourceInput interface {
 	pulumi.Input
 
-	ToSystemTopicOutput() SystemTopicOutput
-	ToSystemTopicOutputWithContext(ctx context.Context) SystemTopicOutput
+	ToSystemTopicResourceOutput() SystemTopicResourceOutput
+	ToSystemTopicResourceOutputWithContext(ctx context.Context) SystemTopicResourceOutput
 }
 
-func (*SystemTopic) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemTopic)(nil))
+func (*SystemTopicResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicResource)(nil))
 }
 
-func (i *SystemTopic) ToSystemTopicOutput() SystemTopicOutput {
-	return i.ToSystemTopicOutputWithContext(context.Background())
+func (i *SystemTopicResource) ToSystemTopicResourceOutput() SystemTopicResourceOutput {
+	return i.ToSystemTopicResourceOutputWithContext(context.Background())
 }
 
-func (i *SystemTopic) ToSystemTopicOutputWithContext(ctx context.Context) SystemTopicOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicOutput)
+func (i *SystemTopicResource) ToSystemTopicResourceOutputWithContext(ctx context.Context) SystemTopicResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicResourceOutput)
 }
 
-func (i *SystemTopic) ToSystemTopicPtrOutput() SystemTopicPtrOutput {
-	return i.ToSystemTopicPtrOutputWithContext(context.Background())
+func (i *SystemTopicResource) ToSystemTopicResourcePtrOutput() SystemTopicResourcePtrOutput {
+	return i.ToSystemTopicResourcePtrOutputWithContext(context.Background())
 }
 
-func (i *SystemTopic) ToSystemTopicPtrOutputWithContext(ctx context.Context) SystemTopicPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicPtrOutput)
+func (i *SystemTopicResource) ToSystemTopicResourcePtrOutputWithContext(ctx context.Context) SystemTopicResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicResourcePtrOutput)
 }
 
-type SystemTopicPtrInput interface {
+type SystemTopicResourcePtrInput interface {
 	pulumi.Input
 
-	ToSystemTopicPtrOutput() SystemTopicPtrOutput
-	ToSystemTopicPtrOutputWithContext(ctx context.Context) SystemTopicPtrOutput
+	ToSystemTopicResourcePtrOutput() SystemTopicResourcePtrOutput
+	ToSystemTopicResourcePtrOutputWithContext(ctx context.Context) SystemTopicResourcePtrOutput
 }
 
-type systemTopicPtrType SystemTopicArgs
+type systemTopicResourcePtrType SystemTopicResourceArgs
 
-func (*systemTopicPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemTopic)(nil))
+func (*systemTopicResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicResource)(nil))
 }
 
-func (i *systemTopicPtrType) ToSystemTopicPtrOutput() SystemTopicPtrOutput {
-	return i.ToSystemTopicPtrOutputWithContext(context.Background())
+func (i *systemTopicResourcePtrType) ToSystemTopicResourcePtrOutput() SystemTopicResourcePtrOutput {
+	return i.ToSystemTopicResourcePtrOutputWithContext(context.Background())
 }
 
-func (i *systemTopicPtrType) ToSystemTopicPtrOutputWithContext(ctx context.Context) SystemTopicPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicPtrOutput)
+func (i *systemTopicResourcePtrType) ToSystemTopicResourcePtrOutputWithContext(ctx context.Context) SystemTopicResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicResourcePtrOutput)
 }
 
-// SystemTopicArrayInput is an input type that accepts SystemTopicArray and SystemTopicArrayOutput values.
-// You can construct a concrete instance of `SystemTopicArrayInput` via:
+// SystemTopicResourceArrayInput is an input type that accepts SystemTopicResourceArray and SystemTopicResourceArrayOutput values.
+// You can construct a concrete instance of `SystemTopicResourceArrayInput` via:
 //
-//          SystemTopicArray{ SystemTopicArgs{...} }
-type SystemTopicArrayInput interface {
+//          SystemTopicResourceArray{ SystemTopicResourceArgs{...} }
+type SystemTopicResourceArrayInput interface {
 	pulumi.Input
 
-	ToSystemTopicArrayOutput() SystemTopicArrayOutput
-	ToSystemTopicArrayOutputWithContext(context.Context) SystemTopicArrayOutput
+	ToSystemTopicResourceArrayOutput() SystemTopicResourceArrayOutput
+	ToSystemTopicResourceArrayOutputWithContext(context.Context) SystemTopicResourceArrayOutput
 }
 
-type SystemTopicArray []SystemTopicInput
+type SystemTopicResourceArray []SystemTopicResourceInput
 
-func (SystemTopicArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SystemTopic)(nil))
+func (SystemTopicResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]*SystemTopicResource)(nil)).Elem()
 }
 
-func (i SystemTopicArray) ToSystemTopicArrayOutput() SystemTopicArrayOutput {
-	return i.ToSystemTopicArrayOutputWithContext(context.Background())
+func (i SystemTopicResourceArray) ToSystemTopicResourceArrayOutput() SystemTopicResourceArrayOutput {
+	return i.ToSystemTopicResourceArrayOutputWithContext(context.Background())
 }
 
-func (i SystemTopicArray) ToSystemTopicArrayOutputWithContext(ctx context.Context) SystemTopicArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicArrayOutput)
+func (i SystemTopicResourceArray) ToSystemTopicResourceArrayOutputWithContext(ctx context.Context) SystemTopicResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicResourceArrayOutput)
 }
 
-// SystemTopicMapInput is an input type that accepts SystemTopicMap and SystemTopicMapOutput values.
-// You can construct a concrete instance of `SystemTopicMapInput` via:
+// SystemTopicResourceMapInput is an input type that accepts SystemTopicResourceMap and SystemTopicResourceMapOutput values.
+// You can construct a concrete instance of `SystemTopicResourceMapInput` via:
 //
-//          SystemTopicMap{ "key": SystemTopicArgs{...} }
-type SystemTopicMapInput interface {
+//          SystemTopicResourceMap{ "key": SystemTopicResourceArgs{...} }
+type SystemTopicResourceMapInput interface {
 	pulumi.Input
 
-	ToSystemTopicMapOutput() SystemTopicMapOutput
-	ToSystemTopicMapOutputWithContext(context.Context) SystemTopicMapOutput
+	ToSystemTopicResourceMapOutput() SystemTopicResourceMapOutput
+	ToSystemTopicResourceMapOutputWithContext(context.Context) SystemTopicResourceMapOutput
 }
 
-type SystemTopicMap map[string]SystemTopicInput
+type SystemTopicResourceMap map[string]SystemTopicResourceInput
 
-func (SystemTopicMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SystemTopic)(nil))
+func (SystemTopicResourceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]*SystemTopicResource)(nil)).Elem()
 }
 
-func (i SystemTopicMap) ToSystemTopicMapOutput() SystemTopicMapOutput {
-	return i.ToSystemTopicMapOutputWithContext(context.Background())
+func (i SystemTopicResourceMap) ToSystemTopicResourceMapOutput() SystemTopicResourceMapOutput {
+	return i.ToSystemTopicResourceMapOutputWithContext(context.Background())
 }
 
-func (i SystemTopicMap) ToSystemTopicMapOutputWithContext(ctx context.Context) SystemTopicMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicMapOutput)
+func (i SystemTopicResourceMap) ToSystemTopicResourceMapOutputWithContext(ctx context.Context) SystemTopicResourceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicResourceMapOutput)
 }
 
-type SystemTopicOutput struct {
-	*pulumi.OutputState
+type SystemTopicResourceOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicResource)(nil))
 }
 
-func (SystemTopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemTopic)(nil))
-}
-
-func (o SystemTopicOutput) ToSystemTopicOutput() SystemTopicOutput {
+func (o SystemTopicResourceOutput) ToSystemTopicResourceOutput() SystemTopicResourceOutput {
 	return o
 }
 
-func (o SystemTopicOutput) ToSystemTopicOutputWithContext(ctx context.Context) SystemTopicOutput {
+func (o SystemTopicResourceOutput) ToSystemTopicResourceOutputWithContext(ctx context.Context) SystemTopicResourceOutput {
 	return o
 }
 
-func (o SystemTopicOutput) ToSystemTopicPtrOutput() SystemTopicPtrOutput {
-	return o.ToSystemTopicPtrOutputWithContext(context.Background())
+func (o SystemTopicResourceOutput) ToSystemTopicResourcePtrOutput() SystemTopicResourcePtrOutput {
+	return o.ToSystemTopicResourcePtrOutputWithContext(context.Background())
 }
 
-func (o SystemTopicOutput) ToSystemTopicPtrOutputWithContext(ctx context.Context) SystemTopicPtrOutput {
-	return o.ApplyT(func(v SystemTopic) *SystemTopic {
+func (o SystemTopicResourceOutput) ToSystemTopicResourcePtrOutputWithContext(ctx context.Context) SystemTopicResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicResource) *SystemTopicResource {
 		return &v
-	}).(SystemTopicPtrOutput)
+	}).(SystemTopicResourcePtrOutput)
 }
 
-type SystemTopicPtrOutput struct {
-	*pulumi.OutputState
+type SystemTopicResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicResource)(nil))
 }
 
-func (SystemTopicPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemTopic)(nil))
-}
-
-func (o SystemTopicPtrOutput) ToSystemTopicPtrOutput() SystemTopicPtrOutput {
+func (o SystemTopicResourcePtrOutput) ToSystemTopicResourcePtrOutput() SystemTopicResourcePtrOutput {
 	return o
 }
 
-func (o SystemTopicPtrOutput) ToSystemTopicPtrOutputWithContext(ctx context.Context) SystemTopicPtrOutput {
+func (o SystemTopicResourcePtrOutput) ToSystemTopicResourcePtrOutputWithContext(ctx context.Context) SystemTopicResourcePtrOutput {
 	return o
 }
 
-type SystemTopicArrayOutput struct{ *pulumi.OutputState }
-
-func (SystemTopicArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SystemTopic)(nil))
+func (o SystemTopicResourcePtrOutput) Elem() SystemTopicResourceOutput {
+	return o.ApplyT(func(v *SystemTopicResource) SystemTopicResource {
+		if v != nil {
+			return *v
+		}
+		var ret SystemTopicResource
+		return ret
+	}).(SystemTopicResourceOutput)
 }
 
-func (o SystemTopicArrayOutput) ToSystemTopicArrayOutput() SystemTopicArrayOutput {
+type SystemTopicResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicResource)(nil))
+}
+
+func (o SystemTopicResourceArrayOutput) ToSystemTopicResourceArrayOutput() SystemTopicResourceArrayOutput {
 	return o
 }
 
-func (o SystemTopicArrayOutput) ToSystemTopicArrayOutputWithContext(ctx context.Context) SystemTopicArrayOutput {
+func (o SystemTopicResourceArrayOutput) ToSystemTopicResourceArrayOutputWithContext(ctx context.Context) SystemTopicResourceArrayOutput {
 	return o
 }
 
-func (o SystemTopicArrayOutput) Index(i pulumi.IntInput) SystemTopicOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopic {
-		return vs[0].([]SystemTopic)[vs[1].(int)]
-	}).(SystemTopicOutput)
+func (o SystemTopicResourceArrayOutput) Index(i pulumi.IntInput) SystemTopicResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicResource {
+		return vs[0].([]SystemTopicResource)[vs[1].(int)]
+	}).(SystemTopicResourceOutput)
 }
 
-type SystemTopicMapOutput struct{ *pulumi.OutputState }
+type SystemTopicResourceMapOutput struct{ *pulumi.OutputState }
 
-func (SystemTopicMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SystemTopic)(nil))
+func (SystemTopicResourceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SystemTopicResource)(nil))
 }
 
-func (o SystemTopicMapOutput) ToSystemTopicMapOutput() SystemTopicMapOutput {
+func (o SystemTopicResourceMapOutput) ToSystemTopicResourceMapOutput() SystemTopicResourceMapOutput {
 	return o
 }
 
-func (o SystemTopicMapOutput) ToSystemTopicMapOutputWithContext(ctx context.Context) SystemTopicMapOutput {
+func (o SystemTopicResourceMapOutput) ToSystemTopicResourceMapOutputWithContext(ctx context.Context) SystemTopicResourceMapOutput {
 	return o
 }
 
-func (o SystemTopicMapOutput) MapIndex(k pulumi.StringInput) SystemTopicOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SystemTopic {
-		return vs[0].(map[string]SystemTopic)[vs[1].(string)]
-	}).(SystemTopicOutput)
+func (o SystemTopicResourceMapOutput) MapIndex(k pulumi.StringInput) SystemTopicResourceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SystemTopicResource {
+		return vs[0].(map[string]SystemTopicResource)[vs[1].(string)]
+	}).(SystemTopicResourceOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(SystemTopicOutput{})
-	pulumi.RegisterOutputType(SystemTopicPtrOutput{})
-	pulumi.RegisterOutputType(SystemTopicArrayOutput{})
-	pulumi.RegisterOutputType(SystemTopicMapOutput{})
+	pulumi.RegisterOutputType(SystemTopicResourceOutput{})
+	pulumi.RegisterOutputType(SystemTopicResourcePtrOutput{})
+	pulumi.RegisterOutputType(SystemTopicResourceArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicResourceMapOutput{})
 }

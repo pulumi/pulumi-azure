@@ -283,7 +283,7 @@ type DiagnosticSettingArrayInput interface {
 type DiagnosticSettingArray []DiagnosticSettingInput
 
 func (DiagnosticSettingArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DiagnosticSetting)(nil))
+	return reflect.TypeOf((*[]*DiagnosticSetting)(nil)).Elem()
 }
 
 func (i DiagnosticSettingArray) ToDiagnosticSettingArrayOutput() DiagnosticSettingArrayOutput {
@@ -308,7 +308,7 @@ type DiagnosticSettingMapInput interface {
 type DiagnosticSettingMap map[string]DiagnosticSettingInput
 
 func (DiagnosticSettingMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DiagnosticSetting)(nil))
+	return reflect.TypeOf((*map[string]*DiagnosticSetting)(nil)).Elem()
 }
 
 func (i DiagnosticSettingMap) ToDiagnosticSettingMapOutput() DiagnosticSettingMapOutput {
@@ -319,9 +319,7 @@ func (i DiagnosticSettingMap) ToDiagnosticSettingMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMapOutput)
 }
 
-type DiagnosticSettingOutput struct {
-	*pulumi.OutputState
-}
+type DiagnosticSettingOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiagnosticSetting)(nil))
@@ -340,14 +338,12 @@ func (o DiagnosticSettingOutput) ToDiagnosticSettingPtrOutput() DiagnosticSettin
 }
 
 func (o DiagnosticSettingOutput) ToDiagnosticSettingPtrOutputWithContext(ctx context.Context) DiagnosticSettingPtrOutput {
-	return o.ApplyT(func(v DiagnosticSetting) *DiagnosticSetting {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticSetting) *DiagnosticSetting {
 		return &v
 	}).(DiagnosticSettingPtrOutput)
 }
 
-type DiagnosticSettingPtrOutput struct {
-	*pulumi.OutputState
-}
+type DiagnosticSettingPtrOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DiagnosticSetting)(nil))
@@ -359,6 +355,16 @@ func (o DiagnosticSettingPtrOutput) ToDiagnosticSettingPtrOutput() DiagnosticSet
 
 func (o DiagnosticSettingPtrOutput) ToDiagnosticSettingPtrOutputWithContext(ctx context.Context) DiagnosticSettingPtrOutput {
 	return o
+}
+
+func (o DiagnosticSettingPtrOutput) Elem() DiagnosticSettingOutput {
+	return o.ApplyT(func(v *DiagnosticSetting) DiagnosticSetting {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticSetting
+		return ret
+	}).(DiagnosticSettingOutput)
 }
 
 type DiagnosticSettingArrayOutput struct{ *pulumi.OutputState }

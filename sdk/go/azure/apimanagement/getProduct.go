@@ -4,6 +4,9 @@
 package apimanagement
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,4 +77,98 @@ type LookupProductResult struct {
 	SubscriptionsLimit int `pulumi:"subscriptionsLimit"`
 	// Any Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
 	Terms string `pulumi:"terms"`
+}
+
+func LookupProductOutput(ctx *pulumi.Context, args LookupProductOutputArgs, opts ...pulumi.InvokeOption) LookupProductResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupProductResult, error) {
+			args := v.(LookupProductArgs)
+			r, err := LookupProduct(ctx, &args, opts...)
+			return *r, err
+		}).(LookupProductResultOutput)
+}
+
+// A collection of arguments for invoking getProduct.
+type LookupProductOutputArgs struct {
+	// The Name of the API Management Service in which this Product exists.
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
+	// The Identifier for the API Management Product.
+	ProductId pulumi.StringInput `pulumi:"productId"`
+	// The Name of the Resource Group in which the API Management Service exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupProductOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProductArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getProduct.
+type LookupProductResultOutput struct{ *pulumi.OutputState }
+
+func (LookupProductResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProductResult)(nil)).Elem()
+}
+
+func (o LookupProductResultOutput) ToLookupProductResultOutput() LookupProductResultOutput {
+	return o
+}
+
+func (o LookupProductResultOutput) ToLookupProductResultOutputWithContext(ctx context.Context) LookupProductResultOutput {
+	return o
+}
+
+func (o LookupProductResultOutput) ApiManagementName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductResult) string { return v.ApiManagementName }).(pulumi.StringOutput)
+}
+
+// Do subscribers need to be approved prior to being able to use the Product?
+func (o LookupProductResultOutput) ApprovalRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupProductResult) bool { return v.ApprovalRequired }).(pulumi.BoolOutput)
+}
+
+// The description of this Product, which may include HTML formatting tags.
+func (o LookupProductResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The Display Name for this API Management Product.
+func (o LookupProductResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupProductResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupProductResultOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductResult) string { return v.ProductId }).(pulumi.StringOutput)
+}
+
+// Is this Product Published?
+func (o LookupProductResultOutput) Published() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupProductResult) bool { return v.Published }).(pulumi.BoolOutput)
+}
+
+func (o LookupProductResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Is a Subscription required to access API's included in this Product?
+func (o LookupProductResultOutput) SubscriptionRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupProductResult) bool { return v.SubscriptionRequired }).(pulumi.BoolOutput)
+}
+
+// The number of subscriptions a user can have to this Product at the same time.
+func (o LookupProductResultOutput) SubscriptionsLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupProductResult) int { return v.SubscriptionsLimit }).(pulumi.IntOutput)
+}
+
+// Any Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
+func (o LookupProductResultOutput) Terms() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductResult) string { return v.Terms }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupProductResultOutput{})
 }

@@ -13,6 +13,7 @@ __all__ = [
     'GetSharedImageVersionResult',
     'AwaitableGetSharedImageVersionResult',
     'get_shared_image_version',
+    'get_shared_image_version_output',
 ]
 
 @pulumi.output_type
@@ -216,3 +217,33 @@ def get_shared_image_version(gallery_name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags,
         target_regions=__ret__.target_regions)
+
+
+@_utilities.lift_output_func(get_shared_image_version)
+def get_shared_image_version_output(gallery_name: Optional[pulumi.Input[str]] = None,
+                                    image_name: Optional[pulumi.Input[str]] = None,
+                                    name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedImageVersionResult]:
+    """
+    Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_shared_image_version(gallery_name="my-image-gallery",
+        image_name="my-image",
+        name="1.0.0",
+        resource_group_name="example-resources")
+    ```
+
+
+    :param str gallery_name: The name of the Shared Image Gallery in which the Shared Image exists.
+    :param str image_name: The name of the Shared Image in which this Version exists.
+    :param str name: The name of the Image Version.
+    :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
+    """
+    ...

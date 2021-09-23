@@ -275,7 +275,7 @@ type SpringCloudJavaDeploymentArrayInput interface {
 type SpringCloudJavaDeploymentArray []SpringCloudJavaDeploymentInput
 
 func (SpringCloudJavaDeploymentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SpringCloudJavaDeployment)(nil))
+	return reflect.TypeOf((*[]*SpringCloudJavaDeployment)(nil)).Elem()
 }
 
 func (i SpringCloudJavaDeploymentArray) ToSpringCloudJavaDeploymentArrayOutput() SpringCloudJavaDeploymentArrayOutput {
@@ -300,7 +300,7 @@ type SpringCloudJavaDeploymentMapInput interface {
 type SpringCloudJavaDeploymentMap map[string]SpringCloudJavaDeploymentInput
 
 func (SpringCloudJavaDeploymentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SpringCloudJavaDeployment)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudJavaDeployment)(nil)).Elem()
 }
 
 func (i SpringCloudJavaDeploymentMap) ToSpringCloudJavaDeploymentMapOutput() SpringCloudJavaDeploymentMapOutput {
@@ -311,9 +311,7 @@ func (i SpringCloudJavaDeploymentMap) ToSpringCloudJavaDeploymentMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentMapOutput)
 }
 
-type SpringCloudJavaDeploymentOutput struct {
-	*pulumi.OutputState
-}
+type SpringCloudJavaDeploymentOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudJavaDeploymentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SpringCloudJavaDeployment)(nil))
@@ -332,14 +330,12 @@ func (o SpringCloudJavaDeploymentOutput) ToSpringCloudJavaDeploymentPtrOutput() 
 }
 
 func (o SpringCloudJavaDeploymentOutput) ToSpringCloudJavaDeploymentPtrOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentPtrOutput {
-	return o.ApplyT(func(v SpringCloudJavaDeployment) *SpringCloudJavaDeployment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudJavaDeployment) *SpringCloudJavaDeployment {
 		return &v
 	}).(SpringCloudJavaDeploymentPtrOutput)
 }
 
-type SpringCloudJavaDeploymentPtrOutput struct {
-	*pulumi.OutputState
-}
+type SpringCloudJavaDeploymentPtrOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudJavaDeploymentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SpringCloudJavaDeployment)(nil))
@@ -351,6 +347,16 @@ func (o SpringCloudJavaDeploymentPtrOutput) ToSpringCloudJavaDeploymentPtrOutput
 
 func (o SpringCloudJavaDeploymentPtrOutput) ToSpringCloudJavaDeploymentPtrOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentPtrOutput {
 	return o
+}
+
+func (o SpringCloudJavaDeploymentPtrOutput) Elem() SpringCloudJavaDeploymentOutput {
+	return o.ApplyT(func(v *SpringCloudJavaDeployment) SpringCloudJavaDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudJavaDeployment
+		return ret
+	}).(SpringCloudJavaDeploymentOutput)
 }
 
 type SpringCloudJavaDeploymentArrayOutput struct{ *pulumi.OutputState }

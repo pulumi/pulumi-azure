@@ -259,7 +259,7 @@ type VirtualHubArrayInput interface {
 type VirtualHubArray []VirtualHubInput
 
 func (VirtualHubArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualHub)(nil))
+	return reflect.TypeOf((*[]*VirtualHub)(nil)).Elem()
 }
 
 func (i VirtualHubArray) ToVirtualHubArrayOutput() VirtualHubArrayOutput {
@@ -284,7 +284,7 @@ type VirtualHubMapInput interface {
 type VirtualHubMap map[string]VirtualHubInput
 
 func (VirtualHubMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualHub)(nil))
+	return reflect.TypeOf((*map[string]*VirtualHub)(nil)).Elem()
 }
 
 func (i VirtualHubMap) ToVirtualHubMapOutput() VirtualHubMapOutput {
@@ -295,9 +295,7 @@ func (i VirtualHubMap) ToVirtualHubMapOutputWithContext(ctx context.Context) Vir
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubMapOutput)
 }
 
-type VirtualHubOutput struct {
-	*pulumi.OutputState
-}
+type VirtualHubOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualHub)(nil))
@@ -316,14 +314,12 @@ func (o VirtualHubOutput) ToVirtualHubPtrOutput() VirtualHubPtrOutput {
 }
 
 func (o VirtualHubOutput) ToVirtualHubPtrOutputWithContext(ctx context.Context) VirtualHubPtrOutput {
-	return o.ApplyT(func(v VirtualHub) *VirtualHub {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualHub) *VirtualHub {
 		return &v
 	}).(VirtualHubPtrOutput)
 }
 
-type VirtualHubPtrOutput struct {
-	*pulumi.OutputState
-}
+type VirtualHubPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualHub)(nil))
@@ -335,6 +331,16 @@ func (o VirtualHubPtrOutput) ToVirtualHubPtrOutput() VirtualHubPtrOutput {
 
 func (o VirtualHubPtrOutput) ToVirtualHubPtrOutputWithContext(ctx context.Context) VirtualHubPtrOutput {
 	return o
+}
+
+func (o VirtualHubPtrOutput) Elem() VirtualHubOutput {
+	return o.ApplyT(func(v *VirtualHub) VirtualHub {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualHub
+		return ret
+	}).(VirtualHubOutput)
 }
 
 type VirtualHubArrayOutput struct{ *pulumi.OutputState }

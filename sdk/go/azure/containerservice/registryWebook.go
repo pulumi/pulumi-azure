@@ -295,7 +295,7 @@ type RegistryWebookArrayInput interface {
 type RegistryWebookArray []RegistryWebookInput
 
 func (RegistryWebookArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RegistryWebook)(nil))
+	return reflect.TypeOf((*[]*RegistryWebook)(nil)).Elem()
 }
 
 func (i RegistryWebookArray) ToRegistryWebookArrayOutput() RegistryWebookArrayOutput {
@@ -320,7 +320,7 @@ type RegistryWebookMapInput interface {
 type RegistryWebookMap map[string]RegistryWebookInput
 
 func (RegistryWebookMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RegistryWebook)(nil))
+	return reflect.TypeOf((*map[string]*RegistryWebook)(nil)).Elem()
 }
 
 func (i RegistryWebookMap) ToRegistryWebookMapOutput() RegistryWebookMapOutput {
@@ -331,9 +331,7 @@ func (i RegistryWebookMap) ToRegistryWebookMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebookMapOutput)
 }
 
-type RegistryWebookOutput struct {
-	*pulumi.OutputState
-}
+type RegistryWebookOutput struct{ *pulumi.OutputState }
 
 func (RegistryWebookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistryWebook)(nil))
@@ -352,14 +350,12 @@ func (o RegistryWebookOutput) ToRegistryWebookPtrOutput() RegistryWebookPtrOutpu
 }
 
 func (o RegistryWebookOutput) ToRegistryWebookPtrOutputWithContext(ctx context.Context) RegistryWebookPtrOutput {
-	return o.ApplyT(func(v RegistryWebook) *RegistryWebook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryWebook) *RegistryWebook {
 		return &v
 	}).(RegistryWebookPtrOutput)
 }
 
-type RegistryWebookPtrOutput struct {
-	*pulumi.OutputState
-}
+type RegistryWebookPtrOutput struct{ *pulumi.OutputState }
 
 func (RegistryWebookPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RegistryWebook)(nil))
@@ -371,6 +367,16 @@ func (o RegistryWebookPtrOutput) ToRegistryWebookPtrOutput() RegistryWebookPtrOu
 
 func (o RegistryWebookPtrOutput) ToRegistryWebookPtrOutputWithContext(ctx context.Context) RegistryWebookPtrOutput {
 	return o
+}
+
+func (o RegistryWebookPtrOutput) Elem() RegistryWebookOutput {
+	return o.ApplyT(func(v *RegistryWebook) RegistryWebook {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryWebook
+		return ret
+	}).(RegistryWebookOutput)
 }
 
 type RegistryWebookArrayOutput struct{ *pulumi.OutputState }

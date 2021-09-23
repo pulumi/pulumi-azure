@@ -12,6 +12,7 @@ __all__ = [
     'GetAuthorizationRuleResult',
     'AwaitableGetAuthorizationRuleResult',
     'get_authorization_rule',
+    'get_authorization_rule_output',
 ]
 
 @pulumi.output_type
@@ -245,3 +246,36 @@ def get_authorization_rule(eventhub_name: Optional[str] = None,
         secondary_connection_string_alias=__ret__.secondary_connection_string_alias,
         secondary_key=__ret__.secondary_key,
         send=__ret__.send)
+
+
+@_utilities.lift_output_func(get_authorization_rule)
+def get_authorization_rule_output(eventhub_name: Optional[pulumi.Input[str]] = None,
+                                  listen: Optional[pulumi.Input[Optional[bool]]] = None,
+                                  manage: Optional[pulumi.Input[Optional[bool]]] = None,
+                                  name: Optional[pulumi.Input[str]] = None,
+                                  namespace_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  send: Optional[pulumi.Input[Optional[bool]]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationRuleResult]:
+    """
+    Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    test = azure.eventhub.get_authorization_rule(eventhub_name=azurerm_eventhub["test"]["name"],
+        name="test",
+        namespace_name=azurerm_eventhub_namespace["test"]["name"],
+        resource_group_name=azurerm_resource_group["test"]["name"])
+    ```
+
+
+    :param str eventhub_name: Specifies the name of the EventHub.
+    :param str name: Specifies the name of the EventHub Authorization Rule resource. be created.
+    :param str namespace_name: Specifies the name of the grandparent EventHub Namespace.
+    :param str resource_group_name: The name of the resource group in which the EventHub Authorization Rule's grandparent Namespace exists.
+    """
+    ...

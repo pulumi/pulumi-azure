@@ -228,7 +228,7 @@ type JobAgentArrayInput interface {
 type JobAgentArray []JobAgentInput
 
 func (JobAgentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*JobAgent)(nil))
+	return reflect.TypeOf((*[]*JobAgent)(nil)).Elem()
 }
 
 func (i JobAgentArray) ToJobAgentArrayOutput() JobAgentArrayOutput {
@@ -253,7 +253,7 @@ type JobAgentMapInput interface {
 type JobAgentMap map[string]JobAgentInput
 
 func (JobAgentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*JobAgent)(nil))
+	return reflect.TypeOf((*map[string]*JobAgent)(nil)).Elem()
 }
 
 func (i JobAgentMap) ToJobAgentMapOutput() JobAgentMapOutput {
@@ -264,9 +264,7 @@ func (i JobAgentMap) ToJobAgentMapOutputWithContext(ctx context.Context) JobAgen
 	return pulumi.ToOutputWithContext(ctx, i).(JobAgentMapOutput)
 }
 
-type JobAgentOutput struct {
-	*pulumi.OutputState
-}
+type JobAgentOutput struct{ *pulumi.OutputState }
 
 func (JobAgentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobAgent)(nil))
@@ -285,14 +283,12 @@ func (o JobAgentOutput) ToJobAgentPtrOutput() JobAgentPtrOutput {
 }
 
 func (o JobAgentOutput) ToJobAgentPtrOutputWithContext(ctx context.Context) JobAgentPtrOutput {
-	return o.ApplyT(func(v JobAgent) *JobAgent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobAgent) *JobAgent {
 		return &v
 	}).(JobAgentPtrOutput)
 }
 
-type JobAgentPtrOutput struct {
-	*pulumi.OutputState
-}
+type JobAgentPtrOutput struct{ *pulumi.OutputState }
 
 func (JobAgentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**JobAgent)(nil))
@@ -304,6 +300,16 @@ func (o JobAgentPtrOutput) ToJobAgentPtrOutput() JobAgentPtrOutput {
 
 func (o JobAgentPtrOutput) ToJobAgentPtrOutputWithContext(ctx context.Context) JobAgentPtrOutput {
 	return o
+}
+
+func (o JobAgentPtrOutput) Elem() JobAgentOutput {
+	return o.ApplyT(func(v *JobAgent) JobAgent {
+		if v != nil {
+			return *v
+		}
+		var ret JobAgent
+		return ret
+	}).(JobAgentOutput)
 }
 
 type JobAgentArrayOutput struct{ *pulumi.OutputState }

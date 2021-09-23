@@ -213,7 +213,7 @@ type EmailTemplateArrayInput interface {
 type EmailTemplateArray []EmailTemplateInput
 
 func (EmailTemplateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EmailTemplate)(nil))
+	return reflect.TypeOf((*[]*EmailTemplate)(nil)).Elem()
 }
 
 func (i EmailTemplateArray) ToEmailTemplateArrayOutput() EmailTemplateArrayOutput {
@@ -238,7 +238,7 @@ type EmailTemplateMapInput interface {
 type EmailTemplateMap map[string]EmailTemplateInput
 
 func (EmailTemplateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EmailTemplate)(nil))
+	return reflect.TypeOf((*map[string]*EmailTemplate)(nil)).Elem()
 }
 
 func (i EmailTemplateMap) ToEmailTemplateMapOutput() EmailTemplateMapOutput {
@@ -249,9 +249,7 @@ func (i EmailTemplateMap) ToEmailTemplateMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateMapOutput)
 }
 
-type EmailTemplateOutput struct {
-	*pulumi.OutputState
-}
+type EmailTemplateOutput struct{ *pulumi.OutputState }
 
 func (EmailTemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EmailTemplate)(nil))
@@ -270,14 +268,12 @@ func (o EmailTemplateOutput) ToEmailTemplatePtrOutput() EmailTemplatePtrOutput {
 }
 
 func (o EmailTemplateOutput) ToEmailTemplatePtrOutputWithContext(ctx context.Context) EmailTemplatePtrOutput {
-	return o.ApplyT(func(v EmailTemplate) *EmailTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailTemplate) *EmailTemplate {
 		return &v
 	}).(EmailTemplatePtrOutput)
 }
 
-type EmailTemplatePtrOutput struct {
-	*pulumi.OutputState
-}
+type EmailTemplatePtrOutput struct{ *pulumi.OutputState }
 
 func (EmailTemplatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EmailTemplate)(nil))
@@ -289,6 +285,16 @@ func (o EmailTemplatePtrOutput) ToEmailTemplatePtrOutput() EmailTemplatePtrOutpu
 
 func (o EmailTemplatePtrOutput) ToEmailTemplatePtrOutputWithContext(ctx context.Context) EmailTemplatePtrOutput {
 	return o
+}
+
+func (o EmailTemplatePtrOutput) Elem() EmailTemplateOutput {
+	return o.ApplyT(func(v *EmailTemplate) EmailTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret EmailTemplate
+		return ret
+	}).(EmailTemplateOutput)
 }
 
 type EmailTemplateArrayOutput struct{ *pulumi.OutputState }

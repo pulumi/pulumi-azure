@@ -4,6 +4,9 @@
 package cosmosdb
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -104,4 +107,180 @@ type LookupAccountResult struct {
 	VirtualNetworkRules []GetAccountVirtualNetworkRule `pulumi:"virtualNetworkRules"`
 	// A list of write endpoints available for this CosmosDB account.
 	WriteEndpoints []string `pulumi:"writeEndpoints"`
+}
+
+func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAccountResult, error) {
+			args := v.(LookupAccountArgs)
+			r, err := LookupAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAccountResultOutput)
+}
+
+// A collection of arguments for invoking getAccount.
+type LookupAccountOutputArgs struct {
+	// Specifies the name of the CosmosDB Account.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group in which the CosmosDB Account resides.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAccount.
+type LookupAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountResult)(nil)).Elem()
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutput() LookupAccountResultOutput {
+	return o
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx context.Context) LookupAccountResultOutput {
+	return o
+}
+
+// Capabilities enabled on this Cosmos DB account.
+func (o LookupAccountResultOutput) Capabilities() GetAccountCapabilityArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountCapability { return v.Capabilities }).(GetAccountCapabilityArrayOutput)
+}
+
+func (o LookupAccountResultOutput) ConsistencyPolicies() GetAccountConsistencyPolicyArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountConsistencyPolicy { return v.ConsistencyPolicies }).(GetAccountConsistencyPolicyArrayOutput)
+}
+
+// If automatic failover is enabled for this CosmosDB Account.
+func (o LookupAccountResultOutput) EnableAutomaticFailover() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableAutomaticFailover }).(pulumi.BoolOutput)
+}
+
+// If Free Tier pricing option is enabled for this CosmosDB Account.
+func (o LookupAccountResultOutput) EnableFreeTier() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableFreeTier }).(pulumi.BoolOutput)
+}
+
+// If multiple write locations are enabled for this Cosmos DB account.
+func (o LookupAccountResultOutput) EnableMultipleWriteLocations() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableMultipleWriteLocations }).(pulumi.BoolOutput)
+}
+
+// The endpoint used to connect to the CosmosDB account.
+func (o LookupAccountResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+func (o LookupAccountResultOutput) GeoLocations() GetAccountGeoLocationArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountGeoLocation { return v.GeoLocations }).(GetAccountGeoLocationArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The current IP Filter for this CosmosDB account
+func (o LookupAccountResultOutput) IpRangeFilter() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.IpRangeFilter }).(pulumi.StringOutput)
+}
+
+// If virtual network filtering is enabled for this Cosmos DB account.
+func (o LookupAccountResultOutput) IsVirtualNetworkFilterEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.IsVirtualNetworkFilterEnabled }).(pulumi.BoolOutput)
+}
+
+// The Key Vault key URI for CMK encryption.
+func (o LookupAccountResultOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+// The Kind of the CosmosDB account.
+func (o LookupAccountResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the Azure region hosting replicated data.
+func (o LookupAccountResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Offer Type to used by this CosmosDB Account.
+func (o LookupAccountResultOutput) OfferType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.OfferType }).(pulumi.StringOutput)
+}
+
+// The Primary key for the CosmosDB Account.
+func (o LookupAccountResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
+func (o LookupAccountResultOutput) PrimaryMasterKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryMasterKey }).(pulumi.StringOutput)
+}
+
+// The Primary read-only Key for the CosmosDB Account.
+func (o LookupAccountResultOutput) PrimaryReadonlyKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryReadonlyKey }).(pulumi.StringOutput)
+}
+
+// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
+func (o LookupAccountResultOutput) PrimaryReadonlyMasterKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryReadonlyMasterKey }).(pulumi.StringOutput)
+}
+
+// A list of read endpoints available for this CosmosDB account.
+func (o LookupAccountResultOutput) ReadEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []string { return v.ReadEndpoints }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Secondary key for the CosmosDB Account.
+func (o LookupAccountResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
+func (o LookupAccountResultOutput) SecondaryMasterKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryMasterKey }).(pulumi.StringOutput)
+}
+
+// The Secondary read-only key for the CosmosDB Account.
+func (o LookupAccountResultOutput) SecondaryReadonlyKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryReadonlyKey }).(pulumi.StringOutput)
+}
+
+// Deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
+func (o LookupAccountResultOutput) SecondaryReadonlyMasterKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryReadonlyMasterKey }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Subnets that are allowed to access this CosmosDB account.
+func (o LookupAccountResultOutput) VirtualNetworkRules() GetAccountVirtualNetworkRuleArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountVirtualNetworkRule { return v.VirtualNetworkRules }).(GetAccountVirtualNetworkRuleArrayOutput)
+}
+
+// A list of write endpoints available for this CosmosDB account.
+func (o LookupAccountResultOutput) WriteEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []string { return v.WriteEndpoints }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAccountResultOutput{})
 }

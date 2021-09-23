@@ -280,7 +280,7 @@ type FactoryArrayInput interface {
 type FactoryArray []FactoryInput
 
 func (FactoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Factory)(nil))
+	return reflect.TypeOf((*[]*Factory)(nil)).Elem()
 }
 
 func (i FactoryArray) ToFactoryArrayOutput() FactoryArrayOutput {
@@ -305,7 +305,7 @@ type FactoryMapInput interface {
 type FactoryMap map[string]FactoryInput
 
 func (FactoryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Factory)(nil))
+	return reflect.TypeOf((*map[string]*Factory)(nil)).Elem()
 }
 
 func (i FactoryMap) ToFactoryMapOutput() FactoryMapOutput {
@@ -316,9 +316,7 @@ func (i FactoryMap) ToFactoryMapOutputWithContext(ctx context.Context) FactoryMa
 	return pulumi.ToOutputWithContext(ctx, i).(FactoryMapOutput)
 }
 
-type FactoryOutput struct {
-	*pulumi.OutputState
-}
+type FactoryOutput struct{ *pulumi.OutputState }
 
 func (FactoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Factory)(nil))
@@ -337,14 +335,12 @@ func (o FactoryOutput) ToFactoryPtrOutput() FactoryPtrOutput {
 }
 
 func (o FactoryOutput) ToFactoryPtrOutputWithContext(ctx context.Context) FactoryPtrOutput {
-	return o.ApplyT(func(v Factory) *Factory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Factory) *Factory {
 		return &v
 	}).(FactoryPtrOutput)
 }
 
-type FactoryPtrOutput struct {
-	*pulumi.OutputState
-}
+type FactoryPtrOutput struct{ *pulumi.OutputState }
 
 func (FactoryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Factory)(nil))
@@ -356,6 +352,16 @@ func (o FactoryPtrOutput) ToFactoryPtrOutput() FactoryPtrOutput {
 
 func (o FactoryPtrOutput) ToFactoryPtrOutputWithContext(ctx context.Context) FactoryPtrOutput {
 	return o
+}
+
+func (o FactoryPtrOutput) Elem() FactoryOutput {
+	return o.ApplyT(func(v *Factory) Factory {
+		if v != nil {
+			return *v
+		}
+		var ret Factory
+		return ret
+	}).(FactoryOutput)
 }
 
 type FactoryArrayOutput struct{ *pulumi.OutputState }

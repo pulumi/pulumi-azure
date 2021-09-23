@@ -4,6 +4,9 @@
 package iot
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,4 +64,68 @@ type GetIotHubResult struct {
 	Name              string            `pulumi:"name"`
 	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	Tags              map[string]string `pulumi:"tags"`
+}
+
+func GetIotHubOutput(ctx *pulumi.Context, args GetIotHubOutputArgs, opts ...pulumi.InvokeOption) GetIotHubResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetIotHubResult, error) {
+			args := v.(GetIotHubArgs)
+			r, err := GetIotHub(ctx, &args, opts...)
+			return *r, err
+		}).(GetIotHubResultOutput)
+}
+
+// A collection of arguments for invoking getIotHub.
+type GetIotHubOutputArgs struct {
+	// The name of this IoTHub.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the IoTHub exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A mapping of tags which should be assigned to the IoTHub.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetIotHubOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIotHubArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getIotHub.
+type GetIotHubResultOutput struct{ *pulumi.OutputState }
+
+func (GetIotHubResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIotHubResult)(nil)).Elem()
+}
+
+func (o GetIotHubResultOutput) ToGetIotHubResultOutput() GetIotHubResultOutput {
+	return o
+}
+
+func (o GetIotHubResultOutput) ToGetIotHubResultOutputWithContext(ctx context.Context) GetIotHubResultOutput {
+	return o
+}
+
+// The Hostname of the IoTHub.
+func (o GetIotHubResultOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIotHubResult) string { return v.Hostname }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetIotHubResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIotHubResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetIotHubResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIotHubResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetIotHubResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIotHubResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o GetIotHubResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIotHubResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetIotHubResultOutput{})
 }

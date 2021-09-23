@@ -260,7 +260,7 @@ type ApplicationArrayInput interface {
 type ApplicationArray []ApplicationInput
 
 func (ApplicationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Application)(nil))
+	return reflect.TypeOf((*[]*Application)(nil)).Elem()
 }
 
 func (i ApplicationArray) ToApplicationArrayOutput() ApplicationArrayOutput {
@@ -285,7 +285,7 @@ type ApplicationMapInput interface {
 type ApplicationMap map[string]ApplicationInput
 
 func (ApplicationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Application)(nil))
+	return reflect.TypeOf((*map[string]*Application)(nil)).Elem()
 }
 
 func (i ApplicationMap) ToApplicationMapOutput() ApplicationMapOutput {
@@ -296,9 +296,7 @@ func (i ApplicationMap) ToApplicationMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMapOutput)
 }
 
-type ApplicationOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Application)(nil))
@@ -317,14 +315,12 @@ func (o ApplicationOutput) ToApplicationPtrOutput() ApplicationPtrOutput {
 }
 
 func (o ApplicationOutput) ToApplicationPtrOutputWithContext(ctx context.Context) ApplicationPtrOutput {
-	return o.ApplyT(func(v Application) *Application {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Application) *Application {
 		return &v
 	}).(ApplicationPtrOutput)
 }
 
-type ApplicationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationPtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Application)(nil))
@@ -336,6 +332,16 @@ func (o ApplicationPtrOutput) ToApplicationPtrOutput() ApplicationPtrOutput {
 
 func (o ApplicationPtrOutput) ToApplicationPtrOutputWithContext(ctx context.Context) ApplicationPtrOutput {
 	return o
+}
+
+func (o ApplicationPtrOutput) Elem() ApplicationOutput {
+	return o.ApplyT(func(v *Application) Application {
+		if v != nil {
+			return *v
+		}
+		var ret Application
+		return ret
+	}).(ApplicationOutput)
 }
 
 type ApplicationArrayOutput struct{ *pulumi.OutputState }

@@ -13,6 +13,7 @@ __all__ = [
     'GetServiceResult',
     'AwaitableGetServiceResult',
     'get_service',
+    'get_service_output',
 ]
 
 @pulumi.output_type
@@ -189,3 +190,28 @@ def get_service(name: Optional[str] = None,
         replica_count=__ret__.replica_count,
         resource_group_name=__ret__.resource_group_name,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(get_service)
+def get_service_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+    """
+    Manages a Search Service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+    example_service = example_resource_group.name.apply(lambda name: azure.search.get_service(name="example-search-service",
+        resource_group_name=name))
+    ```
+
+
+    :param str name: The Name of the Search Service.
+    :param str resource_group_name: The name of the Resource Group where the Search Service exists.
+    """
+    ...

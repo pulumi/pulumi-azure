@@ -330,7 +330,7 @@ type DataDiskAttachmentArrayInput interface {
 type DataDiskAttachmentArray []DataDiskAttachmentInput
 
 func (DataDiskAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DataDiskAttachment)(nil))
+	return reflect.TypeOf((*[]*DataDiskAttachment)(nil)).Elem()
 }
 
 func (i DataDiskAttachmentArray) ToDataDiskAttachmentArrayOutput() DataDiskAttachmentArrayOutput {
@@ -355,7 +355,7 @@ type DataDiskAttachmentMapInput interface {
 type DataDiskAttachmentMap map[string]DataDiskAttachmentInput
 
 func (DataDiskAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DataDiskAttachment)(nil))
+	return reflect.TypeOf((*map[string]*DataDiskAttachment)(nil)).Elem()
 }
 
 func (i DataDiskAttachmentMap) ToDataDiskAttachmentMapOutput() DataDiskAttachmentMapOutput {
@@ -366,9 +366,7 @@ func (i DataDiskAttachmentMap) ToDataDiskAttachmentMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskAttachmentMapOutput)
 }
 
-type DataDiskAttachmentOutput struct {
-	*pulumi.OutputState
-}
+type DataDiskAttachmentOutput struct{ *pulumi.OutputState }
 
 func (DataDiskAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataDiskAttachment)(nil))
@@ -387,14 +385,12 @@ func (o DataDiskAttachmentOutput) ToDataDiskAttachmentPtrOutput() DataDiskAttach
 }
 
 func (o DataDiskAttachmentOutput) ToDataDiskAttachmentPtrOutputWithContext(ctx context.Context) DataDiskAttachmentPtrOutput {
-	return o.ApplyT(func(v DataDiskAttachment) *DataDiskAttachment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataDiskAttachment) *DataDiskAttachment {
 		return &v
 	}).(DataDiskAttachmentPtrOutput)
 }
 
-type DataDiskAttachmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type DataDiskAttachmentPtrOutput struct{ *pulumi.OutputState }
 
 func (DataDiskAttachmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DataDiskAttachment)(nil))
@@ -406,6 +402,16 @@ func (o DataDiskAttachmentPtrOutput) ToDataDiskAttachmentPtrOutput() DataDiskAtt
 
 func (o DataDiskAttachmentPtrOutput) ToDataDiskAttachmentPtrOutputWithContext(ctx context.Context) DataDiskAttachmentPtrOutput {
 	return o
+}
+
+func (o DataDiskAttachmentPtrOutput) Elem() DataDiskAttachmentOutput {
+	return o.ApplyT(func(v *DataDiskAttachment) DataDiskAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret DataDiskAttachment
+		return ret
+	}).(DataDiskAttachmentOutput)
 }
 
 type DataDiskAttachmentArrayOutput struct{ *pulumi.OutputState }

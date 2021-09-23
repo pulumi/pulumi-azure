@@ -329,7 +329,7 @@ type SqlServerArrayInput interface {
 type SqlServerArray []SqlServerInput
 
 func (SqlServerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SqlServer)(nil))
+	return reflect.TypeOf((*[]*SqlServer)(nil)).Elem()
 }
 
 func (i SqlServerArray) ToSqlServerArrayOutput() SqlServerArrayOutput {
@@ -354,7 +354,7 @@ type SqlServerMapInput interface {
 type SqlServerMap map[string]SqlServerInput
 
 func (SqlServerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SqlServer)(nil))
+	return reflect.TypeOf((*map[string]*SqlServer)(nil)).Elem()
 }
 
 func (i SqlServerMap) ToSqlServerMapOutput() SqlServerMapOutput {
@@ -365,9 +365,7 @@ func (i SqlServerMap) ToSqlServerMapOutputWithContext(ctx context.Context) SqlSe
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerMapOutput)
 }
 
-type SqlServerOutput struct {
-	*pulumi.OutputState
-}
+type SqlServerOutput struct{ *pulumi.OutputState }
 
 func (SqlServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlServer)(nil))
@@ -386,14 +384,12 @@ func (o SqlServerOutput) ToSqlServerPtrOutput() SqlServerPtrOutput {
 }
 
 func (o SqlServerOutput) ToSqlServerPtrOutputWithContext(ctx context.Context) SqlServerPtrOutput {
-	return o.ApplyT(func(v SqlServer) *SqlServer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlServer) *SqlServer {
 		return &v
 	}).(SqlServerPtrOutput)
 }
 
-type SqlServerPtrOutput struct {
-	*pulumi.OutputState
-}
+type SqlServerPtrOutput struct{ *pulumi.OutputState }
 
 func (SqlServerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SqlServer)(nil))
@@ -405,6 +401,16 @@ func (o SqlServerPtrOutput) ToSqlServerPtrOutput() SqlServerPtrOutput {
 
 func (o SqlServerPtrOutput) ToSqlServerPtrOutputWithContext(ctx context.Context) SqlServerPtrOutput {
 	return o
+}
+
+func (o SqlServerPtrOutput) Elem() SqlServerOutput {
+	return o.ApplyT(func(v *SqlServer) SqlServer {
+		if v != nil {
+			return *v
+		}
+		var ret SqlServer
+		return ret
+	}).(SqlServerOutput)
 }
 
 type SqlServerArrayOutput struct{ *pulumi.OutputState }

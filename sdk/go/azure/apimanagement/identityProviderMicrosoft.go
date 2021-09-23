@@ -231,7 +231,7 @@ type IdentityProviderMicrosoftArrayInput interface {
 type IdentityProviderMicrosoftArray []IdentityProviderMicrosoftInput
 
 func (IdentityProviderMicrosoftArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IdentityProviderMicrosoft)(nil))
+	return reflect.TypeOf((*[]*IdentityProviderMicrosoft)(nil)).Elem()
 }
 
 func (i IdentityProviderMicrosoftArray) ToIdentityProviderMicrosoftArrayOutput() IdentityProviderMicrosoftArrayOutput {
@@ -256,7 +256,7 @@ type IdentityProviderMicrosoftMapInput interface {
 type IdentityProviderMicrosoftMap map[string]IdentityProviderMicrosoftInput
 
 func (IdentityProviderMicrosoftMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IdentityProviderMicrosoft)(nil))
+	return reflect.TypeOf((*map[string]*IdentityProviderMicrosoft)(nil)).Elem()
 }
 
 func (i IdentityProviderMicrosoftMap) ToIdentityProviderMicrosoftMapOutput() IdentityProviderMicrosoftMapOutput {
@@ -267,9 +267,7 @@ func (i IdentityProviderMicrosoftMap) ToIdentityProviderMicrosoftMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderMicrosoftMapOutput)
 }
 
-type IdentityProviderMicrosoftOutput struct {
-	*pulumi.OutputState
-}
+type IdentityProviderMicrosoftOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderMicrosoftOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IdentityProviderMicrosoft)(nil))
@@ -288,14 +286,12 @@ func (o IdentityProviderMicrosoftOutput) ToIdentityProviderMicrosoftPtrOutput() 
 }
 
 func (o IdentityProviderMicrosoftOutput) ToIdentityProviderMicrosoftPtrOutputWithContext(ctx context.Context) IdentityProviderMicrosoftPtrOutput {
-	return o.ApplyT(func(v IdentityProviderMicrosoft) *IdentityProviderMicrosoft {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderMicrosoft) *IdentityProviderMicrosoft {
 		return &v
 	}).(IdentityProviderMicrosoftPtrOutput)
 }
 
-type IdentityProviderMicrosoftPtrOutput struct {
-	*pulumi.OutputState
-}
+type IdentityProviderMicrosoftPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderMicrosoftPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IdentityProviderMicrosoft)(nil))
@@ -307,6 +303,16 @@ func (o IdentityProviderMicrosoftPtrOutput) ToIdentityProviderMicrosoftPtrOutput
 
 func (o IdentityProviderMicrosoftPtrOutput) ToIdentityProviderMicrosoftPtrOutputWithContext(ctx context.Context) IdentityProviderMicrosoftPtrOutput {
 	return o
+}
+
+func (o IdentityProviderMicrosoftPtrOutput) Elem() IdentityProviderMicrosoftOutput {
+	return o.ApplyT(func(v *IdentityProviderMicrosoft) IdentityProviderMicrosoft {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProviderMicrosoft
+		return ret
+	}).(IdentityProviderMicrosoftOutput)
 }
 
 type IdentityProviderMicrosoftArrayOutput struct{ *pulumi.OutputState }

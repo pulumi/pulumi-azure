@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,74 @@ type GetPublicIPsResult struct {
 	// A List of `publicIps` blocks as defined below filtered by the criteria above.
 	PublicIps         []GetPublicIPsPublicIp `pulumi:"publicIps"`
 	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+}
+
+func GetPublicIPsOutput(ctx *pulumi.Context, args GetPublicIPsOutputArgs, opts ...pulumi.InvokeOption) GetPublicIPsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetPublicIPsResult, error) {
+			args := v.(GetPublicIPsArgs)
+			r, err := GetPublicIPs(ctx, &args, opts...)
+			return *r, err
+		}).(GetPublicIPsResultOutput)
+}
+
+// A collection of arguments for invoking getPublicIPs.
+type GetPublicIPsOutputArgs struct {
+	// The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
+	AllocationType pulumi.StringPtrInput `pulumi:"allocationType"`
+	// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`true`) or unattached (`false`).
+	Attached pulumi.BoolPtrInput `pulumi:"attached"`
+	// A prefix match used for the IP Addresses `name` field, case sensitive.
+	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
+	// Specifies the name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetPublicIPsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicIPsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPublicIPs.
+type GetPublicIPsResultOutput struct{ *pulumi.OutputState }
+
+func (GetPublicIPsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicIPsResult)(nil)).Elem()
+}
+
+func (o GetPublicIPsResultOutput) ToGetPublicIPsResultOutput() GetPublicIPsResultOutput {
+	return o
+}
+
+func (o GetPublicIPsResultOutput) ToGetPublicIPsResultOutputWithContext(ctx context.Context) GetPublicIPsResultOutput {
+	return o
+}
+
+func (o GetPublicIPsResultOutput) AllocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPublicIPsResult) *string { return v.AllocationType }).(pulumi.StringPtrOutput)
+}
+
+func (o GetPublicIPsResultOutput) Attached() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetPublicIPsResult) *bool { return v.Attached }).(pulumi.BoolPtrOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetPublicIPsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetPublicIPsResultOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPublicIPsResult) *string { return v.NamePrefix }).(pulumi.StringPtrOutput)
+}
+
+// A List of `publicIps` blocks as defined below filtered by the criteria above.
+func (o GetPublicIPsResultOutput) PublicIps() GetPublicIPsPublicIpArrayOutput {
+	return o.ApplyT(func(v GetPublicIPsResult) []GetPublicIPsPublicIp { return v.PublicIps }).(GetPublicIPsPublicIpArrayOutput)
+}
+
+func (o GetPublicIPsResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPsResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetPublicIPsResultOutput{})
 }

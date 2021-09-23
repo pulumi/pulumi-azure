@@ -276,7 +276,7 @@ type ShareFileArrayInput interface {
 type ShareFileArray []ShareFileInput
 
 func (ShareFileArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ShareFile)(nil))
+	return reflect.TypeOf((*[]*ShareFile)(nil)).Elem()
 }
 
 func (i ShareFileArray) ToShareFileArrayOutput() ShareFileArrayOutput {
@@ -301,7 +301,7 @@ type ShareFileMapInput interface {
 type ShareFileMap map[string]ShareFileInput
 
 func (ShareFileMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ShareFile)(nil))
+	return reflect.TypeOf((*map[string]*ShareFile)(nil)).Elem()
 }
 
 func (i ShareFileMap) ToShareFileMapOutput() ShareFileMapOutput {
@@ -312,9 +312,7 @@ func (i ShareFileMap) ToShareFileMapOutputWithContext(ctx context.Context) Share
 	return pulumi.ToOutputWithContext(ctx, i).(ShareFileMapOutput)
 }
 
-type ShareFileOutput struct {
-	*pulumi.OutputState
-}
+type ShareFileOutput struct{ *pulumi.OutputState }
 
 func (ShareFileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ShareFile)(nil))
@@ -333,14 +331,12 @@ func (o ShareFileOutput) ToShareFilePtrOutput() ShareFilePtrOutput {
 }
 
 func (o ShareFileOutput) ToShareFilePtrOutputWithContext(ctx context.Context) ShareFilePtrOutput {
-	return o.ApplyT(func(v ShareFile) *ShareFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShareFile) *ShareFile {
 		return &v
 	}).(ShareFilePtrOutput)
 }
 
-type ShareFilePtrOutput struct {
-	*pulumi.OutputState
-}
+type ShareFilePtrOutput struct{ *pulumi.OutputState }
 
 func (ShareFilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ShareFile)(nil))
@@ -352,6 +348,16 @@ func (o ShareFilePtrOutput) ToShareFilePtrOutput() ShareFilePtrOutput {
 
 func (o ShareFilePtrOutput) ToShareFilePtrOutputWithContext(ctx context.Context) ShareFilePtrOutput {
 	return o
+}
+
+func (o ShareFilePtrOutput) Elem() ShareFileOutput {
+	return o.ApplyT(func(v *ShareFile) ShareFile {
+		if v != nil {
+			return *v
+		}
+		var ret ShareFile
+		return ret
+	}).(ShareFileOutput)
 }
 
 type ShareFileArrayOutput struct{ *pulumi.OutputState }

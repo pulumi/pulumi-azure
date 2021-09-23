@@ -4,6 +4,9 @@
 package notificationhub
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,87 @@ type LookupNamespaceResult struct {
 	Sku GetNamespaceSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNamespaceResult, error) {
+			args := v.(LookupNamespaceArgs)
+			r, err := LookupNamespace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNamespaceResultOutput)
+}
+
+// A collection of arguments for invoking getNamespace.
+type LookupNamespaceOutputArgs struct {
+	// Specifies the Name of the Notification Hub Namespace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the Name of the Resource Group within which the Notification Hub exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNamespaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getNamespace.
+type LookupNamespaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNamespaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceResult)(nil)).Elem()
+}
+
+func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutput() LookupNamespaceResultOutput {
+	return o
+}
+
+func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutputWithContext(ctx context.Context) LookupNamespaceResultOutput {
+	return o
+}
+
+// Is this Notification Hub Namespace enabled?
+func (o LookupNamespaceResultOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupNamespaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure Region in which this Notification Hub Namespace exists.
+func (o LookupNamespaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
+func (o LookupNamespaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Type of Namespace, such as `Messaging` or `NotificationHub`.
+func (o LookupNamespaceResultOutput) NamespaceType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.NamespaceType }).(pulumi.StringOutput)
+}
+
+func (o LookupNamespaceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupNamespaceResultOutput) ServicebusEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.ServicebusEndpoint }).(pulumi.StringOutput)
+}
+
+// A `sku` block as defined below.
+func (o LookupNamespaceResultOutput) Sku() GetNamespaceSkuOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) GetNamespaceSku { return v.Sku }).(GetNamespaceSkuOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o LookupNamespaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNamespaceResultOutput{})
 }

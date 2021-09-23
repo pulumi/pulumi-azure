@@ -117,10 +117,11 @@ func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyPt
 }
 
 func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyPtrOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *DatabaseExtendedAuditingPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseExtendedAuditingPolicy) *DatabaseExtendedAuditingPolicy {
 		return &v
 	}).(DatabaseExtendedAuditingPolicyPtrOutput)
 }
+
 func (o DatabaseExtendedAuditingPolicyOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *bool { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -160,7 +161,13 @@ func (o DatabaseExtendedAuditingPolicyPtrOutput) ToDatabaseExtendedAuditingPolic
 }
 
 func (o DatabaseExtendedAuditingPolicyPtrOutput) Elem() DatabaseExtendedAuditingPolicyOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) DatabaseExtendedAuditingPolicy { return *v }).(DatabaseExtendedAuditingPolicyOutput)
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) DatabaseExtendedAuditingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseExtendedAuditingPolicy
+		return ret
+	}).(DatabaseExtendedAuditingPolicyOutput)
 }
 
 func (o DatabaseExtendedAuditingPolicyPtrOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
@@ -329,7 +336,7 @@ func (o DatabaseImportOutput) ToDatabaseImportPtrOutput() DatabaseImportPtrOutpu
 }
 
 func (o DatabaseImportOutput) ToDatabaseImportPtrOutputWithContext(ctx context.Context) DatabaseImportPtrOutput {
-	return o.ApplyT(func(v DatabaseImport) *DatabaseImport {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseImport) *DatabaseImport {
 		return &v
 	}).(DatabaseImportPtrOutput)
 }
@@ -384,7 +391,13 @@ func (o DatabaseImportPtrOutput) ToDatabaseImportPtrOutputWithContext(ctx contex
 }
 
 func (o DatabaseImportPtrOutput) Elem() DatabaseImportOutput {
-	return o.ApplyT(func(v *DatabaseImport) DatabaseImport { return *v }).(DatabaseImportOutput)
+	return o.ApplyT(func(v *DatabaseImport) DatabaseImport {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseImport
+		return ret
+	}).(DatabaseImportOutput)
 }
 
 // Specifies the name of the SQL administrator.
@@ -578,7 +591,7 @@ func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyPtrO
 }
 
 func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *DatabaseThreatDetectionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseThreatDetectionPolicy) *DatabaseThreatDetectionPolicy {
 		return &v
 	}).(DatabaseThreatDetectionPolicyPtrOutput)
 }
@@ -638,7 +651,13 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) ToDatabaseThreatDetectionPolicyP
 }
 
 func (o DatabaseThreatDetectionPolicyPtrOutput) Elem() DatabaseThreatDetectionPolicyOutput {
-	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) DatabaseThreatDetectionPolicy { return *v }).(DatabaseThreatDetectionPolicyOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) DatabaseThreatDetectionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseThreatDetectionPolicy
+		return ret
+	}).(DatabaseThreatDetectionPolicyOutput)
 }
 
 // Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
@@ -933,7 +952,7 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToFailoverGroupReadW
 }
 
 func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) *FailoverGroupReadWriteEndpointFailoverPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReadWriteEndpointFailoverPolicy) *FailoverGroupReadWriteEndpointFailoverPolicy {
 		return &v
 	}).(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
 }
@@ -964,7 +983,11 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToFailoverGroupRe
 
 func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Elem() FailoverGroupReadWriteEndpointFailoverPolicyOutput {
 	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointFailoverPolicy) FailoverGroupReadWriteEndpointFailoverPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FailoverGroupReadWriteEndpointFailoverPolicy
+		return ret
 	}).(FailoverGroupReadWriteEndpointFailoverPolicyOutput)
 }
 
@@ -1081,7 +1104,7 @@ func (o FailoverGroupReadonlyEndpointFailoverPolicyOutput) ToFailoverGroupReadon
 }
 
 func (o FailoverGroupReadonlyEndpointFailoverPolicyOutput) ToFailoverGroupReadonlyEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput {
-	return o.ApplyT(func(v FailoverGroupReadonlyEndpointFailoverPolicy) *FailoverGroupReadonlyEndpointFailoverPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReadonlyEndpointFailoverPolicy) *FailoverGroupReadonlyEndpointFailoverPolicy {
 		return &v
 	}).(FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput)
 }
@@ -1107,7 +1130,11 @@ func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) ToFailoverGroupRea
 
 func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) Elem() FailoverGroupReadonlyEndpointFailoverPolicyOutput {
 	return o.ApplyT(func(v *FailoverGroupReadonlyEndpointFailoverPolicy) FailoverGroupReadonlyEndpointFailoverPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FailoverGroupReadonlyEndpointFailoverPolicy
+		return ret
 	}).(FailoverGroupReadonlyEndpointFailoverPolicyOutput)
 }
 
@@ -1230,7 +1257,7 @@ func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicy
 }
 
 func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
-	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *SqlServerExtendedAuditingPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlServerExtendedAuditingPolicy) *SqlServerExtendedAuditingPolicy {
 		return &v
 	}).(SqlServerExtendedAuditingPolicyPtrOutput)
 }
@@ -1275,7 +1302,13 @@ func (o SqlServerExtendedAuditingPolicyPtrOutput) ToSqlServerExtendedAuditingPol
 }
 
 func (o SqlServerExtendedAuditingPolicyPtrOutput) Elem() SqlServerExtendedAuditingPolicyOutput {
-	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) SqlServerExtendedAuditingPolicy { return *v }).(SqlServerExtendedAuditingPolicyOutput)
+	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) SqlServerExtendedAuditingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret SqlServerExtendedAuditingPolicy
+		return ret
+	}).(SqlServerExtendedAuditingPolicyOutput)
 }
 
 // (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
@@ -1429,7 +1462,7 @@ func (o SqlServerIdentityOutput) ToSqlServerIdentityPtrOutput() SqlServerIdentit
 }
 
 func (o SqlServerIdentityOutput) ToSqlServerIdentityPtrOutputWithContext(ctx context.Context) SqlServerIdentityPtrOutput {
-	return o.ApplyT(func(v SqlServerIdentity) *SqlServerIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlServerIdentity) *SqlServerIdentity {
 		return &v
 	}).(SqlServerIdentityPtrOutput)
 }
@@ -1464,7 +1497,13 @@ func (o SqlServerIdentityPtrOutput) ToSqlServerIdentityPtrOutputWithContext(ctx 
 }
 
 func (o SqlServerIdentityPtrOutput) Elem() SqlServerIdentityOutput {
-	return o.ApplyT(func(v *SqlServerIdentity) SqlServerIdentity { return *v }).(SqlServerIdentityOutput)
+	return o.ApplyT(func(v *SqlServerIdentity) SqlServerIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret SqlServerIdentity
+		return ret
+	}).(SqlServerIdentityOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this SQL Server.
@@ -1614,7 +1653,7 @@ func (o SqlServerThreatDetectionPolicyOutput) ToSqlServerThreatDetectionPolicyPt
 }
 
 func (o SqlServerThreatDetectionPolicyOutput) ToSqlServerThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) SqlServerThreatDetectionPolicyPtrOutput {
-	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) *SqlServerThreatDetectionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlServerThreatDetectionPolicy) *SqlServerThreatDetectionPolicy {
 		return &v
 	}).(SqlServerThreatDetectionPolicyPtrOutput)
 }
@@ -1669,7 +1708,13 @@ func (o SqlServerThreatDetectionPolicyPtrOutput) ToSqlServerThreatDetectionPolic
 }
 
 func (o SqlServerThreatDetectionPolicyPtrOutput) Elem() SqlServerThreatDetectionPolicyOutput {
-	return o.ApplyT(func(v *SqlServerThreatDetectionPolicy) SqlServerThreatDetectionPolicy { return *v }).(SqlServerThreatDetectionPolicyOutput)
+	return o.ApplyT(func(v *SqlServerThreatDetectionPolicy) SqlServerThreatDetectionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret SqlServerThreatDetectionPolicy
+		return ret
+	}).(SqlServerThreatDetectionPolicyOutput)
 }
 
 // Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Data_Exfiltration`, `Sql_Injection`, `Sql_Injection_Vulnerability` and `Unsafe_Action"`,.

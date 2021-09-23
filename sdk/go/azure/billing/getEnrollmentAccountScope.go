@@ -4,6 +4,9 @@
 package billing
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,57 @@ type GetEnrollmentAccountScopeResult struct {
 	EnrollmentAccountName string `pulumi:"enrollmentAccountName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetEnrollmentAccountScopeOutput(ctx *pulumi.Context, args GetEnrollmentAccountScopeOutputArgs, opts ...pulumi.InvokeOption) GetEnrollmentAccountScopeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetEnrollmentAccountScopeResult, error) {
+			args := v.(GetEnrollmentAccountScopeArgs)
+			r, err := GetEnrollmentAccountScope(ctx, &args, opts...)
+			return *r, err
+		}).(GetEnrollmentAccountScopeResultOutput)
+}
+
+// A collection of arguments for invoking getEnrollmentAccountScope.
+type GetEnrollmentAccountScopeOutputArgs struct {
+	// The Billing Account Name of the Enterprise Account.
+	BillingAccountName pulumi.StringInput `pulumi:"billingAccountName"`
+	// The Enrollment Account Name in the above Enterprise Account.
+	EnrollmentAccountName pulumi.StringInput `pulumi:"enrollmentAccountName"`
+}
+
+func (GetEnrollmentAccountScopeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnrollmentAccountScopeArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getEnrollmentAccountScope.
+type GetEnrollmentAccountScopeResultOutput struct{ *pulumi.OutputState }
+
+func (GetEnrollmentAccountScopeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnrollmentAccountScopeResult)(nil)).Elem()
+}
+
+func (o GetEnrollmentAccountScopeResultOutput) ToGetEnrollmentAccountScopeResultOutput() GetEnrollmentAccountScopeResultOutput {
+	return o
+}
+
+func (o GetEnrollmentAccountScopeResultOutput) ToGetEnrollmentAccountScopeResultOutputWithContext(ctx context.Context) GetEnrollmentAccountScopeResultOutput {
+	return o
+}
+
+func (o GetEnrollmentAccountScopeResultOutput) BillingAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnrollmentAccountScopeResult) string { return v.BillingAccountName }).(pulumi.StringOutput)
+}
+
+func (o GetEnrollmentAccountScopeResultOutput) EnrollmentAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnrollmentAccountScopeResult) string { return v.EnrollmentAccountName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetEnrollmentAccountScopeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnrollmentAccountScopeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetEnrollmentAccountScopeResultOutput{})
 }

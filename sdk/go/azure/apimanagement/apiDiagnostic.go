@@ -417,7 +417,7 @@ type ApiDiagnosticArrayInput interface {
 type ApiDiagnosticArray []ApiDiagnosticInput
 
 func (ApiDiagnosticArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiDiagnostic)(nil))
+	return reflect.TypeOf((*[]*ApiDiagnostic)(nil)).Elem()
 }
 
 func (i ApiDiagnosticArray) ToApiDiagnosticArrayOutput() ApiDiagnosticArrayOutput {
@@ -442,7 +442,7 @@ type ApiDiagnosticMapInput interface {
 type ApiDiagnosticMap map[string]ApiDiagnosticInput
 
 func (ApiDiagnosticMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiDiagnostic)(nil))
+	return reflect.TypeOf((*map[string]*ApiDiagnostic)(nil)).Elem()
 }
 
 func (i ApiDiagnosticMap) ToApiDiagnosticMapOutput() ApiDiagnosticMapOutput {
@@ -453,9 +453,7 @@ func (i ApiDiagnosticMap) ToApiDiagnosticMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticMapOutput)
 }
 
-type ApiDiagnosticOutput struct {
-	*pulumi.OutputState
-}
+type ApiDiagnosticOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiDiagnostic)(nil))
@@ -474,14 +472,12 @@ func (o ApiDiagnosticOutput) ToApiDiagnosticPtrOutput() ApiDiagnosticPtrOutput {
 }
 
 func (o ApiDiagnosticOutput) ToApiDiagnosticPtrOutputWithContext(ctx context.Context) ApiDiagnosticPtrOutput {
-	return o.ApplyT(func(v ApiDiagnostic) *ApiDiagnostic {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnostic) *ApiDiagnostic {
 		return &v
 	}).(ApiDiagnosticPtrOutput)
 }
 
-type ApiDiagnosticPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApiDiagnosticPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiDiagnostic)(nil))
@@ -493,6 +489,16 @@ func (o ApiDiagnosticPtrOutput) ToApiDiagnosticPtrOutput() ApiDiagnosticPtrOutpu
 
 func (o ApiDiagnosticPtrOutput) ToApiDiagnosticPtrOutputWithContext(ctx context.Context) ApiDiagnosticPtrOutput {
 	return o
+}
+
+func (o ApiDiagnosticPtrOutput) Elem() ApiDiagnosticOutput {
+	return o.ApplyT(func(v *ApiDiagnostic) ApiDiagnostic {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDiagnostic
+		return ret
+	}).(ApiDiagnosticOutput)
 }
 
 type ApiDiagnosticArrayOutput struct{ *pulumi.OutputState }

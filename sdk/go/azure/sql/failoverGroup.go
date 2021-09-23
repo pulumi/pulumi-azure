@@ -313,7 +313,7 @@ type FailoverGroupArrayInput interface {
 type FailoverGroupArray []FailoverGroupInput
 
 func (FailoverGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FailoverGroup)(nil))
+	return reflect.TypeOf((*[]*FailoverGroup)(nil)).Elem()
 }
 
 func (i FailoverGroupArray) ToFailoverGroupArrayOutput() FailoverGroupArrayOutput {
@@ -338,7 +338,7 @@ type FailoverGroupMapInput interface {
 type FailoverGroupMap map[string]FailoverGroupInput
 
 func (FailoverGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FailoverGroup)(nil))
+	return reflect.TypeOf((*map[string]*FailoverGroup)(nil)).Elem()
 }
 
 func (i FailoverGroupMap) ToFailoverGroupMapOutput() FailoverGroupMapOutput {
@@ -349,9 +349,7 @@ func (i FailoverGroupMap) ToFailoverGroupMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupMapOutput)
 }
 
-type FailoverGroupOutput struct {
-	*pulumi.OutputState
-}
+type FailoverGroupOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FailoverGroup)(nil))
@@ -370,14 +368,12 @@ func (o FailoverGroupOutput) ToFailoverGroupPtrOutput() FailoverGroupPtrOutput {
 }
 
 func (o FailoverGroupOutput) ToFailoverGroupPtrOutputWithContext(ctx context.Context) FailoverGroupPtrOutput {
-	return o.ApplyT(func(v FailoverGroup) *FailoverGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroup) *FailoverGroup {
 		return &v
 	}).(FailoverGroupPtrOutput)
 }
 
-type FailoverGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type FailoverGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FailoverGroup)(nil))
@@ -389,6 +385,16 @@ func (o FailoverGroupPtrOutput) ToFailoverGroupPtrOutput() FailoverGroupPtrOutpu
 
 func (o FailoverGroupPtrOutput) ToFailoverGroupPtrOutputWithContext(ctx context.Context) FailoverGroupPtrOutput {
 	return o
+}
+
+func (o FailoverGroupPtrOutput) Elem() FailoverGroupOutput {
+	return o.ApplyT(func(v *FailoverGroup) FailoverGroup {
+		if v != nil {
+			return *v
+		}
+		var ret FailoverGroup
+		return ret
+	}).(FailoverGroupOutput)
 }
 
 type FailoverGroupArrayOutput struct{ *pulumi.OutputState }

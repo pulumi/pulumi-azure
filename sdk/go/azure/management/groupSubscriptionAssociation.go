@@ -203,7 +203,7 @@ type GroupSubscriptionAssociationArrayInput interface {
 type GroupSubscriptionAssociationArray []GroupSubscriptionAssociationInput
 
 func (GroupSubscriptionAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GroupSubscriptionAssociation)(nil))
+	return reflect.TypeOf((*[]*GroupSubscriptionAssociation)(nil)).Elem()
 }
 
 func (i GroupSubscriptionAssociationArray) ToGroupSubscriptionAssociationArrayOutput() GroupSubscriptionAssociationArrayOutput {
@@ -228,7 +228,7 @@ type GroupSubscriptionAssociationMapInput interface {
 type GroupSubscriptionAssociationMap map[string]GroupSubscriptionAssociationInput
 
 func (GroupSubscriptionAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GroupSubscriptionAssociation)(nil))
+	return reflect.TypeOf((*map[string]*GroupSubscriptionAssociation)(nil)).Elem()
 }
 
 func (i GroupSubscriptionAssociationMap) ToGroupSubscriptionAssociationMapOutput() GroupSubscriptionAssociationMapOutput {
@@ -239,9 +239,7 @@ func (i GroupSubscriptionAssociationMap) ToGroupSubscriptionAssociationMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GroupSubscriptionAssociationMapOutput)
 }
 
-type GroupSubscriptionAssociationOutput struct {
-	*pulumi.OutputState
-}
+type GroupSubscriptionAssociationOutput struct{ *pulumi.OutputState }
 
 func (GroupSubscriptionAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupSubscriptionAssociation)(nil))
@@ -260,14 +258,12 @@ func (o GroupSubscriptionAssociationOutput) ToGroupSubscriptionAssociationPtrOut
 }
 
 func (o GroupSubscriptionAssociationOutput) ToGroupSubscriptionAssociationPtrOutputWithContext(ctx context.Context) GroupSubscriptionAssociationPtrOutput {
-	return o.ApplyT(func(v GroupSubscriptionAssociation) *GroupSubscriptionAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupSubscriptionAssociation) *GroupSubscriptionAssociation {
 		return &v
 	}).(GroupSubscriptionAssociationPtrOutput)
 }
 
-type GroupSubscriptionAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type GroupSubscriptionAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupSubscriptionAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupSubscriptionAssociation)(nil))
@@ -279,6 +275,16 @@ func (o GroupSubscriptionAssociationPtrOutput) ToGroupSubscriptionAssociationPtr
 
 func (o GroupSubscriptionAssociationPtrOutput) ToGroupSubscriptionAssociationPtrOutputWithContext(ctx context.Context) GroupSubscriptionAssociationPtrOutput {
 	return o
+}
+
+func (o GroupSubscriptionAssociationPtrOutput) Elem() GroupSubscriptionAssociationOutput {
+	return o.ApplyT(func(v *GroupSubscriptionAssociation) GroupSubscriptionAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret GroupSubscriptionAssociation
+		return ret
+	}).(GroupSubscriptionAssociationOutput)
 }
 
 type GroupSubscriptionAssociationArrayOutput struct{ *pulumi.OutputState }

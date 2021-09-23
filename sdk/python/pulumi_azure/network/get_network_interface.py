@@ -13,6 +13,7 @@ __all__ = [
     'GetNetworkInterfaceResult',
     'AwaitableGetNetworkInterfaceResult',
     'get_network_interface',
+    'get_network_interface_output',
 ]
 
 @pulumi.output_type
@@ -267,3 +268,28 @@ def get_network_interface(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags,
         virtual_machine_id=__ret__.virtual_machine_id)
+
+
+@_utilities.lift_output_func(get_network_interface)
+def get_network_interface_output(name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
+    """
+    Use this data source to access information about an existing Network Interface.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_network_interface(name="acctest-nic",
+        resource_group_name="networking")
+    pulumi.export("networkInterfaceId", example.id)
+    ```
+
+
+    :param str name: Specifies the name of the Network Interface.
+    :param str resource_group_name: Specifies the name of the resource group the Network Interface is located in.
+    """
+    ...

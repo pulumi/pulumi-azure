@@ -12,6 +12,7 @@ __all__ = [
     'GetTableEntityResult',
     'AwaitableGetTableEntityResult',
     'get_table_entity',
+    'get_table_entity_output',
 ]
 
 @pulumi.output_type
@@ -134,3 +135,33 @@ def get_table_entity(partition_key: Optional[str] = None,
         row_key=__ret__.row_key,
         storage_account_name=__ret__.storage_account_name,
         table_name=__ret__.table_name)
+
+
+@_utilities.lift_output_func(get_table_entity)
+def get_table_entity_output(partition_key: Optional[pulumi.Input[str]] = None,
+                            row_key: Optional[pulumi.Input[str]] = None,
+                            storage_account_name: Optional[pulumi.Input[str]] = None,
+                            table_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableEntityResult]:
+    """
+    Use this data source to access information about an existing Storage Table Entity.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.storage.get_table_entity(partition_key="example-parition-key",
+        row_key="example-row-key",
+        storage_account_name="example-storage-account-name",
+        table_name="example-table-name")
+    ```
+
+
+    :param str partition_key: The key for the partition where the entity will be retrieved.
+    :param str row_key: The key for the row where the entity will be retrieved.
+    :param str storage_account_name: The name of the Storage Account where the Table exists.
+    :param str table_name: The name of the Table.
+    """
+    ...

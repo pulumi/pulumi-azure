@@ -323,7 +323,7 @@ type SynapseSparkArrayInput interface {
 type SynapseSparkArray []SynapseSparkInput
 
 func (SynapseSparkArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SynapseSpark)(nil))
+	return reflect.TypeOf((*[]*SynapseSpark)(nil)).Elem()
 }
 
 func (i SynapseSparkArray) ToSynapseSparkArrayOutput() SynapseSparkArrayOutput {
@@ -348,7 +348,7 @@ type SynapseSparkMapInput interface {
 type SynapseSparkMap map[string]SynapseSparkInput
 
 func (SynapseSparkMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SynapseSpark)(nil))
+	return reflect.TypeOf((*map[string]*SynapseSpark)(nil)).Elem()
 }
 
 func (i SynapseSparkMap) ToSynapseSparkMapOutput() SynapseSparkMapOutput {
@@ -359,9 +359,7 @@ func (i SynapseSparkMap) ToSynapseSparkMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SynapseSparkMapOutput)
 }
 
-type SynapseSparkOutput struct {
-	*pulumi.OutputState
-}
+type SynapseSparkOutput struct{ *pulumi.OutputState }
 
 func (SynapseSparkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SynapseSpark)(nil))
@@ -380,14 +378,12 @@ func (o SynapseSparkOutput) ToSynapseSparkPtrOutput() SynapseSparkPtrOutput {
 }
 
 func (o SynapseSparkOutput) ToSynapseSparkPtrOutputWithContext(ctx context.Context) SynapseSparkPtrOutput {
-	return o.ApplyT(func(v SynapseSpark) *SynapseSpark {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SynapseSpark) *SynapseSpark {
 		return &v
 	}).(SynapseSparkPtrOutput)
 }
 
-type SynapseSparkPtrOutput struct {
-	*pulumi.OutputState
-}
+type SynapseSparkPtrOutput struct{ *pulumi.OutputState }
 
 func (SynapseSparkPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SynapseSpark)(nil))
@@ -399,6 +395,16 @@ func (o SynapseSparkPtrOutput) ToSynapseSparkPtrOutput() SynapseSparkPtrOutput {
 
 func (o SynapseSparkPtrOutput) ToSynapseSparkPtrOutputWithContext(ctx context.Context) SynapseSparkPtrOutput {
 	return o
+}
+
+func (o SynapseSparkPtrOutput) Elem() SynapseSparkOutput {
+	return o.ApplyT(func(v *SynapseSpark) SynapseSpark {
+		if v != nil {
+			return *v
+		}
+		var ret SynapseSpark
+		return ret
+	}).(SynapseSparkOutput)
 }
 
 type SynapseSparkArrayOutput struct{ *pulumi.OutputState }

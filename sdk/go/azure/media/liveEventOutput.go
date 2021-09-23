@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type LiveEventOutput struct {
+type LiveEventOutputResource struct {
 	pulumi.CustomResourceState
 
 	ArchiveWindowDuration    pulumi.StringOutput    `pulumi:"archiveWindowDuration"`
@@ -24,9 +24,9 @@ type LiveEventOutput struct {
 	OutputSnapTimeInSeconds  pulumi.IntPtrOutput    `pulumi:"outputSnapTimeInSeconds"`
 }
 
-// NewLiveEventOutput registers a new resource with the given unique name, arguments, and options.
-func NewLiveEventOutput(ctx *pulumi.Context,
-	name string, args *LiveEventOutputArgs, opts ...pulumi.ResourceOption) (*LiveEventOutput, error) {
+// NewLiveEventOutputResource registers a new resource with the given unique name, arguments, and options.
+func NewLiveEventOutputResource(ctx *pulumi.Context,
+	name string, args *LiveEventOutputResourceArgs, opts ...pulumi.ResourceOption) (*LiveEventOutputResource, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -40,7 +40,7 @@ func NewLiveEventOutput(ctx *pulumi.Context,
 	if args.LiveEventId == nil {
 		return nil, errors.New("invalid value for required argument 'LiveEventId'")
 	}
-	var resource LiveEventOutput
+	var resource LiveEventOutputResource
 	err := ctx.RegisterResource("azure:media/liveEventOutput:LiveEventOutput", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -48,11 +48,11 @@ func NewLiveEventOutput(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// GetLiveEventOutput gets an existing LiveEventOutput resource's state with the given name, ID, and optional
+// GetLiveEventOutputResource gets an existing LiveEventOutputResource resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetLiveEventOutput(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *LiveEventOutputState, opts ...pulumi.ResourceOption) (*LiveEventOutput, error) {
-	var resource LiveEventOutput
+func GetLiveEventOutputResource(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *LiveEventOutputResourceState, opts ...pulumi.ResourceOption) (*LiveEventOutputResource, error) {
+	var resource LiveEventOutputResource
 	err := ctx.ReadResource("azure:media/liveEventOutput:LiveEventOutput", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -60,8 +60,8 @@ func GetLiveEventOutput(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering LiveEventOutput resources.
-type liveEventOutputState struct {
+// Input properties used for looking up and filtering LiveEventOutputResource resources.
+type liveEventOutputResourceState struct {
 	ArchiveWindowDuration    *string `pulumi:"archiveWindowDuration"`
 	AssetName                *string `pulumi:"assetName"`
 	Description              *string `pulumi:"description"`
@@ -72,7 +72,7 @@ type liveEventOutputState struct {
 	OutputSnapTimeInSeconds  *int    `pulumi:"outputSnapTimeInSeconds"`
 }
 
-type LiveEventOutputState struct {
+type LiveEventOutputResourceState struct {
 	ArchiveWindowDuration    pulumi.StringPtrInput
 	AssetName                pulumi.StringPtrInput
 	Description              pulumi.StringPtrInput
@@ -83,11 +83,11 @@ type LiveEventOutputState struct {
 	OutputSnapTimeInSeconds  pulumi.IntPtrInput
 }
 
-func (LiveEventOutputState) ElementType() reflect.Type {
-	return reflect.TypeOf((*liveEventOutputState)(nil)).Elem()
+func (LiveEventOutputResourceState) ElementType() reflect.Type {
+	return reflect.TypeOf((*liveEventOutputResourceState)(nil)).Elem()
 }
 
-type liveEventOutputArgs struct {
+type liveEventOutputResourceArgs struct {
 	ArchiveWindowDuration    string  `pulumi:"archiveWindowDuration"`
 	AssetName                string  `pulumi:"assetName"`
 	Description              *string `pulumi:"description"`
@@ -98,8 +98,8 @@ type liveEventOutputArgs struct {
 	OutputSnapTimeInSeconds  *int    `pulumi:"outputSnapTimeInSeconds"`
 }
 
-// The set of arguments for constructing a LiveEventOutput resource.
-type LiveEventOutputArgs struct {
+// The set of arguments for constructing a LiveEventOutputResource resource.
+type LiveEventOutputResourceArgs struct {
 	ArchiveWindowDuration    pulumi.StringInput
 	AssetName                pulumi.StringInput
 	Description              pulumi.StringPtrInput
@@ -110,193 +110,199 @@ type LiveEventOutputArgs struct {
 	OutputSnapTimeInSeconds  pulumi.IntPtrInput
 }
 
-func (LiveEventOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*liveEventOutputArgs)(nil)).Elem()
+func (LiveEventOutputResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*liveEventOutputResourceArgs)(nil)).Elem()
 }
 
-type LiveEventOutputInput interface {
+type LiveEventOutputResourceInput interface {
 	pulumi.Input
 
-	ToLiveEventOutputOutput() LiveEventOutputOutput
-	ToLiveEventOutputOutputWithContext(ctx context.Context) LiveEventOutputOutput
+	ToLiveEventOutputResourceOutput() LiveEventOutputResourceOutput
+	ToLiveEventOutputResourceOutputWithContext(ctx context.Context) LiveEventOutputResourceOutput
 }
 
-func (*LiveEventOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventOutput)(nil))
+func (*LiveEventOutputResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventOutputResource)(nil))
 }
 
-func (i *LiveEventOutput) ToLiveEventOutputOutput() LiveEventOutputOutput {
-	return i.ToLiveEventOutputOutputWithContext(context.Background())
+func (i *LiveEventOutputResource) ToLiveEventOutputResourceOutput() LiveEventOutputResourceOutput {
+	return i.ToLiveEventOutputResourceOutputWithContext(context.Background())
 }
 
-func (i *LiveEventOutput) ToLiveEventOutputOutputWithContext(ctx context.Context) LiveEventOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputOutput)
+func (i *LiveEventOutputResource) ToLiveEventOutputResourceOutputWithContext(ctx context.Context) LiveEventOutputResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputResourceOutput)
 }
 
-func (i *LiveEventOutput) ToLiveEventOutputPtrOutput() LiveEventOutputPtrOutput {
-	return i.ToLiveEventOutputPtrOutputWithContext(context.Background())
+func (i *LiveEventOutputResource) ToLiveEventOutputResourcePtrOutput() LiveEventOutputResourcePtrOutput {
+	return i.ToLiveEventOutputResourcePtrOutputWithContext(context.Background())
 }
 
-func (i *LiveEventOutput) ToLiveEventOutputPtrOutputWithContext(ctx context.Context) LiveEventOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputPtrOutput)
+func (i *LiveEventOutputResource) ToLiveEventOutputResourcePtrOutputWithContext(ctx context.Context) LiveEventOutputResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputResourcePtrOutput)
 }
 
-type LiveEventOutputPtrInput interface {
+type LiveEventOutputResourcePtrInput interface {
 	pulumi.Input
 
-	ToLiveEventOutputPtrOutput() LiveEventOutputPtrOutput
-	ToLiveEventOutputPtrOutputWithContext(ctx context.Context) LiveEventOutputPtrOutput
+	ToLiveEventOutputResourcePtrOutput() LiveEventOutputResourcePtrOutput
+	ToLiveEventOutputResourcePtrOutputWithContext(ctx context.Context) LiveEventOutputResourcePtrOutput
 }
 
-type liveEventOutputPtrType LiveEventOutputArgs
+type liveEventOutputResourcePtrType LiveEventOutputResourceArgs
 
-func (*liveEventOutputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventOutput)(nil))
+func (*liveEventOutputResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventOutputResource)(nil))
 }
 
-func (i *liveEventOutputPtrType) ToLiveEventOutputPtrOutput() LiveEventOutputPtrOutput {
-	return i.ToLiveEventOutputPtrOutputWithContext(context.Background())
+func (i *liveEventOutputResourcePtrType) ToLiveEventOutputResourcePtrOutput() LiveEventOutputResourcePtrOutput {
+	return i.ToLiveEventOutputResourcePtrOutputWithContext(context.Background())
 }
 
-func (i *liveEventOutputPtrType) ToLiveEventOutputPtrOutputWithContext(ctx context.Context) LiveEventOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputPtrOutput)
+func (i *liveEventOutputResourcePtrType) ToLiveEventOutputResourcePtrOutputWithContext(ctx context.Context) LiveEventOutputResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputResourcePtrOutput)
 }
 
-// LiveEventOutputArrayInput is an input type that accepts LiveEventOutputArray and LiveEventOutputArrayOutput values.
-// You can construct a concrete instance of `LiveEventOutputArrayInput` via:
+// LiveEventOutputResourceArrayInput is an input type that accepts LiveEventOutputResourceArray and LiveEventOutputResourceArrayOutput values.
+// You can construct a concrete instance of `LiveEventOutputResourceArrayInput` via:
 //
-//          LiveEventOutputArray{ LiveEventOutputArgs{...} }
-type LiveEventOutputArrayInput interface {
+//          LiveEventOutputResourceArray{ LiveEventOutputResourceArgs{...} }
+type LiveEventOutputResourceArrayInput interface {
 	pulumi.Input
 
-	ToLiveEventOutputArrayOutput() LiveEventOutputArrayOutput
-	ToLiveEventOutputArrayOutputWithContext(context.Context) LiveEventOutputArrayOutput
+	ToLiveEventOutputResourceArrayOutput() LiveEventOutputResourceArrayOutput
+	ToLiveEventOutputResourceArrayOutputWithContext(context.Context) LiveEventOutputResourceArrayOutput
 }
 
-type LiveEventOutputArray []LiveEventOutputInput
+type LiveEventOutputResourceArray []LiveEventOutputResourceInput
 
-func (LiveEventOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LiveEventOutput)(nil))
+func (LiveEventOutputResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]*LiveEventOutputResource)(nil)).Elem()
 }
 
-func (i LiveEventOutputArray) ToLiveEventOutputArrayOutput() LiveEventOutputArrayOutput {
-	return i.ToLiveEventOutputArrayOutputWithContext(context.Background())
+func (i LiveEventOutputResourceArray) ToLiveEventOutputResourceArrayOutput() LiveEventOutputResourceArrayOutput {
+	return i.ToLiveEventOutputResourceArrayOutputWithContext(context.Background())
 }
 
-func (i LiveEventOutputArray) ToLiveEventOutputArrayOutputWithContext(ctx context.Context) LiveEventOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputArrayOutput)
+func (i LiveEventOutputResourceArray) ToLiveEventOutputResourceArrayOutputWithContext(ctx context.Context) LiveEventOutputResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputResourceArrayOutput)
 }
 
-// LiveEventOutputMapInput is an input type that accepts LiveEventOutputMap and LiveEventOutputMapOutput values.
-// You can construct a concrete instance of `LiveEventOutputMapInput` via:
+// LiveEventOutputResourceMapInput is an input type that accepts LiveEventOutputResourceMap and LiveEventOutputResourceMapOutput values.
+// You can construct a concrete instance of `LiveEventOutputResourceMapInput` via:
 //
-//          LiveEventOutputMap{ "key": LiveEventOutputArgs{...} }
-type LiveEventOutputMapInput interface {
+//          LiveEventOutputResourceMap{ "key": LiveEventOutputResourceArgs{...} }
+type LiveEventOutputResourceMapInput interface {
 	pulumi.Input
 
-	ToLiveEventOutputMapOutput() LiveEventOutputMapOutput
-	ToLiveEventOutputMapOutputWithContext(context.Context) LiveEventOutputMapOutput
+	ToLiveEventOutputResourceMapOutput() LiveEventOutputResourceMapOutput
+	ToLiveEventOutputResourceMapOutputWithContext(context.Context) LiveEventOutputResourceMapOutput
 }
 
-type LiveEventOutputMap map[string]LiveEventOutputInput
+type LiveEventOutputResourceMap map[string]LiveEventOutputResourceInput
 
-func (LiveEventOutputMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LiveEventOutput)(nil))
+func (LiveEventOutputResourceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]*LiveEventOutputResource)(nil)).Elem()
 }
 
-func (i LiveEventOutputMap) ToLiveEventOutputMapOutput() LiveEventOutputMapOutput {
-	return i.ToLiveEventOutputMapOutputWithContext(context.Background())
+func (i LiveEventOutputResourceMap) ToLiveEventOutputResourceMapOutput() LiveEventOutputResourceMapOutput {
+	return i.ToLiveEventOutputResourceMapOutputWithContext(context.Background())
 }
 
-func (i LiveEventOutputMap) ToLiveEventOutputMapOutputWithContext(ctx context.Context) LiveEventOutputMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputMapOutput)
+func (i LiveEventOutputResourceMap) ToLiveEventOutputResourceMapOutputWithContext(ctx context.Context) LiveEventOutputResourceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputResourceMapOutput)
 }
 
-type LiveEventOutputOutput struct {
-	*pulumi.OutputState
+type LiveEventOutputResourceOutput struct{ *pulumi.OutputState }
+
+func (LiveEventOutputResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventOutputResource)(nil))
 }
 
-func (LiveEventOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventOutput)(nil))
-}
-
-func (o LiveEventOutputOutput) ToLiveEventOutputOutput() LiveEventOutputOutput {
+func (o LiveEventOutputResourceOutput) ToLiveEventOutputResourceOutput() LiveEventOutputResourceOutput {
 	return o
 }
 
-func (o LiveEventOutputOutput) ToLiveEventOutputOutputWithContext(ctx context.Context) LiveEventOutputOutput {
+func (o LiveEventOutputResourceOutput) ToLiveEventOutputResourceOutputWithContext(ctx context.Context) LiveEventOutputResourceOutput {
 	return o
 }
 
-func (o LiveEventOutputOutput) ToLiveEventOutputPtrOutput() LiveEventOutputPtrOutput {
-	return o.ToLiveEventOutputPtrOutputWithContext(context.Background())
+func (o LiveEventOutputResourceOutput) ToLiveEventOutputResourcePtrOutput() LiveEventOutputResourcePtrOutput {
+	return o.ToLiveEventOutputResourcePtrOutputWithContext(context.Background())
 }
 
-func (o LiveEventOutputOutput) ToLiveEventOutputPtrOutputWithContext(ctx context.Context) LiveEventOutputPtrOutput {
-	return o.ApplyT(func(v LiveEventOutput) *LiveEventOutput {
+func (o LiveEventOutputResourceOutput) ToLiveEventOutputResourcePtrOutputWithContext(ctx context.Context) LiveEventOutputResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventOutputResource) *LiveEventOutputResource {
 		return &v
-	}).(LiveEventOutputPtrOutput)
+	}).(LiveEventOutputResourcePtrOutput)
 }
 
-type LiveEventOutputPtrOutput struct {
-	*pulumi.OutputState
+type LiveEventOutputResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (LiveEventOutputResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventOutputResource)(nil))
 }
 
-func (LiveEventOutputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventOutput)(nil))
-}
-
-func (o LiveEventOutputPtrOutput) ToLiveEventOutputPtrOutput() LiveEventOutputPtrOutput {
+func (o LiveEventOutputResourcePtrOutput) ToLiveEventOutputResourcePtrOutput() LiveEventOutputResourcePtrOutput {
 	return o
 }
 
-func (o LiveEventOutputPtrOutput) ToLiveEventOutputPtrOutputWithContext(ctx context.Context) LiveEventOutputPtrOutput {
+func (o LiveEventOutputResourcePtrOutput) ToLiveEventOutputResourcePtrOutputWithContext(ctx context.Context) LiveEventOutputResourcePtrOutput {
 	return o
 }
 
-type LiveEventOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (LiveEventOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LiveEventOutput)(nil))
+func (o LiveEventOutputResourcePtrOutput) Elem() LiveEventOutputResourceOutput {
+	return o.ApplyT(func(v *LiveEventOutputResource) LiveEventOutputResource {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventOutputResource
+		return ret
+	}).(LiveEventOutputResourceOutput)
 }
 
-func (o LiveEventOutputArrayOutput) ToLiveEventOutputArrayOutput() LiveEventOutputArrayOutput {
+type LiveEventOutputResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventOutputResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventOutputResource)(nil))
+}
+
+func (o LiveEventOutputResourceArrayOutput) ToLiveEventOutputResourceArrayOutput() LiveEventOutputResourceArrayOutput {
 	return o
 }
 
-func (o LiveEventOutputArrayOutput) ToLiveEventOutputArrayOutputWithContext(ctx context.Context) LiveEventOutputArrayOutput {
+func (o LiveEventOutputResourceArrayOutput) ToLiveEventOutputResourceArrayOutputWithContext(ctx context.Context) LiveEventOutputResourceArrayOutput {
 	return o
 }
 
-func (o LiveEventOutputArrayOutput) Index(i pulumi.IntInput) LiveEventOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventOutput {
-		return vs[0].([]LiveEventOutput)[vs[1].(int)]
-	}).(LiveEventOutputOutput)
+func (o LiveEventOutputResourceArrayOutput) Index(i pulumi.IntInput) LiveEventOutputResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventOutputResource {
+		return vs[0].([]LiveEventOutputResource)[vs[1].(int)]
+	}).(LiveEventOutputResourceOutput)
 }
 
-type LiveEventOutputMapOutput struct{ *pulumi.OutputState }
+type LiveEventOutputResourceMapOutput struct{ *pulumi.OutputState }
 
-func (LiveEventOutputMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LiveEventOutput)(nil))
+func (LiveEventOutputResourceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LiveEventOutputResource)(nil))
 }
 
-func (o LiveEventOutputMapOutput) ToLiveEventOutputMapOutput() LiveEventOutputMapOutput {
+func (o LiveEventOutputResourceMapOutput) ToLiveEventOutputResourceMapOutput() LiveEventOutputResourceMapOutput {
 	return o
 }
 
-func (o LiveEventOutputMapOutput) ToLiveEventOutputMapOutputWithContext(ctx context.Context) LiveEventOutputMapOutput {
+func (o LiveEventOutputResourceMapOutput) ToLiveEventOutputResourceMapOutputWithContext(ctx context.Context) LiveEventOutputResourceMapOutput {
 	return o
 }
 
-func (o LiveEventOutputMapOutput) MapIndex(k pulumi.StringInput) LiveEventOutputOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LiveEventOutput {
-		return vs[0].(map[string]LiveEventOutput)[vs[1].(string)]
-	}).(LiveEventOutputOutput)
+func (o LiveEventOutputResourceMapOutput) MapIndex(k pulumi.StringInput) LiveEventOutputResourceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LiveEventOutputResource {
+		return vs[0].(map[string]LiveEventOutputResource)[vs[1].(string)]
+	}).(LiveEventOutputResourceOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(LiveEventOutputOutput{})
-	pulumi.RegisterOutputType(LiveEventOutputPtrOutput{})
-	pulumi.RegisterOutputType(LiveEventOutputArrayOutput{})
-	pulumi.RegisterOutputType(LiveEventOutputMapOutput{})
+	pulumi.RegisterOutputType(LiveEventOutputResourceOutput{})
+	pulumi.RegisterOutputType(LiveEventOutputResourcePtrOutput{})
+	pulumi.RegisterOutputType(LiveEventOutputResourceArrayOutput{})
+	pulumi.RegisterOutputType(LiveEventOutputResourceMapOutput{})
 }

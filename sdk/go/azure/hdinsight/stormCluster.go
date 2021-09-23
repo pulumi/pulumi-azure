@@ -376,7 +376,7 @@ type StormClusterArrayInput interface {
 type StormClusterArray []StormClusterInput
 
 func (StormClusterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StormCluster)(nil))
+	return reflect.TypeOf((*[]*StormCluster)(nil)).Elem()
 }
 
 func (i StormClusterArray) ToStormClusterArrayOutput() StormClusterArrayOutput {
@@ -401,7 +401,7 @@ type StormClusterMapInput interface {
 type StormClusterMap map[string]StormClusterInput
 
 func (StormClusterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StormCluster)(nil))
+	return reflect.TypeOf((*map[string]*StormCluster)(nil)).Elem()
 }
 
 func (i StormClusterMap) ToStormClusterMapOutput() StormClusterMapOutput {
@@ -412,9 +412,7 @@ func (i StormClusterMap) ToStormClusterMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterMapOutput)
 }
 
-type StormClusterOutput struct {
-	*pulumi.OutputState
-}
+type StormClusterOutput struct{ *pulumi.OutputState }
 
 func (StormClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StormCluster)(nil))
@@ -433,14 +431,12 @@ func (o StormClusterOutput) ToStormClusterPtrOutput() StormClusterPtrOutput {
 }
 
 func (o StormClusterOutput) ToStormClusterPtrOutputWithContext(ctx context.Context) StormClusterPtrOutput {
-	return o.ApplyT(func(v StormCluster) *StormCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormCluster) *StormCluster {
 		return &v
 	}).(StormClusterPtrOutput)
 }
 
-type StormClusterPtrOutput struct {
-	*pulumi.OutputState
-}
+type StormClusterPtrOutput struct{ *pulumi.OutputState }
 
 func (StormClusterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StormCluster)(nil))
@@ -452,6 +448,16 @@ func (o StormClusterPtrOutput) ToStormClusterPtrOutput() StormClusterPtrOutput {
 
 func (o StormClusterPtrOutput) ToStormClusterPtrOutputWithContext(ctx context.Context) StormClusterPtrOutput {
 	return o
+}
+
+func (o StormClusterPtrOutput) Elem() StormClusterOutput {
+	return o.ApplyT(func(v *StormCluster) StormCluster {
+		if v != nil {
+			return *v
+		}
+		var ret StormCluster
+		return ret
+	}).(StormClusterOutput)
 }
 
 type StormClusterArrayOutput struct{ *pulumi.OutputState }

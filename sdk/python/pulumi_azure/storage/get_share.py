@@ -14,6 +14,7 @@ __all__ = [
     'GetShareResult',
     'AwaitableGetShareResult',
     'get_share',
+    'get_share_output',
 ]
 
 @pulumi.output_type
@@ -151,3 +152,32 @@ def get_share(acls: Optional[Sequence[pulumi.InputType['GetShareAclArgs']]] = No
         quota=__ret__.quota,
         resource_manager_id=__ret__.resource_manager_id,
         storage_account_name=__ret__.storage_account_name)
+
+
+@_utilities.lift_output_func(get_share)
+def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetShareAclArgs']]]]] = None,
+                     metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                     name: Optional[pulumi.Input[str]] = None,
+                     storage_account_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareResult]:
+    """
+    Use this data source to access information about an existing File Share.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.storage.get_share(name="existing",
+        storage_account_name="existing")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetShareAclArgs']] acls: One or more acl blocks as defined below.
+    :param Mapping[str, str] metadata: A map of custom file share metadata.
+    :param str name: The name of the share.
+    :param str storage_account_name: The name of the storage account.
+    """
+    ...

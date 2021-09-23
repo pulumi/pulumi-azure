@@ -203,7 +203,7 @@ type PrivateLinkHubArrayInput interface {
 type PrivateLinkHubArray []PrivateLinkHubInput
 
 func (PrivateLinkHubArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PrivateLinkHub)(nil))
+	return reflect.TypeOf((*[]*PrivateLinkHub)(nil)).Elem()
 }
 
 func (i PrivateLinkHubArray) ToPrivateLinkHubArrayOutput() PrivateLinkHubArrayOutput {
@@ -228,7 +228,7 @@ type PrivateLinkHubMapInput interface {
 type PrivateLinkHubMap map[string]PrivateLinkHubInput
 
 func (PrivateLinkHubMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PrivateLinkHub)(nil))
+	return reflect.TypeOf((*map[string]*PrivateLinkHub)(nil)).Elem()
 }
 
 func (i PrivateLinkHubMap) ToPrivateLinkHubMapOutput() PrivateLinkHubMapOutput {
@@ -239,9 +239,7 @@ func (i PrivateLinkHubMap) ToPrivateLinkHubMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkHubMapOutput)
 }
 
-type PrivateLinkHubOutput struct {
-	*pulumi.OutputState
-}
+type PrivateLinkHubOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkHub)(nil))
@@ -260,14 +258,12 @@ func (o PrivateLinkHubOutput) ToPrivateLinkHubPtrOutput() PrivateLinkHubPtrOutpu
 }
 
 func (o PrivateLinkHubOutput) ToPrivateLinkHubPtrOutputWithContext(ctx context.Context) PrivateLinkHubPtrOutput {
-	return o.ApplyT(func(v PrivateLinkHub) *PrivateLinkHub {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkHub) *PrivateLinkHub {
 		return &v
 	}).(PrivateLinkHubPtrOutput)
 }
 
-type PrivateLinkHubPtrOutput struct {
-	*pulumi.OutputState
-}
+type PrivateLinkHubPtrOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkHubPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PrivateLinkHub)(nil))
@@ -279,6 +275,16 @@ func (o PrivateLinkHubPtrOutput) ToPrivateLinkHubPtrOutput() PrivateLinkHubPtrOu
 
 func (o PrivateLinkHubPtrOutput) ToPrivateLinkHubPtrOutputWithContext(ctx context.Context) PrivateLinkHubPtrOutput {
 	return o
+}
+
+func (o PrivateLinkHubPtrOutput) Elem() PrivateLinkHubOutput {
+	return o.ApplyT(func(v *PrivateLinkHub) PrivateLinkHub {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkHub
+		return ret
+	}).(PrivateLinkHubOutput)
 }
 
 type PrivateLinkHubArrayOutput struct{ *pulumi.OutputState }

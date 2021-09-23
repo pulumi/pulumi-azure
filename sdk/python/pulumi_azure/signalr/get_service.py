@@ -12,6 +12,7 @@ __all__ = [
     'GetServiceResult',
     'AwaitableGetServiceResult',
     'get_service',
+    'get_service_output',
 ]
 
 @pulumi.output_type
@@ -220,3 +221,27 @@ def get_service(name: Optional[str] = None,
         secondary_connection_string=__ret__.secondary_connection_string,
         server_port=__ret__.server_port,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_service)
+def get_service_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+    """
+    Use this data source to access information about an existing Azure SignalR service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.signalr.get_service(name="test-signalr",
+        resource_group_name="signalr-resource-group")
+    ```
+
+
+    :param str name: Specifies the name of the SignalR service.
+    :param str resource_group_name: Specifies the name of the resource group the SignalR service is located in.
+    """
+    ...

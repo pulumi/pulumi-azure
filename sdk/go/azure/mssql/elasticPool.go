@@ -313,7 +313,7 @@ type ElasticPoolArrayInput interface {
 type ElasticPoolArray []ElasticPoolInput
 
 func (ElasticPoolArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ElasticPool)(nil))
+	return reflect.TypeOf((*[]*ElasticPool)(nil)).Elem()
 }
 
 func (i ElasticPoolArray) ToElasticPoolArrayOutput() ElasticPoolArrayOutput {
@@ -338,7 +338,7 @@ type ElasticPoolMapInput interface {
 type ElasticPoolMap map[string]ElasticPoolInput
 
 func (ElasticPoolMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ElasticPool)(nil))
+	return reflect.TypeOf((*map[string]*ElasticPool)(nil)).Elem()
 }
 
 func (i ElasticPoolMap) ToElasticPoolMapOutput() ElasticPoolMapOutput {
@@ -349,9 +349,7 @@ func (i ElasticPoolMap) ToElasticPoolMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolMapOutput)
 }
 
-type ElasticPoolOutput struct {
-	*pulumi.OutputState
-}
+type ElasticPoolOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ElasticPool)(nil))
@@ -370,14 +368,12 @@ func (o ElasticPoolOutput) ToElasticPoolPtrOutput() ElasticPoolPtrOutput {
 }
 
 func (o ElasticPoolOutput) ToElasticPoolPtrOutputWithContext(ctx context.Context) ElasticPoolPtrOutput {
-	return o.ApplyT(func(v ElasticPool) *ElasticPool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPool) *ElasticPool {
 		return &v
 	}).(ElasticPoolPtrOutput)
 }
 
-type ElasticPoolPtrOutput struct {
-	*pulumi.OutputState
-}
+type ElasticPoolPtrOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ElasticPool)(nil))
@@ -389,6 +385,16 @@ func (o ElasticPoolPtrOutput) ToElasticPoolPtrOutput() ElasticPoolPtrOutput {
 
 func (o ElasticPoolPtrOutput) ToElasticPoolPtrOutputWithContext(ctx context.Context) ElasticPoolPtrOutput {
 	return o
+}
+
+func (o ElasticPoolPtrOutput) Elem() ElasticPoolOutput {
+	return o.ApplyT(func(v *ElasticPool) ElasticPool {
+		if v != nil {
+			return *v
+		}
+		var ret ElasticPool
+		return ret
+	}).(ElasticPoolOutput)
 }
 
 type ElasticPoolArrayOutput struct{ *pulumi.OutputState }

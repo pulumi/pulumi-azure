@@ -12,6 +12,7 @@ __all__ = [
     'GetPolicyVMResult',
     'AwaitableGetPolicyVMResult',
     'get_policy_vm',
+    'get_policy_vm_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,30 @@ def get_policy_vm(name: Optional[str] = None,
         recovery_vault_name=__ret__.recovery_vault_name,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_policy_vm)
+def get_policy_vm_output(name: Optional[pulumi.Input[str]] = None,
+                         recovery_vault_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyVMResult]:
+    """
+    Use this data source to access information about an existing VM Backup Policy.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    policy = azure.backup.get_policy_vm(name="policy",
+        recovery_vault_name="recovery_vault",
+        resource_group_name="resource_group")
+    ```
+
+
+    :param str name: Specifies the name of the VM Backup Policy.
+    :param str recovery_vault_name: Specifies the name of the Recovery Services Vault.
+    :param str resource_group_name: The name of the resource group in which the VM Backup Policy resides.
+    """
+    ...

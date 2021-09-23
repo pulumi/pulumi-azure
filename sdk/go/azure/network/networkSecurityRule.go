@@ -384,7 +384,7 @@ type NetworkSecurityRuleArrayInput interface {
 type NetworkSecurityRuleArray []NetworkSecurityRuleInput
 
 func (NetworkSecurityRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkSecurityRule)(nil))
+	return reflect.TypeOf((*[]*NetworkSecurityRule)(nil)).Elem()
 }
 
 func (i NetworkSecurityRuleArray) ToNetworkSecurityRuleArrayOutput() NetworkSecurityRuleArrayOutput {
@@ -409,7 +409,7 @@ type NetworkSecurityRuleMapInput interface {
 type NetworkSecurityRuleMap map[string]NetworkSecurityRuleInput
 
 func (NetworkSecurityRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkSecurityRule)(nil))
+	return reflect.TypeOf((*map[string]*NetworkSecurityRule)(nil)).Elem()
 }
 
 func (i NetworkSecurityRuleMap) ToNetworkSecurityRuleMapOutput() NetworkSecurityRuleMapOutput {
@@ -420,9 +420,7 @@ func (i NetworkSecurityRuleMap) ToNetworkSecurityRuleMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityRuleMapOutput)
 }
 
-type NetworkSecurityRuleOutput struct {
-	*pulumi.OutputState
-}
+type NetworkSecurityRuleOutput struct{ *pulumi.OutputState }
 
 func (NetworkSecurityRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkSecurityRule)(nil))
@@ -441,14 +439,12 @@ func (o NetworkSecurityRuleOutput) ToNetworkSecurityRulePtrOutput() NetworkSecur
 }
 
 func (o NetworkSecurityRuleOutput) ToNetworkSecurityRulePtrOutputWithContext(ctx context.Context) NetworkSecurityRulePtrOutput {
-	return o.ApplyT(func(v NetworkSecurityRule) *NetworkSecurityRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkSecurityRule) *NetworkSecurityRule {
 		return &v
 	}).(NetworkSecurityRulePtrOutput)
 }
 
-type NetworkSecurityRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type NetworkSecurityRulePtrOutput struct{ *pulumi.OutputState }
 
 func (NetworkSecurityRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NetworkSecurityRule)(nil))
@@ -460,6 +456,16 @@ func (o NetworkSecurityRulePtrOutput) ToNetworkSecurityRulePtrOutput() NetworkSe
 
 func (o NetworkSecurityRulePtrOutput) ToNetworkSecurityRulePtrOutputWithContext(ctx context.Context) NetworkSecurityRulePtrOutput {
 	return o
+}
+
+func (o NetworkSecurityRulePtrOutput) Elem() NetworkSecurityRuleOutput {
+	return o.ApplyT(func(v *NetworkSecurityRule) NetworkSecurityRule {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkSecurityRule
+		return ret
+	}).(NetworkSecurityRuleOutput)
 }
 
 type NetworkSecurityRuleArrayOutput struct{ *pulumi.OutputState }

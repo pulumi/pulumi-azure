@@ -303,7 +303,7 @@ func (o GroupContainerGpuOutput) ToGroupContainerGpuPtrOutput() GroupContainerGp
 }
 
 func (o GroupContainerGpuOutput) ToGroupContainerGpuPtrOutputWithContext(ctx context.Context) GroupContainerGpuPtrOutput {
-	return o.ApplyT(func(v GroupContainerGpu) *GroupContainerGpu {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupContainerGpu) *GroupContainerGpu {
 		return &v
 	}).(GroupContainerGpuPtrOutput)
 }
@@ -333,7 +333,13 @@ func (o GroupContainerGpuPtrOutput) ToGroupContainerGpuPtrOutputWithContext(ctx 
 }
 
 func (o GroupContainerGpuPtrOutput) Elem() GroupContainerGpuOutput {
-	return o.ApplyT(func(v *GroupContainerGpu) GroupContainerGpu { return *v }).(GroupContainerGpuOutput)
+	return o.ApplyT(func(v *GroupContainerGpu) GroupContainerGpu {
+		if v != nil {
+			return *v
+		}
+		var ret GroupContainerGpu
+		return ret
+	}).(GroupContainerGpuOutput)
 }
 
 // The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
@@ -473,7 +479,7 @@ func (o GroupContainerLivenessProbeOutput) ToGroupContainerLivenessProbePtrOutpu
 }
 
 func (o GroupContainerLivenessProbeOutput) ToGroupContainerLivenessProbePtrOutputWithContext(ctx context.Context) GroupContainerLivenessProbePtrOutput {
-	return o.ApplyT(func(v GroupContainerLivenessProbe) *GroupContainerLivenessProbe {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupContainerLivenessProbe) *GroupContainerLivenessProbe {
 		return &v
 	}).(GroupContainerLivenessProbePtrOutput)
 }
@@ -528,7 +534,13 @@ func (o GroupContainerLivenessProbePtrOutput) ToGroupContainerLivenessProbePtrOu
 }
 
 func (o GroupContainerLivenessProbePtrOutput) Elem() GroupContainerLivenessProbeOutput {
-	return o.ApplyT(func(v *GroupContainerLivenessProbe) GroupContainerLivenessProbe { return *v }).(GroupContainerLivenessProbeOutput)
+	return o.ApplyT(func(v *GroupContainerLivenessProbe) GroupContainerLivenessProbe {
+		if v != nil {
+			return *v
+		}
+		var ret GroupContainerLivenessProbe
+		return ret
+	}).(GroupContainerLivenessProbeOutput)
 }
 
 // Commands to be run to validate container readiness. Changing this forces a new resource to be created.
@@ -939,7 +951,7 @@ func (o GroupContainerReadinessProbeOutput) ToGroupContainerReadinessProbePtrOut
 }
 
 func (o GroupContainerReadinessProbeOutput) ToGroupContainerReadinessProbePtrOutputWithContext(ctx context.Context) GroupContainerReadinessProbePtrOutput {
-	return o.ApplyT(func(v GroupContainerReadinessProbe) *GroupContainerReadinessProbe {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupContainerReadinessProbe) *GroupContainerReadinessProbe {
 		return &v
 	}).(GroupContainerReadinessProbePtrOutput)
 }
@@ -994,7 +1006,13 @@ func (o GroupContainerReadinessProbePtrOutput) ToGroupContainerReadinessProbePtr
 }
 
 func (o GroupContainerReadinessProbePtrOutput) Elem() GroupContainerReadinessProbeOutput {
-	return o.ApplyT(func(v *GroupContainerReadinessProbe) GroupContainerReadinessProbe { return *v }).(GroupContainerReadinessProbeOutput)
+	return o.ApplyT(func(v *GroupContainerReadinessProbe) GroupContainerReadinessProbe {
+		if v != nil {
+			return *v
+		}
+		var ret GroupContainerReadinessProbe
+		return ret
+	}).(GroupContainerReadinessProbeOutput)
 }
 
 // Commands to be run to validate container readiness. Changing this forces a new resource to be created.
@@ -1452,7 +1470,7 @@ func (o GroupContainerVolumeGitRepoOutput) ToGroupContainerVolumeGitRepoPtrOutpu
 }
 
 func (o GroupContainerVolumeGitRepoOutput) ToGroupContainerVolumeGitRepoPtrOutputWithContext(ctx context.Context) GroupContainerVolumeGitRepoPtrOutput {
-	return o.ApplyT(func(v GroupContainerVolumeGitRepo) *GroupContainerVolumeGitRepo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupContainerVolumeGitRepo) *GroupContainerVolumeGitRepo {
 		return &v
 	}).(GroupContainerVolumeGitRepoPtrOutput)
 }
@@ -1487,7 +1505,13 @@ func (o GroupContainerVolumeGitRepoPtrOutput) ToGroupContainerVolumeGitRepoPtrOu
 }
 
 func (o GroupContainerVolumeGitRepoPtrOutput) Elem() GroupContainerVolumeGitRepoOutput {
-	return o.ApplyT(func(v *GroupContainerVolumeGitRepo) GroupContainerVolumeGitRepo { return *v }).(GroupContainerVolumeGitRepoOutput)
+	return o.ApplyT(func(v *GroupContainerVolumeGitRepo) GroupContainerVolumeGitRepo {
+		if v != nil {
+			return *v
+		}
+		var ret GroupContainerVolumeGitRepo
+		return ret
+	}).(GroupContainerVolumeGitRepoOutput)
 }
 
 // Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
@@ -1613,7 +1637,7 @@ func (o GroupDiagnosticsOutput) ToGroupDiagnosticsPtrOutput() GroupDiagnosticsPt
 }
 
 func (o GroupDiagnosticsOutput) ToGroupDiagnosticsPtrOutputWithContext(ctx context.Context) GroupDiagnosticsPtrOutput {
-	return o.ApplyT(func(v GroupDiagnostics) *GroupDiagnostics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupDiagnostics) *GroupDiagnostics {
 		return &v
 	}).(GroupDiagnosticsPtrOutput)
 }
@@ -1638,7 +1662,13 @@ func (o GroupDiagnosticsPtrOutput) ToGroupDiagnosticsPtrOutputWithContext(ctx co
 }
 
 func (o GroupDiagnosticsPtrOutput) Elem() GroupDiagnosticsOutput {
-	return o.ApplyT(func(v *GroupDiagnostics) GroupDiagnostics { return *v }).(GroupDiagnosticsOutput)
+	return o.ApplyT(func(v *GroupDiagnostics) GroupDiagnostics {
+		if v != nil {
+			return *v
+		}
+		var ret GroupDiagnostics
+		return ret
+	}).(GroupDiagnosticsOutput)
 }
 
 // A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
@@ -1756,7 +1786,7 @@ func (o GroupDiagnosticsLogAnalyticsOutput) ToGroupDiagnosticsLogAnalyticsPtrOut
 }
 
 func (o GroupDiagnosticsLogAnalyticsOutput) ToGroupDiagnosticsLogAnalyticsPtrOutputWithContext(ctx context.Context) GroupDiagnosticsLogAnalyticsPtrOutput {
-	return o.ApplyT(func(v GroupDiagnosticsLogAnalytics) *GroupDiagnosticsLogAnalytics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupDiagnosticsLogAnalytics) *GroupDiagnosticsLogAnalytics {
 		return &v
 	}).(GroupDiagnosticsLogAnalyticsPtrOutput)
 }
@@ -1796,7 +1826,13 @@ func (o GroupDiagnosticsLogAnalyticsPtrOutput) ToGroupDiagnosticsLogAnalyticsPtr
 }
 
 func (o GroupDiagnosticsLogAnalyticsPtrOutput) Elem() GroupDiagnosticsLogAnalyticsOutput {
-	return o.ApplyT(func(v *GroupDiagnosticsLogAnalytics) GroupDiagnosticsLogAnalytics { return *v }).(GroupDiagnosticsLogAnalyticsOutput)
+	return o.ApplyT(func(v *GroupDiagnosticsLogAnalytics) GroupDiagnosticsLogAnalytics {
+		if v != nil {
+			return *v
+		}
+		var ret GroupDiagnosticsLogAnalytics
+		return ret
+	}).(GroupDiagnosticsLogAnalyticsOutput)
 }
 
 // The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
@@ -1940,7 +1976,7 @@ func (o GroupDnsConfigOutput) ToGroupDnsConfigPtrOutput() GroupDnsConfigPtrOutpu
 }
 
 func (o GroupDnsConfigOutput) ToGroupDnsConfigPtrOutputWithContext(ctx context.Context) GroupDnsConfigPtrOutput {
-	return o.ApplyT(func(v GroupDnsConfig) *GroupDnsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupDnsConfig) *GroupDnsConfig {
 		return &v
 	}).(GroupDnsConfigPtrOutput)
 }
@@ -1975,7 +2011,13 @@ func (o GroupDnsConfigPtrOutput) ToGroupDnsConfigPtrOutputWithContext(ctx contex
 }
 
 func (o GroupDnsConfigPtrOutput) Elem() GroupDnsConfigOutput {
-	return o.ApplyT(func(v *GroupDnsConfig) GroupDnsConfig { return *v }).(GroupDnsConfigOutput)
+	return o.ApplyT(func(v *GroupDnsConfig) GroupDnsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GroupDnsConfig
+		return ret
+	}).(GroupDnsConfigOutput)
 }
 
 // A list of nameservers the containers will search out to resolve requests.
@@ -2213,7 +2255,7 @@ func (o GroupIdentityOutput) ToGroupIdentityPtrOutput() GroupIdentityPtrOutput {
 }
 
 func (o GroupIdentityOutput) ToGroupIdentityPtrOutputWithContext(ctx context.Context) GroupIdentityPtrOutput {
-	return o.ApplyT(func(v GroupIdentity) *GroupIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupIdentity) *GroupIdentity {
 		return &v
 	}).(GroupIdentityPtrOutput)
 }
@@ -2247,7 +2289,13 @@ func (o GroupIdentityPtrOutput) ToGroupIdentityPtrOutputWithContext(ctx context.
 }
 
 func (o GroupIdentityPtrOutput) Elem() GroupIdentityOutput {
-	return o.ApplyT(func(v *GroupIdentity) GroupIdentity { return *v }).(GroupIdentityOutput)
+	return o.ApplyT(func(v *GroupIdentity) GroupIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret GroupIdentity
+		return ret
+	}).(GroupIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
@@ -2507,7 +2555,7 @@ func (o KubernetesClusterAddonProfileOutput) ToKubernetesClusterAddonProfilePtrO
 }
 
 func (o KubernetesClusterAddonProfileOutput) ToKubernetesClusterAddonProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfilePtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfile {
 		return &v
 	}).(KubernetesClusterAddonProfilePtrOutput)
 }
@@ -2565,7 +2613,13 @@ func (o KubernetesClusterAddonProfilePtrOutput) ToKubernetesClusterAddonProfileP
 }
 
 func (o KubernetesClusterAddonProfilePtrOutput) Elem() KubernetesClusterAddonProfileOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfile) KubernetesClusterAddonProfile { return *v }).(KubernetesClusterAddonProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfile) KubernetesClusterAddonProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterAddonProfile
+		return ret
+	}).(KubernetesClusterAddonProfileOutput)
 }
 
 // A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
@@ -2725,7 +2779,7 @@ func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) ToKubernetesCluste
 }
 
 func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileAciConnectorLinux) *KubernetesClusterAddonProfileAciConnectorLinux {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileAciConnectorLinux) *KubernetesClusterAddonProfileAciConnectorLinux {
 		return &v
 	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
@@ -2756,7 +2810,11 @@ func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) ToKubernetesClu
 
 func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) Elem() KubernetesClusterAddonProfileAciConnectorLinuxOutput {
 	return o.ApplyT(func(v *KubernetesClusterAddonProfileAciConnectorLinux) KubernetesClusterAddonProfileAciConnectorLinux {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterAddonProfileAciConnectorLinux
+		return ret
 	}).(KubernetesClusterAddonProfileAciConnectorLinuxOutput)
 }
 
@@ -2873,7 +2931,7 @@ func (o KubernetesClusterAddonProfileAzurePolicyOutput) ToKubernetesClusterAddon
 }
 
 func (o KubernetesClusterAddonProfileAzurePolicyOutput) ToKubernetesClusterAddonProfileAzurePolicyPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileAzurePolicy) *KubernetesClusterAddonProfileAzurePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileAzurePolicy) *KubernetesClusterAddonProfileAzurePolicy {
 		return &v
 	}).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
 }
@@ -2898,7 +2956,13 @@ func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) ToKubernetesClusterAd
 }
 
 func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) Elem() KubernetesClusterAddonProfileAzurePolicyOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzurePolicy) KubernetesClusterAddonProfileAzurePolicy { return *v }).(KubernetesClusterAddonProfileAzurePolicyOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzurePolicy) KubernetesClusterAddonProfileAzurePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterAddonProfileAzurePolicy
+		return ret
+	}).(KubernetesClusterAddonProfileAzurePolicyOutput)
 }
 
 // Is the Azure Policy for Kubernetes Add On enabled?
@@ -3008,7 +3072,7 @@ func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToKubernetesC
 }
 
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileHttpApplicationRouting) *KubernetesClusterAddonProfileHttpApplicationRouting {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileHttpApplicationRouting) *KubernetesClusterAddonProfileHttpApplicationRouting {
 		return &v
 	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
@@ -3041,7 +3105,11 @@ func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) ToKubernet
 
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) Elem() KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
 	return o.ApplyT(func(v *KubernetesClusterAddonProfileHttpApplicationRouting) KubernetesClusterAddonProfileHttpApplicationRouting {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterAddonProfileHttpApplicationRouting
+		return ret
 	}).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput)
 }
 
@@ -3182,7 +3250,7 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToKubernet
 }
 
 func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *KubernetesClusterAddonProfileIngressApplicationGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileIngressApplicationGateway) *KubernetesClusterAddonProfileIngressApplicationGateway {
 		return &v
 	}).(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput)
 }
@@ -3240,7 +3308,11 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) ToKuber
 
 func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) Elem() KubernetesClusterAddonProfileIngressApplicationGatewayOutput {
 	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) KubernetesClusterAddonProfileIngressApplicationGateway {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterAddonProfileIngressApplicationGateway
+		return ret
 	}).(KubernetesClusterAddonProfileIngressApplicationGatewayOutput)
 }
 
@@ -3528,7 +3600,7 @@ func (o KubernetesClusterAddonProfileKubeDashboardOutput) ToKubernetesClusterAdd
 }
 
 func (o KubernetesClusterAddonProfileKubeDashboardOutput) ToKubernetesClusterAddonProfileKubeDashboardPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileKubeDashboard) *KubernetesClusterAddonProfileKubeDashboard {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileKubeDashboard) *KubernetesClusterAddonProfileKubeDashboard {
 		return &v
 	}).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
 }
@@ -3554,7 +3626,11 @@ func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) ToKubernetesCluster
 
 func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) Elem() KubernetesClusterAddonProfileKubeDashboardOutput {
 	return o.ApplyT(func(v *KubernetesClusterAddonProfileKubeDashboard) KubernetesClusterAddonProfileKubeDashboard {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterAddonProfileKubeDashboard
+		return ret
 	}).(KubernetesClusterAddonProfileKubeDashboardOutput)
 }
 
@@ -3669,7 +3745,7 @@ func (o KubernetesClusterAddonProfileOmsAgentOutput) ToKubernetesClusterAddonPro
 }
 
 func (o KubernetesClusterAddonProfileOmsAgentOutput) ToKubernetesClusterAddonProfileOmsAgentPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) *KubernetesClusterAddonProfileOmsAgent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileOmsAgent) *KubernetesClusterAddonProfileOmsAgent {
 		return &v
 	}).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
@@ -3706,7 +3782,13 @@ func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) ToKubernetesClusterAddon
 }
 
 func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) Elem() KubernetesClusterAddonProfileOmsAgentOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileOmsAgent) KubernetesClusterAddonProfileOmsAgent { return *v }).(KubernetesClusterAddonProfileOmsAgentOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileOmsAgent) KubernetesClusterAddonProfileOmsAgent {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterAddonProfileOmsAgent
+		return ret
+	}).(KubernetesClusterAddonProfileOmsAgentOutput)
 }
 
 // Is the OMS Agent Enabled?
@@ -4011,7 +4093,7 @@ func (o KubernetesClusterAutoScalerProfileOutput) ToKubernetesClusterAutoScalerP
 }
 
 func (o KubernetesClusterAutoScalerProfileOutput) ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterAutoScalerProfilePtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *KubernetesClusterAutoScalerProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAutoScalerProfile) *KubernetesClusterAutoScalerProfile {
 		return &v
 	}).(KubernetesClusterAutoScalerProfilePtrOutput)
 }
@@ -4116,7 +4198,13 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) ToKubernetesClusterAutoScal
 }
 
 func (o KubernetesClusterAutoScalerProfilePtrOutput) Elem() KubernetesClusterAutoScalerProfileOutput {
-	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) KubernetesClusterAutoScalerProfile { return *v }).(KubernetesClusterAutoScalerProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) KubernetesClusterAutoScalerProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterAutoScalerProfile
+		return ret
+	}).(KubernetesClusterAutoScalerProfileOutput)
 }
 
 // Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
@@ -4490,7 +4578,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePo
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePoolPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePool {
 		return &v
 	}).(KubernetesClusterDefaultNodePoolPtrOutput)
 }
@@ -4659,7 +4747,13 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) ToKubernetesClusterDefaultNod
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Elem() KubernetesClusterDefaultNodePoolOutput {
-	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) KubernetesClusterDefaultNodePool { return *v }).(KubernetesClusterDefaultNodePoolOutput)
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) KubernetesClusterDefaultNodePool {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterDefaultNodePool
+		return ret
+	}).(KubernetesClusterDefaultNodePoolOutput)
 }
 
 // A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
@@ -5079,7 +5173,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ToKubernetesCluster
 }
 
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *KubernetesClusterDefaultNodePoolKubeletConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterDefaultNodePoolKubeletConfig) *KubernetesClusterDefaultNodePoolKubeletConfig {
 		return &v
 	}).(KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput)
 }
@@ -5150,7 +5244,11 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ToKubernetesClus
 
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) Elem() KubernetesClusterDefaultNodePoolKubeletConfigOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) KubernetesClusterDefaultNodePoolKubeletConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterDefaultNodePoolKubeletConfig
+		return ret
 	}).(KubernetesClusterDefaultNodePoolKubeletConfigOutput)
 }
 
@@ -5359,7 +5457,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) ToKubernetesCluster
 }
 
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *KubernetesClusterDefaultNodePoolLinuxOsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterDefaultNodePoolLinuxOsConfig) *KubernetesClusterDefaultNodePoolLinuxOsConfig {
 		return &v
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput)
 }
@@ -5402,7 +5500,11 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) ToKubernetesClus
 
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) Elem() KubernetesClusterDefaultNodePoolLinuxOsConfigOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) KubernetesClusterDefaultNodePoolLinuxOsConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterDefaultNodePoolLinuxOsConfig
+		return ret
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigOutput)
 }
 
@@ -5651,7 +5753,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) ToKuber
 }
 
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
 		return &v
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput)
 }
@@ -5845,7 +5947,11 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) ToKu
 
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) Elem() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig
+		return ret
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput)
 }
 
@@ -6232,7 +6338,7 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ToKubernetesClust
 }
 
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) *KubernetesClusterDefaultNodePoolUpgradeSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterDefaultNodePoolUpgradeSettings) *KubernetesClusterDefaultNodePoolUpgradeSettings {
 		return &v
 	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
 }
@@ -6258,7 +6364,11 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) ToKubernetesCl
 
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) Elem() KubernetesClusterDefaultNodePoolUpgradeSettingsOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolUpgradeSettings) KubernetesClusterDefaultNodePoolUpgradeSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterDefaultNodePoolUpgradeSettings
+		return ret
 	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput)
 }
 
@@ -6377,7 +6487,7 @@ func (o KubernetesClusterIdentityOutput) ToKubernetesClusterIdentityPtrOutput() 
 }
 
 func (o KubernetesClusterIdentityOutput) ToKubernetesClusterIdentityPtrOutputWithContext(ctx context.Context) KubernetesClusterIdentityPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterIdentity) *KubernetesClusterIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterIdentity) *KubernetesClusterIdentity {
 		return &v
 	}).(KubernetesClusterIdentityPtrOutput)
 }
@@ -6417,7 +6527,13 @@ func (o KubernetesClusterIdentityPtrOutput) ToKubernetesClusterIdentityPtrOutput
 }
 
 func (o KubernetesClusterIdentityPtrOutput) Elem() KubernetesClusterIdentityOutput {
-	return o.ApplyT(func(v *KubernetesClusterIdentity) KubernetesClusterIdentity { return *v }).(KubernetesClusterIdentityOutput)
+	return o.ApplyT(func(v *KubernetesClusterIdentity) KubernetesClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterIdentity
+		return ret
+	}).(KubernetesClusterIdentityOutput)
 }
 
 // The principal id of the system assigned identity which is used by main components.
@@ -6956,7 +7072,7 @@ func (o KubernetesClusterLinuxProfileOutput) ToKubernetesClusterLinuxProfilePtrO
 }
 
 func (o KubernetesClusterLinuxProfileOutput) ToKubernetesClusterLinuxProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterLinuxProfilePtrOutput {
-	return o.ApplyT(func(v KubernetesClusterLinuxProfile) *KubernetesClusterLinuxProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterLinuxProfile) *KubernetesClusterLinuxProfile {
 		return &v
 	}).(KubernetesClusterLinuxProfilePtrOutput)
 }
@@ -6986,7 +7102,13 @@ func (o KubernetesClusterLinuxProfilePtrOutput) ToKubernetesClusterLinuxProfileP
 }
 
 func (o KubernetesClusterLinuxProfilePtrOutput) Elem() KubernetesClusterLinuxProfileOutput {
-	return o.ApplyT(func(v *KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfile { return *v }).(KubernetesClusterLinuxProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterLinuxProfile
+		return ret
+	}).(KubernetesClusterLinuxProfileOutput)
 }
 
 // The Admin Username for the Cluster. Changing this forces a new resource to be created.
@@ -7102,7 +7224,7 @@ func (o KubernetesClusterLinuxProfileSshKeyOutput) ToKubernetesClusterLinuxProfi
 }
 
 func (o KubernetesClusterLinuxProfileSshKeyOutput) ToKubernetesClusterLinuxProfileSshKeyPtrOutputWithContext(ctx context.Context) KubernetesClusterLinuxProfileSshKeyPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterLinuxProfileSshKey) *KubernetesClusterLinuxProfileSshKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterLinuxProfileSshKey) *KubernetesClusterLinuxProfileSshKey {
 		return &v
 	}).(KubernetesClusterLinuxProfileSshKeyPtrOutput)
 }
@@ -7127,7 +7249,13 @@ func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) ToKubernetesClusterLinuxPr
 }
 
 func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) Elem() KubernetesClusterLinuxProfileSshKeyOutput {
-	return o.ApplyT(func(v *KubernetesClusterLinuxProfileSshKey) KubernetesClusterLinuxProfileSshKey { return *v }).(KubernetesClusterLinuxProfileSshKeyOutput)
+	return o.ApplyT(func(v *KubernetesClusterLinuxProfileSshKey) KubernetesClusterLinuxProfileSshKey {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterLinuxProfileSshKey
+		return ret
+	}).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
 
 // The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
@@ -7237,7 +7365,7 @@ func (o KubernetesClusterMaintenanceWindowOutput) ToKubernetesClusterMaintenance
 }
 
 func (o KubernetesClusterMaintenanceWindowOutput) ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterMaintenanceWindow) *KubernetesClusterMaintenanceWindow {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterMaintenanceWindow) *KubernetesClusterMaintenanceWindow {
 		return &v
 	}).(KubernetesClusterMaintenanceWindowPtrOutput)
 }
@@ -7271,7 +7399,13 @@ func (o KubernetesClusterMaintenanceWindowPtrOutput) ToKubernetesClusterMaintena
 }
 
 func (o KubernetesClusterMaintenanceWindowPtrOutput) Elem() KubernetesClusterMaintenanceWindowOutput {
-	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindow) KubernetesClusterMaintenanceWindow { return *v }).(KubernetesClusterMaintenanceWindowOutput)
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindow) KubernetesClusterMaintenanceWindow {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterMaintenanceWindow
+		return ret
+	}).(KubernetesClusterMaintenanceWindowOutput)
 }
 
 // One or more `allowed` block as defined below.
@@ -7635,7 +7769,7 @@ func (o KubernetesClusterNetworkProfileOutput) ToKubernetesClusterNetworkProfile
 }
 
 func (o KubernetesClusterNetworkProfileOutput) ToKubernetesClusterNetworkProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfilePtrOutput {
-	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfile {
 		return &v
 	}).(KubernetesClusterNetworkProfilePtrOutput)
 }
@@ -7707,7 +7841,13 @@ func (o KubernetesClusterNetworkProfilePtrOutput) ToKubernetesClusterNetworkProf
 }
 
 func (o KubernetesClusterNetworkProfilePtrOutput) Elem() KubernetesClusterNetworkProfileOutput {
-	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) KubernetesClusterNetworkProfile { return *v }).(KubernetesClusterNetworkProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) KubernetesClusterNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNetworkProfile
+		return ret
+	}).(KubernetesClusterNetworkProfileOutput)
 }
 
 // IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
@@ -7923,7 +8063,7 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ToKubernetesCl
 }
 
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ToKubernetesClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
-	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNetworkProfileLoadBalancerProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
 		return &v
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
@@ -7974,7 +8114,11 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ToKubernete
 
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) Elem() KubernetesClusterNetworkProfileLoadBalancerProfileOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) KubernetesClusterNetworkProfileLoadBalancerProfile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNetworkProfileLoadBalancerProfile
+		return ret
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfileOutput)
 }
 
@@ -8165,7 +8309,7 @@ func (o KubernetesClusterNodePoolKubeletConfigOutput) ToKubernetesClusterNodePoo
 }
 
 func (o KubernetesClusterNodePoolKubeletConfigOutput) ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolKubeletConfigPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *KubernetesClusterNodePoolKubeletConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNodePoolKubeletConfig) *KubernetesClusterNodePoolKubeletConfig {
 		return &v
 	}).(KubernetesClusterNodePoolKubeletConfigPtrOutput)
 }
@@ -8234,7 +8378,13 @@ func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ToKubernetesClusterNode
 }
 
 func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) Elem() KubernetesClusterNodePoolKubeletConfigOutput {
-	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) KubernetesClusterNodePoolKubeletConfig { return *v }).(KubernetesClusterNodePoolKubeletConfigOutput)
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) KubernetesClusterNodePoolKubeletConfig {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNodePoolKubeletConfig
+		return ret
+	}).(KubernetesClusterNodePoolKubeletConfigOutput)
 }
 
 // Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
@@ -8441,7 +8591,7 @@ func (o KubernetesClusterNodePoolLinuxOsConfigOutput) ToKubernetesClusterNodePoo
 }
 
 func (o KubernetesClusterNodePoolLinuxOsConfigOutput) ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfig) *KubernetesClusterNodePoolLinuxOsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNodePoolLinuxOsConfig) *KubernetesClusterNodePoolLinuxOsConfig {
 		return &v
 	}).(KubernetesClusterNodePoolLinuxOsConfigPtrOutput)
 }
@@ -8483,7 +8633,13 @@ func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) ToKubernetesClusterNode
 }
 
 func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) Elem() KubernetesClusterNodePoolLinuxOsConfigOutput {
-	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfig) KubernetesClusterNodePoolLinuxOsConfig { return *v }).(KubernetesClusterNodePoolLinuxOsConfigOutput)
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfig) KubernetesClusterNodePoolLinuxOsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNodePoolLinuxOsConfig
+		return ret
+	}).(KubernetesClusterNodePoolLinuxOsConfigOutput)
 }
 
 // Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
@@ -8731,7 +8887,7 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) ToKubernetesCl
 }
 
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
 		return &v
 	}).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput)
 }
@@ -8899,7 +9055,11 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) ToKubernete
 
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) Elem() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNodePoolLinuxOsConfigSysctlConfig
+		return ret
 	}).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput)
 }
 
@@ -9286,7 +9446,7 @@ func (o KubernetesClusterNodePoolUpgradeSettingsOutput) ToKubernetesClusterNodeP
 }
 
 func (o KubernetesClusterNodePoolUpgradeSettingsOutput) ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) *KubernetesClusterNodePoolUpgradeSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNodePoolUpgradeSettings) *KubernetesClusterNodePoolUpgradeSettings {
 		return &v
 	}).(KubernetesClusterNodePoolUpgradeSettingsPtrOutput)
 }
@@ -9311,7 +9471,13 @@ func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) ToKubernetesClusterNo
 }
 
 func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) Elem() KubernetesClusterNodePoolUpgradeSettingsOutput {
-	return o.ApplyT(func(v *KubernetesClusterNodePoolUpgradeSettings) KubernetesClusterNodePoolUpgradeSettings { return *v }).(KubernetesClusterNodePoolUpgradeSettingsOutput)
+	return o.ApplyT(func(v *KubernetesClusterNodePoolUpgradeSettings) KubernetesClusterNodePoolUpgradeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNodePoolUpgradeSettings
+		return ret
+	}).(KubernetesClusterNodePoolUpgradeSettingsOutput)
 }
 
 // The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
@@ -9421,7 +9587,7 @@ func (o KubernetesClusterRoleBasedAccessControlOutput) ToKubernetesClusterRoleBa
 }
 
 func (o KubernetesClusterRoleBasedAccessControlOutput) ToKubernetesClusterRoleBasedAccessControlPtrOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControl {
 		return &v
 	}).(KubernetesClusterRoleBasedAccessControlPtrOutput)
 }
@@ -9453,7 +9619,13 @@ func (o KubernetesClusterRoleBasedAccessControlPtrOutput) ToKubernetesClusterRol
 }
 
 func (o KubernetesClusterRoleBasedAccessControlPtrOutput) Elem() KubernetesClusterRoleBasedAccessControlOutput {
-	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControl) KubernetesClusterRoleBasedAccessControl { return *v }).(KubernetesClusterRoleBasedAccessControlOutput)
+	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControl) KubernetesClusterRoleBasedAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterRoleBasedAccessControl
+		return ret
+	}).(KubernetesClusterRoleBasedAccessControlOutput)
 }
 
 // An `azureActiveDirectory` block.
@@ -9593,7 +9765,7 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToKub
 }
 
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
 		return &v
 	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
 }
@@ -9651,7 +9823,11 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) To
 
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) Elem() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
 	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterRoleBasedAccessControlAzureActiveDirectory
+		return ret
 	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
 }
 
@@ -9822,7 +9998,7 @@ func (o KubernetesClusterServicePrincipalOutput) ToKubernetesClusterServicePrinc
 }
 
 func (o KubernetesClusterServicePrincipalOutput) ToKubernetesClusterServicePrincipalPtrOutputWithContext(ctx context.Context) KubernetesClusterServicePrincipalPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterServicePrincipal) *KubernetesClusterServicePrincipal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterServicePrincipal) *KubernetesClusterServicePrincipal {
 		return &v
 	}).(KubernetesClusterServicePrincipalPtrOutput)
 }
@@ -9852,7 +10028,13 @@ func (o KubernetesClusterServicePrincipalPtrOutput) ToKubernetesClusterServicePr
 }
 
 func (o KubernetesClusterServicePrincipalPtrOutput) Elem() KubernetesClusterServicePrincipalOutput {
-	return o.ApplyT(func(v *KubernetesClusterServicePrincipal) KubernetesClusterServicePrincipal { return *v }).(KubernetesClusterServicePrincipalOutput)
+	return o.ApplyT(func(v *KubernetesClusterServicePrincipal) KubernetesClusterServicePrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterServicePrincipal
+		return ret
+	}).(KubernetesClusterServicePrincipalOutput)
 }
 
 // The Client ID for the Service Principal.
@@ -9976,7 +10158,7 @@ func (o KubernetesClusterWindowsProfileOutput) ToKubernetesClusterWindowsProfile
 }
 
 func (o KubernetesClusterWindowsProfileOutput) ToKubernetesClusterWindowsProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterWindowsProfilePtrOutput {
-	return o.ApplyT(func(v KubernetesClusterWindowsProfile) *KubernetesClusterWindowsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterWindowsProfile) *KubernetesClusterWindowsProfile {
 		return &v
 	}).(KubernetesClusterWindowsProfilePtrOutput)
 }
@@ -10011,7 +10193,13 @@ func (o KubernetesClusterWindowsProfilePtrOutput) ToKubernetesClusterWindowsProf
 }
 
 func (o KubernetesClusterWindowsProfilePtrOutput) Elem() KubernetesClusterWindowsProfileOutput {
-	return o.ApplyT(func(v *KubernetesClusterWindowsProfile) KubernetesClusterWindowsProfile { return *v }).(KubernetesClusterWindowsProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterWindowsProfile) KubernetesClusterWindowsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterWindowsProfile
+		return ret
+	}).(KubernetesClusterWindowsProfileOutput)
 }
 
 // The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
@@ -10145,7 +10333,7 @@ func (o RegistryEncryptionOutput) ToRegistryEncryptionPtrOutput() RegistryEncryp
 }
 
 func (o RegistryEncryptionOutput) ToRegistryEncryptionPtrOutputWithContext(ctx context.Context) RegistryEncryptionPtrOutput {
-	return o.ApplyT(func(v RegistryEncryption) *RegistryEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryEncryption) *RegistryEncryption {
 		return &v
 	}).(RegistryEncryptionPtrOutput)
 }
@@ -10180,7 +10368,13 @@ func (o RegistryEncryptionPtrOutput) ToRegistryEncryptionPtrOutputWithContext(ct
 }
 
 func (o RegistryEncryptionPtrOutput) Elem() RegistryEncryptionOutput {
-	return o.ApplyT(func(v *RegistryEncryption) RegistryEncryption { return *v }).(RegistryEncryptionOutput)
+	return o.ApplyT(func(v *RegistryEncryption) RegistryEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryEncryption
+		return ret
+	}).(RegistryEncryptionOutput)
 }
 
 // Boolean value that indicates whether encryption is enabled.
@@ -10433,7 +10627,7 @@ func (o RegistryIdentityOutput) ToRegistryIdentityPtrOutput() RegistryIdentityPt
 }
 
 func (o RegistryIdentityOutput) ToRegistryIdentityPtrOutputWithContext(ctx context.Context) RegistryIdentityPtrOutput {
-	return o.ApplyT(func(v RegistryIdentity) *RegistryIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryIdentity) *RegistryIdentity {
 		return &v
 	}).(RegistryIdentityPtrOutput)
 }
@@ -10473,7 +10667,13 @@ func (o RegistryIdentityPtrOutput) ToRegistryIdentityPtrOutputWithContext(ctx co
 }
 
 func (o RegistryIdentityPtrOutput) Elem() RegistryIdentityOutput {
-	return o.ApplyT(func(v *RegistryIdentity) RegistryIdentity { return *v }).(RegistryIdentityOutput)
+	return o.ApplyT(func(v *RegistryIdentity) RegistryIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryIdentity
+		return ret
+	}).(RegistryIdentityOutput)
 }
 
 // A list of User Managed Identity ID's which should be assigned to the Container Registry.
@@ -10617,7 +10817,7 @@ func (o RegistryNetworkRuleSetOutput) ToRegistryNetworkRuleSetPtrOutput() Regist
 }
 
 func (o RegistryNetworkRuleSetOutput) ToRegistryNetworkRuleSetPtrOutputWithContext(ctx context.Context) RegistryNetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v RegistryNetworkRuleSet) *RegistryNetworkRuleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryNetworkRuleSet) *RegistryNetworkRuleSet {
 		return &v
 	}).(RegistryNetworkRuleSetPtrOutput)
 }
@@ -10652,7 +10852,13 @@ func (o RegistryNetworkRuleSetPtrOutput) ToRegistryNetworkRuleSetPtrOutputWithCo
 }
 
 func (o RegistryNetworkRuleSetPtrOutput) Elem() RegistryNetworkRuleSetOutput {
-	return o.ApplyT(func(v *RegistryNetworkRuleSet) RegistryNetworkRuleSet { return *v }).(RegistryNetworkRuleSetOutput)
+	return o.ApplyT(func(v *RegistryNetworkRuleSet) RegistryNetworkRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryNetworkRuleSet
+		return ret
+	}).(RegistryNetworkRuleSetOutput)
 }
 
 // The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
@@ -10994,7 +11200,7 @@ func (o RegistryRetentionPolicyOutput) ToRegistryRetentionPolicyPtrOutput() Regi
 }
 
 func (o RegistryRetentionPolicyOutput) ToRegistryRetentionPolicyPtrOutputWithContext(ctx context.Context) RegistryRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v RegistryRetentionPolicy) *RegistryRetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryRetentionPolicy) *RegistryRetentionPolicy {
 		return &v
 	}).(RegistryRetentionPolicyPtrOutput)
 }
@@ -11024,7 +11230,13 @@ func (o RegistryRetentionPolicyPtrOutput) ToRegistryRetentionPolicyPtrOutputWith
 }
 
 func (o RegistryRetentionPolicyPtrOutput) Elem() RegistryRetentionPolicyOutput {
-	return o.ApplyT(func(v *RegistryRetentionPolicy) RegistryRetentionPolicy { return *v }).(RegistryRetentionPolicyOutput)
+	return o.ApplyT(func(v *RegistryRetentionPolicy) RegistryRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRetentionPolicy
+		return ret
+	}).(RegistryRetentionPolicyOutput)
 }
 
 // The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
@@ -11140,7 +11352,7 @@ func (o RegistryTrustPolicyOutput) ToRegistryTrustPolicyPtrOutput() RegistryTrus
 }
 
 func (o RegistryTrustPolicyOutput) ToRegistryTrustPolicyPtrOutputWithContext(ctx context.Context) RegistryTrustPolicyPtrOutput {
-	return o.ApplyT(func(v RegistryTrustPolicy) *RegistryTrustPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTrustPolicy) *RegistryTrustPolicy {
 		return &v
 	}).(RegistryTrustPolicyPtrOutput)
 }
@@ -11165,7 +11377,13 @@ func (o RegistryTrustPolicyPtrOutput) ToRegistryTrustPolicyPtrOutputWithContext(
 }
 
 func (o RegistryTrustPolicyPtrOutput) Elem() RegistryTrustPolicyOutput {
-	return o.ApplyT(func(v *RegistryTrustPolicy) RegistryTrustPolicy { return *v }).(RegistryTrustPolicyOutput)
+	return o.ApplyT(func(v *RegistryTrustPolicy) RegistryTrustPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryTrustPolicy
+		return ret
+	}).(RegistryTrustPolicyOutput)
 }
 
 // Boolean value that indicates whether the policy is enabled.

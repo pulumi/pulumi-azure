@@ -202,7 +202,7 @@ type IntVariableArrayInput interface {
 type IntVariableArray []IntVariableInput
 
 func (IntVariableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntVariable)(nil))
+	return reflect.TypeOf((*[]*IntVariable)(nil)).Elem()
 }
 
 func (i IntVariableArray) ToIntVariableArrayOutput() IntVariableArrayOutput {
@@ -227,7 +227,7 @@ type IntVariableMapInput interface {
 type IntVariableMap map[string]IntVariableInput
 
 func (IntVariableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntVariable)(nil))
+	return reflect.TypeOf((*map[string]*IntVariable)(nil)).Elem()
 }
 
 func (i IntVariableMap) ToIntVariableMapOutput() IntVariableMapOutput {
@@ -238,9 +238,7 @@ func (i IntVariableMap) ToIntVariableMapOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IntVariableMapOutput)
 }
 
-type IntVariableOutput struct {
-	*pulumi.OutputState
-}
+type IntVariableOutput struct{ *pulumi.OutputState }
 
 func (IntVariableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntVariable)(nil))
@@ -259,14 +257,12 @@ func (o IntVariableOutput) ToIntVariablePtrOutput() IntVariablePtrOutput {
 }
 
 func (o IntVariableOutput) ToIntVariablePtrOutputWithContext(ctx context.Context) IntVariablePtrOutput {
-	return o.ApplyT(func(v IntVariable) *IntVariable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntVariable) *IntVariable {
 		return &v
 	}).(IntVariablePtrOutput)
 }
 
-type IntVariablePtrOutput struct {
-	*pulumi.OutputState
-}
+type IntVariablePtrOutput struct{ *pulumi.OutputState }
 
 func (IntVariablePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntVariable)(nil))
@@ -278,6 +274,16 @@ func (o IntVariablePtrOutput) ToIntVariablePtrOutput() IntVariablePtrOutput {
 
 func (o IntVariablePtrOutput) ToIntVariablePtrOutputWithContext(ctx context.Context) IntVariablePtrOutput {
 	return o
+}
+
+func (o IntVariablePtrOutput) Elem() IntVariableOutput {
+	return o.ApplyT(func(v *IntVariable) IntVariable {
+		if v != nil {
+			return *v
+		}
+		var ret IntVariable
+		return ret
+	}).(IntVariableOutput)
 }
 
 type IntVariableArrayOutput struct{ *pulumi.OutputState }

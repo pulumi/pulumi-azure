@@ -190,7 +190,7 @@ type MeshSecretValueArrayInput interface {
 type MeshSecretValueArray []MeshSecretValueInput
 
 func (MeshSecretValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MeshSecretValue)(nil))
+	return reflect.TypeOf((*[]*MeshSecretValue)(nil)).Elem()
 }
 
 func (i MeshSecretValueArray) ToMeshSecretValueArrayOutput() MeshSecretValueArrayOutput {
@@ -215,7 +215,7 @@ type MeshSecretValueMapInput interface {
 type MeshSecretValueMap map[string]MeshSecretValueInput
 
 func (MeshSecretValueMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MeshSecretValue)(nil))
+	return reflect.TypeOf((*map[string]*MeshSecretValue)(nil)).Elem()
 }
 
 func (i MeshSecretValueMap) ToMeshSecretValueMapOutput() MeshSecretValueMapOutput {
@@ -226,9 +226,7 @@ func (i MeshSecretValueMap) ToMeshSecretValueMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MeshSecretValueMapOutput)
 }
 
-type MeshSecretValueOutput struct {
-	*pulumi.OutputState
-}
+type MeshSecretValueOutput struct{ *pulumi.OutputState }
 
 func (MeshSecretValueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MeshSecretValue)(nil))
@@ -247,14 +245,12 @@ func (o MeshSecretValueOutput) ToMeshSecretValuePtrOutput() MeshSecretValuePtrOu
 }
 
 func (o MeshSecretValueOutput) ToMeshSecretValuePtrOutputWithContext(ctx context.Context) MeshSecretValuePtrOutput {
-	return o.ApplyT(func(v MeshSecretValue) *MeshSecretValue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeshSecretValue) *MeshSecretValue {
 		return &v
 	}).(MeshSecretValuePtrOutput)
 }
 
-type MeshSecretValuePtrOutput struct {
-	*pulumi.OutputState
-}
+type MeshSecretValuePtrOutput struct{ *pulumi.OutputState }
 
 func (MeshSecretValuePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MeshSecretValue)(nil))
@@ -266,6 +262,16 @@ func (o MeshSecretValuePtrOutput) ToMeshSecretValuePtrOutput() MeshSecretValuePt
 
 func (o MeshSecretValuePtrOutput) ToMeshSecretValuePtrOutputWithContext(ctx context.Context) MeshSecretValuePtrOutput {
 	return o
+}
+
+func (o MeshSecretValuePtrOutput) Elem() MeshSecretValueOutput {
+	return o.ApplyT(func(v *MeshSecretValue) MeshSecretValue {
+		if v != nil {
+			return *v
+		}
+		var ret MeshSecretValue
+		return ret
+	}).(MeshSecretValueOutput)
 }
 
 type MeshSecretValueArrayOutput struct{ *pulumi.OutputState }

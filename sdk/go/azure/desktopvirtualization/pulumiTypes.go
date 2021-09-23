@@ -109,7 +109,7 @@ func (o HostPoolRegistrationInfoOutput) ToHostPoolRegistrationInfoPtrOutput() Ho
 }
 
 func (o HostPoolRegistrationInfoOutput) ToHostPoolRegistrationInfoPtrOutputWithContext(ctx context.Context) HostPoolRegistrationInfoPtrOutput {
-	return o.ApplyT(func(v HostPoolRegistrationInfo) *HostPoolRegistrationInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostPoolRegistrationInfo) *HostPoolRegistrationInfo {
 		return &v
 	}).(HostPoolRegistrationInfoPtrOutput)
 }
@@ -143,7 +143,13 @@ func (o HostPoolRegistrationInfoPtrOutput) ToHostPoolRegistrationInfoPtrOutputWi
 }
 
 func (o HostPoolRegistrationInfoPtrOutput) Elem() HostPoolRegistrationInfoOutput {
-	return o.ApplyT(func(v *HostPoolRegistrationInfo) HostPoolRegistrationInfo { return *v }).(HostPoolRegistrationInfoOutput)
+	return o.ApplyT(func(v *HostPoolRegistrationInfo) HostPoolRegistrationInfo {
+		if v != nil {
+			return *v
+		}
+		var ret HostPoolRegistrationInfo
+		return ret
+	}).(HostPoolRegistrationInfoOutput)
 }
 
 // A valid `RFC3339Time` for the expiration of the token.

@@ -13,6 +13,7 @@ __all__ = [
     'GetImageResult',
     'AwaitableGetImageResult',
     'get_image',
+    'get_image_output',
 ]
 
 @pulumi.output_type
@@ -189,3 +190,32 @@ def get_image(name: Optional[str] = None,
         sort_descending=__ret__.sort_descending,
         tags=__ret__.tags,
         zone_resilient=__ret__.zone_resilient)
+
+
+@_utilities.lift_output_func(get_image)
+def get_image_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+                     name_regex: Optional[pulumi.Input[Optional[str]]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     sort_descending: Optional[pulumi.Input[Optional[bool]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+    """
+    Use this data source to access information about an existing Image.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    search = azure.compute.get_image(name="search-api",
+        resource_group_name="packerimages")
+    pulumi.export("imageId", search.id)
+    ```
+
+
+    :param str name: The name of the Image.
+    :param str name_regex: Regex pattern of the image to match.
+    :param str resource_group_name: The Name of the Resource Group where this Image exists.
+    :param bool sort_descending: By default when matching by regex, images are sorted by name in ascending order and the first match is chosen, to sort descending, set this flag.
+    """
+    ...

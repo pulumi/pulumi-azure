@@ -12,6 +12,7 @@ __all__ = [
     'GetProfileResult',
     'AwaitableGetProfileResult',
     'get_profile',
+    'get_profile_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,28 @@ def get_profile(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         sku=__ret__.sku,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_profile)
+def get_profile_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
+    """
+    Use this data source to access information about an existing CDN Profile.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cdn.get_profile(name="myfirstcdnprofile",
+        resource_group_name="example-resources")
+    pulumi.export("cdnProfileId", example.id)
+    ```
+
+
+    :param str name: The name of the CDN Profile.
+    :param str resource_group_name: The name of the resource group in which the CDN Profile exists.
+    """
+    ...

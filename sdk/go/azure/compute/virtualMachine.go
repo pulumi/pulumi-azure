@@ -496,7 +496,7 @@ type VirtualMachineArrayInput interface {
 type VirtualMachineArray []VirtualMachineInput
 
 func (VirtualMachineArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualMachine)(nil))
+	return reflect.TypeOf((*[]*VirtualMachine)(nil)).Elem()
 }
 
 func (i VirtualMachineArray) ToVirtualMachineArrayOutput() VirtualMachineArrayOutput {
@@ -521,7 +521,7 @@ type VirtualMachineMapInput interface {
 type VirtualMachineMap map[string]VirtualMachineInput
 
 func (VirtualMachineMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualMachine)(nil))
+	return reflect.TypeOf((*map[string]*VirtualMachine)(nil)).Elem()
 }
 
 func (i VirtualMachineMap) ToVirtualMachineMapOutput() VirtualMachineMapOutput {
@@ -532,9 +532,7 @@ func (i VirtualMachineMap) ToVirtualMachineMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineMapOutput)
 }
 
-type VirtualMachineOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachine)(nil))
@@ -553,14 +551,12 @@ func (o VirtualMachineOutput) ToVirtualMachinePtrOutput() VirtualMachinePtrOutpu
 }
 
 func (o VirtualMachineOutput) ToVirtualMachinePtrOutputWithContext(ctx context.Context) VirtualMachinePtrOutput {
-	return o.ApplyT(func(v VirtualMachine) *VirtualMachine {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachine) *VirtualMachine {
 		return &v
 	}).(VirtualMachinePtrOutput)
 }
 
-type VirtualMachinePtrOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachinePtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachinePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachine)(nil))
@@ -572,6 +568,16 @@ func (o VirtualMachinePtrOutput) ToVirtualMachinePtrOutput() VirtualMachinePtrOu
 
 func (o VirtualMachinePtrOutput) ToVirtualMachinePtrOutputWithContext(ctx context.Context) VirtualMachinePtrOutput {
 	return o
+}
+
+func (o VirtualMachinePtrOutput) Elem() VirtualMachineOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualMachine {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachine
+		return ret
+	}).(VirtualMachineOutput)
 }
 
 type VirtualMachineArrayOutput struct{ *pulumi.OutputState }

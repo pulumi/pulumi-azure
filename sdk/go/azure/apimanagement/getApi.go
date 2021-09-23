@@ -4,6 +4,9 @@
 package apimanagement
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -88,4 +91,129 @@ type LookupApiResult struct {
 	Version string `pulumi:"version"`
 	// The ID of the Version Set which this API is associated with.
 	VersionSetId string `pulumi:"versionSetId"`
+}
+
+func LookupApiOutput(ctx *pulumi.Context, args LookupApiOutputArgs, opts ...pulumi.InvokeOption) LookupApiResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApiResult, error) {
+			args := v.(LookupApiArgs)
+			r, err := LookupApi(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApiResultOutput)
+}
+
+// A collection of arguments for invoking getApi.
+type LookupApiOutputArgs struct {
+	// The name of the API Management Service in which the API Management API exists.
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
+	// The name of the API Management API.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group in which the API Management Service exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The Revision of the API Management API.
+	Revision pulumi.StringInput `pulumi:"revision"`
+}
+
+func (LookupApiOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getApi.
+type LookupApiResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApiResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiResult)(nil)).Elem()
+}
+
+func (o LookupApiResultOutput) ToLookupApiResultOutput() LookupApiResultOutput {
+	return o
+}
+
+func (o LookupApiResultOutput) ToLookupApiResultOutputWithContext(ctx context.Context) LookupApiResultOutput {
+	return o
+}
+
+func (o LookupApiResultOutput) ApiManagementName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.ApiManagementName }).(pulumi.StringOutput)
+}
+
+// A description of the API Management API, which may include HTML formatting tags.
+func (o LookupApiResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of the API.
+func (o LookupApiResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupApiResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Is this the current API Revision?
+func (o LookupApiResultOutput) IsCurrent() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupApiResult) bool { return v.IsCurrent }).(pulumi.BoolOutput)
+}
+
+// Is this API Revision online/accessible via the Gateway?
+func (o LookupApiResultOutput) IsOnline() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupApiResult) bool { return v.IsOnline }).(pulumi.BoolOutput)
+}
+
+func (o LookupApiResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Path for this API Management API.
+func (o LookupApiResultOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// A list of protocols the operations in this API can be invoked.
+func (o LookupApiResultOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupApiResult) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupApiResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupApiResultOutput) Revision() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.Revision }).(pulumi.StringOutput)
+}
+
+// Absolute URL of the backend service implementing this API.
+func (o LookupApiResultOutput) ServiceUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.ServiceUrl }).(pulumi.StringOutput)
+}
+
+// Should this API expose a SOAP frontend, rather than a HTTP frontend?
+func (o LookupApiResultOutput) SoapPassThrough() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupApiResult) bool { return v.SoapPassThrough }).(pulumi.BoolOutput)
+}
+
+// A `subscriptionKeyParameterNames` block as documented below.
+func (o LookupApiResultOutput) SubscriptionKeyParameterNames() GetApiSubscriptionKeyParameterNameArrayOutput {
+	return o.ApplyT(func(v LookupApiResult) []GetApiSubscriptionKeyParameterName { return v.SubscriptionKeyParameterNames }).(GetApiSubscriptionKeyParameterNameArrayOutput)
+}
+
+// Should this API require a subscription key?
+func (o LookupApiResultOutput) SubscriptionRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupApiResult) bool { return v.SubscriptionRequired }).(pulumi.BoolOutput)
+}
+
+// The Version number of this API, if this API is versioned.
+func (o LookupApiResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// The ID of the Version Set which this API is associated with.
+func (o LookupApiResultOutput) VersionSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.VersionSetId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApiResultOutput{})
 }

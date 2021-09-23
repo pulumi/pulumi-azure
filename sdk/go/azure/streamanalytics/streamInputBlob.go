@@ -328,7 +328,7 @@ type StreamInputBlobArrayInput interface {
 type StreamInputBlobArray []StreamInputBlobInput
 
 func (StreamInputBlobArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StreamInputBlob)(nil))
+	return reflect.TypeOf((*[]*StreamInputBlob)(nil)).Elem()
 }
 
 func (i StreamInputBlobArray) ToStreamInputBlobArrayOutput() StreamInputBlobArrayOutput {
@@ -353,7 +353,7 @@ type StreamInputBlobMapInput interface {
 type StreamInputBlobMap map[string]StreamInputBlobInput
 
 func (StreamInputBlobMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StreamInputBlob)(nil))
+	return reflect.TypeOf((*map[string]*StreamInputBlob)(nil)).Elem()
 }
 
 func (i StreamInputBlobMap) ToStreamInputBlobMapOutput() StreamInputBlobMapOutput {
@@ -364,9 +364,7 @@ func (i StreamInputBlobMap) ToStreamInputBlobMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobMapOutput)
 }
 
-type StreamInputBlobOutput struct {
-	*pulumi.OutputState
-}
+type StreamInputBlobOutput struct{ *pulumi.OutputState }
 
 func (StreamInputBlobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamInputBlob)(nil))
@@ -385,14 +383,12 @@ func (o StreamInputBlobOutput) ToStreamInputBlobPtrOutput() StreamInputBlobPtrOu
 }
 
 func (o StreamInputBlobOutput) ToStreamInputBlobPtrOutputWithContext(ctx context.Context) StreamInputBlobPtrOutput {
-	return o.ApplyT(func(v StreamInputBlob) *StreamInputBlob {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamInputBlob) *StreamInputBlob {
 		return &v
 	}).(StreamInputBlobPtrOutput)
 }
 
-type StreamInputBlobPtrOutput struct {
-	*pulumi.OutputState
-}
+type StreamInputBlobPtrOutput struct{ *pulumi.OutputState }
 
 func (StreamInputBlobPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StreamInputBlob)(nil))
@@ -404,6 +400,16 @@ func (o StreamInputBlobPtrOutput) ToStreamInputBlobPtrOutput() StreamInputBlobPt
 
 func (o StreamInputBlobPtrOutput) ToStreamInputBlobPtrOutputWithContext(ctx context.Context) StreamInputBlobPtrOutput {
 	return o
+}
+
+func (o StreamInputBlobPtrOutput) Elem() StreamInputBlobOutput {
+	return o.ApplyT(func(v *StreamInputBlob) StreamInputBlob {
+		if v != nil {
+			return *v
+		}
+		var ret StreamInputBlob
+		return ret
+	}).(StreamInputBlobOutput)
 }
 
 type StreamInputBlobArrayOutput struct{ *pulumi.OutputState }

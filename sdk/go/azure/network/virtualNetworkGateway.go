@@ -516,7 +516,7 @@ type VirtualNetworkGatewayArrayInput interface {
 type VirtualNetworkGatewayArray []VirtualNetworkGatewayInput
 
 func (VirtualNetworkGatewayArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualNetworkGateway)(nil))
+	return reflect.TypeOf((*[]*VirtualNetworkGateway)(nil)).Elem()
 }
 
 func (i VirtualNetworkGatewayArray) ToVirtualNetworkGatewayArrayOutput() VirtualNetworkGatewayArrayOutput {
@@ -541,7 +541,7 @@ type VirtualNetworkGatewayMapInput interface {
 type VirtualNetworkGatewayMap map[string]VirtualNetworkGatewayInput
 
 func (VirtualNetworkGatewayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualNetworkGateway)(nil))
+	return reflect.TypeOf((*map[string]*VirtualNetworkGateway)(nil)).Elem()
 }
 
 func (i VirtualNetworkGatewayMap) ToVirtualNetworkGatewayMapOutput() VirtualNetworkGatewayMapOutput {
@@ -552,9 +552,7 @@ func (i VirtualNetworkGatewayMap) ToVirtualNetworkGatewayMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayMapOutput)
 }
 
-type VirtualNetworkGatewayOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkGatewayOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkGateway)(nil))
@@ -573,14 +571,12 @@ func (o VirtualNetworkGatewayOutput) ToVirtualNetworkGatewayPtrOutput() VirtualN
 }
 
 func (o VirtualNetworkGatewayOutput) ToVirtualNetworkGatewayPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGateway) *VirtualNetworkGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkGateway) *VirtualNetworkGateway {
 		return &v
 	}).(VirtualNetworkGatewayPtrOutput)
 }
 
-type VirtualNetworkGatewayPtrOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNetworkGateway)(nil))
@@ -592,6 +588,16 @@ func (o VirtualNetworkGatewayPtrOutput) ToVirtualNetworkGatewayPtrOutput() Virtu
 
 func (o VirtualNetworkGatewayPtrOutput) ToVirtualNetworkGatewayPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayPtrOutput {
 	return o
+}
+
+func (o VirtualNetworkGatewayPtrOutput) Elem() VirtualNetworkGatewayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) VirtualNetworkGateway {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkGateway
+		return ret
+	}).(VirtualNetworkGatewayOutput)
 }
 
 type VirtualNetworkGatewayArrayOutput struct{ *pulumi.OutputState }

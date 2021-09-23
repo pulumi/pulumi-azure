@@ -13,6 +13,7 @@ __all__ = [
     'GetServiceResult',
     'AwaitableGetServiceResult',
     'get_service',
+    'get_service_output',
 ]
 
 @pulumi.output_type
@@ -276,3 +277,29 @@ def get_service(name: Optional[str] = None,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_service)
+def get_service_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+    """
+    Gets information about an Active Directory Domain Service.
+
+    > **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.domainservices.get_service(name="example-aadds",
+        resource_group_name="example-aadds-rg")
+    ```
+
+
+    :param str name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
+    :param str resource_group_name: The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
+    """
+    ...

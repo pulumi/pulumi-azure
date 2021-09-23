@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,4 +77,98 @@ type LookupSubnetResult struct {
 	// A list of Service Endpoints within this subnet.
 	ServiceEndpoints   []string `pulumi:"serviceEndpoints"`
 	VirtualNetworkName string   `pulumi:"virtualNetworkName"`
+}
+
+func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSubnetResult, error) {
+			args := v.(LookupSubnetArgs)
+			r, err := LookupSubnet(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSubnetResultOutput)
+}
+
+// A collection of arguments for invoking getSubnet.
+type LookupSubnetOutputArgs struct {
+	// Specifies the name of the Subnet.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group the Virtual Network is located in.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Specifies the name of the Virtual Network this Subnet is located within.
+	VirtualNetworkName pulumi.StringInput `pulumi:"virtualNetworkName"`
+}
+
+func (LookupSubnetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSubnetArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSubnet.
+type LookupSubnetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSubnetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSubnetResult)(nil)).Elem()
+}
+
+func (o LookupSubnetResultOutput) ToLookupSubnetResultOutput() LookupSubnetResultOutput {
+	return o
+}
+
+func (o LookupSubnetResultOutput) ToLookupSubnetResultOutputWithContext(ctx context.Context) LookupSubnetResultOutput {
+	return o
+}
+
+// (Deprecated) The address prefix used for the subnet.
+func (o LookupSubnetResultOutput) AddressPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.AddressPrefix }).(pulumi.StringOutput)
+}
+
+// The address prefixes for the subnet.
+func (o LookupSubnetResultOutput) AddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSubnetResult) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// Enable or Disable network policies for the private link endpoint on the subnet.
+func (o LookupSubnetResultOutput) EnforcePrivateLinkEndpointNetworkPolicies() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnforcePrivateLinkEndpointNetworkPolicies }).(pulumi.BoolOutput)
+}
+
+// Enable or Disable network policies for the private link service on the subnet.
+func (o LookupSubnetResultOutput) EnforcePrivateLinkServiceNetworkPolicies() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnforcePrivateLinkServiceNetworkPolicies }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSubnetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupSubnetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the Network Security Group associated with the subnet.
+func (o LookupSubnetResultOutput) NetworkSecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.NetworkSecurityGroupId }).(pulumi.StringOutput)
+}
+
+func (o LookupSubnetResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The ID of the Route Table associated with this subnet.
+func (o LookupSubnetResultOutput) RouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.RouteTableId }).(pulumi.StringOutput)
+}
+
+// A list of Service Endpoints within this subnet.
+func (o LookupSubnetResultOutput) ServiceEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSubnetResult) []string { return v.ServiceEndpoints }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupSubnetResultOutput) VirtualNetworkName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.VirtualNetworkName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSubnetResultOutput{})
 }

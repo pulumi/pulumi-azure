@@ -248,7 +248,7 @@ type BackupVaultArrayInput interface {
 type BackupVaultArray []BackupVaultInput
 
 func (BackupVaultArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BackupVault)(nil))
+	return reflect.TypeOf((*[]*BackupVault)(nil)).Elem()
 }
 
 func (i BackupVaultArray) ToBackupVaultArrayOutput() BackupVaultArrayOutput {
@@ -273,7 +273,7 @@ type BackupVaultMapInput interface {
 type BackupVaultMap map[string]BackupVaultInput
 
 func (BackupVaultMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BackupVault)(nil))
+	return reflect.TypeOf((*map[string]*BackupVault)(nil)).Elem()
 }
 
 func (i BackupVaultMap) ToBackupVaultMapOutput() BackupVaultMapOutput {
@@ -284,9 +284,7 @@ func (i BackupVaultMap) ToBackupVaultMapOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultMapOutput)
 }
 
-type BackupVaultOutput struct {
-	*pulumi.OutputState
-}
+type BackupVaultOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupVault)(nil))
@@ -305,14 +303,12 @@ func (o BackupVaultOutput) ToBackupVaultPtrOutput() BackupVaultPtrOutput {
 }
 
 func (o BackupVaultOutput) ToBackupVaultPtrOutputWithContext(ctx context.Context) BackupVaultPtrOutput {
-	return o.ApplyT(func(v BackupVault) *BackupVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupVault) *BackupVault {
 		return &v
 	}).(BackupVaultPtrOutput)
 }
 
-type BackupVaultPtrOutput struct {
-	*pulumi.OutputState
-}
+type BackupVaultPtrOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BackupVault)(nil))
@@ -324,6 +320,16 @@ func (o BackupVaultPtrOutput) ToBackupVaultPtrOutput() BackupVaultPtrOutput {
 
 func (o BackupVaultPtrOutput) ToBackupVaultPtrOutputWithContext(ctx context.Context) BackupVaultPtrOutput {
 	return o
+}
+
+func (o BackupVaultPtrOutput) Elem() BackupVaultOutput {
+	return o.ApplyT(func(v *BackupVault) BackupVault {
+		if v != nil {
+			return *v
+		}
+		var ret BackupVault
+		return ret
+	}).(BackupVaultOutput)
 }
 
 type BackupVaultArrayOutput struct{ *pulumi.OutputState }

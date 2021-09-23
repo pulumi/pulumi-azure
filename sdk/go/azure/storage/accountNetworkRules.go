@@ -103,7 +103,7 @@ import (
 // ```sh
 //  $ pulumi import azure:storage/accountNetworkRules:AccountNetworkRules storageAcc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
 // ```
-type AccountNetworkRules struct {
+type AccountNetworkRulesType struct {
 	pulumi.CustomResourceState
 
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
@@ -122,9 +122,9 @@ type AccountNetworkRules struct {
 	VirtualNetworkSubnetIds pulumi.StringArrayOutput `pulumi:"virtualNetworkSubnetIds"`
 }
 
-// NewAccountNetworkRules registers a new resource with the given unique name, arguments, and options.
-func NewAccountNetworkRules(ctx *pulumi.Context,
-	name string, args *AccountNetworkRulesArgs, opts ...pulumi.ResourceOption) (*AccountNetworkRules, error) {
+// NewAccountNetworkRulesType registers a new resource with the given unique name, arguments, and options.
+func NewAccountNetworkRulesType(ctx *pulumi.Context,
+	name string, args *AccountNetworkRulesTypeArgs, opts ...pulumi.ResourceOption) (*AccountNetworkRulesType, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -138,7 +138,7 @@ func NewAccountNetworkRules(ctx *pulumi.Context,
 	if args.StorageAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
-	var resource AccountNetworkRules
+	var resource AccountNetworkRulesType
 	err := ctx.RegisterResource("azure:storage/accountNetworkRules:AccountNetworkRules", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -146,11 +146,11 @@ func NewAccountNetworkRules(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// GetAccountNetworkRules gets an existing AccountNetworkRules resource's state with the given name, ID, and optional
+// GetAccountNetworkRulesType gets an existing AccountNetworkRulesType resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetAccountNetworkRules(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *AccountNetworkRulesState, opts ...pulumi.ResourceOption) (*AccountNetworkRules, error) {
-	var resource AccountNetworkRules
+func GetAccountNetworkRulesType(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *AccountNetworkRulesTypeState, opts ...pulumi.ResourceOption) (*AccountNetworkRulesType, error) {
+	var resource AccountNetworkRulesType
 	err := ctx.ReadResource("azure:storage/accountNetworkRules:AccountNetworkRules", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -158,8 +158,8 @@ func GetAccountNetworkRules(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering AccountNetworkRules resources.
-type accountNetworkRulesState struct {
+// Input properties used for looking up and filtering AccountNetworkRulesType resources.
+type accountNetworkRulesTypeState struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 	Bypasses []string `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
@@ -176,7 +176,7 @@ type accountNetworkRulesState struct {
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
 
-type AccountNetworkRulesState struct {
+type AccountNetworkRulesTypeState struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 	Bypasses pulumi.StringArrayInput
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
@@ -193,11 +193,11 @@ type AccountNetworkRulesState struct {
 	VirtualNetworkSubnetIds pulumi.StringArrayInput
 }
 
-func (AccountNetworkRulesState) ElementType() reflect.Type {
-	return reflect.TypeOf((*accountNetworkRulesState)(nil)).Elem()
+func (AccountNetworkRulesTypeState) ElementType() reflect.Type {
+	return reflect.TypeOf((*accountNetworkRulesTypeState)(nil)).Elem()
 }
 
-type accountNetworkRulesArgs struct {
+type accountNetworkRulesTypeArgs struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 	Bypasses []string `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
@@ -214,8 +214,8 @@ type accountNetworkRulesArgs struct {
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
 
-// The set of arguments for constructing a AccountNetworkRules resource.
-type AccountNetworkRulesArgs struct {
+// The set of arguments for constructing a AccountNetworkRulesType resource.
+type AccountNetworkRulesTypeArgs struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 	Bypasses pulumi.StringArrayInput
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
@@ -232,193 +232,199 @@ type AccountNetworkRulesArgs struct {
 	VirtualNetworkSubnetIds pulumi.StringArrayInput
 }
 
-func (AccountNetworkRulesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*accountNetworkRulesArgs)(nil)).Elem()
+func (AccountNetworkRulesTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*accountNetworkRulesTypeArgs)(nil)).Elem()
 }
 
-type AccountNetworkRulesInput interface {
+type AccountNetworkRulesTypeInput interface {
 	pulumi.Input
 
-	ToAccountNetworkRulesOutput() AccountNetworkRulesOutput
-	ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput
+	ToAccountNetworkRulesTypeOutput() AccountNetworkRulesTypeOutput
+	ToAccountNetworkRulesTypeOutputWithContext(ctx context.Context) AccountNetworkRulesTypeOutput
 }
 
-func (*AccountNetworkRules) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountNetworkRules)(nil))
+func (*AccountNetworkRulesType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkRulesType)(nil))
 }
 
-func (i *AccountNetworkRules) ToAccountNetworkRulesOutput() AccountNetworkRulesOutput {
-	return i.ToAccountNetworkRulesOutputWithContext(context.Background())
+func (i *AccountNetworkRulesType) ToAccountNetworkRulesTypeOutput() AccountNetworkRulesTypeOutput {
+	return i.ToAccountNetworkRulesTypeOutputWithContext(context.Background())
 }
 
-func (i *AccountNetworkRules) ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesOutput)
+func (i *AccountNetworkRulesType) ToAccountNetworkRulesTypeOutputWithContext(ctx context.Context) AccountNetworkRulesTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesTypeOutput)
 }
 
-func (i *AccountNetworkRules) ToAccountNetworkRulesPtrOutput() AccountNetworkRulesPtrOutput {
-	return i.ToAccountNetworkRulesPtrOutputWithContext(context.Background())
+func (i *AccountNetworkRulesType) ToAccountNetworkRulesTypePtrOutput() AccountNetworkRulesTypePtrOutput {
+	return i.ToAccountNetworkRulesTypePtrOutputWithContext(context.Background())
 }
 
-func (i *AccountNetworkRules) ToAccountNetworkRulesPtrOutputWithContext(ctx context.Context) AccountNetworkRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesPtrOutput)
+func (i *AccountNetworkRulesType) ToAccountNetworkRulesTypePtrOutputWithContext(ctx context.Context) AccountNetworkRulesTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesTypePtrOutput)
 }
 
-type AccountNetworkRulesPtrInput interface {
+type AccountNetworkRulesTypePtrInput interface {
 	pulumi.Input
 
-	ToAccountNetworkRulesPtrOutput() AccountNetworkRulesPtrOutput
-	ToAccountNetworkRulesPtrOutputWithContext(ctx context.Context) AccountNetworkRulesPtrOutput
+	ToAccountNetworkRulesTypePtrOutput() AccountNetworkRulesTypePtrOutput
+	ToAccountNetworkRulesTypePtrOutputWithContext(ctx context.Context) AccountNetworkRulesTypePtrOutput
 }
 
-type accountNetworkRulesPtrType AccountNetworkRulesArgs
+type accountNetworkRulesTypePtrType AccountNetworkRulesTypeArgs
 
-func (*accountNetworkRulesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountNetworkRules)(nil))
+func (*accountNetworkRulesTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountNetworkRulesType)(nil))
 }
 
-func (i *accountNetworkRulesPtrType) ToAccountNetworkRulesPtrOutput() AccountNetworkRulesPtrOutput {
-	return i.ToAccountNetworkRulesPtrOutputWithContext(context.Background())
+func (i *accountNetworkRulesTypePtrType) ToAccountNetworkRulesTypePtrOutput() AccountNetworkRulesTypePtrOutput {
+	return i.ToAccountNetworkRulesTypePtrOutputWithContext(context.Background())
 }
 
-func (i *accountNetworkRulesPtrType) ToAccountNetworkRulesPtrOutputWithContext(ctx context.Context) AccountNetworkRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesPtrOutput)
+func (i *accountNetworkRulesTypePtrType) ToAccountNetworkRulesTypePtrOutputWithContext(ctx context.Context) AccountNetworkRulesTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesTypePtrOutput)
 }
 
-// AccountNetworkRulesArrayInput is an input type that accepts AccountNetworkRulesArray and AccountNetworkRulesArrayOutput values.
-// You can construct a concrete instance of `AccountNetworkRulesArrayInput` via:
+// AccountNetworkRulesTypeArrayInput is an input type that accepts AccountNetworkRulesTypeArray and AccountNetworkRulesTypeArrayOutput values.
+// You can construct a concrete instance of `AccountNetworkRulesTypeArrayInput` via:
 //
-//          AccountNetworkRulesArray{ AccountNetworkRulesArgs{...} }
-type AccountNetworkRulesArrayInput interface {
+//          AccountNetworkRulesTypeArray{ AccountNetworkRulesTypeArgs{...} }
+type AccountNetworkRulesTypeArrayInput interface {
 	pulumi.Input
 
-	ToAccountNetworkRulesArrayOutput() AccountNetworkRulesArrayOutput
-	ToAccountNetworkRulesArrayOutputWithContext(context.Context) AccountNetworkRulesArrayOutput
+	ToAccountNetworkRulesTypeArrayOutput() AccountNetworkRulesTypeArrayOutput
+	ToAccountNetworkRulesTypeArrayOutputWithContext(context.Context) AccountNetworkRulesTypeArrayOutput
 }
 
-type AccountNetworkRulesArray []AccountNetworkRulesInput
+type AccountNetworkRulesTypeArray []AccountNetworkRulesTypeInput
 
-func (AccountNetworkRulesArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AccountNetworkRules)(nil))
+func (AccountNetworkRulesTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]*AccountNetworkRulesType)(nil)).Elem()
 }
 
-func (i AccountNetworkRulesArray) ToAccountNetworkRulesArrayOutput() AccountNetworkRulesArrayOutput {
-	return i.ToAccountNetworkRulesArrayOutputWithContext(context.Background())
+func (i AccountNetworkRulesTypeArray) ToAccountNetworkRulesTypeArrayOutput() AccountNetworkRulesTypeArrayOutput {
+	return i.ToAccountNetworkRulesTypeArrayOutputWithContext(context.Background())
 }
 
-func (i AccountNetworkRulesArray) ToAccountNetworkRulesArrayOutputWithContext(ctx context.Context) AccountNetworkRulesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesArrayOutput)
+func (i AccountNetworkRulesTypeArray) ToAccountNetworkRulesTypeArrayOutputWithContext(ctx context.Context) AccountNetworkRulesTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesTypeArrayOutput)
 }
 
-// AccountNetworkRulesMapInput is an input type that accepts AccountNetworkRulesMap and AccountNetworkRulesMapOutput values.
-// You can construct a concrete instance of `AccountNetworkRulesMapInput` via:
+// AccountNetworkRulesTypeMapInput is an input type that accepts AccountNetworkRulesTypeMap and AccountNetworkRulesTypeMapOutput values.
+// You can construct a concrete instance of `AccountNetworkRulesTypeMapInput` via:
 //
-//          AccountNetworkRulesMap{ "key": AccountNetworkRulesArgs{...} }
-type AccountNetworkRulesMapInput interface {
+//          AccountNetworkRulesTypeMap{ "key": AccountNetworkRulesTypeArgs{...} }
+type AccountNetworkRulesTypeMapInput interface {
 	pulumi.Input
 
-	ToAccountNetworkRulesMapOutput() AccountNetworkRulesMapOutput
-	ToAccountNetworkRulesMapOutputWithContext(context.Context) AccountNetworkRulesMapOutput
+	ToAccountNetworkRulesTypeMapOutput() AccountNetworkRulesTypeMapOutput
+	ToAccountNetworkRulesTypeMapOutputWithContext(context.Context) AccountNetworkRulesTypeMapOutput
 }
 
-type AccountNetworkRulesMap map[string]AccountNetworkRulesInput
+type AccountNetworkRulesTypeMap map[string]AccountNetworkRulesTypeInput
 
-func (AccountNetworkRulesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AccountNetworkRules)(nil))
+func (AccountNetworkRulesTypeMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]*AccountNetworkRulesType)(nil)).Elem()
 }
 
-func (i AccountNetworkRulesMap) ToAccountNetworkRulesMapOutput() AccountNetworkRulesMapOutput {
-	return i.ToAccountNetworkRulesMapOutputWithContext(context.Background())
+func (i AccountNetworkRulesTypeMap) ToAccountNetworkRulesTypeMapOutput() AccountNetworkRulesTypeMapOutput {
+	return i.ToAccountNetworkRulesTypeMapOutputWithContext(context.Background())
 }
 
-func (i AccountNetworkRulesMap) ToAccountNetworkRulesMapOutputWithContext(ctx context.Context) AccountNetworkRulesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesMapOutput)
+func (i AccountNetworkRulesTypeMap) ToAccountNetworkRulesTypeMapOutputWithContext(ctx context.Context) AccountNetworkRulesTypeMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesTypeMapOutput)
 }
 
-type AccountNetworkRulesOutput struct {
-	*pulumi.OutputState
+type AccountNetworkRulesTypeOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkRulesTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkRulesType)(nil))
 }
 
-func (AccountNetworkRulesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountNetworkRules)(nil))
-}
-
-func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutput() AccountNetworkRulesOutput {
+func (o AccountNetworkRulesTypeOutput) ToAccountNetworkRulesTypeOutput() AccountNetworkRulesTypeOutput {
 	return o
 }
 
-func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput {
+func (o AccountNetworkRulesTypeOutput) ToAccountNetworkRulesTypeOutputWithContext(ctx context.Context) AccountNetworkRulesTypeOutput {
 	return o
 }
 
-func (o AccountNetworkRulesOutput) ToAccountNetworkRulesPtrOutput() AccountNetworkRulesPtrOutput {
-	return o.ToAccountNetworkRulesPtrOutputWithContext(context.Background())
+func (o AccountNetworkRulesTypeOutput) ToAccountNetworkRulesTypePtrOutput() AccountNetworkRulesTypePtrOutput {
+	return o.ToAccountNetworkRulesTypePtrOutputWithContext(context.Background())
 }
 
-func (o AccountNetworkRulesOutput) ToAccountNetworkRulesPtrOutputWithContext(ctx context.Context) AccountNetworkRulesPtrOutput {
-	return o.ApplyT(func(v AccountNetworkRules) *AccountNetworkRules {
+func (o AccountNetworkRulesTypeOutput) ToAccountNetworkRulesTypePtrOutputWithContext(ctx context.Context) AccountNetworkRulesTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkRulesType) *AccountNetworkRulesType {
 		return &v
-	}).(AccountNetworkRulesPtrOutput)
+	}).(AccountNetworkRulesTypePtrOutput)
 }
 
-type AccountNetworkRulesPtrOutput struct {
-	*pulumi.OutputState
+type AccountNetworkRulesTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkRulesTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountNetworkRulesType)(nil))
 }
 
-func (AccountNetworkRulesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountNetworkRules)(nil))
-}
-
-func (o AccountNetworkRulesPtrOutput) ToAccountNetworkRulesPtrOutput() AccountNetworkRulesPtrOutput {
+func (o AccountNetworkRulesTypePtrOutput) ToAccountNetworkRulesTypePtrOutput() AccountNetworkRulesTypePtrOutput {
 	return o
 }
 
-func (o AccountNetworkRulesPtrOutput) ToAccountNetworkRulesPtrOutputWithContext(ctx context.Context) AccountNetworkRulesPtrOutput {
+func (o AccountNetworkRulesTypePtrOutput) ToAccountNetworkRulesTypePtrOutputWithContext(ctx context.Context) AccountNetworkRulesTypePtrOutput {
 	return o
 }
 
-type AccountNetworkRulesArrayOutput struct{ *pulumi.OutputState }
-
-func (AccountNetworkRulesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccountNetworkRules)(nil))
+func (o AccountNetworkRulesTypePtrOutput) Elem() AccountNetworkRulesTypeOutput {
+	return o.ApplyT(func(v *AccountNetworkRulesType) AccountNetworkRulesType {
+		if v != nil {
+			return *v
+		}
+		var ret AccountNetworkRulesType
+		return ret
+	}).(AccountNetworkRulesTypeOutput)
 }
 
-func (o AccountNetworkRulesArrayOutput) ToAccountNetworkRulesArrayOutput() AccountNetworkRulesArrayOutput {
+type AccountNetworkRulesTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkRulesTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountNetworkRulesType)(nil))
+}
+
+func (o AccountNetworkRulesTypeArrayOutput) ToAccountNetworkRulesTypeArrayOutput() AccountNetworkRulesTypeArrayOutput {
 	return o
 }
 
-func (o AccountNetworkRulesArrayOutput) ToAccountNetworkRulesArrayOutputWithContext(ctx context.Context) AccountNetworkRulesArrayOutput {
+func (o AccountNetworkRulesTypeArrayOutput) ToAccountNetworkRulesTypeArrayOutputWithContext(ctx context.Context) AccountNetworkRulesTypeArrayOutput {
 	return o
 }
 
-func (o AccountNetworkRulesArrayOutput) Index(i pulumi.IntInput) AccountNetworkRulesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountNetworkRules {
-		return vs[0].([]AccountNetworkRules)[vs[1].(int)]
-	}).(AccountNetworkRulesOutput)
+func (o AccountNetworkRulesTypeArrayOutput) Index(i pulumi.IntInput) AccountNetworkRulesTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountNetworkRulesType {
+		return vs[0].([]AccountNetworkRulesType)[vs[1].(int)]
+	}).(AccountNetworkRulesTypeOutput)
 }
 
-type AccountNetworkRulesMapOutput struct{ *pulumi.OutputState }
+type AccountNetworkRulesTypeMapOutput struct{ *pulumi.OutputState }
 
-func (AccountNetworkRulesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AccountNetworkRules)(nil))
+func (AccountNetworkRulesTypeMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AccountNetworkRulesType)(nil))
 }
 
-func (o AccountNetworkRulesMapOutput) ToAccountNetworkRulesMapOutput() AccountNetworkRulesMapOutput {
+func (o AccountNetworkRulesTypeMapOutput) ToAccountNetworkRulesTypeMapOutput() AccountNetworkRulesTypeMapOutput {
 	return o
 }
 
-func (o AccountNetworkRulesMapOutput) ToAccountNetworkRulesMapOutputWithContext(ctx context.Context) AccountNetworkRulesMapOutput {
+func (o AccountNetworkRulesTypeMapOutput) ToAccountNetworkRulesTypeMapOutputWithContext(ctx context.Context) AccountNetworkRulesTypeMapOutput {
 	return o
 }
 
-func (o AccountNetworkRulesMapOutput) MapIndex(k pulumi.StringInput) AccountNetworkRulesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AccountNetworkRules {
-		return vs[0].(map[string]AccountNetworkRules)[vs[1].(string)]
-	}).(AccountNetworkRulesOutput)
+func (o AccountNetworkRulesTypeMapOutput) MapIndex(k pulumi.StringInput) AccountNetworkRulesTypeOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AccountNetworkRulesType {
+		return vs[0].(map[string]AccountNetworkRulesType)[vs[1].(string)]
+	}).(AccountNetworkRulesTypeOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(AccountNetworkRulesOutput{})
-	pulumi.RegisterOutputType(AccountNetworkRulesPtrOutput{})
-	pulumi.RegisterOutputType(AccountNetworkRulesArrayOutput{})
-	pulumi.RegisterOutputType(AccountNetworkRulesMapOutput{})
+	pulumi.RegisterOutputType(AccountNetworkRulesTypeOutput{})
+	pulumi.RegisterOutputType(AccountNetworkRulesTypePtrOutput{})
+	pulumi.RegisterOutputType(AccountNetworkRulesTypeArrayOutput{})
+	pulumi.RegisterOutputType(AccountNetworkRulesTypeMapOutput{})
 }

@@ -107,7 +107,7 @@ func (o LinkedServiceIntegrationRuntimeOutput) ToLinkedServiceIntegrationRuntime
 }
 
 func (o LinkedServiceIntegrationRuntimeOutput) ToLinkedServiceIntegrationRuntimePtrOutputWithContext(ctx context.Context) LinkedServiceIntegrationRuntimePtrOutput {
-	return o.ApplyT(func(v LinkedServiceIntegrationRuntime) *LinkedServiceIntegrationRuntime {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceIntegrationRuntime) *LinkedServiceIntegrationRuntime {
 		return &v
 	}).(LinkedServiceIntegrationRuntimePtrOutput)
 }
@@ -137,7 +137,13 @@ func (o LinkedServiceIntegrationRuntimePtrOutput) ToLinkedServiceIntegrationRunt
 }
 
 func (o LinkedServiceIntegrationRuntimePtrOutput) Elem() LinkedServiceIntegrationRuntimeOutput {
-	return o.ApplyT(func(v *LinkedServiceIntegrationRuntime) LinkedServiceIntegrationRuntime { return *v }).(LinkedServiceIntegrationRuntimeOutput)
+	return o.ApplyT(func(v *LinkedServiceIntegrationRuntime) LinkedServiceIntegrationRuntime {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceIntegrationRuntime
+		return ret
+	}).(LinkedServiceIntegrationRuntimeOutput)
 }
 
 // The integration runtime reference to associate with the Synapse Linked Service.
@@ -253,7 +259,7 @@ func (o SparkPoolAutoPauseOutput) ToSparkPoolAutoPausePtrOutput() SparkPoolAutoP
 }
 
 func (o SparkPoolAutoPauseOutput) ToSparkPoolAutoPausePtrOutputWithContext(ctx context.Context) SparkPoolAutoPausePtrOutput {
-	return o.ApplyT(func(v SparkPoolAutoPause) *SparkPoolAutoPause {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkPoolAutoPause) *SparkPoolAutoPause {
 		return &v
 	}).(SparkPoolAutoPausePtrOutput)
 }
@@ -278,7 +284,13 @@ func (o SparkPoolAutoPausePtrOutput) ToSparkPoolAutoPausePtrOutputWithContext(ct
 }
 
 func (o SparkPoolAutoPausePtrOutput) Elem() SparkPoolAutoPauseOutput {
-	return o.ApplyT(func(v *SparkPoolAutoPause) SparkPoolAutoPause { return *v }).(SparkPoolAutoPauseOutput)
+	return o.ApplyT(func(v *SparkPoolAutoPause) SparkPoolAutoPause {
+		if v != nil {
+			return *v
+		}
+		var ret SparkPoolAutoPause
+		return ret
+	}).(SparkPoolAutoPauseOutput)
 }
 
 // Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
@@ -388,7 +400,7 @@ func (o SparkPoolAutoScaleOutput) ToSparkPoolAutoScalePtrOutput() SparkPoolAutoS
 }
 
 func (o SparkPoolAutoScaleOutput) ToSparkPoolAutoScalePtrOutputWithContext(ctx context.Context) SparkPoolAutoScalePtrOutput {
-	return o.ApplyT(func(v SparkPoolAutoScale) *SparkPoolAutoScale {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkPoolAutoScale) *SparkPoolAutoScale {
 		return &v
 	}).(SparkPoolAutoScalePtrOutput)
 }
@@ -418,7 +430,13 @@ func (o SparkPoolAutoScalePtrOutput) ToSparkPoolAutoScalePtrOutputWithContext(ct
 }
 
 func (o SparkPoolAutoScalePtrOutput) Elem() SparkPoolAutoScaleOutput {
-	return o.ApplyT(func(v *SparkPoolAutoScale) SparkPoolAutoScale { return *v }).(SparkPoolAutoScaleOutput)
+	return o.ApplyT(func(v *SparkPoolAutoScale) SparkPoolAutoScale {
+		if v != nil {
+			return *v
+		}
+		var ret SparkPoolAutoScale
+		return ret
+	}).(SparkPoolAutoScaleOutput)
 }
 
 // The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
@@ -538,7 +556,7 @@ func (o SparkPoolLibraryRequirementOutput) ToSparkPoolLibraryRequirementPtrOutpu
 }
 
 func (o SparkPoolLibraryRequirementOutput) ToSparkPoolLibraryRequirementPtrOutputWithContext(ctx context.Context) SparkPoolLibraryRequirementPtrOutput {
-	return o.ApplyT(func(v SparkPoolLibraryRequirement) *SparkPoolLibraryRequirement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkPoolLibraryRequirement) *SparkPoolLibraryRequirement {
 		return &v
 	}).(SparkPoolLibraryRequirementPtrOutput)
 }
@@ -568,7 +586,13 @@ func (o SparkPoolLibraryRequirementPtrOutput) ToSparkPoolLibraryRequirementPtrOu
 }
 
 func (o SparkPoolLibraryRequirementPtrOutput) Elem() SparkPoolLibraryRequirementOutput {
-	return o.ApplyT(func(v *SparkPoolLibraryRequirement) SparkPoolLibraryRequirement { return *v }).(SparkPoolLibraryRequirementOutput)
+	return o.ApplyT(func(v *SparkPoolLibraryRequirement) SparkPoolLibraryRequirement {
+		if v != nil {
+			return *v
+		}
+		var ret SparkPoolLibraryRequirement
+		return ret
+	}).(SparkPoolLibraryRequirementOutput)
 }
 
 // The content of library requirements.
@@ -688,7 +712,7 @@ func (o SqlPoolRestoreOutput) ToSqlPoolRestorePtrOutput() SqlPoolRestorePtrOutpu
 }
 
 func (o SqlPoolRestoreOutput) ToSqlPoolRestorePtrOutputWithContext(ctx context.Context) SqlPoolRestorePtrOutput {
-	return o.ApplyT(func(v SqlPoolRestore) *SqlPoolRestore {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlPoolRestore) *SqlPoolRestore {
 		return &v
 	}).(SqlPoolRestorePtrOutput)
 }
@@ -718,7 +742,13 @@ func (o SqlPoolRestorePtrOutput) ToSqlPoolRestorePtrOutputWithContext(ctx contex
 }
 
 func (o SqlPoolRestorePtrOutput) Elem() SqlPoolRestoreOutput {
-	return o.ApplyT(func(v *SqlPoolRestore) SqlPoolRestore { return *v }).(SqlPoolRestoreOutput)
+	return o.ApplyT(func(v *SqlPoolRestore) SqlPoolRestore {
+		if v != nil {
+			return *v
+		}
+		var ret SqlPoolRestore
+		return ret
+	}).(SqlPoolRestoreOutput)
 }
 
 // Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
@@ -842,7 +872,7 @@ func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) ToSqlPoolVulnerabili
 }
 
 func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput {
-	return o.ApplyT(func(v SqlPoolVulnerabilityAssessmentRecurringScans) *SqlPoolVulnerabilityAssessmentRecurringScans {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlPoolVulnerabilityAssessmentRecurringScans) *SqlPoolVulnerabilityAssessmentRecurringScans {
 		return &v
 	}).(SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput)
 }
@@ -878,7 +908,11 @@ func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) ToSqlPoolVulnerab
 
 func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) Elem() SqlPoolVulnerabilityAssessmentRecurringScansOutput {
 	return o.ApplyT(func(v *SqlPoolVulnerabilityAssessmentRecurringScans) SqlPoolVulnerabilityAssessmentRecurringScans {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SqlPoolVulnerabilityAssessmentRecurringScans
+		return ret
 	}).(SqlPoolVulnerabilityAssessmentRecurringScansOutput)
 }
 
@@ -1013,7 +1047,7 @@ func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminPtrOutput() WorkspaceAadAdmi
 }
 
 func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceAadAdminPtrOutput {
-	return o.ApplyT(func(v WorkspaceAadAdmin) *WorkspaceAadAdmin {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceAadAdmin) *WorkspaceAadAdmin {
 		return &v
 	}).(WorkspaceAadAdminPtrOutput)
 }
@@ -1048,7 +1082,13 @@ func (o WorkspaceAadAdminPtrOutput) ToWorkspaceAadAdminPtrOutputWithContext(ctx 
 }
 
 func (o WorkspaceAadAdminPtrOutput) Elem() WorkspaceAadAdminOutput {
-	return o.ApplyT(func(v *WorkspaceAadAdmin) WorkspaceAadAdmin { return *v }).(WorkspaceAadAdminOutput)
+	return o.ApplyT(func(v *WorkspaceAadAdmin) WorkspaceAadAdmin {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceAadAdmin
+		return ret
+	}).(WorkspaceAadAdminOutput)
 }
 
 // The login name of the Azure AD Administrator of this Synapse Workspace.
@@ -1194,7 +1234,7 @@ func (o WorkspaceAzureDevopsRepoOutput) ToWorkspaceAzureDevopsRepoPtrOutput() Wo
 }
 
 func (o WorkspaceAzureDevopsRepoOutput) ToWorkspaceAzureDevopsRepoPtrOutputWithContext(ctx context.Context) WorkspaceAzureDevopsRepoPtrOutput {
-	return o.ApplyT(func(v WorkspaceAzureDevopsRepo) *WorkspaceAzureDevopsRepo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceAzureDevopsRepo) *WorkspaceAzureDevopsRepo {
 		return &v
 	}).(WorkspaceAzureDevopsRepoPtrOutput)
 }
@@ -1244,7 +1284,13 @@ func (o WorkspaceAzureDevopsRepoPtrOutput) ToWorkspaceAzureDevopsRepoPtrOutputWi
 }
 
 func (o WorkspaceAzureDevopsRepoPtrOutput) Elem() WorkspaceAzureDevopsRepoOutput {
-	return o.ApplyT(func(v *WorkspaceAzureDevopsRepo) WorkspaceAzureDevopsRepo { return *v }).(WorkspaceAzureDevopsRepoOutput)
+	return o.ApplyT(func(v *WorkspaceAzureDevopsRepo) WorkspaceAzureDevopsRepo {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceAzureDevopsRepo
+		return ret
+	}).(WorkspaceAzureDevopsRepoOutput)
 }
 
 // Specifies the Azure DevOps account name.
@@ -1404,7 +1450,7 @@ func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyPtrOutpu
 }
 
 func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomerManagedKey) *WorkspaceCustomerManagedKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCustomerManagedKey) *WorkspaceCustomerManagedKey {
 		return &v
 	}).(WorkspaceCustomerManagedKeyPtrOutput)
 }
@@ -1434,7 +1480,13 @@ func (o WorkspaceCustomerManagedKeyPtrOutput) ToWorkspaceCustomerManagedKeyPtrOu
 }
 
 func (o WorkspaceCustomerManagedKeyPtrOutput) Elem() WorkspaceCustomerManagedKeyOutput {
-	return o.ApplyT(func(v *WorkspaceCustomerManagedKey) WorkspaceCustomerManagedKey { return *v }).(WorkspaceCustomerManagedKeyOutput)
+	return o.ApplyT(func(v *WorkspaceCustomerManagedKey) WorkspaceCustomerManagedKey {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceCustomerManagedKey
+		return ret
+	}).(WorkspaceCustomerManagedKeyOutput)
 }
 
 // An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
@@ -1566,7 +1618,7 @@ func (o WorkspaceGithubRepoOutput) ToWorkspaceGithubRepoPtrOutput() WorkspaceGit
 }
 
 func (o WorkspaceGithubRepoOutput) ToWorkspaceGithubRepoPtrOutputWithContext(ctx context.Context) WorkspaceGithubRepoPtrOutput {
-	return o.ApplyT(func(v WorkspaceGithubRepo) *WorkspaceGithubRepo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceGithubRepo) *WorkspaceGithubRepo {
 		return &v
 	}).(WorkspaceGithubRepoPtrOutput)
 }
@@ -1611,7 +1663,13 @@ func (o WorkspaceGithubRepoPtrOutput) ToWorkspaceGithubRepoPtrOutputWithContext(
 }
 
 func (o WorkspaceGithubRepoPtrOutput) Elem() WorkspaceGithubRepoOutput {
-	return o.ApplyT(func(v *WorkspaceGithubRepo) WorkspaceGithubRepo { return *v }).(WorkspaceGithubRepoOutput)
+	return o.ApplyT(func(v *WorkspaceGithubRepo) WorkspaceGithubRepo {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceGithubRepo
+		return ret
+	}).(WorkspaceGithubRepoOutput)
 }
 
 // Specifies the GitHub account name.
@@ -1880,7 +1938,7 @@ func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) ToWorkspaceVulnera
 }
 
 func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput {
-	return o.ApplyT(func(v WorkspaceVulnerabilityAssessmentRecurringScans) *WorkspaceVulnerabilityAssessmentRecurringScans {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceVulnerabilityAssessmentRecurringScans) *WorkspaceVulnerabilityAssessmentRecurringScans {
 		return &v
 	}).(WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput)
 }
@@ -1916,7 +1974,11 @@ func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) ToWorkspaceVuln
 
 func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) Elem() WorkspaceVulnerabilityAssessmentRecurringScansOutput {
 	return o.ApplyT(func(v *WorkspaceVulnerabilityAssessmentRecurringScans) WorkspaceVulnerabilityAssessmentRecurringScans {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceVulnerabilityAssessmentRecurringScans
+		return ret
 	}).(WorkspaceVulnerabilityAssessmentRecurringScansOutput)
 }
 

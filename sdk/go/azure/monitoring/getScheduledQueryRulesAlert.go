@@ -4,6 +4,9 @@
 package monitoring
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -81,4 +84,124 @@ type LookupScheduledQueryRulesAlertResult struct {
 	TimeWindow int `pulumi:"timeWindow"`
 	// A `trigger` block as defined below.
 	Triggers []GetScheduledQueryRulesAlertTrigger `pulumi:"triggers"`
+}
+
+func LookupScheduledQueryRulesAlertOutput(ctx *pulumi.Context, args LookupScheduledQueryRulesAlertOutputArgs, opts ...pulumi.InvokeOption) LookupScheduledQueryRulesAlertResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupScheduledQueryRulesAlertResult, error) {
+			args := v.(LookupScheduledQueryRulesAlertArgs)
+			r, err := LookupScheduledQueryRulesAlert(ctx, &args, opts...)
+			return *r, err
+		}).(LookupScheduledQueryRulesAlertResultOutput)
+}
+
+// A collection of arguments for invoking getScheduledQueryRulesAlert.
+type LookupScheduledQueryRulesAlertOutputArgs struct {
+	// Specifies the name of the scheduled query rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group where the scheduled query rule is located.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupScheduledQueryRulesAlertOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScheduledQueryRulesAlertArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getScheduledQueryRulesAlert.
+type LookupScheduledQueryRulesAlertResultOutput struct{ *pulumi.OutputState }
+
+func (LookupScheduledQueryRulesAlertResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScheduledQueryRulesAlertResult)(nil)).Elem()
+}
+
+func (o LookupScheduledQueryRulesAlertResultOutput) ToLookupScheduledQueryRulesAlertResultOutput() LookupScheduledQueryRulesAlertResultOutput {
+	return o
+}
+
+func (o LookupScheduledQueryRulesAlertResultOutput) ToLookupScheduledQueryRulesAlertResultOutputWithContext(ctx context.Context) LookupScheduledQueryRulesAlertResultOutput {
+	return o
+}
+
+// An `action` block as defined below.
+func (o LookupScheduledQueryRulesAlertResultOutput) Actions() GetScheduledQueryRulesAlertActionArrayOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) []GetScheduledQueryRulesAlertAction { return v.Actions }).(GetScheduledQueryRulesAlertActionArrayOutput)
+}
+
+// The list of Resource IDs referred into query.
+func (o LookupScheduledQueryRulesAlertResultOutput) AuthorizedResourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) []string { return v.AuthorizedResourceIds }).(pulumi.StringArrayOutput)
+}
+
+// The resource URI over which log search query is to be run.
+func (o LookupScheduledQueryRulesAlertResultOutput) DataSourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) string { return v.DataSourceId }).(pulumi.StringOutput)
+}
+
+// The description of the scheduled query rule.
+func (o LookupScheduledQueryRulesAlertResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Whether this scheduled query rule is enabled.
+func (o LookupScheduledQueryRulesAlertResultOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Frequency at which rule condition should be evaluated.
+func (o LookupScheduledQueryRulesAlertResultOutput) Frequency() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) int { return v.Frequency }).(pulumi.IntOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupScheduledQueryRulesAlertResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupScheduledQueryRulesAlertResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupScheduledQueryRulesAlertResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Log search query.
+func (o LookupScheduledQueryRulesAlertResultOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) string { return v.Query }).(pulumi.StringOutput)
+}
+
+func (o LookupScheduledQueryRulesAlertResultOutput) QueryType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) string { return v.QueryType }).(pulumi.StringOutput)
+}
+
+func (o LookupScheduledQueryRulesAlertResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Severity of the alert.
+func (o LookupScheduledQueryRulesAlertResultOutput) Severity() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) int { return v.Severity }).(pulumi.IntOutput)
+}
+
+func (o LookupScheduledQueryRulesAlertResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Time for which alerts should be throttled or suppressed.
+func (o LookupScheduledQueryRulesAlertResultOutput) Throttling() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) int { return v.Throttling }).(pulumi.IntOutput)
+}
+
+// Time window for which data needs to be fetched for query.
+func (o LookupScheduledQueryRulesAlertResultOutput) TimeWindow() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) int { return v.TimeWindow }).(pulumi.IntOutput)
+}
+
+// A `trigger` block as defined below.
+func (o LookupScheduledQueryRulesAlertResultOutput) Triggers() GetScheduledQueryRulesAlertTriggerArrayOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) []GetScheduledQueryRulesAlertTrigger { return v.Triggers }).(GetScheduledQueryRulesAlertTriggerArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupScheduledQueryRulesAlertResultOutput{})
 }

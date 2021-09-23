@@ -226,12 +226,12 @@ class SpringCloudCertificate(pulumi.CustomResource):
                 issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
                     name="Self",
                 ),
-                key_properties={
-                    "exportable": True,
-                    "key_size": 2048,
-                    "key_type": "RSA",
-                    "reuseKey": True,
-                },
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                    exportable=True,
+                    key_size=2048,
+                    key_type="RSA",
+                    reuse_key=True,
+                ),
                 lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
                     action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
                         action_type="AutoRenew",
@@ -335,12 +335,12 @@ class SpringCloudCertificate(pulumi.CustomResource):
                 issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
                     name="Self",
                 ),
-                key_properties={
-                    "exportable": True,
-                    "key_size": 2048,
-                    "key_type": "RSA",
-                    "reuseKey": True,
-                },
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                    exportable=True,
+                    key_size=2048,
+                    key_type="RSA",
+                    reuse_key=True,
+                ),
                 lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
                     action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
                         action_type="AutoRenew",

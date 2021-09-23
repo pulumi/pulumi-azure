@@ -14,6 +14,7 @@ __all__ = [
     'GetPoolResult',
     'AwaitableGetPoolResult',
     'get_pool',
+    'get_pool_output',
 ]
 
 @pulumi.output_type
@@ -267,3 +268,33 @@ def get_pool(account_name: Optional[str] = None,
         start_task=__ret__.start_task,
         storage_image_references=__ret__.storage_image_references,
         vm_size=__ret__.vm_size)
+
+
+@_utilities.lift_output_func(get_pool)
+def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
+                    certificates: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPoolCertificateArgs']]]]] = None,
+                    name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    start_task: Optional[pulumi.Input[Optional[pulumi.InputType['GetPoolStartTaskArgs']]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
+    """
+    Use this data source to access information about an existing Batch pool
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.batch.get_pool(account_name="testbatchaccount",
+        name="testbatchpool",
+        resource_group_name="test")
+    ```
+
+
+    :param str account_name: The name of the Batch account.
+    :param Sequence[pulumi.InputType['GetPoolCertificateArgs']] certificates: One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+    :param str name: The name of the endpoint.
+    :param pulumi.InputType['GetPoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool.
+    """
+    ...

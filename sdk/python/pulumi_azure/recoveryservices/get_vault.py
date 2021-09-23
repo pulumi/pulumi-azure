@@ -12,6 +12,7 @@ __all__ = [
     'GetVaultResult',
     'AwaitableGetVaultResult',
     'get_vault',
+    'get_vault_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,27 @@ def get_vault(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         sku=__ret__.sku,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_vault)
+def get_vault_output(name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVaultResult]:
+    """
+    Use this data source to access information about an existing Recovery Services Vault.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    vault = azure.recoveryservices.get_vault(name="tfex-recovery_vault",
+        resource_group_name="tfex-resource_group")
+    ```
+
+
+    :param str name: Specifies the name of the Recovery Services Vault.
+    :param str resource_group_name: The name of the resource group in which the Recovery Services Vault resides.
+    """
+    ...

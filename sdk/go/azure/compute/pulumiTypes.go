@@ -111,7 +111,7 @@ func (o BastionHostIpConfigurationOutput) ToBastionHostIpConfigurationPtrOutput(
 }
 
 func (o BastionHostIpConfigurationOutput) ToBastionHostIpConfigurationPtrOutputWithContext(ctx context.Context) BastionHostIpConfigurationPtrOutput {
-	return o.ApplyT(func(v BastionHostIpConfiguration) *BastionHostIpConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BastionHostIpConfiguration) *BastionHostIpConfiguration {
 		return &v
 	}).(BastionHostIpConfigurationPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o BastionHostIpConfigurationPtrOutput) ToBastionHostIpConfigurationPtrOutp
 }
 
 func (o BastionHostIpConfigurationPtrOutput) Elem() BastionHostIpConfigurationOutput {
-	return o.ApplyT(func(v *BastionHostIpConfiguration) BastionHostIpConfiguration { return *v }).(BastionHostIpConfigurationOutput)
+	return o.ApplyT(func(v *BastionHostIpConfiguration) BastionHostIpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BastionHostIpConfiguration
+		return ret
+	}).(BastionHostIpConfigurationOutput)
 }
 
 // The name of the IP configuration.
@@ -280,7 +286,7 @@ func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyA
 }
 
 func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfiguration) *ConfigurationPolicyAssignmentConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyAssignmentConfiguration) *ConfigurationPolicyAssignmentConfiguration {
 		return &v
 	}).(ConfigurationPolicyAssignmentConfigurationPtrOutput)
 }
@@ -318,7 +324,11 @@ func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) ToConfigurationPoli
 
 func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Elem() ConfigurationPolicyAssignmentConfigurationOutput {
 	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) ConfigurationPolicyAssignmentConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationPolicyAssignmentConfiguration
+		return ret
 	}).(ConfigurationPolicyAssignmentConfigurationOutput)
 }
 
@@ -559,7 +569,7 @@ func (o DiskEncryptionSetIdentityOutput) ToDiskEncryptionSetIdentityPtrOutput() 
 }
 
 func (o DiskEncryptionSetIdentityOutput) ToDiskEncryptionSetIdentityPtrOutputWithContext(ctx context.Context) DiskEncryptionSetIdentityPtrOutput {
-	return o.ApplyT(func(v DiskEncryptionSetIdentity) *DiskEncryptionSetIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskEncryptionSetIdentity) *DiskEncryptionSetIdentity {
 		return &v
 	}).(DiskEncryptionSetIdentityPtrOutput)
 }
@@ -594,7 +604,13 @@ func (o DiskEncryptionSetIdentityPtrOutput) ToDiskEncryptionSetIdentityPtrOutput
 }
 
 func (o DiskEncryptionSetIdentityPtrOutput) Elem() DiskEncryptionSetIdentityOutput {
-	return o.ApplyT(func(v *DiskEncryptionSetIdentity) DiskEncryptionSetIdentity { return *v }).(DiskEncryptionSetIdentityOutput)
+	return o.ApplyT(func(v *DiskEncryptionSetIdentity) DiskEncryptionSetIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret DiskEncryptionSetIdentity
+		return ret
+	}).(DiskEncryptionSetIdentityOutput)
 }
 
 // The (Client) ID of the Service Principal.
@@ -873,7 +889,7 @@ func (o ImageOsDiskOutput) ToImageOsDiskPtrOutput() ImageOsDiskPtrOutput {
 }
 
 func (o ImageOsDiskOutput) ToImageOsDiskPtrOutputWithContext(ctx context.Context) ImageOsDiskPtrOutput {
-	return o.ApplyT(func(v ImageOsDisk) *ImageOsDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageOsDisk) *ImageOsDisk {
 		return &v
 	}).(ImageOsDiskPtrOutput)
 }
@@ -923,7 +939,13 @@ func (o ImageOsDiskPtrOutput) ToImageOsDiskPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ImageOsDiskPtrOutput) Elem() ImageOsDiskOutput {
-	return o.ApplyT(func(v *ImageOsDisk) ImageOsDisk { return *v }).(ImageOsDiskOutput)
+	return o.ApplyT(func(v *ImageOsDisk) ImageOsDisk {
+		if v != nil {
+			return *v
+		}
+		var ret ImageOsDisk
+		return ret
+	}).(ImageOsDiskOutput)
 }
 
 // Specifies the URI in Azure storage of the blob that you want to use to create the image.
@@ -1079,7 +1101,7 @@ func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) ToLinuxVirtualMachineAd
 }
 
 func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineAdditionalCapabilitiesPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineAdditionalCapabilities) *LinuxVirtualMachineAdditionalCapabilities {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineAdditionalCapabilities) *LinuxVirtualMachineAdditionalCapabilities {
 		return &v
 	}).(LinuxVirtualMachineAdditionalCapabilitiesPtrOutput)
 }
@@ -1105,7 +1127,11 @@ func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) ToLinuxVirtualMachin
 
 func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) Elem() LinuxVirtualMachineAdditionalCapabilitiesOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineAdditionalCapabilities) LinuxVirtualMachineAdditionalCapabilities {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineAdditionalCapabilities
+		return ret
 	}).(LinuxVirtualMachineAdditionalCapabilitiesOutput)
 }
 
@@ -1318,7 +1344,7 @@ func (o LinuxVirtualMachineBootDiagnosticsOutput) ToLinuxVirtualMachineBootDiagn
 }
 
 func (o LinuxVirtualMachineBootDiagnosticsOutput) ToLinuxVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineBootDiagnosticsPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineBootDiagnostics) *LinuxVirtualMachineBootDiagnostics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineBootDiagnostics) *LinuxVirtualMachineBootDiagnostics {
 		return &v
 	}).(LinuxVirtualMachineBootDiagnosticsPtrOutput)
 }
@@ -1343,7 +1369,13 @@ func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) ToLinuxVirtualMachineBootDi
 }
 
 func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) Elem() LinuxVirtualMachineBootDiagnosticsOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineBootDiagnostics) LinuxVirtualMachineBootDiagnostics { return *v }).(LinuxVirtualMachineBootDiagnosticsOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineBootDiagnostics) LinuxVirtualMachineBootDiagnostics {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineBootDiagnostics
+		return ret
+	}).(LinuxVirtualMachineBootDiagnosticsOutput)
 }
 
 // The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
@@ -1461,7 +1493,7 @@ func (o LinuxVirtualMachineIdentityOutput) ToLinuxVirtualMachineIdentityPtrOutpu
 }
 
 func (o LinuxVirtualMachineIdentityOutput) ToLinuxVirtualMachineIdentityPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineIdentityPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineIdentity) *LinuxVirtualMachineIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineIdentity) *LinuxVirtualMachineIdentity {
 		return &v
 	}).(LinuxVirtualMachineIdentityPtrOutput)
 }
@@ -1501,7 +1533,13 @@ func (o LinuxVirtualMachineIdentityPtrOutput) ToLinuxVirtualMachineIdentityPtrOu
 }
 
 func (o LinuxVirtualMachineIdentityPtrOutput) Elem() LinuxVirtualMachineIdentityOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineIdentity) LinuxVirtualMachineIdentity { return *v }).(LinuxVirtualMachineIdentityOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineIdentity) LinuxVirtualMachineIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineIdentity
+		return ret
+	}).(LinuxVirtualMachineIdentityOutput)
 }
 
 // A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
@@ -1661,7 +1699,7 @@ func (o LinuxVirtualMachineOsDiskOutput) ToLinuxVirtualMachineOsDiskPtrOutput() 
 }
 
 func (o LinuxVirtualMachineOsDiskOutput) ToLinuxVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDisk {
 		return &v
 	}).(LinuxVirtualMachineOsDiskPtrOutput)
 }
@@ -1718,7 +1756,13 @@ func (o LinuxVirtualMachineOsDiskPtrOutput) ToLinuxVirtualMachineOsDiskPtrOutput
 }
 
 func (o LinuxVirtualMachineOsDiskPtrOutput) Elem() LinuxVirtualMachineOsDiskOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) LinuxVirtualMachineOsDisk { return *v }).(LinuxVirtualMachineOsDiskOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) LinuxVirtualMachineOsDisk {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineOsDisk
+		return ret
+	}).(LinuxVirtualMachineOsDiskOutput)
 }
 
 // The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -1884,7 +1928,7 @@ func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) ToLinuxVirtualMachineOs
 }
 
 func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineOsDiskDiffDiskSettings) *LinuxVirtualMachineOsDiskDiffDiskSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineOsDiskDiffDiskSettings) *LinuxVirtualMachineOsDiskDiffDiskSettings {
 		return &v
 	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
@@ -1910,7 +1954,11 @@ func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ToLinuxVirtualMachin
 
 func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Elem() LinuxVirtualMachineOsDiskDiffDiskSettingsOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineOsDiskDiffDiskSettings) LinuxVirtualMachineOsDiskDiffDiskSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineOsDiskDiffDiskSettings
+		return ret
 	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsOutput)
 }
 
@@ -2025,7 +2073,7 @@ func (o LinuxVirtualMachinePlanOutput) ToLinuxVirtualMachinePlanPtrOutput() Linu
 }
 
 func (o LinuxVirtualMachinePlanOutput) ToLinuxVirtualMachinePlanPtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePlanPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachinePlan) *LinuxVirtualMachinePlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachinePlan) *LinuxVirtualMachinePlan {
 		return &v
 	}).(LinuxVirtualMachinePlanPtrOutput)
 }
@@ -2060,7 +2108,13 @@ func (o LinuxVirtualMachinePlanPtrOutput) ToLinuxVirtualMachinePlanPtrOutputWith
 }
 
 func (o LinuxVirtualMachinePlanPtrOutput) Elem() LinuxVirtualMachinePlanOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachinePlan) LinuxVirtualMachinePlan { return *v }).(LinuxVirtualMachinePlanOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachinePlan) LinuxVirtualMachinePlan {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachinePlan
+		return ret
+	}).(LinuxVirtualMachinePlanOutput)
 }
 
 // Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -2186,7 +2240,7 @@ func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToLinuxVirtualM
 }
 
 func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAdditionalCapabilities) *LinuxVirtualMachineScaleSetAdditionalCapabilities {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetAdditionalCapabilities) *LinuxVirtualMachineScaleSetAdditionalCapabilities {
 		return &v
 	}).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
 }
@@ -2212,7 +2266,11 @@ func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ToLinuxVirtu
 
 func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Elem() LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAdditionalCapabilities) LinuxVirtualMachineScaleSetAdditionalCapabilities {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetAdditionalCapabilities
+		return ret
 	}).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput)
 }
 
@@ -2429,7 +2487,7 @@ func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToLinuxVirtual
 }
 
 func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
 		return &v
 	}).(LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput)
 }
@@ -2460,7 +2518,11 @@ func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) ToLinuxVirt
 
 func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Elem() LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticInstanceRepair) LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetAutomaticInstanceRepair
+		return ret
 	}).(LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput)
 }
 
@@ -2581,7 +2643,7 @@ func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToLinuxVirtua
 }
 
 func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
 		return &v
 	}).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
 }
@@ -2612,7 +2674,11 @@ func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) ToLinuxVir
 
 func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) Elem() LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy
+		return ret
 	}).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
 }
 
@@ -2729,7 +2795,7 @@ func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) ToLinuxVirtualMachineS
 }
 
 func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetBootDiagnostics) *LinuxVirtualMachineScaleSetBootDiagnostics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetBootDiagnostics) *LinuxVirtualMachineScaleSetBootDiagnostics {
 		return &v
 	}).(LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput)
 }
@@ -2755,7 +2821,11 @@ func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) ToLinuxVirtualMachi
 
 func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) Elem() LinuxVirtualMachineScaleSetBootDiagnosticsOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetBootDiagnostics) LinuxVirtualMachineScaleSetBootDiagnostics {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetBootDiagnostics
+		return ret
 	}).(LinuxVirtualMachineScaleSetBootDiagnosticsOutput)
 }
 
@@ -3208,7 +3278,7 @@ func (o LinuxVirtualMachineScaleSetIdentityOutput) ToLinuxVirtualMachineScaleSet
 }
 
 func (o LinuxVirtualMachineScaleSetIdentityOutput) ToLinuxVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetIdentityPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) *LinuxVirtualMachineScaleSetIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetIdentity) *LinuxVirtualMachineScaleSetIdentity {
 		return &v
 	}).(LinuxVirtualMachineScaleSetIdentityPtrOutput)
 }
@@ -3243,7 +3313,13 @@ func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) ToLinuxVirtualMachineScale
 }
 
 func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) Elem() LinuxVirtualMachineScaleSetIdentityOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetIdentity) LinuxVirtualMachineScaleSetIdentity { return *v }).(LinuxVirtualMachineScaleSetIdentityOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetIdentity) LinuxVirtualMachineScaleSetIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetIdentity
+		return ret
+	}).(LinuxVirtualMachineScaleSetIdentityOutput)
 }
 
 // A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
@@ -3974,7 +4050,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskOutput) ToLinuxVirtualMachineScaleSetOs
 }
 
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *LinuxVirtualMachineScaleSetOsDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetOsDisk) *LinuxVirtualMachineScaleSetOsDisk {
 		return &v
 	}).(LinuxVirtualMachineScaleSetOsDiskPtrOutput)
 }
@@ -4026,7 +4102,13 @@ func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) ToLinuxVirtualMachineScaleSe
 }
 
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) Elem() LinuxVirtualMachineScaleSetOsDiskOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) LinuxVirtualMachineScaleSetOsDisk { return *v }).(LinuxVirtualMachineScaleSetOsDiskOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) LinuxVirtualMachineScaleSetOsDisk {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetOsDisk
+		return ret
+	}).(LinuxVirtualMachineScaleSetOsDiskOutput)
 }
 
 // The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -4180,10 +4262,11 @@ func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToLinuxVirtualM
 }
 
 func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
 		return &v
 	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
+
 func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
@@ -4204,7 +4287,11 @@ func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ToLinuxVirtu
 
 func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Elem() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings
+		return ret
 	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
 }
 
@@ -4318,7 +4405,7 @@ func (o LinuxVirtualMachineScaleSetPlanOutput) ToLinuxVirtualMachineScaleSetPlan
 }
 
 func (o LinuxVirtualMachineScaleSetPlanOutput) ToLinuxVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetPlanPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) *LinuxVirtualMachineScaleSetPlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetPlan) *LinuxVirtualMachineScaleSetPlan {
 		return &v
 	}).(LinuxVirtualMachineScaleSetPlanPtrOutput)
 }
@@ -4353,7 +4440,13 @@ func (o LinuxVirtualMachineScaleSetPlanPtrOutput) ToLinuxVirtualMachineScaleSetP
 }
 
 func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Elem() LinuxVirtualMachineScaleSetPlanOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetPlan) LinuxVirtualMachineScaleSetPlan { return *v }).(LinuxVirtualMachineScaleSetPlanOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetPlan) LinuxVirtualMachineScaleSetPlan {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetPlan
+		return ret
+	}).(LinuxVirtualMachineScaleSetPlanOutput)
 }
 
 // Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
@@ -4491,7 +4584,7 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) ToLinuxVirtualMac
 }
 
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) *LinuxVirtualMachineScaleSetRollingUpgradePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetRollingUpgradePolicy) *LinuxVirtualMachineScaleSetRollingUpgradePolicy {
 		return &v
 	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
@@ -4534,7 +4627,11 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ToLinuxVirtual
 
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) LinuxVirtualMachineScaleSetRollingUpgradePolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetRollingUpgradePolicy
+		return ret
 	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput)
 }
 
@@ -4888,7 +4985,7 @@ func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) ToLinuxVirtualMac
 }
 
 func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) *LinuxVirtualMachineScaleSetSourceImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetSourceImageReference) *LinuxVirtualMachineScaleSetSourceImageReference {
 		return &v
 	}).(LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput)
 }
@@ -4929,7 +5026,11 @@ func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) ToLinuxVirtual
 
 func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Elem() LinuxVirtualMachineScaleSetSourceImageReferenceOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetSourceImageReference) LinuxVirtualMachineScaleSetSourceImageReference {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetSourceImageReference
+		return ret
 	}).(LinuxVirtualMachineScaleSetSourceImageReferenceOutput)
 }
 
@@ -5070,7 +5171,7 @@ func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) ToLinuxVirtualMa
 }
 
 func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminateNotification) *LinuxVirtualMachineScaleSetTerminateNotification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetTerminateNotification) *LinuxVirtualMachineScaleSetTerminateNotification {
 		return &v
 	}).(LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput)
 }
@@ -5101,7 +5202,11 @@ func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) ToLinuxVirtua
 
 func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Elem() LinuxVirtualMachineScaleSetTerminateNotificationOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetTerminateNotification) LinuxVirtualMachineScaleSetTerminateNotification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetTerminateNotification
+		return ret
 	}).(LinuxVirtualMachineScaleSetTerminateNotificationOutput)
 }
 
@@ -5433,7 +5538,7 @@ func (o LinuxVirtualMachineSourceImageReferenceOutput) ToLinuxVirtualMachineSour
 }
 
 func (o LinuxVirtualMachineSourceImageReferenceOutput) ToLinuxVirtualMachineSourceImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineSourceImageReferencePtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) *LinuxVirtualMachineSourceImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineSourceImageReference) *LinuxVirtualMachineSourceImageReference {
 		return &v
 	}).(LinuxVirtualMachineSourceImageReferencePtrOutput)
 }
@@ -5473,7 +5578,13 @@ func (o LinuxVirtualMachineSourceImageReferencePtrOutput) ToLinuxVirtualMachineS
 }
 
 func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Elem() LinuxVirtualMachineSourceImageReferenceOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineSourceImageReference) LinuxVirtualMachineSourceImageReference { return *v }).(LinuxVirtualMachineSourceImageReferenceOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineSourceImageReference) LinuxVirtualMachineSourceImageReference {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineSourceImageReference
+		return ret
+	}).(LinuxVirtualMachineSourceImageReferenceOutput)
 }
 
 // Specifies the offer of the image used to create the virtual machines.
@@ -5617,7 +5728,7 @@ func (o ManagedDiskEncryptionSettingsOutput) ToManagedDiskEncryptionSettingsPtrO
 }
 
 func (o ManagedDiskEncryptionSettingsOutput) ToManagedDiskEncryptionSettingsPtrOutputWithContext(ctx context.Context) ManagedDiskEncryptionSettingsPtrOutput {
-	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettings {
 		return &v
 	}).(ManagedDiskEncryptionSettingsPtrOutput)
 }
@@ -5656,7 +5767,13 @@ func (o ManagedDiskEncryptionSettingsPtrOutput) ToManagedDiskEncryptionSettingsP
 }
 
 func (o ManagedDiskEncryptionSettingsPtrOutput) Elem() ManagedDiskEncryptionSettingsOutput {
-	return o.ApplyT(func(v *ManagedDiskEncryptionSettings) ManagedDiskEncryptionSettings { return *v }).(ManagedDiskEncryptionSettingsOutput)
+	return o.ApplyT(func(v *ManagedDiskEncryptionSettings) ManagedDiskEncryptionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDiskEncryptionSettings
+		return ret
+	}).(ManagedDiskEncryptionSettingsOutput)
 }
 
 // A `diskEncryptionKey` block as defined above.
@@ -5786,7 +5903,7 @@ func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) ToManagedDiskEncry
 }
 
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) ToManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutputWithContext(ctx context.Context) ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput {
-	return o.ApplyT(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) *ManagedDiskEncryptionSettingsDiskEncryptionKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDiskEncryptionSettingsDiskEncryptionKey) *ManagedDiskEncryptionSettingsDiskEncryptionKey {
 		return &v
 	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
@@ -5817,7 +5934,11 @@ func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) ToManagedDiskEn
 
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) Elem() ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput {
 	return o.ApplyT(func(v *ManagedDiskEncryptionSettingsDiskEncryptionKey) ManagedDiskEncryptionSettingsDiskEncryptionKey {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDiskEncryptionSettingsDiskEncryptionKey
+		return ret
 	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput)
 }
 
@@ -5938,7 +6059,7 @@ func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) ToManagedDiskEncryp
 }
 
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) ToManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutputWithContext(ctx context.Context) ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput {
-	return o.ApplyT(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) *ManagedDiskEncryptionSettingsKeyEncryptionKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDiskEncryptionSettingsKeyEncryptionKey) *ManagedDiskEncryptionSettingsKeyEncryptionKey {
 		return &v
 	}).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
@@ -5969,7 +6090,11 @@ func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) ToManagedDiskEnc
 
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) Elem() ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput {
 	return o.ApplyT(func(v *ManagedDiskEncryptionSettingsKeyEncryptionKey) ManagedDiskEncryptionSettingsKeyEncryptionKey {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDiskEncryptionSettingsKeyEncryptionKey
+		return ret
 	}).(ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput)
 }
 
@@ -6086,10 +6211,11 @@ func (o ScaleSetBootDiagnosticsOutput) ToScaleSetBootDiagnosticsPtrOutput() Scal
 }
 
 func (o ScaleSetBootDiagnosticsOutput) ToScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) ScaleSetBootDiagnosticsPtrOutput {
-	return o.ApplyT(func(v ScaleSetBootDiagnostics) *ScaleSetBootDiagnostics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetBootDiagnostics) *ScaleSetBootDiagnostics {
 		return &v
 	}).(ScaleSetBootDiagnosticsPtrOutput)
 }
+
 func (o ScaleSetBootDiagnosticsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScaleSetBootDiagnostics) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -6113,7 +6239,13 @@ func (o ScaleSetBootDiagnosticsPtrOutput) ToScaleSetBootDiagnosticsPtrOutputWith
 }
 
 func (o ScaleSetBootDiagnosticsPtrOutput) Elem() ScaleSetBootDiagnosticsOutput {
-	return o.ApplyT(func(v *ScaleSetBootDiagnostics) ScaleSetBootDiagnostics { return *v }).(ScaleSetBootDiagnosticsOutput)
+	return o.ApplyT(func(v *ScaleSetBootDiagnostics) ScaleSetBootDiagnostics {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetBootDiagnostics
+		return ret
+	}).(ScaleSetBootDiagnosticsOutput)
 }
 
 func (o ScaleSetBootDiagnosticsPtrOutput) Enabled() pulumi.BoolPtrOutput {
@@ -6393,7 +6525,7 @@ func (o ScaleSetIdentityOutput) ToScaleSetIdentityPtrOutput() ScaleSetIdentityPt
 }
 
 func (o ScaleSetIdentityOutput) ToScaleSetIdentityPtrOutputWithContext(ctx context.Context) ScaleSetIdentityPtrOutput {
-	return o.ApplyT(func(v ScaleSetIdentity) *ScaleSetIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetIdentity) *ScaleSetIdentity {
 		return &v
 	}).(ScaleSetIdentityPtrOutput)
 }
@@ -6427,7 +6559,13 @@ func (o ScaleSetIdentityPtrOutput) ToScaleSetIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ScaleSetIdentityPtrOutput) Elem() ScaleSetIdentityOutput {
-	return o.ApplyT(func(v *ScaleSetIdentity) ScaleSetIdentity { return *v }).(ScaleSetIdentityOutput)
+	return o.ApplyT(func(v *ScaleSetIdentity) ScaleSetIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetIdentity
+		return ret
+	}).(ScaleSetIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
@@ -6703,7 +6841,7 @@ func (o ScaleSetNetworkProfileDnsSettingsOutput) ToScaleSetNetworkProfileDnsSett
 }
 
 func (o ScaleSetNetworkProfileDnsSettingsOutput) ToScaleSetNetworkProfileDnsSettingsPtrOutputWithContext(ctx context.Context) ScaleSetNetworkProfileDnsSettingsPtrOutput {
-	return o.ApplyT(func(v ScaleSetNetworkProfileDnsSettings) *ScaleSetNetworkProfileDnsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetNetworkProfileDnsSettings) *ScaleSetNetworkProfileDnsSettings {
 		return &v
 	}).(ScaleSetNetworkProfileDnsSettingsPtrOutput)
 }
@@ -6728,7 +6866,13 @@ func (o ScaleSetNetworkProfileDnsSettingsPtrOutput) ToScaleSetNetworkProfileDnsS
 }
 
 func (o ScaleSetNetworkProfileDnsSettingsPtrOutput) Elem() ScaleSetNetworkProfileDnsSettingsOutput {
-	return o.ApplyT(func(v *ScaleSetNetworkProfileDnsSettings) ScaleSetNetworkProfileDnsSettings { return *v }).(ScaleSetNetworkProfileDnsSettingsOutput)
+	return o.ApplyT(func(v *ScaleSetNetworkProfileDnsSettings) ScaleSetNetworkProfileDnsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetNetworkProfileDnsSettings
+		return ret
+	}).(ScaleSetNetworkProfileDnsSettingsOutput)
 }
 
 // Specifies an array of dns servers.
@@ -7006,7 +7150,7 @@ func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput)
 }
 
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput) ToScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutputWithContext(ctx context.Context) ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput {
-	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration {
 		return &v
 	}).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput)
 }
@@ -7044,7 +7188,11 @@ func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutp
 
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) Elem() ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput {
 	return o.ApplyT(func(v *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration
+		return ret
 	}).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput)
 }
 
@@ -7183,7 +7331,7 @@ func (o ScaleSetOsProfileOutput) ToScaleSetOsProfilePtrOutput() ScaleSetOsProfil
 }
 
 func (o ScaleSetOsProfileOutput) ToScaleSetOsProfilePtrOutputWithContext(ctx context.Context) ScaleSetOsProfilePtrOutput {
-	return o.ApplyT(func(v ScaleSetOsProfile) *ScaleSetOsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetOsProfile) *ScaleSetOsProfile {
 		return &v
 	}).(ScaleSetOsProfilePtrOutput)
 }
@@ -7223,7 +7371,13 @@ func (o ScaleSetOsProfilePtrOutput) ToScaleSetOsProfilePtrOutputWithContext(ctx 
 }
 
 func (o ScaleSetOsProfilePtrOutput) Elem() ScaleSetOsProfileOutput {
-	return o.ApplyT(func(v *ScaleSetOsProfile) ScaleSetOsProfile { return *v }).(ScaleSetOsProfileOutput)
+	return o.ApplyT(func(v *ScaleSetOsProfile) ScaleSetOsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetOsProfile
+		return ret
+	}).(ScaleSetOsProfileOutput)
 }
 
 // Specifies the administrator password to use for all the instances of virtual machines in a scale set.
@@ -7363,7 +7517,7 @@ func (o ScaleSetOsProfileLinuxConfigOutput) ToScaleSetOsProfileLinuxConfigPtrOut
 }
 
 func (o ScaleSetOsProfileLinuxConfigOutput) ToScaleSetOsProfileLinuxConfigPtrOutputWithContext(ctx context.Context) ScaleSetOsProfileLinuxConfigPtrOutput {
-	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfig) *ScaleSetOsProfileLinuxConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetOsProfileLinuxConfig) *ScaleSetOsProfileLinuxConfig {
 		return &v
 	}).(ScaleSetOsProfileLinuxConfigPtrOutput)
 }
@@ -7393,7 +7547,13 @@ func (o ScaleSetOsProfileLinuxConfigPtrOutput) ToScaleSetOsProfileLinuxConfigPtr
 }
 
 func (o ScaleSetOsProfileLinuxConfigPtrOutput) Elem() ScaleSetOsProfileLinuxConfigOutput {
-	return o.ApplyT(func(v *ScaleSetOsProfileLinuxConfig) ScaleSetOsProfileLinuxConfig { return *v }).(ScaleSetOsProfileLinuxConfigOutput)
+	return o.ApplyT(func(v *ScaleSetOsProfileLinuxConfig) ScaleSetOsProfileLinuxConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetOsProfileLinuxConfig
+		return ret
+	}).(ScaleSetOsProfileLinuxConfigOutput)
 }
 
 // Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
@@ -7833,7 +7993,7 @@ func (o ScaleSetOsProfileWindowsConfigOutput) ToScaleSetOsProfileWindowsConfigPt
 }
 
 func (o ScaleSetOsProfileWindowsConfigOutput) ToScaleSetOsProfileWindowsConfigPtrOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigPtrOutput {
-	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) *ScaleSetOsProfileWindowsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetOsProfileWindowsConfig) *ScaleSetOsProfileWindowsConfig {
 		return &v
 	}).(ScaleSetOsProfileWindowsConfigPtrOutput)
 }
@@ -7875,7 +8035,13 @@ func (o ScaleSetOsProfileWindowsConfigPtrOutput) ToScaleSetOsProfileWindowsConfi
 }
 
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) Elem() ScaleSetOsProfileWindowsConfigOutput {
-	return o.ApplyT(func(v *ScaleSetOsProfileWindowsConfig) ScaleSetOsProfileWindowsConfig { return *v }).(ScaleSetOsProfileWindowsConfigOutput)
+	return o.ApplyT(func(v *ScaleSetOsProfileWindowsConfig) ScaleSetOsProfileWindowsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetOsProfileWindowsConfig
+		return ret
+	}).(ScaleSetOsProfileWindowsConfigOutput)
 }
 
 // An Additional Unattended Config block as documented below.
@@ -8249,7 +8415,7 @@ func (o ScaleSetPlanOutput) ToScaleSetPlanPtrOutput() ScaleSetPlanPtrOutput {
 }
 
 func (o ScaleSetPlanOutput) ToScaleSetPlanPtrOutputWithContext(ctx context.Context) ScaleSetPlanPtrOutput {
-	return o.ApplyT(func(v ScaleSetPlan) *ScaleSetPlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetPlan) *ScaleSetPlan {
 		return &v
 	}).(ScaleSetPlanPtrOutput)
 }
@@ -8284,7 +8450,13 @@ func (o ScaleSetPlanPtrOutput) ToScaleSetPlanPtrOutputWithContext(ctx context.Co
 }
 
 func (o ScaleSetPlanPtrOutput) Elem() ScaleSetPlanOutput {
-	return o.ApplyT(func(v *ScaleSetPlan) ScaleSetPlan { return *v }).(ScaleSetPlanOutput)
+	return o.ApplyT(func(v *ScaleSetPlan) ScaleSetPlan {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetPlan
+		return ret
+	}).(ScaleSetPlanOutput)
 }
 
 // Specifies the name of the image from the marketplace.
@@ -8422,7 +8594,7 @@ func (o ScaleSetRollingUpgradePolicyOutput) ToScaleSetRollingUpgradePolicyPtrOut
 }
 
 func (o ScaleSetRollingUpgradePolicyOutput) ToScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) ScaleSetRollingUpgradePolicyPtrOutput {
-	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *ScaleSetRollingUpgradePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetRollingUpgradePolicy) *ScaleSetRollingUpgradePolicy {
 		return &v
 	}).(ScaleSetRollingUpgradePolicyPtrOutput)
 }
@@ -8462,7 +8634,13 @@ func (o ScaleSetRollingUpgradePolicyPtrOutput) ToScaleSetRollingUpgradePolicyPtr
 }
 
 func (o ScaleSetRollingUpgradePolicyPtrOutput) Elem() ScaleSetRollingUpgradePolicyOutput {
-	return o.ApplyT(func(v *ScaleSetRollingUpgradePolicy) ScaleSetRollingUpgradePolicy { return *v }).(ScaleSetRollingUpgradePolicyOutput)
+	return o.ApplyT(func(v *ScaleSetRollingUpgradePolicy) ScaleSetRollingUpgradePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetRollingUpgradePolicy
+		return ret
+	}).(ScaleSetRollingUpgradePolicyOutput)
 }
 
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
@@ -8606,7 +8784,7 @@ func (o ScaleSetSkuOutput) ToScaleSetSkuPtrOutput() ScaleSetSkuPtrOutput {
 }
 
 func (o ScaleSetSkuOutput) ToScaleSetSkuPtrOutputWithContext(ctx context.Context) ScaleSetSkuPtrOutput {
-	return o.ApplyT(func(v ScaleSetSku) *ScaleSetSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetSku) *ScaleSetSku {
 		return &v
 	}).(ScaleSetSkuPtrOutput)
 }
@@ -8641,7 +8819,13 @@ func (o ScaleSetSkuPtrOutput) ToScaleSetSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ScaleSetSkuPtrOutput) Elem() ScaleSetSkuOutput {
-	return o.ApplyT(func(v *ScaleSetSku) ScaleSetSku { return *v }).(ScaleSetSkuOutput)
+	return o.ApplyT(func(v *ScaleSetSku) ScaleSetSku {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetSku
+		return ret
+	}).(ScaleSetSkuOutput)
 }
 
 // Specifies the number of virtual machines in the scale set.
@@ -8918,7 +9102,7 @@ func (o ScaleSetStorageProfileImageReferenceOutput) ToScaleSetStorageProfileImag
 }
 
 func (o ScaleSetStorageProfileImageReferenceOutput) ToScaleSetStorageProfileImageReferencePtrOutputWithContext(ctx context.Context) ScaleSetStorageProfileImageReferencePtrOutput {
-	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *ScaleSetStorageProfileImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetStorageProfileImageReference) *ScaleSetStorageProfileImageReference {
 		return &v
 	}).(ScaleSetStorageProfileImageReferencePtrOutput)
 }
@@ -8964,7 +9148,13 @@ func (o ScaleSetStorageProfileImageReferencePtrOutput) ToScaleSetStorageProfileI
 }
 
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Elem() ScaleSetStorageProfileImageReferenceOutput {
-	return o.ApplyT(func(v *ScaleSetStorageProfileImageReference) ScaleSetStorageProfileImageReference { return *v }).(ScaleSetStorageProfileImageReferenceOutput)
+	return o.ApplyT(func(v *ScaleSetStorageProfileImageReference) ScaleSetStorageProfileImageReference {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetStorageProfileImageReference
+		return ret
+	}).(ScaleSetStorageProfileImageReferenceOutput)
 }
 
 // Specifies the ID of the (custom) image to use to create the virtual
@@ -9139,7 +9329,7 @@ func (o ScaleSetStorageProfileOsDiskOutput) ToScaleSetStorageProfileOsDiskPtrOut
 }
 
 func (o ScaleSetStorageProfileOsDiskOutput) ToScaleSetStorageProfileOsDiskPtrOutputWithContext(ctx context.Context) ScaleSetStorageProfileOsDiskPtrOutput {
-	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *ScaleSetStorageProfileOsDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetStorageProfileOsDisk) *ScaleSetStorageProfileOsDisk {
 		return &v
 	}).(ScaleSetStorageProfileOsDiskPtrOutput)
 }
@@ -9196,7 +9386,13 @@ func (o ScaleSetStorageProfileOsDiskPtrOutput) ToScaleSetStorageProfileOsDiskPtr
 }
 
 func (o ScaleSetStorageProfileOsDiskPtrOutput) Elem() ScaleSetStorageProfileOsDiskOutput {
-	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) ScaleSetStorageProfileOsDisk { return *v }).(ScaleSetStorageProfileOsDiskOutput)
+	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) ScaleSetStorageProfileOsDisk {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetStorageProfileOsDisk
+		return ret
+	}).(ScaleSetStorageProfileOsDiskOutput)
 }
 
 // Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
@@ -9372,7 +9568,7 @@ func (o SharedImageIdentifierOutput) ToSharedImageIdentifierPtrOutput() SharedIm
 }
 
 func (o SharedImageIdentifierOutput) ToSharedImageIdentifierPtrOutputWithContext(ctx context.Context) SharedImageIdentifierPtrOutput {
-	return o.ApplyT(func(v SharedImageIdentifier) *SharedImageIdentifier {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedImageIdentifier) *SharedImageIdentifier {
 		return &v
 	}).(SharedImageIdentifierPtrOutput)
 }
@@ -9407,7 +9603,13 @@ func (o SharedImageIdentifierPtrOutput) ToSharedImageIdentifierPtrOutputWithCont
 }
 
 func (o SharedImageIdentifierPtrOutput) Elem() SharedImageIdentifierOutput {
-	return o.ApplyT(func(v *SharedImageIdentifier) SharedImageIdentifier { return *v }).(SharedImageIdentifierOutput)
+	return o.ApplyT(func(v *SharedImageIdentifier) SharedImageIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret SharedImageIdentifier
+		return ret
+	}).(SharedImageIdentifierOutput)
 }
 
 // The Offer Name for this Shared Image.
@@ -9541,7 +9743,7 @@ func (o SharedImagePurchasePlanOutput) ToSharedImagePurchasePlanPtrOutput() Shar
 }
 
 func (o SharedImagePurchasePlanOutput) ToSharedImagePurchasePlanPtrOutputWithContext(ctx context.Context) SharedImagePurchasePlanPtrOutput {
-	return o.ApplyT(func(v SharedImagePurchasePlan) *SharedImagePurchasePlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedImagePurchasePlan) *SharedImagePurchasePlan {
 		return &v
 	}).(SharedImagePurchasePlanPtrOutput)
 }
@@ -9576,7 +9778,13 @@ func (o SharedImagePurchasePlanPtrOutput) ToSharedImagePurchasePlanPtrOutputWith
 }
 
 func (o SharedImagePurchasePlanPtrOutput) Elem() SharedImagePurchasePlanOutput {
-	return o.ApplyT(func(v *SharedImagePurchasePlan) SharedImagePurchasePlan { return *v }).(SharedImagePurchasePlanOutput)
+	return o.ApplyT(func(v *SharedImagePurchasePlan) SharedImagePurchasePlan {
+		if v != nil {
+			return *v
+		}
+		var ret SharedImagePurchasePlan
+		return ret
+	}).(SharedImagePurchasePlanOutput)
 }
 
 // The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
@@ -9819,10 +10027,11 @@ func (o SnapshotEncryptionSettingsOutput) ToSnapshotEncryptionSettingsPtrOutput(
 }
 
 func (o SnapshotEncryptionSettingsOutput) ToSnapshotEncryptionSettingsPtrOutputWithContext(ctx context.Context) SnapshotEncryptionSettingsPtrOutput {
-	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotEncryptionSettings) *SnapshotEncryptionSettings {
 		return &v
 	}).(SnapshotEncryptionSettingsPtrOutput)
 }
+
 func (o SnapshotEncryptionSettingsOutput) DiskEncryptionKey() SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput {
 	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsDiskEncryptionKey {
 		return v.DiskEncryptionKey
@@ -9854,7 +10063,13 @@ func (o SnapshotEncryptionSettingsPtrOutput) ToSnapshotEncryptionSettingsPtrOutp
 }
 
 func (o SnapshotEncryptionSettingsPtrOutput) Elem() SnapshotEncryptionSettingsOutput {
-	return o.ApplyT(func(v *SnapshotEncryptionSettings) SnapshotEncryptionSettings { return *v }).(SnapshotEncryptionSettingsOutput)
+	return o.ApplyT(func(v *SnapshotEncryptionSettings) SnapshotEncryptionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotEncryptionSettings
+		return ret
+	}).(SnapshotEncryptionSettingsOutput)
 }
 
 func (o SnapshotEncryptionSettingsPtrOutput) DiskEncryptionKey() SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput {
@@ -9977,10 +10192,11 @@ func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) ToSnapshotEncryptionS
 }
 
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) ToSnapshotEncryptionSettingsDiskEncryptionKeyPtrOutputWithContext(ctx context.Context) SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput {
-	return o.ApplyT(func(v SnapshotEncryptionSettingsDiskEncryptionKey) *SnapshotEncryptionSettingsDiskEncryptionKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotEncryptionSettingsDiskEncryptionKey) *SnapshotEncryptionSettingsDiskEncryptionKey {
 		return &v
 	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
+
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
@@ -10005,7 +10221,11 @@ func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) ToSnapshotEncrypti
 
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) Elem() SnapshotEncryptionSettingsDiskEncryptionKeyOutput {
 	return o.ApplyT(func(v *SnapshotEncryptionSettingsDiskEncryptionKey) SnapshotEncryptionSettingsDiskEncryptionKey {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotEncryptionSettingsDiskEncryptionKey
+		return ret
 	}).(SnapshotEncryptionSettingsDiskEncryptionKeyOutput)
 }
 
@@ -10120,10 +10340,11 @@ func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) ToSnapshotEncryptionSe
 }
 
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) ToSnapshotEncryptionSettingsKeyEncryptionKeyPtrOutputWithContext(ctx context.Context) SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput {
-	return o.ApplyT(func(v SnapshotEncryptionSettingsKeyEncryptionKey) *SnapshotEncryptionSettingsKeyEncryptionKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotEncryptionSettingsKeyEncryptionKey) *SnapshotEncryptionSettingsKeyEncryptionKey {
 		return &v
 	}).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
+
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
@@ -10148,7 +10369,11 @@ func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) ToSnapshotEncryptio
 
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) Elem() SnapshotEncryptionSettingsKeyEncryptionKeyOutput {
 	return o.ApplyT(func(v *SnapshotEncryptionSettingsKeyEncryptionKey) SnapshotEncryptionSettingsKeyEncryptionKey {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotEncryptionSettingsKeyEncryptionKey
+		return ret
 	}).(SnapshotEncryptionSettingsKeyEncryptionKeyOutput)
 }
 
@@ -10263,7 +10488,7 @@ func (o VirtualMachineAdditionalCapabilitiesOutput) ToVirtualMachineAdditionalCa
 }
 
 func (o VirtualMachineAdditionalCapabilitiesOutput) ToVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) VirtualMachineAdditionalCapabilitiesPtrOutput {
-	return o.ApplyT(func(v VirtualMachineAdditionalCapabilities) *VirtualMachineAdditionalCapabilities {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAdditionalCapabilities) *VirtualMachineAdditionalCapabilities {
 		return &v
 	}).(VirtualMachineAdditionalCapabilitiesPtrOutput)
 }
@@ -10288,7 +10513,13 @@ func (o VirtualMachineAdditionalCapabilitiesPtrOutput) ToVirtualMachineAdditiona
 }
 
 func (o VirtualMachineAdditionalCapabilitiesPtrOutput) Elem() VirtualMachineAdditionalCapabilitiesOutput {
-	return o.ApplyT(func(v *VirtualMachineAdditionalCapabilities) VirtualMachineAdditionalCapabilities { return *v }).(VirtualMachineAdditionalCapabilitiesOutput)
+	return o.ApplyT(func(v *VirtualMachineAdditionalCapabilities) VirtualMachineAdditionalCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineAdditionalCapabilities
+		return ret
+	}).(VirtualMachineAdditionalCapabilitiesOutput)
 }
 
 // Should Ultra SSD disk be enabled for this Virtual Machine?
@@ -10398,7 +10629,7 @@ func (o VirtualMachineBootDiagnosticsOutput) ToVirtualMachineBootDiagnosticsPtrO
 }
 
 func (o VirtualMachineBootDiagnosticsOutput) ToVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx context.Context) VirtualMachineBootDiagnosticsPtrOutput {
-	return o.ApplyT(func(v VirtualMachineBootDiagnostics) *VirtualMachineBootDiagnostics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineBootDiagnostics) *VirtualMachineBootDiagnostics {
 		return &v
 	}).(VirtualMachineBootDiagnosticsPtrOutput)
 }
@@ -10428,7 +10659,13 @@ func (o VirtualMachineBootDiagnosticsPtrOutput) ToVirtualMachineBootDiagnosticsP
 }
 
 func (o VirtualMachineBootDiagnosticsPtrOutput) Elem() VirtualMachineBootDiagnosticsOutput {
-	return o.ApplyT(func(v *VirtualMachineBootDiagnostics) VirtualMachineBootDiagnostics { return *v }).(VirtualMachineBootDiagnosticsOutput)
+	return o.ApplyT(func(v *VirtualMachineBootDiagnostics) VirtualMachineBootDiagnostics {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineBootDiagnostics
+		return ret
+	}).(VirtualMachineBootDiagnosticsOutput)
 }
 
 // Should Boot Diagnostics be enabled for this Virtual Machine?
@@ -10552,7 +10789,7 @@ func (o VirtualMachineIdentityOutput) ToVirtualMachineIdentityPtrOutput() Virtua
 }
 
 func (o VirtualMachineIdentityOutput) ToVirtualMachineIdentityPtrOutputWithContext(ctx context.Context) VirtualMachineIdentityPtrOutput {
-	return o.ApplyT(func(v VirtualMachineIdentity) *VirtualMachineIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineIdentity) *VirtualMachineIdentity {
 		return &v
 	}).(VirtualMachineIdentityPtrOutput)
 }
@@ -10587,7 +10824,13 @@ func (o VirtualMachineIdentityPtrOutput) ToVirtualMachineIdentityPtrOutputWithCo
 }
 
 func (o VirtualMachineIdentityPtrOutput) Elem() VirtualMachineIdentityOutput {
-	return o.ApplyT(func(v *VirtualMachineIdentity) VirtualMachineIdentity { return *v }).(VirtualMachineIdentityOutput)
+	return o.ApplyT(func(v *VirtualMachineIdentity) VirtualMachineIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineIdentity
+		return ret
+	}).(VirtualMachineIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
@@ -10725,7 +10968,7 @@ func (o VirtualMachineOsProfileOutput) ToVirtualMachineOsProfilePtrOutput() Virt
 }
 
 func (o VirtualMachineOsProfileOutput) ToVirtualMachineOsProfilePtrOutputWithContext(ctx context.Context) VirtualMachineOsProfilePtrOutput {
-	return o.ApplyT(func(v VirtualMachineOsProfile) *VirtualMachineOsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineOsProfile) *VirtualMachineOsProfile {
 		return &v
 	}).(VirtualMachineOsProfilePtrOutput)
 }
@@ -10765,7 +11008,13 @@ func (o VirtualMachineOsProfilePtrOutput) ToVirtualMachineOsProfilePtrOutputWith
 }
 
 func (o VirtualMachineOsProfilePtrOutput) Elem() VirtualMachineOsProfileOutput {
-	return o.ApplyT(func(v *VirtualMachineOsProfile) VirtualMachineOsProfile { return *v }).(VirtualMachineOsProfileOutput)
+	return o.ApplyT(func(v *VirtualMachineOsProfile) VirtualMachineOsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineOsProfile
+		return ret
+	}).(VirtualMachineOsProfileOutput)
 }
 
 // The password associated with the local administrator account.
@@ -10905,7 +11154,7 @@ func (o VirtualMachineOsProfileLinuxConfigOutput) ToVirtualMachineOsProfileLinux
 }
 
 func (o VirtualMachineOsProfileLinuxConfigOutput) ToVirtualMachineOsProfileLinuxConfigPtrOutputWithContext(ctx context.Context) VirtualMachineOsProfileLinuxConfigPtrOutput {
-	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfig) *VirtualMachineOsProfileLinuxConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineOsProfileLinuxConfig) *VirtualMachineOsProfileLinuxConfig {
 		return &v
 	}).(VirtualMachineOsProfileLinuxConfigPtrOutput)
 }
@@ -10937,7 +11186,13 @@ func (o VirtualMachineOsProfileLinuxConfigPtrOutput) ToVirtualMachineOsProfileLi
 }
 
 func (o VirtualMachineOsProfileLinuxConfigPtrOutput) Elem() VirtualMachineOsProfileLinuxConfigOutput {
-	return o.ApplyT(func(v *VirtualMachineOsProfileLinuxConfig) VirtualMachineOsProfileLinuxConfig { return *v }).(VirtualMachineOsProfileLinuxConfigOutput)
+	return o.ApplyT(func(v *VirtualMachineOsProfileLinuxConfig) VirtualMachineOsProfileLinuxConfig {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineOsProfileLinuxConfig
+		return ret
+	}).(VirtualMachineOsProfileLinuxConfigOutput)
 }
 
 // Specifies whether password authentication should be disabled. If set to `false`, an `adminPassword` must be specified.
@@ -11389,7 +11644,7 @@ func (o VirtualMachineOsProfileWindowsConfigOutput) ToVirtualMachineOsProfileWin
 }
 
 func (o VirtualMachineOsProfileWindowsConfigOutput) ToVirtualMachineOsProfileWindowsConfigPtrOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigPtrOutput {
-	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *VirtualMachineOsProfileWindowsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineOsProfileWindowsConfig) *VirtualMachineOsProfileWindowsConfig {
 		return &v
 	}).(VirtualMachineOsProfileWindowsConfigPtrOutput)
 }
@@ -11438,7 +11693,13 @@ func (o VirtualMachineOsProfileWindowsConfigPtrOutput) ToVirtualMachineOsProfile
 }
 
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) Elem() VirtualMachineOsProfileWindowsConfigOutput {
-	return o.ApplyT(func(v *VirtualMachineOsProfileWindowsConfig) VirtualMachineOsProfileWindowsConfig { return *v }).(VirtualMachineOsProfileWindowsConfigOutput)
+	return o.ApplyT(func(v *VirtualMachineOsProfileWindowsConfig) VirtualMachineOsProfileWindowsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineOsProfileWindowsConfig
+		return ret
+	}).(VirtualMachineOsProfileWindowsConfigOutput)
 }
 
 // A `additionalUnattendConfig` block.
@@ -11822,7 +12083,7 @@ func (o VirtualMachinePlanOutput) ToVirtualMachinePlanPtrOutput() VirtualMachine
 }
 
 func (o VirtualMachinePlanOutput) ToVirtualMachinePlanPtrOutputWithContext(ctx context.Context) VirtualMachinePlanPtrOutput {
-	return o.ApplyT(func(v VirtualMachinePlan) *VirtualMachinePlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachinePlan) *VirtualMachinePlan {
 		return &v
 	}).(VirtualMachinePlanPtrOutput)
 }
@@ -11857,7 +12118,13 @@ func (o VirtualMachinePlanPtrOutput) ToVirtualMachinePlanPtrOutputWithContext(ct
 }
 
 func (o VirtualMachinePlanPtrOutput) Elem() VirtualMachinePlanOutput {
-	return o.ApplyT(func(v *VirtualMachinePlan) VirtualMachinePlan { return *v }).(VirtualMachinePlanOutput)
+	return o.ApplyT(func(v *VirtualMachinePlan) VirtualMachinePlan {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachinePlan
+		return ret
+	}).(VirtualMachinePlanOutput)
 }
 
 // Specifies the name of the image from the marketplace.
@@ -12168,7 +12435,7 @@ func (o VirtualMachineStorageImageReferenceOutput) ToVirtualMachineStorageImageR
 }
 
 func (o VirtualMachineStorageImageReferenceOutput) ToVirtualMachineStorageImageReferencePtrOutputWithContext(ctx context.Context) VirtualMachineStorageImageReferencePtrOutput {
-	return o.ApplyT(func(v VirtualMachineStorageImageReference) *VirtualMachineStorageImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineStorageImageReference) *VirtualMachineStorageImageReference {
 		return &v
 	}).(VirtualMachineStorageImageReferencePtrOutput)
 }
@@ -12213,7 +12480,13 @@ func (o VirtualMachineStorageImageReferencePtrOutput) ToVirtualMachineStorageIma
 }
 
 func (o VirtualMachineStorageImageReferencePtrOutput) Elem() VirtualMachineStorageImageReferenceOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageImageReference) VirtualMachineStorageImageReference { return *v }).(VirtualMachineStorageImageReferenceOutput)
+	return o.ApplyT(func(v *VirtualMachineStorageImageReference) VirtualMachineStorageImageReference {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineStorageImageReference
+		return ret
+	}).(VirtualMachineStorageImageReferenceOutput)
 }
 
 // Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -12395,7 +12668,7 @@ func (o VirtualMachineStorageOsDiskOutput) ToVirtualMachineStorageOsDiskPtrOutpu
 }
 
 func (o VirtualMachineStorageOsDiskOutput) ToVirtualMachineStorageOsDiskPtrOutputWithContext(ctx context.Context) VirtualMachineStorageOsDiskPtrOutput {
-	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *VirtualMachineStorageOsDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineStorageOsDisk) *VirtualMachineStorageOsDisk {
 		return &v
 	}).(VirtualMachineStorageOsDiskPtrOutput)
 }
@@ -12465,7 +12738,13 @@ func (o VirtualMachineStorageOsDiskPtrOutput) ToVirtualMachineStorageOsDiskPtrOu
 }
 
 func (o VirtualMachineStorageOsDiskPtrOutput) Elem() VirtualMachineStorageOsDiskOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) VirtualMachineStorageOsDisk { return *v }).(VirtualMachineStorageOsDiskOutput)
+	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) VirtualMachineStorageOsDisk {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineStorageOsDisk
+		return ret
+	}).(VirtualMachineStorageOsDiskOutput)
 }
 
 // Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
@@ -12661,7 +12940,7 @@ func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) ToWindowsVirtualMachi
 }
 
 func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineAdditionalCapabilitiesPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineAdditionalCapabilities) *WindowsVirtualMachineAdditionalCapabilities {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineAdditionalCapabilities) *WindowsVirtualMachineAdditionalCapabilities {
 		return &v
 	}).(WindowsVirtualMachineAdditionalCapabilitiesPtrOutput)
 }
@@ -12687,7 +12966,11 @@ func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) ToWindowsVirtualMa
 
 func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) Elem() WindowsVirtualMachineAdditionalCapabilitiesOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineAdditionalCapabilities) WindowsVirtualMachineAdditionalCapabilities {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineAdditionalCapabilities
+		return ret
 	}).(WindowsVirtualMachineAdditionalCapabilitiesOutput)
 }
 
@@ -12900,7 +13183,7 @@ func (o WindowsVirtualMachineBootDiagnosticsOutput) ToWindowsVirtualMachineBootD
 }
 
 func (o WindowsVirtualMachineBootDiagnosticsOutput) ToWindowsVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineBootDiagnosticsPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineBootDiagnostics) *WindowsVirtualMachineBootDiagnostics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineBootDiagnostics) *WindowsVirtualMachineBootDiagnostics {
 		return &v
 	}).(WindowsVirtualMachineBootDiagnosticsPtrOutput)
 }
@@ -12925,7 +13208,13 @@ func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) ToWindowsVirtualMachineBo
 }
 
 func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) Elem() WindowsVirtualMachineBootDiagnosticsOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineBootDiagnostics) WindowsVirtualMachineBootDiagnostics { return *v }).(WindowsVirtualMachineBootDiagnosticsOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineBootDiagnostics) WindowsVirtualMachineBootDiagnostics {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineBootDiagnostics
+		return ret
+	}).(WindowsVirtualMachineBootDiagnosticsOutput)
 }
 
 // The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
@@ -13043,7 +13332,7 @@ func (o WindowsVirtualMachineIdentityOutput) ToWindowsVirtualMachineIdentityPtrO
 }
 
 func (o WindowsVirtualMachineIdentityOutput) ToWindowsVirtualMachineIdentityPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineIdentityPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineIdentity) *WindowsVirtualMachineIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineIdentity) *WindowsVirtualMachineIdentity {
 		return &v
 	}).(WindowsVirtualMachineIdentityPtrOutput)
 }
@@ -13083,7 +13372,13 @@ func (o WindowsVirtualMachineIdentityPtrOutput) ToWindowsVirtualMachineIdentityP
 }
 
 func (o WindowsVirtualMachineIdentityPtrOutput) Elem() WindowsVirtualMachineIdentityOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineIdentity) WindowsVirtualMachineIdentity { return *v }).(WindowsVirtualMachineIdentityOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineIdentity) WindowsVirtualMachineIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineIdentity
+		return ret
+	}).(WindowsVirtualMachineIdentityOutput)
 }
 
 // A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
@@ -13243,7 +13538,7 @@ func (o WindowsVirtualMachineOsDiskOutput) ToWindowsVirtualMachineOsDiskPtrOutpu
 }
 
 func (o WindowsVirtualMachineOsDiskOutput) ToWindowsVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDisk {
 		return &v
 	}).(WindowsVirtualMachineOsDiskPtrOutput)
 }
@@ -13300,7 +13595,13 @@ func (o WindowsVirtualMachineOsDiskPtrOutput) ToWindowsVirtualMachineOsDiskPtrOu
 }
 
 func (o WindowsVirtualMachineOsDiskPtrOutput) Elem() WindowsVirtualMachineOsDiskOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) WindowsVirtualMachineOsDisk { return *v }).(WindowsVirtualMachineOsDiskOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) WindowsVirtualMachineOsDisk {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineOsDisk
+		return ret
+	}).(WindowsVirtualMachineOsDiskOutput)
 }
 
 // The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -13466,7 +13767,7 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) ToWindowsVirtualMachi
 }
 
 func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineOsDiskDiffDiskSettings) *WindowsVirtualMachineOsDiskDiffDiskSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineOsDiskDiffDiskSettings) *WindowsVirtualMachineOsDiskDiffDiskSettings {
 		return &v
 	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
@@ -13492,7 +13793,11 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ToWindowsVirtualMa
 
 func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Elem() WindowsVirtualMachineOsDiskDiffDiskSettingsOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineOsDiskDiffDiskSettings) WindowsVirtualMachineOsDiskDiffDiskSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineOsDiskDiffDiskSettings
+		return ret
 	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsOutput)
 }
 
@@ -13607,7 +13912,7 @@ func (o WindowsVirtualMachinePlanOutput) ToWindowsVirtualMachinePlanPtrOutput() 
 }
 
 func (o WindowsVirtualMachinePlanOutput) ToWindowsVirtualMachinePlanPtrOutputWithContext(ctx context.Context) WindowsVirtualMachinePlanPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachinePlan) *WindowsVirtualMachinePlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachinePlan) *WindowsVirtualMachinePlan {
 		return &v
 	}).(WindowsVirtualMachinePlanPtrOutput)
 }
@@ -13642,7 +13947,13 @@ func (o WindowsVirtualMachinePlanPtrOutput) ToWindowsVirtualMachinePlanPtrOutput
 }
 
 func (o WindowsVirtualMachinePlanPtrOutput) Elem() WindowsVirtualMachinePlanOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachinePlan) WindowsVirtualMachinePlan { return *v }).(WindowsVirtualMachinePlanOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachinePlan) WindowsVirtualMachinePlan {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachinePlan
+		return ret
+	}).(WindowsVirtualMachinePlanOutput)
 }
 
 // Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -13768,7 +14079,7 @@ func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToWindowsVirt
 }
 
 func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAdditionalCapabilities) *WindowsVirtualMachineScaleSetAdditionalCapabilities {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetAdditionalCapabilities) *WindowsVirtualMachineScaleSetAdditionalCapabilities {
 		return &v
 	}).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
 }
@@ -13794,7 +14105,11 @@ func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ToWindowsV
 
 func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Elem() WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAdditionalCapabilities) WindowsVirtualMachineScaleSetAdditionalCapabilities {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetAdditionalCapabilities
+		return ret
 	}).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput)
 }
 
@@ -14011,7 +14326,7 @@ func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToWindowsVir
 }
 
 func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *WindowsVirtualMachineScaleSetAutomaticInstanceRepair {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *WindowsVirtualMachineScaleSetAutomaticInstanceRepair {
 		return &v
 	}).(WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput)
 }
@@ -14042,7 +14357,11 @@ func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) ToWindows
 
 func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Elem() WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticInstanceRepair) WindowsVirtualMachineScaleSetAutomaticInstanceRepair {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetAutomaticInstanceRepair
+		return ret
 	}).(WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput)
 }
 
@@ -14163,7 +14482,7 @@ func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToWindowsVi
 }
 
 func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
 		return &v
 	}).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
 }
@@ -14194,7 +14513,11 @@ func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) ToWindow
 
 func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) Elem() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy
+		return ret
 	}).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
 }
 
@@ -14311,7 +14634,7 @@ func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) ToWindowsVirtualMach
 }
 
 func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetBootDiagnostics) *WindowsVirtualMachineScaleSetBootDiagnostics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetBootDiagnostics) *WindowsVirtualMachineScaleSetBootDiagnostics {
 		return &v
 	}).(WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput)
 }
@@ -14337,7 +14660,11 @@ func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) ToWindowsVirtualM
 
 func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) Elem() WindowsVirtualMachineScaleSetBootDiagnosticsOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetBootDiagnostics) WindowsVirtualMachineScaleSetBootDiagnostics {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetBootDiagnostics
+		return ret
 	}).(WindowsVirtualMachineScaleSetBootDiagnosticsOutput)
 }
 
@@ -14790,7 +15117,7 @@ func (o WindowsVirtualMachineScaleSetIdentityOutput) ToWindowsVirtualMachineScal
 }
 
 func (o WindowsVirtualMachineScaleSetIdentityOutput) ToWindowsVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetIdentityPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) *WindowsVirtualMachineScaleSetIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetIdentity) *WindowsVirtualMachineScaleSetIdentity {
 		return &v
 	}).(WindowsVirtualMachineScaleSetIdentityPtrOutput)
 }
@@ -14825,7 +15152,13 @@ func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) ToWindowsVirtualMachineS
 }
 
 func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) Elem() WindowsVirtualMachineScaleSetIdentityOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetIdentity) WindowsVirtualMachineScaleSetIdentity { return *v }).(WindowsVirtualMachineScaleSetIdentityOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetIdentity) WindowsVirtualMachineScaleSetIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetIdentity
+		return ret
+	}).(WindowsVirtualMachineScaleSetIdentityOutput)
 }
 
 // A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
@@ -15556,7 +15889,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskOutput) ToWindowsVirtualMachineScaleS
 }
 
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *WindowsVirtualMachineScaleSetOsDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetOsDisk) *WindowsVirtualMachineScaleSetOsDisk {
 		return &v
 	}).(WindowsVirtualMachineScaleSetOsDiskPtrOutput)
 }
@@ -15608,7 +15941,13 @@ func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) ToWindowsVirtualMachineSca
 }
 
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) Elem() WindowsVirtualMachineScaleSetOsDiskOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) WindowsVirtualMachineScaleSetOsDisk { return *v }).(WindowsVirtualMachineScaleSetOsDiskOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) WindowsVirtualMachineScaleSetOsDisk {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetOsDisk
+		return ret
+	}).(WindowsVirtualMachineScaleSetOsDiskOutput)
 }
 
 // The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -15762,10 +16101,11 @@ func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToWindowsVirt
 }
 
 func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
 		return &v
 	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
+
 func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
@@ -15786,7 +16126,11 @@ func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ToWindowsV
 
 func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Elem() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings
+		return ret
 	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
 }
 
@@ -15900,7 +16244,7 @@ func (o WindowsVirtualMachineScaleSetPlanOutput) ToWindowsVirtualMachineScaleSet
 }
 
 func (o WindowsVirtualMachineScaleSetPlanOutput) ToWindowsVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPlanPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) *WindowsVirtualMachineScaleSetPlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetPlan) *WindowsVirtualMachineScaleSetPlan {
 		return &v
 	}).(WindowsVirtualMachineScaleSetPlanPtrOutput)
 }
@@ -15935,7 +16279,13 @@ func (o WindowsVirtualMachineScaleSetPlanPtrOutput) ToWindowsVirtualMachineScale
 }
 
 func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Elem() WindowsVirtualMachineScaleSetPlanOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetPlan) WindowsVirtualMachineScaleSetPlan { return *v }).(WindowsVirtualMachineScaleSetPlanOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetPlan) WindowsVirtualMachineScaleSetPlan {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetPlan
+		return ret
+	}).(WindowsVirtualMachineScaleSetPlanOutput)
 }
 
 // Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
@@ -16073,7 +16423,7 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) ToWindowsVirtua
 }
 
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) *WindowsVirtualMachineScaleSetRollingUpgradePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetRollingUpgradePolicy) *WindowsVirtualMachineScaleSetRollingUpgradePolicy {
 		return &v
 	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
@@ -16116,7 +16466,11 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ToWindowsVir
 
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) WindowsVirtualMachineScaleSetRollingUpgradePolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetRollingUpgradePolicy
+		return ret
 	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput)
 }
 
@@ -16479,7 +16833,7 @@ func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) ToWindowsVirtua
 }
 
 func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) *WindowsVirtualMachineScaleSetSourceImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetSourceImageReference) *WindowsVirtualMachineScaleSetSourceImageReference {
 		return &v
 	}).(WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput)
 }
@@ -16520,7 +16874,11 @@ func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) ToWindowsVir
 
 func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Elem() WindowsVirtualMachineScaleSetSourceImageReferenceOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetSourceImageReference) WindowsVirtualMachineScaleSetSourceImageReference {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetSourceImageReference
+		return ret
 	}).(WindowsVirtualMachineScaleSetSourceImageReferenceOutput)
 }
 
@@ -16661,7 +17019,7 @@ func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) ToWindowsVirtu
 }
 
 func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminateNotification) *WindowsVirtualMachineScaleSetTerminateNotification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetTerminateNotification) *WindowsVirtualMachineScaleSetTerminateNotification {
 		return &v
 	}).(WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput)
 }
@@ -16692,7 +17050,11 @@ func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) ToWindowsVi
 
 func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Elem() WindowsVirtualMachineScaleSetTerminateNotificationOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetTerminateNotification) WindowsVirtualMachineScaleSetTerminateNotification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetTerminateNotification
+		return ret
 	}).(WindowsVirtualMachineScaleSetTerminateNotificationOutput)
 }
 
@@ -17139,7 +17501,7 @@ func (o WindowsVirtualMachineSourceImageReferenceOutput) ToWindowsVirtualMachine
 }
 
 func (o WindowsVirtualMachineSourceImageReferenceOutput) ToWindowsVirtualMachineSourceImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineSourceImageReferencePtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) *WindowsVirtualMachineSourceImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineSourceImageReference) *WindowsVirtualMachineSourceImageReference {
 		return &v
 	}).(WindowsVirtualMachineSourceImageReferencePtrOutput)
 }
@@ -17180,7 +17542,11 @@ func (o WindowsVirtualMachineSourceImageReferencePtrOutput) ToWindowsVirtualMach
 
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Elem() WindowsVirtualMachineSourceImageReferenceOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineSourceImageReference) WindowsVirtualMachineSourceImageReference {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineSourceImageReference
+		return ret
 	}).(WindowsVirtualMachineSourceImageReferenceOutput)
 }
 

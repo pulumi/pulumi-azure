@@ -253,7 +253,7 @@ type AssessmentPolicyArrayInput interface {
 type AssessmentPolicyArray []AssessmentPolicyInput
 
 func (AssessmentPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AssessmentPolicy)(nil))
+	return reflect.TypeOf((*[]*AssessmentPolicy)(nil)).Elem()
 }
 
 func (i AssessmentPolicyArray) ToAssessmentPolicyArrayOutput() AssessmentPolicyArrayOutput {
@@ -278,7 +278,7 @@ type AssessmentPolicyMapInput interface {
 type AssessmentPolicyMap map[string]AssessmentPolicyInput
 
 func (AssessmentPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AssessmentPolicy)(nil))
+	return reflect.TypeOf((*map[string]*AssessmentPolicy)(nil)).Elem()
 }
 
 func (i AssessmentPolicyMap) ToAssessmentPolicyMapOutput() AssessmentPolicyMapOutput {
@@ -289,9 +289,7 @@ func (i AssessmentPolicyMap) ToAssessmentPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentPolicyMapOutput)
 }
 
-type AssessmentPolicyOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentPolicyOutput struct{ *pulumi.OutputState }
 
 func (AssessmentPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AssessmentPolicy)(nil))
@@ -310,14 +308,12 @@ func (o AssessmentPolicyOutput) ToAssessmentPolicyPtrOutput() AssessmentPolicyPt
 }
 
 func (o AssessmentPolicyOutput) ToAssessmentPolicyPtrOutputWithContext(ctx context.Context) AssessmentPolicyPtrOutput {
-	return o.ApplyT(func(v AssessmentPolicy) *AssessmentPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentPolicy) *AssessmentPolicy {
 		return &v
 	}).(AssessmentPolicyPtrOutput)
 }
 
-type AssessmentPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (AssessmentPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AssessmentPolicy)(nil))
@@ -329,6 +325,16 @@ func (o AssessmentPolicyPtrOutput) ToAssessmentPolicyPtrOutput() AssessmentPolic
 
 func (o AssessmentPolicyPtrOutput) ToAssessmentPolicyPtrOutputWithContext(ctx context.Context) AssessmentPolicyPtrOutput {
 	return o
+}
+
+func (o AssessmentPolicyPtrOutput) Elem() AssessmentPolicyOutput {
+	return o.ApplyT(func(v *AssessmentPolicy) AssessmentPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentPolicy
+		return ret
+	}).(AssessmentPolicyOutput)
 }
 
 type AssessmentPolicyArrayOutput struct{ *pulumi.OutputState }

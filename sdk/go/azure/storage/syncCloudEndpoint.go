@@ -267,7 +267,7 @@ type SyncCloudEndpointArrayInput interface {
 type SyncCloudEndpointArray []SyncCloudEndpointInput
 
 func (SyncCloudEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SyncCloudEndpoint)(nil))
+	return reflect.TypeOf((*[]*SyncCloudEndpoint)(nil)).Elem()
 }
 
 func (i SyncCloudEndpointArray) ToSyncCloudEndpointArrayOutput() SyncCloudEndpointArrayOutput {
@@ -292,7 +292,7 @@ type SyncCloudEndpointMapInput interface {
 type SyncCloudEndpointMap map[string]SyncCloudEndpointInput
 
 func (SyncCloudEndpointMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SyncCloudEndpoint)(nil))
+	return reflect.TypeOf((*map[string]*SyncCloudEndpoint)(nil)).Elem()
 }
 
 func (i SyncCloudEndpointMap) ToSyncCloudEndpointMapOutput() SyncCloudEndpointMapOutput {
@@ -303,9 +303,7 @@ func (i SyncCloudEndpointMap) ToSyncCloudEndpointMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SyncCloudEndpointMapOutput)
 }
 
-type SyncCloudEndpointOutput struct {
-	*pulumi.OutputState
-}
+type SyncCloudEndpointOutput struct{ *pulumi.OutputState }
 
 func (SyncCloudEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyncCloudEndpoint)(nil))
@@ -324,14 +322,12 @@ func (o SyncCloudEndpointOutput) ToSyncCloudEndpointPtrOutput() SyncCloudEndpoin
 }
 
 func (o SyncCloudEndpointOutput) ToSyncCloudEndpointPtrOutputWithContext(ctx context.Context) SyncCloudEndpointPtrOutput {
-	return o.ApplyT(func(v SyncCloudEndpoint) *SyncCloudEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncCloudEndpoint) *SyncCloudEndpoint {
 		return &v
 	}).(SyncCloudEndpointPtrOutput)
 }
 
-type SyncCloudEndpointPtrOutput struct {
-	*pulumi.OutputState
-}
+type SyncCloudEndpointPtrOutput struct{ *pulumi.OutputState }
 
 func (SyncCloudEndpointPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SyncCloudEndpoint)(nil))
@@ -343,6 +339,16 @@ func (o SyncCloudEndpointPtrOutput) ToSyncCloudEndpointPtrOutput() SyncCloudEndp
 
 func (o SyncCloudEndpointPtrOutput) ToSyncCloudEndpointPtrOutputWithContext(ctx context.Context) SyncCloudEndpointPtrOutput {
 	return o
+}
+
+func (o SyncCloudEndpointPtrOutput) Elem() SyncCloudEndpointOutput {
+	return o.ApplyT(func(v *SyncCloudEndpoint) SyncCloudEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret SyncCloudEndpoint
+		return ret
+	}).(SyncCloudEndpointOutput)
 }
 
 type SyncCloudEndpointArrayOutput struct{ *pulumi.OutputState }

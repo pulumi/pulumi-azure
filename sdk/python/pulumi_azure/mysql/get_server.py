@@ -13,6 +13,7 @@ __all__ = [
     'GetServerResult',
     'AwaitableGetServerResult',
     'get_server',
+    'get_server_output',
 ]
 
 @pulumi.output_type
@@ -314,3 +315,28 @@ def get_server(name: Optional[str] = None,
         tags=__ret__.tags,
         threat_detection_policies=__ret__.threat_detection_policies,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_server)
+def get_server_output(name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
+    """
+    Use this data source to access information about an existing MySQL Server.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mysql.get_server(name="existingMySqlServer",
+        resource_group_name="existingResGroup")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: Specifies the name of the MySQL Server.
+    :param str resource_group_name: The name of the resource group for the MySQL Server.
+    """
+    ...

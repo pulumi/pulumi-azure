@@ -13,6 +13,7 @@ __all__ = [
     'GetServerResult',
     'AwaitableGetServerResult',
     'get_server',
+    'get_server_output',
 ]
 
 @pulumi.output_type
@@ -186,3 +187,28 @@ def get_server(name: Optional[str] = None,
         restorable_dropped_database_ids=__ret__.restorable_dropped_database_ids,
         tags=__ret__.tags,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_server)
+def get_server_output(name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
+    """
+    Use this data source to access information about an existing Microsoft SQL Server.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mssql.get_server(name="existingMsSqlServer",
+        resource_group_name="existingResGroup")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this Microsoft SQL Server.
+    :param str resource_group_name: The name of the Resource Group where the Microsoft SQL Server exists.
+    """
+    ...

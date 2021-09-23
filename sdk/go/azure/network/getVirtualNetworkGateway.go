@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,4 +90,134 @@ type LookupVirtualNetworkGatewayResult struct {
 	VpnClientConfigurations []GetVirtualNetworkGatewayVpnClientConfiguration `pulumi:"vpnClientConfigurations"`
 	// The routing type of the Virtual Network Gateway.
 	VpnType string `pulumi:"vpnType"`
+}
+
+func LookupVirtualNetworkGatewayOutput(ctx *pulumi.Context, args LookupVirtualNetworkGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkGatewayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualNetworkGatewayResult, error) {
+			args := v.(LookupVirtualNetworkGatewayArgs)
+			r, err := LookupVirtualNetworkGateway(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualNetworkGatewayResultOutput)
+}
+
+// A collection of arguments for invoking getVirtualNetworkGateway.
+type LookupVirtualNetworkGatewayOutputArgs struct {
+	// Specifies the name of the Virtual Network Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group the Virtual Network Gateway is located in.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupVirtualNetworkGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkGatewayArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVirtualNetworkGateway.
+type LookupVirtualNetworkGatewayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualNetworkGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkGatewayResult)(nil)).Elem()
+}
+
+func (o LookupVirtualNetworkGatewayResultOutput) ToLookupVirtualNetworkGatewayResultOutput() LookupVirtualNetworkGatewayResultOutput {
+	return o
+}
+
+func (o LookupVirtualNetworkGatewayResultOutput) ToLookupVirtualNetworkGatewayResultOutputWithContext(ctx context.Context) LookupVirtualNetworkGatewayResultOutput {
+	return o
+}
+
+// Is this an Active-Active Gateway?
+func (o LookupVirtualNetworkGatewayResultOutput) ActiveActive() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) bool { return v.ActiveActive }).(pulumi.BoolOutput)
+}
+
+func (o LookupVirtualNetworkGatewayResultOutput) BgpSettings() GetVirtualNetworkGatewayBgpSettingArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) []GetVirtualNetworkGatewayBgpSetting { return v.BgpSettings }).(GetVirtualNetworkGatewayBgpSettingArrayOutput)
+}
+
+func (o LookupVirtualNetworkGatewayResultOutput) CustomRoutes() GetVirtualNetworkGatewayCustomRouteArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) []GetVirtualNetworkGatewayCustomRoute { return v.CustomRoutes }).(GetVirtualNetworkGatewayCustomRouteArrayOutput)
+}
+
+// The ID of the local network gateway
+// through which outbound Internet traffic from the virtual network in which the
+// gateway is created will be routed (*forced tunneling*). Refer to the
+// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+func (o LookupVirtualNetworkGatewayResultOutput) DefaultLocalNetworkGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.DefaultLocalNetworkGatewayId }).(pulumi.StringOutput)
+}
+
+// Will BGP (Border Gateway Protocol) will be enabled
+// for this Virtual Network Gateway.
+func (o LookupVirtualNetworkGatewayResultOutput) EnableBgp() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) bool { return v.EnableBgp }).(pulumi.BoolOutput)
+}
+
+// The Generation of the Virtual Network Gateway.
+func (o LookupVirtualNetworkGatewayResultOutput) Generation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.Generation }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupVirtualNetworkGatewayResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// One or two `ipConfiguration` blocks documented below.
+func (o LookupVirtualNetworkGatewayResultOutput) IpConfigurations() GetVirtualNetworkGatewayIpConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) []GetVirtualNetworkGatewayIpConfiguration {
+		return v.IpConfigurations
+	}).(GetVirtualNetworkGatewayIpConfigurationArrayOutput)
+}
+
+// The location/region where the Virtual Network Gateway is located.
+func (o LookupVirtualNetworkGatewayResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The user-defined name of the revoked certificate.
+func (o LookupVirtualNetworkGatewayResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether a private IP will be used for this  gateway for connections.
+func (o LookupVirtualNetworkGatewayResultOutput) PrivateIpAddressEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) bool { return v.PrivateIpAddressEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupVirtualNetworkGatewayResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Configuration of the size and capacity of the Virtual Network Gateway.
+func (o LookupVirtualNetworkGatewayResultOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupVirtualNetworkGatewayResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the Virtual Network Gateway.
+func (o LookupVirtualNetworkGatewayResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A `vpnClientConfiguration` block which is documented below.
+func (o LookupVirtualNetworkGatewayResultOutput) VpnClientConfigurations() GetVirtualNetworkGatewayVpnClientConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) []GetVirtualNetworkGatewayVpnClientConfiguration {
+		return v.VpnClientConfigurations
+	}).(GetVirtualNetworkGatewayVpnClientConfigurationArrayOutput)
+}
+
+// The routing type of the Virtual Network Gateway.
+func (o LookupVirtualNetworkGatewayResultOutput) VpnType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.VpnType }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualNetworkGatewayResultOutput{})
 }

@@ -239,7 +239,7 @@ type ChannelTeamsArrayInput interface {
 type ChannelTeamsArray []ChannelTeamsInput
 
 func (ChannelTeamsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ChannelTeams)(nil))
+	return reflect.TypeOf((*[]*ChannelTeams)(nil)).Elem()
 }
 
 func (i ChannelTeamsArray) ToChannelTeamsArrayOutput() ChannelTeamsArrayOutput {
@@ -264,7 +264,7 @@ type ChannelTeamsMapInput interface {
 type ChannelTeamsMap map[string]ChannelTeamsInput
 
 func (ChannelTeamsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ChannelTeams)(nil))
+	return reflect.TypeOf((*map[string]*ChannelTeams)(nil)).Elem()
 }
 
 func (i ChannelTeamsMap) ToChannelTeamsMapOutput() ChannelTeamsMapOutput {
@@ -275,9 +275,7 @@ func (i ChannelTeamsMap) ToChannelTeamsMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeamsMapOutput)
 }
 
-type ChannelTeamsOutput struct {
-	*pulumi.OutputState
-}
+type ChannelTeamsOutput struct{ *pulumi.OutputState }
 
 func (ChannelTeamsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelTeams)(nil))
@@ -296,14 +294,12 @@ func (o ChannelTeamsOutput) ToChannelTeamsPtrOutput() ChannelTeamsPtrOutput {
 }
 
 func (o ChannelTeamsOutput) ToChannelTeamsPtrOutputWithContext(ctx context.Context) ChannelTeamsPtrOutput {
-	return o.ApplyT(func(v ChannelTeams) *ChannelTeams {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelTeams) *ChannelTeams {
 		return &v
 	}).(ChannelTeamsPtrOutput)
 }
 
-type ChannelTeamsPtrOutput struct {
-	*pulumi.OutputState
-}
+type ChannelTeamsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelTeamsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ChannelTeams)(nil))
@@ -315,6 +311,16 @@ func (o ChannelTeamsPtrOutput) ToChannelTeamsPtrOutput() ChannelTeamsPtrOutput {
 
 func (o ChannelTeamsPtrOutput) ToChannelTeamsPtrOutputWithContext(ctx context.Context) ChannelTeamsPtrOutput {
 	return o
+}
+
+func (o ChannelTeamsPtrOutput) Elem() ChannelTeamsOutput {
+	return o.ApplyT(func(v *ChannelTeams) ChannelTeams {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelTeams
+		return ret
+	}).(ChannelTeamsOutput)
 }
 
 type ChannelTeamsArrayOutput struct{ *pulumi.OutputState }

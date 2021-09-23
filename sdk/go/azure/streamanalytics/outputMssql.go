@@ -298,7 +298,7 @@ type OutputMssqlArrayInput interface {
 type OutputMssqlArray []OutputMssqlInput
 
 func (OutputMssqlArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OutputMssql)(nil))
+	return reflect.TypeOf((*[]*OutputMssql)(nil)).Elem()
 }
 
 func (i OutputMssqlArray) ToOutputMssqlArrayOutput() OutputMssqlArrayOutput {
@@ -323,7 +323,7 @@ type OutputMssqlMapInput interface {
 type OutputMssqlMap map[string]OutputMssqlInput
 
 func (OutputMssqlMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OutputMssql)(nil))
+	return reflect.TypeOf((*map[string]*OutputMssql)(nil)).Elem()
 }
 
 func (i OutputMssqlMap) ToOutputMssqlMapOutput() OutputMssqlMapOutput {
@@ -334,9 +334,7 @@ func (i OutputMssqlMap) ToOutputMssqlMapOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlMapOutput)
 }
 
-type OutputMssqlOutput struct {
-	*pulumi.OutputState
-}
+type OutputMssqlOutput struct{ *pulumi.OutputState }
 
 func (OutputMssqlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutputMssql)(nil))
@@ -355,14 +353,12 @@ func (o OutputMssqlOutput) ToOutputMssqlPtrOutput() OutputMssqlPtrOutput {
 }
 
 func (o OutputMssqlOutput) ToOutputMssqlPtrOutputWithContext(ctx context.Context) OutputMssqlPtrOutput {
-	return o.ApplyT(func(v OutputMssql) *OutputMssql {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputMssql) *OutputMssql {
 		return &v
 	}).(OutputMssqlPtrOutput)
 }
 
-type OutputMssqlPtrOutput struct {
-	*pulumi.OutputState
-}
+type OutputMssqlPtrOutput struct{ *pulumi.OutputState }
 
 func (OutputMssqlPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OutputMssql)(nil))
@@ -374,6 +370,16 @@ func (o OutputMssqlPtrOutput) ToOutputMssqlPtrOutput() OutputMssqlPtrOutput {
 
 func (o OutputMssqlPtrOutput) ToOutputMssqlPtrOutputWithContext(ctx context.Context) OutputMssqlPtrOutput {
 	return o
+}
+
+func (o OutputMssqlPtrOutput) Elem() OutputMssqlOutput {
+	return o.ApplyT(func(v *OutputMssql) OutputMssql {
+		if v != nil {
+			return *v
+		}
+		var ret OutputMssql
+		return ret
+	}).(OutputMssqlOutput)
 }
 
 type OutputMssqlArrayOutput struct{ *pulumi.OutputState }

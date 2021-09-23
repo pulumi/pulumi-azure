@@ -12,6 +12,7 @@ __all__ = [
     'GetDatasetKustoDatabaseResult',
     'AwaitableGetDatasetKustoDatabaseResult',
     'get_dataset_kusto_database',
+    'get_dataset_kusto_database_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,28 @@ def get_dataset_kusto_database(name: Optional[str] = None,
         kusto_database_id=__ret__.kusto_database_id,
         name=__ret__.name,
         share_id=__ret__.share_id)
+
+
+@_utilities.lift_output_func(get_dataset_kusto_database)
+def get_dataset_kusto_database_output(name: Optional[pulumi.Input[str]] = None,
+                                      share_id: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetKustoDatabaseResult]:
+    """
+    Use this data source to access information about an existing Data Share Kusto Database Dataset.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.datashare.get_dataset_kusto_database(name="example-dskdds",
+        share_id="example-share-id")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this Data Share Kusto Database Dataset.
+    :param str share_id: The resource ID of the Data Share where this Data Share Kusto Database Dataset should be created.
+    """
+    ...

@@ -260,7 +260,7 @@ type ConfigurationStoreArrayInput interface {
 type ConfigurationStoreArray []ConfigurationStoreInput
 
 func (ConfigurationStoreArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ConfigurationStore)(nil))
+	return reflect.TypeOf((*[]*ConfigurationStore)(nil)).Elem()
 }
 
 func (i ConfigurationStoreArray) ToConfigurationStoreArrayOutput() ConfigurationStoreArrayOutput {
@@ -285,7 +285,7 @@ type ConfigurationStoreMapInput interface {
 type ConfigurationStoreMap map[string]ConfigurationStoreInput
 
 func (ConfigurationStoreMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ConfigurationStore)(nil))
+	return reflect.TypeOf((*map[string]*ConfigurationStore)(nil)).Elem()
 }
 
 func (i ConfigurationStoreMap) ToConfigurationStoreMapOutput() ConfigurationStoreMapOutput {
@@ -296,9 +296,7 @@ func (i ConfigurationStoreMap) ToConfigurationStoreMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreMapOutput)
 }
 
-type ConfigurationStoreOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationStoreOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationStore)(nil))
@@ -317,14 +315,12 @@ func (o ConfigurationStoreOutput) ToConfigurationStorePtrOutput() ConfigurationS
 }
 
 func (o ConfigurationStoreOutput) ToConfigurationStorePtrOutputWithContext(ctx context.Context) ConfigurationStorePtrOutput {
-	return o.ApplyT(func(v ConfigurationStore) *ConfigurationStore {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationStore) *ConfigurationStore {
 		return &v
 	}).(ConfigurationStorePtrOutput)
 }
 
-type ConfigurationStorePtrOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationStorePtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStorePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ConfigurationStore)(nil))
@@ -336,6 +332,16 @@ func (o ConfigurationStorePtrOutput) ToConfigurationStorePtrOutput() Configurati
 
 func (o ConfigurationStorePtrOutput) ToConfigurationStorePtrOutputWithContext(ctx context.Context) ConfigurationStorePtrOutput {
 	return o
+}
+
+func (o ConfigurationStorePtrOutput) Elem() ConfigurationStoreOutput {
+	return o.ApplyT(func(v *ConfigurationStore) ConfigurationStore {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationStore
+		return ret
+	}).(ConfigurationStoreOutput)
 }
 
 type ConfigurationStoreArrayOutput struct{ *pulumi.OutputState }

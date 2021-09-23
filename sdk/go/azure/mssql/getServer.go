@@ -4,6 +4,9 @@
 package mssql
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,92 @@ type LookupServerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// This servers MS SQL version.
 	Version string `pulumi:"version"`
+}
+
+func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts ...pulumi.InvokeOption) LookupServerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServerResult, error) {
+			args := v.(LookupServerArgs)
+			r, err := LookupServer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServerResultOutput)
+}
+
+// A collection of arguments for invoking getServer.
+type LookupServerOutputArgs struct {
+	// The name of this Microsoft SQL Server.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Microsoft SQL Server exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupServerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getServer.
+type LookupServerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerResult)(nil)).Elem()
+}
+
+func (o LookupServerResultOutput) ToLookupServerResultOutput() LookupServerResultOutput {
+	return o
+}
+
+func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx context.Context) LookupServerResultOutput {
+	return o
+}
+
+// The server's administrator login name.
+func (o LookupServerResultOutput) AdministratorLogin() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+}
+
+// The fully qualified domain name of the Azure SQL Server.
+func (o LookupServerResultOutput) FullyQualifiedDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupServerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A `identity` block as defined below.
+func (o LookupServerResultOutput) Identities() GetServerIdentityArrayOutput {
+	return o.ApplyT(func(v LookupServerResult) []GetServerIdentity { return v.Identities }).(GetServerIdentityArrayOutput)
+}
+
+// The Azure Region where the Microsoft SQL Server exists.
+func (o LookupServerResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupServerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupServerResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A list of dropped restorable database IDs on the server.
+func (o LookupServerResultOutput) RestorableDroppedDatabaseIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupServerResult) []string { return v.RestorableDroppedDatabaseIds }).(pulumi.StringArrayOutput)
+}
+
+// A mapping of tags assigned to this Microsoft SQL Server.
+func (o LookupServerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// This servers MS SQL version.
+func (o LookupServerResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServerResultOutput{})
 }

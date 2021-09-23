@@ -310,7 +310,7 @@ type PrivateCloudArrayInput interface {
 type PrivateCloudArray []PrivateCloudInput
 
 func (PrivateCloudArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PrivateCloud)(nil))
+	return reflect.TypeOf((*[]*PrivateCloud)(nil)).Elem()
 }
 
 func (i PrivateCloudArray) ToPrivateCloudArrayOutput() PrivateCloudArrayOutput {
@@ -335,7 +335,7 @@ type PrivateCloudMapInput interface {
 type PrivateCloudMap map[string]PrivateCloudInput
 
 func (PrivateCloudMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PrivateCloud)(nil))
+	return reflect.TypeOf((*map[string]*PrivateCloud)(nil)).Elem()
 }
 
 func (i PrivateCloudMap) ToPrivateCloudMapOutput() PrivateCloudMapOutput {
@@ -346,9 +346,7 @@ func (i PrivateCloudMap) ToPrivateCloudMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudMapOutput)
 }
 
-type PrivateCloudOutput struct {
-	*pulumi.OutputState
-}
+type PrivateCloudOutput struct{ *pulumi.OutputState }
 
 func (PrivateCloudOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateCloud)(nil))
@@ -367,14 +365,12 @@ func (o PrivateCloudOutput) ToPrivateCloudPtrOutput() PrivateCloudPtrOutput {
 }
 
 func (o PrivateCloudOutput) ToPrivateCloudPtrOutputWithContext(ctx context.Context) PrivateCloudPtrOutput {
-	return o.ApplyT(func(v PrivateCloud) *PrivateCloud {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateCloud) *PrivateCloud {
 		return &v
 	}).(PrivateCloudPtrOutput)
 }
 
-type PrivateCloudPtrOutput struct {
-	*pulumi.OutputState
-}
+type PrivateCloudPtrOutput struct{ *pulumi.OutputState }
 
 func (PrivateCloudPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PrivateCloud)(nil))
@@ -386,6 +382,16 @@ func (o PrivateCloudPtrOutput) ToPrivateCloudPtrOutput() PrivateCloudPtrOutput {
 
 func (o PrivateCloudPtrOutput) ToPrivateCloudPtrOutputWithContext(ctx context.Context) PrivateCloudPtrOutput {
 	return o
+}
+
+func (o PrivateCloudPtrOutput) Elem() PrivateCloudOutput {
+	return o.ApplyT(func(v *PrivateCloud) PrivateCloud {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateCloud
+		return ret
+	}).(PrivateCloudOutput)
 }
 
 type PrivateCloudArrayOutput struct{ *pulumi.OutputState }

@@ -193,7 +193,7 @@ type CertificateBindingArrayInput interface {
 type CertificateBindingArray []CertificateBindingInput
 
 func (CertificateBindingArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CertificateBinding)(nil))
+	return reflect.TypeOf((*[]*CertificateBinding)(nil)).Elem()
 }
 
 func (i CertificateBindingArray) ToCertificateBindingArrayOutput() CertificateBindingArrayOutput {
@@ -218,7 +218,7 @@ type CertificateBindingMapInput interface {
 type CertificateBindingMap map[string]CertificateBindingInput
 
 func (CertificateBindingMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CertificateBinding)(nil))
+	return reflect.TypeOf((*map[string]*CertificateBinding)(nil)).Elem()
 }
 
 func (i CertificateBindingMap) ToCertificateBindingMapOutput() CertificateBindingMapOutput {
@@ -229,9 +229,7 @@ func (i CertificateBindingMap) ToCertificateBindingMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateBindingMapOutput)
 }
 
-type CertificateBindingOutput struct {
-	*pulumi.OutputState
-}
+type CertificateBindingOutput struct{ *pulumi.OutputState }
 
 func (CertificateBindingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CertificateBinding)(nil))
@@ -250,14 +248,12 @@ func (o CertificateBindingOutput) ToCertificateBindingPtrOutput() CertificateBin
 }
 
 func (o CertificateBindingOutput) ToCertificateBindingPtrOutputWithContext(ctx context.Context) CertificateBindingPtrOutput {
-	return o.ApplyT(func(v CertificateBinding) *CertificateBinding {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateBinding) *CertificateBinding {
 		return &v
 	}).(CertificateBindingPtrOutput)
 }
 
-type CertificateBindingPtrOutput struct {
-	*pulumi.OutputState
-}
+type CertificateBindingPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateBindingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CertificateBinding)(nil))
@@ -269,6 +265,16 @@ func (o CertificateBindingPtrOutput) ToCertificateBindingPtrOutput() Certificate
 
 func (o CertificateBindingPtrOutput) ToCertificateBindingPtrOutputWithContext(ctx context.Context) CertificateBindingPtrOutput {
 	return o
+}
+
+func (o CertificateBindingPtrOutput) Elem() CertificateBindingOutput {
+	return o.ApplyT(func(v *CertificateBinding) CertificateBinding {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateBinding
+		return ret
+	}).(CertificateBindingOutput)
 }
 
 type CertificateBindingArrayOutput struct{ *pulumi.OutputState }

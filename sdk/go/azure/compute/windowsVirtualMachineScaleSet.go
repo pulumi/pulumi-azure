@@ -710,7 +710,7 @@ type WindowsVirtualMachineScaleSetArrayInput interface {
 type WindowsVirtualMachineScaleSetArray []WindowsVirtualMachineScaleSetInput
 
 func (WindowsVirtualMachineScaleSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*WindowsVirtualMachineScaleSet)(nil))
+	return reflect.TypeOf((*[]*WindowsVirtualMachineScaleSet)(nil)).Elem()
 }
 
 func (i WindowsVirtualMachineScaleSetArray) ToWindowsVirtualMachineScaleSetArrayOutput() WindowsVirtualMachineScaleSetArrayOutput {
@@ -735,7 +735,7 @@ type WindowsVirtualMachineScaleSetMapInput interface {
 type WindowsVirtualMachineScaleSetMap map[string]WindowsVirtualMachineScaleSetInput
 
 func (WindowsVirtualMachineScaleSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*WindowsVirtualMachineScaleSet)(nil))
+	return reflect.TypeOf((*map[string]*WindowsVirtualMachineScaleSet)(nil)).Elem()
 }
 
 func (i WindowsVirtualMachineScaleSetMap) ToWindowsVirtualMachineScaleSetMapOutput() WindowsVirtualMachineScaleSetMapOutput {
@@ -746,9 +746,7 @@ func (i WindowsVirtualMachineScaleSetMap) ToWindowsVirtualMachineScaleSetMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetMapOutput)
 }
 
-type WindowsVirtualMachineScaleSetOutput struct {
-	*pulumi.OutputState
-}
+type WindowsVirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSet)(nil))
@@ -767,14 +765,12 @@ func (o WindowsVirtualMachineScaleSetOutput) ToWindowsVirtualMachineScaleSetPtrO
 }
 
 func (o WindowsVirtualMachineScaleSetOutput) ToWindowsVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSet) *WindowsVirtualMachineScaleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSet) *WindowsVirtualMachineScaleSet {
 		return &v
 	}).(WindowsVirtualMachineScaleSetPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type WindowsVirtualMachineScaleSetPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineScaleSet)(nil))
@@ -786,6 +782,16 @@ func (o WindowsVirtualMachineScaleSetPtrOutput) ToWindowsVirtualMachineScaleSetP
 
 func (o WindowsVirtualMachineScaleSetPtrOutput) ToWindowsVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPtrOutput {
 	return o
+}
+
+func (o WindowsVirtualMachineScaleSetPtrOutput) Elem() WindowsVirtualMachineScaleSetOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSet {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSet
+		return ret
+	}).(WindowsVirtualMachineScaleSetOutput)
 }
 
 type WindowsVirtualMachineScaleSetArrayOutput struct{ *pulumi.OutputState }

@@ -12,6 +12,7 @@ __all__ = [
     'GetDatasetDataLakeGen1Result',
     'AwaitableGetDatasetDataLakeGen1Result',
     'get_dataset_data_lake_gen1',
+    'get_dataset_data_lake_gen1_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,28 @@ def get_dataset_data_lake_gen1(data_share_id: Optional[str] = None,
         folder_path=__ret__.folder_path,
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_dataset_data_lake_gen1)
+def get_dataset_data_lake_gen1_output(data_share_id: Optional[pulumi.Input[str]] = None,
+                                      name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetDataLakeGen1Result]:
+    """
+    Use this data source to access information about an existing DataShareDataLakeGen1Dataset.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.datashare.get_dataset_data_lake_gen1(name="example-dsdsdlg1",
+        data_share_id="example-share-id")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str data_share_id: The resource ID of the Data Share where this Data Share Data Lake Gen1 Dataset should be created.
+    :param str name: The name of the Data Share Data Lake Gen1 Dataset.
+    """
+    ...

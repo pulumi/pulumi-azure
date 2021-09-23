@@ -251,7 +251,7 @@ type EventHubConsumerGroupArrayInput interface {
 type EventHubConsumerGroupArray []EventHubConsumerGroupInput
 
 func (EventHubConsumerGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventHubConsumerGroup)(nil))
+	return reflect.TypeOf((*[]*EventHubConsumerGroup)(nil)).Elem()
 }
 
 func (i EventHubConsumerGroupArray) ToEventHubConsumerGroupArrayOutput() EventHubConsumerGroupArrayOutput {
@@ -276,7 +276,7 @@ type EventHubConsumerGroupMapInput interface {
 type EventHubConsumerGroupMap map[string]EventHubConsumerGroupInput
 
 func (EventHubConsumerGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventHubConsumerGroup)(nil))
+	return reflect.TypeOf((*map[string]*EventHubConsumerGroup)(nil)).Elem()
 }
 
 func (i EventHubConsumerGroupMap) ToEventHubConsumerGroupMapOutput() EventHubConsumerGroupMapOutput {
@@ -287,9 +287,7 @@ func (i EventHubConsumerGroupMap) ToEventHubConsumerGroupMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupMapOutput)
 }
 
-type EventHubConsumerGroupOutput struct {
-	*pulumi.OutputState
-}
+type EventHubConsumerGroupOutput struct{ *pulumi.OutputState }
 
 func (EventHubConsumerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubConsumerGroup)(nil))
@@ -308,14 +306,12 @@ func (o EventHubConsumerGroupOutput) ToEventHubConsumerGroupPtrOutput() EventHub
 }
 
 func (o EventHubConsumerGroupOutput) ToEventHubConsumerGroupPtrOutputWithContext(ctx context.Context) EventHubConsumerGroupPtrOutput {
-	return o.ApplyT(func(v EventHubConsumerGroup) *EventHubConsumerGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHubConsumerGroup) *EventHubConsumerGroup {
 		return &v
 	}).(EventHubConsumerGroupPtrOutput)
 }
 
-type EventHubConsumerGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type EventHubConsumerGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (EventHubConsumerGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventHubConsumerGroup)(nil))
@@ -327,6 +323,16 @@ func (o EventHubConsumerGroupPtrOutput) ToEventHubConsumerGroupPtrOutput() Event
 
 func (o EventHubConsumerGroupPtrOutput) ToEventHubConsumerGroupPtrOutputWithContext(ctx context.Context) EventHubConsumerGroupPtrOutput {
 	return o
+}
+
+func (o EventHubConsumerGroupPtrOutput) Elem() EventHubConsumerGroupOutput {
+	return o.ApplyT(func(v *EventHubConsumerGroup) EventHubConsumerGroup {
+		if v != nil {
+			return *v
+		}
+		var ret EventHubConsumerGroup
+		return ret
+	}).(EventHubConsumerGroupOutput)
 }
 
 type EventHubConsumerGroupArrayOutput struct{ *pulumi.OutputState }

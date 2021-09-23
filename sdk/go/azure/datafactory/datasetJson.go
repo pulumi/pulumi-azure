@@ -329,7 +329,7 @@ type DatasetJsonArrayInput interface {
 type DatasetJsonArray []DatasetJsonInput
 
 func (DatasetJsonArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DatasetJson)(nil))
+	return reflect.TypeOf((*[]*DatasetJson)(nil)).Elem()
 }
 
 func (i DatasetJsonArray) ToDatasetJsonArrayOutput() DatasetJsonArrayOutput {
@@ -354,7 +354,7 @@ type DatasetJsonMapInput interface {
 type DatasetJsonMap map[string]DatasetJsonInput
 
 func (DatasetJsonMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DatasetJson)(nil))
+	return reflect.TypeOf((*map[string]*DatasetJson)(nil)).Elem()
 }
 
 func (i DatasetJsonMap) ToDatasetJsonMapOutput() DatasetJsonMapOutput {
@@ -365,9 +365,7 @@ func (i DatasetJsonMap) ToDatasetJsonMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonMapOutput)
 }
 
-type DatasetJsonOutput struct {
-	*pulumi.OutputState
-}
+type DatasetJsonOutput struct{ *pulumi.OutputState }
 
 func (DatasetJsonOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetJson)(nil))
@@ -386,14 +384,12 @@ func (o DatasetJsonOutput) ToDatasetJsonPtrOutput() DatasetJsonPtrOutput {
 }
 
 func (o DatasetJsonOutput) ToDatasetJsonPtrOutputWithContext(ctx context.Context) DatasetJsonPtrOutput {
-	return o.ApplyT(func(v DatasetJson) *DatasetJson {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetJson) *DatasetJson {
 		return &v
 	}).(DatasetJsonPtrOutput)
 }
 
-type DatasetJsonPtrOutput struct {
-	*pulumi.OutputState
-}
+type DatasetJsonPtrOutput struct{ *pulumi.OutputState }
 
 func (DatasetJsonPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DatasetJson)(nil))
@@ -405,6 +401,16 @@ func (o DatasetJsonPtrOutput) ToDatasetJsonPtrOutput() DatasetJsonPtrOutput {
 
 func (o DatasetJsonPtrOutput) ToDatasetJsonPtrOutputWithContext(ctx context.Context) DatasetJsonPtrOutput {
 	return o
+}
+
+func (o DatasetJsonPtrOutput) Elem() DatasetJsonOutput {
+	return o.ApplyT(func(v *DatasetJson) DatasetJson {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetJson
+		return ret
+	}).(DatasetJsonOutput)
 }
 
 type DatasetJsonArrayOutput struct{ *pulumi.OutputState }

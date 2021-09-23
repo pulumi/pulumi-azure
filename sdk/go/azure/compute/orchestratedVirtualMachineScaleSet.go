@@ -267,7 +267,7 @@ type OrchestratedVirtualMachineScaleSetArrayInput interface {
 type OrchestratedVirtualMachineScaleSetArray []OrchestratedVirtualMachineScaleSetInput
 
 func (OrchestratedVirtualMachineScaleSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OrchestratedVirtualMachineScaleSet)(nil))
+	return reflect.TypeOf((*[]*OrchestratedVirtualMachineScaleSet)(nil)).Elem()
 }
 
 func (i OrchestratedVirtualMachineScaleSetArray) ToOrchestratedVirtualMachineScaleSetArrayOutput() OrchestratedVirtualMachineScaleSetArrayOutput {
@@ -292,7 +292,7 @@ type OrchestratedVirtualMachineScaleSetMapInput interface {
 type OrchestratedVirtualMachineScaleSetMap map[string]OrchestratedVirtualMachineScaleSetInput
 
 func (OrchestratedVirtualMachineScaleSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OrchestratedVirtualMachineScaleSet)(nil))
+	return reflect.TypeOf((*map[string]*OrchestratedVirtualMachineScaleSet)(nil)).Elem()
 }
 
 func (i OrchestratedVirtualMachineScaleSetMap) ToOrchestratedVirtualMachineScaleSetMapOutput() OrchestratedVirtualMachineScaleSetMapOutput {
@@ -303,9 +303,7 @@ func (i OrchestratedVirtualMachineScaleSetMap) ToOrchestratedVirtualMachineScale
 	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetMapOutput)
 }
 
-type OrchestratedVirtualMachineScaleSetOutput struct {
-	*pulumi.OutputState
-}
+type OrchestratedVirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (OrchestratedVirtualMachineScaleSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSet)(nil))
@@ -324,14 +322,12 @@ func (o OrchestratedVirtualMachineScaleSetOutput) ToOrchestratedVirtualMachineSc
 }
 
 func (o OrchestratedVirtualMachineScaleSetOutput) ToOrchestratedVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPtrOutput {
-	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSet) *OrchestratedVirtualMachineScaleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSet) *OrchestratedVirtualMachineScaleSet {
 		return &v
 	}).(OrchestratedVirtualMachineScaleSetPtrOutput)
 }
 
-type OrchestratedVirtualMachineScaleSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type OrchestratedVirtualMachineScaleSetPtrOutput struct{ *pulumi.OutputState }
 
 func (OrchestratedVirtualMachineScaleSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSet)(nil))
@@ -343,6 +339,16 @@ func (o OrchestratedVirtualMachineScaleSetPtrOutput) ToOrchestratedVirtualMachin
 
 func (o OrchestratedVirtualMachineScaleSetPtrOutput) ToOrchestratedVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPtrOutput {
 	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetPtrOutput) Elem() OrchestratedVirtualMachineScaleSetOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSet {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSet
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetOutput)
 }
 
 type OrchestratedVirtualMachineScaleSetArrayOutput struct{ *pulumi.OutputState }

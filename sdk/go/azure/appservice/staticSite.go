@@ -237,7 +237,7 @@ type StaticSiteArrayInput interface {
 type StaticSiteArray []StaticSiteInput
 
 func (StaticSiteArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StaticSite)(nil))
+	return reflect.TypeOf((*[]*StaticSite)(nil)).Elem()
 }
 
 func (i StaticSiteArray) ToStaticSiteArrayOutput() StaticSiteArrayOutput {
@@ -262,7 +262,7 @@ type StaticSiteMapInput interface {
 type StaticSiteMap map[string]StaticSiteInput
 
 func (StaticSiteMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StaticSite)(nil))
+	return reflect.TypeOf((*map[string]*StaticSite)(nil)).Elem()
 }
 
 func (i StaticSiteMap) ToStaticSiteMapOutput() StaticSiteMapOutput {
@@ -273,9 +273,7 @@ func (i StaticSiteMap) ToStaticSiteMapOutputWithContext(ctx context.Context) Sta
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteMapOutput)
 }
 
-type StaticSiteOutput struct {
-	*pulumi.OutputState
-}
+type StaticSiteOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StaticSite)(nil))
@@ -294,14 +292,12 @@ func (o StaticSiteOutput) ToStaticSitePtrOutput() StaticSitePtrOutput {
 }
 
 func (o StaticSiteOutput) ToStaticSitePtrOutputWithContext(ctx context.Context) StaticSitePtrOutput {
-	return o.ApplyT(func(v StaticSite) *StaticSite {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticSite) *StaticSite {
 		return &v
 	}).(StaticSitePtrOutput)
 }
 
-type StaticSitePtrOutput struct {
-	*pulumi.OutputState
-}
+type StaticSitePtrOutput struct{ *pulumi.OutputState }
 
 func (StaticSitePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StaticSite)(nil))
@@ -313,6 +309,16 @@ func (o StaticSitePtrOutput) ToStaticSitePtrOutput() StaticSitePtrOutput {
 
 func (o StaticSitePtrOutput) ToStaticSitePtrOutputWithContext(ctx context.Context) StaticSitePtrOutput {
 	return o
+}
+
+func (o StaticSitePtrOutput) Elem() StaticSiteOutput {
+	return o.ApplyT(func(v *StaticSite) StaticSite {
+		if v != nil {
+			return *v
+		}
+		var ret StaticSite
+		return ret
+	}).(StaticSiteOutput)
 }
 
 type StaticSiteArrayOutput struct{ *pulumi.OutputState }

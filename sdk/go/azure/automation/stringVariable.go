@@ -202,7 +202,7 @@ type StringVariableArrayInput interface {
 type StringVariableArray []StringVariableInput
 
 func (StringVariableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StringVariable)(nil))
+	return reflect.TypeOf((*[]*StringVariable)(nil)).Elem()
 }
 
 func (i StringVariableArray) ToStringVariableArrayOutput() StringVariableArrayOutput {
@@ -227,7 +227,7 @@ type StringVariableMapInput interface {
 type StringVariableMap map[string]StringVariableInput
 
 func (StringVariableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StringVariable)(nil))
+	return reflect.TypeOf((*map[string]*StringVariable)(nil)).Elem()
 }
 
 func (i StringVariableMap) ToStringVariableMapOutput() StringVariableMapOutput {
@@ -238,9 +238,7 @@ func (i StringVariableMap) ToStringVariableMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(StringVariableMapOutput)
 }
 
-type StringVariableOutput struct {
-	*pulumi.OutputState
-}
+type StringVariableOutput struct{ *pulumi.OutputState }
 
 func (StringVariableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StringVariable)(nil))
@@ -259,14 +257,12 @@ func (o StringVariableOutput) ToStringVariablePtrOutput() StringVariablePtrOutpu
 }
 
 func (o StringVariableOutput) ToStringVariablePtrOutputWithContext(ctx context.Context) StringVariablePtrOutput {
-	return o.ApplyT(func(v StringVariable) *StringVariable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StringVariable) *StringVariable {
 		return &v
 	}).(StringVariablePtrOutput)
 }
 
-type StringVariablePtrOutput struct {
-	*pulumi.OutputState
-}
+type StringVariablePtrOutput struct{ *pulumi.OutputState }
 
 func (StringVariablePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StringVariable)(nil))
@@ -278,6 +274,16 @@ func (o StringVariablePtrOutput) ToStringVariablePtrOutput() StringVariablePtrOu
 
 func (o StringVariablePtrOutput) ToStringVariablePtrOutputWithContext(ctx context.Context) StringVariablePtrOutput {
 	return o
+}
+
+func (o StringVariablePtrOutput) Elem() StringVariableOutput {
+	return o.ApplyT(func(v *StringVariable) StringVariable {
+		if v != nil {
+			return *v
+		}
+		var ret StringVariable
+		return ret
+	}).(StringVariableOutput)
 }
 
 type StringVariableArrayOutput struct{ *pulumi.OutputState }

@@ -111,7 +111,7 @@ func (o ClusterAzureActiveDirectoryOutput) ToClusterAzureActiveDirectoryPtrOutpu
 }
 
 func (o ClusterAzureActiveDirectoryOutput) ToClusterAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) ClusterAzureActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v ClusterAzureActiveDirectory) *ClusterAzureActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAzureActiveDirectory) *ClusterAzureActiveDirectory {
 		return &v
 	}).(ClusterAzureActiveDirectoryPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o ClusterAzureActiveDirectoryPtrOutput) ToClusterAzureActiveDirectoryPtrOu
 }
 
 func (o ClusterAzureActiveDirectoryPtrOutput) Elem() ClusterAzureActiveDirectoryOutput {
-	return o.ApplyT(func(v *ClusterAzureActiveDirectory) ClusterAzureActiveDirectory { return *v }).(ClusterAzureActiveDirectoryOutput)
+	return o.ApplyT(func(v *ClusterAzureActiveDirectory) ClusterAzureActiveDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAzureActiveDirectory
+		return ret
+	}).(ClusterAzureActiveDirectoryOutput)
 }
 
 // The Azure Active Directory Client ID which should be used for the Client Application.
@@ -280,7 +286,7 @@ func (o ClusterCertificateOutput) ToClusterCertificatePtrOutput() ClusterCertifi
 }
 
 func (o ClusterCertificateOutput) ToClusterCertificatePtrOutputWithContext(ctx context.Context) ClusterCertificatePtrOutput {
-	return o.ApplyT(func(v ClusterCertificate) *ClusterCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCertificate) *ClusterCertificate {
 		return &v
 	}).(ClusterCertificatePtrOutput)
 }
@@ -315,7 +321,13 @@ func (o ClusterCertificatePtrOutput) ToClusterCertificatePtrOutputWithContext(ct
 }
 
 func (o ClusterCertificatePtrOutput) Elem() ClusterCertificateOutput {
-	return o.ApplyT(func(v *ClusterCertificate) ClusterCertificate { return *v }).(ClusterCertificateOutput)
+	return o.ApplyT(func(v *ClusterCertificate) ClusterCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCertificate
+		return ret
+	}).(ClusterCertificateOutput)
 }
 
 // The Thumbprint of the Certificate.
@@ -445,7 +457,7 @@ func (o ClusterCertificateCommonNamesOutput) ToClusterCertificateCommonNamesPtrO
 }
 
 func (o ClusterCertificateCommonNamesOutput) ToClusterCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesPtrOutput {
-	return o.ApplyT(func(v ClusterCertificateCommonNames) *ClusterCertificateCommonNames {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCertificateCommonNames) *ClusterCertificateCommonNames {
 		return &v
 	}).(ClusterCertificateCommonNamesPtrOutput)
 }
@@ -475,7 +487,13 @@ func (o ClusterCertificateCommonNamesPtrOutput) ToClusterCertificateCommonNamesP
 }
 
 func (o ClusterCertificateCommonNamesPtrOutput) Elem() ClusterCertificateCommonNamesOutput {
-	return o.ApplyT(func(v *ClusterCertificateCommonNames) ClusterCertificateCommonNames { return *v }).(ClusterCertificateCommonNamesOutput)
+	return o.ApplyT(func(v *ClusterCertificateCommonNames) ClusterCertificateCommonNames {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCertificateCommonNames
+		return ret
+	}).(ClusterCertificateCommonNamesOutput)
 }
 
 // A `commonNames` block as defined below.
@@ -931,7 +949,7 @@ func (o ClusterDiagnosticsConfigOutput) ToClusterDiagnosticsConfigPtrOutput() Cl
 }
 
 func (o ClusterDiagnosticsConfigOutput) ToClusterDiagnosticsConfigPtrOutputWithContext(ctx context.Context) ClusterDiagnosticsConfigPtrOutput {
-	return o.ApplyT(func(v ClusterDiagnosticsConfig) *ClusterDiagnosticsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterDiagnosticsConfig) *ClusterDiagnosticsConfig {
 		return &v
 	}).(ClusterDiagnosticsConfigPtrOutput)
 }
@@ -976,7 +994,13 @@ func (o ClusterDiagnosticsConfigPtrOutput) ToClusterDiagnosticsConfigPtrOutputWi
 }
 
 func (o ClusterDiagnosticsConfigPtrOutput) Elem() ClusterDiagnosticsConfigOutput {
-	return o.ApplyT(func(v *ClusterDiagnosticsConfig) ClusterDiagnosticsConfig { return *v }).(ClusterDiagnosticsConfigOutput)
+	return o.ApplyT(func(v *ClusterDiagnosticsConfig) ClusterDiagnosticsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterDiagnosticsConfig
+		return ret
+	}).(ClusterDiagnosticsConfigOutput)
 }
 
 // The Blob Endpoint of the Storage Account.
@@ -1419,7 +1443,7 @@ func (o ClusterNodeTypeApplicationPortsOutput) ToClusterNodeTypeApplicationPorts
 }
 
 func (o ClusterNodeTypeApplicationPortsOutput) ToClusterNodeTypeApplicationPortsPtrOutputWithContext(ctx context.Context) ClusterNodeTypeApplicationPortsPtrOutput {
-	return o.ApplyT(func(v ClusterNodeTypeApplicationPorts) *ClusterNodeTypeApplicationPorts {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNodeTypeApplicationPorts) *ClusterNodeTypeApplicationPorts {
 		return &v
 	}).(ClusterNodeTypeApplicationPortsPtrOutput)
 }
@@ -1449,7 +1473,13 @@ func (o ClusterNodeTypeApplicationPortsPtrOutput) ToClusterNodeTypeApplicationPo
 }
 
 func (o ClusterNodeTypeApplicationPortsPtrOutput) Elem() ClusterNodeTypeApplicationPortsOutput {
-	return o.ApplyT(func(v *ClusterNodeTypeApplicationPorts) ClusterNodeTypeApplicationPorts { return *v }).(ClusterNodeTypeApplicationPortsOutput)
+	return o.ApplyT(func(v *ClusterNodeTypeApplicationPorts) ClusterNodeTypeApplicationPorts {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNodeTypeApplicationPorts
+		return ret
+	}).(ClusterNodeTypeApplicationPortsOutput)
 }
 
 // The end of the Application Port Range on this Node Type.
@@ -1569,7 +1599,7 @@ func (o ClusterNodeTypeEphemeralPortsOutput) ToClusterNodeTypeEphemeralPortsPtrO
 }
 
 func (o ClusterNodeTypeEphemeralPortsOutput) ToClusterNodeTypeEphemeralPortsPtrOutputWithContext(ctx context.Context) ClusterNodeTypeEphemeralPortsPtrOutput {
-	return o.ApplyT(func(v ClusterNodeTypeEphemeralPorts) *ClusterNodeTypeEphemeralPorts {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNodeTypeEphemeralPorts) *ClusterNodeTypeEphemeralPorts {
 		return &v
 	}).(ClusterNodeTypeEphemeralPortsPtrOutput)
 }
@@ -1599,7 +1629,13 @@ func (o ClusterNodeTypeEphemeralPortsPtrOutput) ToClusterNodeTypeEphemeralPortsP
 }
 
 func (o ClusterNodeTypeEphemeralPortsPtrOutput) Elem() ClusterNodeTypeEphemeralPortsOutput {
-	return o.ApplyT(func(v *ClusterNodeTypeEphemeralPorts) ClusterNodeTypeEphemeralPorts { return *v }).(ClusterNodeTypeEphemeralPortsOutput)
+	return o.ApplyT(func(v *ClusterNodeTypeEphemeralPorts) ClusterNodeTypeEphemeralPorts {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNodeTypeEphemeralPorts
+		return ret
+	}).(ClusterNodeTypeEphemeralPortsOutput)
 }
 
 // The end of the Ephemeral Port Range on this Node Type.
@@ -1723,7 +1759,7 @@ func (o ClusterReverseProxyCertificateOutput) ToClusterReverseProxyCertificatePt
 }
 
 func (o ClusterReverseProxyCertificateOutput) ToClusterReverseProxyCertificatePtrOutputWithContext(ctx context.Context) ClusterReverseProxyCertificatePtrOutput {
-	return o.ApplyT(func(v ClusterReverseProxyCertificate) *ClusterReverseProxyCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterReverseProxyCertificate) *ClusterReverseProxyCertificate {
 		return &v
 	}).(ClusterReverseProxyCertificatePtrOutput)
 }
@@ -1758,7 +1794,13 @@ func (o ClusterReverseProxyCertificatePtrOutput) ToClusterReverseProxyCertificat
 }
 
 func (o ClusterReverseProxyCertificatePtrOutput) Elem() ClusterReverseProxyCertificateOutput {
-	return o.ApplyT(func(v *ClusterReverseProxyCertificate) ClusterReverseProxyCertificate { return *v }).(ClusterReverseProxyCertificateOutput)
+	return o.ApplyT(func(v *ClusterReverseProxyCertificate) ClusterReverseProxyCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterReverseProxyCertificate
+		return ret
+	}).(ClusterReverseProxyCertificateOutput)
 }
 
 // The Thumbprint of the Certificate.
@@ -1888,7 +1930,7 @@ func (o ClusterReverseProxyCertificateCommonNamesOutput) ToClusterReverseProxyCe
 }
 
 func (o ClusterReverseProxyCertificateCommonNamesOutput) ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesPtrOutput {
-	return o.ApplyT(func(v ClusterReverseProxyCertificateCommonNames) *ClusterReverseProxyCertificateCommonNames {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterReverseProxyCertificateCommonNames) *ClusterReverseProxyCertificateCommonNames {
 		return &v
 	}).(ClusterReverseProxyCertificateCommonNamesPtrOutput)
 }
@@ -1921,7 +1963,11 @@ func (o ClusterReverseProxyCertificateCommonNamesPtrOutput) ToClusterReverseProx
 
 func (o ClusterReverseProxyCertificateCommonNamesPtrOutput) Elem() ClusterReverseProxyCertificateCommonNamesOutput {
 	return o.ApplyT(func(v *ClusterReverseProxyCertificateCommonNames) ClusterReverseProxyCertificateCommonNames {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterReverseProxyCertificateCommonNames
+		return ret
 	}).(ClusterReverseProxyCertificateCommonNamesOutput)
 }
 
@@ -2176,7 +2222,7 @@ func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyPtrOutput() ClusterUpg
 }
 
 func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicy) *ClusterUpgradePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradePolicy) *ClusterUpgradePolicy {
 		return &v
 	}).(ClusterUpgradePolicyPtrOutput)
 }
@@ -2240,7 +2286,13 @@ func (o ClusterUpgradePolicyPtrOutput) ToClusterUpgradePolicyPtrOutputWithContex
 }
 
 func (o ClusterUpgradePolicyPtrOutput) Elem() ClusterUpgradePolicyOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicy) ClusterUpgradePolicy { return *v }).(ClusterUpgradePolicyOutput)
+	return o.ApplyT(func(v *ClusterUpgradePolicy) ClusterUpgradePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterUpgradePolicy
+		return ret
+	}).(ClusterUpgradePolicyOutput)
 }
 
 // A `deltaHealthPolicy` block as defined below
@@ -2427,10 +2479,11 @@ func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) ToClusterUpgradePolicyDelta
 }
 
 func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicyDeltaHealthPolicy) *ClusterUpgradePolicyDeltaHealthPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradePolicyDeltaHealthPolicy) *ClusterUpgradePolicyDeltaHealthPolicy {
 		return &v
 	}).(ClusterUpgradePolicyDeltaHealthPolicyPtrOutput)
 }
+
 func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) MaxDeltaUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradePolicyDeltaHealthPolicy) *int { return v.MaxDeltaUnhealthyApplicationsPercent }).(pulumi.IntPtrOutput)
 }
@@ -2460,7 +2513,13 @@ func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) ToClusterUpgradePolicyDe
 }
 
 func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) Elem() ClusterUpgradePolicyDeltaHealthPolicyOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyDeltaHealthPolicy) ClusterUpgradePolicyDeltaHealthPolicy { return *v }).(ClusterUpgradePolicyDeltaHealthPolicyOutput)
+	return o.ApplyT(func(v *ClusterUpgradePolicyDeltaHealthPolicy) ClusterUpgradePolicyDeltaHealthPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterUpgradePolicyDeltaHealthPolicy
+		return ret
+	}).(ClusterUpgradePolicyDeltaHealthPolicyOutput)
 }
 
 func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) MaxDeltaUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
@@ -2583,10 +2642,11 @@ func (o ClusterUpgradePolicyHealthPolicyOutput) ToClusterUpgradePolicyHealthPoli
 }
 
 func (o ClusterUpgradePolicyHealthPolicyOutput) ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyHealthPolicyPtrOutput {
-	return o.ApplyT(func(v ClusterUpgradePolicyHealthPolicy) *ClusterUpgradePolicyHealthPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradePolicyHealthPolicy) *ClusterUpgradePolicyHealthPolicy {
 		return &v
 	}).(ClusterUpgradePolicyHealthPolicyPtrOutput)
 }
+
 func (o ClusterUpgradePolicyHealthPolicyOutput) MaxUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradePolicyHealthPolicy) *int { return v.MaxUnhealthyApplicationsPercent }).(pulumi.IntPtrOutput)
 }
@@ -2610,7 +2670,13 @@ func (o ClusterUpgradePolicyHealthPolicyPtrOutput) ToClusterUpgradePolicyHealthP
 }
 
 func (o ClusterUpgradePolicyHealthPolicyPtrOutput) Elem() ClusterUpgradePolicyHealthPolicyOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyHealthPolicy) ClusterUpgradePolicyHealthPolicy { return *v }).(ClusterUpgradePolicyHealthPolicyOutput)
+	return o.ApplyT(func(v *ClusterUpgradePolicyHealthPolicy) ClusterUpgradePolicyHealthPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterUpgradePolicyHealthPolicy
+		return ret
+	}).(ClusterUpgradePolicyHealthPolicyOutput)
 }
 
 func (o ClusterUpgradePolicyHealthPolicyPtrOutput) MaxUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
@@ -3025,7 +3091,7 @@ func (o MeshApplicationServiceCodePackageResourcesLimitsOutput) ToMeshApplicatio
 }
 
 func (o MeshApplicationServiceCodePackageResourcesLimitsOutput) ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageResourcesLimitsPtrOutput {
-	return o.ApplyT(func(v MeshApplicationServiceCodePackageResourcesLimits) *MeshApplicationServiceCodePackageResourcesLimits {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeshApplicationServiceCodePackageResourcesLimits) *MeshApplicationServiceCodePackageResourcesLimits {
 		return &v
 	}).(MeshApplicationServiceCodePackageResourcesLimitsPtrOutput)
 }
@@ -3056,7 +3122,11 @@ func (o MeshApplicationServiceCodePackageResourcesLimitsPtrOutput) ToMeshApplica
 
 func (o MeshApplicationServiceCodePackageResourcesLimitsPtrOutput) Elem() MeshApplicationServiceCodePackageResourcesLimitsOutput {
 	return o.ApplyT(func(v *MeshApplicationServiceCodePackageResourcesLimits) MeshApplicationServiceCodePackageResourcesLimits {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MeshApplicationServiceCodePackageResourcesLimits
+		return ret
 	}).(MeshApplicationServiceCodePackageResourcesLimitsOutput)
 }
 

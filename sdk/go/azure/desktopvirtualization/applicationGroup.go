@@ -314,7 +314,7 @@ type ApplicationGroupArrayInput interface {
 type ApplicationGroupArray []ApplicationGroupInput
 
 func (ApplicationGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApplicationGroup)(nil))
+	return reflect.TypeOf((*[]*ApplicationGroup)(nil)).Elem()
 }
 
 func (i ApplicationGroupArray) ToApplicationGroupArrayOutput() ApplicationGroupArrayOutput {
@@ -339,7 +339,7 @@ type ApplicationGroupMapInput interface {
 type ApplicationGroupMap map[string]ApplicationGroupInput
 
 func (ApplicationGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApplicationGroup)(nil))
+	return reflect.TypeOf((*map[string]*ApplicationGroup)(nil)).Elem()
 }
 
 func (i ApplicationGroupMap) ToApplicationGroupMapOutput() ApplicationGroupMapOutput {
@@ -350,9 +350,7 @@ func (i ApplicationGroupMap) ToApplicationGroupMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGroupMapOutput)
 }
 
-type ApplicationGroupOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationGroup)(nil))
@@ -371,14 +369,12 @@ func (o ApplicationGroupOutput) ToApplicationGroupPtrOutput() ApplicationGroupPt
 }
 
 func (o ApplicationGroupOutput) ToApplicationGroupPtrOutputWithContext(ctx context.Context) ApplicationGroupPtrOutput {
-	return o.ApplyT(func(v ApplicationGroup) *ApplicationGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGroup) *ApplicationGroup {
 		return &v
 	}).(ApplicationGroupPtrOutput)
 }
 
-type ApplicationGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApplicationGroup)(nil))
@@ -390,6 +386,16 @@ func (o ApplicationGroupPtrOutput) ToApplicationGroupPtrOutput() ApplicationGrou
 
 func (o ApplicationGroupPtrOutput) ToApplicationGroupPtrOutputWithContext(ctx context.Context) ApplicationGroupPtrOutput {
 	return o
+}
+
+func (o ApplicationGroupPtrOutput) Elem() ApplicationGroupOutput {
+	return o.ApplyT(func(v *ApplicationGroup) ApplicationGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGroup
+		return ret
+	}).(ApplicationGroupOutput)
 }
 
 type ApplicationGroupArrayOutput struct{ *pulumi.OutputState }

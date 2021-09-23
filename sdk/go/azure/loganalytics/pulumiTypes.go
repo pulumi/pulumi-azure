@@ -111,7 +111,7 @@ func (o ClusterIdentityOutput) ToClusterIdentityPtrOutput() ClusterIdentityPtrOu
 }
 
 func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
-	return o.ApplyT(func(v ClusterIdentity) *ClusterIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterIdentity) *ClusterIdentity {
 		return &v
 	}).(ClusterIdentityPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {
-	return o.ApplyT(func(v *ClusterIdentity) ClusterIdentity { return *v }).(ClusterIdentityOutput)
+	return o.ApplyT(func(v *ClusterIdentity) ClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterIdentity
+		return ret
+	}).(ClusterIdentityOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.

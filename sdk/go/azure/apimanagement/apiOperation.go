@@ -311,7 +311,7 @@ type ApiOperationArrayInput interface {
 type ApiOperationArray []ApiOperationInput
 
 func (ApiOperationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiOperation)(nil))
+	return reflect.TypeOf((*[]*ApiOperation)(nil)).Elem()
 }
 
 func (i ApiOperationArray) ToApiOperationArrayOutput() ApiOperationArrayOutput {
@@ -336,7 +336,7 @@ type ApiOperationMapInput interface {
 type ApiOperationMap map[string]ApiOperationInput
 
 func (ApiOperationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiOperation)(nil))
+	return reflect.TypeOf((*map[string]*ApiOperation)(nil)).Elem()
 }
 
 func (i ApiOperationMap) ToApiOperationMapOutput() ApiOperationMapOutput {
@@ -347,9 +347,7 @@ func (i ApiOperationMap) ToApiOperationMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationMapOutput)
 }
 
-type ApiOperationOutput struct {
-	*pulumi.OutputState
-}
+type ApiOperationOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperation)(nil))
@@ -368,14 +366,12 @@ func (o ApiOperationOutput) ToApiOperationPtrOutput() ApiOperationPtrOutput {
 }
 
 func (o ApiOperationOutput) ToApiOperationPtrOutputWithContext(ctx context.Context) ApiOperationPtrOutput {
-	return o.ApplyT(func(v ApiOperation) *ApiOperation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOperation) *ApiOperation {
 		return &v
 	}).(ApiOperationPtrOutput)
 }
 
-type ApiOperationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApiOperationPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiOperation)(nil))
@@ -387,6 +383,16 @@ func (o ApiOperationPtrOutput) ToApiOperationPtrOutput() ApiOperationPtrOutput {
 
 func (o ApiOperationPtrOutput) ToApiOperationPtrOutputWithContext(ctx context.Context) ApiOperationPtrOutput {
 	return o
+}
+
+func (o ApiOperationPtrOutput) Elem() ApiOperationOutput {
+	return o.ApplyT(func(v *ApiOperation) ApiOperation {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOperation
+		return ret
+	}).(ApiOperationOutput)
 }
 
 type ApiOperationArrayOutput struct{ *pulumi.OutputState }

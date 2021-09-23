@@ -4,6 +4,9 @@
 package sql
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -81,4 +84,108 @@ type LookupDatabaseResult struct {
 	ServerName string `pulumi:"serverName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDatabaseResult, error) {
+			args := v.(LookupDatabaseArgs)
+			r, err := LookupDatabase(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDatabaseResultOutput)
+}
+
+// A collection of arguments for invoking getDatabase.
+type LookupDatabaseOutputArgs struct {
+	// The name of the SQL Database.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the Resource Group where the Azure SQL Database exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the SQL Server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupDatabaseOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDatabase.
+type LookupDatabaseResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDatabaseResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseResult)(nil)).Elem()
+}
+
+func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutput() LookupDatabaseResultOutput {
+	return o
+}
+
+func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutputWithContext(ctx context.Context) LookupDatabaseResultOutput {
+	return o
+}
+
+// The name of the collation.
+func (o LookupDatabaseResultOutput) Collation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Collation }).(pulumi.StringOutput)
+}
+
+// The default secondary location of the SQL Database.
+func (o LookupDatabaseResultOutput) DefaultSecondaryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.DefaultSecondaryLocation }).(pulumi.StringOutput)
+}
+
+// The edition of the database.
+func (o LookupDatabaseResultOutput) Edition() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Edition }).(pulumi.StringOutput)
+}
+
+// The name of the elastic database pool the database belongs to.
+func (o LookupDatabaseResultOutput) ElasticPoolName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.ElasticPoolName }).(pulumi.StringOutput)
+}
+
+// The ID of the failover group the database belongs to.
+func (o LookupDatabaseResultOutput) FailoverGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.FailoverGroupId }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupDatabaseResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the Resource Group in which the SQL Server exists.
+func (o LookupDatabaseResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the database.
+func (o LookupDatabaseResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicate if read-only connections will be redirected to a high-available replica.
+func (o LookupDatabaseResultOutput) ReadScale() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) bool { return v.ReadScale }).(pulumi.BoolOutput)
+}
+
+// The name of the resource group in which the database resides. This will always be the same resource group as the Database Server.
+func (o LookupDatabaseResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The name of the SQL Server on which to create the database.
+func (o LookupDatabaseResultOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupDatabaseResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDatabaseResultOutput{})
 }

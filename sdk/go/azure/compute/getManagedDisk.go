@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -85,4 +88,125 @@ type LookupManagedDiskResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Availability Zones where the Managed Disk exists.
 	Zones []string `pulumi:"zones"`
+}
+
+func LookupManagedDiskOutput(ctx *pulumi.Context, args LookupManagedDiskOutputArgs, opts ...pulumi.InvokeOption) LookupManagedDiskResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagedDiskResult, error) {
+			args := v.(LookupManagedDiskArgs)
+			r, err := LookupManagedDisk(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagedDiskResultOutput)
+}
+
+// A collection of arguments for invoking getManagedDisk.
+type LookupManagedDiskOutputArgs struct {
+	// Specifies the name of the Managed Disk.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the Resource Group where this Managed Disk exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// A list of Availability Zones where the Managed Disk exists.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (LookupManagedDiskOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedDiskArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getManagedDisk.
+type LookupManagedDiskResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagedDiskResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedDiskResult)(nil)).Elem()
+}
+
+func (o LookupManagedDiskResultOutput) ToLookupManagedDiskResultOutput() LookupManagedDiskResultOutput {
+	return o
+}
+
+func (o LookupManagedDiskResultOutput) ToLookupManagedDiskResultOutputWithContext(ctx context.Context) LookupManagedDiskResultOutput {
+	return o
+}
+
+func (o LookupManagedDiskResultOutput) CreateOption() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.CreateOption }).(pulumi.StringOutput)
+}
+
+// The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+func (o LookupManagedDiskResultOutput) DiskEncryptionSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
+}
+
+// The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+func (o LookupManagedDiskResultOutput) DiskIopsReadWrite() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) int { return v.DiskIopsReadWrite }).(pulumi.IntOutput)
+}
+
+// The bandwidth allowed for this disk.
+func (o LookupManagedDiskResultOutput) DiskMbpsReadWrite() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) int { return v.DiskMbpsReadWrite }).(pulumi.IntOutput)
+}
+
+// The size of the Managed Disk in gigabytes.
+func (o LookupManagedDiskResultOutput) DiskSizeGb() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) int { return v.DiskSizeGb }).(pulumi.IntOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupManagedDiskResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ID of the source image used for creating this Managed Disk.
+func (o LookupManagedDiskResultOutput) ImageReferenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.ImageReferenceId }).(pulumi.StringOutput)
+}
+
+func (o LookupManagedDiskResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operating system used for this Managed Disk.
+func (o LookupManagedDiskResultOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+func (o LookupManagedDiskResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The ID of an existing Managed Disk which this Disk was created from.
+func (o LookupManagedDiskResultOutput) SourceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.SourceResourceId }).(pulumi.StringOutput)
+}
+
+// The Source URI for this Managed Disk.
+func (o LookupManagedDiskResultOutput) SourceUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.SourceUri }).(pulumi.StringOutput)
+}
+
+// The ID of the Storage Account where the `sourceUri` is located.
+func (o LookupManagedDiskResultOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+// The storage account type for the Managed Disk.
+func (o LookupManagedDiskResultOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupManagedDiskResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A list of Availability Zones where the Managed Disk exists.
+func (o LookupManagedDiskResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagedDiskResultOutput{})
 }

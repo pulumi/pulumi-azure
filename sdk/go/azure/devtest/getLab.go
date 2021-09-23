@@ -4,6 +4,9 @@
 package devtest
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,4 +77,102 @@ type LookupLabResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The unique immutable identifier of the Dev Test Lab.
 	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
+}
+
+func LookupLabOutput(ctx *pulumi.Context, args LookupLabOutputArgs, opts ...pulumi.InvokeOption) LookupLabResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLabResult, error) {
+			args := v.(LookupLabArgs)
+			r, err := LookupLab(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLabResultOutput)
+}
+
+// A collection of arguments for invoking getLab.
+type LookupLabOutputArgs struct {
+	// The name of the Dev Test Lab.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group where the Dev Test Lab exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupLabOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLabArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLab.
+type LookupLabResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLabResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLabResult)(nil)).Elem()
+}
+
+func (o LookupLabResultOutput) ToLookupLabResultOutput() LookupLabResultOutput {
+	return o
+}
+
+func (o LookupLabResultOutput) ToLookupLabResultOutputWithContext(ctx context.Context) LookupLabResultOutput {
+	return o
+}
+
+// The ID of the Storage Account used for Artifact Storage.
+func (o LookupLabResultOutput) ArtifactsStorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.ArtifactsStorageAccountId }).(pulumi.StringOutput)
+}
+
+// The ID of the Default Premium Storage Account for this Dev Test Lab.
+func (o LookupLabResultOutput) DefaultPremiumStorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.DefaultPremiumStorageAccountId }).(pulumi.StringOutput)
+}
+
+// The ID of the Default Storage Account for this Dev Test Lab.
+func (o LookupLabResultOutput) DefaultStorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.DefaultStorageAccountId }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupLabResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ID of the Key used for this Dev Test Lab.
+func (o LookupLabResultOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+// The Azure location where the Dev Test Lab exists.
+func (o LookupLabResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupLabResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the Storage Account used for Storage of Premium Data Disk.
+func (o LookupLabResultOutput) PremiumDataDiskStorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.PremiumDataDiskStorageAccountId }).(pulumi.StringOutput)
+}
+
+func (o LookupLabResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The type of storage used by the Dev Test Lab.
+func (o LookupLabResultOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o LookupLabResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupLabResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The unique immutable identifier of the Dev Test Lab.
+func (o LookupLabResultOutput) UniqueIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.UniqueIdentifier }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLabResultOutput{})
 }

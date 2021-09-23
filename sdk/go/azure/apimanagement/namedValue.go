@@ -268,7 +268,7 @@ type NamedValueArrayInput interface {
 type NamedValueArray []NamedValueInput
 
 func (NamedValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NamedValue)(nil))
+	return reflect.TypeOf((*[]*NamedValue)(nil)).Elem()
 }
 
 func (i NamedValueArray) ToNamedValueArrayOutput() NamedValueArrayOutput {
@@ -293,7 +293,7 @@ type NamedValueMapInput interface {
 type NamedValueMap map[string]NamedValueInput
 
 func (NamedValueMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NamedValue)(nil))
+	return reflect.TypeOf((*map[string]*NamedValue)(nil)).Elem()
 }
 
 func (i NamedValueMap) ToNamedValueMapOutput() NamedValueMapOutput {
@@ -304,9 +304,7 @@ func (i NamedValueMap) ToNamedValueMapOutputWithContext(ctx context.Context) Nam
 	return pulumi.ToOutputWithContext(ctx, i).(NamedValueMapOutput)
 }
 
-type NamedValueOutput struct {
-	*pulumi.OutputState
-}
+type NamedValueOutput struct{ *pulumi.OutputState }
 
 func (NamedValueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamedValue)(nil))
@@ -325,14 +323,12 @@ func (o NamedValueOutput) ToNamedValuePtrOutput() NamedValuePtrOutput {
 }
 
 func (o NamedValueOutput) ToNamedValuePtrOutputWithContext(ctx context.Context) NamedValuePtrOutput {
-	return o.ApplyT(func(v NamedValue) *NamedValue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamedValue) *NamedValue {
 		return &v
 	}).(NamedValuePtrOutput)
 }
 
-type NamedValuePtrOutput struct {
-	*pulumi.OutputState
-}
+type NamedValuePtrOutput struct{ *pulumi.OutputState }
 
 func (NamedValuePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NamedValue)(nil))
@@ -344,6 +340,16 @@ func (o NamedValuePtrOutput) ToNamedValuePtrOutput() NamedValuePtrOutput {
 
 func (o NamedValuePtrOutput) ToNamedValuePtrOutputWithContext(ctx context.Context) NamedValuePtrOutput {
 	return o
+}
+
+func (o NamedValuePtrOutput) Elem() NamedValueOutput {
+	return o.ApplyT(func(v *NamedValue) NamedValue {
+		if v != nil {
+			return *v
+		}
+		var ret NamedValue
+		return ret
+	}).(NamedValueOutput)
 }
 
 type NamedValueArrayOutput struct{ *pulumi.OutputState }

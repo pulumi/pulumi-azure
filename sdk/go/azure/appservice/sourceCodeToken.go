@@ -198,7 +198,7 @@ type SourceCodeTokenArrayInput interface {
 type SourceCodeTokenArray []SourceCodeTokenInput
 
 func (SourceCodeTokenArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SourceCodeToken)(nil))
+	return reflect.TypeOf((*[]*SourceCodeToken)(nil)).Elem()
 }
 
 func (i SourceCodeTokenArray) ToSourceCodeTokenArrayOutput() SourceCodeTokenArrayOutput {
@@ -223,7 +223,7 @@ type SourceCodeTokenMapInput interface {
 type SourceCodeTokenMap map[string]SourceCodeTokenInput
 
 func (SourceCodeTokenMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SourceCodeToken)(nil))
+	return reflect.TypeOf((*map[string]*SourceCodeToken)(nil)).Elem()
 }
 
 func (i SourceCodeTokenMap) ToSourceCodeTokenMapOutput() SourceCodeTokenMapOutput {
@@ -234,9 +234,7 @@ func (i SourceCodeTokenMap) ToSourceCodeTokenMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenMapOutput)
 }
 
-type SourceCodeTokenOutput struct {
-	*pulumi.OutputState
-}
+type SourceCodeTokenOutput struct{ *pulumi.OutputState }
 
 func (SourceCodeTokenOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SourceCodeToken)(nil))
@@ -255,14 +253,12 @@ func (o SourceCodeTokenOutput) ToSourceCodeTokenPtrOutput() SourceCodeTokenPtrOu
 }
 
 func (o SourceCodeTokenOutput) ToSourceCodeTokenPtrOutputWithContext(ctx context.Context) SourceCodeTokenPtrOutput {
-	return o.ApplyT(func(v SourceCodeToken) *SourceCodeToken {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceCodeToken) *SourceCodeToken {
 		return &v
 	}).(SourceCodeTokenPtrOutput)
 }
 
-type SourceCodeTokenPtrOutput struct {
-	*pulumi.OutputState
-}
+type SourceCodeTokenPtrOutput struct{ *pulumi.OutputState }
 
 func (SourceCodeTokenPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SourceCodeToken)(nil))
@@ -274,6 +270,16 @@ func (o SourceCodeTokenPtrOutput) ToSourceCodeTokenPtrOutput() SourceCodeTokenPt
 
 func (o SourceCodeTokenPtrOutput) ToSourceCodeTokenPtrOutputWithContext(ctx context.Context) SourceCodeTokenPtrOutput {
 	return o
+}
+
+func (o SourceCodeTokenPtrOutput) Elem() SourceCodeTokenOutput {
+	return o.ApplyT(func(v *SourceCodeToken) SourceCodeToken {
+		if v != nil {
+			return *v
+		}
+		var ret SourceCodeToken
+		return ret
+	}).(SourceCodeTokenOutput)
 }
 
 type SourceCodeTokenArrayOutput struct{ *pulumi.OutputState }

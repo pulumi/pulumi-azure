@@ -251,7 +251,7 @@ type RoleDefinitionArrayInput interface {
 type RoleDefinitionArray []RoleDefinitionInput
 
 func (RoleDefinitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RoleDefinition)(nil))
+	return reflect.TypeOf((*[]*RoleDefinition)(nil)).Elem()
 }
 
 func (i RoleDefinitionArray) ToRoleDefinitionArrayOutput() RoleDefinitionArrayOutput {
@@ -276,7 +276,7 @@ type RoleDefinitionMapInput interface {
 type RoleDefinitionMap map[string]RoleDefinitionInput
 
 func (RoleDefinitionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RoleDefinition)(nil))
+	return reflect.TypeOf((*map[string]*RoleDefinition)(nil)).Elem()
 }
 
 func (i RoleDefinitionMap) ToRoleDefinitionMapOutput() RoleDefinitionMapOutput {
@@ -287,9 +287,7 @@ func (i RoleDefinitionMap) ToRoleDefinitionMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionMapOutput)
 }
 
-type RoleDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type RoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RoleDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleDefinition)(nil))
@@ -308,14 +306,12 @@ func (o RoleDefinitionOutput) ToRoleDefinitionPtrOutput() RoleDefinitionPtrOutpu
 }
 
 func (o RoleDefinitionOutput) ToRoleDefinitionPtrOutputWithContext(ctx context.Context) RoleDefinitionPtrOutput {
-	return o.ApplyT(func(v RoleDefinition) *RoleDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleDefinition) *RoleDefinition {
 		return &v
 	}).(RoleDefinitionPtrOutput)
 }
 
-type RoleDefinitionPtrOutput struct {
-	*pulumi.OutputState
-}
+type RoleDefinitionPtrOutput struct{ *pulumi.OutputState }
 
 func (RoleDefinitionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RoleDefinition)(nil))
@@ -327,6 +323,16 @@ func (o RoleDefinitionPtrOutput) ToRoleDefinitionPtrOutput() RoleDefinitionPtrOu
 
 func (o RoleDefinitionPtrOutput) ToRoleDefinitionPtrOutputWithContext(ctx context.Context) RoleDefinitionPtrOutput {
 	return o
+}
+
+func (o RoleDefinitionPtrOutput) Elem() RoleDefinitionOutput {
+	return o.ApplyT(func(v *RoleDefinition) RoleDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret RoleDefinition
+		return ret
+	}).(RoleDefinitionOutput)
 }
 
 type RoleDefinitionArrayOutput struct{ *pulumi.OutputState }

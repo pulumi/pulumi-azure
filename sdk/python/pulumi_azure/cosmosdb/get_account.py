@@ -13,6 +13,7 @@ __all__ = [
     'GetAccountResult',
     'AwaitableGetAccountResult',
     'get_account',
+    'get_account_output',
 ]
 
 @pulumi.output_type
@@ -418,3 +419,28 @@ def get_account(name: Optional[str] = None,
         tags=__ret__.tags,
         virtual_network_rules=__ret__.virtual_network_rules,
         write_endpoints=__ret__.write_endpoints)
+
+
+@_utilities.lift_output_func(get_account)
+def get_account_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+    """
+    Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+        resource_group_name="tfex-cosmosdb-account-rg")
+    pulumi.export("cosmosdbAccountEndpoint", example.endpoint)
+    ```
+
+
+    :param str name: Specifies the name of the CosmosDB Account.
+    :param str resource_group_name: Specifies the name of the resource group in which the CosmosDB Account resides.
+    """
+    ...

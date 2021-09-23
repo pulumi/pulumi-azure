@@ -237,7 +237,7 @@ type ProductGroupArrayInput interface {
 type ProductGroupArray []ProductGroupInput
 
 func (ProductGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProductGroup)(nil))
+	return reflect.TypeOf((*[]*ProductGroup)(nil)).Elem()
 }
 
 func (i ProductGroupArray) ToProductGroupArrayOutput() ProductGroupArrayOutput {
@@ -262,7 +262,7 @@ type ProductGroupMapInput interface {
 type ProductGroupMap map[string]ProductGroupInput
 
 func (ProductGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProductGroup)(nil))
+	return reflect.TypeOf((*map[string]*ProductGroup)(nil)).Elem()
 }
 
 func (i ProductGroupMap) ToProductGroupMapOutput() ProductGroupMapOutput {
@@ -273,9 +273,7 @@ func (i ProductGroupMap) ToProductGroupMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ProductGroupMapOutput)
 }
 
-type ProductGroupOutput struct {
-	*pulumi.OutputState
-}
+type ProductGroupOutput struct{ *pulumi.OutputState }
 
 func (ProductGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProductGroup)(nil))
@@ -294,14 +292,12 @@ func (o ProductGroupOutput) ToProductGroupPtrOutput() ProductGroupPtrOutput {
 }
 
 func (o ProductGroupOutput) ToProductGroupPtrOutputWithContext(ctx context.Context) ProductGroupPtrOutput {
-	return o.ApplyT(func(v ProductGroup) *ProductGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductGroup) *ProductGroup {
 		return &v
 	}).(ProductGroupPtrOutput)
 }
 
-type ProductGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProductGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (ProductGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProductGroup)(nil))
@@ -313,6 +309,16 @@ func (o ProductGroupPtrOutput) ToProductGroupPtrOutput() ProductGroupPtrOutput {
 
 func (o ProductGroupPtrOutput) ToProductGroupPtrOutputWithContext(ctx context.Context) ProductGroupPtrOutput {
 	return o
+}
+
+func (o ProductGroupPtrOutput) Elem() ProductGroupOutput {
+	return o.ApplyT(func(v *ProductGroup) ProductGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ProductGroup
+		return ret
+	}).(ProductGroupOutput)
 }
 
 type ProductGroupArrayOutput struct{ *pulumi.OutputState }

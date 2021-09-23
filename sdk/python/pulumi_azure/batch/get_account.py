@@ -13,6 +13,7 @@ __all__ = [
     'GetAccountResult',
     'AwaitableGetAccountResult',
     'get_account',
+    'get_account_output',
 ]
 
 @pulumi.output_type
@@ -202,3 +203,28 @@ def get_account(name: Optional[str] = None,
         secondary_access_key=__ret__.secondary_access_key,
         storage_account_id=__ret__.storage_account_id,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_account)
+def get_account_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+    """
+    Use this data source to access information about an existing Batch Account.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.batch.get_account(name="testbatchaccount",
+        resource_group_name="test")
+    pulumi.export("poolAllocationMode", example.pool_allocation_mode)
+    ```
+
+
+    :param str name: The name of the Batch account.
+    :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
+    """
+    ...

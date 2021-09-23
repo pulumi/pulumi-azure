@@ -208,7 +208,7 @@ type DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayInput interface 
 type DataConnectorMicrosoftDefenderAdvancedThreatProtectionArray []DataConnectorMicrosoftDefenderAdvancedThreatProtectionInput
 
 func (DataConnectorMicrosoftDefenderAdvancedThreatProtectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil))
+	return reflect.TypeOf((*[]*DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil)).Elem()
 }
 
 func (i DataConnectorMicrosoftDefenderAdvancedThreatProtectionArray) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput() DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput {
@@ -233,7 +233,7 @@ type DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapInput interface {
 type DataConnectorMicrosoftDefenderAdvancedThreatProtectionMap map[string]DataConnectorMicrosoftDefenderAdvancedThreatProtectionInput
 
 func (DataConnectorMicrosoftDefenderAdvancedThreatProtectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil))
+	return reflect.TypeOf((*map[string]*DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil)).Elem()
 }
 
 func (i DataConnectorMicrosoftDefenderAdvancedThreatProtectionMap) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput() DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput {
@@ -244,9 +244,7 @@ func (i DataConnectorMicrosoftDefenderAdvancedThreatProtectionMap) ToDataConnect
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput)
 }
 
-type DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput struct {
-	*pulumi.OutputState
-}
+type DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil))
@@ -265,14 +263,12 @@ func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput) ToDataConn
 }
 
 func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput {
-	return o.ApplyT(func(v DataConnectorMicrosoftDefenderAdvancedThreatProtection) *DataConnectorMicrosoftDefenderAdvancedThreatProtection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorMicrosoftDefenderAdvancedThreatProtection) *DataConnectorMicrosoftDefenderAdvancedThreatProtection {
 		return &v
 	}).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput)
 }
 
-type DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil))
@@ -284,6 +280,16 @@ func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput) ToDataC
 
 func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput {
 	return o
+}
+
+func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput) Elem() DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput {
+	return o.ApplyT(func(v *DataConnectorMicrosoftDefenderAdvancedThreatProtection) DataConnectorMicrosoftDefenderAdvancedThreatProtection {
+		if v != nil {
+			return *v
+		}
+		var ret DataConnectorMicrosoftDefenderAdvancedThreatProtection
+		return ret
+	}).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput)
 }
 
 type DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput struct{ *pulumi.OutputState }

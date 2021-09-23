@@ -12,6 +12,7 @@ __all__ = [
     'GetSshPublicKeyResult',
     'AwaitableGetSshPublicKeyResult',
     'get_ssh_public_key',
+    'get_ssh_public_key_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,30 @@ def get_ssh_public_key(name: Optional[str] = None,
         public_key=__ret__.public_key,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_ssh_public_key)
+def get_ssh_public_key_output(name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshPublicKeyResult]:
+    """
+    Use this data source to access information about an existing SSH Public Key.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_ssh_public_key(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this SSH Public Key.
+    :param str resource_group_name: The name of the Resource Group where the SSH Public Key exists.
+    :param Mapping[str, str] tags: A mapping of tags which should be assigned to the SSH Public Key.
+    """
+    ...

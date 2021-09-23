@@ -4,6 +4,9 @@
 package monitoring
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,4 +66,61 @@ type GetDiagnosticCategoriesResult struct {
 	// A list of the Metric Categories supported for this Resource.
 	Metrics    []string `pulumi:"metrics"`
 	ResourceId string   `pulumi:"resourceId"`
+}
+
+func GetDiagnosticCategoriesOutput(ctx *pulumi.Context, args GetDiagnosticCategoriesOutputArgs, opts ...pulumi.InvokeOption) GetDiagnosticCategoriesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDiagnosticCategoriesResult, error) {
+			args := v.(GetDiagnosticCategoriesArgs)
+			r, err := GetDiagnosticCategories(ctx, &args, opts...)
+			return *r, err
+		}).(GetDiagnosticCategoriesResultOutput)
+}
+
+// A collection of arguments for invoking getDiagnosticCategories.
+type GetDiagnosticCategoriesOutputArgs struct {
+	// The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+}
+
+func (GetDiagnosticCategoriesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiagnosticCategoriesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDiagnosticCategories.
+type GetDiagnosticCategoriesResultOutput struct{ *pulumi.OutputState }
+
+func (GetDiagnosticCategoriesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiagnosticCategoriesResult)(nil)).Elem()
+}
+
+func (o GetDiagnosticCategoriesResultOutput) ToGetDiagnosticCategoriesResultOutput() GetDiagnosticCategoriesResultOutput {
+	return o
+}
+
+func (o GetDiagnosticCategoriesResultOutput) ToGetDiagnosticCategoriesResultOutputWithContext(ctx context.Context) GetDiagnosticCategoriesResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetDiagnosticCategoriesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDiagnosticCategoriesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A list of the Log Categories supported for this Resource.
+func (o GetDiagnosticCategoriesResultOutput) Logs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDiagnosticCategoriesResult) []string { return v.Logs }).(pulumi.StringArrayOutput)
+}
+
+// A list of the Metric Categories supported for this Resource.
+func (o GetDiagnosticCategoriesResultOutput) Metrics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDiagnosticCategoriesResult) []string { return v.Metrics }).(pulumi.StringArrayOutput)
+}
+
+func (o GetDiagnosticCategoriesResultOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDiagnosticCategoriesResult) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDiagnosticCategoriesResultOutput{})
 }

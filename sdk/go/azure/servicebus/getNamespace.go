@@ -4,6 +4,9 @@
 package servicebus
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -76,4 +79,104 @@ type LookupNamespaceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this ServiceBus Namespace is zone redundant.
 	ZoneRedundant bool `pulumi:"zoneRedundant"`
+}
+
+func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNamespaceResult, error) {
+			args := v.(LookupNamespaceArgs)
+			r, err := LookupNamespace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNamespaceResultOutput)
+}
+
+// A collection of arguments for invoking getNamespace.
+type LookupNamespaceOutputArgs struct {
+	// Specifies the name of the ServiceBus Namespace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNamespaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getNamespace.
+type LookupNamespaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNamespaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceResult)(nil)).Elem()
+}
+
+func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutput() LookupNamespaceResultOutput {
+	return o
+}
+
+func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutputWithContext(ctx context.Context) LookupNamespaceResultOutput {
+	return o
+}
+
+// The capacity of the ServiceBus Namespace.
+func (o LookupNamespaceResultOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) int { return v.Capacity }).(pulumi.IntOutput)
+}
+
+// The primary connection string for the authorization
+// rule `RootManageSharedAccessKey`.
+func (o LookupNamespaceResultOutput) DefaultPrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DefaultPrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The primary access key for the authorization rule `RootManageSharedAccessKey`.
+func (o LookupNamespaceResultOutput) DefaultPrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DefaultPrimaryKey }).(pulumi.StringOutput)
+}
+
+// The secondary connection string for the
+// authorization rule `RootManageSharedAccessKey`.
+func (o LookupNamespaceResultOutput) DefaultSecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DefaultSecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+func (o LookupNamespaceResultOutput) DefaultSecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DefaultSecondaryKey }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupNamespaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the Resource Group in which the ServiceBus Namespace exists.
+func (o LookupNamespaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupNamespaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupNamespaceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Tier used for the ServiceBus Namespace.
+func (o LookupNamespaceResultOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupNamespaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Whether or not this ServiceBus Namespace is zone redundant.
+func (o LookupNamespaceResultOutput) ZoneRedundant() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) bool { return v.ZoneRedundant }).(pulumi.BoolOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNamespaceResultOutput{})
 }

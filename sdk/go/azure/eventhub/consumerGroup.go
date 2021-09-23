@@ -255,7 +255,7 @@ type ConsumerGroupArrayInput interface {
 type ConsumerGroupArray []ConsumerGroupInput
 
 func (ConsumerGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ConsumerGroup)(nil))
+	return reflect.TypeOf((*[]*ConsumerGroup)(nil)).Elem()
 }
 
 func (i ConsumerGroupArray) ToConsumerGroupArrayOutput() ConsumerGroupArrayOutput {
@@ -280,7 +280,7 @@ type ConsumerGroupMapInput interface {
 type ConsumerGroupMap map[string]ConsumerGroupInput
 
 func (ConsumerGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ConsumerGroup)(nil))
+	return reflect.TypeOf((*map[string]*ConsumerGroup)(nil)).Elem()
 }
 
 func (i ConsumerGroupMap) ToConsumerGroupMapOutput() ConsumerGroupMapOutput {
@@ -291,9 +291,7 @@ func (i ConsumerGroupMap) ToConsumerGroupMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConsumerGroupMapOutput)
 }
 
-type ConsumerGroupOutput struct {
-	*pulumi.OutputState
-}
+type ConsumerGroupOutput struct{ *pulumi.OutputState }
 
 func (ConsumerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConsumerGroup)(nil))
@@ -312,14 +310,12 @@ func (o ConsumerGroupOutput) ToConsumerGroupPtrOutput() ConsumerGroupPtrOutput {
 }
 
 func (o ConsumerGroupOutput) ToConsumerGroupPtrOutputWithContext(ctx context.Context) ConsumerGroupPtrOutput {
-	return o.ApplyT(func(v ConsumerGroup) *ConsumerGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsumerGroup) *ConsumerGroup {
 		return &v
 	}).(ConsumerGroupPtrOutput)
 }
 
-type ConsumerGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type ConsumerGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (ConsumerGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ConsumerGroup)(nil))
@@ -331,6 +327,16 @@ func (o ConsumerGroupPtrOutput) ToConsumerGroupPtrOutput() ConsumerGroupPtrOutpu
 
 func (o ConsumerGroupPtrOutput) ToConsumerGroupPtrOutputWithContext(ctx context.Context) ConsumerGroupPtrOutput {
 	return o
+}
+
+func (o ConsumerGroupPtrOutput) Elem() ConsumerGroupOutput {
+	return o.ApplyT(func(v *ConsumerGroup) ConsumerGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ConsumerGroup
+		return ret
+	}).(ConsumerGroupOutput)
 }
 
 type ConsumerGroupArrayOutput struct{ *pulumi.OutputState }

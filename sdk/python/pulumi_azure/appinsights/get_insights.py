@@ -12,6 +12,7 @@ __all__ = [
     'GetInsightsResult',
     'AwaitableGetInsightsResult',
     'get_insights',
+    'get_insights_output',
 ]
 
 @pulumi.output_type
@@ -198,3 +199,28 @@ def get_insights(name: Optional[str] = None,
         retention_in_days=__ret__.retention_in_days,
         tags=__ret__.tags,
         workspace_id=__ret__.workspace_id)
+
+
+@_utilities.lift_output_func(get_insights)
+def get_insights_output(name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInsightsResult]:
+    """
+    Use this data source to access information about an existing Application Insights component.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appinsights.get_insights(name="production",
+        resource_group_name="networking")
+    pulumi.export("applicationInsightsInstrumentationKey", example.instrumentation_key)
+    ```
+
+
+    :param str name: Specifies the name of the Application Insights component.
+    :param str resource_group_name: Specifies the name of the resource group the Application Insights component is located in.
+    """
+    ...

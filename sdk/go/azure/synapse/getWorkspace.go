@@ -4,6 +4,9 @@
 package synapse
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,77 @@ type LookupWorkspaceResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkspaceResult, error) {
+			args := v.(LookupWorkspaceArgs)
+			r, err := LookupWorkspace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkspaceResultOutput)
+}
+
+// A collection of arguments for invoking getWorkspace.
+type LookupWorkspaceOutputArgs struct {
+	// The name of this Synapse Workspace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Synapse Workspace exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupWorkspaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getWorkspace.
+type LookupWorkspaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkspaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceResult)(nil)).Elem()
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutput() LookupWorkspaceResultOutput {
+	return o
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ctx context.Context) LookupWorkspaceResultOutput {
+	return o
+}
+
+// A list of Connectivity endpoints for this Synapse Workspace.
+func (o LookupWorkspaceResultOutput) ConnectivityEndpoints() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.ConnectivityEndpoints }).(pulumi.StringMapOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+func (o LookupWorkspaceResultOutput) Identities() GetWorkspaceIdentityArrayOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) []GetWorkspaceIdentity { return v.Identities }).(GetWorkspaceIdentityArrayOutput)
+}
+
+// The Azure location where the Synapse Workspace exists.
+func (o LookupWorkspaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupWorkspaceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkspaceResultOutput{})
 }

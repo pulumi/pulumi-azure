@@ -357,7 +357,7 @@ type InferenceClusterArrayInput interface {
 type InferenceClusterArray []InferenceClusterInput
 
 func (InferenceClusterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*InferenceCluster)(nil))
+	return reflect.TypeOf((*[]*InferenceCluster)(nil)).Elem()
 }
 
 func (i InferenceClusterArray) ToInferenceClusterArrayOutput() InferenceClusterArrayOutput {
@@ -382,7 +382,7 @@ type InferenceClusterMapInput interface {
 type InferenceClusterMap map[string]InferenceClusterInput
 
 func (InferenceClusterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*InferenceCluster)(nil))
+	return reflect.TypeOf((*map[string]*InferenceCluster)(nil)).Elem()
 }
 
 func (i InferenceClusterMap) ToInferenceClusterMapOutput() InferenceClusterMapOutput {
@@ -393,9 +393,7 @@ func (i InferenceClusterMap) ToInferenceClusterMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterMapOutput)
 }
 
-type InferenceClusterOutput struct {
-	*pulumi.OutputState
-}
+type InferenceClusterOutput struct{ *pulumi.OutputState }
 
 func (InferenceClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InferenceCluster)(nil))
@@ -414,14 +412,12 @@ func (o InferenceClusterOutput) ToInferenceClusterPtrOutput() InferenceClusterPt
 }
 
 func (o InferenceClusterOutput) ToInferenceClusterPtrOutputWithContext(ctx context.Context) InferenceClusterPtrOutput {
-	return o.ApplyT(func(v InferenceCluster) *InferenceCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceCluster) *InferenceCluster {
 		return &v
 	}).(InferenceClusterPtrOutput)
 }
 
-type InferenceClusterPtrOutput struct {
-	*pulumi.OutputState
-}
+type InferenceClusterPtrOutput struct{ *pulumi.OutputState }
 
 func (InferenceClusterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InferenceCluster)(nil))
@@ -433,6 +429,16 @@ func (o InferenceClusterPtrOutput) ToInferenceClusterPtrOutput() InferenceCluste
 
 func (o InferenceClusterPtrOutput) ToInferenceClusterPtrOutputWithContext(ctx context.Context) InferenceClusterPtrOutput {
 	return o
+}
+
+func (o InferenceClusterPtrOutput) Elem() InferenceClusterOutput {
+	return o.ApplyT(func(v *InferenceCluster) InferenceCluster {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceCluster
+		return ret
+	}).(InferenceClusterOutput)
 }
 
 type InferenceClusterArrayOutput struct{ *pulumi.OutputState }

@@ -12,6 +12,7 @@ __all__ = [
     'GetTopicResult',
     'AwaitableGetTopicResult',
     'get_topic',
+    'get_topic_output',
 ]
 
 @pulumi.output_type
@@ -238,3 +239,31 @@ def get_topic(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         status=__ret__.status,
         support_ordering=__ret__.support_ordering)
+
+
+@_utilities.lift_output_func(get_topic)
+def get_topic_output(name: Optional[pulumi.Input[str]] = None,
+                     namespace_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
+    """
+    Use this data source to access information about an existing Service Bus Topic.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.servicebus.get_topic(name="existing",
+        resource_group_name="existing",
+        namespace_name="existing")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this Service Bus Topic.
+    :param str namespace_name: The name of the Service Bus Namespace.
+    :param str resource_group_name: The name of the Resource Group where the Service Bus Topic exists.
+    """
+    ...

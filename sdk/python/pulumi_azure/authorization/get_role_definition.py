@@ -13,6 +13,7 @@ __all__ = [
     'GetRoleDefinitionResult',
     'AwaitableGetRoleDefinitionResult',
     'get_role_definition',
+    'get_role_definition_output',
 ]
 
 @pulumi.output_type
@@ -149,3 +150,19 @@ def get_role_definition(name: Optional[str] = None,
         role_definition_id=__ret__.role_definition_id,
         scope=__ret__.scope,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_role_definition)
+def get_role_definition_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+                               role_definition_id: Optional[pulumi.Input[Optional[str]]] = None,
+                               scope: Optional[pulumi.Input[Optional[str]]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleDefinitionResult]:
+    """
+    Use this data source to access information about an existing Role Definition.
+
+
+    :param str name: Specifies the Name of either a built-in or custom Role Definition.
+    :param str role_definition_id: Specifies the ID of the Role Definition as a UUID/GUID.
+    :param str scope: Specifies the Scope at which the Custom Role Definition exists.
+    """
+    ...

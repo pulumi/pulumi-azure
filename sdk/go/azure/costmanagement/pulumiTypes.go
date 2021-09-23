@@ -111,7 +111,7 @@ func (o ResourceGroupExportDeliveryInfoOutput) ToResourceGroupExportDeliveryInfo
 }
 
 func (o ResourceGroupExportDeliveryInfoOutput) ToResourceGroupExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ResourceGroupExportDeliveryInfoPtrOutput {
-	return o.ApplyT(func(v ResourceGroupExportDeliveryInfo) *ResourceGroupExportDeliveryInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupExportDeliveryInfo) *ResourceGroupExportDeliveryInfo {
 		return &v
 	}).(ResourceGroupExportDeliveryInfoPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o ResourceGroupExportDeliveryInfoPtrOutput) ToResourceGroupExportDeliveryI
 }
 
 func (o ResourceGroupExportDeliveryInfoPtrOutput) Elem() ResourceGroupExportDeliveryInfoOutput {
-	return o.ApplyT(func(v *ResourceGroupExportDeliveryInfo) ResourceGroupExportDeliveryInfo { return *v }).(ResourceGroupExportDeliveryInfoOutput)
+	return o.ApplyT(func(v *ResourceGroupExportDeliveryInfo) ResourceGroupExportDeliveryInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGroupExportDeliveryInfo
+		return ret
+	}).(ResourceGroupExportDeliveryInfoOutput)
 }
 
 // The name of the container where exports will be uploaded.
@@ -276,7 +282,7 @@ func (o ResourceGroupExportQueryOutput) ToResourceGroupExportQueryPtrOutput() Re
 }
 
 func (o ResourceGroupExportQueryOutput) ToResourceGroupExportQueryPtrOutputWithContext(ctx context.Context) ResourceGroupExportQueryPtrOutput {
-	return o.ApplyT(func(v ResourceGroupExportQuery) *ResourceGroupExportQuery {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupExportQuery) *ResourceGroupExportQuery {
 		return &v
 	}).(ResourceGroupExportQueryPtrOutput)
 }
@@ -306,7 +312,13 @@ func (o ResourceGroupExportQueryPtrOutput) ToResourceGroupExportQueryPtrOutputWi
 }
 
 func (o ResourceGroupExportQueryPtrOutput) Elem() ResourceGroupExportQueryOutput {
-	return o.ApplyT(func(v *ResourceGroupExportQuery) ResourceGroupExportQuery { return *v }).(ResourceGroupExportQueryOutput)
+	return o.ApplyT(func(v *ResourceGroupExportQuery) ResourceGroupExportQuery {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGroupExportQuery
+		return ret
+	}).(ResourceGroupExportQueryOutput)
 }
 
 // The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.

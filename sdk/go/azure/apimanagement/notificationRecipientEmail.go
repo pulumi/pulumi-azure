@@ -217,7 +217,7 @@ type NotificationRecipientEmailArrayInput interface {
 type NotificationRecipientEmailArray []NotificationRecipientEmailInput
 
 func (NotificationRecipientEmailArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NotificationRecipientEmail)(nil))
+	return reflect.TypeOf((*[]*NotificationRecipientEmail)(nil)).Elem()
 }
 
 func (i NotificationRecipientEmailArray) ToNotificationRecipientEmailArrayOutput() NotificationRecipientEmailArrayOutput {
@@ -242,7 +242,7 @@ type NotificationRecipientEmailMapInput interface {
 type NotificationRecipientEmailMap map[string]NotificationRecipientEmailInput
 
 func (NotificationRecipientEmailMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NotificationRecipientEmail)(nil))
+	return reflect.TypeOf((*map[string]*NotificationRecipientEmail)(nil)).Elem()
 }
 
 func (i NotificationRecipientEmailMap) ToNotificationRecipientEmailMapOutput() NotificationRecipientEmailMapOutput {
@@ -253,9 +253,7 @@ func (i NotificationRecipientEmailMap) ToNotificationRecipientEmailMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientEmailMapOutput)
 }
 
-type NotificationRecipientEmailOutput struct {
-	*pulumi.OutputState
-}
+type NotificationRecipientEmailOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientEmailOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationRecipientEmail)(nil))
@@ -274,14 +272,12 @@ func (o NotificationRecipientEmailOutput) ToNotificationRecipientEmailPtrOutput(
 }
 
 func (o NotificationRecipientEmailOutput) ToNotificationRecipientEmailPtrOutputWithContext(ctx context.Context) NotificationRecipientEmailPtrOutput {
-	return o.ApplyT(func(v NotificationRecipientEmail) *NotificationRecipientEmail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationRecipientEmail) *NotificationRecipientEmail {
 		return &v
 	}).(NotificationRecipientEmailPtrOutput)
 }
 
-type NotificationRecipientEmailPtrOutput struct {
-	*pulumi.OutputState
-}
+type NotificationRecipientEmailPtrOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientEmailPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NotificationRecipientEmail)(nil))
@@ -293,6 +289,16 @@ func (o NotificationRecipientEmailPtrOutput) ToNotificationRecipientEmailPtrOutp
 
 func (o NotificationRecipientEmailPtrOutput) ToNotificationRecipientEmailPtrOutputWithContext(ctx context.Context) NotificationRecipientEmailPtrOutput {
 	return o
+}
+
+func (o NotificationRecipientEmailPtrOutput) Elem() NotificationRecipientEmailOutput {
+	return o.ApplyT(func(v *NotificationRecipientEmail) NotificationRecipientEmail {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationRecipientEmail
+		return ret
+	}).(NotificationRecipientEmailOutput)
 }
 
 type NotificationRecipientEmailArrayOutput struct{ *pulumi.OutputState }

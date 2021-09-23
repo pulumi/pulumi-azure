@@ -245,7 +245,7 @@ type CustomProviderArrayInput interface {
 type CustomProviderArray []CustomProviderInput
 
 func (CustomProviderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CustomProvider)(nil))
+	return reflect.TypeOf((*[]*CustomProvider)(nil)).Elem()
 }
 
 func (i CustomProviderArray) ToCustomProviderArrayOutput() CustomProviderArrayOutput {
@@ -270,7 +270,7 @@ type CustomProviderMapInput interface {
 type CustomProviderMap map[string]CustomProviderInput
 
 func (CustomProviderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CustomProvider)(nil))
+	return reflect.TypeOf((*map[string]*CustomProvider)(nil)).Elem()
 }
 
 func (i CustomProviderMap) ToCustomProviderMapOutput() CustomProviderMapOutput {
@@ -281,9 +281,7 @@ func (i CustomProviderMap) ToCustomProviderMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderMapOutput)
 }
 
-type CustomProviderOutput struct {
-	*pulumi.OutputState
-}
+type CustomProviderOutput struct{ *pulumi.OutputState }
 
 func (CustomProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomProvider)(nil))
@@ -302,14 +300,12 @@ func (o CustomProviderOutput) ToCustomProviderPtrOutput() CustomProviderPtrOutpu
 }
 
 func (o CustomProviderOutput) ToCustomProviderPtrOutputWithContext(ctx context.Context) CustomProviderPtrOutput {
-	return o.ApplyT(func(v CustomProvider) *CustomProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomProvider) *CustomProvider {
 		return &v
 	}).(CustomProviderPtrOutput)
 }
 
-type CustomProviderPtrOutput struct {
-	*pulumi.OutputState
-}
+type CustomProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (CustomProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CustomProvider)(nil))
@@ -321,6 +317,16 @@ func (o CustomProviderPtrOutput) ToCustomProviderPtrOutput() CustomProviderPtrOu
 
 func (o CustomProviderPtrOutput) ToCustomProviderPtrOutputWithContext(ctx context.Context) CustomProviderPtrOutput {
 	return o
+}
+
+func (o CustomProviderPtrOutput) Elem() CustomProviderOutput {
+	return o.ApplyT(func(v *CustomProvider) CustomProvider {
+		if v != nil {
+			return *v
+		}
+		var ret CustomProvider
+		return ret
+	}).(CustomProviderOutput)
 }
 
 type CustomProviderArrayOutput struct{ *pulumi.OutputState }

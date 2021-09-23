@@ -300,7 +300,7 @@ type LinkedCustomServiceArrayInput interface {
 type LinkedCustomServiceArray []LinkedCustomServiceInput
 
 func (LinkedCustomServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LinkedCustomService)(nil))
+	return reflect.TypeOf((*[]*LinkedCustomService)(nil)).Elem()
 }
 
 func (i LinkedCustomServiceArray) ToLinkedCustomServiceArrayOutput() LinkedCustomServiceArrayOutput {
@@ -325,7 +325,7 @@ type LinkedCustomServiceMapInput interface {
 type LinkedCustomServiceMap map[string]LinkedCustomServiceInput
 
 func (LinkedCustomServiceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LinkedCustomService)(nil))
+	return reflect.TypeOf((*map[string]*LinkedCustomService)(nil)).Elem()
 }
 
 func (i LinkedCustomServiceMap) ToLinkedCustomServiceMapOutput() LinkedCustomServiceMapOutput {
@@ -336,9 +336,7 @@ func (i LinkedCustomServiceMap) ToLinkedCustomServiceMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedCustomServiceMapOutput)
 }
 
-type LinkedCustomServiceOutput struct {
-	*pulumi.OutputState
-}
+type LinkedCustomServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkedCustomServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedCustomService)(nil))
@@ -357,14 +355,12 @@ func (o LinkedCustomServiceOutput) ToLinkedCustomServicePtrOutput() LinkedCustom
 }
 
 func (o LinkedCustomServiceOutput) ToLinkedCustomServicePtrOutputWithContext(ctx context.Context) LinkedCustomServicePtrOutput {
-	return o.ApplyT(func(v LinkedCustomService) *LinkedCustomService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedCustomService) *LinkedCustomService {
 		return &v
 	}).(LinkedCustomServicePtrOutput)
 }
 
-type LinkedCustomServicePtrOutput struct {
-	*pulumi.OutputState
-}
+type LinkedCustomServicePtrOutput struct{ *pulumi.OutputState }
 
 func (LinkedCustomServicePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinkedCustomService)(nil))
@@ -376,6 +372,16 @@ func (o LinkedCustomServicePtrOutput) ToLinkedCustomServicePtrOutput() LinkedCus
 
 func (o LinkedCustomServicePtrOutput) ToLinkedCustomServicePtrOutputWithContext(ctx context.Context) LinkedCustomServicePtrOutput {
 	return o
+}
+
+func (o LinkedCustomServicePtrOutput) Elem() LinkedCustomServiceOutput {
+	return o.ApplyT(func(v *LinkedCustomService) LinkedCustomService {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedCustomService
+		return ret
+	}).(LinkedCustomServiceOutput)
 }
 
 type LinkedCustomServiceArrayOutput struct{ *pulumi.OutputState }

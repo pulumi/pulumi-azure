@@ -12,6 +12,7 @@ __all__ = [
     'GetCertificateDataResult',
     'AwaitableGetCertificateDataResult',
     'get_certificate_data',
+    'get_certificate_data_output',
 ]
 
 @pulumi.output_type
@@ -189,3 +190,34 @@ def get_certificate_data(key_vault_id: Optional[str] = None,
         pem=__ret__.pem,
         tags=__ret__.tags,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_certificate_data)
+def get_certificate_data_output(key_vault_id: Optional[pulumi.Input[str]] = None,
+                                name: Optional[pulumi.Input[str]] = None,
+                                version: Optional[pulumi.Input[Optional[str]]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateDataResult]:
+    """
+    Use this data source to access data stored in an existing Key Vault Certificate.
+
+    > **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_key_vault = azure.keyvault.get_key_vault(name="examplekv",
+        resource_group_name="some-resource-group")
+    example_certificate_data = azure.keyvault.get_certificate_data(name="secret-sauce",
+        key_vault_id=example_key_vault.id)
+    pulumi.export("examplePem", example_certificate_data.pem)
+    ```
+
+
+    :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
+    :param str name: Specifies the name of the Key Vault Secret.
+    :param str version: Specifies the version of the certificate to look up.  (Defaults to latest)
+    """
+    ...

@@ -111,7 +111,7 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOu
 }
 
 func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
-	return o.ApplyT(func(v AccountIdentity) *AccountIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
-	return o.ApplyT(func(v *AccountIdentity) AccountIdentity { return *v }).(AccountIdentityOutput)
+	return o.ApplyT(func(v *AccountIdentity) AccountIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccountIdentity
+		return ret
+	}).(AccountIdentityOutput)
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -276,7 +282,7 @@ func (o AccountKeyDeliveryAccessControlOutput) ToAccountKeyDeliveryAccessControl
 }
 
 func (o AccountKeyDeliveryAccessControlOutput) ToAccountKeyDeliveryAccessControlPtrOutputWithContext(ctx context.Context) AccountKeyDeliveryAccessControlPtrOutput {
-	return o.ApplyT(func(v AccountKeyDeliveryAccessControl) *AccountKeyDeliveryAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountKeyDeliveryAccessControl) *AccountKeyDeliveryAccessControl {
 		return &v
 	}).(AccountKeyDeliveryAccessControlPtrOutput)
 }
@@ -306,7 +312,13 @@ func (o AccountKeyDeliveryAccessControlPtrOutput) ToAccountKeyDeliveryAccessCont
 }
 
 func (o AccountKeyDeliveryAccessControlPtrOutput) Elem() AccountKeyDeliveryAccessControlOutput {
-	return o.ApplyT(func(v *AccountKeyDeliveryAccessControl) AccountKeyDeliveryAccessControl { return *v }).(AccountKeyDeliveryAccessControlOutput)
+	return o.ApplyT(func(v *AccountKeyDeliveryAccessControl) AccountKeyDeliveryAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret AccountKeyDeliveryAccessControl
+		return ret
+	}).(AccountKeyDeliveryAccessControlOutput)
 }
 
 // The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.

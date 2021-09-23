@@ -13,6 +13,7 @@ __all__ = [
     'GetVolumeResult',
     'AwaitableGetVolumeResult',
     'get_volume',
+    'get_volume_output',
 ]
 
 @pulumi.output_type
@@ -244,3 +245,36 @@ def get_volume(account_name: Optional[str] = None,
         storage_quota_in_gb=__ret__.storage_quota_in_gb,
         subnet_id=__ret__.subnet_id,
         volume_path=__ret__.volume_path)
+
+
+@_utilities.lift_output_func(get_volume)
+def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
+                      name: Optional[pulumi.Input[str]] = None,
+                      pool_name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      security_style: Optional[pulumi.Input[Optional[str]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
+    """
+    Uses this data source to access information about an existing NetApp Volume.
+
+    ## NetApp Volume Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.netapp.get_volume(resource_group_name="acctestRG",
+        account_name="acctestnetappaccount",
+        pool_name="acctestnetapppool",
+        name="example-volume")
+    pulumi.export("netappVolumeId", example.id)
+    ```
+
+
+    :param str account_name: The name of the NetApp account where the NetApp pool exists.
+    :param str name: The name of the NetApp Volume.
+    :param str pool_name: The name of the NetApp pool where the NetApp volume exists.
+    :param str resource_group_name: The Name of the Resource Group where the NetApp Volume exists.
+    :param str security_style: Volume security style
+    """
+    ...

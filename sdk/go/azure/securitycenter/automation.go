@@ -332,7 +332,7 @@ type AutomationArrayInput interface {
 type AutomationArray []AutomationInput
 
 func (AutomationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Automation)(nil))
+	return reflect.TypeOf((*[]*Automation)(nil)).Elem()
 }
 
 func (i AutomationArray) ToAutomationArrayOutput() AutomationArrayOutput {
@@ -357,7 +357,7 @@ type AutomationMapInput interface {
 type AutomationMap map[string]AutomationInput
 
 func (AutomationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Automation)(nil))
+	return reflect.TypeOf((*map[string]*Automation)(nil)).Elem()
 }
 
 func (i AutomationMap) ToAutomationMapOutput() AutomationMapOutput {
@@ -368,9 +368,7 @@ func (i AutomationMap) ToAutomationMapOutputWithContext(ctx context.Context) Aut
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationMapOutput)
 }
 
-type AutomationOutput struct {
-	*pulumi.OutputState
-}
+type AutomationOutput struct{ *pulumi.OutputState }
 
 func (AutomationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Automation)(nil))
@@ -389,14 +387,12 @@ func (o AutomationOutput) ToAutomationPtrOutput() AutomationPtrOutput {
 }
 
 func (o AutomationOutput) ToAutomationPtrOutputWithContext(ctx context.Context) AutomationPtrOutput {
-	return o.ApplyT(func(v Automation) *Automation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Automation) *Automation {
 		return &v
 	}).(AutomationPtrOutput)
 }
 
-type AutomationPtrOutput struct {
-	*pulumi.OutputState
-}
+type AutomationPtrOutput struct{ *pulumi.OutputState }
 
 func (AutomationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Automation)(nil))
@@ -408,6 +404,16 @@ func (o AutomationPtrOutput) ToAutomationPtrOutput() AutomationPtrOutput {
 
 func (o AutomationPtrOutput) ToAutomationPtrOutputWithContext(ctx context.Context) AutomationPtrOutput {
 	return o
+}
+
+func (o AutomationPtrOutput) Elem() AutomationOutput {
+	return o.ApplyT(func(v *Automation) Automation {
+		if v != nil {
+			return *v
+		}
+		var ret Automation
+		return ret
+	}).(AutomationOutput)
 }
 
 type AutomationArrayOutput struct{ *pulumi.OutputState }

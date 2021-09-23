@@ -13,6 +13,7 @@ __all__ = [
     'GetActionGroupResult',
     'AwaitableGetActionGroupResult',
     'get_action_group',
+    'get_action_group_output',
 ]
 
 @pulumi.output_type
@@ -254,3 +255,28 @@ def get_action_group(name: Optional[str] = None,
         sms_receivers=__ret__.sms_receivers,
         voice_receivers=__ret__.voice_receivers,
         webhook_receivers=__ret__.webhook_receivers)
+
+
+@_utilities.lift_output_func(get_action_group)
+def get_action_group_output(name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionGroupResult]:
+    """
+    Use this data source to access the properties of an Action Group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.monitoring.get_action_group(resource_group_name="example-rg",
+        name="tfex-actiongroup")
+    pulumi.export("actionGroupId", example.id)
+    ```
+
+
+    :param str name: Specifies the name of the Action Group.
+    :param str resource_group_name: Specifies the name of the resource group the Action Group is located in.
+    """
+    ...

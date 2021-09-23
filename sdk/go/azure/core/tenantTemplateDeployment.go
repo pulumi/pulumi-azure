@@ -209,7 +209,7 @@ type TenantTemplateDeploymentArrayInput interface {
 type TenantTemplateDeploymentArray []TenantTemplateDeploymentInput
 
 func (TenantTemplateDeploymentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TenantTemplateDeployment)(nil))
+	return reflect.TypeOf((*[]*TenantTemplateDeployment)(nil)).Elem()
 }
 
 func (i TenantTemplateDeploymentArray) ToTenantTemplateDeploymentArrayOutput() TenantTemplateDeploymentArrayOutput {
@@ -234,7 +234,7 @@ type TenantTemplateDeploymentMapInput interface {
 type TenantTemplateDeploymentMap map[string]TenantTemplateDeploymentInput
 
 func (TenantTemplateDeploymentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TenantTemplateDeployment)(nil))
+	return reflect.TypeOf((*map[string]*TenantTemplateDeployment)(nil)).Elem()
 }
 
 func (i TenantTemplateDeploymentMap) ToTenantTemplateDeploymentMapOutput() TenantTemplateDeploymentMapOutput {
@@ -245,9 +245,7 @@ func (i TenantTemplateDeploymentMap) ToTenantTemplateDeploymentMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TenantTemplateDeploymentMapOutput)
 }
 
-type TenantTemplateDeploymentOutput struct {
-	*pulumi.OutputState
-}
+type TenantTemplateDeploymentOutput struct{ *pulumi.OutputState }
 
 func (TenantTemplateDeploymentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TenantTemplateDeployment)(nil))
@@ -266,14 +264,12 @@ func (o TenantTemplateDeploymentOutput) ToTenantTemplateDeploymentPtrOutput() Te
 }
 
 func (o TenantTemplateDeploymentOutput) ToTenantTemplateDeploymentPtrOutputWithContext(ctx context.Context) TenantTemplateDeploymentPtrOutput {
-	return o.ApplyT(func(v TenantTemplateDeployment) *TenantTemplateDeployment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TenantTemplateDeployment) *TenantTemplateDeployment {
 		return &v
 	}).(TenantTemplateDeploymentPtrOutput)
 }
 
-type TenantTemplateDeploymentPtrOutput struct {
-	*pulumi.OutputState
-}
+type TenantTemplateDeploymentPtrOutput struct{ *pulumi.OutputState }
 
 func (TenantTemplateDeploymentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TenantTemplateDeployment)(nil))
@@ -285,6 +281,16 @@ func (o TenantTemplateDeploymentPtrOutput) ToTenantTemplateDeploymentPtrOutput()
 
 func (o TenantTemplateDeploymentPtrOutput) ToTenantTemplateDeploymentPtrOutputWithContext(ctx context.Context) TenantTemplateDeploymentPtrOutput {
 	return o
+}
+
+func (o TenantTemplateDeploymentPtrOutput) Elem() TenantTemplateDeploymentOutput {
+	return o.ApplyT(func(v *TenantTemplateDeployment) TenantTemplateDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret TenantTemplateDeployment
+		return ret
+	}).(TenantTemplateDeploymentOutput)
 }
 
 type TenantTemplateDeploymentArrayOutput struct{ *pulumi.OutputState }

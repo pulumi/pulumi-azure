@@ -207,7 +207,7 @@ type BackupInstancePostgresqlArrayInput interface {
 type BackupInstancePostgresqlArray []BackupInstancePostgresqlInput
 
 func (BackupInstancePostgresqlArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BackupInstancePostgresql)(nil))
+	return reflect.TypeOf((*[]*BackupInstancePostgresql)(nil)).Elem()
 }
 
 func (i BackupInstancePostgresqlArray) ToBackupInstancePostgresqlArrayOutput() BackupInstancePostgresqlArrayOutput {
@@ -232,7 +232,7 @@ type BackupInstancePostgresqlMapInput interface {
 type BackupInstancePostgresqlMap map[string]BackupInstancePostgresqlInput
 
 func (BackupInstancePostgresqlMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BackupInstancePostgresql)(nil))
+	return reflect.TypeOf((*map[string]*BackupInstancePostgresql)(nil)).Elem()
 }
 
 func (i BackupInstancePostgresqlMap) ToBackupInstancePostgresqlMapOutput() BackupInstancePostgresqlMapOutput {
@@ -243,9 +243,7 @@ func (i BackupInstancePostgresqlMap) ToBackupInstancePostgresqlMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstancePostgresqlMapOutput)
 }
 
-type BackupInstancePostgresqlOutput struct {
-	*pulumi.OutputState
-}
+type BackupInstancePostgresqlOutput struct{ *pulumi.OutputState }
 
 func (BackupInstancePostgresqlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupInstancePostgresql)(nil))
@@ -264,14 +262,12 @@ func (o BackupInstancePostgresqlOutput) ToBackupInstancePostgresqlPtrOutput() Ba
 }
 
 func (o BackupInstancePostgresqlOutput) ToBackupInstancePostgresqlPtrOutputWithContext(ctx context.Context) BackupInstancePostgresqlPtrOutput {
-	return o.ApplyT(func(v BackupInstancePostgresql) *BackupInstancePostgresql {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupInstancePostgresql) *BackupInstancePostgresql {
 		return &v
 	}).(BackupInstancePostgresqlPtrOutput)
 }
 
-type BackupInstancePostgresqlPtrOutput struct {
-	*pulumi.OutputState
-}
+type BackupInstancePostgresqlPtrOutput struct{ *pulumi.OutputState }
 
 func (BackupInstancePostgresqlPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BackupInstancePostgresql)(nil))
@@ -283,6 +279,16 @@ func (o BackupInstancePostgresqlPtrOutput) ToBackupInstancePostgresqlPtrOutput()
 
 func (o BackupInstancePostgresqlPtrOutput) ToBackupInstancePostgresqlPtrOutputWithContext(ctx context.Context) BackupInstancePostgresqlPtrOutput {
 	return o
+}
+
+func (o BackupInstancePostgresqlPtrOutput) Elem() BackupInstancePostgresqlOutput {
+	return o.ApplyT(func(v *BackupInstancePostgresql) BackupInstancePostgresql {
+		if v != nil {
+			return *v
+		}
+		var ret BackupInstancePostgresql
+		return ret
+	}).(BackupInstancePostgresqlOutput)
 }
 
 type BackupInstancePostgresqlArrayOutput struct{ *pulumi.OutputState }

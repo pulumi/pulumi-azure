@@ -4,6 +4,9 @@
 package cosmosdb
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,68 @@ type LookupMongoDatabaseResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the Cosmos DB Mongo Database.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupMongoDatabaseOutput(ctx *pulumi.Context, args LookupMongoDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupMongoDatabaseResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMongoDatabaseResult, error) {
+			args := v.(LookupMongoDatabaseArgs)
+			r, err := LookupMongoDatabase(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMongoDatabaseResultOutput)
+}
+
+// A collection of arguments for invoking getMongoDatabase.
+type LookupMongoDatabaseOutputArgs struct {
+	// The name of the Cosmos DB Account where the Mongo Database exists.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of this Cosmos DB Mongo Database.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Cosmos DB Mongo Database exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupMongoDatabaseOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMongoDatabaseArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getMongoDatabase.
+type LookupMongoDatabaseResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMongoDatabaseResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMongoDatabaseResult)(nil)).Elem()
+}
+
+func (o LookupMongoDatabaseResultOutput) ToLookupMongoDatabaseResultOutput() LookupMongoDatabaseResultOutput {
+	return o
+}
+
+func (o LookupMongoDatabaseResultOutput) ToLookupMongoDatabaseResultOutputWithContext(ctx context.Context) LookupMongoDatabaseResultOutput {
+	return o
+}
+
+func (o LookupMongoDatabaseResultOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMongoDatabaseResult) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupMongoDatabaseResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMongoDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupMongoDatabaseResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMongoDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupMongoDatabaseResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMongoDatabaseResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the Cosmos DB Mongo Database.
+func (o LookupMongoDatabaseResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupMongoDatabaseResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMongoDatabaseResultOutput{})
 }

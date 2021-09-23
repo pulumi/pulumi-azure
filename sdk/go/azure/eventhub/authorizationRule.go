@@ -313,7 +313,7 @@ type AuthorizationRuleArrayInput interface {
 type AuthorizationRuleArray []AuthorizationRuleInput
 
 func (AuthorizationRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AuthorizationRule)(nil))
+	return reflect.TypeOf((*[]*AuthorizationRule)(nil)).Elem()
 }
 
 func (i AuthorizationRuleArray) ToAuthorizationRuleArrayOutput() AuthorizationRuleArrayOutput {
@@ -338,7 +338,7 @@ type AuthorizationRuleMapInput interface {
 type AuthorizationRuleMap map[string]AuthorizationRuleInput
 
 func (AuthorizationRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AuthorizationRule)(nil))
+	return reflect.TypeOf((*map[string]*AuthorizationRule)(nil)).Elem()
 }
 
 func (i AuthorizationRuleMap) ToAuthorizationRuleMapOutput() AuthorizationRuleMapOutput {
@@ -349,9 +349,7 @@ func (i AuthorizationRuleMap) ToAuthorizationRuleMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationRuleMapOutput)
 }
 
-type AuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type AuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AuthorizationRule)(nil))
@@ -370,14 +368,12 @@ func (o AuthorizationRuleOutput) ToAuthorizationRulePtrOutput() AuthorizationRul
 }
 
 func (o AuthorizationRuleOutput) ToAuthorizationRulePtrOutputWithContext(ctx context.Context) AuthorizationRulePtrOutput {
-	return o.ApplyT(func(v AuthorizationRule) *AuthorizationRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthorizationRule) *AuthorizationRule {
 		return &v
 	}).(AuthorizationRulePtrOutput)
 }
 
-type AuthorizationRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type AuthorizationRulePtrOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AuthorizationRule)(nil))
@@ -389,6 +385,16 @@ func (o AuthorizationRulePtrOutput) ToAuthorizationRulePtrOutput() Authorization
 
 func (o AuthorizationRulePtrOutput) ToAuthorizationRulePtrOutputWithContext(ctx context.Context) AuthorizationRulePtrOutput {
 	return o
+}
+
+func (o AuthorizationRulePtrOutput) Elem() AuthorizationRuleOutput {
+	return o.ApplyT(func(v *AuthorizationRule) AuthorizationRule {
+		if v != nil {
+			return *v
+		}
+		var ret AuthorizationRule
+		return ret
+	}).(AuthorizationRuleOutput)
 }
 
 type AuthorizationRuleArrayOutput struct{ *pulumi.OutputState }

@@ -254,7 +254,7 @@ type ActionHttpArrayInput interface {
 type ActionHttpArray []ActionHttpInput
 
 func (ActionHttpArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ActionHttp)(nil))
+	return reflect.TypeOf((*[]*ActionHttp)(nil)).Elem()
 }
 
 func (i ActionHttpArray) ToActionHttpArrayOutput() ActionHttpArrayOutput {
@@ -279,7 +279,7 @@ type ActionHttpMapInput interface {
 type ActionHttpMap map[string]ActionHttpInput
 
 func (ActionHttpMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ActionHttp)(nil))
+	return reflect.TypeOf((*map[string]*ActionHttp)(nil)).Elem()
 }
 
 func (i ActionHttpMap) ToActionHttpMapOutput() ActionHttpMapOutput {
@@ -290,9 +290,7 @@ func (i ActionHttpMap) ToActionHttpMapOutputWithContext(ctx context.Context) Act
 	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpMapOutput)
 }
 
-type ActionHttpOutput struct {
-	*pulumi.OutputState
-}
+type ActionHttpOutput struct{ *pulumi.OutputState }
 
 func (ActionHttpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionHttp)(nil))
@@ -311,14 +309,12 @@ func (o ActionHttpOutput) ToActionHttpPtrOutput() ActionHttpPtrOutput {
 }
 
 func (o ActionHttpOutput) ToActionHttpPtrOutputWithContext(ctx context.Context) ActionHttpPtrOutput {
-	return o.ApplyT(func(v ActionHttp) *ActionHttp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionHttp) *ActionHttp {
 		return &v
 	}).(ActionHttpPtrOutput)
 }
 
-type ActionHttpPtrOutput struct {
-	*pulumi.OutputState
-}
+type ActionHttpPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionHttpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ActionHttp)(nil))
@@ -330,6 +326,16 @@ func (o ActionHttpPtrOutput) ToActionHttpPtrOutput() ActionHttpPtrOutput {
 
 func (o ActionHttpPtrOutput) ToActionHttpPtrOutputWithContext(ctx context.Context) ActionHttpPtrOutput {
 	return o
+}
+
+func (o ActionHttpPtrOutput) Elem() ActionHttpOutput {
+	return o.ApplyT(func(v *ActionHttp) ActionHttp {
+		if v != nil {
+			return *v
+		}
+		var ret ActionHttp
+		return ret
+	}).(ActionHttpOutput)
 }
 
 type ActionHttpArrayOutput struct{ *pulumi.OutputState }

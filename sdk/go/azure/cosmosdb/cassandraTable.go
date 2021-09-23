@@ -279,7 +279,7 @@ type CassandraTableArrayInput interface {
 type CassandraTableArray []CassandraTableInput
 
 func (CassandraTableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CassandraTable)(nil))
+	return reflect.TypeOf((*[]*CassandraTable)(nil)).Elem()
 }
 
 func (i CassandraTableArray) ToCassandraTableArrayOutput() CassandraTableArrayOutput {
@@ -304,7 +304,7 @@ type CassandraTableMapInput interface {
 type CassandraTableMap map[string]CassandraTableInput
 
 func (CassandraTableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CassandraTable)(nil))
+	return reflect.TypeOf((*map[string]*CassandraTable)(nil)).Elem()
 }
 
 func (i CassandraTableMap) ToCassandraTableMapOutput() CassandraTableMapOutput {
@@ -315,9 +315,7 @@ func (i CassandraTableMap) ToCassandraTableMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableMapOutput)
 }
 
-type CassandraTableOutput struct {
-	*pulumi.OutputState
-}
+type CassandraTableOutput struct{ *pulumi.OutputState }
 
 func (CassandraTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CassandraTable)(nil))
@@ -336,14 +334,12 @@ func (o CassandraTableOutput) ToCassandraTablePtrOutput() CassandraTablePtrOutpu
 }
 
 func (o CassandraTableOutput) ToCassandraTablePtrOutputWithContext(ctx context.Context) CassandraTablePtrOutput {
-	return o.ApplyT(func(v CassandraTable) *CassandraTable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraTable) *CassandraTable {
 		return &v
 	}).(CassandraTablePtrOutput)
 }
 
-type CassandraTablePtrOutput struct {
-	*pulumi.OutputState
-}
+type CassandraTablePtrOutput struct{ *pulumi.OutputState }
 
 func (CassandraTablePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CassandraTable)(nil))
@@ -355,6 +351,16 @@ func (o CassandraTablePtrOutput) ToCassandraTablePtrOutput() CassandraTablePtrOu
 
 func (o CassandraTablePtrOutput) ToCassandraTablePtrOutputWithContext(ctx context.Context) CassandraTablePtrOutput {
 	return o
+}
+
+func (o CassandraTablePtrOutput) Elem() CassandraTableOutput {
+	return o.ApplyT(func(v *CassandraTable) CassandraTable {
+		if v != nil {
+			return *v
+		}
+		var ret CassandraTable
+		return ret
+	}).(CassandraTableOutput)
 }
 
 type CassandraTableArrayOutput struct{ *pulumi.OutputState }

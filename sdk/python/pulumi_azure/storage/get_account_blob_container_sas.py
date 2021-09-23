@@ -14,6 +14,7 @@ __all__ = [
     'GetAccountBlobContainerSASResult',
     'AwaitableGetAccountBlobContainerSASResult',
     'get_account_blob_container_sas',
+    'get_account_blob_container_sas_output',
 ]
 
 @pulumi.output_type
@@ -267,3 +268,76 @@ def get_account_blob_container_sas(cache_control: Optional[str] = None,
         permissions=__ret__.permissions,
         sas=__ret__.sas,
         start=__ret__.start)
+
+
+@_utilities.lift_output_func(get_account_blob_container_sas)
+def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[Optional[str]]] = None,
+                                          connection_string: Optional[pulumi.Input[str]] = None,
+                                          container_name: Optional[pulumi.Input[str]] = None,
+                                          content_disposition: Optional[pulumi.Input[Optional[str]]] = None,
+                                          content_encoding: Optional[pulumi.Input[Optional[str]]] = None,
+                                          content_language: Optional[pulumi.Input[Optional[str]]] = None,
+                                          content_type: Optional[pulumi.Input[Optional[str]]] = None,
+                                          expiry: Optional[pulumi.Input[str]] = None,
+                                          https_only: Optional[pulumi.Input[Optional[bool]]] = None,
+                                          ip_address: Optional[pulumi.Input[Optional[str]]] = None,
+                                          permissions: Optional[pulumi.Input[pulumi.InputType['GetAccountBlobContainerSASPermissionsArgs']]] = None,
+                                          start: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountBlobContainerSASResult]:
+    """
+    Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
+
+    Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    rg = azure.core.ResourceGroup("rg", location="West Europe")
+    storage = azure.storage.Account("storage",
+        resource_group_name=rg.name,
+        location=rg.location,
+        account_tier="Standard",
+        account_replication_type="LRS")
+    container = azure.storage.Container("container",
+        storage_account_name=storage.name,
+        container_access_type="private")
+    example = pulumi.Output.all(storage.primary_connection_string, container.name).apply(lambda primary_connection_string, name: azure.storage.get_account_blob_container_sas(connection_string=primary_connection_string,
+        container_name=name,
+        https_only=True,
+        ip_address="168.1.5.65",
+        start="2018-03-21",
+        expiry="2018-03-21",
+        permissions=azure.storage.GetAccountBlobContainerSASPermissionsArgs(
+            read=True,
+            add=True,
+            create=False,
+            write=False,
+            delete=True,
+            list=True,
+        ),
+        cache_control="max-age=5",
+        content_disposition="inline",
+        content_encoding="deflate",
+        content_language="en-US",
+        content_type="application/json"))
+    pulumi.export("sasUrlQueryString", example.sas)
+    ```
+
+
+    :param str cache_control: The `Cache-Control` response header that is sent when this SAS token is used.
+    :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `storage.Account` resource.
+    :param str container_name: Name of the container.
+    :param str content_disposition: The `Content-Disposition` response header that is sent when this SAS token is used.
+    :param str content_encoding: The `Content-Encoding` response header that is sent when this SAS token is used.
+    :param str content_language: The `Content-Language` response header that is sent when this SAS token is used.
+    :param str content_type: The `Content-Type` response header that is sent when this SAS token is used.
+    :param str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
+    :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
+    :param str ip_address: Single ipv4 address or range (connected with a dash) of ipv4 addresses.
+    :param pulumi.InputType['GetAccountBlobContainerSASPermissionsArgs'] permissions: A `permissions` block as defined below.
+    :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
+    """
+    ...

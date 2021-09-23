@@ -349,7 +349,7 @@ type OutputBlobArrayInput interface {
 type OutputBlobArray []OutputBlobInput
 
 func (OutputBlobArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OutputBlob)(nil))
+	return reflect.TypeOf((*[]*OutputBlob)(nil)).Elem()
 }
 
 func (i OutputBlobArray) ToOutputBlobArrayOutput() OutputBlobArrayOutput {
@@ -374,7 +374,7 @@ type OutputBlobMapInput interface {
 type OutputBlobMap map[string]OutputBlobInput
 
 func (OutputBlobMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OutputBlob)(nil))
+	return reflect.TypeOf((*map[string]*OutputBlob)(nil)).Elem()
 }
 
 func (i OutputBlobMap) ToOutputBlobMapOutput() OutputBlobMapOutput {
@@ -385,9 +385,7 @@ func (i OutputBlobMap) ToOutputBlobMapOutputWithContext(ctx context.Context) Out
 	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobMapOutput)
 }
 
-type OutputBlobOutput struct {
-	*pulumi.OutputState
-}
+type OutputBlobOutput struct{ *pulumi.OutputState }
 
 func (OutputBlobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutputBlob)(nil))
@@ -406,14 +404,12 @@ func (o OutputBlobOutput) ToOutputBlobPtrOutput() OutputBlobPtrOutput {
 }
 
 func (o OutputBlobOutput) ToOutputBlobPtrOutputWithContext(ctx context.Context) OutputBlobPtrOutput {
-	return o.ApplyT(func(v OutputBlob) *OutputBlob {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputBlob) *OutputBlob {
 		return &v
 	}).(OutputBlobPtrOutput)
 }
 
-type OutputBlobPtrOutput struct {
-	*pulumi.OutputState
-}
+type OutputBlobPtrOutput struct{ *pulumi.OutputState }
 
 func (OutputBlobPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OutputBlob)(nil))
@@ -425,6 +421,16 @@ func (o OutputBlobPtrOutput) ToOutputBlobPtrOutput() OutputBlobPtrOutput {
 
 func (o OutputBlobPtrOutput) ToOutputBlobPtrOutputWithContext(ctx context.Context) OutputBlobPtrOutput {
 	return o
+}
+
+func (o OutputBlobPtrOutput) Elem() OutputBlobOutput {
+	return o.ApplyT(func(v *OutputBlob) OutputBlob {
+		if v != nil {
+			return *v
+		}
+		var ret OutputBlob
+		return ret
+	}).(OutputBlobOutput)
 }
 
 type OutputBlobArrayOutput struct{ *pulumi.OutputState }

@@ -309,7 +309,7 @@ type EventHubAuthorizationRuleArrayInput interface {
 type EventHubAuthorizationRuleArray []EventHubAuthorizationRuleInput
 
 func (EventHubAuthorizationRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventHubAuthorizationRule)(nil))
+	return reflect.TypeOf((*[]*EventHubAuthorizationRule)(nil)).Elem()
 }
 
 func (i EventHubAuthorizationRuleArray) ToEventHubAuthorizationRuleArrayOutput() EventHubAuthorizationRuleArrayOutput {
@@ -334,7 +334,7 @@ type EventHubAuthorizationRuleMapInput interface {
 type EventHubAuthorizationRuleMap map[string]EventHubAuthorizationRuleInput
 
 func (EventHubAuthorizationRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventHubAuthorizationRule)(nil))
+	return reflect.TypeOf((*map[string]*EventHubAuthorizationRule)(nil)).Elem()
 }
 
 func (i EventHubAuthorizationRuleMap) ToEventHubAuthorizationRuleMapOutput() EventHubAuthorizationRuleMapOutput {
@@ -345,9 +345,7 @@ func (i EventHubAuthorizationRuleMap) ToEventHubAuthorizationRuleMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubAuthorizationRuleMapOutput)
 }
 
-type EventHubAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type EventHubAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (EventHubAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubAuthorizationRule)(nil))
@@ -366,14 +364,12 @@ func (o EventHubAuthorizationRuleOutput) ToEventHubAuthorizationRulePtrOutput() 
 }
 
 func (o EventHubAuthorizationRuleOutput) ToEventHubAuthorizationRulePtrOutputWithContext(ctx context.Context) EventHubAuthorizationRulePtrOutput {
-	return o.ApplyT(func(v EventHubAuthorizationRule) *EventHubAuthorizationRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHubAuthorizationRule) *EventHubAuthorizationRule {
 		return &v
 	}).(EventHubAuthorizationRulePtrOutput)
 }
 
-type EventHubAuthorizationRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type EventHubAuthorizationRulePtrOutput struct{ *pulumi.OutputState }
 
 func (EventHubAuthorizationRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventHubAuthorizationRule)(nil))
@@ -385,6 +381,16 @@ func (o EventHubAuthorizationRulePtrOutput) ToEventHubAuthorizationRulePtrOutput
 
 func (o EventHubAuthorizationRulePtrOutput) ToEventHubAuthorizationRulePtrOutputWithContext(ctx context.Context) EventHubAuthorizationRulePtrOutput {
 	return o
+}
+
+func (o EventHubAuthorizationRulePtrOutput) Elem() EventHubAuthorizationRuleOutput {
+	return o.ApplyT(func(v *EventHubAuthorizationRule) EventHubAuthorizationRule {
+		if v != nil {
+			return *v
+		}
+		var ret EventHubAuthorizationRule
+		return ret
+	}).(EventHubAuthorizationRuleOutput)
 }
 
 type EventHubAuthorizationRuleArrayOutput struct{ *pulumi.OutputState }

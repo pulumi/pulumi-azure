@@ -305,7 +305,7 @@ type ARecordArrayInput interface {
 type ARecordArray []ARecordInput
 
 func (ARecordArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ARecord)(nil))
+	return reflect.TypeOf((*[]*ARecord)(nil)).Elem()
 }
 
 func (i ARecordArray) ToARecordArrayOutput() ARecordArrayOutput {
@@ -330,7 +330,7 @@ type ARecordMapInput interface {
 type ARecordMap map[string]ARecordInput
 
 func (ARecordMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ARecord)(nil))
+	return reflect.TypeOf((*map[string]*ARecord)(nil)).Elem()
 }
 
 func (i ARecordMap) ToARecordMapOutput() ARecordMapOutput {
@@ -341,9 +341,7 @@ func (i ARecordMap) ToARecordMapOutputWithContext(ctx context.Context) ARecordMa
 	return pulumi.ToOutputWithContext(ctx, i).(ARecordMapOutput)
 }
 
-type ARecordOutput struct {
-	*pulumi.OutputState
-}
+type ARecordOutput struct{ *pulumi.OutputState }
 
 func (ARecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ARecord)(nil))
@@ -362,14 +360,12 @@ func (o ARecordOutput) ToARecordPtrOutput() ARecordPtrOutput {
 }
 
 func (o ARecordOutput) ToARecordPtrOutputWithContext(ctx context.Context) ARecordPtrOutput {
-	return o.ApplyT(func(v ARecord) *ARecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ARecord) *ARecord {
 		return &v
 	}).(ARecordPtrOutput)
 }
 
-type ARecordPtrOutput struct {
-	*pulumi.OutputState
-}
+type ARecordPtrOutput struct{ *pulumi.OutputState }
 
 func (ARecordPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ARecord)(nil))
@@ -381,6 +377,16 @@ func (o ARecordPtrOutput) ToARecordPtrOutput() ARecordPtrOutput {
 
 func (o ARecordPtrOutput) ToARecordPtrOutputWithContext(ctx context.Context) ARecordPtrOutput {
 	return o
+}
+
+func (o ARecordPtrOutput) Elem() ARecordOutput {
+	return o.ApplyT(func(v *ARecord) ARecord {
+		if v != nil {
+			return *v
+		}
+		var ret ARecord
+		return ret
+	}).(ARecordOutput)
 }
 
 type ARecordArrayOutput struct{ *pulumi.OutputState }

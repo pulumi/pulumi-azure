@@ -264,7 +264,7 @@ type SecurityPartnerProviderArrayInput interface {
 type SecurityPartnerProviderArray []SecurityPartnerProviderInput
 
 func (SecurityPartnerProviderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SecurityPartnerProvider)(nil))
+	return reflect.TypeOf((*[]*SecurityPartnerProvider)(nil)).Elem()
 }
 
 func (i SecurityPartnerProviderArray) ToSecurityPartnerProviderArrayOutput() SecurityPartnerProviderArrayOutput {
@@ -289,7 +289,7 @@ type SecurityPartnerProviderMapInput interface {
 type SecurityPartnerProviderMap map[string]SecurityPartnerProviderInput
 
 func (SecurityPartnerProviderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SecurityPartnerProvider)(nil))
+	return reflect.TypeOf((*map[string]*SecurityPartnerProvider)(nil)).Elem()
 }
 
 func (i SecurityPartnerProviderMap) ToSecurityPartnerProviderMapOutput() SecurityPartnerProviderMapOutput {
@@ -300,9 +300,7 @@ func (i SecurityPartnerProviderMap) ToSecurityPartnerProviderMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderMapOutput)
 }
 
-type SecurityPartnerProviderOutput struct {
-	*pulumi.OutputState
-}
+type SecurityPartnerProviderOutput struct{ *pulumi.OutputState }
 
 func (SecurityPartnerProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityPartnerProvider)(nil))
@@ -321,14 +319,12 @@ func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderPtrOutput() Secu
 }
 
 func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderPtrOutputWithContext(ctx context.Context) SecurityPartnerProviderPtrOutput {
-	return o.ApplyT(func(v SecurityPartnerProvider) *SecurityPartnerProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityPartnerProvider) *SecurityPartnerProvider {
 		return &v
 	}).(SecurityPartnerProviderPtrOutput)
 }
 
-type SecurityPartnerProviderPtrOutput struct {
-	*pulumi.OutputState
-}
+type SecurityPartnerProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (SecurityPartnerProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SecurityPartnerProvider)(nil))
@@ -340,6 +336,16 @@ func (o SecurityPartnerProviderPtrOutput) ToSecurityPartnerProviderPtrOutput() S
 
 func (o SecurityPartnerProviderPtrOutput) ToSecurityPartnerProviderPtrOutputWithContext(ctx context.Context) SecurityPartnerProviderPtrOutput {
 	return o
+}
+
+func (o SecurityPartnerProviderPtrOutput) Elem() SecurityPartnerProviderOutput {
+	return o.ApplyT(func(v *SecurityPartnerProvider) SecurityPartnerProvider {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityPartnerProvider
+		return ret
+	}).(SecurityPartnerProviderOutput)
 }
 
 type SecurityPartnerProviderArrayOutput struct{ *pulumi.OutputState }

@@ -251,7 +251,7 @@ type AAAARecordArrayInput interface {
 type AAAARecordArray []AAAARecordInput
 
 func (AAAARecordArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AAAARecord)(nil))
+	return reflect.TypeOf((*[]*AAAARecord)(nil)).Elem()
 }
 
 func (i AAAARecordArray) ToAAAARecordArrayOutput() AAAARecordArrayOutput {
@@ -276,7 +276,7 @@ type AAAARecordMapInput interface {
 type AAAARecordMap map[string]AAAARecordInput
 
 func (AAAARecordMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AAAARecord)(nil))
+	return reflect.TypeOf((*map[string]*AAAARecord)(nil)).Elem()
 }
 
 func (i AAAARecordMap) ToAAAARecordMapOutput() AAAARecordMapOutput {
@@ -287,9 +287,7 @@ func (i AAAARecordMap) ToAAAARecordMapOutputWithContext(ctx context.Context) AAA
 	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordMapOutput)
 }
 
-type AAAARecordOutput struct {
-	*pulumi.OutputState
-}
+type AAAARecordOutput struct{ *pulumi.OutputState }
 
 func (AAAARecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AAAARecord)(nil))
@@ -308,14 +306,12 @@ func (o AAAARecordOutput) ToAAAARecordPtrOutput() AAAARecordPtrOutput {
 }
 
 func (o AAAARecordOutput) ToAAAARecordPtrOutputWithContext(ctx context.Context) AAAARecordPtrOutput {
-	return o.ApplyT(func(v AAAARecord) *AAAARecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AAAARecord) *AAAARecord {
 		return &v
 	}).(AAAARecordPtrOutput)
 }
 
-type AAAARecordPtrOutput struct {
-	*pulumi.OutputState
-}
+type AAAARecordPtrOutput struct{ *pulumi.OutputState }
 
 func (AAAARecordPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AAAARecord)(nil))
@@ -327,6 +323,16 @@ func (o AAAARecordPtrOutput) ToAAAARecordPtrOutput() AAAARecordPtrOutput {
 
 func (o AAAARecordPtrOutput) ToAAAARecordPtrOutputWithContext(ctx context.Context) AAAARecordPtrOutput {
 	return o
+}
+
+func (o AAAARecordPtrOutput) Elem() AAAARecordOutput {
+	return o.ApplyT(func(v *AAAARecord) AAAARecord {
+		if v != nil {
+			return *v
+		}
+		var ret AAAARecord
+		return ret
+	}).(AAAARecordOutput)
 }
 
 type AAAARecordArrayOutput struct{ *pulumi.OutputState }

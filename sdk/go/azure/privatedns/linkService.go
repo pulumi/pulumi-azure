@@ -347,7 +347,7 @@ type LinkServiceArrayInput interface {
 type LinkServiceArray []LinkServiceInput
 
 func (LinkServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LinkService)(nil))
+	return reflect.TypeOf((*[]*LinkService)(nil)).Elem()
 }
 
 func (i LinkServiceArray) ToLinkServiceArrayOutput() LinkServiceArrayOutput {
@@ -372,7 +372,7 @@ type LinkServiceMapInput interface {
 type LinkServiceMap map[string]LinkServiceInput
 
 func (LinkServiceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LinkService)(nil))
+	return reflect.TypeOf((*map[string]*LinkService)(nil)).Elem()
 }
 
 func (i LinkServiceMap) ToLinkServiceMapOutput() LinkServiceMapOutput {
@@ -383,9 +383,7 @@ func (i LinkServiceMap) ToLinkServiceMapOutputWithContext(ctx context.Context) L
 	return pulumi.ToOutputWithContext(ctx, i).(LinkServiceMapOutput)
 }
 
-type LinkServiceOutput struct {
-	*pulumi.OutputState
-}
+type LinkServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkService)(nil))
@@ -404,14 +402,12 @@ func (o LinkServiceOutput) ToLinkServicePtrOutput() LinkServicePtrOutput {
 }
 
 func (o LinkServiceOutput) ToLinkServicePtrOutputWithContext(ctx context.Context) LinkServicePtrOutput {
-	return o.ApplyT(func(v LinkService) *LinkService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkService) *LinkService {
 		return &v
 	}).(LinkServicePtrOutput)
 }
 
-type LinkServicePtrOutput struct {
-	*pulumi.OutputState
-}
+type LinkServicePtrOutput struct{ *pulumi.OutputState }
 
 func (LinkServicePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinkService)(nil))
@@ -423,6 +419,16 @@ func (o LinkServicePtrOutput) ToLinkServicePtrOutput() LinkServicePtrOutput {
 
 func (o LinkServicePtrOutput) ToLinkServicePtrOutputWithContext(ctx context.Context) LinkServicePtrOutput {
 	return o
+}
+
+func (o LinkServicePtrOutput) Elem() LinkServiceOutput {
+	return o.ApplyT(func(v *LinkService) LinkService {
+		if v != nil {
+			return *v
+		}
+		var ret LinkService
+		return ret
+	}).(LinkServiceOutput)
 }
 
 type LinkServiceArrayOutput struct{ *pulumi.OutputState }

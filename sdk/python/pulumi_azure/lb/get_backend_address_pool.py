@@ -13,6 +13,7 @@ __all__ = [
     'GetBackendAddressPoolResult',
     'AwaitableGetBackendAddressPoolResult',
     'get_backend_address_pool',
+    'get_backend_address_pool_output',
 ]
 
 @pulumi.output_type
@@ -153,3 +154,31 @@ def get_backend_address_pool(loadbalancer_id: Optional[str] = None,
         loadbalancer_id=__ret__.loadbalancer_id,
         name=__ret__.name,
         outbound_rules=__ret__.outbound_rules)
+
+
+@_utilities.lift_output_func(get_backend_address_pool)
+def get_backend_address_pool_output(loadbalancer_id: Optional[pulumi.Input[str]] = None,
+                                    name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackendAddressPoolResult]:
+    """
+    Use this data source to access information about an existing Load Balancer's Backend Address Pool.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_lb = azure.lb.get_lb(name="example-lb",
+        resource_group_name="example-resources")
+    example_backend_address_pool = azure.lb.get_backend_address_pool(name="first",
+        loadbalancer_id=example_lb.id)
+    pulumi.export("backendAddressPoolId", example_backend_address_pool.id)
+    pulumi.export("backendIpConfigurationIds", [__item["id"] for __item in data["azurerm_lb_backend_address_pool"]["beap"]["backend_ip_configurations"]])
+    ```
+
+
+    :param str loadbalancer_id: The ID of the Load Balancer in which the Backend Address Pool exists.
+    :param str name: Specifies the name of the Backend Address Pool.
+    """
+    ...

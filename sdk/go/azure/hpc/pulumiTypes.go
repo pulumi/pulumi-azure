@@ -263,7 +263,7 @@ func (o CacheDefaultAccessPolicyOutput) ToCacheDefaultAccessPolicyPtrOutput() Ca
 }
 
 func (o CacheDefaultAccessPolicyOutput) ToCacheDefaultAccessPolicyPtrOutputWithContext(ctx context.Context) CacheDefaultAccessPolicyPtrOutput {
-	return o.ApplyT(func(v CacheDefaultAccessPolicy) *CacheDefaultAccessPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheDefaultAccessPolicy) *CacheDefaultAccessPolicy {
 		return &v
 	}).(CacheDefaultAccessPolicyPtrOutput)
 }
@@ -288,7 +288,13 @@ func (o CacheDefaultAccessPolicyPtrOutput) ToCacheDefaultAccessPolicyPtrOutputWi
 }
 
 func (o CacheDefaultAccessPolicyPtrOutput) Elem() CacheDefaultAccessPolicyOutput {
-	return o.ApplyT(func(v *CacheDefaultAccessPolicy) CacheDefaultAccessPolicy { return *v }).(CacheDefaultAccessPolicyOutput)
+	return o.ApplyT(func(v *CacheDefaultAccessPolicy) CacheDefaultAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret CacheDefaultAccessPolicy
+		return ret
+	}).(CacheDefaultAccessPolicyOutput)
 }
 
 // One to three `accessRule` blocks as defined above.
@@ -578,7 +584,7 @@ func (o CacheDirectoryActiveDirectoryOutput) ToCacheDirectoryActiveDirectoryPtrO
 }
 
 func (o CacheDirectoryActiveDirectoryOutput) ToCacheDirectoryActiveDirectoryPtrOutputWithContext(ctx context.Context) CacheDirectoryActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v CacheDirectoryActiveDirectory) *CacheDirectoryActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheDirectoryActiveDirectory) *CacheDirectoryActiveDirectory {
 		return &v
 	}).(CacheDirectoryActiveDirectoryPtrOutput)
 }
@@ -633,7 +639,13 @@ func (o CacheDirectoryActiveDirectoryPtrOutput) ToCacheDirectoryActiveDirectoryP
 }
 
 func (o CacheDirectoryActiveDirectoryPtrOutput) Elem() CacheDirectoryActiveDirectoryOutput {
-	return o.ApplyT(func(v *CacheDirectoryActiveDirectory) CacheDirectoryActiveDirectory { return *v }).(CacheDirectoryActiveDirectoryOutput)
+	return o.ApplyT(func(v *CacheDirectoryActiveDirectory) CacheDirectoryActiveDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret CacheDirectoryActiveDirectory
+		return ret
+	}).(CacheDirectoryActiveDirectoryOutput)
 }
 
 // The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
@@ -803,7 +815,7 @@ func (o CacheDirectoryFlatFileOutput) ToCacheDirectoryFlatFilePtrOutput() CacheD
 }
 
 func (o CacheDirectoryFlatFileOutput) ToCacheDirectoryFlatFilePtrOutputWithContext(ctx context.Context) CacheDirectoryFlatFilePtrOutput {
-	return o.ApplyT(func(v CacheDirectoryFlatFile) *CacheDirectoryFlatFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheDirectoryFlatFile) *CacheDirectoryFlatFile {
 		return &v
 	}).(CacheDirectoryFlatFilePtrOutput)
 }
@@ -833,7 +845,13 @@ func (o CacheDirectoryFlatFilePtrOutput) ToCacheDirectoryFlatFilePtrOutputWithCo
 }
 
 func (o CacheDirectoryFlatFilePtrOutput) Elem() CacheDirectoryFlatFileOutput {
-	return o.ApplyT(func(v *CacheDirectoryFlatFile) CacheDirectoryFlatFile { return *v }).(CacheDirectoryFlatFileOutput)
+	return o.ApplyT(func(v *CacheDirectoryFlatFile) CacheDirectoryFlatFile {
+		if v != nil {
+			return *v
+		}
+		var ret CacheDirectoryFlatFile
+		return ret
+	}).(CacheDirectoryFlatFileOutput)
 }
 
 // The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
@@ -969,7 +987,7 @@ func (o CacheDirectoryLdapOutput) ToCacheDirectoryLdapPtrOutput() CacheDirectory
 }
 
 func (o CacheDirectoryLdapOutput) ToCacheDirectoryLdapPtrOutputWithContext(ctx context.Context) CacheDirectoryLdapPtrOutput {
-	return o.ApplyT(func(v CacheDirectoryLdap) *CacheDirectoryLdap {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheDirectoryLdap) *CacheDirectoryLdap {
 		return &v
 	}).(CacheDirectoryLdapPtrOutput)
 }
@@ -1019,7 +1037,13 @@ func (o CacheDirectoryLdapPtrOutput) ToCacheDirectoryLdapPtrOutputWithContext(ct
 }
 
 func (o CacheDirectoryLdapPtrOutput) Elem() CacheDirectoryLdapOutput {
-	return o.ApplyT(func(v *CacheDirectoryLdap) CacheDirectoryLdap { return *v }).(CacheDirectoryLdapOutput)
+	return o.ApplyT(func(v *CacheDirectoryLdap) CacheDirectoryLdap {
+		if v != nil {
+			return *v
+		}
+		var ret CacheDirectoryLdap
+		return ret
+	}).(CacheDirectoryLdapOutput)
 }
 
 // The base distinguished name (DN) for the LDAP domain.
@@ -1179,7 +1203,7 @@ func (o CacheDirectoryLdapBindOutput) ToCacheDirectoryLdapBindPtrOutput() CacheD
 }
 
 func (o CacheDirectoryLdapBindOutput) ToCacheDirectoryLdapBindPtrOutputWithContext(ctx context.Context) CacheDirectoryLdapBindPtrOutput {
-	return o.ApplyT(func(v CacheDirectoryLdapBind) *CacheDirectoryLdapBind {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheDirectoryLdapBind) *CacheDirectoryLdapBind {
 		return &v
 	}).(CacheDirectoryLdapBindPtrOutput)
 }
@@ -1209,7 +1233,13 @@ func (o CacheDirectoryLdapBindPtrOutput) ToCacheDirectoryLdapBindPtrOutputWithCo
 }
 
 func (o CacheDirectoryLdapBindPtrOutput) Elem() CacheDirectoryLdapBindOutput {
-	return o.ApplyT(func(v *CacheDirectoryLdapBind) CacheDirectoryLdapBind { return *v }).(CacheDirectoryLdapBindOutput)
+	return o.ApplyT(func(v *CacheDirectoryLdapBind) CacheDirectoryLdapBind {
+		if v != nil {
+			return *v
+		}
+		var ret CacheDirectoryLdapBind
+		return ret
+	}).(CacheDirectoryLdapBindOutput)
 }
 
 // The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
@@ -1329,7 +1359,7 @@ func (o CacheDnsOutput) ToCacheDnsPtrOutput() CacheDnsPtrOutput {
 }
 
 func (o CacheDnsOutput) ToCacheDnsPtrOutputWithContext(ctx context.Context) CacheDnsPtrOutput {
-	return o.ApplyT(func(v CacheDns) *CacheDns {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheDns) *CacheDns {
 		return &v
 	}).(CacheDnsPtrOutput)
 }
@@ -1359,7 +1389,13 @@ func (o CacheDnsPtrOutput) ToCacheDnsPtrOutputWithContext(ctx context.Context) C
 }
 
 func (o CacheDnsPtrOutput) Elem() CacheDnsOutput {
-	return o.ApplyT(func(v *CacheDns) CacheDns { return *v }).(CacheDnsOutput)
+	return o.ApplyT(func(v *CacheDns) CacheDns {
+		if v != nil {
+			return *v
+		}
+		var ret CacheDns
+		return ret
+	}).(CacheDnsOutput)
 }
 
 // The DNS search domain for the HPC Cache.

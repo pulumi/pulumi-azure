@@ -271,7 +271,7 @@ type ChannelSlackArrayInput interface {
 type ChannelSlackArray []ChannelSlackInput
 
 func (ChannelSlackArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ChannelSlack)(nil))
+	return reflect.TypeOf((*[]*ChannelSlack)(nil)).Elem()
 }
 
 func (i ChannelSlackArray) ToChannelSlackArrayOutput() ChannelSlackArrayOutput {
@@ -296,7 +296,7 @@ type ChannelSlackMapInput interface {
 type ChannelSlackMap map[string]ChannelSlackInput
 
 func (ChannelSlackMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ChannelSlack)(nil))
+	return reflect.TypeOf((*map[string]*ChannelSlack)(nil)).Elem()
 }
 
 func (i ChannelSlackMap) ToChannelSlackMapOutput() ChannelSlackMapOutput {
@@ -307,9 +307,7 @@ func (i ChannelSlackMap) ToChannelSlackMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlackMapOutput)
 }
 
-type ChannelSlackOutput struct {
-	*pulumi.OutputState
-}
+type ChannelSlackOutput struct{ *pulumi.OutputState }
 
 func (ChannelSlackOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelSlack)(nil))
@@ -328,14 +326,12 @@ func (o ChannelSlackOutput) ToChannelSlackPtrOutput() ChannelSlackPtrOutput {
 }
 
 func (o ChannelSlackOutput) ToChannelSlackPtrOutputWithContext(ctx context.Context) ChannelSlackPtrOutput {
-	return o.ApplyT(func(v ChannelSlack) *ChannelSlack {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelSlack) *ChannelSlack {
 		return &v
 	}).(ChannelSlackPtrOutput)
 }
 
-type ChannelSlackPtrOutput struct {
-	*pulumi.OutputState
-}
+type ChannelSlackPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelSlackPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ChannelSlack)(nil))
@@ -347,6 +343,16 @@ func (o ChannelSlackPtrOutput) ToChannelSlackPtrOutput() ChannelSlackPtrOutput {
 
 func (o ChannelSlackPtrOutput) ToChannelSlackPtrOutputWithContext(ctx context.Context) ChannelSlackPtrOutput {
 	return o
+}
+
+func (o ChannelSlackPtrOutput) Elem() ChannelSlackOutput {
+	return o.ApplyT(func(v *ChannelSlack) ChannelSlack {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelSlack
+		return ret
+	}).(ChannelSlackOutput)
 }
 
 type ChannelSlackArrayOutput struct{ *pulumi.OutputState }

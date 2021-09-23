@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,4 +64,68 @@ type LookupSshPublicKeyResult struct {
 	PublicKey         string            `pulumi:"publicKey"`
 	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	Tags              map[string]string `pulumi:"tags"`
+}
+
+func LookupSshPublicKeyOutput(ctx *pulumi.Context, args LookupSshPublicKeyOutputArgs, opts ...pulumi.InvokeOption) LookupSshPublicKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSshPublicKeyResult, error) {
+			args := v.(LookupSshPublicKeyArgs)
+			r, err := LookupSshPublicKey(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSshPublicKeyResultOutput)
+}
+
+// A collection of arguments for invoking getSshPublicKey.
+type LookupSshPublicKeyOutputArgs struct {
+	// The name of this SSH Public Key.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the SSH Public Key exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A mapping of tags which should be assigned to the SSH Public Key.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupSshPublicKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSshPublicKeyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSshPublicKey.
+type LookupSshPublicKeyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSshPublicKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSshPublicKeyResult)(nil)).Elem()
+}
+
+func (o LookupSshPublicKeyResultOutput) ToLookupSshPublicKeyResultOutput() LookupSshPublicKeyResultOutput {
+	return o
+}
+
+func (o LookupSshPublicKeyResultOutput) ToLookupSshPublicKeyResultOutputWithContext(ctx context.Context) LookupSshPublicKeyResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSshPublicKeyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSshPublicKeyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupSshPublicKeyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSshPublicKeyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SSH public key used to authenticate to a virtual machine through ssh.
+func (o LookupSshPublicKeyResultOutput) PublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSshPublicKeyResult) string { return v.PublicKey }).(pulumi.StringOutput)
+}
+
+func (o LookupSshPublicKeyResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSshPublicKeyResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupSshPublicKeyResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSshPublicKeyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSshPublicKeyResultOutput{})
 }

@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -164,4 +167,116 @@ type GetPublicIPResult struct {
 	// A mapping of tags to assigned to the resource.
 	Tags  map[string]string `pulumi:"tags"`
 	Zones []string          `pulumi:"zones"`
+}
+
+func GetPublicIPOutput(ctx *pulumi.Context, args GetPublicIPOutputArgs, opts ...pulumi.InvokeOption) GetPublicIPResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetPublicIPResult, error) {
+			args := v.(GetPublicIPArgs)
+			r, err := GetPublicIP(ctx, &args, opts...)
+			return *r, err
+		}).(GetPublicIPResultOutput)
+}
+
+// A collection of arguments for invoking getPublicIP.
+type GetPublicIPOutputArgs struct {
+	// Specifies the name of the public IP address.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assigned to the resource.
+	Tags  pulumi.StringMapInput   `pulumi:"tags"`
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (GetPublicIPOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicIPArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPublicIP.
+type GetPublicIPResultOutput struct{ *pulumi.OutputState }
+
+func (GetPublicIPResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicIPResult)(nil)).Elem()
+}
+
+func (o GetPublicIPResultOutput) ToGetPublicIPResultOutput() GetPublicIPResultOutput {
+	return o
+}
+
+func (o GetPublicIPResultOutput) ToGetPublicIPResultOutputWithContext(ctx context.Context) GetPublicIPResultOutput {
+	return o
+}
+
+func (o GetPublicIPResultOutput) AllocationMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.AllocationMethod }).(pulumi.StringOutput)
+}
+
+// The label for the Domain Name.
+func (o GetPublicIPResultOutput) DomainNameLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.DomainNameLabel }).(pulumi.StringOutput)
+}
+
+// Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
+func (o GetPublicIPResultOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetPublicIPResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the timeout for the TCP idle connection.
+func (o GetPublicIPResultOutput) IdleTimeoutInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPublicIPResult) int { return v.IdleTimeoutInMinutes }).(pulumi.IntOutput)
+}
+
+// The IP address value that was allocated.
+func (o GetPublicIPResultOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assigned to the resource.
+func (o GetPublicIPResultOutput) IpTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetPublicIPResult) map[string]string { return v.IpTags }).(pulumi.StringMapOutput)
+}
+
+// The IP version being used, for example `IPv4` or `IPv6`.
+func (o GetPublicIPResultOutput) IpVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.IpVersion }).(pulumi.StringOutput)
+}
+
+func (o GetPublicIPResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o GetPublicIPResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetPublicIPResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o GetPublicIPResultOutput) ReverseFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.ReverseFqdn }).(pulumi.StringOutput)
+}
+
+// The SKU of the Public IP.
+func (o GetPublicIPResultOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assigned to the resource.
+func (o GetPublicIPResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetPublicIPResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o GetPublicIPResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPublicIPResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetPublicIPResultOutput{})
 }

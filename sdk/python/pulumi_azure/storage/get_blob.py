@@ -12,6 +12,7 @@ __all__ = [
     'GetBlobResult',
     'AwaitableGetBlobResult',
     'get_blob',
+    'get_blob_output',
 ]
 
 @pulumi.output_type
@@ -188,3 +189,32 @@ def get_blob(metadata: Optional[Mapping[str, str]] = None,
         storage_container_name=__ret__.storage_container_name,
         type=__ret__.type,
         url=__ret__.url)
+
+
+@_utilities.lift_output_func(get_blob)
+def get_blob_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                    name: Optional[pulumi.Input[str]] = None,
+                    storage_account_name: Optional[pulumi.Input[str]] = None,
+                    storage_container_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobResult]:
+    """
+    Use this data source to access information about an existing Storage Blob.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.storage.get_blob(name="example-blob-name",
+        storage_account_name="example-storage-account-name",
+        storage_container_name="example-storage-container-name")
+    ```
+
+
+    :param Mapping[str, str] metadata: A map of custom blob metadata.
+    :param str name: The name of the Blob.
+    :param str storage_account_name: The name of the Storage Account where the Container exists.
+    :param str storage_container_name: The name of the Storage Container where the Blob exists.
+    """
+    ...

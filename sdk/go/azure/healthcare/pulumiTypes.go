@@ -113,7 +113,7 @@ func (o ServiceAuthenticationConfigurationOutput) ToServiceAuthenticationConfigu
 }
 
 func (o ServiceAuthenticationConfigurationOutput) ToServiceAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceAuthenticationConfiguration) *ServiceAuthenticationConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAuthenticationConfiguration) *ServiceAuthenticationConfiguration {
 		return &v
 	}).(ServiceAuthenticationConfigurationPtrOutput)
 }
@@ -149,7 +149,13 @@ func (o ServiceAuthenticationConfigurationPtrOutput) ToServiceAuthenticationConf
 }
 
 func (o ServiceAuthenticationConfigurationPtrOutput) Elem() ServiceAuthenticationConfigurationOutput {
-	return o.ApplyT(func(v *ServiceAuthenticationConfiguration) ServiceAuthenticationConfiguration { return *v }).(ServiceAuthenticationConfigurationOutput)
+	return o.ApplyT(func(v *ServiceAuthenticationConfiguration) ServiceAuthenticationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAuthenticationConfiguration
+		return ret
+	}).(ServiceAuthenticationConfigurationOutput)
 }
 
 // The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
@@ -292,7 +298,7 @@ func (o ServiceCorsConfigurationOutput) ToServiceCorsConfigurationPtrOutput() Se
 }
 
 func (o ServiceCorsConfigurationOutput) ToServiceCorsConfigurationPtrOutputWithContext(ctx context.Context) ServiceCorsConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceCorsConfiguration) *ServiceCorsConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCorsConfiguration) *ServiceCorsConfiguration {
 		return &v
 	}).(ServiceCorsConfigurationPtrOutput)
 }
@@ -337,7 +343,13 @@ func (o ServiceCorsConfigurationPtrOutput) ToServiceCorsConfigurationPtrOutputWi
 }
 
 func (o ServiceCorsConfigurationPtrOutput) Elem() ServiceCorsConfigurationOutput {
-	return o.ApplyT(func(v *ServiceCorsConfiguration) ServiceCorsConfiguration { return *v }).(ServiceCorsConfigurationOutput)
+	return o.ApplyT(func(v *ServiceCorsConfiguration) ServiceCorsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceCorsConfiguration
+		return ret
+	}).(ServiceCorsConfigurationOutput)
 }
 
 // If credentials are allowed via CORS.

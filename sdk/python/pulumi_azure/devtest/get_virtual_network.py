@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualNetworkResult',
     'AwaitableGetVirtualNetworkResult',
     'get_virtual_network',
+    'get_virtual_network_output',
 ]
 
 @pulumi.output_type
@@ -148,3 +149,31 @@ def get_virtual_network(lab_name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         subnet_overrides=__ret__.subnet_overrides,
         unique_identifier=__ret__.unique_identifier)
+
+
+@_utilities.lift_output_func(get_virtual_network)
+def get_virtual_network_output(lab_name: Optional[pulumi.Input[str]] = None,
+                               name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResult]:
+    """
+    Use this data source to access information about an existing Dev Test Lab Virtual Network.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.devtest.get_virtual_network(name="example-network",
+        lab_name="examplelab",
+        resource_group_name="example-resource")
+    pulumi.export("labSubnetName", example.allowed_subnets[0].lab_subnet_name)
+    ```
+
+
+    :param str lab_name: Specifies the name of the Dev Test Lab.
+    :param str name: Specifies the name of the Virtual Network.
+    :param str resource_group_name: Specifies the name of the resource group that contains the Virtual Network.
+    """
+    ...

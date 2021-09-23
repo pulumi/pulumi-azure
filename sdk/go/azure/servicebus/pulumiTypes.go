@@ -241,7 +241,7 @@ func (o SubscriptionRuleCorrelationFilterOutput) ToSubscriptionRuleCorrelationFi
 }
 
 func (o SubscriptionRuleCorrelationFilterOutput) ToSubscriptionRuleCorrelationFilterPtrOutputWithContext(ctx context.Context) SubscriptionRuleCorrelationFilterPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *SubscriptionRuleCorrelationFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionRuleCorrelationFilter) *SubscriptionRuleCorrelationFilter {
 		return &v
 	}).(SubscriptionRuleCorrelationFilterPtrOutput)
 }
@@ -306,7 +306,13 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) ToSubscriptionRuleCorrelatio
 }
 
 func (o SubscriptionRuleCorrelationFilterPtrOutput) Elem() SubscriptionRuleCorrelationFilterOutput {
-	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) SubscriptionRuleCorrelationFilter { return *v }).(SubscriptionRuleCorrelationFilterOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) SubscriptionRuleCorrelationFilter {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionRuleCorrelationFilter
+		return ret
+	}).(SubscriptionRuleCorrelationFilterOutput)
 }
 
 // Content type of the message.

@@ -342,7 +342,7 @@ type VirtualNetworkSwiftConnectionArrayInput interface {
 type VirtualNetworkSwiftConnectionArray []VirtualNetworkSwiftConnectionInput
 
 func (VirtualNetworkSwiftConnectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualNetworkSwiftConnection)(nil))
+	return reflect.TypeOf((*[]*VirtualNetworkSwiftConnection)(nil)).Elem()
 }
 
 func (i VirtualNetworkSwiftConnectionArray) ToVirtualNetworkSwiftConnectionArrayOutput() VirtualNetworkSwiftConnectionArrayOutput {
@@ -367,7 +367,7 @@ type VirtualNetworkSwiftConnectionMapInput interface {
 type VirtualNetworkSwiftConnectionMap map[string]VirtualNetworkSwiftConnectionInput
 
 func (VirtualNetworkSwiftConnectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualNetworkSwiftConnection)(nil))
+	return reflect.TypeOf((*map[string]*VirtualNetworkSwiftConnection)(nil)).Elem()
 }
 
 func (i VirtualNetworkSwiftConnectionMap) ToVirtualNetworkSwiftConnectionMapOutput() VirtualNetworkSwiftConnectionMapOutput {
@@ -378,9 +378,7 @@ func (i VirtualNetworkSwiftConnectionMap) ToVirtualNetworkSwiftConnectionMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSwiftConnectionMapOutput)
 }
 
-type VirtualNetworkSwiftConnectionOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkSwiftConnectionOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkSwiftConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkSwiftConnection)(nil))
@@ -399,14 +397,12 @@ func (o VirtualNetworkSwiftConnectionOutput) ToVirtualNetworkSwiftConnectionPtrO
 }
 
 func (o VirtualNetworkSwiftConnectionOutput) ToVirtualNetworkSwiftConnectionPtrOutputWithContext(ctx context.Context) VirtualNetworkSwiftConnectionPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkSwiftConnection) *VirtualNetworkSwiftConnection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkSwiftConnection) *VirtualNetworkSwiftConnection {
 		return &v
 	}).(VirtualNetworkSwiftConnectionPtrOutput)
 }
 
-type VirtualNetworkSwiftConnectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkSwiftConnectionPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkSwiftConnectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNetworkSwiftConnection)(nil))
@@ -418,6 +414,16 @@ func (o VirtualNetworkSwiftConnectionPtrOutput) ToVirtualNetworkSwiftConnectionP
 
 func (o VirtualNetworkSwiftConnectionPtrOutput) ToVirtualNetworkSwiftConnectionPtrOutputWithContext(ctx context.Context) VirtualNetworkSwiftConnectionPtrOutput {
 	return o
+}
+
+func (o VirtualNetworkSwiftConnectionPtrOutput) Elem() VirtualNetworkSwiftConnectionOutput {
+	return o.ApplyT(func(v *VirtualNetworkSwiftConnection) VirtualNetworkSwiftConnection {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkSwiftConnection
+		return ret
+	}).(VirtualNetworkSwiftConnectionOutput)
 }
 
 type VirtualNetworkSwiftConnectionArrayOutput struct{ *pulumi.OutputState }

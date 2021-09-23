@@ -260,7 +260,7 @@ type PublicIpPrefixArrayInput interface {
 type PublicIpPrefixArray []PublicIpPrefixInput
 
 func (PublicIpPrefixArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PublicIpPrefix)(nil))
+	return reflect.TypeOf((*[]*PublicIpPrefix)(nil)).Elem()
 }
 
 func (i PublicIpPrefixArray) ToPublicIpPrefixArrayOutput() PublicIpPrefixArrayOutput {
@@ -285,7 +285,7 @@ type PublicIpPrefixMapInput interface {
 type PublicIpPrefixMap map[string]PublicIpPrefixInput
 
 func (PublicIpPrefixMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PublicIpPrefix)(nil))
+	return reflect.TypeOf((*map[string]*PublicIpPrefix)(nil)).Elem()
 }
 
 func (i PublicIpPrefixMap) ToPublicIpPrefixMapOutput() PublicIpPrefixMapOutput {
@@ -296,9 +296,7 @@ func (i PublicIpPrefixMap) ToPublicIpPrefixMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpPrefixMapOutput)
 }
 
-type PublicIpPrefixOutput struct {
-	*pulumi.OutputState
-}
+type PublicIpPrefixOutput struct{ *pulumi.OutputState }
 
 func (PublicIpPrefixOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PublicIpPrefix)(nil))
@@ -317,14 +315,12 @@ func (o PublicIpPrefixOutput) ToPublicIpPrefixPtrOutput() PublicIpPrefixPtrOutpu
 }
 
 func (o PublicIpPrefixOutput) ToPublicIpPrefixPtrOutputWithContext(ctx context.Context) PublicIpPrefixPtrOutput {
-	return o.ApplyT(func(v PublicIpPrefix) *PublicIpPrefix {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicIpPrefix) *PublicIpPrefix {
 		return &v
 	}).(PublicIpPrefixPtrOutput)
 }
 
-type PublicIpPrefixPtrOutput struct {
-	*pulumi.OutputState
-}
+type PublicIpPrefixPtrOutput struct{ *pulumi.OutputState }
 
 func (PublicIpPrefixPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PublicIpPrefix)(nil))
@@ -336,6 +332,16 @@ func (o PublicIpPrefixPtrOutput) ToPublicIpPrefixPtrOutput() PublicIpPrefixPtrOu
 
 func (o PublicIpPrefixPtrOutput) ToPublicIpPrefixPtrOutputWithContext(ctx context.Context) PublicIpPrefixPtrOutput {
 	return o
+}
+
+func (o PublicIpPrefixPtrOutput) Elem() PublicIpPrefixOutput {
+	return o.ApplyT(func(v *PublicIpPrefix) PublicIpPrefix {
+		if v != nil {
+			return *v
+		}
+		var ret PublicIpPrefix
+		return ret
+	}).(PublicIpPrefixOutput)
 }
 
 type PublicIpPrefixArrayOutput struct{ *pulumi.OutputState }

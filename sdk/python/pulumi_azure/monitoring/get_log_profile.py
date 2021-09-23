@@ -13,6 +13,7 @@ __all__ = [
     'GetLogProfileResult',
     'AwaitableGetLogProfileResult',
     'get_log_profile',
+    'get_log_profile_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,25 @@ def get_log_profile(name: Optional[str] = None,
         retention_policies=__ret__.retention_policies,
         servicebus_rule_id=__ret__.servicebus_rule_id,
         storage_account_id=__ret__.storage_account_id)
+
+
+@_utilities.lift_output_func(get_log_profile)
+def get_log_profile_output(name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogProfileResult]:
+    """
+    Use this data source to access the properties of a Log Profile.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.monitoring.get_log_profile(name="test-logprofile")
+    pulumi.export("logProfileStorageAccountId", example.storage_account_id)
+    ```
+
+
+    :param str name: Specifies the Name of the Log Profile.
+    """
+    ...

@@ -294,7 +294,7 @@ type AssetFilterArrayInput interface {
 type AssetFilterArray []AssetFilterInput
 
 func (AssetFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AssetFilter)(nil))
+	return reflect.TypeOf((*[]*AssetFilter)(nil)).Elem()
 }
 
 func (i AssetFilterArray) ToAssetFilterArrayOutput() AssetFilterArrayOutput {
@@ -319,7 +319,7 @@ type AssetFilterMapInput interface {
 type AssetFilterMap map[string]AssetFilterInput
 
 func (AssetFilterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AssetFilter)(nil))
+	return reflect.TypeOf((*map[string]*AssetFilter)(nil)).Elem()
 }
 
 func (i AssetFilterMap) ToAssetFilterMapOutput() AssetFilterMapOutput {
@@ -330,9 +330,7 @@ func (i AssetFilterMap) ToAssetFilterMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterMapOutput)
 }
 
-type AssetFilterOutput struct {
-	*pulumi.OutputState
-}
+type AssetFilterOutput struct{ *pulumi.OutputState }
 
 func (AssetFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AssetFilter)(nil))
@@ -351,14 +349,12 @@ func (o AssetFilterOutput) ToAssetFilterPtrOutput() AssetFilterPtrOutput {
 }
 
 func (o AssetFilterOutput) ToAssetFilterPtrOutputWithContext(ctx context.Context) AssetFilterPtrOutput {
-	return o.ApplyT(func(v AssetFilter) *AssetFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssetFilter) *AssetFilter {
 		return &v
 	}).(AssetFilterPtrOutput)
 }
 
-type AssetFilterPtrOutput struct {
-	*pulumi.OutputState
-}
+type AssetFilterPtrOutput struct{ *pulumi.OutputState }
 
 func (AssetFilterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AssetFilter)(nil))
@@ -370,6 +366,16 @@ func (o AssetFilterPtrOutput) ToAssetFilterPtrOutput() AssetFilterPtrOutput {
 
 func (o AssetFilterPtrOutput) ToAssetFilterPtrOutputWithContext(ctx context.Context) AssetFilterPtrOutput {
 	return o
+}
+
+func (o AssetFilterPtrOutput) Elem() AssetFilterOutput {
+	return o.ApplyT(func(v *AssetFilter) AssetFilter {
+		if v != nil {
+			return *v
+		}
+		var ret AssetFilter
+		return ret
+	}).(AssetFilterOutput)
 }
 
 type AssetFilterArrayOutput struct{ *pulumi.OutputState }

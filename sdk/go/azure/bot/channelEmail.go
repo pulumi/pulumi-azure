@@ -200,7 +200,7 @@ type ChannelEmailArrayInput interface {
 type ChannelEmailArray []ChannelEmailInput
 
 func (ChannelEmailArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ChannelEmail)(nil))
+	return reflect.TypeOf((*[]*ChannelEmail)(nil)).Elem()
 }
 
 func (i ChannelEmailArray) ToChannelEmailArrayOutput() ChannelEmailArrayOutput {
@@ -225,7 +225,7 @@ type ChannelEmailMapInput interface {
 type ChannelEmailMap map[string]ChannelEmailInput
 
 func (ChannelEmailMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ChannelEmail)(nil))
+	return reflect.TypeOf((*map[string]*ChannelEmail)(nil)).Elem()
 }
 
 func (i ChannelEmailMap) ToChannelEmailMapOutput() ChannelEmailMapOutput {
@@ -236,9 +236,7 @@ func (i ChannelEmailMap) ToChannelEmailMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEmailMapOutput)
 }
 
-type ChannelEmailOutput struct {
-	*pulumi.OutputState
-}
+type ChannelEmailOutput struct{ *pulumi.OutputState }
 
 func (ChannelEmailOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelEmail)(nil))
@@ -257,14 +255,12 @@ func (o ChannelEmailOutput) ToChannelEmailPtrOutput() ChannelEmailPtrOutput {
 }
 
 func (o ChannelEmailOutput) ToChannelEmailPtrOutputWithContext(ctx context.Context) ChannelEmailPtrOutput {
-	return o.ApplyT(func(v ChannelEmail) *ChannelEmail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEmail) *ChannelEmail {
 		return &v
 	}).(ChannelEmailPtrOutput)
 }
 
-type ChannelEmailPtrOutput struct {
-	*pulumi.OutputState
-}
+type ChannelEmailPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelEmailPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ChannelEmail)(nil))
@@ -276,6 +272,16 @@ func (o ChannelEmailPtrOutput) ToChannelEmailPtrOutput() ChannelEmailPtrOutput {
 
 func (o ChannelEmailPtrOutput) ToChannelEmailPtrOutputWithContext(ctx context.Context) ChannelEmailPtrOutput {
 	return o
+}
+
+func (o ChannelEmailPtrOutput) Elem() ChannelEmailOutput {
+	return o.ApplyT(func(v *ChannelEmail) ChannelEmail {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEmail
+		return ret
+	}).(ChannelEmailOutput)
 }
 
 type ChannelEmailArrayOutput struct{ *pulumi.OutputState }

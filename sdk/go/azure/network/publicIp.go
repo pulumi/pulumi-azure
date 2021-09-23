@@ -349,7 +349,7 @@ type PublicIpArrayInput interface {
 type PublicIpArray []PublicIpInput
 
 func (PublicIpArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PublicIp)(nil))
+	return reflect.TypeOf((*[]*PublicIp)(nil)).Elem()
 }
 
 func (i PublicIpArray) ToPublicIpArrayOutput() PublicIpArrayOutput {
@@ -374,7 +374,7 @@ type PublicIpMapInput interface {
 type PublicIpMap map[string]PublicIpInput
 
 func (PublicIpMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PublicIp)(nil))
+	return reflect.TypeOf((*map[string]*PublicIp)(nil)).Elem()
 }
 
 func (i PublicIpMap) ToPublicIpMapOutput() PublicIpMapOutput {
@@ -385,9 +385,7 @@ func (i PublicIpMap) ToPublicIpMapOutputWithContext(ctx context.Context) PublicI
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpMapOutput)
 }
 
-type PublicIpOutput struct {
-	*pulumi.OutputState
-}
+type PublicIpOutput struct{ *pulumi.OutputState }
 
 func (PublicIpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PublicIp)(nil))
@@ -406,14 +404,12 @@ func (o PublicIpOutput) ToPublicIpPtrOutput() PublicIpPtrOutput {
 }
 
 func (o PublicIpOutput) ToPublicIpPtrOutputWithContext(ctx context.Context) PublicIpPtrOutput {
-	return o.ApplyT(func(v PublicIp) *PublicIp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicIp) *PublicIp {
 		return &v
 	}).(PublicIpPtrOutput)
 }
 
-type PublicIpPtrOutput struct {
-	*pulumi.OutputState
-}
+type PublicIpPtrOutput struct{ *pulumi.OutputState }
 
 func (PublicIpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PublicIp)(nil))
@@ -425,6 +421,16 @@ func (o PublicIpPtrOutput) ToPublicIpPtrOutput() PublicIpPtrOutput {
 
 func (o PublicIpPtrOutput) ToPublicIpPtrOutputWithContext(ctx context.Context) PublicIpPtrOutput {
 	return o
+}
+
+func (o PublicIpPtrOutput) Elem() PublicIpOutput {
+	return o.ApplyT(func(v *PublicIp) PublicIp {
+		if v != nil {
+			return *v
+		}
+		var ret PublicIp
+		return ret
+	}).(PublicIpOutput)
 }
 
 type PublicIpArrayOutput struct{ *pulumi.OutputState }

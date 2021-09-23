@@ -111,7 +111,7 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutput() ServiceIdentityPtrOu
 }
 
 func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context.Context) ServiceIdentityPtrOutput {
-	return o.ApplyT(func(v ServiceIdentity) *ServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIdentity) *ServiceIdentity {
 		return &v
 	}).(ServiceIdentityPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
-	return o.ApplyT(func(v *ServiceIdentity) ServiceIdentity { return *v }).(ServiceIdentityOutput)
+	return o.ApplyT(func(v *ServiceIdentity) ServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceIdentity
+		return ret
+	}).(ServiceIdentityOutput)
 }
 
 // The (Client) ID of the Service Principal.

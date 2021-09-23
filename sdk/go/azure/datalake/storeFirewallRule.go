@@ -238,7 +238,7 @@ type StoreFirewallRuleArrayInput interface {
 type StoreFirewallRuleArray []StoreFirewallRuleInput
 
 func (StoreFirewallRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StoreFirewallRule)(nil))
+	return reflect.TypeOf((*[]*StoreFirewallRule)(nil)).Elem()
 }
 
 func (i StoreFirewallRuleArray) ToStoreFirewallRuleArrayOutput() StoreFirewallRuleArrayOutput {
@@ -263,7 +263,7 @@ type StoreFirewallRuleMapInput interface {
 type StoreFirewallRuleMap map[string]StoreFirewallRuleInput
 
 func (StoreFirewallRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StoreFirewallRule)(nil))
+	return reflect.TypeOf((*map[string]*StoreFirewallRule)(nil)).Elem()
 }
 
 func (i StoreFirewallRuleMap) ToStoreFirewallRuleMapOutput() StoreFirewallRuleMapOutput {
@@ -274,9 +274,7 @@ func (i StoreFirewallRuleMap) ToStoreFirewallRuleMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StoreFirewallRuleMapOutput)
 }
 
-type StoreFirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type StoreFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (StoreFirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StoreFirewallRule)(nil))
@@ -295,14 +293,12 @@ func (o StoreFirewallRuleOutput) ToStoreFirewallRulePtrOutput() StoreFirewallRul
 }
 
 func (o StoreFirewallRuleOutput) ToStoreFirewallRulePtrOutputWithContext(ctx context.Context) StoreFirewallRulePtrOutput {
-	return o.ApplyT(func(v StoreFirewallRule) *StoreFirewallRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StoreFirewallRule) *StoreFirewallRule {
 		return &v
 	}).(StoreFirewallRulePtrOutput)
 }
 
-type StoreFirewallRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type StoreFirewallRulePtrOutput struct{ *pulumi.OutputState }
 
 func (StoreFirewallRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StoreFirewallRule)(nil))
@@ -314,6 +310,16 @@ func (o StoreFirewallRulePtrOutput) ToStoreFirewallRulePtrOutput() StoreFirewall
 
 func (o StoreFirewallRulePtrOutput) ToStoreFirewallRulePtrOutputWithContext(ctx context.Context) StoreFirewallRulePtrOutput {
 	return o
+}
+
+func (o StoreFirewallRulePtrOutput) Elem() StoreFirewallRuleOutput {
+	return o.ApplyT(func(v *StoreFirewallRule) StoreFirewallRule {
+		if v != nil {
+			return *v
+		}
+		var ret StoreFirewallRule
+		return ret
+	}).(StoreFirewallRuleOutput)
 }
 
 type StoreFirewallRuleArrayOutput struct{ *pulumi.OutputState }

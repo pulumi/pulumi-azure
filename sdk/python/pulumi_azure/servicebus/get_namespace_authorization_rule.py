@@ -12,6 +12,7 @@ __all__ = [
     'GetNamespaceAuthorizationRuleResult',
     'AwaitableGetNamespaceAuthorizationRuleResult',
     'get_namespace_authorization_rule',
+    'get_namespace_authorization_rule_output',
 ]
 
 @pulumi.output_type
@@ -186,3 +187,31 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
         secondary_connection_string=__ret__.secondary_connection_string,
         secondary_connection_string_alias=__ret__.secondary_connection_string_alias,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(get_namespace_authorization_rule)
+def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = None,
+                                            namespace_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceAuthorizationRuleResult]:
+    """
+    Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.servicebus.get_namespace_authorization_rule(name="examplerule",
+        namespace_name="examplenamespace",
+        resource_group_name="example-resources")
+    pulumi.export("ruleId", example.id)
+    ```
+
+
+    :param str name: Specifies the name of the ServiceBus Namespace Authorization Rule.
+    :param str namespace_name: Specifies the name of the ServiceBus Namespace.
+    :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+    """
+    ...

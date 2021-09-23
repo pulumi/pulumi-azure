@@ -307,7 +307,7 @@ type OutboundRuleArrayInput interface {
 type OutboundRuleArray []OutboundRuleInput
 
 func (OutboundRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OutboundRule)(nil))
+	return reflect.TypeOf((*[]*OutboundRule)(nil)).Elem()
 }
 
 func (i OutboundRuleArray) ToOutboundRuleArrayOutput() OutboundRuleArrayOutput {
@@ -332,7 +332,7 @@ type OutboundRuleMapInput interface {
 type OutboundRuleMap map[string]OutboundRuleInput
 
 func (OutboundRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OutboundRule)(nil))
+	return reflect.TypeOf((*map[string]*OutboundRule)(nil)).Elem()
 }
 
 func (i OutboundRuleMap) ToOutboundRuleMapOutput() OutboundRuleMapOutput {
@@ -343,9 +343,7 @@ func (i OutboundRuleMap) ToOutboundRuleMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundRuleMapOutput)
 }
 
-type OutboundRuleOutput struct {
-	*pulumi.OutputState
-}
+type OutboundRuleOutput struct{ *pulumi.OutputState }
 
 func (OutboundRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutboundRule)(nil))
@@ -364,14 +362,12 @@ func (o OutboundRuleOutput) ToOutboundRulePtrOutput() OutboundRulePtrOutput {
 }
 
 func (o OutboundRuleOutput) ToOutboundRulePtrOutputWithContext(ctx context.Context) OutboundRulePtrOutput {
-	return o.ApplyT(func(v OutboundRule) *OutboundRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutboundRule) *OutboundRule {
 		return &v
 	}).(OutboundRulePtrOutput)
 }
 
-type OutboundRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type OutboundRulePtrOutput struct{ *pulumi.OutputState }
 
 func (OutboundRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OutboundRule)(nil))
@@ -383,6 +379,16 @@ func (o OutboundRulePtrOutput) ToOutboundRulePtrOutput() OutboundRulePtrOutput {
 
 func (o OutboundRulePtrOutput) ToOutboundRulePtrOutputWithContext(ctx context.Context) OutboundRulePtrOutput {
 	return o
+}
+
+func (o OutboundRulePtrOutput) Elem() OutboundRuleOutput {
+	return o.ApplyT(func(v *OutboundRule) OutboundRule {
+		if v != nil {
+			return *v
+		}
+		var ret OutboundRule
+		return ret
+	}).(OutboundRuleOutput)
 }
 
 type OutboundRuleArrayOutput struct{ *pulumi.OutputState }

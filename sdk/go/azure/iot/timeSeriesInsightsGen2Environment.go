@@ -284,7 +284,7 @@ type TimeSeriesInsightsGen2EnvironmentArrayInput interface {
 type TimeSeriesInsightsGen2EnvironmentArray []TimeSeriesInsightsGen2EnvironmentInput
 
 func (TimeSeriesInsightsGen2EnvironmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TimeSeriesInsightsGen2Environment)(nil))
+	return reflect.TypeOf((*[]*TimeSeriesInsightsGen2Environment)(nil)).Elem()
 }
 
 func (i TimeSeriesInsightsGen2EnvironmentArray) ToTimeSeriesInsightsGen2EnvironmentArrayOutput() TimeSeriesInsightsGen2EnvironmentArrayOutput {
@@ -309,7 +309,7 @@ type TimeSeriesInsightsGen2EnvironmentMapInput interface {
 type TimeSeriesInsightsGen2EnvironmentMap map[string]TimeSeriesInsightsGen2EnvironmentInput
 
 func (TimeSeriesInsightsGen2EnvironmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TimeSeriesInsightsGen2Environment)(nil))
+	return reflect.TypeOf((*map[string]*TimeSeriesInsightsGen2Environment)(nil)).Elem()
 }
 
 func (i TimeSeriesInsightsGen2EnvironmentMap) ToTimeSeriesInsightsGen2EnvironmentMapOutput() TimeSeriesInsightsGen2EnvironmentMapOutput {
@@ -320,9 +320,7 @@ func (i TimeSeriesInsightsGen2EnvironmentMap) ToTimeSeriesInsightsGen2Environmen
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsGen2EnvironmentMapOutput)
 }
 
-type TimeSeriesInsightsGen2EnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type TimeSeriesInsightsGen2EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsGen2EnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TimeSeriesInsightsGen2Environment)(nil))
@@ -341,14 +339,12 @@ func (o TimeSeriesInsightsGen2EnvironmentOutput) ToTimeSeriesInsightsGen2Environ
 }
 
 func (o TimeSeriesInsightsGen2EnvironmentOutput) ToTimeSeriesInsightsGen2EnvironmentPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentPtrOutput {
-	return o.ApplyT(func(v TimeSeriesInsightsGen2Environment) *TimeSeriesInsightsGen2Environment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeSeriesInsightsGen2Environment) *TimeSeriesInsightsGen2Environment {
 		return &v
 	}).(TimeSeriesInsightsGen2EnvironmentPtrOutput)
 }
 
-type TimeSeriesInsightsGen2EnvironmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type TimeSeriesInsightsGen2EnvironmentPtrOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsGen2EnvironmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TimeSeriesInsightsGen2Environment)(nil))
@@ -360,6 +356,16 @@ func (o TimeSeriesInsightsGen2EnvironmentPtrOutput) ToTimeSeriesInsightsGen2Envi
 
 func (o TimeSeriesInsightsGen2EnvironmentPtrOutput) ToTimeSeriesInsightsGen2EnvironmentPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentPtrOutput {
 	return o
+}
+
+func (o TimeSeriesInsightsGen2EnvironmentPtrOutput) Elem() TimeSeriesInsightsGen2EnvironmentOutput {
+	return o.ApplyT(func(v *TimeSeriesInsightsGen2Environment) TimeSeriesInsightsGen2Environment {
+		if v != nil {
+			return *v
+		}
+		var ret TimeSeriesInsightsGen2Environment
+		return ret
+	}).(TimeSeriesInsightsGen2EnvironmentOutput)
 }
 
 type TimeSeriesInsightsGen2EnvironmentArrayOutput struct{ *pulumi.OutputState }

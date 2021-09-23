@@ -343,7 +343,7 @@ type CustomDatasetArrayInput interface {
 type CustomDatasetArray []CustomDatasetInput
 
 func (CustomDatasetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CustomDataset)(nil))
+	return reflect.TypeOf((*[]*CustomDataset)(nil)).Elem()
 }
 
 func (i CustomDatasetArray) ToCustomDatasetArrayOutput() CustomDatasetArrayOutput {
@@ -368,7 +368,7 @@ type CustomDatasetMapInput interface {
 type CustomDatasetMap map[string]CustomDatasetInput
 
 func (CustomDatasetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CustomDataset)(nil))
+	return reflect.TypeOf((*map[string]*CustomDataset)(nil)).Elem()
 }
 
 func (i CustomDatasetMap) ToCustomDatasetMapOutput() CustomDatasetMapOutput {
@@ -379,9 +379,7 @@ func (i CustomDatasetMap) ToCustomDatasetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetMapOutput)
 }
 
-type CustomDatasetOutput struct {
-	*pulumi.OutputState
-}
+type CustomDatasetOutput struct{ *pulumi.OutputState }
 
 func (CustomDatasetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomDataset)(nil))
@@ -400,14 +398,12 @@ func (o CustomDatasetOutput) ToCustomDatasetPtrOutput() CustomDatasetPtrOutput {
 }
 
 func (o CustomDatasetOutput) ToCustomDatasetPtrOutputWithContext(ctx context.Context) CustomDatasetPtrOutput {
-	return o.ApplyT(func(v CustomDataset) *CustomDataset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDataset) *CustomDataset {
 		return &v
 	}).(CustomDatasetPtrOutput)
 }
 
-type CustomDatasetPtrOutput struct {
-	*pulumi.OutputState
-}
+type CustomDatasetPtrOutput struct{ *pulumi.OutputState }
 
 func (CustomDatasetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CustomDataset)(nil))
@@ -419,6 +415,16 @@ func (o CustomDatasetPtrOutput) ToCustomDatasetPtrOutput() CustomDatasetPtrOutpu
 
 func (o CustomDatasetPtrOutput) ToCustomDatasetPtrOutputWithContext(ctx context.Context) CustomDatasetPtrOutput {
 	return o
+}
+
+func (o CustomDatasetPtrOutput) Elem() CustomDatasetOutput {
+	return o.ApplyT(func(v *CustomDataset) CustomDataset {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDataset
+		return ret
+	}).(CustomDatasetOutput)
 }
 
 type CustomDatasetArrayOutput struct{ *pulumi.OutputState }

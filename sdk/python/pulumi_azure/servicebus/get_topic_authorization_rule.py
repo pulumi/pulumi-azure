@@ -12,6 +12,7 @@ __all__ = [
     'GetTopicAuthorizationRuleResult',
     'AwaitableGetTopicAuthorizationRuleResult',
     'get_topic_authorization_rule',
+    'get_topic_authorization_rule_output',
 ]
 
 @pulumi.output_type
@@ -230,3 +231,34 @@ def get_topic_authorization_rule(name: Optional[str] = None,
         secondary_key=__ret__.secondary_key,
         send=__ret__.send,
         topic_name=__ret__.topic_name)
+
+
+@_utilities.lift_output_func(get_topic_authorization_rule)
+def get_topic_authorization_rule_output(name: Optional[pulumi.Input[str]] = None,
+                                        namespace_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        topic_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicAuthorizationRuleResult]:
+    """
+    Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.servicebus.get_topic_authorization_rule(name="example-tfex_name",
+        namespace_name="example-namespace",
+        resource_group_name="example-resources",
+        topic_name="example-servicebus_topic")
+    pulumi.export("servicebusAuthorizationRuleId", data["azurem_servicebus_topic_authorization_rule"]["example"]["id"])
+    ```
+
+
+    :param str name: The name of the ServiceBus Topic Authorization Rule resource.
+    :param str namespace_name: The name of the ServiceBus Namespace.
+    :param str resource_group_name: The name of the resource group in which the ServiceBus Namespace exists.
+    :param str topic_name: The name of the ServiceBus Topic.
+    """
+    ...

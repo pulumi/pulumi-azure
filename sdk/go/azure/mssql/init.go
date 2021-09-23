@@ -24,7 +24,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	case "azure:mssql/database:Database":
 		r = &Database{}
 	case "azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy":
-		r = &DatabaseExtendedAuditingPolicy{}
+		r = &DatabaseExtendedAuditingPolicyType{}
 	case "azure:mssql/databaseVulnerabilityAssessmentRuleBaseline:DatabaseVulnerabilityAssessmentRuleBaseline":
 		r = &DatabaseVulnerabilityAssessmentRuleBaseline{}
 	case "azure:mssql/elasticPool:ElasticPool":
@@ -38,7 +38,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	case "azure:mssql/server:Server":
 		r = &Server{}
 	case "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
-		r = &ServerExtendedAuditingPolicy{}
+		r = &ServerExtendedAuditingPolicyType{}
 	case "azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy":
 		r = &ServerSecurityAlertPolicy{}
 	case "azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption":

@@ -353,7 +353,7 @@ type LinkedServiceSnowflakeArrayInput interface {
 type LinkedServiceSnowflakeArray []LinkedServiceSnowflakeInput
 
 func (LinkedServiceSnowflakeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LinkedServiceSnowflake)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceSnowflake)(nil)).Elem()
 }
 
 func (i LinkedServiceSnowflakeArray) ToLinkedServiceSnowflakeArrayOutput() LinkedServiceSnowflakeArrayOutput {
@@ -378,7 +378,7 @@ type LinkedServiceSnowflakeMapInput interface {
 type LinkedServiceSnowflakeMap map[string]LinkedServiceSnowflakeInput
 
 func (LinkedServiceSnowflakeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LinkedServiceSnowflake)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceSnowflake)(nil)).Elem()
 }
 
 func (i LinkedServiceSnowflakeMap) ToLinkedServiceSnowflakeMapOutput() LinkedServiceSnowflakeMapOutput {
@@ -389,9 +389,7 @@ func (i LinkedServiceSnowflakeMap) ToLinkedServiceSnowflakeMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSnowflakeMapOutput)
 }
 
-type LinkedServiceSnowflakeOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceSnowflakeOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceSnowflakeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedServiceSnowflake)(nil))
@@ -410,14 +408,12 @@ func (o LinkedServiceSnowflakeOutput) ToLinkedServiceSnowflakePtrOutput() Linked
 }
 
 func (o LinkedServiceSnowflakeOutput) ToLinkedServiceSnowflakePtrOutputWithContext(ctx context.Context) LinkedServiceSnowflakePtrOutput {
-	return o.ApplyT(func(v LinkedServiceSnowflake) *LinkedServiceSnowflake {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceSnowflake) *LinkedServiceSnowflake {
 		return &v
 	}).(LinkedServiceSnowflakePtrOutput)
 }
 
-type LinkedServiceSnowflakePtrOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceSnowflakePtrOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceSnowflakePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinkedServiceSnowflake)(nil))
@@ -429,6 +425,16 @@ func (o LinkedServiceSnowflakePtrOutput) ToLinkedServiceSnowflakePtrOutput() Lin
 
 func (o LinkedServiceSnowflakePtrOutput) ToLinkedServiceSnowflakePtrOutputWithContext(ctx context.Context) LinkedServiceSnowflakePtrOutput {
 	return o
+}
+
+func (o LinkedServiceSnowflakePtrOutput) Elem() LinkedServiceSnowflakeOutput {
+	return o.ApplyT(func(v *LinkedServiceSnowflake) LinkedServiceSnowflake {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceSnowflake
+		return ret
+	}).(LinkedServiceSnowflakeOutput)
 }
 
 type LinkedServiceSnowflakeArrayOutput struct{ *pulumi.OutputState }

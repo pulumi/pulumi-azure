@@ -433,7 +433,7 @@ type ManagedDiskArrayInput interface {
 type ManagedDiskArray []ManagedDiskInput
 
 func (ManagedDiskArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ManagedDisk)(nil))
+	return reflect.TypeOf((*[]*ManagedDisk)(nil)).Elem()
 }
 
 func (i ManagedDiskArray) ToManagedDiskArrayOutput() ManagedDiskArrayOutput {
@@ -458,7 +458,7 @@ type ManagedDiskMapInput interface {
 type ManagedDiskMap map[string]ManagedDiskInput
 
 func (ManagedDiskMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ManagedDisk)(nil))
+	return reflect.TypeOf((*map[string]*ManagedDisk)(nil)).Elem()
 }
 
 func (i ManagedDiskMap) ToManagedDiskMapOutput() ManagedDiskMapOutput {
@@ -469,9 +469,7 @@ func (i ManagedDiskMap) ToManagedDiskMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskMapOutput)
 }
 
-type ManagedDiskOutput struct {
-	*pulumi.OutputState
-}
+type ManagedDiskOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedDisk)(nil))
@@ -490,14 +488,12 @@ func (o ManagedDiskOutput) ToManagedDiskPtrOutput() ManagedDiskPtrOutput {
 }
 
 func (o ManagedDiskOutput) ToManagedDiskPtrOutputWithContext(ctx context.Context) ManagedDiskPtrOutput {
-	return o.ApplyT(func(v ManagedDisk) *ManagedDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDisk) *ManagedDisk {
 		return &v
 	}).(ManagedDiskPtrOutput)
 }
 
-type ManagedDiskPtrOutput struct {
-	*pulumi.OutputState
-}
+type ManagedDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagedDisk)(nil))
@@ -509,6 +505,16 @@ func (o ManagedDiskPtrOutput) ToManagedDiskPtrOutput() ManagedDiskPtrOutput {
 
 func (o ManagedDiskPtrOutput) ToManagedDiskPtrOutputWithContext(ctx context.Context) ManagedDiskPtrOutput {
 	return o
+}
+
+func (o ManagedDiskPtrOutput) Elem() ManagedDiskOutput {
+	return o.ApplyT(func(v *ManagedDisk) ManagedDisk {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDisk
+		return ret
+	}).(ManagedDiskOutput)
 }
 
 type ManagedDiskArrayOutput struct{ *pulumi.OutputState }

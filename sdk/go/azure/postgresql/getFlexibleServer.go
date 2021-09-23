@@ -4,6 +4,9 @@
 package postgresql
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,4 +83,114 @@ type LookupFlexibleServerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use.
 	Version string `pulumi:"version"`
+}
+
+func LookupFlexibleServerOutput(ctx *pulumi.Context, args LookupFlexibleServerOutputArgs, opts ...pulumi.InvokeOption) LookupFlexibleServerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupFlexibleServerResult, error) {
+			args := v.(LookupFlexibleServerArgs)
+			r, err := LookupFlexibleServer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupFlexibleServerResultOutput)
+}
+
+// A collection of arguments for invoking getFlexibleServer.
+type LookupFlexibleServerOutputArgs struct {
+	// The name of this PostgreSQL Flexible Server.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the PostgreSQL Flexible Server exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupFlexibleServerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFlexibleServerArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getFlexibleServer.
+type LookupFlexibleServerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupFlexibleServerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFlexibleServerResult)(nil)).Elem()
+}
+
+func (o LookupFlexibleServerResultOutput) ToLookupFlexibleServerResultOutput() LookupFlexibleServerResultOutput {
+	return o
+}
+
+func (o LookupFlexibleServerResultOutput) ToLookupFlexibleServerResultOutputWithContext(ctx context.Context) LookupFlexibleServerResultOutput {
+	return o
+}
+
+// The Administrator Login for the PostgreSQL Flexible Server.
+func (o LookupFlexibleServerResultOutput) AdministratorLogin() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+}
+
+// The backup retention days for the PostgreSQL Flexible Server.
+func (o LookupFlexibleServerResultOutput) BackupRetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) int { return v.BackupRetentionDays }).(pulumi.IntOutput)
+}
+
+// The status showing whether the data encryption is enabled with a customer-managed key.
+//
+// Deprecated: This attribute has been removed from the API and will be removed in version 3.0 of the provider.
+func (o LookupFlexibleServerResultOutput) CmkEnabled() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.CmkEnabled }).(pulumi.StringOutput)
+}
+
+// The ID of the virtual network subnet to create the PostgreSQL Flexible Server.
+func (o LookupFlexibleServerResultOutput) DelegatedSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.DelegatedSubnetId }).(pulumi.StringOutput)
+}
+
+// The FQDN of the PostgreSQL Flexible Server.
+func (o LookupFlexibleServerResultOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupFlexibleServerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure Region where the PostgreSQL Flexible Server exists.
+func (o LookupFlexibleServerResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupFlexibleServerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Is public network access enabled?
+func (o LookupFlexibleServerResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupFlexibleServerResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
+func (o LookupFlexibleServerResultOutput) SkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.SkuName }).(pulumi.StringOutput)
+}
+
+// The max storage allowed for the PostgreSQL Flexible Server.
+func (o LookupFlexibleServerResultOutput) StorageMb() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) int { return v.StorageMb }).(pulumi.IntOutput)
+}
+
+// A mapping of tags assigned to the PostgreSQL Flexible Server.
+func (o LookupFlexibleServerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The version of PostgreSQL Flexible Server to use.
+func (o LookupFlexibleServerResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupFlexibleServerResultOutput{})
 }

@@ -263,7 +263,7 @@ type BgpConnectionArrayInput interface {
 type BgpConnectionArray []BgpConnectionInput
 
 func (BgpConnectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BgpConnection)(nil))
+	return reflect.TypeOf((*[]*BgpConnection)(nil)).Elem()
 }
 
 func (i BgpConnectionArray) ToBgpConnectionArrayOutput() BgpConnectionArrayOutput {
@@ -288,7 +288,7 @@ type BgpConnectionMapInput interface {
 type BgpConnectionMap map[string]BgpConnectionInput
 
 func (BgpConnectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BgpConnection)(nil))
+	return reflect.TypeOf((*map[string]*BgpConnection)(nil)).Elem()
 }
 
 func (i BgpConnectionMap) ToBgpConnectionMapOutput() BgpConnectionMapOutput {
@@ -299,9 +299,7 @@ func (i BgpConnectionMap) ToBgpConnectionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BgpConnectionMapOutput)
 }
 
-type BgpConnectionOutput struct {
-	*pulumi.OutputState
-}
+type BgpConnectionOutput struct{ *pulumi.OutputState }
 
 func (BgpConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BgpConnection)(nil))
@@ -320,14 +318,12 @@ func (o BgpConnectionOutput) ToBgpConnectionPtrOutput() BgpConnectionPtrOutput {
 }
 
 func (o BgpConnectionOutput) ToBgpConnectionPtrOutputWithContext(ctx context.Context) BgpConnectionPtrOutput {
-	return o.ApplyT(func(v BgpConnection) *BgpConnection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BgpConnection) *BgpConnection {
 		return &v
 	}).(BgpConnectionPtrOutput)
 }
 
-type BgpConnectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type BgpConnectionPtrOutput struct{ *pulumi.OutputState }
 
 func (BgpConnectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BgpConnection)(nil))
@@ -339,6 +335,16 @@ func (o BgpConnectionPtrOutput) ToBgpConnectionPtrOutput() BgpConnectionPtrOutpu
 
 func (o BgpConnectionPtrOutput) ToBgpConnectionPtrOutputWithContext(ctx context.Context) BgpConnectionPtrOutput {
 	return o
+}
+
+func (o BgpConnectionPtrOutput) Elem() BgpConnectionOutput {
+	return o.ApplyT(func(v *BgpConnection) BgpConnection {
+		if v != nil {
+			return *v
+		}
+		var ret BgpConnection
+		return ret
+	}).(BgpConnectionOutput)
 }
 
 type BgpConnectionArrayOutput struct{ *pulumi.OutputState }

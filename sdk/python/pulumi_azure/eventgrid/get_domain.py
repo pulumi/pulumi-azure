@@ -14,6 +14,7 @@ __all__ = [
     'GetDomainResult',
     'AwaitableGetDomainResult',
     'get_domain',
+    'get_domain_output',
 ]
 
 @pulumi.output_type
@@ -229,3 +230,34 @@ def get_domain(inbound_ip_rules: Optional[Sequence[pulumi.InputType['GetDomainIn
         resource_group_name=__ret__.resource_group_name,
         secondary_access_key=__ret__.secondary_access_key,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_domain)
+def get_domain_output(inbound_ip_rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDomainInboundIpRuleArgs']]]]] = None,
+                      name: Optional[pulumi.Input[str]] = None,
+                      public_network_access_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
+    """
+    Use this data source to access information about an existing EventGrid Domain
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.eventgrid.get_domain(name="my-eventgrid-domain",
+        resource_group_name="example-resources")
+    pulumi.export("eventgridDomainMappingTopic", example.input_mapping_fields[0].topic)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetDomainInboundIpRuleArgs']] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+    :param str name: The name of the EventGrid Domain resource.
+    :param bool public_network_access_enabled: Whether or not public network access is allowed for this server.
+    :param str resource_group_name: The name of the resource group in which the EventGrid Domain exists.
+    :param Mapping[str, str] tags: A mapping of tags assigned to the EventGrid Domain.
+    """
+    ...

@@ -230,7 +230,7 @@ type ContainerStorageAccountArrayInput interface {
 type ContainerStorageAccountArray []ContainerStorageAccountInput
 
 func (ContainerStorageAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ContainerStorageAccount)(nil))
+	return reflect.TypeOf((*[]*ContainerStorageAccount)(nil)).Elem()
 }
 
 func (i ContainerStorageAccountArray) ToContainerStorageAccountArrayOutput() ContainerStorageAccountArrayOutput {
@@ -255,7 +255,7 @@ type ContainerStorageAccountMapInput interface {
 type ContainerStorageAccountMap map[string]ContainerStorageAccountInput
 
 func (ContainerStorageAccountMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ContainerStorageAccount)(nil))
+	return reflect.TypeOf((*map[string]*ContainerStorageAccount)(nil)).Elem()
 }
 
 func (i ContainerStorageAccountMap) ToContainerStorageAccountMapOutput() ContainerStorageAccountMapOutput {
@@ -266,9 +266,7 @@ func (i ContainerStorageAccountMap) ToContainerStorageAccountMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerStorageAccountMapOutput)
 }
 
-type ContainerStorageAccountOutput struct {
-	*pulumi.OutputState
-}
+type ContainerStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (ContainerStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContainerStorageAccount)(nil))
@@ -287,14 +285,12 @@ func (o ContainerStorageAccountOutput) ToContainerStorageAccountPtrOutput() Cont
 }
 
 func (o ContainerStorageAccountOutput) ToContainerStorageAccountPtrOutputWithContext(ctx context.Context) ContainerStorageAccountPtrOutput {
-	return o.ApplyT(func(v ContainerStorageAccount) *ContainerStorageAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerStorageAccount) *ContainerStorageAccount {
 		return &v
 	}).(ContainerStorageAccountPtrOutput)
 }
 
-type ContainerStorageAccountPtrOutput struct {
-	*pulumi.OutputState
-}
+type ContainerStorageAccountPtrOutput struct{ *pulumi.OutputState }
 
 func (ContainerStorageAccountPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ContainerStorageAccount)(nil))
@@ -306,6 +302,16 @@ func (o ContainerStorageAccountPtrOutput) ToContainerStorageAccountPtrOutput() C
 
 func (o ContainerStorageAccountPtrOutput) ToContainerStorageAccountPtrOutputWithContext(ctx context.Context) ContainerStorageAccountPtrOutput {
 	return o
+}
+
+func (o ContainerStorageAccountPtrOutput) Elem() ContainerStorageAccountOutput {
+	return o.ApplyT(func(v *ContainerStorageAccount) ContainerStorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerStorageAccount
+		return ret
+	}).(ContainerStorageAccountOutput)
 }
 
 type ContainerStorageAccountArrayOutput struct{ *pulumi.OutputState }

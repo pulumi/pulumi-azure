@@ -244,7 +244,7 @@ type ConfigurationArrayInput interface {
 type ConfigurationArray []ConfigurationInput
 
 func (ConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Configuration)(nil))
+	return reflect.TypeOf((*[]*Configuration)(nil)).Elem()
 }
 
 func (i ConfigurationArray) ToConfigurationArrayOutput() ConfigurationArrayOutput {
@@ -269,7 +269,7 @@ type ConfigurationMapInput interface {
 type ConfigurationMap map[string]ConfigurationInput
 
 func (ConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Configuration)(nil))
+	return reflect.TypeOf((*map[string]*Configuration)(nil)).Elem()
 }
 
 func (i ConfigurationMap) ToConfigurationMapOutput() ConfigurationMapOutput {
@@ -280,9 +280,7 @@ func (i ConfigurationMap) ToConfigurationMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationMapOutput)
 }
 
-type ConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Configuration)(nil))
@@ -301,14 +299,12 @@ func (o ConfigurationOutput) ToConfigurationPtrOutput() ConfigurationPtrOutput {
 }
 
 func (o ConfigurationOutput) ToConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPtrOutput {
-	return o.ApplyT(func(v Configuration) *Configuration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Configuration) *Configuration {
 		return &v
 	}).(ConfigurationPtrOutput)
 }
 
-type ConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Configuration)(nil))
@@ -320,6 +316,16 @@ func (o ConfigurationPtrOutput) ToConfigurationPtrOutput() ConfigurationPtrOutpu
 
 func (o ConfigurationPtrOutput) ToConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPtrOutput {
 	return o
+}
+
+func (o ConfigurationPtrOutput) Elem() ConfigurationOutput {
+	return o.ApplyT(func(v *Configuration) Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret Configuration
+		return ret
+	}).(ConfigurationOutput)
 }
 
 type ConfigurationArrayOutput struct{ *pulumi.OutputState }

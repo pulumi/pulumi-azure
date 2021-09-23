@@ -33,12 +33,12 @@ clientSecret: Optional[str]
 The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 """
 
-disableCorrelationRequestId: Optional[str]
+disableCorrelationRequestId: Optional[bool]
 """
 This will disable the x-ms-correlation-request-id header.
 """
 
-disableTerraformPartnerId: Optional[str]
+disableTerraformPartnerId: Optional[bool]
 """
 This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
 """
@@ -53,7 +53,7 @@ features: Optional[str]
 
 location: Optional[str]
 
-metadataHost: str
+metadataHost: Optional[str]
 """
 The Hostname which should be used for the Azure Metadata Service.
 """
@@ -74,23 +74,23 @@ partnerId: Optional[str]
 A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 """
 
-skipCredentialsValidation: Optional[str]
+skipCredentialsValidation: Optional[bool]
 """
 [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
 """
 
-skipProviderRegistration: Optional[str]
+skipProviderRegistration: bool
 """
 Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 registered?
 """
 
-storageUseAzuread: Optional[str]
+storageUseAzuread: bool
 """
 Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
 """
 
-subscriptionId: Optional[str]
+subscriptionId: str
 """
 The Subscription ID which should be used.
 """
@@ -100,7 +100,7 @@ tenantId: Optional[str]
 The Tenant ID which should be used.
 """
 
-useMsi: Optional[str]
+useMsi: Optional[bool]
 """
 Allowed Managed Service Identity be used for Authentication.
 """

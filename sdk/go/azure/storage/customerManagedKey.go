@@ -195,7 +195,7 @@ type CustomerManagedKeyArrayInput interface {
 type CustomerManagedKeyArray []CustomerManagedKeyInput
 
 func (CustomerManagedKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CustomerManagedKey)(nil))
+	return reflect.TypeOf((*[]*CustomerManagedKey)(nil)).Elem()
 }
 
 func (i CustomerManagedKeyArray) ToCustomerManagedKeyArrayOutput() CustomerManagedKeyArrayOutput {
@@ -220,7 +220,7 @@ type CustomerManagedKeyMapInput interface {
 type CustomerManagedKeyMap map[string]CustomerManagedKeyInput
 
 func (CustomerManagedKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CustomerManagedKey)(nil))
+	return reflect.TypeOf((*map[string]*CustomerManagedKey)(nil)).Elem()
 }
 
 func (i CustomerManagedKeyMap) ToCustomerManagedKeyMapOutput() CustomerManagedKeyMapOutput {
@@ -231,9 +231,7 @@ func (i CustomerManagedKeyMap) ToCustomerManagedKeyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyMapOutput)
 }
 
-type CustomerManagedKeyOutput struct {
-	*pulumi.OutputState
-}
+type CustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (CustomerManagedKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomerManagedKey)(nil))
@@ -252,14 +250,12 @@ func (o CustomerManagedKeyOutput) ToCustomerManagedKeyPtrOutput() CustomerManage
 }
 
 func (o CustomerManagedKeyOutput) ToCustomerManagedKeyPtrOutputWithContext(ctx context.Context) CustomerManagedKeyPtrOutput {
-	return o.ApplyT(func(v CustomerManagedKey) *CustomerManagedKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomerManagedKey) *CustomerManagedKey {
 		return &v
 	}).(CustomerManagedKeyPtrOutput)
 }
 
-type CustomerManagedKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type CustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (CustomerManagedKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CustomerManagedKey)(nil))
@@ -271,6 +267,16 @@ func (o CustomerManagedKeyPtrOutput) ToCustomerManagedKeyPtrOutput() CustomerMan
 
 func (o CustomerManagedKeyPtrOutput) ToCustomerManagedKeyPtrOutputWithContext(ctx context.Context) CustomerManagedKeyPtrOutput {
 	return o
+}
+
+func (o CustomerManagedKeyPtrOutput) Elem() CustomerManagedKeyOutput {
+	return o.ApplyT(func(v *CustomerManagedKey) CustomerManagedKey {
+		if v != nil {
+			return *v
+		}
+		var ret CustomerManagedKey
+		return ret
+	}).(CustomerManagedKeyOutput)
 }
 
 type CustomerManagedKeyArrayOutput struct{ *pulumi.OutputState }

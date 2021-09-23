@@ -145,10 +145,11 @@ func (o WorkspaceCustomParametersOutput) ToWorkspaceCustomParametersPtrOutput() 
 }
 
 func (o WorkspaceCustomParametersOutput) ToWorkspaceCustomParametersPtrOutputWithContext(ctx context.Context) WorkspaceCustomParametersPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCustomParameters) *WorkspaceCustomParameters {
 		return &v
 	}).(WorkspaceCustomParametersPtrOutput)
 }
+
 func (o WorkspaceCustomParametersOutput) MachineLearningWorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.MachineLearningWorkspaceId }).(pulumi.StringPtrOutput)
 }
@@ -223,7 +224,13 @@ func (o WorkspaceCustomParametersPtrOutput) ToWorkspaceCustomParametersPtrOutput
 }
 
 func (o WorkspaceCustomParametersPtrOutput) Elem() WorkspaceCustomParametersOutput {
-	return o.ApplyT(func(v *WorkspaceCustomParameters) WorkspaceCustomParameters { return *v }).(WorkspaceCustomParametersOutput)
+	return o.ApplyT(func(v *WorkspaceCustomParameters) WorkspaceCustomParameters {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceCustomParameters
+		return ret
+	}).(WorkspaceCustomParametersOutput)
 }
 
 func (o WorkspaceCustomParametersPtrOutput) MachineLearningWorkspaceId() pulumi.StringPtrOutput {

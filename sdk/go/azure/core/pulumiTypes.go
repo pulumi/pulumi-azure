@@ -429,7 +429,7 @@ func (o ResourceGroupPolicyAssignmentIdentityOutput) ToResourceGroupPolicyAssign
 }
 
 func (o ResourceGroupPolicyAssignmentIdentityOutput) ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentIdentityPtrOutput {
-	return o.ApplyT(func(v ResourceGroupPolicyAssignmentIdentity) *ResourceGroupPolicyAssignmentIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupPolicyAssignmentIdentity) *ResourceGroupPolicyAssignmentIdentity {
 		return &v
 	}).(ResourceGroupPolicyAssignmentIdentityPtrOutput)
 }
@@ -464,7 +464,13 @@ func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) ToResourceGroupPolicyAss
 }
 
 func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) Elem() ResourceGroupPolicyAssignmentIdentityOutput {
-	return o.ApplyT(func(v *ResourceGroupPolicyAssignmentIdentity) ResourceGroupPolicyAssignmentIdentity { return *v }).(ResourceGroupPolicyAssignmentIdentityOutput)
+	return o.ApplyT(func(v *ResourceGroupPolicyAssignmentIdentity) ResourceGroupPolicyAssignmentIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGroupPolicyAssignmentIdentity
+		return ret
+	}).(ResourceGroupPolicyAssignmentIdentityOutput)
 }
 
 // The Principal ID of the Policy Assignment for this Resource Group.
@@ -598,7 +604,7 @@ func (o ResourcePolicyAssignmentIdentityOutput) ToResourcePolicyAssignmentIdenti
 }
 
 func (o ResourcePolicyAssignmentIdentityOutput) ToResourcePolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) ResourcePolicyAssignmentIdentityPtrOutput {
-	return o.ApplyT(func(v ResourcePolicyAssignmentIdentity) *ResourcePolicyAssignmentIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourcePolicyAssignmentIdentity) *ResourcePolicyAssignmentIdentity {
 		return &v
 	}).(ResourcePolicyAssignmentIdentityPtrOutput)
 }
@@ -633,7 +639,13 @@ func (o ResourcePolicyAssignmentIdentityPtrOutput) ToResourcePolicyAssignmentIde
 }
 
 func (o ResourcePolicyAssignmentIdentityPtrOutput) Elem() ResourcePolicyAssignmentIdentityOutput {
-	return o.ApplyT(func(v *ResourcePolicyAssignmentIdentity) ResourcePolicyAssignmentIdentity { return *v }).(ResourcePolicyAssignmentIdentityOutput)
+	return o.ApplyT(func(v *ResourcePolicyAssignmentIdentity) ResourcePolicyAssignmentIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourcePolicyAssignmentIdentity
+		return ret
+	}).(ResourcePolicyAssignmentIdentityOutput)
 }
 
 // The Principal ID of the Policy Assignment for this Resource.
@@ -767,7 +779,7 @@ func (o SubscriptionPolicyAssignmentIdentityOutput) ToSubscriptionPolicyAssignme
 }
 
 func (o SubscriptionPolicyAssignmentIdentityOutput) ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentIdentityPtrOutput {
-	return o.ApplyT(func(v SubscriptionPolicyAssignmentIdentity) *SubscriptionPolicyAssignmentIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionPolicyAssignmentIdentity) *SubscriptionPolicyAssignmentIdentity {
 		return &v
 	}).(SubscriptionPolicyAssignmentIdentityPtrOutput)
 }
@@ -802,7 +814,13 @@ func (o SubscriptionPolicyAssignmentIdentityPtrOutput) ToSubscriptionPolicyAssig
 }
 
 func (o SubscriptionPolicyAssignmentIdentityPtrOutput) Elem() SubscriptionPolicyAssignmentIdentityOutput {
-	return o.ApplyT(func(v *SubscriptionPolicyAssignmentIdentity) SubscriptionPolicyAssignmentIdentity { return *v }).(SubscriptionPolicyAssignmentIdentityOutput)
+	return o.ApplyT(func(v *SubscriptionPolicyAssignmentIdentity) SubscriptionPolicyAssignmentIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionPolicyAssignmentIdentity
+		return ret
+	}).(SubscriptionPolicyAssignmentIdentityOutput)
 }
 
 // The Principal ID of the Policy Assignment for this Subscription.

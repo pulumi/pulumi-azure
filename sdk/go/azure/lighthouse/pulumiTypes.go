@@ -239,7 +239,7 @@ func (o DefinitionPlanOutput) ToDefinitionPlanPtrOutput() DefinitionPlanPtrOutpu
 }
 
 func (o DefinitionPlanOutput) ToDefinitionPlanPtrOutputWithContext(ctx context.Context) DefinitionPlanPtrOutput {
-	return o.ApplyT(func(v DefinitionPlan) *DefinitionPlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefinitionPlan) *DefinitionPlan {
 		return &v
 	}).(DefinitionPlanPtrOutput)
 }
@@ -279,7 +279,13 @@ func (o DefinitionPlanPtrOutput) ToDefinitionPlanPtrOutputWithContext(ctx contex
 }
 
 func (o DefinitionPlanPtrOutput) Elem() DefinitionPlanOutput {
-	return o.ApplyT(func(v *DefinitionPlan) DefinitionPlan { return *v }).(DefinitionPlanOutput)
+	return o.ApplyT(func(v *DefinitionPlan) DefinitionPlan {
+		if v != nil {
+			return *v
+		}
+		var ret DefinitionPlan
+		return ret
+	}).(DefinitionPlanOutput)
 }
 
 // The plan name of the marketplace offer.

@@ -261,7 +261,7 @@ type ChannelSmsArrayInput interface {
 type ChannelSmsArray []ChannelSmsInput
 
 func (ChannelSmsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ChannelSms)(nil))
+	return reflect.TypeOf((*[]*ChannelSms)(nil)).Elem()
 }
 
 func (i ChannelSmsArray) ToChannelSmsArrayOutput() ChannelSmsArrayOutput {
@@ -286,7 +286,7 @@ type ChannelSmsMapInput interface {
 type ChannelSmsMap map[string]ChannelSmsInput
 
 func (ChannelSmsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ChannelSms)(nil))
+	return reflect.TypeOf((*map[string]*ChannelSms)(nil)).Elem()
 }
 
 func (i ChannelSmsMap) ToChannelSmsMapOutput() ChannelSmsMapOutput {
@@ -297,9 +297,7 @@ func (i ChannelSmsMap) ToChannelSmsMapOutputWithContext(ctx context.Context) Cha
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSmsMapOutput)
 }
 
-type ChannelSmsOutput struct {
-	*pulumi.OutputState
-}
+type ChannelSmsOutput struct{ *pulumi.OutputState }
 
 func (ChannelSmsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelSms)(nil))
@@ -318,14 +316,12 @@ func (o ChannelSmsOutput) ToChannelSmsPtrOutput() ChannelSmsPtrOutput {
 }
 
 func (o ChannelSmsOutput) ToChannelSmsPtrOutputWithContext(ctx context.Context) ChannelSmsPtrOutput {
-	return o.ApplyT(func(v ChannelSms) *ChannelSms {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelSms) *ChannelSms {
 		return &v
 	}).(ChannelSmsPtrOutput)
 }
 
-type ChannelSmsPtrOutput struct {
-	*pulumi.OutputState
-}
+type ChannelSmsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelSmsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ChannelSms)(nil))
@@ -337,6 +333,16 @@ func (o ChannelSmsPtrOutput) ToChannelSmsPtrOutput() ChannelSmsPtrOutput {
 
 func (o ChannelSmsPtrOutput) ToChannelSmsPtrOutputWithContext(ctx context.Context) ChannelSmsPtrOutput {
 	return o
+}
+
+func (o ChannelSmsPtrOutput) Elem() ChannelSmsOutput {
+	return o.ApplyT(func(v *ChannelSms) ChannelSms {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelSms
+		return ret
+	}).(ChannelSmsOutput)
 }
 
 type ChannelSmsArrayOutput struct{ *pulumi.OutputState }

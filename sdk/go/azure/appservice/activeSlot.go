@@ -216,7 +216,7 @@ type ActiveSlotArrayInput interface {
 type ActiveSlotArray []ActiveSlotInput
 
 func (ActiveSlotArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ActiveSlot)(nil))
+	return reflect.TypeOf((*[]*ActiveSlot)(nil)).Elem()
 }
 
 func (i ActiveSlotArray) ToActiveSlotArrayOutput() ActiveSlotArrayOutput {
@@ -241,7 +241,7 @@ type ActiveSlotMapInput interface {
 type ActiveSlotMap map[string]ActiveSlotInput
 
 func (ActiveSlotMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ActiveSlot)(nil))
+	return reflect.TypeOf((*map[string]*ActiveSlot)(nil)).Elem()
 }
 
 func (i ActiveSlotMap) ToActiveSlotMapOutput() ActiveSlotMapOutput {
@@ -252,9 +252,7 @@ func (i ActiveSlotMap) ToActiveSlotMapOutputWithContext(ctx context.Context) Act
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveSlotMapOutput)
 }
 
-type ActiveSlotOutput struct {
-	*pulumi.OutputState
-}
+type ActiveSlotOutput struct{ *pulumi.OutputState }
 
 func (ActiveSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActiveSlot)(nil))
@@ -273,14 +271,12 @@ func (o ActiveSlotOutput) ToActiveSlotPtrOutput() ActiveSlotPtrOutput {
 }
 
 func (o ActiveSlotOutput) ToActiveSlotPtrOutputWithContext(ctx context.Context) ActiveSlotPtrOutput {
-	return o.ApplyT(func(v ActiveSlot) *ActiveSlot {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveSlot) *ActiveSlot {
 		return &v
 	}).(ActiveSlotPtrOutput)
 }
 
-type ActiveSlotPtrOutput struct {
-	*pulumi.OutputState
-}
+type ActiveSlotPtrOutput struct{ *pulumi.OutputState }
 
 func (ActiveSlotPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ActiveSlot)(nil))
@@ -292,6 +288,16 @@ func (o ActiveSlotPtrOutput) ToActiveSlotPtrOutput() ActiveSlotPtrOutput {
 
 func (o ActiveSlotPtrOutput) ToActiveSlotPtrOutputWithContext(ctx context.Context) ActiveSlotPtrOutput {
 	return o
+}
+
+func (o ActiveSlotPtrOutput) Elem() ActiveSlotOutput {
+	return o.ApplyT(func(v *ActiveSlot) ActiveSlot {
+		if v != nil {
+			return *v
+		}
+		var ret ActiveSlot
+		return ret
+	}).(ActiveSlotOutput)
 }
 
 type ActiveSlotArrayOutput struct{ *pulumi.OutputState }

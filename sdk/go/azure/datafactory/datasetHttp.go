@@ -326,7 +326,7 @@ type DatasetHttpArrayInput interface {
 type DatasetHttpArray []DatasetHttpInput
 
 func (DatasetHttpArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DatasetHttp)(nil))
+	return reflect.TypeOf((*[]*DatasetHttp)(nil)).Elem()
 }
 
 func (i DatasetHttpArray) ToDatasetHttpArrayOutput() DatasetHttpArrayOutput {
@@ -351,7 +351,7 @@ type DatasetHttpMapInput interface {
 type DatasetHttpMap map[string]DatasetHttpInput
 
 func (DatasetHttpMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DatasetHttp)(nil))
+	return reflect.TypeOf((*map[string]*DatasetHttp)(nil)).Elem()
 }
 
 func (i DatasetHttpMap) ToDatasetHttpMapOutput() DatasetHttpMapOutput {
@@ -362,9 +362,7 @@ func (i DatasetHttpMap) ToDatasetHttpMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpMapOutput)
 }
 
-type DatasetHttpOutput struct {
-	*pulumi.OutputState
-}
+type DatasetHttpOutput struct{ *pulumi.OutputState }
 
 func (DatasetHttpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetHttp)(nil))
@@ -383,14 +381,12 @@ func (o DatasetHttpOutput) ToDatasetHttpPtrOutput() DatasetHttpPtrOutput {
 }
 
 func (o DatasetHttpOutput) ToDatasetHttpPtrOutputWithContext(ctx context.Context) DatasetHttpPtrOutput {
-	return o.ApplyT(func(v DatasetHttp) *DatasetHttp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetHttp) *DatasetHttp {
 		return &v
 	}).(DatasetHttpPtrOutput)
 }
 
-type DatasetHttpPtrOutput struct {
-	*pulumi.OutputState
-}
+type DatasetHttpPtrOutput struct{ *pulumi.OutputState }
 
 func (DatasetHttpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DatasetHttp)(nil))
@@ -402,6 +398,16 @@ func (o DatasetHttpPtrOutput) ToDatasetHttpPtrOutput() DatasetHttpPtrOutput {
 
 func (o DatasetHttpPtrOutput) ToDatasetHttpPtrOutputWithContext(ctx context.Context) DatasetHttpPtrOutput {
 	return o
+}
+
+func (o DatasetHttpPtrOutput) Elem() DatasetHttpOutput {
+	return o.ApplyT(func(v *DatasetHttp) DatasetHttp {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetHttp
+		return ret
+	}).(DatasetHttpOutput)
 }
 
 type DatasetHttpArrayOutput struct{ *pulumi.OutputState }

@@ -333,7 +333,7 @@ type DatasetParquetArrayInput interface {
 type DatasetParquetArray []DatasetParquetInput
 
 func (DatasetParquetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DatasetParquet)(nil))
+	return reflect.TypeOf((*[]*DatasetParquet)(nil)).Elem()
 }
 
 func (i DatasetParquetArray) ToDatasetParquetArrayOutput() DatasetParquetArrayOutput {
@@ -358,7 +358,7 @@ type DatasetParquetMapInput interface {
 type DatasetParquetMap map[string]DatasetParquetInput
 
 func (DatasetParquetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DatasetParquet)(nil))
+	return reflect.TypeOf((*map[string]*DatasetParquet)(nil)).Elem()
 }
 
 func (i DatasetParquetMap) ToDatasetParquetMapOutput() DatasetParquetMapOutput {
@@ -369,9 +369,7 @@ func (i DatasetParquetMap) ToDatasetParquetMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetMapOutput)
 }
 
-type DatasetParquetOutput struct {
-	*pulumi.OutputState
-}
+type DatasetParquetOutput struct{ *pulumi.OutputState }
 
 func (DatasetParquetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetParquet)(nil))
@@ -390,14 +388,12 @@ func (o DatasetParquetOutput) ToDatasetParquetPtrOutput() DatasetParquetPtrOutpu
 }
 
 func (o DatasetParquetOutput) ToDatasetParquetPtrOutputWithContext(ctx context.Context) DatasetParquetPtrOutput {
-	return o.ApplyT(func(v DatasetParquet) *DatasetParquet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetParquet) *DatasetParquet {
 		return &v
 	}).(DatasetParquetPtrOutput)
 }
 
-type DatasetParquetPtrOutput struct {
-	*pulumi.OutputState
-}
+type DatasetParquetPtrOutput struct{ *pulumi.OutputState }
 
 func (DatasetParquetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DatasetParquet)(nil))
@@ -409,6 +405,16 @@ func (o DatasetParquetPtrOutput) ToDatasetParquetPtrOutput() DatasetParquetPtrOu
 
 func (o DatasetParquetPtrOutput) ToDatasetParquetPtrOutputWithContext(ctx context.Context) DatasetParquetPtrOutput {
 	return o
+}
+
+func (o DatasetParquetPtrOutput) Elem() DatasetParquetOutput {
+	return o.ApplyT(func(v *DatasetParquet) DatasetParquet {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetParquet
+		return ret
+	}).(DatasetParquetOutput)
 }
 
 type DatasetParquetArrayOutput struct{ *pulumi.OutputState }

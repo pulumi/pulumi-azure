@@ -4,6 +4,9 @@
 package operationalinsights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,4 +76,101 @@ type LookupAnalyticsWorkspaceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Workspace (or Customer) ID for the Log Analytics Workspace.
 	WorkspaceId string `pulumi:"workspaceId"`
+}
+
+func LookupAnalyticsWorkspaceOutput(ctx *pulumi.Context, args LookupAnalyticsWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupAnalyticsWorkspaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAnalyticsWorkspaceResult, error) {
+			args := v.(LookupAnalyticsWorkspaceArgs)
+			r, err := LookupAnalyticsWorkspace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAnalyticsWorkspaceResultOutput)
+}
+
+// A collection of arguments for invoking getAnalyticsWorkspace.
+type LookupAnalyticsWorkspaceOutputArgs struct {
+	// Specifies the name of the Log Analytics Workspace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group in which the Log Analytics workspace is located in.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAnalyticsWorkspaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAnalyticsWorkspaceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAnalyticsWorkspace.
+type LookupAnalyticsWorkspaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAnalyticsWorkspaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAnalyticsWorkspaceResult)(nil)).Elem()
+}
+
+func (o LookupAnalyticsWorkspaceResultOutput) ToLookupAnalyticsWorkspaceResultOutput() LookupAnalyticsWorkspaceResultOutput {
+	return o
+}
+
+func (o LookupAnalyticsWorkspaceResultOutput) ToLookupAnalyticsWorkspaceResultOutputWithContext(ctx context.Context) LookupAnalyticsWorkspaceResultOutput {
+	return o
+}
+
+// The workspace daily quota for ingestion in GB.
+func (o LookupAnalyticsWorkspaceResultOutput) DailyQuotaGb() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) float64 { return v.DailyQuotaGb }).(pulumi.Float64Output)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupAnalyticsWorkspaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupAnalyticsWorkspaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupAnalyticsWorkspaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
+func (o LookupAnalyticsWorkspaceResultOutput) PortalUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.PortalUrl }).(pulumi.StringOutput)
+}
+
+// The Primary shared key for the Log Analytics Workspace.
+func (o LookupAnalyticsWorkspaceResultOutput) PrimarySharedKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.PrimarySharedKey }).(pulumi.StringOutput)
+}
+
+func (o LookupAnalyticsWorkspaceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The workspace data retention in days.
+func (o LookupAnalyticsWorkspaceResultOutput) RetentionInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) int { return v.RetentionInDays }).(pulumi.IntOutput)
+}
+
+// The Secondary shared key for the Log Analytics Workspace.
+func (o LookupAnalyticsWorkspaceResultOutput) SecondarySharedKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.SecondarySharedKey }).(pulumi.StringOutput)
+}
+
+// The Sku of the Log Analytics Workspace.
+func (o LookupAnalyticsWorkspaceResultOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupAnalyticsWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Workspace (or Customer) ID for the Log Analytics Workspace.
+func (o LookupAnalyticsWorkspaceResultOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAnalyticsWorkspaceResultOutput{})
 }

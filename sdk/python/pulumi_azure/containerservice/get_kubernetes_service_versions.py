@@ -12,6 +12,7 @@ __all__ = [
     'GetKubernetesServiceVersionsResult',
     'AwaitableGetKubernetesServiceVersionsResult',
     'get_kubernetes_service_versions',
+    'get_kubernetes_service_versions_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,30 @@ def get_kubernetes_service_versions(include_preview: Optional[bool] = None,
         location=__ret__.location,
         version_prefix=__ret__.version_prefix,
         versions=__ret__.versions)
+
+
+@_utilities.lift_output_func(get_kubernetes_service_versions)
+def get_kubernetes_service_versions_output(include_preview: Optional[pulumi.Input[Optional[bool]]] = None,
+                                           location: Optional[pulumi.Input[str]] = None,
+                                           version_prefix: Optional[pulumi.Input[Optional[str]]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesServiceVersionsResult]:
+    """
+    Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    current = azure.containerservice.get_kubernetes_service_versions(location="West Europe")
+    pulumi.export("versions", current.versions)
+    pulumi.export("latestVersion", current.latest_version)
+    ```
+
+
+    :param bool include_preview: Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
+    :param str location: Specifies the location in which to query for versions.
+    :param str version_prefix: A prefix filter for the versions of Kubernetes which should be returned; for example `1.` will return `1.9` to `1.14`, whereas `1.12` will return `1.12.2`.
+    """
+    ...

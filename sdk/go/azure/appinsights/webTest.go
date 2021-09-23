@@ -342,7 +342,7 @@ type WebTestArrayInput interface {
 type WebTestArray []WebTestInput
 
 func (WebTestArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*WebTest)(nil))
+	return reflect.TypeOf((*[]*WebTest)(nil)).Elem()
 }
 
 func (i WebTestArray) ToWebTestArrayOutput() WebTestArrayOutput {
@@ -367,7 +367,7 @@ type WebTestMapInput interface {
 type WebTestMap map[string]WebTestInput
 
 func (WebTestMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*WebTest)(nil))
+	return reflect.TypeOf((*map[string]*WebTest)(nil)).Elem()
 }
 
 func (i WebTestMap) ToWebTestMapOutput() WebTestMapOutput {
@@ -378,9 +378,7 @@ func (i WebTestMap) ToWebTestMapOutputWithContext(ctx context.Context) WebTestMa
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestMapOutput)
 }
 
-type WebTestOutput struct {
-	*pulumi.OutputState
-}
+type WebTestOutput struct{ *pulumi.OutputState }
 
 func (WebTestOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebTest)(nil))
@@ -399,14 +397,12 @@ func (o WebTestOutput) ToWebTestPtrOutput() WebTestPtrOutput {
 }
 
 func (o WebTestOutput) ToWebTestPtrOutputWithContext(ctx context.Context) WebTestPtrOutput {
-	return o.ApplyT(func(v WebTest) *WebTest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTest) *WebTest {
 		return &v
 	}).(WebTestPtrOutput)
 }
 
-type WebTestPtrOutput struct {
-	*pulumi.OutputState
-}
+type WebTestPtrOutput struct{ *pulumi.OutputState }
 
 func (WebTestPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WebTest)(nil))
@@ -418,6 +414,16 @@ func (o WebTestPtrOutput) ToWebTestPtrOutput() WebTestPtrOutput {
 
 func (o WebTestPtrOutput) ToWebTestPtrOutputWithContext(ctx context.Context) WebTestPtrOutput {
 	return o
+}
+
+func (o WebTestPtrOutput) Elem() WebTestOutput {
+	return o.ApplyT(func(v *WebTest) WebTest {
+		if v != nil {
+			return *v
+		}
+		var ret WebTest
+		return ret
+	}).(WebTestOutput)
 }
 
 type WebTestArrayOutput struct{ *pulumi.OutputState }

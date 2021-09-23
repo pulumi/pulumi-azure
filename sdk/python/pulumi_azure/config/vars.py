@@ -50,18 +50,18 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('clientSecret')
 
     @property
-    def disable_correlation_request_id(self) -> Optional[str]:
+    def disable_correlation_request_id(self) -> Optional[bool]:
         """
         This will disable the x-ms-correlation-request-id header.
         """
-        return __config__.get('disableCorrelationRequestId')
+        return __config__.get_bool('disableCorrelationRequestId')
 
     @property
-    def disable_terraform_partner_id(self) -> Optional[str]:
+    def disable_terraform_partner_id(self) -> Optional[bool]:
         """
         This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
         """
-        return __config__.get('disableTerraformPartnerId')
+        return __config__.get_bool('disableTerraformPartnerId')
 
     @property
     def environment(self) -> str:
@@ -80,7 +80,7 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('location') or _utilities.get_env('ARM_LOCATION')
 
     @property
-    def metadata_host(self) -> str:
+    def metadata_host(self) -> Optional[str]:
         """
         The Hostname which should be used for the Azure Metadata Service.
         """
@@ -109,29 +109,29 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('partnerId')
 
     @property
-    def skip_credentials_validation(self) -> Optional[str]:
+    def skip_credentials_validation(self) -> Optional[bool]:
         """
         [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
         """
-        return __config__.get('skipCredentialsValidation')
+        return __config__.get_bool('skipCredentialsValidation')
 
     @property
-    def skip_provider_registration(self) -> Optional[str]:
+    def skip_provider_registration(self) -> bool:
         """
         Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
         registered?
         """
-        return __config__.get('skipProviderRegistration') or (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
+        return __config__.get_bool('skipProviderRegistration') or (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
 
     @property
-    def storage_use_azuread(self) -> Optional[str]:
+    def storage_use_azuread(self) -> bool:
         """
         Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
         """
-        return __config__.get('storageUseAzuread') or (_utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
+        return __config__.get_bool('storageUseAzuread') or (_utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
 
     @property
-    def subscription_id(self) -> Optional[str]:
+    def subscription_id(self) -> str:
         """
         The Subscription ID which should be used.
         """
@@ -145,9 +145,9 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('tenantId')
 
     @property
-    def use_msi(self) -> Optional[str]:
+    def use_msi(self) -> Optional[bool]:
         """
         Allowed Managed Service Identity be used for Authentication.
         """
-        return __config__.get('useMsi')
+        return __config__.get_bool('useMsi')
 

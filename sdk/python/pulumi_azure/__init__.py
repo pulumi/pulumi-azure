@@ -10,107 +10,208 @@ from ._inputs import *
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure.advisor as advisor
-    import pulumi_azure.analysisservices as analysisservices
-    import pulumi_azure.apimanagement as apimanagement
-    import pulumi_azure.appconfiguration as appconfiguration
-    import pulumi_azure.appinsights as appinsights
-    import pulumi_azure.appplatform as appplatform
-    import pulumi_azure.appservice as appservice
-    import pulumi_azure.attestation as attestation
-    import pulumi_azure.authorization as authorization
-    import pulumi_azure.automation as automation
-    import pulumi_azure.avs as avs
-    import pulumi_azure.backup as backup
-    import pulumi_azure.batch as batch
-    import pulumi_azure.billing as billing
-    import pulumi_azure.blueprint as blueprint
-    import pulumi_azure.bot as bot
-    import pulumi_azure.cdn as cdn
-    import pulumi_azure.cognitive as cognitive
-    import pulumi_azure.communication as communication
-    import pulumi_azure.compute as compute
-    import pulumi_azure.config as config
-    import pulumi_azure.consumption as consumption
-    import pulumi_azure.containerservice as containerservice
-    import pulumi_azure.core as core
-    import pulumi_azure.cosmosdb as cosmosdb
-    import pulumi_azure.costmanagement as costmanagement
-    import pulumi_azure.dashboard as dashboard
-    import pulumi_azure.databasemigration as databasemigration
-    import pulumi_azure.databoxedge as databoxedge
-    import pulumi_azure.databricks as databricks
-    import pulumi_azure.datafactory as datafactory
-    import pulumi_azure.datalake as datalake
-    import pulumi_azure.dataprotection as dataprotection
-    import pulumi_azure.datashare as datashare
-    import pulumi_azure.desktopvirtualization as desktopvirtualization
-    import pulumi_azure.devspace as devspace
-    import pulumi_azure.devtest as devtest
-    import pulumi_azure.digitaltwins as digitaltwins
-    import pulumi_azure.dns as dns
-    import pulumi_azure.domainservices as domainservices
-    import pulumi_azure.eventgrid as eventgrid
-    import pulumi_azure.eventhub as eventhub
-    import pulumi_azure.frontdoor as frontdoor
-    import pulumi_azure.hdinsight as hdinsight
-    import pulumi_azure.healthcare as healthcare
-    import pulumi_azure.hpc as hpc
-    import pulumi_azure.hsm as hsm
-    import pulumi_azure.iot as iot
-    import pulumi_azure.iotcentral as iotcentral
-    import pulumi_azure.keyvault as keyvault
-    import pulumi_azure.kusto as kusto
-    import pulumi_azure.lb as lb
-    import pulumi_azure.lighthouse as lighthouse
-    import pulumi_azure.loganalytics as loganalytics
-    import pulumi_azure.logicapps as logicapps
-    import pulumi_azure.machinelearning as machinelearning
-    import pulumi_azure.maintenance as maintenance
-    import pulumi_azure.managedapplication as managedapplication
-    import pulumi_azure.management as management
-    import pulumi_azure.managementgroups as managementgroups
-    import pulumi_azure.managementresource as managementresource
-    import pulumi_azure.maps as maps
-    import pulumi_azure.mariadb as mariadb
-    import pulumi_azure.marketplace as marketplace
-    import pulumi_azure.media as media
-    import pulumi_azure.mediaservices as mediaservices
-    import pulumi_azure.mixedreality as mixedreality
-    import pulumi_azure.monitoring as monitoring
-    import pulumi_azure.msi as msi
-    import pulumi_azure.mssql as mssql
-    import pulumi_azure.mysql as mysql
-    import pulumi_azure.netapp as netapp
-    import pulumi_azure.network as network
-    import pulumi_azure.notificationhub as notificationhub
-    import pulumi_azure.operationalinsights as operationalinsights
-    import pulumi_azure.policy as policy
-    import pulumi_azure.postgresql as postgresql
-    import pulumi_azure.powerbi as powerbi
-    import pulumi_azure.privatedns as privatedns
-    import pulumi_azure.privatelink as privatelink
-    import pulumi_azure.proximity as proximity
-    import pulumi_azure.purview as purview
-    import pulumi_azure.recoveryservices as recoveryservices
-    import pulumi_azure.redis as redis
-    import pulumi_azure.relay as relay
-    import pulumi_azure.role as role
-    import pulumi_azure.search as search
-    import pulumi_azure.securitycenter as securitycenter
-    import pulumi_azure.sentinel as sentinel
-    import pulumi_azure.servicebus as servicebus
-    import pulumi_azure.servicefabric as servicefabric
-    import pulumi_azure.signalr as signalr
-    import pulumi_azure.siterecovery as siterecovery
-    import pulumi_azure.sql as sql
-    import pulumi_azure.stack as stack
-    import pulumi_azure.storage as storage
-    import pulumi_azure.streamanalytics as streamanalytics
-    import pulumi_azure.synapse as synapse
-    import pulumi_azure.trafficmanager as trafficmanager
-    import pulumi_azure.videoanalyzer as videoanalyzer
-    import pulumi_azure.waf as waf
+    import pulumi_azure.advisor as __advisor
+    advisor = __advisor
+    import pulumi_azure.analysisservices as __analysisservices
+    analysisservices = __analysisservices
+    import pulumi_azure.apimanagement as __apimanagement
+    apimanagement = __apimanagement
+    import pulumi_azure.appconfiguration as __appconfiguration
+    appconfiguration = __appconfiguration
+    import pulumi_azure.appinsights as __appinsights
+    appinsights = __appinsights
+    import pulumi_azure.appplatform as __appplatform
+    appplatform = __appplatform
+    import pulumi_azure.appservice as __appservice
+    appservice = __appservice
+    import pulumi_azure.attestation as __attestation
+    attestation = __attestation
+    import pulumi_azure.authorization as __authorization
+    authorization = __authorization
+    import pulumi_azure.automation as __automation
+    automation = __automation
+    import pulumi_azure.avs as __avs
+    avs = __avs
+    import pulumi_azure.backup as __backup
+    backup = __backup
+    import pulumi_azure.batch as __batch
+    batch = __batch
+    import pulumi_azure.billing as __billing
+    billing = __billing
+    import pulumi_azure.blueprint as __blueprint
+    blueprint = __blueprint
+    import pulumi_azure.bot as __bot
+    bot = __bot
+    import pulumi_azure.cdn as __cdn
+    cdn = __cdn
+    import pulumi_azure.cognitive as __cognitive
+    cognitive = __cognitive
+    import pulumi_azure.communication as __communication
+    communication = __communication
+    import pulumi_azure.compute as __compute
+    compute = __compute
+    import pulumi_azure.config as __config
+    config = __config
+    import pulumi_azure.consumption as __consumption
+    consumption = __consumption
+    import pulumi_azure.containerservice as __containerservice
+    containerservice = __containerservice
+    import pulumi_azure.core as __core
+    core = __core
+    import pulumi_azure.cosmosdb as __cosmosdb
+    cosmosdb = __cosmosdb
+    import pulumi_azure.costmanagement as __costmanagement
+    costmanagement = __costmanagement
+    import pulumi_azure.dashboard as __dashboard
+    dashboard = __dashboard
+    import pulumi_azure.databasemigration as __databasemigration
+    databasemigration = __databasemigration
+    import pulumi_azure.databoxedge as __databoxedge
+    databoxedge = __databoxedge
+    import pulumi_azure.databricks as __databricks
+    databricks = __databricks
+    import pulumi_azure.datafactory as __datafactory
+    datafactory = __datafactory
+    import pulumi_azure.datalake as __datalake
+    datalake = __datalake
+    import pulumi_azure.dataprotection as __dataprotection
+    dataprotection = __dataprotection
+    import pulumi_azure.datashare as __datashare
+    datashare = __datashare
+    import pulumi_azure.desktopvirtualization as __desktopvirtualization
+    desktopvirtualization = __desktopvirtualization
+    import pulumi_azure.devspace as __devspace
+    devspace = __devspace
+    import pulumi_azure.devtest as __devtest
+    devtest = __devtest
+    import pulumi_azure.digitaltwins as __digitaltwins
+    digitaltwins = __digitaltwins
+    import pulumi_azure.dns as __dns
+    dns = __dns
+    import pulumi_azure.domainservices as __domainservices
+    domainservices = __domainservices
+    import pulumi_azure.eventgrid as __eventgrid
+    eventgrid = __eventgrid
+    import pulumi_azure.eventhub as __eventhub
+    eventhub = __eventhub
+    import pulumi_azure.frontdoor as __frontdoor
+    frontdoor = __frontdoor
+    import pulumi_azure.hdinsight as __hdinsight
+    hdinsight = __hdinsight
+    import pulumi_azure.healthcare as __healthcare
+    healthcare = __healthcare
+    import pulumi_azure.hpc as __hpc
+    hpc = __hpc
+    import pulumi_azure.hsm as __hsm
+    hsm = __hsm
+    import pulumi_azure.iot as __iot
+    iot = __iot
+    import pulumi_azure.iotcentral as __iotcentral
+    iotcentral = __iotcentral
+    import pulumi_azure.keyvault as __keyvault
+    keyvault = __keyvault
+    import pulumi_azure.kusto as __kusto
+    kusto = __kusto
+    import pulumi_azure.lb as __lb
+    lb = __lb
+    import pulumi_azure.lighthouse as __lighthouse
+    lighthouse = __lighthouse
+    import pulumi_azure.loganalytics as __loganalytics
+    loganalytics = __loganalytics
+    import pulumi_azure.logicapps as __logicapps
+    logicapps = __logicapps
+    import pulumi_azure.machinelearning as __machinelearning
+    machinelearning = __machinelearning
+    import pulumi_azure.maintenance as __maintenance
+    maintenance = __maintenance
+    import pulumi_azure.managedapplication as __managedapplication
+    managedapplication = __managedapplication
+    import pulumi_azure.management as __management
+    management = __management
+    import pulumi_azure.managementgroups as __managementgroups
+    managementgroups = __managementgroups
+    import pulumi_azure.managementresource as __managementresource
+    managementresource = __managementresource
+    import pulumi_azure.maps as __maps
+    maps = __maps
+    import pulumi_azure.mariadb as __mariadb
+    mariadb = __mariadb
+    import pulumi_azure.marketplace as __marketplace
+    marketplace = __marketplace
+    import pulumi_azure.media as __media
+    media = __media
+    import pulumi_azure.mediaservices as __mediaservices
+    mediaservices = __mediaservices
+    import pulumi_azure.mixedreality as __mixedreality
+    mixedreality = __mixedreality
+    import pulumi_azure.monitoring as __monitoring
+    monitoring = __monitoring
+    import pulumi_azure.msi as __msi
+    msi = __msi
+    import pulumi_azure.mssql as __mssql
+    mssql = __mssql
+    import pulumi_azure.mysql as __mysql
+    mysql = __mysql
+    import pulumi_azure.netapp as __netapp
+    netapp = __netapp
+    import pulumi_azure.network as __network
+    network = __network
+    import pulumi_azure.notificationhub as __notificationhub
+    notificationhub = __notificationhub
+    import pulumi_azure.operationalinsights as __operationalinsights
+    operationalinsights = __operationalinsights
+    import pulumi_azure.policy as __policy
+    policy = __policy
+    import pulumi_azure.postgresql as __postgresql
+    postgresql = __postgresql
+    import pulumi_azure.powerbi as __powerbi
+    powerbi = __powerbi
+    import pulumi_azure.privatedns as __privatedns
+    privatedns = __privatedns
+    import pulumi_azure.privatelink as __privatelink
+    privatelink = __privatelink
+    import pulumi_azure.proximity as __proximity
+    proximity = __proximity
+    import pulumi_azure.purview as __purview
+    purview = __purview
+    import pulumi_azure.recoveryservices as __recoveryservices
+    recoveryservices = __recoveryservices
+    import pulumi_azure.redis as __redis
+    redis = __redis
+    import pulumi_azure.relay as __relay
+    relay = __relay
+    import pulumi_azure.role as __role
+    role = __role
+    import pulumi_azure.search as __search
+    search = __search
+    import pulumi_azure.securitycenter as __securitycenter
+    securitycenter = __securitycenter
+    import pulumi_azure.sentinel as __sentinel
+    sentinel = __sentinel
+    import pulumi_azure.servicebus as __servicebus
+    servicebus = __servicebus
+    import pulumi_azure.servicefabric as __servicefabric
+    servicefabric = __servicefabric
+    import pulumi_azure.signalr as __signalr
+    signalr = __signalr
+    import pulumi_azure.siterecovery as __siterecovery
+    siterecovery = __siterecovery
+    import pulumi_azure.sql as __sql
+    sql = __sql
+    import pulumi_azure.stack as __stack
+    stack = __stack
+    import pulumi_azure.storage as __storage
+    storage = __storage
+    import pulumi_azure.streamanalytics as __streamanalytics
+    streamanalytics = __streamanalytics
+    import pulumi_azure.synapse as __synapse
+    synapse = __synapse
+    import pulumi_azure.trafficmanager as __trafficmanager
+    trafficmanager = __trafficmanager
+    import pulumi_azure.videoanalyzer as __videoanalyzer
+    videoanalyzer = __videoanalyzer
+    import pulumi_azure.waf as __waf
+    waf = __waf
 else:
     advisor = _utilities.lazy_import('pulumi_azure.advisor')
     analysisservices = _utilities.lazy_import('pulumi_azure.analysisservices')

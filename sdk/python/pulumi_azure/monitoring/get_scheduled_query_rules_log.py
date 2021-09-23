@@ -13,6 +13,7 @@ __all__ = [
     'GetScheduledQueryRulesLogResult',
     'AwaitableGetScheduledQueryRulesLogResult',
     'get_scheduled_query_rules_log',
+    'get_scheduled_query_rules_log_output',
 ]
 
 @pulumi.output_type
@@ -180,3 +181,28 @@ def get_scheduled_query_rules_log(name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_scheduled_query_rules_log)
+def get_scheduled_query_rules_log_output(name: Optional[pulumi.Input[str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryRulesLogResult]:
+    """
+    Use this data source to access the properties of a LogToMetricAction scheduled query rule.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.monitoring.get_scheduled_query_rules_log(name="tfex-queryrule",
+        resource_group_name="example-rg")
+    pulumi.export("queryRuleId", example.id)
+    ```
+
+
+    :param str name: Specifies the name of the scheduled query rule.
+    :param str resource_group_name: Specifies the name of the resource group where the scheduled query rule is located.
+    """
+    ...

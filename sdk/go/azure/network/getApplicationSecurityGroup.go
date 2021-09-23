@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,67 @@ type LookupApplicationSecurityGroupResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupApplicationSecurityGroupOutput(ctx *pulumi.Context, args LookupApplicationSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationSecurityGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplicationSecurityGroupResult, error) {
+			args := v.(LookupApplicationSecurityGroupArgs)
+			r, err := LookupApplicationSecurityGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplicationSecurityGroupResultOutput)
+}
+
+// A collection of arguments for invoking getApplicationSecurityGroup.
+type LookupApplicationSecurityGroupOutputArgs struct {
+	// The name of the Application Security Group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group in which the Application Security Group exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupApplicationSecurityGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationSecurityGroupArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getApplicationSecurityGroup.
+type LookupApplicationSecurityGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplicationSecurityGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationSecurityGroupResult)(nil)).Elem()
+}
+
+func (o LookupApplicationSecurityGroupResultOutput) ToLookupApplicationSecurityGroupResultOutput() LookupApplicationSecurityGroupResultOutput {
+	return o
+}
+
+func (o LookupApplicationSecurityGroupResultOutput) ToLookupApplicationSecurityGroupResultOutputWithContext(ctx context.Context) LookupApplicationSecurityGroupResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupApplicationSecurityGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The supported Azure location where the Application Security Group exists.
+func (o LookupApplicationSecurityGroupResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupApplicationSecurityGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupApplicationSecurityGroupResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupApplicationSecurityGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplicationSecurityGroupResultOutput{})
 }

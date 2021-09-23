@@ -338,7 +338,7 @@ type TimeSeriesInsightsEventSourceIothubArrayInput interface {
 type TimeSeriesInsightsEventSourceIothubArray []TimeSeriesInsightsEventSourceIothubInput
 
 func (TimeSeriesInsightsEventSourceIothubArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TimeSeriesInsightsEventSourceIothub)(nil))
+	return reflect.TypeOf((*[]*TimeSeriesInsightsEventSourceIothub)(nil)).Elem()
 }
 
 func (i TimeSeriesInsightsEventSourceIothubArray) ToTimeSeriesInsightsEventSourceIothubArrayOutput() TimeSeriesInsightsEventSourceIothubArrayOutput {
@@ -363,7 +363,7 @@ type TimeSeriesInsightsEventSourceIothubMapInput interface {
 type TimeSeriesInsightsEventSourceIothubMap map[string]TimeSeriesInsightsEventSourceIothubInput
 
 func (TimeSeriesInsightsEventSourceIothubMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TimeSeriesInsightsEventSourceIothub)(nil))
+	return reflect.TypeOf((*map[string]*TimeSeriesInsightsEventSourceIothub)(nil)).Elem()
 }
 
 func (i TimeSeriesInsightsEventSourceIothubMap) ToTimeSeriesInsightsEventSourceIothubMapOutput() TimeSeriesInsightsEventSourceIothubMapOutput {
@@ -374,9 +374,7 @@ func (i TimeSeriesInsightsEventSourceIothubMap) ToTimeSeriesInsightsEventSourceI
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsEventSourceIothubMapOutput)
 }
 
-type TimeSeriesInsightsEventSourceIothubOutput struct {
-	*pulumi.OutputState
-}
+type TimeSeriesInsightsEventSourceIothubOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsEventSourceIothubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TimeSeriesInsightsEventSourceIothub)(nil))
@@ -395,14 +393,12 @@ func (o TimeSeriesInsightsEventSourceIothubOutput) ToTimeSeriesInsightsEventSour
 }
 
 func (o TimeSeriesInsightsEventSourceIothubOutput) ToTimeSeriesInsightsEventSourceIothubPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsEventSourceIothubPtrOutput {
-	return o.ApplyT(func(v TimeSeriesInsightsEventSourceIothub) *TimeSeriesInsightsEventSourceIothub {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeSeriesInsightsEventSourceIothub) *TimeSeriesInsightsEventSourceIothub {
 		return &v
 	}).(TimeSeriesInsightsEventSourceIothubPtrOutput)
 }
 
-type TimeSeriesInsightsEventSourceIothubPtrOutput struct {
-	*pulumi.OutputState
-}
+type TimeSeriesInsightsEventSourceIothubPtrOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsEventSourceIothubPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TimeSeriesInsightsEventSourceIothub)(nil))
@@ -414,6 +410,16 @@ func (o TimeSeriesInsightsEventSourceIothubPtrOutput) ToTimeSeriesInsightsEventS
 
 func (o TimeSeriesInsightsEventSourceIothubPtrOutput) ToTimeSeriesInsightsEventSourceIothubPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsEventSourceIothubPtrOutput {
 	return o
+}
+
+func (o TimeSeriesInsightsEventSourceIothubPtrOutput) Elem() TimeSeriesInsightsEventSourceIothubOutput {
+	return o.ApplyT(func(v *TimeSeriesInsightsEventSourceIothub) TimeSeriesInsightsEventSourceIothub {
+		if v != nil {
+			return *v
+		}
+		var ret TimeSeriesInsightsEventSourceIothub
+		return ret
+	}).(TimeSeriesInsightsEventSourceIothubOutput)
 }
 
 type TimeSeriesInsightsEventSourceIothubArrayOutput struct{ *pulumi.OutputState }

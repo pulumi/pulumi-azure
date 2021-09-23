@@ -230,7 +230,7 @@ type SmartDetectionRuleArrayInput interface {
 type SmartDetectionRuleArray []SmartDetectionRuleInput
 
 func (SmartDetectionRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SmartDetectionRule)(nil))
+	return reflect.TypeOf((*[]*SmartDetectionRule)(nil)).Elem()
 }
 
 func (i SmartDetectionRuleArray) ToSmartDetectionRuleArrayOutput() SmartDetectionRuleArrayOutput {
@@ -255,7 +255,7 @@ type SmartDetectionRuleMapInput interface {
 type SmartDetectionRuleMap map[string]SmartDetectionRuleInput
 
 func (SmartDetectionRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SmartDetectionRule)(nil))
+	return reflect.TypeOf((*map[string]*SmartDetectionRule)(nil)).Elem()
 }
 
 func (i SmartDetectionRuleMap) ToSmartDetectionRuleMapOutput() SmartDetectionRuleMapOutput {
@@ -266,9 +266,7 @@ func (i SmartDetectionRuleMap) ToSmartDetectionRuleMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectionRuleMapOutput)
 }
 
-type SmartDetectionRuleOutput struct {
-	*pulumi.OutputState
-}
+type SmartDetectionRuleOutput struct{ *pulumi.OutputState }
 
 func (SmartDetectionRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SmartDetectionRule)(nil))
@@ -287,14 +285,12 @@ func (o SmartDetectionRuleOutput) ToSmartDetectionRulePtrOutput() SmartDetection
 }
 
 func (o SmartDetectionRuleOutput) ToSmartDetectionRulePtrOutputWithContext(ctx context.Context) SmartDetectionRulePtrOutput {
-	return o.ApplyT(func(v SmartDetectionRule) *SmartDetectionRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmartDetectionRule) *SmartDetectionRule {
 		return &v
 	}).(SmartDetectionRulePtrOutput)
 }
 
-type SmartDetectionRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type SmartDetectionRulePtrOutput struct{ *pulumi.OutputState }
 
 func (SmartDetectionRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SmartDetectionRule)(nil))
@@ -306,6 +302,16 @@ func (o SmartDetectionRulePtrOutput) ToSmartDetectionRulePtrOutput() SmartDetect
 
 func (o SmartDetectionRulePtrOutput) ToSmartDetectionRulePtrOutputWithContext(ctx context.Context) SmartDetectionRulePtrOutput {
 	return o
+}
+
+func (o SmartDetectionRulePtrOutput) Elem() SmartDetectionRuleOutput {
+	return o.ApplyT(func(v *SmartDetectionRule) SmartDetectionRule {
+		if v != nil {
+			return *v
+		}
+		var ret SmartDetectionRule
+		return ret
+	}).(SmartDetectionRuleOutput)
 }
 
 type SmartDetectionRuleArrayOutput struct{ *pulumi.OutputState }

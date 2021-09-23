@@ -214,7 +214,7 @@ type ApiSchemaArrayInput interface {
 type ApiSchemaArray []ApiSchemaInput
 
 func (ApiSchemaArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiSchema)(nil))
+	return reflect.TypeOf((*[]*ApiSchema)(nil)).Elem()
 }
 
 func (i ApiSchemaArray) ToApiSchemaArrayOutput() ApiSchemaArrayOutput {
@@ -239,7 +239,7 @@ type ApiSchemaMapInput interface {
 type ApiSchemaMap map[string]ApiSchemaInput
 
 func (ApiSchemaMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiSchema)(nil))
+	return reflect.TypeOf((*map[string]*ApiSchema)(nil)).Elem()
 }
 
 func (i ApiSchemaMap) ToApiSchemaMapOutput() ApiSchemaMapOutput {
@@ -250,9 +250,7 @@ func (i ApiSchemaMap) ToApiSchemaMapOutputWithContext(ctx context.Context) ApiSc
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaMapOutput)
 }
 
-type ApiSchemaOutput struct {
-	*pulumi.OutputState
-}
+type ApiSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApiSchemaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiSchema)(nil))
@@ -271,14 +269,12 @@ func (o ApiSchemaOutput) ToApiSchemaPtrOutput() ApiSchemaPtrOutput {
 }
 
 func (o ApiSchemaOutput) ToApiSchemaPtrOutputWithContext(ctx context.Context) ApiSchemaPtrOutput {
-	return o.ApplyT(func(v ApiSchema) *ApiSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiSchema) *ApiSchema {
 		return &v
 	}).(ApiSchemaPtrOutput)
 }
 
-type ApiSchemaPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApiSchemaPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiSchemaPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiSchema)(nil))
@@ -290,6 +286,16 @@ func (o ApiSchemaPtrOutput) ToApiSchemaPtrOutput() ApiSchemaPtrOutput {
 
 func (o ApiSchemaPtrOutput) ToApiSchemaPtrOutputWithContext(ctx context.Context) ApiSchemaPtrOutput {
 	return o
+}
+
+func (o ApiSchemaPtrOutput) Elem() ApiSchemaOutput {
+	return o.ApplyT(func(v *ApiSchema) ApiSchema {
+		if v != nil {
+			return *v
+		}
+		var ret ApiSchema
+		return ret
+	}).(ApiSchemaOutput)
 }
 
 type ApiSchemaArrayOutput struct{ *pulumi.OutputState }

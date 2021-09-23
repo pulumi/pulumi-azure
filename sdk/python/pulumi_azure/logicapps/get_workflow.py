@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkflowResult',
     'AwaitableGetWorkflowResult',
     'get_workflow',
+    'get_workflow_output',
 ]
 
 @pulumi.output_type
@@ -237,3 +238,28 @@ def get_workflow(name: Optional[str] = None,
         workflow_outbound_ip_addresses=__ret__.workflow_outbound_ip_addresses,
         workflow_schema=__ret__.workflow_schema,
         workflow_version=__ret__.workflow_version)
+
+
+@_utilities.lift_output_func(get_workflow)
+def get_workflow_output(name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowResult]:
+    """
+    Use this data source to access information about an existing Logic App Workflow.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.logicapps.get_workflow(name="workflow1",
+        resource_group_name="my-resource-group")
+    pulumi.export("accessEndpoint", example.access_endpoint)
+    ```
+
+
+    :param str name: The name of the Logic App Workflow.
+    :param str resource_group_name: The name of the Resource Group in which the Logic App Workflow exists.
+    """
+    ...

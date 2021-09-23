@@ -174,7 +174,7 @@ type AutoProvisioningArrayInput interface {
 type AutoProvisioningArray []AutoProvisioningInput
 
 func (AutoProvisioningArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AutoProvisioning)(nil))
+	return reflect.TypeOf((*[]*AutoProvisioning)(nil)).Elem()
 }
 
 func (i AutoProvisioningArray) ToAutoProvisioningArrayOutput() AutoProvisioningArrayOutput {
@@ -199,7 +199,7 @@ type AutoProvisioningMapInput interface {
 type AutoProvisioningMap map[string]AutoProvisioningInput
 
 func (AutoProvisioningMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AutoProvisioning)(nil))
+	return reflect.TypeOf((*map[string]*AutoProvisioning)(nil)).Elem()
 }
 
 func (i AutoProvisioningMap) ToAutoProvisioningMapOutput() AutoProvisioningMapOutput {
@@ -210,9 +210,7 @@ func (i AutoProvisioningMap) ToAutoProvisioningMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AutoProvisioningMapOutput)
 }
 
-type AutoProvisioningOutput struct {
-	*pulumi.OutputState
-}
+type AutoProvisioningOutput struct{ *pulumi.OutputState }
 
 func (AutoProvisioningOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoProvisioning)(nil))
@@ -231,14 +229,12 @@ func (o AutoProvisioningOutput) ToAutoProvisioningPtrOutput() AutoProvisioningPt
 }
 
 func (o AutoProvisioningOutput) ToAutoProvisioningPtrOutputWithContext(ctx context.Context) AutoProvisioningPtrOutput {
-	return o.ApplyT(func(v AutoProvisioning) *AutoProvisioning {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoProvisioning) *AutoProvisioning {
 		return &v
 	}).(AutoProvisioningPtrOutput)
 }
 
-type AutoProvisioningPtrOutput struct {
-	*pulumi.OutputState
-}
+type AutoProvisioningPtrOutput struct{ *pulumi.OutputState }
 
 func (AutoProvisioningPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AutoProvisioning)(nil))
@@ -250,6 +246,16 @@ func (o AutoProvisioningPtrOutput) ToAutoProvisioningPtrOutput() AutoProvisionin
 
 func (o AutoProvisioningPtrOutput) ToAutoProvisioningPtrOutputWithContext(ctx context.Context) AutoProvisioningPtrOutput {
 	return o
+}
+
+func (o AutoProvisioningPtrOutput) Elem() AutoProvisioningOutput {
+	return o.ApplyT(func(v *AutoProvisioning) AutoProvisioning {
+		if v != nil {
+			return *v
+		}
+		var ret AutoProvisioning
+		return ret
+	}).(AutoProvisioningOutput)
 }
 
 type AutoProvisioningArrayOutput struct{ *pulumi.OutputState }

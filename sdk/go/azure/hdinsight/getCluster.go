@@ -4,6 +4,9 @@
 package hdinsight
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,4 +83,117 @@ type GetClusterResult struct {
 	Tier string `pulumi:"tier"`
 	// The minimal supported tls version.
 	TlsMinVersion string `pulumi:"tlsMinVersion"`
+}
+
+func GetClusterOutput(ctx *pulumi.Context, args GetClusterOutputArgs, opts ...pulumi.InvokeOption) GetClusterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetClusterResult, error) {
+			args := v.(GetClusterArgs)
+			r, err := GetCluster(ctx, &args, opts...)
+			return *r, err
+		}).(GetClusterResultOutput)
+}
+
+// A collection of arguments for invoking getCluster.
+type GetClusterOutputArgs struct {
+	// Specifies the name of this HDInsight Cluster.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the Resource Group in which this HDInsight Cluster exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCluster.
+type GetClusterResultOutput struct{ *pulumi.OutputState }
+
+func (GetClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterResult)(nil)).Elem()
+}
+
+func (o GetClusterResultOutput) ToGetClusterResultOutput() GetClusterResultOutput {
+	return o
+}
+
+func (o GetClusterResultOutput) ToGetClusterResultOutputWithContext(ctx context.Context) GetClusterResultOutput {
+	return o
+}
+
+// The version of HDInsights which is used on this HDInsight Cluster.
+func (o GetClusterResultOutput) ClusterVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.ClusterVersion }).(pulumi.StringOutput)
+}
+
+// A map of versions of software used on this HDInsights Cluster.
+func (o GetClusterResultOutput) ComponentVersions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetClusterResult) map[string]string { return v.ComponentVersions }).(pulumi.StringMapOutput)
+}
+
+// The SSH Endpoint of the Edge Node for this HDInsight Cluster, if an Edge Node exists.
+func (o GetClusterResultOutput) EdgeSshEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.EdgeSshEndpoint }).(pulumi.StringOutput)
+}
+
+// A `gateway` block as defined below.
+func (o GetClusterResultOutput) Gateways() GetClusterGatewayArrayOutput {
+	return o.ApplyT(func(v GetClusterResult) []GetClusterGateway { return v.Gateways }).(GetClusterGatewayArrayOutput)
+}
+
+// The HTTPS Endpoint for this HDInsight Cluster.
+func (o GetClusterResultOutput) HttpsEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.HttpsEndpoint }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Kafka Rest Proxy Endpoint for this HDInsight Cluster.
+func (o GetClusterResultOutput) KafkaRestProxyEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.KafkaRestProxyEndpoint }).(pulumi.StringOutput)
+}
+
+// The kind of HDInsight Cluster this is, such as a Spark or Storm cluster.
+func (o GetClusterResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The Azure Region in which this HDInsight Cluster exists.
+func (o GetClusterResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o GetClusterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetClusterResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The SSH Endpoint for this HDInsight Cluster.
+func (o GetClusterResultOutput) SshEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.SshEndpoint }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the HDInsight Cluster.
+func (o GetClusterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The SKU / Tier of this HDInsight Cluster.
+func (o GetClusterResultOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+// The minimal supported tls version.
+func (o GetClusterResultOutput) TlsMinVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterResult) string { return v.TlsMinVersion }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetClusterResultOutput{})
 }

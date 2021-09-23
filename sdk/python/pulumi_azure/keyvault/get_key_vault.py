@@ -13,6 +13,7 @@ __all__ = [
     'GetKeyVaultResult',
     'AwaitableGetKeyVaultResult',
     'get_key_vault',
+    'get_key_vault_output',
 ]
 
 @pulumi.output_type
@@ -249,3 +250,28 @@ def get_key_vault(name: Optional[str] = None,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
         vault_uri=__ret__.vault_uri)
+
+
+@_utilities.lift_output_func(get_key_vault)
+def get_key_vault_output(name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyVaultResult]:
+    """
+    Use this data source to access information about an existing Key Vault.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.keyvault.get_key_vault(name="mykeyvault",
+        resource_group_name="some-resource-group")
+    pulumi.export("vaultUri", example.vault_uri)
+    ```
+
+
+    :param str name: Specifies the name of the Key Vault.
+    :param str resource_group_name: The name of the Resource Group in which the Key Vault exists.
+    """
+    ...

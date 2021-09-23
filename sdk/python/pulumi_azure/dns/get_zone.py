@@ -12,6 +12,7 @@ __all__ = [
     'GetZoneResult',
     'AwaitableGetZoneResult',
     'get_zone',
+    'get_zone_output',
 ]
 
 @pulumi.output_type
@@ -148,3 +149,30 @@ def get_zone(name: Optional[str] = None,
         number_of_record_sets=__ret__.number_of_record_sets,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_zone)
+def get_zone_output(name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZoneResult]:
+    """
+    Use this data source to access information about an existing DNS Zone.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.dns.get_zone(name="search-eventhubns",
+        resource_group_name="search-service")
+    pulumi.export("dnsZoneId", example.id)
+    ```
+
+
+    :param str name: The name of the DNS Zone.
+    :param str resource_group_name: The Name of the Resource Group where the DNS Zone exists.
+           If the Name of the Resource Group is not provided, the first DNS Zone from the list of DNS Zones
+           in your subscription that matches `name` will be returned.
+    """
+    ...

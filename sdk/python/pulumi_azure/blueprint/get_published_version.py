@@ -12,6 +12,7 @@ __all__ = [
     'GetPublishedVersionResult',
     'AwaitableGetPublishedVersionResult',
     'get_published_version',
+    'get_published_version_output',
 ]
 
 @pulumi.output_type
@@ -182,3 +183,33 @@ def get_published_version(blueprint_name: Optional[str] = None,
         time_created=__ret__.time_created,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_published_version)
+def get_published_version_output(blueprint_name: Optional[pulumi.Input[str]] = None,
+                                 scope_id: Optional[pulumi.Input[str]] = None,
+                                 version: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublishedVersionResult]:
+    """
+    Use this data source to access information about an existing Blueprint Published Version
+
+    > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    current = azure.core.get_subscription()
+    test = azure.blueprint.get_published_version(scope_id=current.id,
+        blueprint_name="exampleBluePrint",
+        version="dev_v2.3")
+    ```
+
+
+    :param str blueprint_name: The name of the Blueprint Definition
+    :param str scope_id: The ID of the Management Group / Subscription where this Blueprint Definition is stored.
+    :param str version: The Version name of the Published Version of the Blueprint Definition
+    """
+    ...

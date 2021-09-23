@@ -140,7 +140,7 @@ type VirtualNetworkDnsServersArrayInput interface {
 type VirtualNetworkDnsServersArray []VirtualNetworkDnsServersInput
 
 func (VirtualNetworkDnsServersArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualNetworkDnsServers)(nil))
+	return reflect.TypeOf((*[]*VirtualNetworkDnsServers)(nil)).Elem()
 }
 
 func (i VirtualNetworkDnsServersArray) ToVirtualNetworkDnsServersArrayOutput() VirtualNetworkDnsServersArrayOutput {
@@ -165,7 +165,7 @@ type VirtualNetworkDnsServersMapInput interface {
 type VirtualNetworkDnsServersMap map[string]VirtualNetworkDnsServersInput
 
 func (VirtualNetworkDnsServersMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualNetworkDnsServers)(nil))
+	return reflect.TypeOf((*map[string]*VirtualNetworkDnsServers)(nil)).Elem()
 }
 
 func (i VirtualNetworkDnsServersMap) ToVirtualNetworkDnsServersMapOutput() VirtualNetworkDnsServersMapOutput {
@@ -176,9 +176,7 @@ func (i VirtualNetworkDnsServersMap) ToVirtualNetworkDnsServersMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkDnsServersMapOutput)
 }
 
-type VirtualNetworkDnsServersOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkDnsServersOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkDnsServersOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkDnsServers)(nil))
@@ -197,14 +195,12 @@ func (o VirtualNetworkDnsServersOutput) ToVirtualNetworkDnsServersPtrOutput() Vi
 }
 
 func (o VirtualNetworkDnsServersOutput) ToVirtualNetworkDnsServersPtrOutputWithContext(ctx context.Context) VirtualNetworkDnsServersPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkDnsServers) *VirtualNetworkDnsServers {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkDnsServers) *VirtualNetworkDnsServers {
 		return &v
 	}).(VirtualNetworkDnsServersPtrOutput)
 }
 
-type VirtualNetworkDnsServersPtrOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkDnsServersPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkDnsServersPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNetworkDnsServers)(nil))
@@ -216,6 +212,16 @@ func (o VirtualNetworkDnsServersPtrOutput) ToVirtualNetworkDnsServersPtrOutput()
 
 func (o VirtualNetworkDnsServersPtrOutput) ToVirtualNetworkDnsServersPtrOutputWithContext(ctx context.Context) VirtualNetworkDnsServersPtrOutput {
 	return o
+}
+
+func (o VirtualNetworkDnsServersPtrOutput) Elem() VirtualNetworkDnsServersOutput {
+	return o.ApplyT(func(v *VirtualNetworkDnsServers) VirtualNetworkDnsServers {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkDnsServers
+		return ret
+	}).(VirtualNetworkDnsServersOutput)
 }
 
 type VirtualNetworkDnsServersArrayOutput struct{ *pulumi.OutputState }

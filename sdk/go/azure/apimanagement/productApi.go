@@ -238,7 +238,7 @@ type ProductApiArrayInput interface {
 type ProductApiArray []ProductApiInput
 
 func (ProductApiArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProductApi)(nil))
+	return reflect.TypeOf((*[]*ProductApi)(nil)).Elem()
 }
 
 func (i ProductApiArray) ToProductApiArrayOutput() ProductApiArrayOutput {
@@ -263,7 +263,7 @@ type ProductApiMapInput interface {
 type ProductApiMap map[string]ProductApiInput
 
 func (ProductApiMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProductApi)(nil))
+	return reflect.TypeOf((*map[string]*ProductApi)(nil)).Elem()
 }
 
 func (i ProductApiMap) ToProductApiMapOutput() ProductApiMapOutput {
@@ -274,9 +274,7 @@ func (i ProductApiMap) ToProductApiMapOutputWithContext(ctx context.Context) Pro
 	return pulumi.ToOutputWithContext(ctx, i).(ProductApiMapOutput)
 }
 
-type ProductApiOutput struct {
-	*pulumi.OutputState
-}
+type ProductApiOutput struct{ *pulumi.OutputState }
 
 func (ProductApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProductApi)(nil))
@@ -295,14 +293,12 @@ func (o ProductApiOutput) ToProductApiPtrOutput() ProductApiPtrOutput {
 }
 
 func (o ProductApiOutput) ToProductApiPtrOutputWithContext(ctx context.Context) ProductApiPtrOutput {
-	return o.ApplyT(func(v ProductApi) *ProductApi {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductApi) *ProductApi {
 		return &v
 	}).(ProductApiPtrOutput)
 }
 
-type ProductApiPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProductApiPtrOutput struct{ *pulumi.OutputState }
 
 func (ProductApiPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProductApi)(nil))
@@ -314,6 +310,16 @@ func (o ProductApiPtrOutput) ToProductApiPtrOutput() ProductApiPtrOutput {
 
 func (o ProductApiPtrOutput) ToProductApiPtrOutputWithContext(ctx context.Context) ProductApiPtrOutput {
 	return o
+}
+
+func (o ProductApiPtrOutput) Elem() ProductApiOutput {
+	return o.ApplyT(func(v *ProductApi) ProductApi {
+		if v != nil {
+			return *v
+		}
+		var ret ProductApi
+		return ret
+	}).(ProductApiOutput)
 }
 
 type ProductApiArrayOutput struct{ *pulumi.OutputState }

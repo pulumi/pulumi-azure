@@ -288,7 +288,7 @@ type ManangementLockArrayInput interface {
 type ManangementLockArray []ManangementLockInput
 
 func (ManangementLockArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ManangementLock)(nil))
+	return reflect.TypeOf((*[]*ManangementLock)(nil)).Elem()
 }
 
 func (i ManangementLockArray) ToManangementLockArrayOutput() ManangementLockArrayOutput {
@@ -313,7 +313,7 @@ type ManangementLockMapInput interface {
 type ManangementLockMap map[string]ManangementLockInput
 
 func (ManangementLockMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ManangementLock)(nil))
+	return reflect.TypeOf((*map[string]*ManangementLock)(nil)).Elem()
 }
 
 func (i ManangementLockMap) ToManangementLockMapOutput() ManangementLockMapOutput {
@@ -324,9 +324,7 @@ func (i ManangementLockMap) ToManangementLockMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockMapOutput)
 }
 
-type ManangementLockOutput struct {
-	*pulumi.OutputState
-}
+type ManangementLockOutput struct{ *pulumi.OutputState }
 
 func (ManangementLockOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManangementLock)(nil))
@@ -345,14 +343,12 @@ func (o ManangementLockOutput) ToManangementLockPtrOutput() ManangementLockPtrOu
 }
 
 func (o ManangementLockOutput) ToManangementLockPtrOutputWithContext(ctx context.Context) ManangementLockPtrOutput {
-	return o.ApplyT(func(v ManangementLock) *ManangementLock {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManangementLock) *ManangementLock {
 		return &v
 	}).(ManangementLockPtrOutput)
 }
 
-type ManangementLockPtrOutput struct {
-	*pulumi.OutputState
-}
+type ManangementLockPtrOutput struct{ *pulumi.OutputState }
 
 func (ManangementLockPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManangementLock)(nil))
@@ -364,6 +360,16 @@ func (o ManangementLockPtrOutput) ToManangementLockPtrOutput() ManangementLockPt
 
 func (o ManangementLockPtrOutput) ToManangementLockPtrOutputWithContext(ctx context.Context) ManangementLockPtrOutput {
 	return o
+}
+
+func (o ManangementLockPtrOutput) Elem() ManangementLockOutput {
+	return o.ApplyT(func(v *ManangementLock) ManangementLock {
+		if v != nil {
+			return *v
+		}
+		var ret ManangementLock
+		return ret
+	}).(ManangementLockOutput)
 }
 
 type ManangementLockArrayOutput struct{ *pulumi.OutputState }

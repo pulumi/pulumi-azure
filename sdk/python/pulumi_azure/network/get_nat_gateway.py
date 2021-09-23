@@ -12,6 +12,7 @@ __all__ = [
     'GetNatGatewayResult',
     'AwaitableGetNatGatewayResult',
     'get_nat_gateway',
+    'get_nat_gateway_output',
 ]
 
 @pulumi.output_type
@@ -193,3 +194,21 @@ def get_nat_gateway(name: Optional[str] = None,
         sku_name=__ret__.sku_name,
         tags=__ret__.tags,
         zones=__ret__.zones)
+
+
+@_utilities.lift_output_func(get_nat_gateway)
+def get_nat_gateway_output(name: Optional[pulumi.Input[str]] = None,
+                           public_ip_address_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                           public_ip_prefix_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewayResult]:
+    """
+    Use this data source to access information about an existing NAT Gateway.
+
+
+    :param str name: Specifies the Name of the NAT Gateway.
+    :param Sequence[str] public_ip_address_ids: A list of existing Public IP Address resource IDs which the NAT Gateway is using.
+    :param Sequence[str] public_ip_prefix_ids: A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
+    :param str resource_group_name: Specifies the name of the Resource Group where the NAT Gateway exists.
+    """
+    ...

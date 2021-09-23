@@ -203,7 +203,7 @@ type DiskAccessArrayInput interface {
 type DiskAccessArray []DiskAccessInput
 
 func (DiskAccessArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DiskAccess)(nil))
+	return reflect.TypeOf((*[]*DiskAccess)(nil)).Elem()
 }
 
 func (i DiskAccessArray) ToDiskAccessArrayOutput() DiskAccessArrayOutput {
@@ -228,7 +228,7 @@ type DiskAccessMapInput interface {
 type DiskAccessMap map[string]DiskAccessInput
 
 func (DiskAccessMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DiskAccess)(nil))
+	return reflect.TypeOf((*map[string]*DiskAccess)(nil)).Elem()
 }
 
 func (i DiskAccessMap) ToDiskAccessMapOutput() DiskAccessMapOutput {
@@ -239,9 +239,7 @@ func (i DiskAccessMap) ToDiskAccessMapOutputWithContext(ctx context.Context) Dis
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessMapOutput)
 }
 
-type DiskAccessOutput struct {
-	*pulumi.OutputState
-}
+type DiskAccessOutput struct{ *pulumi.OutputState }
 
 func (DiskAccessOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskAccess)(nil))
@@ -260,14 +258,12 @@ func (o DiskAccessOutput) ToDiskAccessPtrOutput() DiskAccessPtrOutput {
 }
 
 func (o DiskAccessOutput) ToDiskAccessPtrOutputWithContext(ctx context.Context) DiskAccessPtrOutput {
-	return o.ApplyT(func(v DiskAccess) *DiskAccess {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskAccess) *DiskAccess {
 		return &v
 	}).(DiskAccessPtrOutput)
 }
 
-type DiskAccessPtrOutput struct {
-	*pulumi.OutputState
-}
+type DiskAccessPtrOutput struct{ *pulumi.OutputState }
 
 func (DiskAccessPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DiskAccess)(nil))
@@ -279,6 +275,16 @@ func (o DiskAccessPtrOutput) ToDiskAccessPtrOutput() DiskAccessPtrOutput {
 
 func (o DiskAccessPtrOutput) ToDiskAccessPtrOutputWithContext(ctx context.Context) DiskAccessPtrOutput {
 	return o
+}
+
+func (o DiskAccessPtrOutput) Elem() DiskAccessOutput {
+	return o.ApplyT(func(v *DiskAccess) DiskAccess {
+		if v != nil {
+			return *v
+		}
+		var ret DiskAccess
+		return ret
+	}).(DiskAccessOutput)
 }
 
 type DiskAccessArrayOutput struct{ *pulumi.OutputState }

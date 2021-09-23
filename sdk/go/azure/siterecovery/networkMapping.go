@@ -313,7 +313,7 @@ type NetworkMappingArrayInput interface {
 type NetworkMappingArray []NetworkMappingInput
 
 func (NetworkMappingArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkMapping)(nil))
+	return reflect.TypeOf((*[]*NetworkMapping)(nil)).Elem()
 }
 
 func (i NetworkMappingArray) ToNetworkMappingArrayOutput() NetworkMappingArrayOutput {
@@ -338,7 +338,7 @@ type NetworkMappingMapInput interface {
 type NetworkMappingMap map[string]NetworkMappingInput
 
 func (NetworkMappingMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkMapping)(nil))
+	return reflect.TypeOf((*map[string]*NetworkMapping)(nil)).Elem()
 }
 
 func (i NetworkMappingMap) ToNetworkMappingMapOutput() NetworkMappingMapOutput {
@@ -349,9 +349,7 @@ func (i NetworkMappingMap) ToNetworkMappingMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingMapOutput)
 }
 
-type NetworkMappingOutput struct {
-	*pulumi.OutputState
-}
+type NetworkMappingOutput struct{ *pulumi.OutputState }
 
 func (NetworkMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkMapping)(nil))
@@ -370,14 +368,12 @@ func (o NetworkMappingOutput) ToNetworkMappingPtrOutput() NetworkMappingPtrOutpu
 }
 
 func (o NetworkMappingOutput) ToNetworkMappingPtrOutputWithContext(ctx context.Context) NetworkMappingPtrOutput {
-	return o.ApplyT(func(v NetworkMapping) *NetworkMapping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkMapping) *NetworkMapping {
 		return &v
 	}).(NetworkMappingPtrOutput)
 }
 
-type NetworkMappingPtrOutput struct {
-	*pulumi.OutputState
-}
+type NetworkMappingPtrOutput struct{ *pulumi.OutputState }
 
 func (NetworkMappingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NetworkMapping)(nil))
@@ -389,6 +385,16 @@ func (o NetworkMappingPtrOutput) ToNetworkMappingPtrOutput() NetworkMappingPtrOu
 
 func (o NetworkMappingPtrOutput) ToNetworkMappingPtrOutputWithContext(ctx context.Context) NetworkMappingPtrOutput {
 	return o
+}
+
+func (o NetworkMappingPtrOutput) Elem() NetworkMappingOutput {
+	return o.ApplyT(func(v *NetworkMapping) NetworkMapping {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkMapping
+		return ret
+	}).(NetworkMappingOutput)
 }
 
 type NetworkMappingArrayOutput struct{ *pulumi.OutputState }

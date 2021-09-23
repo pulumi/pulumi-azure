@@ -286,7 +286,7 @@ type EnrichmentArrayInput interface {
 type EnrichmentArray []EnrichmentInput
 
 func (EnrichmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Enrichment)(nil))
+	return reflect.TypeOf((*[]*Enrichment)(nil)).Elem()
 }
 
 func (i EnrichmentArray) ToEnrichmentArrayOutput() EnrichmentArrayOutput {
@@ -311,7 +311,7 @@ type EnrichmentMapInput interface {
 type EnrichmentMap map[string]EnrichmentInput
 
 func (EnrichmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Enrichment)(nil))
+	return reflect.TypeOf((*map[string]*Enrichment)(nil)).Elem()
 }
 
 func (i EnrichmentMap) ToEnrichmentMapOutput() EnrichmentMapOutput {
@@ -322,9 +322,7 @@ func (i EnrichmentMap) ToEnrichmentMapOutputWithContext(ctx context.Context) Enr
 	return pulumi.ToOutputWithContext(ctx, i).(EnrichmentMapOutput)
 }
 
-type EnrichmentOutput struct {
-	*pulumi.OutputState
-}
+type EnrichmentOutput struct{ *pulumi.OutputState }
 
 func (EnrichmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Enrichment)(nil))
@@ -343,14 +341,12 @@ func (o EnrichmentOutput) ToEnrichmentPtrOutput() EnrichmentPtrOutput {
 }
 
 func (o EnrichmentOutput) ToEnrichmentPtrOutputWithContext(ctx context.Context) EnrichmentPtrOutput {
-	return o.ApplyT(func(v Enrichment) *Enrichment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Enrichment) *Enrichment {
 		return &v
 	}).(EnrichmentPtrOutput)
 }
 
-type EnrichmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type EnrichmentPtrOutput struct{ *pulumi.OutputState }
 
 func (EnrichmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Enrichment)(nil))
@@ -362,6 +358,16 @@ func (o EnrichmentPtrOutput) ToEnrichmentPtrOutput() EnrichmentPtrOutput {
 
 func (o EnrichmentPtrOutput) ToEnrichmentPtrOutputWithContext(ctx context.Context) EnrichmentPtrOutput {
 	return o
+}
+
+func (o EnrichmentPtrOutput) Elem() EnrichmentOutput {
+	return o.ApplyT(func(v *Enrichment) Enrichment {
+		if v != nil {
+			return *v
+		}
+		var ret Enrichment
+		return ret
+	}).(EnrichmentOutput)
 }
 
 type EnrichmentArrayOutput struct{ *pulumi.OutputState }

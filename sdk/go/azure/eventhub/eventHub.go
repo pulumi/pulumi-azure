@@ -269,7 +269,7 @@ type EventHubArrayInput interface {
 type EventHubArray []EventHubInput
 
 func (EventHubArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventHub)(nil))
+	return reflect.TypeOf((*[]*EventHub)(nil)).Elem()
 }
 
 func (i EventHubArray) ToEventHubArrayOutput() EventHubArrayOutput {
@@ -294,7 +294,7 @@ type EventHubMapInput interface {
 type EventHubMap map[string]EventHubInput
 
 func (EventHubMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventHub)(nil))
+	return reflect.TypeOf((*map[string]*EventHub)(nil)).Elem()
 }
 
 func (i EventHubMap) ToEventHubMapOutput() EventHubMapOutput {
@@ -305,9 +305,7 @@ func (i EventHubMap) ToEventHubMapOutputWithContext(ctx context.Context) EventHu
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubMapOutput)
 }
 
-type EventHubOutput struct {
-	*pulumi.OutputState
-}
+type EventHubOutput struct{ *pulumi.OutputState }
 
 func (EventHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHub)(nil))
@@ -326,14 +324,12 @@ func (o EventHubOutput) ToEventHubPtrOutput() EventHubPtrOutput {
 }
 
 func (o EventHubOutput) ToEventHubPtrOutputWithContext(ctx context.Context) EventHubPtrOutput {
-	return o.ApplyT(func(v EventHub) *EventHub {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHub) *EventHub {
 		return &v
 	}).(EventHubPtrOutput)
 }
 
-type EventHubPtrOutput struct {
-	*pulumi.OutputState
-}
+type EventHubPtrOutput struct{ *pulumi.OutputState }
 
 func (EventHubPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventHub)(nil))
@@ -345,6 +341,16 @@ func (o EventHubPtrOutput) ToEventHubPtrOutput() EventHubPtrOutput {
 
 func (o EventHubPtrOutput) ToEventHubPtrOutputWithContext(ctx context.Context) EventHubPtrOutput {
 	return o
+}
+
+func (o EventHubPtrOutput) Elem() EventHubOutput {
+	return o.ApplyT(func(v *EventHub) EventHub {
+		if v != nil {
+			return *v
+		}
+		var ret EventHub
+		return ret
+	}).(EventHubOutput)
 }
 
 type EventHubArrayOutput struct{ *pulumi.OutputState }

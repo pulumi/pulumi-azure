@@ -230,7 +230,7 @@ type DataConnectorMicrosoftCloudAppSecurityArrayInput interface {
 type DataConnectorMicrosoftCloudAppSecurityArray []DataConnectorMicrosoftCloudAppSecurityInput
 
 func (DataConnectorMicrosoftCloudAppSecurityArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DataConnectorMicrosoftCloudAppSecurity)(nil))
+	return reflect.TypeOf((*[]*DataConnectorMicrosoftCloudAppSecurity)(nil)).Elem()
 }
 
 func (i DataConnectorMicrosoftCloudAppSecurityArray) ToDataConnectorMicrosoftCloudAppSecurityArrayOutput() DataConnectorMicrosoftCloudAppSecurityArrayOutput {
@@ -255,7 +255,7 @@ type DataConnectorMicrosoftCloudAppSecurityMapInput interface {
 type DataConnectorMicrosoftCloudAppSecurityMap map[string]DataConnectorMicrosoftCloudAppSecurityInput
 
 func (DataConnectorMicrosoftCloudAppSecurityMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DataConnectorMicrosoftCloudAppSecurity)(nil))
+	return reflect.TypeOf((*map[string]*DataConnectorMicrosoftCloudAppSecurity)(nil)).Elem()
 }
 
 func (i DataConnectorMicrosoftCloudAppSecurityMap) ToDataConnectorMicrosoftCloudAppSecurityMapOutput() DataConnectorMicrosoftCloudAppSecurityMapOutput {
@@ -266,9 +266,7 @@ func (i DataConnectorMicrosoftCloudAppSecurityMap) ToDataConnectorMicrosoftCloud
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftCloudAppSecurityMapOutput)
 }
 
-type DataConnectorMicrosoftCloudAppSecurityOutput struct {
-	*pulumi.OutputState
-}
+type DataConnectorMicrosoftCloudAppSecurityOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftCloudAppSecurityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataConnectorMicrosoftCloudAppSecurity)(nil))
@@ -287,14 +285,12 @@ func (o DataConnectorMicrosoftCloudAppSecurityOutput) ToDataConnectorMicrosoftCl
 }
 
 func (o DataConnectorMicrosoftCloudAppSecurityOutput) ToDataConnectorMicrosoftCloudAppSecurityPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftCloudAppSecurityPtrOutput {
-	return o.ApplyT(func(v DataConnectorMicrosoftCloudAppSecurity) *DataConnectorMicrosoftCloudAppSecurity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorMicrosoftCloudAppSecurity) *DataConnectorMicrosoftCloudAppSecurity {
 		return &v
 	}).(DataConnectorMicrosoftCloudAppSecurityPtrOutput)
 }
 
-type DataConnectorMicrosoftCloudAppSecurityPtrOutput struct {
-	*pulumi.OutputState
-}
+type DataConnectorMicrosoftCloudAppSecurityPtrOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftCloudAppSecurityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DataConnectorMicrosoftCloudAppSecurity)(nil))
@@ -306,6 +302,16 @@ func (o DataConnectorMicrosoftCloudAppSecurityPtrOutput) ToDataConnectorMicrosof
 
 func (o DataConnectorMicrosoftCloudAppSecurityPtrOutput) ToDataConnectorMicrosoftCloudAppSecurityPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftCloudAppSecurityPtrOutput {
 	return o
+}
+
+func (o DataConnectorMicrosoftCloudAppSecurityPtrOutput) Elem() DataConnectorMicrosoftCloudAppSecurityOutput {
+	return o.ApplyT(func(v *DataConnectorMicrosoftCloudAppSecurity) DataConnectorMicrosoftCloudAppSecurity {
+		if v != nil {
+			return *v
+		}
+		var ret DataConnectorMicrosoftCloudAppSecurity
+		return ret
+	}).(DataConnectorMicrosoftCloudAppSecurityOutput)
 }
 
 type DataConnectorMicrosoftCloudAppSecurityArrayOutput struct{ *pulumi.OutputState }

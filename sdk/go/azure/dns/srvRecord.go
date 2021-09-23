@@ -263,7 +263,7 @@ type SrvRecordArrayInput interface {
 type SrvRecordArray []SrvRecordInput
 
 func (SrvRecordArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SrvRecord)(nil))
+	return reflect.TypeOf((*[]*SrvRecord)(nil)).Elem()
 }
 
 func (i SrvRecordArray) ToSrvRecordArrayOutput() SrvRecordArrayOutput {
@@ -288,7 +288,7 @@ type SrvRecordMapInput interface {
 type SrvRecordMap map[string]SrvRecordInput
 
 func (SrvRecordMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SrvRecord)(nil))
+	return reflect.TypeOf((*map[string]*SrvRecord)(nil)).Elem()
 }
 
 func (i SrvRecordMap) ToSrvRecordMapOutput() SrvRecordMapOutput {
@@ -299,9 +299,7 @@ func (i SrvRecordMap) ToSrvRecordMapOutputWithContext(ctx context.Context) SrvRe
 	return pulumi.ToOutputWithContext(ctx, i).(SrvRecordMapOutput)
 }
 
-type SrvRecordOutput struct {
-	*pulumi.OutputState
-}
+type SrvRecordOutput struct{ *pulumi.OutputState }
 
 func (SrvRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SrvRecord)(nil))
@@ -320,14 +318,12 @@ func (o SrvRecordOutput) ToSrvRecordPtrOutput() SrvRecordPtrOutput {
 }
 
 func (o SrvRecordOutput) ToSrvRecordPtrOutputWithContext(ctx context.Context) SrvRecordPtrOutput {
-	return o.ApplyT(func(v SrvRecord) *SrvRecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SrvRecord) *SrvRecord {
 		return &v
 	}).(SrvRecordPtrOutput)
 }
 
-type SrvRecordPtrOutput struct {
-	*pulumi.OutputState
-}
+type SrvRecordPtrOutput struct{ *pulumi.OutputState }
 
 func (SrvRecordPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SrvRecord)(nil))
@@ -339,6 +335,16 @@ func (o SrvRecordPtrOutput) ToSrvRecordPtrOutput() SrvRecordPtrOutput {
 
 func (o SrvRecordPtrOutput) ToSrvRecordPtrOutputWithContext(ctx context.Context) SrvRecordPtrOutput {
 	return o
+}
+
+func (o SrvRecordPtrOutput) Elem() SrvRecordOutput {
+	return o.ApplyT(func(v *SrvRecord) SrvRecord {
+		if v != nil {
+			return *v
+		}
+		var ret SrvRecord
+		return ret
+	}).(SrvRecordOutput)
 }
 
 type SrvRecordArrayOutput struct{ *pulumi.OutputState }

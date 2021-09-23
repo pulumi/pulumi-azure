@@ -4,6 +4,9 @@
 package core
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,73 @@ type GetTemplateSpecVersionResult struct {
 	// The ARM Template body of the Template Spec Version.
 	TemplateBody string `pulumi:"templateBody"`
 	Version      string `pulumi:"version"`
+}
+
+func GetTemplateSpecVersionOutput(ctx *pulumi.Context, args GetTemplateSpecVersionOutputArgs, opts ...pulumi.InvokeOption) GetTemplateSpecVersionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetTemplateSpecVersionResult, error) {
+			args := v.(GetTemplateSpecVersionArgs)
+			r, err := GetTemplateSpecVersion(ctx, &args, opts...)
+			return *r, err
+		}).(GetTemplateSpecVersionResultOutput)
+}
+
+// A collection of arguments for invoking getTemplateSpecVersion.
+type GetTemplateSpecVersionOutputArgs struct {
+	// The name of this Template Spec.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Template Spec exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The Version Name of the Template Spec.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetTemplateSpecVersionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTemplateSpecVersionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTemplateSpecVersion.
+type GetTemplateSpecVersionResultOutput struct{ *pulumi.OutputState }
+
+func (GetTemplateSpecVersionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTemplateSpecVersionResult)(nil)).Elem()
+}
+
+func (o GetTemplateSpecVersionResultOutput) ToGetTemplateSpecVersionResultOutput() GetTemplateSpecVersionResultOutput {
+	return o
+}
+
+func (o GetTemplateSpecVersionResultOutput) ToGetTemplateSpecVersionResultOutputWithContext(ctx context.Context) GetTemplateSpecVersionResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetTemplateSpecVersionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplateSpecVersionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetTemplateSpecVersionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplateSpecVersionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetTemplateSpecVersionResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplateSpecVersionResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the Template.
+func (o GetTemplateSpecVersionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTemplateSpecVersionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The ARM Template body of the Template Spec Version.
+func (o GetTemplateSpecVersionResultOutput) TemplateBody() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplateSpecVersionResult) string { return v.TemplateBody }).(pulumi.StringOutput)
+}
+
+func (o GetTemplateSpecVersionResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplateSpecVersionResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetTemplateSpecVersionResultOutput{})
 }

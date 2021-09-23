@@ -227,7 +227,7 @@ type NotebookWorkspaceArrayInput interface {
 type NotebookWorkspaceArray []NotebookWorkspaceInput
 
 func (NotebookWorkspaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NotebookWorkspace)(nil))
+	return reflect.TypeOf((*[]*NotebookWorkspace)(nil)).Elem()
 }
 
 func (i NotebookWorkspaceArray) ToNotebookWorkspaceArrayOutput() NotebookWorkspaceArrayOutput {
@@ -252,7 +252,7 @@ type NotebookWorkspaceMapInput interface {
 type NotebookWorkspaceMap map[string]NotebookWorkspaceInput
 
 func (NotebookWorkspaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NotebookWorkspace)(nil))
+	return reflect.TypeOf((*map[string]*NotebookWorkspace)(nil)).Elem()
 }
 
 func (i NotebookWorkspaceMap) ToNotebookWorkspaceMapOutput() NotebookWorkspaceMapOutput {
@@ -263,9 +263,7 @@ func (i NotebookWorkspaceMap) ToNotebookWorkspaceMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookWorkspaceMapOutput)
 }
 
-type NotebookWorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type NotebookWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (NotebookWorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotebookWorkspace)(nil))
@@ -284,14 +282,12 @@ func (o NotebookWorkspaceOutput) ToNotebookWorkspacePtrOutput() NotebookWorkspac
 }
 
 func (o NotebookWorkspaceOutput) ToNotebookWorkspacePtrOutputWithContext(ctx context.Context) NotebookWorkspacePtrOutput {
-	return o.ApplyT(func(v NotebookWorkspace) *NotebookWorkspace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotebookWorkspace) *NotebookWorkspace {
 		return &v
 	}).(NotebookWorkspacePtrOutput)
 }
 
-type NotebookWorkspacePtrOutput struct {
-	*pulumi.OutputState
-}
+type NotebookWorkspacePtrOutput struct{ *pulumi.OutputState }
 
 func (NotebookWorkspacePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NotebookWorkspace)(nil))
@@ -303,6 +299,16 @@ func (o NotebookWorkspacePtrOutput) ToNotebookWorkspacePtrOutput() NotebookWorks
 
 func (o NotebookWorkspacePtrOutput) ToNotebookWorkspacePtrOutputWithContext(ctx context.Context) NotebookWorkspacePtrOutput {
 	return o
+}
+
+func (o NotebookWorkspacePtrOutput) Elem() NotebookWorkspaceOutput {
+	return o.ApplyT(func(v *NotebookWorkspace) NotebookWorkspace {
+		if v != nil {
+			return *v
+		}
+		var ret NotebookWorkspace
+		return ret
+	}).(NotebookWorkspaceOutput)
 }
 
 type NotebookWorkspaceArrayOutput struct{ *pulumi.OutputState }

@@ -289,7 +289,7 @@ type ManagedHardwareSecurityModuleArrayInput interface {
 type ManagedHardwareSecurityModuleArray []ManagedHardwareSecurityModuleInput
 
 func (ManagedHardwareSecurityModuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ManagedHardwareSecurityModule)(nil))
+	return reflect.TypeOf((*[]*ManagedHardwareSecurityModule)(nil)).Elem()
 }
 
 func (i ManagedHardwareSecurityModuleArray) ToManagedHardwareSecurityModuleArrayOutput() ManagedHardwareSecurityModuleArrayOutput {
@@ -314,7 +314,7 @@ type ManagedHardwareSecurityModuleMapInput interface {
 type ManagedHardwareSecurityModuleMap map[string]ManagedHardwareSecurityModuleInput
 
 func (ManagedHardwareSecurityModuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ManagedHardwareSecurityModule)(nil))
+	return reflect.TypeOf((*map[string]*ManagedHardwareSecurityModule)(nil)).Elem()
 }
 
 func (i ManagedHardwareSecurityModuleMap) ToManagedHardwareSecurityModuleMapOutput() ManagedHardwareSecurityModuleMapOutput {
@@ -325,9 +325,7 @@ func (i ManagedHardwareSecurityModuleMap) ToManagedHardwareSecurityModuleMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHardwareSecurityModuleMapOutput)
 }
 
-type ManagedHardwareSecurityModuleOutput struct {
-	*pulumi.OutputState
-}
+type ManagedHardwareSecurityModuleOutput struct{ *pulumi.OutputState }
 
 func (ManagedHardwareSecurityModuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedHardwareSecurityModule)(nil))
@@ -346,14 +344,12 @@ func (o ManagedHardwareSecurityModuleOutput) ToManagedHardwareSecurityModulePtrO
 }
 
 func (o ManagedHardwareSecurityModuleOutput) ToManagedHardwareSecurityModulePtrOutputWithContext(ctx context.Context) ManagedHardwareSecurityModulePtrOutput {
-	return o.ApplyT(func(v ManagedHardwareSecurityModule) *ManagedHardwareSecurityModule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedHardwareSecurityModule) *ManagedHardwareSecurityModule {
 		return &v
 	}).(ManagedHardwareSecurityModulePtrOutput)
 }
 
-type ManagedHardwareSecurityModulePtrOutput struct {
-	*pulumi.OutputState
-}
+type ManagedHardwareSecurityModulePtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedHardwareSecurityModulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagedHardwareSecurityModule)(nil))
@@ -365,6 +361,16 @@ func (o ManagedHardwareSecurityModulePtrOutput) ToManagedHardwareSecurityModuleP
 
 func (o ManagedHardwareSecurityModulePtrOutput) ToManagedHardwareSecurityModulePtrOutputWithContext(ctx context.Context) ManagedHardwareSecurityModulePtrOutput {
 	return o
+}
+
+func (o ManagedHardwareSecurityModulePtrOutput) Elem() ManagedHardwareSecurityModuleOutput {
+	return o.ApplyT(func(v *ManagedHardwareSecurityModule) ManagedHardwareSecurityModule {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedHardwareSecurityModule
+		return ret
+	}).(ManagedHardwareSecurityModuleOutput)
 }
 
 type ManagedHardwareSecurityModuleArrayOutput struct{ *pulumi.OutputState }

@@ -12,6 +12,7 @@ __all__ = [
     'GetProjectResult',
     'AwaitableGetProjectResult',
     'get_project',
+    'get_project_output',
 ]
 
 @pulumi.output_type
@@ -160,3 +161,31 @@ def get_project(name: Optional[str] = None,
         source_platform=__ret__.source_platform,
         tags=__ret__.tags,
         target_platform=__ret__.target_platform)
+
+
+@_utilities.lift_output_func(get_project)
+def get_project_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       service_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
+    """
+    Use this data source to access information about an existing Database Migration Project.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.databasemigration.get_project(name="example-dbms-project",
+        resource_group_name="example-rg",
+        service_name="example-dbms")
+    pulumi.export("name", example.name)
+    ```
+
+
+    :param str name: Name of the database migration project.
+    :param str resource_group_name: Name of the resource group where resource belongs to.
+    :param str service_name: Name of the database migration service where resource belongs to.
+    """
+    ...

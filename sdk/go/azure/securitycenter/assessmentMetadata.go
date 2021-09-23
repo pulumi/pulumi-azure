@@ -255,7 +255,7 @@ type AssessmentMetadataArrayInput interface {
 type AssessmentMetadataArray []AssessmentMetadataInput
 
 func (AssessmentMetadataArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AssessmentMetadata)(nil))
+	return reflect.TypeOf((*[]*AssessmentMetadata)(nil)).Elem()
 }
 
 func (i AssessmentMetadataArray) ToAssessmentMetadataArrayOutput() AssessmentMetadataArrayOutput {
@@ -280,7 +280,7 @@ type AssessmentMetadataMapInput interface {
 type AssessmentMetadataMap map[string]AssessmentMetadataInput
 
 func (AssessmentMetadataMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AssessmentMetadata)(nil))
+	return reflect.TypeOf((*map[string]*AssessmentMetadata)(nil)).Elem()
 }
 
 func (i AssessmentMetadataMap) ToAssessmentMetadataMapOutput() AssessmentMetadataMapOutput {
@@ -291,9 +291,7 @@ func (i AssessmentMetadataMap) ToAssessmentMetadataMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentMetadataMapOutput)
 }
 
-type AssessmentMetadataOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentMetadataOutput struct{ *pulumi.OutputState }
 
 func (AssessmentMetadataOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AssessmentMetadata)(nil))
@@ -312,14 +310,12 @@ func (o AssessmentMetadataOutput) ToAssessmentMetadataPtrOutput() AssessmentMeta
 }
 
 func (o AssessmentMetadataOutput) ToAssessmentMetadataPtrOutputWithContext(ctx context.Context) AssessmentMetadataPtrOutput {
-	return o.ApplyT(func(v AssessmentMetadata) *AssessmentMetadata {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentMetadata) *AssessmentMetadata {
 		return &v
 	}).(AssessmentMetadataPtrOutput)
 }
 
-type AssessmentMetadataPtrOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentMetadataPtrOutput struct{ *pulumi.OutputState }
 
 func (AssessmentMetadataPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AssessmentMetadata)(nil))
@@ -331,6 +327,16 @@ func (o AssessmentMetadataPtrOutput) ToAssessmentMetadataPtrOutput() AssessmentM
 
 func (o AssessmentMetadataPtrOutput) ToAssessmentMetadataPtrOutputWithContext(ctx context.Context) AssessmentMetadataPtrOutput {
 	return o
+}
+
+func (o AssessmentMetadataPtrOutput) Elem() AssessmentMetadataOutput {
+	return o.ApplyT(func(v *AssessmentMetadata) AssessmentMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentMetadata
+		return ret
+	}).(AssessmentMetadataOutput)
 }
 
 type AssessmentMetadataArrayOutput struct{ *pulumi.OutputState }

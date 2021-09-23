@@ -470,7 +470,7 @@ type KubernetesClusterNodePoolArrayInput interface {
 type KubernetesClusterNodePoolArray []KubernetesClusterNodePoolInput
 
 func (KubernetesClusterNodePoolArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*KubernetesClusterNodePool)(nil))
+	return reflect.TypeOf((*[]*KubernetesClusterNodePool)(nil)).Elem()
 }
 
 func (i KubernetesClusterNodePoolArray) ToKubernetesClusterNodePoolArrayOutput() KubernetesClusterNodePoolArrayOutput {
@@ -495,7 +495,7 @@ type KubernetesClusterNodePoolMapInput interface {
 type KubernetesClusterNodePoolMap map[string]KubernetesClusterNodePoolInput
 
 func (KubernetesClusterNodePoolMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*KubernetesClusterNodePool)(nil))
+	return reflect.TypeOf((*map[string]*KubernetesClusterNodePool)(nil)).Elem()
 }
 
 func (i KubernetesClusterNodePoolMap) ToKubernetesClusterNodePoolMapOutput() KubernetesClusterNodePoolMapOutput {
@@ -506,9 +506,7 @@ func (i KubernetesClusterNodePoolMap) ToKubernetesClusterNodePoolMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolMapOutput)
 }
 
-type KubernetesClusterNodePoolOutput struct {
-	*pulumi.OutputState
-}
+type KubernetesClusterNodePoolOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNodePoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterNodePool)(nil))
@@ -527,14 +525,12 @@ func (o KubernetesClusterNodePoolOutput) ToKubernetesClusterNodePoolPtrOutput() 
 }
 
 func (o KubernetesClusterNodePoolOutput) ToKubernetesClusterNodePoolPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterNodePool) *KubernetesClusterNodePool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNodePool) *KubernetesClusterNodePool {
 		return &v
 	}).(KubernetesClusterNodePoolPtrOutput)
 }
 
-type KubernetesClusterNodePoolPtrOutput struct {
-	*pulumi.OutputState
-}
+type KubernetesClusterNodePoolPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNodePoolPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterNodePool)(nil))
@@ -546,6 +542,16 @@ func (o KubernetesClusterNodePoolPtrOutput) ToKubernetesClusterNodePoolPtrOutput
 
 func (o KubernetesClusterNodePoolPtrOutput) ToKubernetesClusterNodePoolPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterNodePoolPtrOutput) Elem() KubernetesClusterNodePoolOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) KubernetesClusterNodePool {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNodePool
+		return ret
+	}).(KubernetesClusterNodePoolOutput)
 }
 
 type KubernetesClusterNodePoolArrayOutput struct{ *pulumi.OutputState }

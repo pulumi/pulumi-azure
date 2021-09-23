@@ -12,6 +12,7 @@ __all__ = [
     'GetPlatformImageResult',
     'AwaitableGetPlatformImageResult',
     'get_platform_image',
+    'get_platform_image_output',
 ]
 
 @pulumi.output_type
@@ -135,3 +136,36 @@ def get_platform_image(location: Optional[str] = None,
         publisher=__ret__.publisher,
         sku=__ret__.sku,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_platform_image)
+def get_platform_image_output(location: Optional[pulumi.Input[str]] = None,
+                              offer: Optional[pulumi.Input[str]] = None,
+                              publisher: Optional[pulumi.Input[str]] = None,
+                              sku: Optional[pulumi.Input[str]] = None,
+                              version: Optional[pulumi.Input[Optional[str]]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlatformImageResult]:
+    """
+    Use this data source to access information about a Platform Image.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_platform_image(location="West Europe",
+        publisher="Canonical",
+        offer="UbuntuServer",
+        sku="16.04-LTS")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str location: Specifies the Location to pull information about this Platform Image from.
+    :param str offer: Specifies the Offer associated with the Platform Image.
+    :param str publisher: Specifies the Publisher associated with the Platform Image.
+    :param str sku: Specifies the SKU of the Platform Image.
+    :param str version: The version of the Platform Image.
+    """
+    ...

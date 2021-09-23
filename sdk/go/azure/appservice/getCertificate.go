@@ -4,6 +4,9 @@
 package appservice
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,4 +76,101 @@ type LookupCertificateResult struct {
 	Tags        map[string]string `pulumi:"tags"`
 	// The thumbprint for the certificate.
 	Thumbprint string `pulumi:"thumbprint"`
+}
+
+func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCertificateResult, error) {
+			args := v.(LookupCertificateArgs)
+			r, err := LookupCertificate(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCertificateResultOutput)
+}
+
+// A collection of arguments for invoking getCertificate.
+type LookupCertificateOutputArgs struct {
+	// Specifies the name of the certificate.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group in which to create the certificate.
+	ResourceGroupName pulumi.StringInput    `pulumi:"resourceGroupName"`
+	Tags              pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCertificate.
+type LookupCertificateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateResult)(nil)).Elem()
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutput() LookupCertificateResultOutput {
+	return o
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContext(ctx context.Context) LookupCertificateResultOutput {
+	return o
+}
+
+// The expiration date for the certificate.
+func (o LookupCertificateResultOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
+// The friendly name of the certificate.
+func (o LookupCertificateResultOutput) FriendlyName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.FriendlyName }).(pulumi.StringOutput)
+}
+
+// List of host names the certificate applies to.
+func (o LookupCertificateResultOutput) HostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupCertificateResult) []string { return v.HostNames }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The issue date for the certificate.
+func (o LookupCertificateResultOutput) IssueDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.IssueDate }).(pulumi.StringOutput)
+}
+
+// The name of the certificate issuer.
+func (o LookupCertificateResultOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The subject name of the certificate.
+func (o LookupCertificateResultOutput) SubjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.SubjectName }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCertificateResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The thumbprint for the certificate.
+func (o LookupCertificateResultOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCertificateResultOutput{})
 }

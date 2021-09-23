@@ -123,7 +123,7 @@ func (o ServiceInitialReplicaSetOutput) ToServiceInitialReplicaSetPtrOutput() Se
 }
 
 func (o ServiceInitialReplicaSetOutput) ToServiceInitialReplicaSetPtrOutputWithContext(ctx context.Context) ServiceInitialReplicaSetPtrOutput {
-	return o.ApplyT(func(v ServiceInitialReplicaSet) *ServiceInitialReplicaSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceInitialReplicaSet) *ServiceInitialReplicaSet {
 		return &v
 	}).(ServiceInitialReplicaSetPtrOutput)
 }
@@ -173,7 +173,13 @@ func (o ServiceInitialReplicaSetPtrOutput) ToServiceInitialReplicaSetPtrOutputWi
 }
 
 func (o ServiceInitialReplicaSetPtrOutput) Elem() ServiceInitialReplicaSetOutput {
-	return o.ApplyT(func(v *ServiceInitialReplicaSet) ServiceInitialReplicaSet { return *v }).(ServiceInitialReplicaSetOutput)
+	return o.ApplyT(func(v *ServiceInitialReplicaSet) ServiceInitialReplicaSet {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceInitialReplicaSet
+		return ret
+	}).(ServiceInitialReplicaSetOutput)
 }
 
 // A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
@@ -337,7 +343,7 @@ func (o ServiceNotificationsOutput) ToServiceNotificationsPtrOutput() ServiceNot
 }
 
 func (o ServiceNotificationsOutput) ToServiceNotificationsPtrOutputWithContext(ctx context.Context) ServiceNotificationsPtrOutput {
-	return o.ApplyT(func(v ServiceNotifications) *ServiceNotifications {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNotifications) *ServiceNotifications {
 		return &v
 	}).(ServiceNotificationsPtrOutput)
 }
@@ -372,7 +378,13 @@ func (o ServiceNotificationsPtrOutput) ToServiceNotificationsPtrOutputWithContex
 }
 
 func (o ServiceNotificationsPtrOutput) Elem() ServiceNotificationsOutput {
-	return o.ApplyT(func(v *ServiceNotifications) ServiceNotifications { return *v }).(ServiceNotificationsOutput)
+	return o.ApplyT(func(v *ServiceNotifications) ServiceNotifications {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNotifications
+		return ret
+	}).(ServiceNotificationsOutput)
 }
 
 // A list of additional email addresses to notify when there are alerts in the managed domain.
@@ -516,10 +528,11 @@ func (o ServiceSecureLdapOutput) ToServiceSecureLdapPtrOutput() ServiceSecureLda
 }
 
 func (o ServiceSecureLdapOutput) ToServiceSecureLdapPtrOutputWithContext(ctx context.Context) ServiceSecureLdapPtrOutput {
-	return o.ApplyT(func(v ServiceSecureLdap) *ServiceSecureLdap {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSecureLdap) *ServiceSecureLdap {
 		return &v
 	}).(ServiceSecureLdapPtrOutput)
 }
+
 func (o ServiceSecureLdapOutput) CertificateExpiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSecureLdap) *string { return v.CertificateExpiry }).(pulumi.StringPtrOutput)
 }
@@ -567,7 +580,13 @@ func (o ServiceSecureLdapPtrOutput) ToServiceSecureLdapPtrOutputWithContext(ctx 
 }
 
 func (o ServiceSecureLdapPtrOutput) Elem() ServiceSecureLdapOutput {
-	return o.ApplyT(func(v *ServiceSecureLdap) ServiceSecureLdap { return *v }).(ServiceSecureLdapOutput)
+	return o.ApplyT(func(v *ServiceSecureLdap) ServiceSecureLdap {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSecureLdap
+		return ret
+	}).(ServiceSecureLdapOutput)
 }
 
 func (o ServiceSecureLdapPtrOutput) CertificateExpiry() pulumi.StringPtrOutput {
@@ -746,7 +765,7 @@ func (o ServiceSecurityOutput) ToServiceSecurityPtrOutput() ServiceSecurityPtrOu
 }
 
 func (o ServiceSecurityOutput) ToServiceSecurityPtrOutputWithContext(ctx context.Context) ServiceSecurityPtrOutput {
-	return o.ApplyT(func(v ServiceSecurity) *ServiceSecurity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSecurity) *ServiceSecurity {
 		return &v
 	}).(ServiceSecurityPtrOutput)
 }
@@ -791,7 +810,13 @@ func (o ServiceSecurityPtrOutput) ToServiceSecurityPtrOutputWithContext(ctx cont
 }
 
 func (o ServiceSecurityPtrOutput) Elem() ServiceSecurityOutput {
-	return o.ApplyT(func(v *ServiceSecurity) ServiceSecurity { return *v }).(ServiceSecurityOutput)
+	return o.ApplyT(func(v *ServiceSecurity) ServiceSecurity {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSecurity
+		return ret
+	}).(ServiceSecurityOutput)
 }
 
 // Whether to enable legacy NTLM v1 support. Defaults to `false`.

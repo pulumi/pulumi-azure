@@ -370,7 +370,7 @@ type ComputeInstanceArrayInput interface {
 type ComputeInstanceArray []ComputeInstanceInput
 
 func (ComputeInstanceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ComputeInstance)(nil))
+	return reflect.TypeOf((*[]*ComputeInstance)(nil)).Elem()
 }
 
 func (i ComputeInstanceArray) ToComputeInstanceArrayOutput() ComputeInstanceArrayOutput {
@@ -395,7 +395,7 @@ type ComputeInstanceMapInput interface {
 type ComputeInstanceMap map[string]ComputeInstanceInput
 
 func (ComputeInstanceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ComputeInstance)(nil))
+	return reflect.TypeOf((*map[string]*ComputeInstance)(nil)).Elem()
 }
 
 func (i ComputeInstanceMap) ToComputeInstanceMapOutput() ComputeInstanceMapOutput {
@@ -406,9 +406,7 @@ func (i ComputeInstanceMap) ToComputeInstanceMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceMapOutput)
 }
 
-type ComputeInstanceOutput struct {
-	*pulumi.OutputState
-}
+type ComputeInstanceOutput struct{ *pulumi.OutputState }
 
 func (ComputeInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ComputeInstance)(nil))
@@ -427,14 +425,12 @@ func (o ComputeInstanceOutput) ToComputeInstancePtrOutput() ComputeInstancePtrOu
 }
 
 func (o ComputeInstanceOutput) ToComputeInstancePtrOutputWithContext(ctx context.Context) ComputeInstancePtrOutput {
-	return o.ApplyT(func(v ComputeInstance) *ComputeInstance {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstance) *ComputeInstance {
 		return &v
 	}).(ComputeInstancePtrOutput)
 }
 
-type ComputeInstancePtrOutput struct {
-	*pulumi.OutputState
-}
+type ComputeInstancePtrOutput struct{ *pulumi.OutputState }
 
 func (ComputeInstancePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ComputeInstance)(nil))
@@ -446,6 +442,16 @@ func (o ComputeInstancePtrOutput) ToComputeInstancePtrOutput() ComputeInstancePt
 
 func (o ComputeInstancePtrOutput) ToComputeInstancePtrOutputWithContext(ctx context.Context) ComputeInstancePtrOutput {
 	return o
+}
+
+func (o ComputeInstancePtrOutput) Elem() ComputeInstanceOutput {
+	return o.ApplyT(func(v *ComputeInstance) ComputeInstance {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeInstance
+		return ret
+	}).(ComputeInstanceOutput)
 }
 
 type ComputeInstanceArrayOutput struct{ *pulumi.OutputState }

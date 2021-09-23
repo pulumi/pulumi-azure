@@ -326,7 +326,7 @@ type CertificateOrderArrayInput interface {
 type CertificateOrderArray []CertificateOrderInput
 
 func (CertificateOrderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CertificateOrder)(nil))
+	return reflect.TypeOf((*[]*CertificateOrder)(nil)).Elem()
 }
 
 func (i CertificateOrderArray) ToCertificateOrderArrayOutput() CertificateOrderArrayOutput {
@@ -351,7 +351,7 @@ type CertificateOrderMapInput interface {
 type CertificateOrderMap map[string]CertificateOrderInput
 
 func (CertificateOrderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CertificateOrder)(nil))
+	return reflect.TypeOf((*map[string]*CertificateOrder)(nil)).Elem()
 }
 
 func (i CertificateOrderMap) ToCertificateOrderMapOutput() CertificateOrderMapOutput {
@@ -362,9 +362,7 @@ func (i CertificateOrderMap) ToCertificateOrderMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderMapOutput)
 }
 
-type CertificateOrderOutput struct {
-	*pulumi.OutputState
-}
+type CertificateOrderOutput struct{ *pulumi.OutputState }
 
 func (CertificateOrderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CertificateOrder)(nil))
@@ -383,14 +381,12 @@ func (o CertificateOrderOutput) ToCertificateOrderPtrOutput() CertificateOrderPt
 }
 
 func (o CertificateOrderOutput) ToCertificateOrderPtrOutputWithContext(ctx context.Context) CertificateOrderPtrOutput {
-	return o.ApplyT(func(v CertificateOrder) *CertificateOrder {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateOrder) *CertificateOrder {
 		return &v
 	}).(CertificateOrderPtrOutput)
 }
 
-type CertificateOrderPtrOutput struct {
-	*pulumi.OutputState
-}
+type CertificateOrderPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateOrderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CertificateOrder)(nil))
@@ -402,6 +398,16 @@ func (o CertificateOrderPtrOutput) ToCertificateOrderPtrOutput() CertificateOrde
 
 func (o CertificateOrderPtrOutput) ToCertificateOrderPtrOutputWithContext(ctx context.Context) CertificateOrderPtrOutput {
 	return o
+}
+
+func (o CertificateOrderPtrOutput) Elem() CertificateOrderOutput {
+	return o.ApplyT(func(v *CertificateOrder) CertificateOrder {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateOrder
+		return ret
+	}).(CertificateOrderOutput)
 }
 
 type CertificateOrderArrayOutput struct{ *pulumi.OutputState }

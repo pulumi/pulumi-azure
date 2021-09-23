@@ -213,7 +213,7 @@ type DomainTopicArrayInput interface {
 type DomainTopicArray []DomainTopicInput
 
 func (DomainTopicArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DomainTopic)(nil))
+	return reflect.TypeOf((*[]*DomainTopic)(nil)).Elem()
 }
 
 func (i DomainTopicArray) ToDomainTopicArrayOutput() DomainTopicArrayOutput {
@@ -238,7 +238,7 @@ type DomainTopicMapInput interface {
 type DomainTopicMap map[string]DomainTopicInput
 
 func (DomainTopicMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DomainTopic)(nil))
+	return reflect.TypeOf((*map[string]*DomainTopic)(nil)).Elem()
 }
 
 func (i DomainTopicMap) ToDomainTopicMapOutput() DomainTopicMapOutput {
@@ -249,9 +249,7 @@ func (i DomainTopicMap) ToDomainTopicMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicMapOutput)
 }
 
-type DomainTopicOutput struct {
-	*pulumi.OutputState
-}
+type DomainTopicOutput struct{ *pulumi.OutputState }
 
 func (DomainTopicOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainTopic)(nil))
@@ -270,14 +268,12 @@ func (o DomainTopicOutput) ToDomainTopicPtrOutput() DomainTopicPtrOutput {
 }
 
 func (o DomainTopicOutput) ToDomainTopicPtrOutputWithContext(ctx context.Context) DomainTopicPtrOutput {
-	return o.ApplyT(func(v DomainTopic) *DomainTopic {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainTopic) *DomainTopic {
 		return &v
 	}).(DomainTopicPtrOutput)
 }
 
-type DomainTopicPtrOutput struct {
-	*pulumi.OutputState
-}
+type DomainTopicPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainTopicPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainTopic)(nil))
@@ -289,6 +285,16 @@ func (o DomainTopicPtrOutput) ToDomainTopicPtrOutput() DomainTopicPtrOutput {
 
 func (o DomainTopicPtrOutput) ToDomainTopicPtrOutputWithContext(ctx context.Context) DomainTopicPtrOutput {
 	return o
+}
+
+func (o DomainTopicPtrOutput) Elem() DomainTopicOutput {
+	return o.ApplyT(func(v *DomainTopic) DomainTopic {
+		if v != nil {
+			return *v
+		}
+		var ret DomainTopic
+		return ret
+	}).(DomainTopicOutput)
 }
 
 type DomainTopicArrayOutput struct{ *pulumi.OutputState }

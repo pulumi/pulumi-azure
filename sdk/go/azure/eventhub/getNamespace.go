@@ -4,6 +4,9 @@
 package eventhub
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -89,4 +92,135 @@ type LookupNamespaceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Is this EventHub Namespace deployed across Availability Zones?
 	ZoneRedundant bool `pulumi:"zoneRedundant"`
+}
+
+func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNamespaceResult, error) {
+			args := v.(LookupNamespaceArgs)
+			r, err := LookupNamespace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNamespaceResultOutput)
+}
+
+// A collection of arguments for invoking getNamespace.
+type LookupNamespaceOutputArgs struct {
+	// The name of the EventHub Namespace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group where the EventHub Namespace exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNamespaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getNamespace.
+type LookupNamespaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNamespaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceResult)(nil)).Elem()
+}
+
+func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutput() LookupNamespaceResultOutput {
+	return o
+}
+
+func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutputWithContext(ctx context.Context) LookupNamespaceResultOutput {
+	return o
+}
+
+// Is Auto Inflate enabled for the EventHub Namespace?
+func (o LookupNamespaceResultOutput) AutoInflateEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) bool { return v.AutoInflateEnabled }).(pulumi.BoolOutput)
+}
+
+// The Capacity / Throughput Units for a `Standard` SKU namespace.
+func (o LookupNamespaceResultOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) int { return v.Capacity }).(pulumi.IntOutput)
+}
+
+// The ID of the EventHub Dedicated Cluster where this Namespace exists.
+func (o LookupNamespaceResultOutput) DedicatedClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DedicatedClusterId }).(pulumi.StringOutput)
+}
+
+// The primary connection string for the authorization
+// rule `RootManageSharedAccessKey`.
+func (o LookupNamespaceResultOutput) DefaultPrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DefaultPrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The alias of the primary connection string for the authorization
+// rule `RootManageSharedAccessKey`.
+func (o LookupNamespaceResultOutput) DefaultPrimaryConnectionStringAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DefaultPrimaryConnectionStringAlias }).(pulumi.StringOutput)
+}
+
+// The primary access key for the authorization rule `RootManageSharedAccessKey`.
+func (o LookupNamespaceResultOutput) DefaultPrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DefaultPrimaryKey }).(pulumi.StringOutput)
+}
+
+// The secondary connection string for the
+// authorization rule `RootManageSharedAccessKey`.
+func (o LookupNamespaceResultOutput) DefaultSecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DefaultSecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The alias of the secondary connection string for the
+// authorization rule `RootManageSharedAccessKey`.
+func (o LookupNamespaceResultOutput) DefaultSecondaryConnectionStringAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DefaultSecondaryConnectionStringAlias }).(pulumi.StringOutput)
+}
+
+// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+func (o LookupNamespaceResultOutput) DefaultSecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DefaultSecondaryKey }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupNamespaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupNamespaceResultOutput) KafkaEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) bool { return v.KafkaEnabled }).(pulumi.BoolOutput)
+}
+
+// The Azure location where the EventHub Namespace exists
+func (o LookupNamespaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Specifies the maximum number of throughput units when Auto Inflate is Enabled.
+func (o LookupNamespaceResultOutput) MaximumThroughputUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) int { return v.MaximumThroughputUnits }).(pulumi.IntOutput)
+}
+
+func (o LookupNamespaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupNamespaceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Defines which tier to use.
+func (o LookupNamespaceResultOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the EventHub Namespace.
+func (o LookupNamespaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Is this EventHub Namespace deployed across Availability Zones?
+func (o LookupNamespaceResultOutput) ZoneRedundant() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) bool { return v.ZoneRedundant }).(pulumi.BoolOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNamespaceResultOutput{})
 }

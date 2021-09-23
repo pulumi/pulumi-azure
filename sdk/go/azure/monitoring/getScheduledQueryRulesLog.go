@@ -4,6 +4,9 @@
 package monitoring
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,90 @@ type LookupScheduledQueryRulesLogResult struct {
 	Name              string            `pulumi:"name"`
 	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	Tags              map[string]string `pulumi:"tags"`
+}
+
+func LookupScheduledQueryRulesLogOutput(ctx *pulumi.Context, args LookupScheduledQueryRulesLogOutputArgs, opts ...pulumi.InvokeOption) LookupScheduledQueryRulesLogResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupScheduledQueryRulesLogResult, error) {
+			args := v.(LookupScheduledQueryRulesLogArgs)
+			r, err := LookupScheduledQueryRulesLog(ctx, &args, opts...)
+			return *r, err
+		}).(LookupScheduledQueryRulesLogResultOutput)
+}
+
+// A collection of arguments for invoking getScheduledQueryRulesLog.
+type LookupScheduledQueryRulesLogOutputArgs struct {
+	// Specifies the name of the scheduled query rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group where the scheduled query rule is located.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupScheduledQueryRulesLogOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScheduledQueryRulesLogArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getScheduledQueryRulesLog.
+type LookupScheduledQueryRulesLogResultOutput struct{ *pulumi.OutputState }
+
+func (LookupScheduledQueryRulesLogResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScheduledQueryRulesLogResult)(nil)).Elem()
+}
+
+func (o LookupScheduledQueryRulesLogResultOutput) ToLookupScheduledQueryRulesLogResultOutput() LookupScheduledQueryRulesLogResultOutput {
+	return o
+}
+
+func (o LookupScheduledQueryRulesLogResultOutput) ToLookupScheduledQueryRulesLogResultOutputWithContext(ctx context.Context) LookupScheduledQueryRulesLogResultOutput {
+	return o
+}
+
+func (o LookupScheduledQueryRulesLogResultOutput) AuthorizedResourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) []string { return v.AuthorizedResourceIds }).(pulumi.StringArrayOutput)
+}
+
+// A `criteria` block as defined below.
+func (o LookupScheduledQueryRulesLogResultOutput) Criterias() GetScheduledQueryRulesLogCriteriaArrayOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) []GetScheduledQueryRulesLogCriteria { return v.Criterias }).(GetScheduledQueryRulesLogCriteriaArrayOutput)
+}
+
+// The resource URI over which log search query is to be run.
+func (o LookupScheduledQueryRulesLogResultOutput) DataSourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) string { return v.DataSourceId }).(pulumi.StringOutput)
+}
+
+// The description of the scheduled query rule.
+func (o LookupScheduledQueryRulesLogResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Whether this scheduled query rule is enabled.
+func (o LookupScheduledQueryRulesLogResultOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupScheduledQueryRulesLogResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupScheduledQueryRulesLogResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the dimension.
+func (o LookupScheduledQueryRulesLogResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupScheduledQueryRulesLogResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupScheduledQueryRulesLogResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupScheduledQueryRulesLogResultOutput{})
 }

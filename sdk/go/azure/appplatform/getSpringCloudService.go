@@ -4,6 +4,9 @@
 package appplatform
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,87 @@ type LookupSpringCloudServiceResult struct {
 	ResourceGroupName           string                                            `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to Spring Cloud Service.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupSpringCloudServiceOutput(ctx *pulumi.Context, args LookupSpringCloudServiceOutputArgs, opts ...pulumi.InvokeOption) LookupSpringCloudServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSpringCloudServiceResult, error) {
+			args := v.(LookupSpringCloudServiceArgs)
+			r, err := LookupSpringCloudService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSpringCloudServiceResultOutput)
+}
+
+// A collection of arguments for invoking getSpringCloudService.
+type LookupSpringCloudServiceOutputArgs struct {
+	// Specifies The name of the Spring Cloud Service resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the Resource Group where the Spring Cloud Service exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupSpringCloudServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSpringCloudServiceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSpringCloudService.
+type LookupSpringCloudServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSpringCloudServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSpringCloudServiceResult)(nil)).Elem()
+}
+
+func (o LookupSpringCloudServiceResultOutput) ToLookupSpringCloudServiceResultOutput() LookupSpringCloudServiceResultOutput {
+	return o
+}
+
+func (o LookupSpringCloudServiceResultOutput) ToLookupSpringCloudServiceResultOutputWithContext(ctx context.Context) LookupSpringCloudServiceResultOutput {
+	return o
+}
+
+// A `configServerGitSetting` block as defined below.
+func (o LookupSpringCloudServiceResultOutput) ConfigServerGitSettings() GetSpringCloudServiceConfigServerGitSettingArrayOutput {
+	return o.ApplyT(func(v LookupSpringCloudServiceResult) []GetSpringCloudServiceConfigServerGitSetting {
+		return v.ConfigServerGitSettings
+	}).(GetSpringCloudServiceConfigServerGitSettingArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSpringCloudServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpringCloudServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of Spring Cloud Service.
+func (o LookupSpringCloudServiceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpringCloudServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name to identify on the Git repository.
+func (o LookupSpringCloudServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpringCloudServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+func (o LookupSpringCloudServiceResultOutput) OutboundPublicIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSpringCloudServiceResult) []string { return v.OutboundPublicIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// A list of `requiredNetworkTrafficRules` blocks as defined below.
+func (o LookupSpringCloudServiceResultOutput) RequiredNetworkTrafficRules() GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput {
+	return o.ApplyT(func(v LookupSpringCloudServiceResult) []GetSpringCloudServiceRequiredNetworkTrafficRule {
+		return v.RequiredNetworkTrafficRules
+	}).(GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput)
+}
+
+func (o LookupSpringCloudServiceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpringCloudServiceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to Spring Cloud Service.
+func (o LookupSpringCloudServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSpringCloudServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSpringCloudServiceResultOutput{})
 }

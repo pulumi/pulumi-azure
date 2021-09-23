@@ -430,7 +430,7 @@ type FrontdoorArrayInput interface {
 type FrontdoorArray []FrontdoorInput
 
 func (FrontdoorArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Frontdoor)(nil))
+	return reflect.TypeOf((*[]*Frontdoor)(nil)).Elem()
 }
 
 func (i FrontdoorArray) ToFrontdoorArrayOutput() FrontdoorArrayOutput {
@@ -455,7 +455,7 @@ type FrontdoorMapInput interface {
 type FrontdoorMap map[string]FrontdoorInput
 
 func (FrontdoorMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Frontdoor)(nil))
+	return reflect.TypeOf((*map[string]*Frontdoor)(nil)).Elem()
 }
 
 func (i FrontdoorMap) ToFrontdoorMapOutput() FrontdoorMapOutput {
@@ -466,9 +466,7 @@ func (i FrontdoorMap) ToFrontdoorMapOutputWithContext(ctx context.Context) Front
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorMapOutput)
 }
 
-type FrontdoorOutput struct {
-	*pulumi.OutputState
-}
+type FrontdoorOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Frontdoor)(nil))
@@ -487,14 +485,12 @@ func (o FrontdoorOutput) ToFrontdoorPtrOutput() FrontdoorPtrOutput {
 }
 
 func (o FrontdoorOutput) ToFrontdoorPtrOutputWithContext(ctx context.Context) FrontdoorPtrOutput {
-	return o.ApplyT(func(v Frontdoor) *Frontdoor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Frontdoor) *Frontdoor {
 		return &v
 	}).(FrontdoorPtrOutput)
 }
 
-type FrontdoorPtrOutput struct {
-	*pulumi.OutputState
-}
+type FrontdoorPtrOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Frontdoor)(nil))
@@ -506,6 +502,16 @@ func (o FrontdoorPtrOutput) ToFrontdoorPtrOutput() FrontdoorPtrOutput {
 
 func (o FrontdoorPtrOutput) ToFrontdoorPtrOutputWithContext(ctx context.Context) FrontdoorPtrOutput {
 	return o
+}
+
+func (o FrontdoorPtrOutput) Elem() FrontdoorOutput {
+	return o.ApplyT(func(v *Frontdoor) Frontdoor {
+		if v != nil {
+			return *v
+		}
+		var ret Frontdoor
+		return ret
+	}).(FrontdoorOutput)
 }
 
 type FrontdoorArrayOutput struct{ *pulumi.OutputState }

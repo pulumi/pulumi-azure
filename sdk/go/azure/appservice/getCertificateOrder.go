@@ -4,6 +4,9 @@
 package appservice
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -90,4 +93,142 @@ type LookupCertificateOrderResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Duration in years (must be between 1 and 3).
 	ValidityInYears int `pulumi:"validityInYears"`
+}
+
+func LookupCertificateOrderOutput(ctx *pulumi.Context, args LookupCertificateOrderOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateOrderResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCertificateOrderResult, error) {
+			args := v.(LookupCertificateOrderArgs)
+			r, err := LookupCertificateOrder(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCertificateOrderResultOutput)
+}
+
+// A collection of arguments for invoking getCertificateOrder.
+type LookupCertificateOrderOutputArgs struct {
+	// The name of the App Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group where the App Service exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupCertificateOrderOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateOrderArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCertificateOrder.
+type LookupCertificateOrderResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCertificateOrderResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateOrderResult)(nil)).Elem()
+}
+
+func (o LookupCertificateOrderResultOutput) ToLookupCertificateOrderResultOutput() LookupCertificateOrderResultOutput {
+	return o
+}
+
+func (o LookupCertificateOrderResultOutput) ToLookupCertificateOrderResultOutputWithContext(ctx context.Context) LookupCertificateOrderResultOutput {
+	return o
+}
+
+// Reasons why App Service Certificate is not renewable at the current moment.
+func (o LookupCertificateOrderResultOutput) AppServiceCertificateNotRenewableReasons() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) []string { return v.AppServiceCertificateNotRenewableReasons }).(pulumi.StringArrayOutput)
+}
+
+// true if the certificate should be automatically renewed when it expires; otherwise, false.
+func (o LookupCertificateOrderResultOutput) AutoRenew() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) bool { return v.AutoRenew }).(pulumi.BoolOutput)
+}
+
+// State of the Key Vault secret. A `certificates` block as defined below.
+func (o LookupCertificateOrderResultOutput) Certificates() GetCertificateOrderCertificateArrayOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) []GetCertificateOrderCertificate { return v.Certificates }).(GetCertificateOrderCertificateArrayOutput)
+}
+
+// Last CSR that was created for this order.
+func (o LookupCertificateOrderResultOutput) Csr() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.Csr }).(pulumi.StringOutput)
+}
+
+// The Distinguished Name for the App Service Certificate Order.
+func (o LookupCertificateOrderResultOutput) DistinguishedName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.DistinguishedName }).(pulumi.StringOutput)
+}
+
+// Domain verification token.
+func (o LookupCertificateOrderResultOutput) DomainVerificationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.DomainVerificationToken }).(pulumi.StringOutput)
+}
+
+// Certificate expiration time.
+func (o LookupCertificateOrderResultOutput) ExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.ExpirationTime }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupCertificateOrderResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Certificate thumbprint intermediate certificate.
+func (o LookupCertificateOrderResultOutput) IntermediateThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.IntermediateThumbprint }).(pulumi.StringOutput)
+}
+
+// Whether the private key is external or not.
+func (o LookupCertificateOrderResultOutput) IsPrivateKeyExternal() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) bool { return v.IsPrivateKeyExternal }).(pulumi.BoolOutput)
+}
+
+// Certificate key size.
+func (o LookupCertificateOrderResultOutput) KeySize() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) int { return v.KeySize }).(pulumi.IntOutput)
+}
+
+// The Azure location where the App Service exists.
+func (o LookupCertificateOrderResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateOrderResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Certificate product type, such as `Standard` or `WildCard`.
+func (o LookupCertificateOrderResultOutput) ProductType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.ProductType }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateOrderResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Certificate thumbprint for root certificate.
+func (o LookupCertificateOrderResultOutput) RootThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.RootThumbprint }).(pulumi.StringOutput)
+}
+
+// Certificate thumbprint for signed certificate.
+func (o LookupCertificateOrderResultOutput) SignedCertificateThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.SignedCertificateThumbprint }).(pulumi.StringOutput)
+}
+
+// Current order status.
+func (o LookupCertificateOrderResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o LookupCertificateOrderResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Duration in years (must be between 1 and 3).
+func (o LookupCertificateOrderResultOutput) ValidityInYears() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupCertificateOrderResult) int { return v.ValidityInYears }).(pulumi.IntOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCertificateOrderResultOutput{})
 }

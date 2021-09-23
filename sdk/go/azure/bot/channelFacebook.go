@@ -266,7 +266,7 @@ type ChannelFacebookArrayInput interface {
 type ChannelFacebookArray []ChannelFacebookInput
 
 func (ChannelFacebookArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ChannelFacebook)(nil))
+	return reflect.TypeOf((*[]*ChannelFacebook)(nil)).Elem()
 }
 
 func (i ChannelFacebookArray) ToChannelFacebookArrayOutput() ChannelFacebookArrayOutput {
@@ -291,7 +291,7 @@ type ChannelFacebookMapInput interface {
 type ChannelFacebookMap map[string]ChannelFacebookInput
 
 func (ChannelFacebookMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ChannelFacebook)(nil))
+	return reflect.TypeOf((*map[string]*ChannelFacebook)(nil)).Elem()
 }
 
 func (i ChannelFacebookMap) ToChannelFacebookMapOutput() ChannelFacebookMapOutput {
@@ -302,9 +302,7 @@ func (i ChannelFacebookMap) ToChannelFacebookMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFacebookMapOutput)
 }
 
-type ChannelFacebookOutput struct {
-	*pulumi.OutputState
-}
+type ChannelFacebookOutput struct{ *pulumi.OutputState }
 
 func (ChannelFacebookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelFacebook)(nil))
@@ -323,14 +321,12 @@ func (o ChannelFacebookOutput) ToChannelFacebookPtrOutput() ChannelFacebookPtrOu
 }
 
 func (o ChannelFacebookOutput) ToChannelFacebookPtrOutputWithContext(ctx context.Context) ChannelFacebookPtrOutput {
-	return o.ApplyT(func(v ChannelFacebook) *ChannelFacebook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelFacebook) *ChannelFacebook {
 		return &v
 	}).(ChannelFacebookPtrOutput)
 }
 
-type ChannelFacebookPtrOutput struct {
-	*pulumi.OutputState
-}
+type ChannelFacebookPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelFacebookPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ChannelFacebook)(nil))
@@ -342,6 +338,16 @@ func (o ChannelFacebookPtrOutput) ToChannelFacebookPtrOutput() ChannelFacebookPt
 
 func (o ChannelFacebookPtrOutput) ToChannelFacebookPtrOutputWithContext(ctx context.Context) ChannelFacebookPtrOutput {
 	return o
+}
+
+func (o ChannelFacebookPtrOutput) Elem() ChannelFacebookOutput {
+	return o.ApplyT(func(v *ChannelFacebook) ChannelFacebook {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelFacebook
+		return ret
+	}).(ChannelFacebookOutput)
 }
 
 type ChannelFacebookArrayOutput struct{ *pulumi.OutputState }

@@ -12,6 +12,7 @@ __all__ = [
     'GetVirtualMachineConfigurationAssignmentResult',
     'AwaitableGetVirtualMachineConfigurationAssignmentResult',
     'get_virtual_machine_configuration_assignment',
+    'get_virtual_machine_configuration_assignment_output',
 ]
 
 @pulumi.output_type
@@ -186,3 +187,31 @@ def get_virtual_machine_configuration_assignment(name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         virtual_machine_name=__ret__.virtual_machine_name)
+
+
+@_utilities.lift_output_func(get_virtual_machine_configuration_assignment)
+def get_virtual_machine_configuration_assignment_output(name: Optional[pulumi.Input[str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                        virtual_machine_name: Optional[pulumi.Input[str]] = None,
+                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineConfigurationAssignmentResult]:
+    """
+    Use this data source to access information about an existing Guest Configuration Policy.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.policy.get_virtual_machine_configuration_assignment(name="AzureWindowsBaseline",
+        resource_group_name="example-RG",
+        virtual_machine_name="example-vm")
+    pulumi.export("complianceStatus", example.compliance_status)
+    ```
+
+
+    :param str name: Specifies the name of the Guest Configuration Assignment.
+    :param str resource_group_name: Specifies the Name of the Resource Group where the Guest Configuration Assignment exists.
+    :param str virtual_machine_name: Only retrieve Policy Set Definitions from this Management Group.
+    """
+    ...

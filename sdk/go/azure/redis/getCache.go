@@ -4,6 +4,9 @@
 package redis
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -93,4 +96,153 @@ type LookupCacheResult struct {
 	SubnetId string            `pulumi:"subnetId"`
 	Tags     map[string]string `pulumi:"tags"`
 	Zones    []string          `pulumi:"zones"`
+}
+
+func LookupCacheOutput(ctx *pulumi.Context, args LookupCacheOutputArgs, opts ...pulumi.InvokeOption) LookupCacheResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCacheResult, error) {
+			args := v.(LookupCacheArgs)
+			r, err := LookupCache(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCacheResultOutput)
+}
+
+// A collection of arguments for invoking getCache.
+type LookupCacheOutputArgs struct {
+	// The name of the Redis cache
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group the Redis cache instance is located in.
+	ResourceGroupName pulumi.StringInput      `pulumi:"resourceGroupName"`
+	Zones             pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (LookupCacheOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCacheArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCache.
+type LookupCacheResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCacheResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCacheResult)(nil)).Elem()
+}
+
+func (o LookupCacheResultOutput) ToLookupCacheResultOutput() LookupCacheResultOutput {
+	return o
+}
+
+func (o LookupCacheResultOutput) ToLookupCacheResultOutputWithContext(ctx context.Context) LookupCacheResultOutput {
+	return o
+}
+
+// The size of the Redis Cache deployed.
+func (o LookupCacheResultOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupCacheResult) int { return v.Capacity }).(pulumi.IntOutput)
+}
+
+// Whether the SSL port is enabled.
+func (o LookupCacheResultOutput) EnableNonSslPort() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupCacheResult) bool { return v.EnableNonSslPort }).(pulumi.BoolOutput)
+}
+
+// The SKU family/pricing group used. Possible values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
+func (o LookupCacheResultOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.Family }).(pulumi.StringOutput)
+}
+
+// The Hostname of the Redis Instance
+func (o LookupCacheResultOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.Hostname }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupCacheResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the Redis Cache.
+func (o LookupCacheResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The minimum TLS version.
+func (o LookupCacheResultOutput) MinimumTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.MinimumTlsVersion }).(pulumi.StringOutput)
+}
+
+func (o LookupCacheResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of `patchSchedule` blocks as defined below.
+func (o LookupCacheResultOutput) PatchSchedules() GetCachePatchScheduleArrayOutput {
+	return o.ApplyT(func(v LookupCacheResult) []GetCachePatchSchedule { return v.PatchSchedules }).(GetCachePatchScheduleArrayOutput)
+}
+
+// The non-SSL Port of the Redis Instance
+func (o LookupCacheResultOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupCacheResult) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The Primary Access Key for the Redis Instance
+func (o LookupCacheResultOutput) PrimaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.PrimaryAccessKey }).(pulumi.StringOutput)
+}
+
+// The primary connection string of the Redis Instance.
+func (o LookupCacheResultOutput) PrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+func (o LookupCacheResultOutput) PrivateStaticIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.PrivateStaticIpAddress }).(pulumi.StringOutput)
+}
+
+// A `redisConfiguration` block as defined below.
+func (o LookupCacheResultOutput) RedisConfigurations() GetCacheRedisConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupCacheResult) []GetCacheRedisConfiguration { return v.RedisConfigurations }).(GetCacheRedisConfigurationArrayOutput)
+}
+
+func (o LookupCacheResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Secondary Access Key for the Redis Instance
+func (o LookupCacheResultOutput) SecondaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.SecondaryAccessKey }).(pulumi.StringOutput)
+}
+
+// The secondary connection string of the Redis Instance.
+func (o LookupCacheResultOutput) SecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.SecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+func (o LookupCacheResultOutput) ShardCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupCacheResult) int { return v.ShardCount }).(pulumi.IntOutput)
+}
+
+// The SKU of Redis used. Possible values are `Basic`, `Standard` and `Premium`.
+func (o LookupCacheResultOutput) SkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.SkuName }).(pulumi.StringOutput)
+}
+
+// The SSL Port of the Redis Instance
+func (o LookupCacheResultOutput) SslPort() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupCacheResult) int { return v.SslPort }).(pulumi.IntOutput)
+}
+
+func (o LookupCacheResultOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+func (o LookupCacheResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCacheResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupCacheResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupCacheResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCacheResultOutput{})
 }

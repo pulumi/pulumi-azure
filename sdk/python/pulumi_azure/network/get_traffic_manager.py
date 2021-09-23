@@ -12,6 +12,7 @@ __all__ = [
     'GetTrafficManagerResult',
     'AwaitableGetTrafficManagerResult',
     'get_traffic_manager',
+    'get_traffic_manager_output',
 ]
 
 @pulumi.output_type
@@ -81,3 +82,26 @@ def get_traffic_manager(name: Optional[str] = None,
     return AwaitableGetTrafficManagerResult(
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_traffic_manager)
+def get_traffic_manager_output(name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficManagerResult]:
+    """
+    Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
+
+    ## Example Usage
+    ### World)
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_traffic_manager(name="World")
+    pulumi.export("locationCode", example.id)
+    ```
+
+
+    :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
+    """
+    ...

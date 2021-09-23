@@ -284,7 +284,7 @@ type ProbeArrayInput interface {
 type ProbeArray []ProbeInput
 
 func (ProbeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Probe)(nil))
+	return reflect.TypeOf((*[]*Probe)(nil)).Elem()
 }
 
 func (i ProbeArray) ToProbeArrayOutput() ProbeArrayOutput {
@@ -309,7 +309,7 @@ type ProbeMapInput interface {
 type ProbeMap map[string]ProbeInput
 
 func (ProbeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Probe)(nil))
+	return reflect.TypeOf((*map[string]*Probe)(nil)).Elem()
 }
 
 func (i ProbeMap) ToProbeMapOutput() ProbeMapOutput {
@@ -320,9 +320,7 @@ func (i ProbeMap) ToProbeMapOutputWithContext(ctx context.Context) ProbeMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ProbeMapOutput)
 }
 
-type ProbeOutput struct {
-	*pulumi.OutputState
-}
+type ProbeOutput struct{ *pulumi.OutputState }
 
 func (ProbeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Probe)(nil))
@@ -341,14 +339,12 @@ func (o ProbeOutput) ToProbePtrOutput() ProbePtrOutput {
 }
 
 func (o ProbeOutput) ToProbePtrOutputWithContext(ctx context.Context) ProbePtrOutput {
-	return o.ApplyT(func(v Probe) *Probe {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Probe) *Probe {
 		return &v
 	}).(ProbePtrOutput)
 }
 
-type ProbePtrOutput struct {
-	*pulumi.OutputState
-}
+type ProbePtrOutput struct{ *pulumi.OutputState }
 
 func (ProbePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Probe)(nil))
@@ -360,6 +356,16 @@ func (o ProbePtrOutput) ToProbePtrOutput() ProbePtrOutput {
 
 func (o ProbePtrOutput) ToProbePtrOutputWithContext(ctx context.Context) ProbePtrOutput {
 	return o
+}
+
+func (o ProbePtrOutput) Elem() ProbeOutput {
+	return o.ApplyT(func(v *Probe) Probe {
+		if v != nil {
+			return *v
+		}
+		var ret Probe
+		return ret
+	}).(ProbeOutput)
 }
 
 type ProbeArrayOutput struct{ *pulumi.OutputState }

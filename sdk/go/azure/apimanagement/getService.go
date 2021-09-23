@@ -4,6 +4,9 @@
 package apimanagement
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -90,4 +93,142 @@ type LookupServiceResult struct {
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceResult, error) {
+			args := v.(LookupServiceArgs)
+			r, err := LookupService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceResultOutput)
+}
+
+// A collection of arguments for invoking getService.
+type LookupServiceOutputArgs struct {
+	// The name of the API Management service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group in which the API Management Service exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getService.
+type LookupServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceResult)(nil)).Elem()
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutput() LookupServiceResultOutput {
+	return o
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx context.Context) LookupServiceResultOutput {
+	return o
+}
+
+// Zero or more `additionalLocation` blocks as defined below
+func (o LookupServiceResultOutput) AdditionalLocations() GetServiceAdditionalLocationArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceAdditionalLocation { return v.AdditionalLocations }).(GetServiceAdditionalLocationArrayOutput)
+}
+
+// The URL for the Developer Portal associated with this API Management service.
+func (o LookupServiceResultOutput) DeveloperPortalUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.DeveloperPortalUrl }).(pulumi.StringOutput)
+}
+
+// Gateway URL of the API Management service in the Region.
+func (o LookupServiceResultOutput) GatewayRegionalUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.GatewayRegionalUrl }).(pulumi.StringOutput)
+}
+
+// The URL for the API Management Service's Gateway.
+func (o LookupServiceResultOutput) GatewayUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.GatewayUrl }).(pulumi.StringOutput)
+}
+
+// A `hostnameConfiguration` block as defined below.
+func (o LookupServiceResultOutput) HostnameConfigurations() GetServiceHostnameConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceHostnameConfiguration { return v.HostnameConfigurations }).(GetServiceHostnameConfigurationArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Optional) An `identity` block as defined below.
+func (o LookupServiceResultOutput) Identities() GetServiceIdentityArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceIdentity { return v.Identities }).(GetServiceIdentityArrayOutput)
+}
+
+// The location name of the additional region among Azure Data center regions.
+func (o LookupServiceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The URL for the Management API.
+func (o LookupServiceResultOutput) ManagementApiUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.ManagementApiUrl }).(pulumi.StringOutput)
+}
+
+// Specifies the plan's pricing tier.
+func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The email address from which the notification will be sent.
+func (o LookupServiceResultOutput) NotificationSenderEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.NotificationSenderEmail }).(pulumi.StringOutput)
+}
+
+// The URL of the Publisher Portal.
+func (o LookupServiceResultOutput) PortalUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.PortalUrl }).(pulumi.StringOutput)
+}
+
+// Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
+func (o LookupServiceResultOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+func (o LookupServiceResultOutput) PublicIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The email of Publisher/Company of the API Management Service.
+func (o LookupServiceResultOutput) PublisherEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.PublisherEmail }).(pulumi.StringOutput)
+}
+
+// The name of the Publisher/Company of the API Management Service.
+func (o LookupServiceResultOutput) PublisherName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.PublisherName }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The SCM (Source Code Management) endpoint.
+func (o LookupServiceResultOutput) ScmUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.ScmUrl }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) SkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.SkuName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceResultOutput{})
 }

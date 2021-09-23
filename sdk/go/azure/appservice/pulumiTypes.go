@@ -155,7 +155,7 @@ func (o AppServiceAuthSettingsOutput) ToAppServiceAuthSettingsPtrOutput() AppSer
 }
 
 func (o AppServiceAuthSettingsOutput) ToAppServiceAuthSettingsPtrOutputWithContext(ctx context.Context) AppServiceAuthSettingsPtrOutput {
-	return o.ApplyT(func(v AppServiceAuthSettings) *AppServiceAuthSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceAuthSettings) *AppServiceAuthSettings {
 		return &v
 	}).(AppServiceAuthSettingsPtrOutput)
 }
@@ -245,7 +245,13 @@ func (o AppServiceAuthSettingsPtrOutput) ToAppServiceAuthSettingsPtrOutputWithCo
 }
 
 func (o AppServiceAuthSettingsPtrOutput) Elem() AppServiceAuthSettingsOutput {
-	return o.ApplyT(func(v *AppServiceAuthSettings) AppServiceAuthSettings { return *v }).(AppServiceAuthSettingsOutput)
+	return o.ApplyT(func(v *AppServiceAuthSettings) AppServiceAuthSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceAuthSettings
+		return ret
+	}).(AppServiceAuthSettingsOutput)
 }
 
 // A `activeDirectory` block as defined below.
@@ -489,7 +495,7 @@ func (o AppServiceAuthSettingsActiveDirectoryOutput) ToAppServiceAuthSettingsAct
 }
 
 func (o AppServiceAuthSettingsActiveDirectoryOutput) ToAppServiceAuthSettingsActiveDirectoryPtrOutputWithContext(ctx context.Context) AppServiceAuthSettingsActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v AppServiceAuthSettingsActiveDirectory) *AppServiceAuthSettingsActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceAuthSettingsActiveDirectory) *AppServiceAuthSettingsActiveDirectory {
 		return &v
 	}).(AppServiceAuthSettingsActiveDirectoryPtrOutput)
 }
@@ -524,7 +530,13 @@ func (o AppServiceAuthSettingsActiveDirectoryPtrOutput) ToAppServiceAuthSettings
 }
 
 func (o AppServiceAuthSettingsActiveDirectoryPtrOutput) Elem() AppServiceAuthSettingsActiveDirectoryOutput {
-	return o.ApplyT(func(v *AppServiceAuthSettingsActiveDirectory) AppServiceAuthSettingsActiveDirectory { return *v }).(AppServiceAuthSettingsActiveDirectoryOutput)
+	return o.ApplyT(func(v *AppServiceAuthSettingsActiveDirectory) AppServiceAuthSettingsActiveDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceAuthSettingsActiveDirectory
+		return ret
+	}).(AppServiceAuthSettingsActiveDirectoryOutput)
 }
 
 // Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
@@ -658,7 +670,7 @@ func (o AppServiceAuthSettingsFacebookOutput) ToAppServiceAuthSettingsFacebookPt
 }
 
 func (o AppServiceAuthSettingsFacebookOutput) ToAppServiceAuthSettingsFacebookPtrOutputWithContext(ctx context.Context) AppServiceAuthSettingsFacebookPtrOutput {
-	return o.ApplyT(func(v AppServiceAuthSettingsFacebook) *AppServiceAuthSettingsFacebook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceAuthSettingsFacebook) *AppServiceAuthSettingsFacebook {
 		return &v
 	}).(AppServiceAuthSettingsFacebookPtrOutput)
 }
@@ -693,7 +705,13 @@ func (o AppServiceAuthSettingsFacebookPtrOutput) ToAppServiceAuthSettingsFaceboo
 }
 
 func (o AppServiceAuthSettingsFacebookPtrOutput) Elem() AppServiceAuthSettingsFacebookOutput {
-	return o.ApplyT(func(v *AppServiceAuthSettingsFacebook) AppServiceAuthSettingsFacebook { return *v }).(AppServiceAuthSettingsFacebookOutput)
+	return o.ApplyT(func(v *AppServiceAuthSettingsFacebook) AppServiceAuthSettingsFacebook {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceAuthSettingsFacebook
+		return ret
+	}).(AppServiceAuthSettingsFacebookOutput)
 }
 
 // The App ID of the Facebook app used for login
@@ -827,7 +845,7 @@ func (o AppServiceAuthSettingsGoogleOutput) ToAppServiceAuthSettingsGooglePtrOut
 }
 
 func (o AppServiceAuthSettingsGoogleOutput) ToAppServiceAuthSettingsGooglePtrOutputWithContext(ctx context.Context) AppServiceAuthSettingsGooglePtrOutput {
-	return o.ApplyT(func(v AppServiceAuthSettingsGoogle) *AppServiceAuthSettingsGoogle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceAuthSettingsGoogle) *AppServiceAuthSettingsGoogle {
 		return &v
 	}).(AppServiceAuthSettingsGooglePtrOutput)
 }
@@ -862,7 +880,13 @@ func (o AppServiceAuthSettingsGooglePtrOutput) ToAppServiceAuthSettingsGooglePtr
 }
 
 func (o AppServiceAuthSettingsGooglePtrOutput) Elem() AppServiceAuthSettingsGoogleOutput {
-	return o.ApplyT(func(v *AppServiceAuthSettingsGoogle) AppServiceAuthSettingsGoogle { return *v }).(AppServiceAuthSettingsGoogleOutput)
+	return o.ApplyT(func(v *AppServiceAuthSettingsGoogle) AppServiceAuthSettingsGoogle {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceAuthSettingsGoogle
+		return ret
+	}).(AppServiceAuthSettingsGoogleOutput)
 }
 
 // The OpenID Connect Client ID for the Google web application.
@@ -996,7 +1020,7 @@ func (o AppServiceAuthSettingsMicrosoftOutput) ToAppServiceAuthSettingsMicrosoft
 }
 
 func (o AppServiceAuthSettingsMicrosoftOutput) ToAppServiceAuthSettingsMicrosoftPtrOutputWithContext(ctx context.Context) AppServiceAuthSettingsMicrosoftPtrOutput {
-	return o.ApplyT(func(v AppServiceAuthSettingsMicrosoft) *AppServiceAuthSettingsMicrosoft {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceAuthSettingsMicrosoft) *AppServiceAuthSettingsMicrosoft {
 		return &v
 	}).(AppServiceAuthSettingsMicrosoftPtrOutput)
 }
@@ -1031,7 +1055,13 @@ func (o AppServiceAuthSettingsMicrosoftPtrOutput) ToAppServiceAuthSettingsMicros
 }
 
 func (o AppServiceAuthSettingsMicrosoftPtrOutput) Elem() AppServiceAuthSettingsMicrosoftOutput {
-	return o.ApplyT(func(v *AppServiceAuthSettingsMicrosoft) AppServiceAuthSettingsMicrosoft { return *v }).(AppServiceAuthSettingsMicrosoftOutput)
+	return o.ApplyT(func(v *AppServiceAuthSettingsMicrosoft) AppServiceAuthSettingsMicrosoft {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceAuthSettingsMicrosoft
+		return ret
+	}).(AppServiceAuthSettingsMicrosoftOutput)
 }
 
 // The OAuth 2.0 client ID that was created for the app used for authentication.
@@ -1157,10 +1187,11 @@ func (o AppServiceAuthSettingsTwitterOutput) ToAppServiceAuthSettingsTwitterPtrO
 }
 
 func (o AppServiceAuthSettingsTwitterOutput) ToAppServiceAuthSettingsTwitterPtrOutputWithContext(ctx context.Context) AppServiceAuthSettingsTwitterPtrOutput {
-	return o.ApplyT(func(v AppServiceAuthSettingsTwitter) *AppServiceAuthSettingsTwitter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceAuthSettingsTwitter) *AppServiceAuthSettingsTwitter {
 		return &v
 	}).(AppServiceAuthSettingsTwitterPtrOutput)
 }
+
 func (o AppServiceAuthSettingsTwitterOutput) ConsumerKey() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsTwitter) string { return v.ConsumerKey }).(pulumi.StringOutput)
 }
@@ -1184,7 +1215,13 @@ func (o AppServiceAuthSettingsTwitterPtrOutput) ToAppServiceAuthSettingsTwitterP
 }
 
 func (o AppServiceAuthSettingsTwitterPtrOutput) Elem() AppServiceAuthSettingsTwitterOutput {
-	return o.ApplyT(func(v *AppServiceAuthSettingsTwitter) AppServiceAuthSettingsTwitter { return *v }).(AppServiceAuthSettingsTwitterOutput)
+	return o.ApplyT(func(v *AppServiceAuthSettingsTwitter) AppServiceAuthSettingsTwitter {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceAuthSettingsTwitter
+		return ret
+	}).(AppServiceAuthSettingsTwitterOutput)
 }
 
 func (o AppServiceAuthSettingsTwitterPtrOutput) ConsumerKey() pulumi.StringPtrOutput {
@@ -1310,7 +1347,7 @@ func (o AppServiceBackupOutput) ToAppServiceBackupPtrOutput() AppServiceBackupPt
 }
 
 func (o AppServiceBackupOutput) ToAppServiceBackupPtrOutputWithContext(ctx context.Context) AppServiceBackupPtrOutput {
-	return o.ApplyT(func(v AppServiceBackup) *AppServiceBackup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceBackup) *AppServiceBackup {
 		return &v
 	}).(AppServiceBackupPtrOutput)
 }
@@ -1350,7 +1387,13 @@ func (o AppServiceBackupPtrOutput) ToAppServiceBackupPtrOutputWithContext(ctx co
 }
 
 func (o AppServiceBackupPtrOutput) Elem() AppServiceBackupOutput {
-	return o.ApplyT(func(v *AppServiceBackup) AppServiceBackup { return *v }).(AppServiceBackupOutput)
+	return o.ApplyT(func(v *AppServiceBackup) AppServiceBackup {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceBackup
+		return ret
+	}).(AppServiceBackupOutput)
 }
 
 // Is this Backup enabled?
@@ -1502,7 +1545,7 @@ func (o AppServiceBackupScheduleOutput) ToAppServiceBackupSchedulePtrOutput() Ap
 }
 
 func (o AppServiceBackupScheduleOutput) ToAppServiceBackupSchedulePtrOutputWithContext(ctx context.Context) AppServiceBackupSchedulePtrOutput {
-	return o.ApplyT(func(v AppServiceBackupSchedule) *AppServiceBackupSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceBackupSchedule) *AppServiceBackupSchedule {
 		return &v
 	}).(AppServiceBackupSchedulePtrOutput)
 }
@@ -1547,7 +1590,13 @@ func (o AppServiceBackupSchedulePtrOutput) ToAppServiceBackupSchedulePtrOutputWi
 }
 
 func (o AppServiceBackupSchedulePtrOutput) Elem() AppServiceBackupScheduleOutput {
-	return o.ApplyT(func(v *AppServiceBackupSchedule) AppServiceBackupSchedule { return *v }).(AppServiceBackupScheduleOutput)
+	return o.ApplyT(func(v *AppServiceBackupSchedule) AppServiceBackupSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceBackupSchedule
+		return ret
+	}).(AppServiceBackupScheduleOutput)
 }
 
 // Sets how often the backup should be executed.
@@ -1820,7 +1869,7 @@ func (o AppServiceIdentityOutput) ToAppServiceIdentityPtrOutput() AppServiceIden
 }
 
 func (o AppServiceIdentityOutput) ToAppServiceIdentityPtrOutputWithContext(ctx context.Context) AppServiceIdentityPtrOutput {
-	return o.ApplyT(func(v AppServiceIdentity) *AppServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceIdentity) *AppServiceIdentity {
 		return &v
 	}).(AppServiceIdentityPtrOutput)
 }
@@ -1860,7 +1909,13 @@ func (o AppServiceIdentityPtrOutput) ToAppServiceIdentityPtrOutputWithContext(ct
 }
 
 func (o AppServiceIdentityPtrOutput) Elem() AppServiceIdentityOutput {
-	return o.ApplyT(func(v *AppServiceIdentity) AppServiceIdentity { return *v }).(AppServiceIdentityOutput)
+	return o.ApplyT(func(v *AppServiceIdentity) AppServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceIdentity
+		return ret
+	}).(AppServiceIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
@@ -2008,7 +2063,7 @@ func (o AppServiceLogsOutput) ToAppServiceLogsPtrOutput() AppServiceLogsPtrOutpu
 }
 
 func (o AppServiceLogsOutput) ToAppServiceLogsPtrOutputWithContext(ctx context.Context) AppServiceLogsPtrOutput {
-	return o.ApplyT(func(v AppServiceLogs) *AppServiceLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceLogs) *AppServiceLogs {
 		return &v
 	}).(AppServiceLogsPtrOutput)
 }
@@ -2048,7 +2103,13 @@ func (o AppServiceLogsPtrOutput) ToAppServiceLogsPtrOutputWithContext(ctx contex
 }
 
 func (o AppServiceLogsPtrOutput) Elem() AppServiceLogsOutput {
-	return o.ApplyT(func(v *AppServiceLogs) AppServiceLogs { return *v }).(AppServiceLogsOutput)
+	return o.ApplyT(func(v *AppServiceLogs) AppServiceLogs {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceLogs
+		return ret
+	}).(AppServiceLogsOutput)
 }
 
 // An `applicationLogs` block as defined below.
@@ -2188,7 +2249,7 @@ func (o AppServiceLogsApplicationLogsOutput) ToAppServiceLogsApplicationLogsPtrO
 }
 
 func (o AppServiceLogsApplicationLogsOutput) ToAppServiceLogsApplicationLogsPtrOutputWithContext(ctx context.Context) AppServiceLogsApplicationLogsPtrOutput {
-	return o.ApplyT(func(v AppServiceLogsApplicationLogs) *AppServiceLogsApplicationLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceLogsApplicationLogs) *AppServiceLogsApplicationLogs {
 		return &v
 	}).(AppServiceLogsApplicationLogsPtrOutput)
 }
@@ -2220,7 +2281,13 @@ func (o AppServiceLogsApplicationLogsPtrOutput) ToAppServiceLogsApplicationLogsP
 }
 
 func (o AppServiceLogsApplicationLogsPtrOutput) Elem() AppServiceLogsApplicationLogsOutput {
-	return o.ApplyT(func(v *AppServiceLogsApplicationLogs) AppServiceLogsApplicationLogs { return *v }).(AppServiceLogsApplicationLogsOutput)
+	return o.ApplyT(func(v *AppServiceLogsApplicationLogs) AppServiceLogsApplicationLogs {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceLogsApplicationLogs
+		return ret
+	}).(AppServiceLogsApplicationLogsOutput)
 }
 
 // An `azureBlobStorage` block as defined below.
@@ -2344,7 +2411,7 @@ func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) ToAppServiceLogsApp
 }
 
 func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) ToAppServiceLogsApplicationLogsAzureBlobStoragePtrOutputWithContext(ctx context.Context) AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput {
-	return o.ApplyT(func(v AppServiceLogsApplicationLogsAzureBlobStorage) *AppServiceLogsApplicationLogsAzureBlobStorage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceLogsApplicationLogsAzureBlobStorage) *AppServiceLogsApplicationLogsAzureBlobStorage {
 		return &v
 	}).(AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput)
 }
@@ -2380,7 +2447,11 @@ func (o AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput) ToAppServiceLogs
 
 func (o AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput) Elem() AppServiceLogsApplicationLogsAzureBlobStorageOutput {
 	return o.ApplyT(func(v *AppServiceLogsApplicationLogsAzureBlobStorage) AppServiceLogsApplicationLogsAzureBlobStorage {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceLogsApplicationLogsAzureBlobStorage
+		return ret
 	}).(AppServiceLogsApplicationLogsAzureBlobStorageOutput)
 }
 
@@ -2511,7 +2582,7 @@ func (o AppServiceLogsHttpLogsOutput) ToAppServiceLogsHttpLogsPtrOutput() AppSer
 }
 
 func (o AppServiceLogsHttpLogsOutput) ToAppServiceLogsHttpLogsPtrOutputWithContext(ctx context.Context) AppServiceLogsHttpLogsPtrOutput {
-	return o.ApplyT(func(v AppServiceLogsHttpLogs) *AppServiceLogsHttpLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceLogsHttpLogs) *AppServiceLogsHttpLogs {
 		return &v
 	}).(AppServiceLogsHttpLogsPtrOutput)
 }
@@ -2541,7 +2612,13 @@ func (o AppServiceLogsHttpLogsPtrOutput) ToAppServiceLogsHttpLogsPtrOutputWithCo
 }
 
 func (o AppServiceLogsHttpLogsPtrOutput) Elem() AppServiceLogsHttpLogsOutput {
-	return o.ApplyT(func(v *AppServiceLogsHttpLogs) AppServiceLogsHttpLogs { return *v }).(AppServiceLogsHttpLogsOutput)
+	return o.ApplyT(func(v *AppServiceLogsHttpLogs) AppServiceLogsHttpLogs {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceLogsHttpLogs
+		return ret
+	}).(AppServiceLogsHttpLogsOutput)
 }
 
 // An `azureBlobStorage` block as defined below.
@@ -2661,7 +2738,7 @@ func (o AppServiceLogsHttpLogsAzureBlobStorageOutput) ToAppServiceLogsHttpLogsAz
 }
 
 func (o AppServiceLogsHttpLogsAzureBlobStorageOutput) ToAppServiceLogsHttpLogsAzureBlobStoragePtrOutputWithContext(ctx context.Context) AppServiceLogsHttpLogsAzureBlobStoragePtrOutput {
-	return o.ApplyT(func(v AppServiceLogsHttpLogsAzureBlobStorage) *AppServiceLogsHttpLogsAzureBlobStorage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceLogsHttpLogsAzureBlobStorage) *AppServiceLogsHttpLogsAzureBlobStorage {
 		return &v
 	}).(AppServiceLogsHttpLogsAzureBlobStoragePtrOutput)
 }
@@ -2691,7 +2768,13 @@ func (o AppServiceLogsHttpLogsAzureBlobStoragePtrOutput) ToAppServiceLogsHttpLog
 }
 
 func (o AppServiceLogsHttpLogsAzureBlobStoragePtrOutput) Elem() AppServiceLogsHttpLogsAzureBlobStorageOutput {
-	return o.ApplyT(func(v *AppServiceLogsHttpLogsAzureBlobStorage) AppServiceLogsHttpLogsAzureBlobStorage { return *v }).(AppServiceLogsHttpLogsAzureBlobStorageOutput)
+	return o.ApplyT(func(v *AppServiceLogsHttpLogsAzureBlobStorage) AppServiceLogsHttpLogsAzureBlobStorage {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceLogsHttpLogsAzureBlobStorage
+		return ret
+	}).(AppServiceLogsHttpLogsAzureBlobStorageOutput)
 }
 
 // The number of days to retain logs for.
@@ -2811,7 +2894,7 @@ func (o AppServiceLogsHttpLogsFileSystemOutput) ToAppServiceLogsHttpLogsFileSyst
 }
 
 func (o AppServiceLogsHttpLogsFileSystemOutput) ToAppServiceLogsHttpLogsFileSystemPtrOutputWithContext(ctx context.Context) AppServiceLogsHttpLogsFileSystemPtrOutput {
-	return o.ApplyT(func(v AppServiceLogsHttpLogsFileSystem) *AppServiceLogsHttpLogsFileSystem {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceLogsHttpLogsFileSystem) *AppServiceLogsHttpLogsFileSystem {
 		return &v
 	}).(AppServiceLogsHttpLogsFileSystemPtrOutput)
 }
@@ -2841,7 +2924,13 @@ func (o AppServiceLogsHttpLogsFileSystemPtrOutput) ToAppServiceLogsHttpLogsFileS
 }
 
 func (o AppServiceLogsHttpLogsFileSystemPtrOutput) Elem() AppServiceLogsHttpLogsFileSystemOutput {
-	return o.ApplyT(func(v *AppServiceLogsHttpLogsFileSystem) AppServiceLogsHttpLogsFileSystem { return *v }).(AppServiceLogsHttpLogsFileSystemOutput)
+	return o.ApplyT(func(v *AppServiceLogsHttpLogsFileSystem) AppServiceLogsHttpLogsFileSystem {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceLogsHttpLogsFileSystem
+		return ret
+	}).(AppServiceLogsHttpLogsFileSystemOutput)
 }
 
 // The number of days to retain logs for.
@@ -3075,7 +3164,7 @@ func (o AppServiceSiteConfigOutput) ToAppServiceSiteConfigPtrOutput() AppService
 }
 
 func (o AppServiceSiteConfigOutput) ToAppServiceSiteConfigPtrOutputWithContext(ctx context.Context) AppServiceSiteConfigPtrOutput {
-	return o.ApplyT(func(v AppServiceSiteConfig) *AppServiceSiteConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceSiteConfig) *AppServiceSiteConfig {
 		return &v
 	}).(AppServiceSiteConfigPtrOutput)
 }
@@ -3249,7 +3338,13 @@ func (o AppServiceSiteConfigPtrOutput) ToAppServiceSiteConfigPtrOutputWithContex
 }
 
 func (o AppServiceSiteConfigPtrOutput) Elem() AppServiceSiteConfigOutput {
-	return o.ApplyT(func(v *AppServiceSiteConfig) AppServiceSiteConfig { return *v }).(AppServiceSiteConfigOutput)
+	return o.ApplyT(func(v *AppServiceSiteConfig) AppServiceSiteConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceSiteConfig
+		return ret
+	}).(AppServiceSiteConfigOutput)
 }
 
 // Are Managed Identity Credentials used for Azure Container Registry pull
@@ -3658,7 +3753,7 @@ func (o AppServiceSiteConfigCorsOutput) ToAppServiceSiteConfigCorsPtrOutput() Ap
 }
 
 func (o AppServiceSiteConfigCorsOutput) ToAppServiceSiteConfigCorsPtrOutputWithContext(ctx context.Context) AppServiceSiteConfigCorsPtrOutput {
-	return o.ApplyT(func(v AppServiceSiteConfigCors) *AppServiceSiteConfigCors {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceSiteConfigCors) *AppServiceSiteConfigCors {
 		return &v
 	}).(AppServiceSiteConfigCorsPtrOutput)
 }
@@ -3688,7 +3783,13 @@ func (o AppServiceSiteConfigCorsPtrOutput) ToAppServiceSiteConfigCorsPtrOutputWi
 }
 
 func (o AppServiceSiteConfigCorsPtrOutput) Elem() AppServiceSiteConfigCorsOutput {
-	return o.ApplyT(func(v *AppServiceSiteConfigCors) AppServiceSiteConfigCors { return *v }).(AppServiceSiteConfigCorsOutput)
+	return o.ApplyT(func(v *AppServiceSiteConfigCors) AppServiceSiteConfigCors {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceSiteConfigCors
+		return ret
+	}).(AppServiceSiteConfigCorsOutput)
 }
 
 // A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
@@ -3967,7 +4068,7 @@ func (o AppServiceSiteConfigIpRestrictionHeadersOutput) ToAppServiceSiteConfigIp
 }
 
 func (o AppServiceSiteConfigIpRestrictionHeadersOutput) ToAppServiceSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionHeadersPtrOutput {
-	return o.ApplyT(func(v AppServiceSiteConfigIpRestrictionHeaders) *AppServiceSiteConfigIpRestrictionHeaders {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceSiteConfigIpRestrictionHeaders) *AppServiceSiteConfigIpRestrictionHeaders {
 		return &v
 	}).(AppServiceSiteConfigIpRestrictionHeadersPtrOutput)
 }
@@ -4007,7 +4108,13 @@ func (o AppServiceSiteConfigIpRestrictionHeadersPtrOutput) ToAppServiceSiteConfi
 }
 
 func (o AppServiceSiteConfigIpRestrictionHeadersPtrOutput) Elem() AppServiceSiteConfigIpRestrictionHeadersOutput {
-	return o.ApplyT(func(v *AppServiceSiteConfigIpRestrictionHeaders) AppServiceSiteConfigIpRestrictionHeaders { return *v }).(AppServiceSiteConfigIpRestrictionHeadersOutput)
+	return o.ApplyT(func(v *AppServiceSiteConfigIpRestrictionHeaders) AppServiceSiteConfigIpRestrictionHeaders {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceSiteConfigIpRestrictionHeaders
+		return ret
+	}).(AppServiceSiteConfigIpRestrictionHeadersOutput)
 }
 
 // A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
@@ -4308,7 +4415,7 @@ func (o AppServiceSiteConfigScmIpRestrictionHeadersOutput) ToAppServiceSiteConfi
 }
 
 func (o AppServiceSiteConfigScmIpRestrictionHeadersOutput) ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput {
-	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestrictionHeaders) *AppServiceSiteConfigScmIpRestrictionHeaders {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceSiteConfigScmIpRestrictionHeaders) *AppServiceSiteConfigScmIpRestrictionHeaders {
 		return &v
 	}).(AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput)
 }
@@ -4349,7 +4456,11 @@ func (o AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput) ToAppServiceSiteCo
 
 func (o AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput) Elem() AppServiceSiteConfigScmIpRestrictionHeadersOutput {
 	return o.ApplyT(func(v *AppServiceSiteConfigScmIpRestrictionHeaders) AppServiceSiteConfigScmIpRestrictionHeaders {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceSiteConfigScmIpRestrictionHeaders
+		return ret
 	}).(AppServiceSiteConfigScmIpRestrictionHeadersOutput)
 }
 
@@ -4608,7 +4719,7 @@ func (o AppServiceSourceControlOutput) ToAppServiceSourceControlPtrOutput() AppS
 }
 
 func (o AppServiceSourceControlOutput) ToAppServiceSourceControlPtrOutputWithContext(ctx context.Context) AppServiceSourceControlPtrOutput {
-	return o.ApplyT(func(v AppServiceSourceControl) *AppServiceSourceControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppServiceSourceControl) *AppServiceSourceControl {
 		return &v
 	}).(AppServiceSourceControlPtrOutput)
 }
@@ -4653,7 +4764,13 @@ func (o AppServiceSourceControlPtrOutput) ToAppServiceSourceControlPtrOutputWith
 }
 
 func (o AppServiceSourceControlPtrOutput) Elem() AppServiceSourceControlOutput {
-	return o.ApplyT(func(v *AppServiceSourceControl) AppServiceSourceControl { return *v }).(AppServiceSourceControlOutput)
+	return o.ApplyT(func(v *AppServiceSourceControl) AppServiceSourceControl {
+		if v != nil {
+			return *v
+		}
+		var ret AppServiceSourceControl
+		return ret
+	}).(AppServiceSourceControlOutput)
 }
 
 // The branch of the remote repository to use. Defaults to 'master'.
@@ -5444,7 +5561,7 @@ func (o FunctionAppAuthSettingsOutput) ToFunctionAppAuthSettingsPtrOutput() Func
 }
 
 func (o FunctionAppAuthSettingsOutput) ToFunctionAppAuthSettingsPtrOutputWithContext(ctx context.Context) FunctionAppAuthSettingsPtrOutput {
-	return o.ApplyT(func(v FunctionAppAuthSettings) *FunctionAppAuthSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppAuthSettings) *FunctionAppAuthSettings {
 		return &v
 	}).(FunctionAppAuthSettingsPtrOutput)
 }
@@ -5534,7 +5651,13 @@ func (o FunctionAppAuthSettingsPtrOutput) ToFunctionAppAuthSettingsPtrOutputWith
 }
 
 func (o FunctionAppAuthSettingsPtrOutput) Elem() FunctionAppAuthSettingsOutput {
-	return o.ApplyT(func(v *FunctionAppAuthSettings) FunctionAppAuthSettings { return *v }).(FunctionAppAuthSettingsOutput)
+	return o.ApplyT(func(v *FunctionAppAuthSettings) FunctionAppAuthSettings {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppAuthSettings
+		return ret
+	}).(FunctionAppAuthSettingsOutput)
 }
 
 // A `activeDirectory` block as defined below.
@@ -5778,7 +5901,7 @@ func (o FunctionAppAuthSettingsActiveDirectoryOutput) ToFunctionAppAuthSettingsA
 }
 
 func (o FunctionAppAuthSettingsActiveDirectoryOutput) ToFunctionAppAuthSettingsActiveDirectoryPtrOutputWithContext(ctx context.Context) FunctionAppAuthSettingsActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v FunctionAppAuthSettingsActiveDirectory) *FunctionAppAuthSettingsActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppAuthSettingsActiveDirectory) *FunctionAppAuthSettingsActiveDirectory {
 		return &v
 	}).(FunctionAppAuthSettingsActiveDirectoryPtrOutput)
 }
@@ -5813,7 +5936,13 @@ func (o FunctionAppAuthSettingsActiveDirectoryPtrOutput) ToFunctionAppAuthSettin
 }
 
 func (o FunctionAppAuthSettingsActiveDirectoryPtrOutput) Elem() FunctionAppAuthSettingsActiveDirectoryOutput {
-	return o.ApplyT(func(v *FunctionAppAuthSettingsActiveDirectory) FunctionAppAuthSettingsActiveDirectory { return *v }).(FunctionAppAuthSettingsActiveDirectoryOutput)
+	return o.ApplyT(func(v *FunctionAppAuthSettingsActiveDirectory) FunctionAppAuthSettingsActiveDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppAuthSettingsActiveDirectory
+		return ret
+	}).(FunctionAppAuthSettingsActiveDirectoryOutput)
 }
 
 // Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
@@ -5947,7 +6076,7 @@ func (o FunctionAppAuthSettingsFacebookOutput) ToFunctionAppAuthSettingsFacebook
 }
 
 func (o FunctionAppAuthSettingsFacebookOutput) ToFunctionAppAuthSettingsFacebookPtrOutputWithContext(ctx context.Context) FunctionAppAuthSettingsFacebookPtrOutput {
-	return o.ApplyT(func(v FunctionAppAuthSettingsFacebook) *FunctionAppAuthSettingsFacebook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppAuthSettingsFacebook) *FunctionAppAuthSettingsFacebook {
 		return &v
 	}).(FunctionAppAuthSettingsFacebookPtrOutput)
 }
@@ -5982,7 +6111,13 @@ func (o FunctionAppAuthSettingsFacebookPtrOutput) ToFunctionAppAuthSettingsFaceb
 }
 
 func (o FunctionAppAuthSettingsFacebookPtrOutput) Elem() FunctionAppAuthSettingsFacebookOutput {
-	return o.ApplyT(func(v *FunctionAppAuthSettingsFacebook) FunctionAppAuthSettingsFacebook { return *v }).(FunctionAppAuthSettingsFacebookOutput)
+	return o.ApplyT(func(v *FunctionAppAuthSettingsFacebook) FunctionAppAuthSettingsFacebook {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppAuthSettingsFacebook
+		return ret
+	}).(FunctionAppAuthSettingsFacebookOutput)
 }
 
 // The App ID of the Facebook app used for login
@@ -6116,7 +6251,7 @@ func (o FunctionAppAuthSettingsGoogleOutput) ToFunctionAppAuthSettingsGooglePtrO
 }
 
 func (o FunctionAppAuthSettingsGoogleOutput) ToFunctionAppAuthSettingsGooglePtrOutputWithContext(ctx context.Context) FunctionAppAuthSettingsGooglePtrOutput {
-	return o.ApplyT(func(v FunctionAppAuthSettingsGoogle) *FunctionAppAuthSettingsGoogle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppAuthSettingsGoogle) *FunctionAppAuthSettingsGoogle {
 		return &v
 	}).(FunctionAppAuthSettingsGooglePtrOutput)
 }
@@ -6151,7 +6286,13 @@ func (o FunctionAppAuthSettingsGooglePtrOutput) ToFunctionAppAuthSettingsGoogleP
 }
 
 func (o FunctionAppAuthSettingsGooglePtrOutput) Elem() FunctionAppAuthSettingsGoogleOutput {
-	return o.ApplyT(func(v *FunctionAppAuthSettingsGoogle) FunctionAppAuthSettingsGoogle { return *v }).(FunctionAppAuthSettingsGoogleOutput)
+	return o.ApplyT(func(v *FunctionAppAuthSettingsGoogle) FunctionAppAuthSettingsGoogle {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppAuthSettingsGoogle
+		return ret
+	}).(FunctionAppAuthSettingsGoogleOutput)
 }
 
 // The OpenID Connect Client ID for the Google web application.
@@ -6285,7 +6426,7 @@ func (o FunctionAppAuthSettingsMicrosoftOutput) ToFunctionAppAuthSettingsMicroso
 }
 
 func (o FunctionAppAuthSettingsMicrosoftOutput) ToFunctionAppAuthSettingsMicrosoftPtrOutputWithContext(ctx context.Context) FunctionAppAuthSettingsMicrosoftPtrOutput {
-	return o.ApplyT(func(v FunctionAppAuthSettingsMicrosoft) *FunctionAppAuthSettingsMicrosoft {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppAuthSettingsMicrosoft) *FunctionAppAuthSettingsMicrosoft {
 		return &v
 	}).(FunctionAppAuthSettingsMicrosoftPtrOutput)
 }
@@ -6320,7 +6461,13 @@ func (o FunctionAppAuthSettingsMicrosoftPtrOutput) ToFunctionAppAuthSettingsMicr
 }
 
 func (o FunctionAppAuthSettingsMicrosoftPtrOutput) Elem() FunctionAppAuthSettingsMicrosoftOutput {
-	return o.ApplyT(func(v *FunctionAppAuthSettingsMicrosoft) FunctionAppAuthSettingsMicrosoft { return *v }).(FunctionAppAuthSettingsMicrosoftOutput)
+	return o.ApplyT(func(v *FunctionAppAuthSettingsMicrosoft) FunctionAppAuthSettingsMicrosoft {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppAuthSettingsMicrosoft
+		return ret
+	}).(FunctionAppAuthSettingsMicrosoftOutput)
 }
 
 // The OAuth 2.0 client ID that was created for the app used for authentication.
@@ -6446,10 +6593,11 @@ func (o FunctionAppAuthSettingsTwitterOutput) ToFunctionAppAuthSettingsTwitterPt
 }
 
 func (o FunctionAppAuthSettingsTwitterOutput) ToFunctionAppAuthSettingsTwitterPtrOutputWithContext(ctx context.Context) FunctionAppAuthSettingsTwitterPtrOutput {
-	return o.ApplyT(func(v FunctionAppAuthSettingsTwitter) *FunctionAppAuthSettingsTwitter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppAuthSettingsTwitter) *FunctionAppAuthSettingsTwitter {
 		return &v
 	}).(FunctionAppAuthSettingsTwitterPtrOutput)
 }
+
 func (o FunctionAppAuthSettingsTwitterOutput) ConsumerKey() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsTwitter) string { return v.ConsumerKey }).(pulumi.StringOutput)
 }
@@ -6473,7 +6621,13 @@ func (o FunctionAppAuthSettingsTwitterPtrOutput) ToFunctionAppAuthSettingsTwitte
 }
 
 func (o FunctionAppAuthSettingsTwitterPtrOutput) Elem() FunctionAppAuthSettingsTwitterOutput {
-	return o.ApplyT(func(v *FunctionAppAuthSettingsTwitter) FunctionAppAuthSettingsTwitter { return *v }).(FunctionAppAuthSettingsTwitterOutput)
+	return o.ApplyT(func(v *FunctionAppAuthSettingsTwitter) FunctionAppAuthSettingsTwitter {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppAuthSettingsTwitter
+		return ret
+	}).(FunctionAppAuthSettingsTwitterOutput)
 }
 
 func (o FunctionAppAuthSettingsTwitterPtrOutput) ConsumerKey() pulumi.StringPtrOutput {
@@ -6714,7 +6868,7 @@ func (o FunctionAppIdentityOutput) ToFunctionAppIdentityPtrOutput() FunctionAppI
 }
 
 func (o FunctionAppIdentityOutput) ToFunctionAppIdentityPtrOutputWithContext(ctx context.Context) FunctionAppIdentityPtrOutput {
-	return o.ApplyT(func(v FunctionAppIdentity) *FunctionAppIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppIdentity) *FunctionAppIdentity {
 		return &v
 	}).(FunctionAppIdentityPtrOutput)
 }
@@ -6754,7 +6908,13 @@ func (o FunctionAppIdentityPtrOutput) ToFunctionAppIdentityPtrOutputWithContext(
 }
 
 func (o FunctionAppIdentityPtrOutput) Elem() FunctionAppIdentityOutput {
-	return o.ApplyT(func(v *FunctionAppIdentity) FunctionAppIdentity { return *v }).(FunctionAppIdentityOutput)
+	return o.ApplyT(func(v *FunctionAppIdentity) FunctionAppIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppIdentity
+		return ret
+	}).(FunctionAppIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
@@ -6964,7 +7124,7 @@ func (o FunctionAppSiteConfigOutput) ToFunctionAppSiteConfigPtrOutput() Function
 }
 
 func (o FunctionAppSiteConfigOutput) ToFunctionAppSiteConfigPtrOutputWithContext(ctx context.Context) FunctionAppSiteConfigPtrOutput {
-	return o.ApplyT(func(v FunctionAppSiteConfig) *FunctionAppSiteConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSiteConfig) *FunctionAppSiteConfig {
 		return &v
 	}).(FunctionAppSiteConfigPtrOutput)
 }
@@ -7083,7 +7243,13 @@ func (o FunctionAppSiteConfigPtrOutput) ToFunctionAppSiteConfigPtrOutputWithCont
 }
 
 func (o FunctionAppSiteConfigPtrOutput) Elem() FunctionAppSiteConfigOutput {
-	return o.ApplyT(func(v *FunctionAppSiteConfig) FunctionAppSiteConfig { return *v }).(FunctionAppSiteConfigOutput)
+	return o.ApplyT(func(v *FunctionAppSiteConfig) FunctionAppSiteConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSiteConfig
+		return ret
+	}).(FunctionAppSiteConfigOutput)
 }
 
 // Should the Function App be loaded at all times? Defaults to `false`.
@@ -7382,7 +7548,7 @@ func (o FunctionAppSiteConfigCorsOutput) ToFunctionAppSiteConfigCorsPtrOutput() 
 }
 
 func (o FunctionAppSiteConfigCorsOutput) ToFunctionAppSiteConfigCorsPtrOutputWithContext(ctx context.Context) FunctionAppSiteConfigCorsPtrOutput {
-	return o.ApplyT(func(v FunctionAppSiteConfigCors) *FunctionAppSiteConfigCors {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSiteConfigCors) *FunctionAppSiteConfigCors {
 		return &v
 	}).(FunctionAppSiteConfigCorsPtrOutput)
 }
@@ -7412,7 +7578,13 @@ func (o FunctionAppSiteConfigCorsPtrOutput) ToFunctionAppSiteConfigCorsPtrOutput
 }
 
 func (o FunctionAppSiteConfigCorsPtrOutput) Elem() FunctionAppSiteConfigCorsOutput {
-	return o.ApplyT(func(v *FunctionAppSiteConfigCors) FunctionAppSiteConfigCors { return *v }).(FunctionAppSiteConfigCorsOutput)
+	return o.ApplyT(func(v *FunctionAppSiteConfigCors) FunctionAppSiteConfigCors {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSiteConfigCors
+		return ret
+	}).(FunctionAppSiteConfigCorsOutput)
 }
 
 // A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
@@ -7693,7 +7865,7 @@ func (o FunctionAppSiteConfigIpRestrictionHeadersOutput) ToFunctionAppSiteConfig
 }
 
 func (o FunctionAppSiteConfigIpRestrictionHeadersOutput) ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSiteConfigIpRestrictionHeadersPtrOutput {
-	return o.ApplyT(func(v FunctionAppSiteConfigIpRestrictionHeaders) *FunctionAppSiteConfigIpRestrictionHeaders {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSiteConfigIpRestrictionHeaders) *FunctionAppSiteConfigIpRestrictionHeaders {
 		return &v
 	}).(FunctionAppSiteConfigIpRestrictionHeadersPtrOutput)
 }
@@ -7734,7 +7906,11 @@ func (o FunctionAppSiteConfigIpRestrictionHeadersPtrOutput) ToFunctionAppSiteCon
 
 func (o FunctionAppSiteConfigIpRestrictionHeadersPtrOutput) Elem() FunctionAppSiteConfigIpRestrictionHeadersOutput {
 	return o.ApplyT(func(v *FunctionAppSiteConfigIpRestrictionHeaders) FunctionAppSiteConfigIpRestrictionHeaders {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSiteConfigIpRestrictionHeaders
+		return ret
 	}).(FunctionAppSiteConfigIpRestrictionHeadersOutput)
 }
 
@@ -8036,7 +8212,7 @@ func (o FunctionAppSiteConfigScmIpRestrictionHeadersOutput) ToFunctionAppSiteCon
 }
 
 func (o FunctionAppSiteConfigScmIpRestrictionHeadersOutput) ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput {
-	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestrictionHeaders) *FunctionAppSiteConfigScmIpRestrictionHeaders {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSiteConfigScmIpRestrictionHeaders) *FunctionAppSiteConfigScmIpRestrictionHeaders {
 		return &v
 	}).(FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput)
 }
@@ -8077,7 +8253,11 @@ func (o FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput) ToFunctionAppSite
 
 func (o FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput) Elem() FunctionAppSiteConfigScmIpRestrictionHeadersOutput {
 	return o.ApplyT(func(v *FunctionAppSiteConfigScmIpRestrictionHeaders) FunctionAppSiteConfigScmIpRestrictionHeaders {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSiteConfigScmIpRestrictionHeaders
+		return ret
 	}).(FunctionAppSiteConfigScmIpRestrictionHeadersOutput)
 }
 
@@ -8372,7 +8552,7 @@ func (o FunctionAppSlotAuthSettingsOutput) ToFunctionAppSlotAuthSettingsPtrOutpu
 }
 
 func (o FunctionAppSlotAuthSettingsOutput) ToFunctionAppSlotAuthSettingsPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettings {
 		return &v
 	}).(FunctionAppSlotAuthSettingsPtrOutput)
 }
@@ -8464,7 +8644,13 @@ func (o FunctionAppSlotAuthSettingsPtrOutput) ToFunctionAppSlotAuthSettingsPtrOu
 }
 
 func (o FunctionAppSlotAuthSettingsPtrOutput) Elem() FunctionAppSlotAuthSettingsOutput {
-	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) FunctionAppSlotAuthSettings { return *v }).(FunctionAppSlotAuthSettingsOutput)
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) FunctionAppSlotAuthSettings {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSlotAuthSettings
+		return ret
+	}).(FunctionAppSlotAuthSettingsOutput)
 }
 
 // An `activeDirectory` block as defined below.
@@ -8708,7 +8894,7 @@ func (o FunctionAppSlotAuthSettingsActiveDirectoryOutput) ToFunctionAppSlotAuthS
 }
 
 func (o FunctionAppSlotAuthSettingsActiveDirectoryOutput) ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotAuthSettingsActiveDirectory) *FunctionAppSlotAuthSettingsActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlotAuthSettingsActiveDirectory) *FunctionAppSlotAuthSettingsActiveDirectory {
 		return &v
 	}).(FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput)
 }
@@ -8744,7 +8930,11 @@ func (o FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput) ToFunctionAppSlotAu
 
 func (o FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput) Elem() FunctionAppSlotAuthSettingsActiveDirectoryOutput {
 	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsActiveDirectory) FunctionAppSlotAuthSettingsActiveDirectory {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSlotAuthSettingsActiveDirectory
+		return ret
 	}).(FunctionAppSlotAuthSettingsActiveDirectoryOutput)
 }
 
@@ -8879,7 +9069,7 @@ func (o FunctionAppSlotAuthSettingsFacebookOutput) ToFunctionAppSlotAuthSettings
 }
 
 func (o FunctionAppSlotAuthSettingsFacebookOutput) ToFunctionAppSlotAuthSettingsFacebookPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsFacebookPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotAuthSettingsFacebook) *FunctionAppSlotAuthSettingsFacebook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlotAuthSettingsFacebook) *FunctionAppSlotAuthSettingsFacebook {
 		return &v
 	}).(FunctionAppSlotAuthSettingsFacebookPtrOutput)
 }
@@ -8914,7 +9104,13 @@ func (o FunctionAppSlotAuthSettingsFacebookPtrOutput) ToFunctionAppSlotAuthSetti
 }
 
 func (o FunctionAppSlotAuthSettingsFacebookPtrOutput) Elem() FunctionAppSlotAuthSettingsFacebookOutput {
-	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsFacebook) FunctionAppSlotAuthSettingsFacebook { return *v }).(FunctionAppSlotAuthSettingsFacebookOutput)
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsFacebook) FunctionAppSlotAuthSettingsFacebook {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSlotAuthSettingsFacebook
+		return ret
+	}).(FunctionAppSlotAuthSettingsFacebookOutput)
 }
 
 // The App ID of the Facebook app used for login
@@ -9048,7 +9244,7 @@ func (o FunctionAppSlotAuthSettingsGoogleOutput) ToFunctionAppSlotAuthSettingsGo
 }
 
 func (o FunctionAppSlotAuthSettingsGoogleOutput) ToFunctionAppSlotAuthSettingsGooglePtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsGooglePtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotAuthSettingsGoogle) *FunctionAppSlotAuthSettingsGoogle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlotAuthSettingsGoogle) *FunctionAppSlotAuthSettingsGoogle {
 		return &v
 	}).(FunctionAppSlotAuthSettingsGooglePtrOutput)
 }
@@ -9083,7 +9279,13 @@ func (o FunctionAppSlotAuthSettingsGooglePtrOutput) ToFunctionAppSlotAuthSetting
 }
 
 func (o FunctionAppSlotAuthSettingsGooglePtrOutput) Elem() FunctionAppSlotAuthSettingsGoogleOutput {
-	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsGoogle) FunctionAppSlotAuthSettingsGoogle { return *v }).(FunctionAppSlotAuthSettingsGoogleOutput)
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsGoogle) FunctionAppSlotAuthSettingsGoogle {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSlotAuthSettingsGoogle
+		return ret
+	}).(FunctionAppSlotAuthSettingsGoogleOutput)
 }
 
 // The OpenID Connect Client ID for the Google web application.
@@ -9217,7 +9419,7 @@ func (o FunctionAppSlotAuthSettingsMicrosoftOutput) ToFunctionAppSlotAuthSetting
 }
 
 func (o FunctionAppSlotAuthSettingsMicrosoftOutput) ToFunctionAppSlotAuthSettingsMicrosoftPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsMicrosoftPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotAuthSettingsMicrosoft) *FunctionAppSlotAuthSettingsMicrosoft {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlotAuthSettingsMicrosoft) *FunctionAppSlotAuthSettingsMicrosoft {
 		return &v
 	}).(FunctionAppSlotAuthSettingsMicrosoftPtrOutput)
 }
@@ -9252,7 +9454,13 @@ func (o FunctionAppSlotAuthSettingsMicrosoftPtrOutput) ToFunctionAppSlotAuthSett
 }
 
 func (o FunctionAppSlotAuthSettingsMicrosoftPtrOutput) Elem() FunctionAppSlotAuthSettingsMicrosoftOutput {
-	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsMicrosoft) FunctionAppSlotAuthSettingsMicrosoft { return *v }).(FunctionAppSlotAuthSettingsMicrosoftOutput)
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsMicrosoft) FunctionAppSlotAuthSettingsMicrosoft {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSlotAuthSettingsMicrosoft
+		return ret
+	}).(FunctionAppSlotAuthSettingsMicrosoftOutput)
 }
 
 // The OAuth 2.0 client ID that was created for the app used for authentication.
@@ -9378,10 +9586,11 @@ func (o FunctionAppSlotAuthSettingsTwitterOutput) ToFunctionAppSlotAuthSettingsT
 }
 
 func (o FunctionAppSlotAuthSettingsTwitterOutput) ToFunctionAppSlotAuthSettingsTwitterPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsTwitterPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotAuthSettingsTwitter) *FunctionAppSlotAuthSettingsTwitter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlotAuthSettingsTwitter) *FunctionAppSlotAuthSettingsTwitter {
 		return &v
 	}).(FunctionAppSlotAuthSettingsTwitterPtrOutput)
 }
+
 func (o FunctionAppSlotAuthSettingsTwitterOutput) ConsumerKey() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppSlotAuthSettingsTwitter) string { return v.ConsumerKey }).(pulumi.StringOutput)
 }
@@ -9405,7 +9614,13 @@ func (o FunctionAppSlotAuthSettingsTwitterPtrOutput) ToFunctionAppSlotAuthSettin
 }
 
 func (o FunctionAppSlotAuthSettingsTwitterPtrOutput) Elem() FunctionAppSlotAuthSettingsTwitterOutput {
-	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsTwitter) FunctionAppSlotAuthSettingsTwitter { return *v }).(FunctionAppSlotAuthSettingsTwitterOutput)
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsTwitter) FunctionAppSlotAuthSettingsTwitter {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSlotAuthSettingsTwitter
+		return ret
+	}).(FunctionAppSlotAuthSettingsTwitterOutput)
 }
 
 func (o FunctionAppSlotAuthSettingsTwitterPtrOutput) ConsumerKey() pulumi.StringPtrOutput {
@@ -9646,7 +9861,7 @@ func (o FunctionAppSlotIdentityOutput) ToFunctionAppSlotIdentityPtrOutput() Func
 }
 
 func (o FunctionAppSlotIdentityOutput) ToFunctionAppSlotIdentityPtrOutputWithContext(ctx context.Context) FunctionAppSlotIdentityPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotIdentity) *FunctionAppSlotIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlotIdentity) *FunctionAppSlotIdentity {
 		return &v
 	}).(FunctionAppSlotIdentityPtrOutput)
 }
@@ -9686,7 +9901,13 @@ func (o FunctionAppSlotIdentityPtrOutput) ToFunctionAppSlotIdentityPtrOutputWith
 }
 
 func (o FunctionAppSlotIdentityPtrOutput) Elem() FunctionAppSlotIdentityOutput {
-	return o.ApplyT(func(v *FunctionAppSlotIdentity) FunctionAppSlotIdentity { return *v }).(FunctionAppSlotIdentityOutput)
+	return o.ApplyT(func(v *FunctionAppSlotIdentity) FunctionAppSlotIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSlotIdentity
+		return ret
+	}).(FunctionAppSlotIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
@@ -9888,7 +10109,7 @@ func (o FunctionAppSlotSiteConfigOutput) ToFunctionAppSlotSiteConfigPtrOutput() 
 }
 
 func (o FunctionAppSlotSiteConfigOutput) ToFunctionAppSlotSiteConfigPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *FunctionAppSlotSiteConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlotSiteConfig) *FunctionAppSlotSiteConfig {
 		return &v
 	}).(FunctionAppSlotSiteConfigPtrOutput)
 }
@@ -10005,7 +10226,13 @@ func (o FunctionAppSlotSiteConfigPtrOutput) ToFunctionAppSlotSiteConfigPtrOutput
 }
 
 func (o FunctionAppSlotSiteConfigPtrOutput) Elem() FunctionAppSlotSiteConfigOutput {
-	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) FunctionAppSlotSiteConfig { return *v }).(FunctionAppSlotSiteConfigOutput)
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) FunctionAppSlotSiteConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSlotSiteConfig
+		return ret
+	}).(FunctionAppSlotSiteConfigOutput)
 }
 
 // Should the Function App be loaded at all times? Defaults to `false`.
@@ -10300,7 +10527,7 @@ func (o FunctionAppSlotSiteConfigCorsOutput) ToFunctionAppSlotSiteConfigCorsPtrO
 }
 
 func (o FunctionAppSlotSiteConfigCorsOutput) ToFunctionAppSlotSiteConfigCorsPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigCorsPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotSiteConfigCors) *FunctionAppSlotSiteConfigCors {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlotSiteConfigCors) *FunctionAppSlotSiteConfigCors {
 		return &v
 	}).(FunctionAppSlotSiteConfigCorsPtrOutput)
 }
@@ -10330,7 +10557,13 @@ func (o FunctionAppSlotSiteConfigCorsPtrOutput) ToFunctionAppSlotSiteConfigCorsP
 }
 
 func (o FunctionAppSlotSiteConfigCorsPtrOutput) Elem() FunctionAppSlotSiteConfigCorsOutput {
-	return o.ApplyT(func(v *FunctionAppSlotSiteConfigCors) FunctionAppSlotSiteConfigCors { return *v }).(FunctionAppSlotSiteConfigCorsOutput)
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigCors) FunctionAppSlotSiteConfigCors {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSlotSiteConfigCors
+		return ret
+	}).(FunctionAppSlotSiteConfigCorsOutput)
 }
 
 // A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
@@ -10611,7 +10844,7 @@ func (o FunctionAppSlotSiteConfigIpRestrictionHeadersOutput) ToFunctionAppSlotSi
 }
 
 func (o FunctionAppSlotSiteConfigIpRestrictionHeadersOutput) ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestrictionHeaders) *FunctionAppSlotSiteConfigIpRestrictionHeaders {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlotSiteConfigIpRestrictionHeaders) *FunctionAppSlotSiteConfigIpRestrictionHeaders {
 		return &v
 	}).(FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput)
 }
@@ -10652,7 +10885,11 @@ func (o FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput) ToFunctionAppSlo
 
 func (o FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput) Elem() FunctionAppSlotSiteConfigIpRestrictionHeadersOutput {
 	return o.ApplyT(func(v *FunctionAppSlotSiteConfigIpRestrictionHeaders) FunctionAppSlotSiteConfigIpRestrictionHeaders {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSlotSiteConfigIpRestrictionHeaders
+		return ret
 	}).(FunctionAppSlotSiteConfigIpRestrictionHeadersOutput)
 }
 
@@ -10954,7 +11191,7 @@ func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput) ToFunctionAppSlo
 }
 
 func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestrictionHeaders) *FunctionAppSlotSiteConfigScmIpRestrictionHeaders {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlotSiteConfigScmIpRestrictionHeaders) *FunctionAppSlotSiteConfigScmIpRestrictionHeaders {
 		return &v
 	}).(FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput)
 }
@@ -10995,7 +11232,11 @@ func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput) ToFunctionApp
 
 func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput) Elem() FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput {
 	return o.ApplyT(func(v *FunctionAppSlotSiteConfigScmIpRestrictionHeaders) FunctionAppSlotSiteConfigScmIpRestrictionHeaders {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSlotSiteConfigScmIpRestrictionHeaders
+		return ret
 	}).(FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput)
 }
 
@@ -11254,7 +11495,7 @@ func (o FunctionAppSourceControlOutput) ToFunctionAppSourceControlPtrOutput() Fu
 }
 
 func (o FunctionAppSourceControlOutput) ToFunctionAppSourceControlPtrOutputWithContext(ctx context.Context) FunctionAppSourceControlPtrOutput {
-	return o.ApplyT(func(v FunctionAppSourceControl) *FunctionAppSourceControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSourceControl) *FunctionAppSourceControl {
 		return &v
 	}).(FunctionAppSourceControlPtrOutput)
 }
@@ -11299,7 +11540,13 @@ func (o FunctionAppSourceControlPtrOutput) ToFunctionAppSourceControlPtrOutputWi
 }
 
 func (o FunctionAppSourceControlPtrOutput) Elem() FunctionAppSourceControlOutput {
-	return o.ApplyT(func(v *FunctionAppSourceControl) FunctionAppSourceControl { return *v }).(FunctionAppSourceControlOutput)
+	return o.ApplyT(func(v *FunctionAppSourceControl) FunctionAppSourceControl {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAppSourceControl
+		return ret
+	}).(FunctionAppSourceControlOutput)
 }
 
 // The branch of the remote repository to use. Defaults to 'master'.
@@ -11453,7 +11700,7 @@ func (o PlanSkuOutput) ToPlanSkuPtrOutput() PlanSkuPtrOutput {
 }
 
 func (o PlanSkuOutput) ToPlanSkuPtrOutputWithContext(ctx context.Context) PlanSkuPtrOutput {
-	return o.ApplyT(func(v PlanSku) *PlanSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanSku) *PlanSku {
 		return &v
 	}).(PlanSkuPtrOutput)
 }
@@ -11488,7 +11735,13 @@ func (o PlanSkuPtrOutput) ToPlanSkuPtrOutputWithContext(ctx context.Context) Pla
 }
 
 func (o PlanSkuPtrOutput) Elem() PlanSkuOutput {
-	return o.ApplyT(func(v *PlanSku) PlanSku { return *v }).(PlanSkuOutput)
+	return o.ApplyT(func(v *PlanSku) PlanSku {
+		if v != nil {
+			return *v
+		}
+		var ret PlanSku
+		return ret
+	}).(PlanSkuOutput)
 }
 
 // Specifies the number of workers associated with this App Service Plan.
@@ -11666,7 +11919,7 @@ func (o SlotAuthSettingsOutput) ToSlotAuthSettingsPtrOutput() SlotAuthSettingsPt
 }
 
 func (o SlotAuthSettingsOutput) ToSlotAuthSettingsPtrOutputWithContext(ctx context.Context) SlotAuthSettingsPtrOutput {
-	return o.ApplyT(func(v SlotAuthSettings) *SlotAuthSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotAuthSettings) *SlotAuthSettings {
 		return &v
 	}).(SlotAuthSettingsPtrOutput)
 }
@@ -11756,7 +12009,13 @@ func (o SlotAuthSettingsPtrOutput) ToSlotAuthSettingsPtrOutputWithContext(ctx co
 }
 
 func (o SlotAuthSettingsPtrOutput) Elem() SlotAuthSettingsOutput {
-	return o.ApplyT(func(v *SlotAuthSettings) SlotAuthSettings { return *v }).(SlotAuthSettingsOutput)
+	return o.ApplyT(func(v *SlotAuthSettings) SlotAuthSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SlotAuthSettings
+		return ret
+	}).(SlotAuthSettingsOutput)
 }
 
 // A `activeDirectory` block as defined below.
@@ -12000,7 +12259,7 @@ func (o SlotAuthSettingsActiveDirectoryOutput) ToSlotAuthSettingsActiveDirectory
 }
 
 func (o SlotAuthSettingsActiveDirectoryOutput) ToSlotAuthSettingsActiveDirectoryPtrOutputWithContext(ctx context.Context) SlotAuthSettingsActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v SlotAuthSettingsActiveDirectory) *SlotAuthSettingsActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotAuthSettingsActiveDirectory) *SlotAuthSettingsActiveDirectory {
 		return &v
 	}).(SlotAuthSettingsActiveDirectoryPtrOutput)
 }
@@ -12035,7 +12294,13 @@ func (o SlotAuthSettingsActiveDirectoryPtrOutput) ToSlotAuthSettingsActiveDirect
 }
 
 func (o SlotAuthSettingsActiveDirectoryPtrOutput) Elem() SlotAuthSettingsActiveDirectoryOutput {
-	return o.ApplyT(func(v *SlotAuthSettingsActiveDirectory) SlotAuthSettingsActiveDirectory { return *v }).(SlotAuthSettingsActiveDirectoryOutput)
+	return o.ApplyT(func(v *SlotAuthSettingsActiveDirectory) SlotAuthSettingsActiveDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret SlotAuthSettingsActiveDirectory
+		return ret
+	}).(SlotAuthSettingsActiveDirectoryOutput)
 }
 
 // Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
@@ -12169,7 +12434,7 @@ func (o SlotAuthSettingsFacebookOutput) ToSlotAuthSettingsFacebookPtrOutput() Sl
 }
 
 func (o SlotAuthSettingsFacebookOutput) ToSlotAuthSettingsFacebookPtrOutputWithContext(ctx context.Context) SlotAuthSettingsFacebookPtrOutput {
-	return o.ApplyT(func(v SlotAuthSettingsFacebook) *SlotAuthSettingsFacebook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotAuthSettingsFacebook) *SlotAuthSettingsFacebook {
 		return &v
 	}).(SlotAuthSettingsFacebookPtrOutput)
 }
@@ -12204,7 +12469,13 @@ func (o SlotAuthSettingsFacebookPtrOutput) ToSlotAuthSettingsFacebookPtrOutputWi
 }
 
 func (o SlotAuthSettingsFacebookPtrOutput) Elem() SlotAuthSettingsFacebookOutput {
-	return o.ApplyT(func(v *SlotAuthSettingsFacebook) SlotAuthSettingsFacebook { return *v }).(SlotAuthSettingsFacebookOutput)
+	return o.ApplyT(func(v *SlotAuthSettingsFacebook) SlotAuthSettingsFacebook {
+		if v != nil {
+			return *v
+		}
+		var ret SlotAuthSettingsFacebook
+		return ret
+	}).(SlotAuthSettingsFacebookOutput)
 }
 
 // The App ID of the Facebook app used for login
@@ -12338,7 +12609,7 @@ func (o SlotAuthSettingsGoogleOutput) ToSlotAuthSettingsGooglePtrOutput() SlotAu
 }
 
 func (o SlotAuthSettingsGoogleOutput) ToSlotAuthSettingsGooglePtrOutputWithContext(ctx context.Context) SlotAuthSettingsGooglePtrOutput {
-	return o.ApplyT(func(v SlotAuthSettingsGoogle) *SlotAuthSettingsGoogle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotAuthSettingsGoogle) *SlotAuthSettingsGoogle {
 		return &v
 	}).(SlotAuthSettingsGooglePtrOutput)
 }
@@ -12373,7 +12644,13 @@ func (o SlotAuthSettingsGooglePtrOutput) ToSlotAuthSettingsGooglePtrOutputWithCo
 }
 
 func (o SlotAuthSettingsGooglePtrOutput) Elem() SlotAuthSettingsGoogleOutput {
-	return o.ApplyT(func(v *SlotAuthSettingsGoogle) SlotAuthSettingsGoogle { return *v }).(SlotAuthSettingsGoogleOutput)
+	return o.ApplyT(func(v *SlotAuthSettingsGoogle) SlotAuthSettingsGoogle {
+		if v != nil {
+			return *v
+		}
+		var ret SlotAuthSettingsGoogle
+		return ret
+	}).(SlotAuthSettingsGoogleOutput)
 }
 
 // The OpenID Connect Client ID for the Google web application.
@@ -12507,7 +12784,7 @@ func (o SlotAuthSettingsMicrosoftOutput) ToSlotAuthSettingsMicrosoftPtrOutput() 
 }
 
 func (o SlotAuthSettingsMicrosoftOutput) ToSlotAuthSettingsMicrosoftPtrOutputWithContext(ctx context.Context) SlotAuthSettingsMicrosoftPtrOutput {
-	return o.ApplyT(func(v SlotAuthSettingsMicrosoft) *SlotAuthSettingsMicrosoft {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotAuthSettingsMicrosoft) *SlotAuthSettingsMicrosoft {
 		return &v
 	}).(SlotAuthSettingsMicrosoftPtrOutput)
 }
@@ -12542,7 +12819,13 @@ func (o SlotAuthSettingsMicrosoftPtrOutput) ToSlotAuthSettingsMicrosoftPtrOutput
 }
 
 func (o SlotAuthSettingsMicrosoftPtrOutput) Elem() SlotAuthSettingsMicrosoftOutput {
-	return o.ApplyT(func(v *SlotAuthSettingsMicrosoft) SlotAuthSettingsMicrosoft { return *v }).(SlotAuthSettingsMicrosoftOutput)
+	return o.ApplyT(func(v *SlotAuthSettingsMicrosoft) SlotAuthSettingsMicrosoft {
+		if v != nil {
+			return *v
+		}
+		var ret SlotAuthSettingsMicrosoft
+		return ret
+	}).(SlotAuthSettingsMicrosoftOutput)
 }
 
 // The OAuth 2.0 client ID that was created for the app used for authentication.
@@ -12668,10 +12951,11 @@ func (o SlotAuthSettingsTwitterOutput) ToSlotAuthSettingsTwitterPtrOutput() Slot
 }
 
 func (o SlotAuthSettingsTwitterOutput) ToSlotAuthSettingsTwitterPtrOutputWithContext(ctx context.Context) SlotAuthSettingsTwitterPtrOutput {
-	return o.ApplyT(func(v SlotAuthSettingsTwitter) *SlotAuthSettingsTwitter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotAuthSettingsTwitter) *SlotAuthSettingsTwitter {
 		return &v
 	}).(SlotAuthSettingsTwitterPtrOutput)
 }
+
 func (o SlotAuthSettingsTwitterOutput) ConsumerKey() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsTwitter) string { return v.ConsumerKey }).(pulumi.StringOutput)
 }
@@ -12695,7 +12979,13 @@ func (o SlotAuthSettingsTwitterPtrOutput) ToSlotAuthSettingsTwitterPtrOutputWith
 }
 
 func (o SlotAuthSettingsTwitterPtrOutput) Elem() SlotAuthSettingsTwitterOutput {
-	return o.ApplyT(func(v *SlotAuthSettingsTwitter) SlotAuthSettingsTwitter { return *v }).(SlotAuthSettingsTwitterOutput)
+	return o.ApplyT(func(v *SlotAuthSettingsTwitter) SlotAuthSettingsTwitter {
+		if v != nil {
+			return *v
+		}
+		var ret SlotAuthSettingsTwitter
+		return ret
+	}).(SlotAuthSettingsTwitterOutput)
 }
 
 func (o SlotAuthSettingsTwitterPtrOutput) ConsumerKey() pulumi.StringPtrOutput {
@@ -12936,7 +13226,7 @@ func (o SlotIdentityOutput) ToSlotIdentityPtrOutput() SlotIdentityPtrOutput {
 }
 
 func (o SlotIdentityOutput) ToSlotIdentityPtrOutputWithContext(ctx context.Context) SlotIdentityPtrOutput {
-	return o.ApplyT(func(v SlotIdentity) *SlotIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotIdentity) *SlotIdentity {
 		return &v
 	}).(SlotIdentityPtrOutput)
 }
@@ -12976,7 +13266,13 @@ func (o SlotIdentityPtrOutput) ToSlotIdentityPtrOutputWithContext(ctx context.Co
 }
 
 func (o SlotIdentityPtrOutput) Elem() SlotIdentityOutput {
-	return o.ApplyT(func(v *SlotIdentity) SlotIdentity { return *v }).(SlotIdentityOutput)
+	return o.ApplyT(func(v *SlotIdentity) SlotIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret SlotIdentity
+		return ret
+	}).(SlotIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
@@ -13124,7 +13420,7 @@ func (o SlotLogsOutput) ToSlotLogsPtrOutput() SlotLogsPtrOutput {
 }
 
 func (o SlotLogsOutput) ToSlotLogsPtrOutputWithContext(ctx context.Context) SlotLogsPtrOutput {
-	return o.ApplyT(func(v SlotLogs) *SlotLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotLogs) *SlotLogs {
 		return &v
 	}).(SlotLogsPtrOutput)
 }
@@ -13164,7 +13460,13 @@ func (o SlotLogsPtrOutput) ToSlotLogsPtrOutputWithContext(ctx context.Context) S
 }
 
 func (o SlotLogsPtrOutput) Elem() SlotLogsOutput {
-	return o.ApplyT(func(v *SlotLogs) SlotLogs { return *v }).(SlotLogsOutput)
+	return o.ApplyT(func(v *SlotLogs) SlotLogs {
+		if v != nil {
+			return *v
+		}
+		var ret SlotLogs
+		return ret
+	}).(SlotLogsOutput)
 }
 
 // An `applicationLogs` block as defined below.
@@ -13304,7 +13606,7 @@ func (o SlotLogsApplicationLogsOutput) ToSlotLogsApplicationLogsPtrOutput() Slot
 }
 
 func (o SlotLogsApplicationLogsOutput) ToSlotLogsApplicationLogsPtrOutputWithContext(ctx context.Context) SlotLogsApplicationLogsPtrOutput {
-	return o.ApplyT(func(v SlotLogsApplicationLogs) *SlotLogsApplicationLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotLogsApplicationLogs) *SlotLogsApplicationLogs {
 		return &v
 	}).(SlotLogsApplicationLogsPtrOutput)
 }
@@ -13334,7 +13636,13 @@ func (o SlotLogsApplicationLogsPtrOutput) ToSlotLogsApplicationLogsPtrOutputWith
 }
 
 func (o SlotLogsApplicationLogsPtrOutput) Elem() SlotLogsApplicationLogsOutput {
-	return o.ApplyT(func(v *SlotLogsApplicationLogs) SlotLogsApplicationLogs { return *v }).(SlotLogsApplicationLogsOutput)
+	return o.ApplyT(func(v *SlotLogsApplicationLogs) SlotLogsApplicationLogs {
+		if v != nil {
+			return *v
+		}
+		var ret SlotLogsApplicationLogs
+		return ret
+	}).(SlotLogsApplicationLogsOutput)
 }
 
 // An `azureBlobStorage` block as defined below.
@@ -13458,7 +13766,7 @@ func (o SlotLogsApplicationLogsAzureBlobStorageOutput) ToSlotLogsApplicationLogs
 }
 
 func (o SlotLogsApplicationLogsAzureBlobStorageOutput) ToSlotLogsApplicationLogsAzureBlobStoragePtrOutputWithContext(ctx context.Context) SlotLogsApplicationLogsAzureBlobStoragePtrOutput {
-	return o.ApplyT(func(v SlotLogsApplicationLogsAzureBlobStorage) *SlotLogsApplicationLogsAzureBlobStorage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotLogsApplicationLogsAzureBlobStorage) *SlotLogsApplicationLogsAzureBlobStorage {
 		return &v
 	}).(SlotLogsApplicationLogsAzureBlobStoragePtrOutput)
 }
@@ -13493,7 +13801,13 @@ func (o SlotLogsApplicationLogsAzureBlobStoragePtrOutput) ToSlotLogsApplicationL
 }
 
 func (o SlotLogsApplicationLogsAzureBlobStoragePtrOutput) Elem() SlotLogsApplicationLogsAzureBlobStorageOutput {
-	return o.ApplyT(func(v *SlotLogsApplicationLogsAzureBlobStorage) SlotLogsApplicationLogsAzureBlobStorage { return *v }).(SlotLogsApplicationLogsAzureBlobStorageOutput)
+	return o.ApplyT(func(v *SlotLogsApplicationLogsAzureBlobStorage) SlotLogsApplicationLogsAzureBlobStorage {
+		if v != nil {
+			return *v
+		}
+		var ret SlotLogsApplicationLogsAzureBlobStorage
+		return ret
+	}).(SlotLogsApplicationLogsAzureBlobStorageOutput)
 }
 
 // The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
@@ -13623,7 +13937,7 @@ func (o SlotLogsHttpLogsOutput) ToSlotLogsHttpLogsPtrOutput() SlotLogsHttpLogsPt
 }
 
 func (o SlotLogsHttpLogsOutput) ToSlotLogsHttpLogsPtrOutputWithContext(ctx context.Context) SlotLogsHttpLogsPtrOutput {
-	return o.ApplyT(func(v SlotLogsHttpLogs) *SlotLogsHttpLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotLogsHttpLogs) *SlotLogsHttpLogs {
 		return &v
 	}).(SlotLogsHttpLogsPtrOutput)
 }
@@ -13653,7 +13967,13 @@ func (o SlotLogsHttpLogsPtrOutput) ToSlotLogsHttpLogsPtrOutputWithContext(ctx co
 }
 
 func (o SlotLogsHttpLogsPtrOutput) Elem() SlotLogsHttpLogsOutput {
-	return o.ApplyT(func(v *SlotLogsHttpLogs) SlotLogsHttpLogs { return *v }).(SlotLogsHttpLogsOutput)
+	return o.ApplyT(func(v *SlotLogsHttpLogs) SlotLogsHttpLogs {
+		if v != nil {
+			return *v
+		}
+		var ret SlotLogsHttpLogs
+		return ret
+	}).(SlotLogsHttpLogsOutput)
 }
 
 // An `azureBlobStorage` block as defined below.
@@ -13773,7 +14093,7 @@ func (o SlotLogsHttpLogsAzureBlobStorageOutput) ToSlotLogsHttpLogsAzureBlobStora
 }
 
 func (o SlotLogsHttpLogsAzureBlobStorageOutput) ToSlotLogsHttpLogsAzureBlobStoragePtrOutputWithContext(ctx context.Context) SlotLogsHttpLogsAzureBlobStoragePtrOutput {
-	return o.ApplyT(func(v SlotLogsHttpLogsAzureBlobStorage) *SlotLogsHttpLogsAzureBlobStorage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotLogsHttpLogsAzureBlobStorage) *SlotLogsHttpLogsAzureBlobStorage {
 		return &v
 	}).(SlotLogsHttpLogsAzureBlobStoragePtrOutput)
 }
@@ -13803,7 +14123,13 @@ func (o SlotLogsHttpLogsAzureBlobStoragePtrOutput) ToSlotLogsHttpLogsAzureBlobSt
 }
 
 func (o SlotLogsHttpLogsAzureBlobStoragePtrOutput) Elem() SlotLogsHttpLogsAzureBlobStorageOutput {
-	return o.ApplyT(func(v *SlotLogsHttpLogsAzureBlobStorage) SlotLogsHttpLogsAzureBlobStorage { return *v }).(SlotLogsHttpLogsAzureBlobStorageOutput)
+	return o.ApplyT(func(v *SlotLogsHttpLogsAzureBlobStorage) SlotLogsHttpLogsAzureBlobStorage {
+		if v != nil {
+			return *v
+		}
+		var ret SlotLogsHttpLogsAzureBlobStorage
+		return ret
+	}).(SlotLogsHttpLogsAzureBlobStorageOutput)
 }
 
 // The number of days to retain logs for.
@@ -13923,7 +14249,7 @@ func (o SlotLogsHttpLogsFileSystemOutput) ToSlotLogsHttpLogsFileSystemPtrOutput(
 }
 
 func (o SlotLogsHttpLogsFileSystemOutput) ToSlotLogsHttpLogsFileSystemPtrOutputWithContext(ctx context.Context) SlotLogsHttpLogsFileSystemPtrOutput {
-	return o.ApplyT(func(v SlotLogsHttpLogsFileSystem) *SlotLogsHttpLogsFileSystem {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotLogsHttpLogsFileSystem) *SlotLogsHttpLogsFileSystem {
 		return &v
 	}).(SlotLogsHttpLogsFileSystemPtrOutput)
 }
@@ -13953,7 +14279,13 @@ func (o SlotLogsHttpLogsFileSystemPtrOutput) ToSlotLogsHttpLogsFileSystemPtrOutp
 }
 
 func (o SlotLogsHttpLogsFileSystemPtrOutput) Elem() SlotLogsHttpLogsFileSystemOutput {
-	return o.ApplyT(func(v *SlotLogsHttpLogsFileSystem) SlotLogsHttpLogsFileSystem { return *v }).(SlotLogsHttpLogsFileSystemOutput)
+	return o.ApplyT(func(v *SlotLogsHttpLogsFileSystem) SlotLogsHttpLogsFileSystem {
+		if v != nil {
+			return *v
+		}
+		var ret SlotLogsHttpLogsFileSystem
+		return ret
+	}).(SlotLogsHttpLogsFileSystemOutput)
 }
 
 // The number of days to retain logs for.
@@ -14173,7 +14505,7 @@ func (o SlotSiteConfigOutput) ToSlotSiteConfigPtrOutput() SlotSiteConfigPtrOutpu
 }
 
 func (o SlotSiteConfigOutput) ToSlotSiteConfigPtrOutputWithContext(ctx context.Context) SlotSiteConfigPtrOutput {
-	return o.ApplyT(func(v SlotSiteConfig) *SlotSiteConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotSiteConfig) *SlotSiteConfig {
 		return &v
 	}).(SlotSiteConfigPtrOutput)
 }
@@ -14340,7 +14672,13 @@ func (o SlotSiteConfigPtrOutput) ToSlotSiteConfigPtrOutputWithContext(ctx contex
 }
 
 func (o SlotSiteConfigPtrOutput) Elem() SlotSiteConfigOutput {
-	return o.ApplyT(func(v *SlotSiteConfig) SlotSiteConfig { return *v }).(SlotSiteConfigOutput)
+	return o.ApplyT(func(v *SlotSiteConfig) SlotSiteConfig {
+		if v != nil {
+			return *v
+		}
+		var ret SlotSiteConfig
+		return ret
+	}).(SlotSiteConfigOutput)
 }
 
 // Are Managed Identity Credential used for Azure Container Registry pull
@@ -14742,7 +15080,7 @@ func (o SlotSiteConfigCorsOutput) ToSlotSiteConfigCorsPtrOutput() SlotSiteConfig
 }
 
 func (o SlotSiteConfigCorsOutput) ToSlotSiteConfigCorsPtrOutputWithContext(ctx context.Context) SlotSiteConfigCorsPtrOutput {
-	return o.ApplyT(func(v SlotSiteConfigCors) *SlotSiteConfigCors {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotSiteConfigCors) *SlotSiteConfigCors {
 		return &v
 	}).(SlotSiteConfigCorsPtrOutput)
 }
@@ -14772,7 +15110,13 @@ func (o SlotSiteConfigCorsPtrOutput) ToSlotSiteConfigCorsPtrOutputWithContext(ct
 }
 
 func (o SlotSiteConfigCorsPtrOutput) Elem() SlotSiteConfigCorsOutput {
-	return o.ApplyT(func(v *SlotSiteConfigCors) SlotSiteConfigCors { return *v }).(SlotSiteConfigCorsOutput)
+	return o.ApplyT(func(v *SlotSiteConfigCors) SlotSiteConfigCors {
+		if v != nil {
+			return *v
+		}
+		var ret SlotSiteConfigCors
+		return ret
+	}).(SlotSiteConfigCorsOutput)
 }
 
 // A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
@@ -15051,7 +15395,7 @@ func (o SlotSiteConfigIpRestrictionHeadersOutput) ToSlotSiteConfigIpRestrictionH
 }
 
 func (o SlotSiteConfigIpRestrictionHeadersOutput) ToSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionHeadersPtrOutput {
-	return o.ApplyT(func(v SlotSiteConfigIpRestrictionHeaders) *SlotSiteConfigIpRestrictionHeaders {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotSiteConfigIpRestrictionHeaders) *SlotSiteConfigIpRestrictionHeaders {
 		return &v
 	}).(SlotSiteConfigIpRestrictionHeadersPtrOutput)
 }
@@ -15091,7 +15435,13 @@ func (o SlotSiteConfigIpRestrictionHeadersPtrOutput) ToSlotSiteConfigIpRestricti
 }
 
 func (o SlotSiteConfigIpRestrictionHeadersPtrOutput) Elem() SlotSiteConfigIpRestrictionHeadersOutput {
-	return o.ApplyT(func(v *SlotSiteConfigIpRestrictionHeaders) SlotSiteConfigIpRestrictionHeaders { return *v }).(SlotSiteConfigIpRestrictionHeadersOutput)
+	return o.ApplyT(func(v *SlotSiteConfigIpRestrictionHeaders) SlotSiteConfigIpRestrictionHeaders {
+		if v != nil {
+			return *v
+		}
+		var ret SlotSiteConfigIpRestrictionHeaders
+		return ret
+	}).(SlotSiteConfigIpRestrictionHeadersOutput)
 }
 
 // A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
@@ -15390,7 +15740,7 @@ func (o SlotSiteConfigScmIpRestrictionHeadersOutput) ToSlotSiteConfigScmIpRestri
 }
 
 func (o SlotSiteConfigScmIpRestrictionHeadersOutput) ToSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) SlotSiteConfigScmIpRestrictionHeadersPtrOutput {
-	return o.ApplyT(func(v SlotSiteConfigScmIpRestrictionHeaders) *SlotSiteConfigScmIpRestrictionHeaders {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotSiteConfigScmIpRestrictionHeaders) *SlotSiteConfigScmIpRestrictionHeaders {
 		return &v
 	}).(SlotSiteConfigScmIpRestrictionHeadersPtrOutput)
 }
@@ -15430,7 +15780,13 @@ func (o SlotSiteConfigScmIpRestrictionHeadersPtrOutput) ToSlotSiteConfigScmIpRes
 }
 
 func (o SlotSiteConfigScmIpRestrictionHeadersPtrOutput) Elem() SlotSiteConfigScmIpRestrictionHeadersOutput {
-	return o.ApplyT(func(v *SlotSiteConfigScmIpRestrictionHeaders) SlotSiteConfigScmIpRestrictionHeaders { return *v }).(SlotSiteConfigScmIpRestrictionHeadersOutput)
+	return o.ApplyT(func(v *SlotSiteConfigScmIpRestrictionHeaders) SlotSiteConfigScmIpRestrictionHeaders {
+		if v != nil {
+			return *v
+		}
+		var ret SlotSiteConfigScmIpRestrictionHeaders
+		return ret
+	}).(SlotSiteConfigScmIpRestrictionHeadersOutput)
 }
 
 // A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.

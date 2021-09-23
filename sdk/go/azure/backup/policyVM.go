@@ -335,7 +335,7 @@ type PolicyVMArrayInput interface {
 type PolicyVMArray []PolicyVMInput
 
 func (PolicyVMArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PolicyVM)(nil))
+	return reflect.TypeOf((*[]*PolicyVM)(nil)).Elem()
 }
 
 func (i PolicyVMArray) ToPolicyVMArrayOutput() PolicyVMArrayOutput {
@@ -360,7 +360,7 @@ type PolicyVMMapInput interface {
 type PolicyVMMap map[string]PolicyVMInput
 
 func (PolicyVMMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PolicyVM)(nil))
+	return reflect.TypeOf((*map[string]*PolicyVM)(nil)).Elem()
 }
 
 func (i PolicyVMMap) ToPolicyVMMapOutput() PolicyVMMapOutput {
@@ -371,9 +371,7 @@ func (i PolicyVMMap) ToPolicyVMMapOutputWithContext(ctx context.Context) PolicyV
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMMapOutput)
 }
 
-type PolicyVMOutput struct {
-	*pulumi.OutputState
-}
+type PolicyVMOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyVM)(nil))
@@ -392,14 +390,12 @@ func (o PolicyVMOutput) ToPolicyVMPtrOutput() PolicyVMPtrOutput {
 }
 
 func (o PolicyVMOutput) ToPolicyVMPtrOutputWithContext(ctx context.Context) PolicyVMPtrOutput {
-	return o.ApplyT(func(v PolicyVM) *PolicyVM {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVM) *PolicyVM {
 		return &v
 	}).(PolicyVMPtrOutput)
 }
 
-type PolicyVMPtrOutput struct {
-	*pulumi.OutputState
-}
+type PolicyVMPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PolicyVM)(nil))
@@ -411,6 +407,16 @@ func (o PolicyVMPtrOutput) ToPolicyVMPtrOutput() PolicyVMPtrOutput {
 
 func (o PolicyVMPtrOutput) ToPolicyVMPtrOutputWithContext(ctx context.Context) PolicyVMPtrOutput {
 	return o
+}
+
+func (o PolicyVMPtrOutput) Elem() PolicyVMOutput {
+	return o.ApplyT(func(v *PolicyVM) PolicyVM {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVM
+		return ret
+	}).(PolicyVMOutput)
 }
 
 type PolicyVMArrayOutput struct{ *pulumi.OutputState }

@@ -238,7 +238,7 @@ type ChannelLineArrayInput interface {
 type ChannelLineArray []ChannelLineInput
 
 func (ChannelLineArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ChannelLine)(nil))
+	return reflect.TypeOf((*[]*ChannelLine)(nil)).Elem()
 }
 
 func (i ChannelLineArray) ToChannelLineArrayOutput() ChannelLineArrayOutput {
@@ -263,7 +263,7 @@ type ChannelLineMapInput interface {
 type ChannelLineMap map[string]ChannelLineInput
 
 func (ChannelLineMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ChannelLine)(nil))
+	return reflect.TypeOf((*map[string]*ChannelLine)(nil)).Elem()
 }
 
 func (i ChannelLineMap) ToChannelLineMapOutput() ChannelLineMapOutput {
@@ -274,9 +274,7 @@ func (i ChannelLineMap) ToChannelLineMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLineMapOutput)
 }
 
-type ChannelLineOutput struct {
-	*pulumi.OutputState
-}
+type ChannelLineOutput struct{ *pulumi.OutputState }
 
 func (ChannelLineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelLine)(nil))
@@ -295,14 +293,12 @@ func (o ChannelLineOutput) ToChannelLinePtrOutput() ChannelLinePtrOutput {
 }
 
 func (o ChannelLineOutput) ToChannelLinePtrOutputWithContext(ctx context.Context) ChannelLinePtrOutput {
-	return o.ApplyT(func(v ChannelLine) *ChannelLine {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelLine) *ChannelLine {
 		return &v
 	}).(ChannelLinePtrOutput)
 }
 
-type ChannelLinePtrOutput struct {
-	*pulumi.OutputState
-}
+type ChannelLinePtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelLinePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ChannelLine)(nil))
@@ -314,6 +310,16 @@ func (o ChannelLinePtrOutput) ToChannelLinePtrOutput() ChannelLinePtrOutput {
 
 func (o ChannelLinePtrOutput) ToChannelLinePtrOutputWithContext(ctx context.Context) ChannelLinePtrOutput {
 	return o
+}
+
+func (o ChannelLinePtrOutput) Elem() ChannelLineOutput {
+	return o.ApplyT(func(v *ChannelLine) ChannelLine {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelLine
+		return ret
+	}).(ChannelLineOutput)
 }
 
 type ChannelLineArrayOutput struct{ *pulumi.OutputState }

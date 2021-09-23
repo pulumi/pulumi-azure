@@ -292,7 +292,7 @@ type BackupPolicyPostgresqlArrayInput interface {
 type BackupPolicyPostgresqlArray []BackupPolicyPostgresqlInput
 
 func (BackupPolicyPostgresqlArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BackupPolicyPostgresql)(nil))
+	return reflect.TypeOf((*[]*BackupPolicyPostgresql)(nil)).Elem()
 }
 
 func (i BackupPolicyPostgresqlArray) ToBackupPolicyPostgresqlArrayOutput() BackupPolicyPostgresqlArrayOutput {
@@ -317,7 +317,7 @@ type BackupPolicyPostgresqlMapInput interface {
 type BackupPolicyPostgresqlMap map[string]BackupPolicyPostgresqlInput
 
 func (BackupPolicyPostgresqlMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BackupPolicyPostgresql)(nil))
+	return reflect.TypeOf((*map[string]*BackupPolicyPostgresql)(nil)).Elem()
 }
 
 func (i BackupPolicyPostgresqlMap) ToBackupPolicyPostgresqlMapOutput() BackupPolicyPostgresqlMapOutput {
@@ -328,9 +328,7 @@ func (i BackupPolicyPostgresqlMap) ToBackupPolicyPostgresqlMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlMapOutput)
 }
 
-type BackupPolicyPostgresqlOutput struct {
-	*pulumi.OutputState
-}
+type BackupPolicyPostgresqlOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyPostgresqlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupPolicyPostgresql)(nil))
@@ -349,14 +347,12 @@ func (o BackupPolicyPostgresqlOutput) ToBackupPolicyPostgresqlPtrOutput() Backup
 }
 
 func (o BackupPolicyPostgresqlOutput) ToBackupPolicyPostgresqlPtrOutputWithContext(ctx context.Context) BackupPolicyPostgresqlPtrOutput {
-	return o.ApplyT(func(v BackupPolicyPostgresql) *BackupPolicyPostgresql {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyPostgresql) *BackupPolicyPostgresql {
 		return &v
 	}).(BackupPolicyPostgresqlPtrOutput)
 }
 
-type BackupPolicyPostgresqlPtrOutput struct {
-	*pulumi.OutputState
-}
+type BackupPolicyPostgresqlPtrOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyPostgresqlPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BackupPolicyPostgresql)(nil))
@@ -368,6 +364,16 @@ func (o BackupPolicyPostgresqlPtrOutput) ToBackupPolicyPostgresqlPtrOutput() Bac
 
 func (o BackupPolicyPostgresqlPtrOutput) ToBackupPolicyPostgresqlPtrOutputWithContext(ctx context.Context) BackupPolicyPostgresqlPtrOutput {
 	return o
+}
+
+func (o BackupPolicyPostgresqlPtrOutput) Elem() BackupPolicyPostgresqlOutput {
+	return o.ApplyT(func(v *BackupPolicyPostgresql) BackupPolicyPostgresql {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPolicyPostgresql
+		return ret
+	}).(BackupPolicyPostgresqlOutput)
 }
 
 type BackupPolicyPostgresqlArrayOutput struct{ *pulumi.OutputState }

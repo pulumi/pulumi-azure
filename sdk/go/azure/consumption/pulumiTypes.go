@@ -111,7 +111,7 @@ func (o BudgetResourceGroupFilterOutput) ToBudgetResourceGroupFilterPtrOutput() 
 }
 
 func (o BudgetResourceGroupFilterOutput) ToBudgetResourceGroupFilterPtrOutputWithContext(ctx context.Context) BudgetResourceGroupFilterPtrOutput {
-	return o.ApplyT(func(v BudgetResourceGroupFilter) *BudgetResourceGroupFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetResourceGroupFilter) *BudgetResourceGroupFilter {
 		return &v
 	}).(BudgetResourceGroupFilterPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o BudgetResourceGroupFilterPtrOutput) ToBudgetResourceGroupFilterPtrOutput
 }
 
 func (o BudgetResourceGroupFilterPtrOutput) Elem() BudgetResourceGroupFilterOutput {
-	return o.ApplyT(func(v *BudgetResourceGroupFilter) BudgetResourceGroupFilter { return *v }).(BudgetResourceGroupFilterOutput)
+	return o.ApplyT(func(v *BudgetResourceGroupFilter) BudgetResourceGroupFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetResourceGroupFilter
+		return ret
+	}).(BudgetResourceGroupFilterOutput)
 }
 
 // One or more `dimension` blocks as defined below to filter the budget on.
@@ -391,7 +397,7 @@ func (o BudgetResourceGroupFilterNotOutput) ToBudgetResourceGroupFilterNotPtrOut
 }
 
 func (o BudgetResourceGroupFilterNotOutput) ToBudgetResourceGroupFilterNotPtrOutputWithContext(ctx context.Context) BudgetResourceGroupFilterNotPtrOutput {
-	return o.ApplyT(func(v BudgetResourceGroupFilterNot) *BudgetResourceGroupFilterNot {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetResourceGroupFilterNot) *BudgetResourceGroupFilterNot {
 		return &v
 	}).(BudgetResourceGroupFilterNotPtrOutput)
 }
@@ -421,7 +427,13 @@ func (o BudgetResourceGroupFilterNotPtrOutput) ToBudgetResourceGroupFilterNotPtr
 }
 
 func (o BudgetResourceGroupFilterNotPtrOutput) Elem() BudgetResourceGroupFilterNotOutput {
-	return o.ApplyT(func(v *BudgetResourceGroupFilterNot) BudgetResourceGroupFilterNot { return *v }).(BudgetResourceGroupFilterNotOutput)
+	return o.ApplyT(func(v *BudgetResourceGroupFilterNot) BudgetResourceGroupFilterNot {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetResourceGroupFilterNot
+		return ret
+	}).(BudgetResourceGroupFilterNotOutput)
 }
 
 // One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
@@ -545,7 +557,7 @@ func (o BudgetResourceGroupFilterNotDimensionOutput) ToBudgetResourceGroupFilter
 }
 
 func (o BudgetResourceGroupFilterNotDimensionOutput) ToBudgetResourceGroupFilterNotDimensionPtrOutputWithContext(ctx context.Context) BudgetResourceGroupFilterNotDimensionPtrOutput {
-	return o.ApplyT(func(v BudgetResourceGroupFilterNotDimension) *BudgetResourceGroupFilterNotDimension {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetResourceGroupFilterNotDimension) *BudgetResourceGroupFilterNotDimension {
 		return &v
 	}).(BudgetResourceGroupFilterNotDimensionPtrOutput)
 }
@@ -580,7 +592,13 @@ func (o BudgetResourceGroupFilterNotDimensionPtrOutput) ToBudgetResourceGroupFil
 }
 
 func (o BudgetResourceGroupFilterNotDimensionPtrOutput) Elem() BudgetResourceGroupFilterNotDimensionOutput {
-	return o.ApplyT(func(v *BudgetResourceGroupFilterNotDimension) BudgetResourceGroupFilterNotDimension { return *v }).(BudgetResourceGroupFilterNotDimensionOutput)
+	return o.ApplyT(func(v *BudgetResourceGroupFilterNotDimension) BudgetResourceGroupFilterNotDimension {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetResourceGroupFilterNotDimension
+		return ret
+	}).(BudgetResourceGroupFilterNotDimensionOutput)
 }
 
 // The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
@@ -714,7 +732,7 @@ func (o BudgetResourceGroupFilterNotTagOutput) ToBudgetResourceGroupFilterNotTag
 }
 
 func (o BudgetResourceGroupFilterNotTagOutput) ToBudgetResourceGroupFilterNotTagPtrOutputWithContext(ctx context.Context) BudgetResourceGroupFilterNotTagPtrOutput {
-	return o.ApplyT(func(v BudgetResourceGroupFilterNotTag) *BudgetResourceGroupFilterNotTag {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetResourceGroupFilterNotTag) *BudgetResourceGroupFilterNotTag {
 		return &v
 	}).(BudgetResourceGroupFilterNotTagPtrOutput)
 }
@@ -749,7 +767,13 @@ func (o BudgetResourceGroupFilterNotTagPtrOutput) ToBudgetResourceGroupFilterNot
 }
 
 func (o BudgetResourceGroupFilterNotTagPtrOutput) Elem() BudgetResourceGroupFilterNotTagOutput {
-	return o.ApplyT(func(v *BudgetResourceGroupFilterNotTag) BudgetResourceGroupFilterNotTag { return *v }).(BudgetResourceGroupFilterNotTagOutput)
+	return o.ApplyT(func(v *BudgetResourceGroupFilterNotTag) BudgetResourceGroupFilterNotTag {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetResourceGroupFilterNotTag
+		return ret
+	}).(BudgetResourceGroupFilterNotTagOutput)
 }
 
 // The name of the tag to use for the filter.
@@ -1136,7 +1160,7 @@ func (o BudgetResourceGroupTimePeriodOutput) ToBudgetResourceGroupTimePeriodPtrO
 }
 
 func (o BudgetResourceGroupTimePeriodOutput) ToBudgetResourceGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetResourceGroupTimePeriodPtrOutput {
-	return o.ApplyT(func(v BudgetResourceGroupTimePeriod) *BudgetResourceGroupTimePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetResourceGroupTimePeriod) *BudgetResourceGroupTimePeriod {
 		return &v
 	}).(BudgetResourceGroupTimePeriodPtrOutput)
 }
@@ -1166,7 +1190,13 @@ func (o BudgetResourceGroupTimePeriodPtrOutput) ToBudgetResourceGroupTimePeriodP
 }
 
 func (o BudgetResourceGroupTimePeriodPtrOutput) Elem() BudgetResourceGroupTimePeriodOutput {
-	return o.ApplyT(func(v *BudgetResourceGroupTimePeriod) BudgetResourceGroupTimePeriod { return *v }).(BudgetResourceGroupTimePeriodOutput)
+	return o.ApplyT(func(v *BudgetResourceGroupTimePeriod) BudgetResourceGroupTimePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetResourceGroupTimePeriod
+		return ret
+	}).(BudgetResourceGroupTimePeriodOutput)
 }
 
 // The end date for the budget. If not set this will be 10 years after the start date.
@@ -1290,7 +1320,7 @@ func (o BudgetSubscriptionFilterOutput) ToBudgetSubscriptionFilterPtrOutput() Bu
 }
 
 func (o BudgetSubscriptionFilterOutput) ToBudgetSubscriptionFilterPtrOutputWithContext(ctx context.Context) BudgetSubscriptionFilterPtrOutput {
-	return o.ApplyT(func(v BudgetSubscriptionFilter) *BudgetSubscriptionFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetSubscriptionFilter) *BudgetSubscriptionFilter {
 		return &v
 	}).(BudgetSubscriptionFilterPtrOutput)
 }
@@ -1325,7 +1355,13 @@ func (o BudgetSubscriptionFilterPtrOutput) ToBudgetSubscriptionFilterPtrOutputWi
 }
 
 func (o BudgetSubscriptionFilterPtrOutput) Elem() BudgetSubscriptionFilterOutput {
-	return o.ApplyT(func(v *BudgetSubscriptionFilter) BudgetSubscriptionFilter { return *v }).(BudgetSubscriptionFilterOutput)
+	return o.ApplyT(func(v *BudgetSubscriptionFilter) BudgetSubscriptionFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetSubscriptionFilter
+		return ret
+	}).(BudgetSubscriptionFilterOutput)
 }
 
 // One or more `dimension` blocks as defined below to filter the budget on.
@@ -1570,7 +1606,7 @@ func (o BudgetSubscriptionFilterNotOutput) ToBudgetSubscriptionFilterNotPtrOutpu
 }
 
 func (o BudgetSubscriptionFilterNotOutput) ToBudgetSubscriptionFilterNotPtrOutputWithContext(ctx context.Context) BudgetSubscriptionFilterNotPtrOutput {
-	return o.ApplyT(func(v BudgetSubscriptionFilterNot) *BudgetSubscriptionFilterNot {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetSubscriptionFilterNot) *BudgetSubscriptionFilterNot {
 		return &v
 	}).(BudgetSubscriptionFilterNotPtrOutput)
 }
@@ -1600,7 +1636,13 @@ func (o BudgetSubscriptionFilterNotPtrOutput) ToBudgetSubscriptionFilterNotPtrOu
 }
 
 func (o BudgetSubscriptionFilterNotPtrOutput) Elem() BudgetSubscriptionFilterNotOutput {
-	return o.ApplyT(func(v *BudgetSubscriptionFilterNot) BudgetSubscriptionFilterNot { return *v }).(BudgetSubscriptionFilterNotOutput)
+	return o.ApplyT(func(v *BudgetSubscriptionFilterNot) BudgetSubscriptionFilterNot {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetSubscriptionFilterNot
+		return ret
+	}).(BudgetSubscriptionFilterNotOutput)
 }
 
 // One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
@@ -1724,7 +1766,7 @@ func (o BudgetSubscriptionFilterNotDimensionOutput) ToBudgetSubscriptionFilterNo
 }
 
 func (o BudgetSubscriptionFilterNotDimensionOutput) ToBudgetSubscriptionFilterNotDimensionPtrOutputWithContext(ctx context.Context) BudgetSubscriptionFilterNotDimensionPtrOutput {
-	return o.ApplyT(func(v BudgetSubscriptionFilterNotDimension) *BudgetSubscriptionFilterNotDimension {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetSubscriptionFilterNotDimension) *BudgetSubscriptionFilterNotDimension {
 		return &v
 	}).(BudgetSubscriptionFilterNotDimensionPtrOutput)
 }
@@ -1759,7 +1801,13 @@ func (o BudgetSubscriptionFilterNotDimensionPtrOutput) ToBudgetSubscriptionFilte
 }
 
 func (o BudgetSubscriptionFilterNotDimensionPtrOutput) Elem() BudgetSubscriptionFilterNotDimensionOutput {
-	return o.ApplyT(func(v *BudgetSubscriptionFilterNotDimension) BudgetSubscriptionFilterNotDimension { return *v }).(BudgetSubscriptionFilterNotDimensionOutput)
+	return o.ApplyT(func(v *BudgetSubscriptionFilterNotDimension) BudgetSubscriptionFilterNotDimension {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetSubscriptionFilterNotDimension
+		return ret
+	}).(BudgetSubscriptionFilterNotDimensionOutput)
 }
 
 // The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
@@ -1893,7 +1941,7 @@ func (o BudgetSubscriptionFilterNotTagOutput) ToBudgetSubscriptionFilterNotTagPt
 }
 
 func (o BudgetSubscriptionFilterNotTagOutput) ToBudgetSubscriptionFilterNotTagPtrOutputWithContext(ctx context.Context) BudgetSubscriptionFilterNotTagPtrOutput {
-	return o.ApplyT(func(v BudgetSubscriptionFilterNotTag) *BudgetSubscriptionFilterNotTag {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetSubscriptionFilterNotTag) *BudgetSubscriptionFilterNotTag {
 		return &v
 	}).(BudgetSubscriptionFilterNotTagPtrOutput)
 }
@@ -1928,7 +1976,13 @@ func (o BudgetSubscriptionFilterNotTagPtrOutput) ToBudgetSubscriptionFilterNotTa
 }
 
 func (o BudgetSubscriptionFilterNotTagPtrOutput) Elem() BudgetSubscriptionFilterNotTagOutput {
-	return o.ApplyT(func(v *BudgetSubscriptionFilterNotTag) BudgetSubscriptionFilterNotTag { return *v }).(BudgetSubscriptionFilterNotTagOutput)
+	return o.ApplyT(func(v *BudgetSubscriptionFilterNotTag) BudgetSubscriptionFilterNotTag {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetSubscriptionFilterNotTag
+		return ret
+	}).(BudgetSubscriptionFilterNotTagOutput)
 }
 
 // The name of the tag to use for the filter.
@@ -2315,7 +2369,7 @@ func (o BudgetSubscriptionTimePeriodOutput) ToBudgetSubscriptionTimePeriodPtrOut
 }
 
 func (o BudgetSubscriptionTimePeriodOutput) ToBudgetSubscriptionTimePeriodPtrOutputWithContext(ctx context.Context) BudgetSubscriptionTimePeriodPtrOutput {
-	return o.ApplyT(func(v BudgetSubscriptionTimePeriod) *BudgetSubscriptionTimePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetSubscriptionTimePeriod) *BudgetSubscriptionTimePeriod {
 		return &v
 	}).(BudgetSubscriptionTimePeriodPtrOutput)
 }
@@ -2345,7 +2399,13 @@ func (o BudgetSubscriptionTimePeriodPtrOutput) ToBudgetSubscriptionTimePeriodPtr
 }
 
 func (o BudgetSubscriptionTimePeriodPtrOutput) Elem() BudgetSubscriptionTimePeriodOutput {
-	return o.ApplyT(func(v *BudgetSubscriptionTimePeriod) BudgetSubscriptionTimePeriod { return *v }).(BudgetSubscriptionTimePeriodOutput)
+	return o.ApplyT(func(v *BudgetSubscriptionTimePeriod) BudgetSubscriptionTimePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetSubscriptionTimePeriod
+		return ret
+	}).(BudgetSubscriptionTimePeriodOutput)
 }
 
 // The end date for the budget. If not set this will be 10 years after the start date.

@@ -12,6 +12,7 @@ __all__ = [
     'GetSubscriptionResult',
     'AwaitableGetSubscriptionResult',
     'get_subscription',
+    'get_subscription_output',
 ]
 
 @pulumi.output_type
@@ -174,3 +175,25 @@ def get_subscription(subscription_id: Optional[str] = None,
         subscription_id=__ret__.subscription_id,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id)
+
+
+@_utilities.lift_output_func(get_subscription)
+def get_subscription_output(subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
+    """
+    Use this data source to access information about an existing Subscription.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    current = azure.core.get_subscription()
+    pulumi.export("currentSubscriptionDisplayName", current.display_name)
+    ```
+
+
+    :param str subscription_id: Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
+    """
+    ...

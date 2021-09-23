@@ -4,6 +4,9 @@
 package containerservice
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -106,4 +109,178 @@ type GetClusterNodePoolResult struct {
 	VmSize string `pulumi:"vmSize"`
 	// The ID of the Subnet in which this Node Pool exists.
 	VnetSubnetId string `pulumi:"vnetSubnetId"`
+}
+
+func GetClusterNodePoolOutput(ctx *pulumi.Context, args GetClusterNodePoolOutputArgs, opts ...pulumi.InvokeOption) GetClusterNodePoolResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetClusterNodePoolResult, error) {
+			args := v.(GetClusterNodePoolArgs)
+			r, err := GetClusterNodePool(ctx, &args, opts...)
+			return *r, err
+		}).(GetClusterNodePoolResultOutput)
+}
+
+// A collection of arguments for invoking getClusterNodePool.
+type GetClusterNodePoolOutputArgs struct {
+	// The Name of the Kubernetes Cluster where this Node Pool is located.
+	KubernetesClusterName pulumi.StringInput `pulumi:"kubernetesClusterName"`
+	// The name of this Kubernetes Cluster Node Pool.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Kubernetes Cluster exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetClusterNodePoolOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterNodePoolArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getClusterNodePool.
+type GetClusterNodePoolResultOutput struct{ *pulumi.OutputState }
+
+func (GetClusterNodePoolResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterNodePoolResult)(nil)).Elem()
+}
+
+func (o GetClusterNodePoolResultOutput) ToGetClusterNodePoolResultOutput() GetClusterNodePoolResultOutput {
+	return o
+}
+
+func (o GetClusterNodePoolResultOutput) ToGetClusterNodePoolResultOutputWithContext(ctx context.Context) GetClusterNodePoolResultOutput {
+	return o
+}
+
+// A list of Availability Zones in which the Nodes in this Node Pool exists.
+func (o GetClusterNodePoolResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// Does this Node Pool have Auto-Scaling enabled?
+func (o GetClusterNodePoolResultOutput) EnableAutoScaling() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) bool { return v.EnableAutoScaling }).(pulumi.BoolOutput)
+}
+
+// Do nodes in this Node Pool have a Public IP Address?
+func (o GetClusterNodePoolResultOutput) EnableNodePublicIp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) bool { return v.EnableNodePublicIp }).(pulumi.BoolOutput)
+}
+
+// The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
+func (o GetClusterNodePoolResultOutput) EvictionPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.EvictionPolicy }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetClusterNodePoolResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetClusterNodePoolResultOutput) KubernetesClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.KubernetesClusterName }).(pulumi.StringOutput)
+}
+
+// The maximum number of Nodes allowed when auto-scaling is enabled.
+func (o GetClusterNodePoolResultOutput) MaxCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) int { return v.MaxCount }).(pulumi.IntOutput)
+}
+
+// The maximum number of Pods allowed on each Node in this Node Pool.
+func (o GetClusterNodePoolResultOutput) MaxPods() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) int { return v.MaxPods }).(pulumi.IntOutput)
+}
+
+// The minimum number of Nodes allowed when auto-scaling is enabled.
+func (o GetClusterNodePoolResultOutput) MinCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) int { return v.MinCount }).(pulumi.IntOutput)
+}
+
+// The Mode for this Node Pool, specifying how these Nodes should be used (for either System or User resources).
+func (o GetClusterNodePoolResultOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o GetClusterNodePoolResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current number of Nodes in the Node Pool.
+func (o GetClusterNodePoolResultOutput) NodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) int { return v.NodeCount }).(pulumi.IntOutput)
+}
+
+// A map of Kubernetes Labels applied to each Node in this Node Pool.
+func (o GetClusterNodePoolResultOutput) NodeLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+}
+
+// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
+func (o GetClusterNodePoolResultOutput) NodePublicIpPrefixId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.NodePublicIpPrefixId }).(pulumi.StringOutput)
+}
+
+// A map of Kubernetes Taints applied to each Node in this Node Pool.
+func (o GetClusterNodePoolResultOutput) NodeTaints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
+}
+
+// The version of Kubernetes configured on each Node in this Node Pool.
+func (o GetClusterNodePoolResultOutput) OrchestratorVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.OrchestratorVersion }).(pulumi.StringOutput)
+}
+
+// The size of the OS Disk on each Node in this Node Pool.
+func (o GetClusterNodePoolResultOutput) OsDiskSizeGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) int { return v.OsDiskSizeGb }).(pulumi.IntOutput)
+}
+
+// The type of the OS Disk on each Node in this Node Pool.
+func (o GetClusterNodePoolResultOutput) OsDiskType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.OsDiskType }).(pulumi.StringOutput)
+}
+
+// The operating system used on each Node in this Node Pool.
+func (o GetClusterNodePoolResultOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+// The priority of the Virtual Machines in the Virtual Machine Scale Set backing this Node Pool.
+func (o GetClusterNodePoolResultOutput) Priority() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.Priority }).(pulumi.StringOutput)
+}
+
+// The ID of the Proximity Placement Group where the Virtual Machine Scale Set backing this Node Pool will be placed.
+func (o GetClusterNodePoolResultOutput) ProximityPlacementGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.ProximityPlacementGroupId }).(pulumi.StringOutput)
+}
+
+func (o GetClusterNodePoolResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The maximum price being paid for Virtual Machines in this Scale Set. `-1` means the current on-demand price for a Virtual Machine.
+func (o GetClusterNodePoolResultOutput) SpotMaxPrice() pulumi.Float64Output {
+	return o.ApplyT(func(v GetClusterNodePoolResult) float64 { return v.SpotMaxPrice }).(pulumi.Float64Output)
+}
+
+// A mapping of tags assigned to the Kubernetes Cluster Node Pool.
+func (o GetClusterNodePoolResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A `upgradeSettings` block as documented below.
+func (o GetClusterNodePoolResultOutput) UpgradeSettings() GetClusterNodePoolUpgradeSettingArrayOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) []GetClusterNodePoolUpgradeSetting { return v.UpgradeSettings }).(GetClusterNodePoolUpgradeSettingArrayOutput)
+}
+
+// The size of the Virtual Machines used in the Virtual Machine Scale Set backing this Node Pool.
+func (o GetClusterNodePoolResultOutput) VmSize() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.VmSize }).(pulumi.StringOutput)
+}
+
+// The ID of the Subnet in which this Node Pool exists.
+func (o GetClusterNodePoolResultOutput) VnetSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.VnetSubnetId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetClusterNodePoolResultOutput{})
 }

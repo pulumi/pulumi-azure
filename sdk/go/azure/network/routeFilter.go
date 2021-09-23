@@ -221,7 +221,7 @@ type RouteFilterArrayInput interface {
 type RouteFilterArray []RouteFilterInput
 
 func (RouteFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RouteFilter)(nil))
+	return reflect.TypeOf((*[]*RouteFilter)(nil)).Elem()
 }
 
 func (i RouteFilterArray) ToRouteFilterArrayOutput() RouteFilterArrayOutput {
@@ -246,7 +246,7 @@ type RouteFilterMapInput interface {
 type RouteFilterMap map[string]RouteFilterInput
 
 func (RouteFilterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RouteFilter)(nil))
+	return reflect.TypeOf((*map[string]*RouteFilter)(nil)).Elem()
 }
 
 func (i RouteFilterMap) ToRouteFilterMapOutput() RouteFilterMapOutput {
@@ -257,9 +257,7 @@ func (i RouteFilterMap) ToRouteFilterMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterMapOutput)
 }
 
-type RouteFilterOutput struct {
-	*pulumi.OutputState
-}
+type RouteFilterOutput struct{ *pulumi.OutputState }
 
 func (RouteFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteFilter)(nil))
@@ -278,14 +276,12 @@ func (o RouteFilterOutput) ToRouteFilterPtrOutput() RouteFilterPtrOutput {
 }
 
 func (o RouteFilterOutput) ToRouteFilterPtrOutputWithContext(ctx context.Context) RouteFilterPtrOutput {
-	return o.ApplyT(func(v RouteFilter) *RouteFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteFilter) *RouteFilter {
 		return &v
 	}).(RouteFilterPtrOutput)
 }
 
-type RouteFilterPtrOutput struct {
-	*pulumi.OutputState
-}
+type RouteFilterPtrOutput struct{ *pulumi.OutputState }
 
 func (RouteFilterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RouteFilter)(nil))
@@ -297,6 +293,16 @@ func (o RouteFilterPtrOutput) ToRouteFilterPtrOutput() RouteFilterPtrOutput {
 
 func (o RouteFilterPtrOutput) ToRouteFilterPtrOutputWithContext(ctx context.Context) RouteFilterPtrOutput {
 	return o
+}
+
+func (o RouteFilterPtrOutput) Elem() RouteFilterOutput {
+	return o.ApplyT(func(v *RouteFilter) RouteFilter {
+		if v != nil {
+			return *v
+		}
+		var ret RouteFilter
+		return ret
+	}).(RouteFilterOutput)
 }
 
 type RouteFilterArrayOutput struct{ *pulumi.OutputState }

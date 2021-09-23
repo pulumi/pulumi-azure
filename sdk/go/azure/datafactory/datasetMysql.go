@@ -302,7 +302,7 @@ type DatasetMysqlArrayInput interface {
 type DatasetMysqlArray []DatasetMysqlInput
 
 func (DatasetMysqlArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DatasetMysql)(nil))
+	return reflect.TypeOf((*[]*DatasetMysql)(nil)).Elem()
 }
 
 func (i DatasetMysqlArray) ToDatasetMysqlArrayOutput() DatasetMysqlArrayOutput {
@@ -327,7 +327,7 @@ type DatasetMysqlMapInput interface {
 type DatasetMysqlMap map[string]DatasetMysqlInput
 
 func (DatasetMysqlMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DatasetMysql)(nil))
+	return reflect.TypeOf((*map[string]*DatasetMysql)(nil)).Elem()
 }
 
 func (i DatasetMysqlMap) ToDatasetMysqlMapOutput() DatasetMysqlMapOutput {
@@ -338,9 +338,7 @@ func (i DatasetMysqlMap) ToDatasetMysqlMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetMysqlMapOutput)
 }
 
-type DatasetMysqlOutput struct {
-	*pulumi.OutputState
-}
+type DatasetMysqlOutput struct{ *pulumi.OutputState }
 
 func (DatasetMysqlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetMysql)(nil))
@@ -359,14 +357,12 @@ func (o DatasetMysqlOutput) ToDatasetMysqlPtrOutput() DatasetMysqlPtrOutput {
 }
 
 func (o DatasetMysqlOutput) ToDatasetMysqlPtrOutputWithContext(ctx context.Context) DatasetMysqlPtrOutput {
-	return o.ApplyT(func(v DatasetMysql) *DatasetMysql {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetMysql) *DatasetMysql {
 		return &v
 	}).(DatasetMysqlPtrOutput)
 }
 
-type DatasetMysqlPtrOutput struct {
-	*pulumi.OutputState
-}
+type DatasetMysqlPtrOutput struct{ *pulumi.OutputState }
 
 func (DatasetMysqlPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DatasetMysql)(nil))
@@ -378,6 +374,16 @@ func (o DatasetMysqlPtrOutput) ToDatasetMysqlPtrOutput() DatasetMysqlPtrOutput {
 
 func (o DatasetMysqlPtrOutput) ToDatasetMysqlPtrOutputWithContext(ctx context.Context) DatasetMysqlPtrOutput {
 	return o
+}
+
+func (o DatasetMysqlPtrOutput) Elem() DatasetMysqlOutput {
+	return o.ApplyT(func(v *DatasetMysql) DatasetMysql {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetMysql
+		return ret
+	}).(DatasetMysqlOutput)
 }
 
 type DatasetMysqlArrayOutput struct{ *pulumi.OutputState }

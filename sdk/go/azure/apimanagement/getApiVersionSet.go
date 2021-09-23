@@ -4,6 +4,9 @@
 package apimanagement
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -69,4 +72,87 @@ type LookupApiVersionSetResult struct {
 	// The name of the Query String which should be read from Inbound Requests which defines the API Version.
 	VersionQueryName string `pulumi:"versionQueryName"`
 	VersioningScheme string `pulumi:"versioningScheme"`
+}
+
+func LookupApiVersionSetOutput(ctx *pulumi.Context, args LookupApiVersionSetOutputArgs, opts ...pulumi.InvokeOption) LookupApiVersionSetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApiVersionSetResult, error) {
+			args := v.(LookupApiVersionSetArgs)
+			r, err := LookupApiVersionSet(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApiVersionSetResultOutput)
+}
+
+// A collection of arguments for invoking getApiVersionSet.
+type LookupApiVersionSetOutputArgs struct {
+	// The name of the API Management Service where the API Version Set exists.
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
+	// The name of the API Version Set.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group in which the parent API Management Service exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupApiVersionSetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiVersionSetArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getApiVersionSet.
+type LookupApiVersionSetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApiVersionSetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiVersionSetResult)(nil)).Elem()
+}
+
+func (o LookupApiVersionSetResultOutput) ToLookupApiVersionSetResultOutput() LookupApiVersionSetResultOutput {
+	return o
+}
+
+func (o LookupApiVersionSetResultOutput) ToLookupApiVersionSetResultOutputWithContext(ctx context.Context) LookupApiVersionSetResultOutput {
+	return o
+}
+
+func (o LookupApiVersionSetResultOutput) ApiManagementName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.ApiManagementName }).(pulumi.StringOutput)
+}
+
+// The description of API Version Set.
+func (o LookupApiVersionSetResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of this API Version Set.
+func (o LookupApiVersionSetResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupApiVersionSetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupApiVersionSetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupApiVersionSetResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The name of the Header which should be read from Inbound Requests which defines the API Version.
+func (o LookupApiVersionSetResultOutput) VersionHeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.VersionHeaderName }).(pulumi.StringOutput)
+}
+
+// The name of the Query String which should be read from Inbound Requests which defines the API Version.
+func (o LookupApiVersionSetResultOutput) VersionQueryName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.VersionQueryName }).(pulumi.StringOutput)
+}
+
+func (o LookupApiVersionSetResultOutput) VersioningScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiVersionSetResult) string { return v.VersioningScheme }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApiVersionSetResultOutput{})
 }

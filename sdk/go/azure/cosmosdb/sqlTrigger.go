@@ -248,7 +248,7 @@ type SqlTriggerArrayInput interface {
 type SqlTriggerArray []SqlTriggerInput
 
 func (SqlTriggerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SqlTrigger)(nil))
+	return reflect.TypeOf((*[]*SqlTrigger)(nil)).Elem()
 }
 
 func (i SqlTriggerArray) ToSqlTriggerArrayOutput() SqlTriggerArrayOutput {
@@ -273,7 +273,7 @@ type SqlTriggerMapInput interface {
 type SqlTriggerMap map[string]SqlTriggerInput
 
 func (SqlTriggerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SqlTrigger)(nil))
+	return reflect.TypeOf((*map[string]*SqlTrigger)(nil)).Elem()
 }
 
 func (i SqlTriggerMap) ToSqlTriggerMapOutput() SqlTriggerMapOutput {
@@ -284,9 +284,7 @@ func (i SqlTriggerMap) ToSqlTriggerMapOutputWithContext(ctx context.Context) Sql
 	return pulumi.ToOutputWithContext(ctx, i).(SqlTriggerMapOutput)
 }
 
-type SqlTriggerOutput struct {
-	*pulumi.OutputState
-}
+type SqlTriggerOutput struct{ *pulumi.OutputState }
 
 func (SqlTriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlTrigger)(nil))
@@ -305,14 +303,12 @@ func (o SqlTriggerOutput) ToSqlTriggerPtrOutput() SqlTriggerPtrOutput {
 }
 
 func (o SqlTriggerOutput) ToSqlTriggerPtrOutputWithContext(ctx context.Context) SqlTriggerPtrOutput {
-	return o.ApplyT(func(v SqlTrigger) *SqlTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlTrigger) *SqlTrigger {
 		return &v
 	}).(SqlTriggerPtrOutput)
 }
 
-type SqlTriggerPtrOutput struct {
-	*pulumi.OutputState
-}
+type SqlTriggerPtrOutput struct{ *pulumi.OutputState }
 
 func (SqlTriggerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SqlTrigger)(nil))
@@ -324,6 +320,16 @@ func (o SqlTriggerPtrOutput) ToSqlTriggerPtrOutput() SqlTriggerPtrOutput {
 
 func (o SqlTriggerPtrOutput) ToSqlTriggerPtrOutputWithContext(ctx context.Context) SqlTriggerPtrOutput {
 	return o
+}
+
+func (o SqlTriggerPtrOutput) Elem() SqlTriggerOutput {
+	return o.ApplyT(func(v *SqlTrigger) SqlTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret SqlTrigger
+		return ret
+	}).(SqlTriggerOutput)
 }
 
 type SqlTriggerArrayOutput struct{ *pulumi.OutputState }

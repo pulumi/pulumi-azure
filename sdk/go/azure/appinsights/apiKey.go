@@ -274,7 +274,7 @@ type ApiKeyArrayInput interface {
 type ApiKeyArray []ApiKeyInput
 
 func (ApiKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiKey)(nil))
+	return reflect.TypeOf((*[]*ApiKey)(nil)).Elem()
 }
 
 func (i ApiKeyArray) ToApiKeyArrayOutput() ApiKeyArrayOutput {
@@ -299,7 +299,7 @@ type ApiKeyMapInput interface {
 type ApiKeyMap map[string]ApiKeyInput
 
 func (ApiKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiKey)(nil))
+	return reflect.TypeOf((*map[string]*ApiKey)(nil)).Elem()
 }
 
 func (i ApiKeyMap) ToApiKeyMapOutput() ApiKeyMapOutput {
@@ -310,9 +310,7 @@ func (i ApiKeyMap) ToApiKeyMapOutputWithContext(ctx context.Context) ApiKeyMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyMapOutput)
 }
 
-type ApiKeyOutput struct {
-	*pulumi.OutputState
-}
+type ApiKeyOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiKey)(nil))
@@ -331,14 +329,12 @@ func (o ApiKeyOutput) ToApiKeyPtrOutput() ApiKeyPtrOutput {
 }
 
 func (o ApiKeyOutput) ToApiKeyPtrOutputWithContext(ctx context.Context) ApiKeyPtrOutput {
-	return o.ApplyT(func(v ApiKey) *ApiKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiKey) *ApiKey {
 		return &v
 	}).(ApiKeyPtrOutput)
 }
 
-type ApiKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiKey)(nil))
@@ -350,6 +346,16 @@ func (o ApiKeyPtrOutput) ToApiKeyPtrOutput() ApiKeyPtrOutput {
 
 func (o ApiKeyPtrOutput) ToApiKeyPtrOutputWithContext(ctx context.Context) ApiKeyPtrOutput {
 	return o
+}
+
+func (o ApiKeyPtrOutput) Elem() ApiKeyOutput {
+	return o.ApplyT(func(v *ApiKey) ApiKey {
+		if v != nil {
+			return *v
+		}
+		var ret ApiKey
+		return ret
+	}).(ApiKeyOutput)
 }
 
 type ApiKeyArrayOutput struct{ *pulumi.OutputState }

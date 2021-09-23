@@ -494,7 +494,7 @@ type TrafficManagerEndpointArrayInput interface {
 type TrafficManagerEndpointArray []TrafficManagerEndpointInput
 
 func (TrafficManagerEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TrafficManagerEndpoint)(nil))
+	return reflect.TypeOf((*[]*TrafficManagerEndpoint)(nil)).Elem()
 }
 
 func (i TrafficManagerEndpointArray) ToTrafficManagerEndpointArrayOutput() TrafficManagerEndpointArrayOutput {
@@ -519,7 +519,7 @@ type TrafficManagerEndpointMapInput interface {
 type TrafficManagerEndpointMap map[string]TrafficManagerEndpointInput
 
 func (TrafficManagerEndpointMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TrafficManagerEndpoint)(nil))
+	return reflect.TypeOf((*map[string]*TrafficManagerEndpoint)(nil)).Elem()
 }
 
 func (i TrafficManagerEndpointMap) ToTrafficManagerEndpointMapOutput() TrafficManagerEndpointMapOutput {
@@ -530,9 +530,7 @@ func (i TrafficManagerEndpointMap) ToTrafficManagerEndpointMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerEndpointMapOutput)
 }
 
-type TrafficManagerEndpointOutput struct {
-	*pulumi.OutputState
-}
+type TrafficManagerEndpointOutput struct{ *pulumi.OutputState }
 
 func (TrafficManagerEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TrafficManagerEndpoint)(nil))
@@ -551,14 +549,12 @@ func (o TrafficManagerEndpointOutput) ToTrafficManagerEndpointPtrOutput() Traffi
 }
 
 func (o TrafficManagerEndpointOutput) ToTrafficManagerEndpointPtrOutputWithContext(ctx context.Context) TrafficManagerEndpointPtrOutput {
-	return o.ApplyT(func(v TrafficManagerEndpoint) *TrafficManagerEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficManagerEndpoint) *TrafficManagerEndpoint {
 		return &v
 	}).(TrafficManagerEndpointPtrOutput)
 }
 
-type TrafficManagerEndpointPtrOutput struct {
-	*pulumi.OutputState
-}
+type TrafficManagerEndpointPtrOutput struct{ *pulumi.OutputState }
 
 func (TrafficManagerEndpointPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TrafficManagerEndpoint)(nil))
@@ -570,6 +566,16 @@ func (o TrafficManagerEndpointPtrOutput) ToTrafficManagerEndpointPtrOutput() Tra
 
 func (o TrafficManagerEndpointPtrOutput) ToTrafficManagerEndpointPtrOutputWithContext(ctx context.Context) TrafficManagerEndpointPtrOutput {
 	return o
+}
+
+func (o TrafficManagerEndpointPtrOutput) Elem() TrafficManagerEndpointOutput {
+	return o.ApplyT(func(v *TrafficManagerEndpoint) TrafficManagerEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficManagerEndpoint
+		return ret
+	}).(TrafficManagerEndpointOutput)
 }
 
 type TrafficManagerEndpointArrayOutput struct{ *pulumi.OutputState }

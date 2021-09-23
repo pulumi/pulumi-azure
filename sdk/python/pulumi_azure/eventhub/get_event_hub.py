@@ -12,6 +12,7 @@ __all__ = [
     'GetEventHubResult',
     'AwaitableGetEventHubResult',
     'get_event_hub',
+    'get_event_hub_output',
 ]
 
 @pulumi.output_type
@@ -134,3 +135,31 @@ def get_event_hub(name: Optional[str] = None,
         partition_count=__ret__.partition_count,
         partition_ids=__ret__.partition_ids,
         resource_group_name=__ret__.resource_group_name)
+
+
+@_utilities.lift_output_func(get_event_hub)
+def get_event_hub_output(name: Optional[pulumi.Input[str]] = None,
+                         namespace_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubResult]:
+    """
+    Use this data source to access information about an existing EventHub.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.eventhub.get_event_hub(name="search-eventhub",
+        resource_group_name="search-service",
+        namespace_name="search-eventhubns")
+    pulumi.export("eventhubId", example.id)
+    ```
+
+
+    :param str name: The name of this EventHub.
+    :param str namespace_name: The name of the EventHub Namespace where the EventHub exists.
+    :param str resource_group_name: The name of the Resource Group where the EventHub exists.
+    """
+    ...

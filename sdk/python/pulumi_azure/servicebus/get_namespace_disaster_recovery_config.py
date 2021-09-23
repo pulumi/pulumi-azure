@@ -12,6 +12,7 @@ __all__ = [
     'GetNamespaceDisasterRecoveryConfigResult',
     'AwaitableGetNamespaceDisasterRecoveryConfigResult',
     'get_namespace_disaster_recovery_config',
+    'get_namespace_disaster_recovery_config_output',
 ]
 
 @pulumi.output_type
@@ -141,3 +142,14 @@ def get_namespace_disaster_recovery_config(name: Optional[str] = None,
         primary_connection_string_alias=__ret__.primary_connection_string_alias,
         resource_group_name=__ret__.resource_group_name,
         secondary_connection_string_alias=__ret__.secondary_connection_string_alias)
+
+
+@_utilities.lift_output_func(get_namespace_disaster_recovery_config)
+def get_namespace_disaster_recovery_config_output(name: Optional[pulumi.Input[str]] = None,
+                                                  namespace_name: Optional[pulumi.Input[str]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceDisasterRecoveryConfigResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

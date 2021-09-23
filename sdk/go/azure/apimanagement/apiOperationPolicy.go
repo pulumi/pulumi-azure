@@ -241,7 +241,7 @@ type ApiOperationPolicyArrayInput interface {
 type ApiOperationPolicyArray []ApiOperationPolicyInput
 
 func (ApiOperationPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiOperationPolicy)(nil))
+	return reflect.TypeOf((*[]*ApiOperationPolicy)(nil)).Elem()
 }
 
 func (i ApiOperationPolicyArray) ToApiOperationPolicyArrayOutput() ApiOperationPolicyArrayOutput {
@@ -266,7 +266,7 @@ type ApiOperationPolicyMapInput interface {
 type ApiOperationPolicyMap map[string]ApiOperationPolicyInput
 
 func (ApiOperationPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiOperationPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ApiOperationPolicy)(nil)).Elem()
 }
 
 func (i ApiOperationPolicyMap) ToApiOperationPolicyMapOutput() ApiOperationPolicyMapOutput {
@@ -277,9 +277,7 @@ func (i ApiOperationPolicyMap) ToApiOperationPolicyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPolicyMapOutput)
 }
 
-type ApiOperationPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ApiOperationPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationPolicy)(nil))
@@ -298,14 +296,12 @@ func (o ApiOperationPolicyOutput) ToApiOperationPolicyPtrOutput() ApiOperationPo
 }
 
 func (o ApiOperationPolicyOutput) ToApiOperationPolicyPtrOutputWithContext(ctx context.Context) ApiOperationPolicyPtrOutput {
-	return o.ApplyT(func(v ApiOperationPolicy) *ApiOperationPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOperationPolicy) *ApiOperationPolicy {
 		return &v
 	}).(ApiOperationPolicyPtrOutput)
 }
 
-type ApiOperationPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApiOperationPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiOperationPolicy)(nil))
@@ -317,6 +313,16 @@ func (o ApiOperationPolicyPtrOutput) ToApiOperationPolicyPtrOutput() ApiOperatio
 
 func (o ApiOperationPolicyPtrOutput) ToApiOperationPolicyPtrOutputWithContext(ctx context.Context) ApiOperationPolicyPtrOutput {
 	return o
+}
+
+func (o ApiOperationPolicyPtrOutput) Elem() ApiOperationPolicyOutput {
+	return o.ApplyT(func(v *ApiOperationPolicy) ApiOperationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOperationPolicy
+		return ret
+	}).(ApiOperationPolicyOutput)
 }
 
 type ApiOperationPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -205,7 +205,7 @@ type IntegrationAccountSchemaArrayInput interface {
 type IntegrationAccountSchemaArray []IntegrationAccountSchemaInput
 
 func (IntegrationAccountSchemaArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntegrationAccountSchema)(nil))
+	return reflect.TypeOf((*[]*IntegrationAccountSchema)(nil)).Elem()
 }
 
 func (i IntegrationAccountSchemaArray) ToIntegrationAccountSchemaArrayOutput() IntegrationAccountSchemaArrayOutput {
@@ -230,7 +230,7 @@ type IntegrationAccountSchemaMapInput interface {
 type IntegrationAccountSchemaMap map[string]IntegrationAccountSchemaInput
 
 func (IntegrationAccountSchemaMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntegrationAccountSchema)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationAccountSchema)(nil)).Elem()
 }
 
 func (i IntegrationAccountSchemaMap) ToIntegrationAccountSchemaMapOutput() IntegrationAccountSchemaMapOutput {
@@ -241,9 +241,7 @@ func (i IntegrationAccountSchemaMap) ToIntegrationAccountSchemaMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSchemaMapOutput)
 }
 
-type IntegrationAccountSchemaOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountSchemaOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSchemaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountSchema)(nil))
@@ -262,14 +260,12 @@ func (o IntegrationAccountSchemaOutput) ToIntegrationAccountSchemaPtrOutput() In
 }
 
 func (o IntegrationAccountSchemaOutput) ToIntegrationAccountSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountSchemaPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountSchema) *IntegrationAccountSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountSchema) *IntegrationAccountSchema {
 		return &v
 	}).(IntegrationAccountSchemaPtrOutput)
 }
 
-type IntegrationAccountSchemaPtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountSchemaPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSchemaPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationAccountSchema)(nil))
@@ -281,6 +277,16 @@ func (o IntegrationAccountSchemaPtrOutput) ToIntegrationAccountSchemaPtrOutput()
 
 func (o IntegrationAccountSchemaPtrOutput) ToIntegrationAccountSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountSchemaPtrOutput {
 	return o
+}
+
+func (o IntegrationAccountSchemaPtrOutput) Elem() IntegrationAccountSchemaOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) IntegrationAccountSchema {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountSchema
+		return ret
+	}).(IntegrationAccountSchemaOutput)
 }
 
 type IntegrationAccountSchemaArrayOutput struct{ *pulumi.OutputState }

@@ -12,6 +12,7 @@ __all__ = [
     'GetCertificateResult',
     'AwaitableGetCertificateResult',
     'get_certificate',
+    'get_certificate_output',
 ]
 
 @pulumi.output_type
@@ -207,3 +208,29 @@ def get_certificate(name: Optional[str] = None,
         subject_name=__ret__.subject_name,
         tags=__ret__.tags,
         thumbprint=__ret__.thumbprint)
+
+
+@_utilities.lift_output_func(get_certificate)
+def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+    """
+    Use this data source to access information about an App Service Certificate.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_certificate(name="example-app-service-certificate",
+        resource_group_name="example-rg")
+    pulumi.export("appServiceCertificateId", example.id)
+    ```
+
+
+    :param str name: Specifies the name of the certificate.
+    :param str resource_group_name: The name of the resource group in which to create the certificate.
+    """
+    ...

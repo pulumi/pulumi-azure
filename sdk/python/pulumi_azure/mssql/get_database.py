@@ -12,6 +12,7 @@ __all__ = [
     'GetDatabaseResult',
     'AwaitableGetDatabaseResult',
     'get_database',
+    'get_database_output',
 ]
 
 @pulumi.output_type
@@ -224,3 +225,28 @@ def get_database(name: Optional[str] = None,
         storage_account_type=__ret__.storage_account_type,
         tags=__ret__.tags,
         zone_redundant=__ret__.zone_redundant)
+
+
+@_utilities.lift_output_func(get_database)
+def get_database_output(name: Optional[pulumi.Input[str]] = None,
+                        server_id: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
+    """
+    Use this data source to access information about an existing SQL database.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mssql.get_database(name="example-mssql-db",
+        server_id="example-mssql-server-id")
+    pulumi.export("databaseId", example.id)
+    ```
+
+
+    :param str name: The name of the Ms SQL Database.
+    :param str server_id: The id of the Ms SQL Server on which to create the database.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetPublicIPsResult',
     'AwaitableGetPublicIPsResult',
     'get_public_i_ps',
+    'get_public_i_ps_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,31 @@ def get_public_i_ps(allocation_type: Optional[str] = None,
         name_prefix=__ret__.name_prefix,
         public_ips=__ret__.public_ips,
         resource_group_name=__ret__.resource_group_name)
+
+
+@_utilities.lift_output_func(get_public_i_ps)
+def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[str]]] = None,
+                           attached: Optional[pulumi.Input[Optional[bool]]] = None,
+                           name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIPsResult]:
+    """
+    Use this data source to access information about a set of existing Public IP Addresses.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_public_i_ps(attached=False,
+        resource_group_name="pip-test")
+    ```
+
+
+    :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
+    :param bool attached: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`true`) or unattached (`false`).
+    :param str name_prefix: A prefix match used for the IP Addresses `name` field, case sensitive.
+    :param str resource_group_name: Specifies the name of the resource group.
+    """
+    ...

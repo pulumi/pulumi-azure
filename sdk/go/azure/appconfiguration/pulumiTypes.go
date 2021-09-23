@@ -115,7 +115,7 @@ func (o ConfigurationStoreIdentityOutput) ToConfigurationStoreIdentityPtrOutput(
 }
 
 func (o ConfigurationStoreIdentityOutput) ToConfigurationStoreIdentityPtrOutputWithContext(ctx context.Context) ConfigurationStoreIdentityPtrOutput {
-	return o.ApplyT(func(v ConfigurationStoreIdentity) *ConfigurationStoreIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationStoreIdentity) *ConfigurationStoreIdentity {
 		return &v
 	}).(ConfigurationStoreIdentityPtrOutput)
 }
@@ -155,7 +155,13 @@ func (o ConfigurationStoreIdentityPtrOutput) ToConfigurationStoreIdentityPtrOutp
 }
 
 func (o ConfigurationStoreIdentityPtrOutput) Elem() ConfigurationStoreIdentityOutput {
-	return o.ApplyT(func(v *ConfigurationStoreIdentity) ConfigurationStoreIdentity { return *v }).(ConfigurationStoreIdentityOutput)
+	return o.ApplyT(func(v *ConfigurationStoreIdentity) ConfigurationStoreIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationStoreIdentity
+		return ret
+	}).(ConfigurationStoreIdentityOutput)
 }
 
 // A list of IDs for User Assigned Managed Identity resources to be assigned.

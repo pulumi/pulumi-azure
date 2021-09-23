@@ -299,7 +299,7 @@ type OutputServicebusTopicArrayInput interface {
 type OutputServicebusTopicArray []OutputServicebusTopicInput
 
 func (OutputServicebusTopicArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OutputServicebusTopic)(nil))
+	return reflect.TypeOf((*[]*OutputServicebusTopic)(nil)).Elem()
 }
 
 func (i OutputServicebusTopicArray) ToOutputServicebusTopicArrayOutput() OutputServicebusTopicArrayOutput {
@@ -324,7 +324,7 @@ type OutputServicebusTopicMapInput interface {
 type OutputServicebusTopicMap map[string]OutputServicebusTopicInput
 
 func (OutputServicebusTopicMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OutputServicebusTopic)(nil))
+	return reflect.TypeOf((*map[string]*OutputServicebusTopic)(nil)).Elem()
 }
 
 func (i OutputServicebusTopicMap) ToOutputServicebusTopicMapOutput() OutputServicebusTopicMapOutput {
@@ -335,9 +335,7 @@ func (i OutputServicebusTopicMap) ToOutputServicebusTopicMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServicebusTopicMapOutput)
 }
 
-type OutputServicebusTopicOutput struct {
-	*pulumi.OutputState
-}
+type OutputServicebusTopicOutput struct{ *pulumi.OutputState }
 
 func (OutputServicebusTopicOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutputServicebusTopic)(nil))
@@ -356,14 +354,12 @@ func (o OutputServicebusTopicOutput) ToOutputServicebusTopicPtrOutput() OutputSe
 }
 
 func (o OutputServicebusTopicOutput) ToOutputServicebusTopicPtrOutputWithContext(ctx context.Context) OutputServicebusTopicPtrOutput {
-	return o.ApplyT(func(v OutputServicebusTopic) *OutputServicebusTopic {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputServicebusTopic) *OutputServicebusTopic {
 		return &v
 	}).(OutputServicebusTopicPtrOutput)
 }
 
-type OutputServicebusTopicPtrOutput struct {
-	*pulumi.OutputState
-}
+type OutputServicebusTopicPtrOutput struct{ *pulumi.OutputState }
 
 func (OutputServicebusTopicPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OutputServicebusTopic)(nil))
@@ -375,6 +371,16 @@ func (o OutputServicebusTopicPtrOutput) ToOutputServicebusTopicPtrOutput() Outpu
 
 func (o OutputServicebusTopicPtrOutput) ToOutputServicebusTopicPtrOutputWithContext(ctx context.Context) OutputServicebusTopicPtrOutput {
 	return o
+}
+
+func (o OutputServicebusTopicPtrOutput) Elem() OutputServicebusTopicOutput {
+	return o.ApplyT(func(v *OutputServicebusTopic) OutputServicebusTopic {
+		if v != nil {
+			return *v
+		}
+		var ret OutputServicebusTopic
+		return ret
+	}).(OutputServicebusTopicOutput)
 }
 
 type OutputServicebusTopicArrayOutput struct{ *pulumi.OutputState }

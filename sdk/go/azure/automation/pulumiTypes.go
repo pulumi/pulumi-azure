@@ -105,10 +105,11 @@ func (o ModuleModuleLinkOutput) ToModuleModuleLinkPtrOutput() ModuleModuleLinkPt
 }
 
 func (o ModuleModuleLinkOutput) ToModuleModuleLinkPtrOutputWithContext(ctx context.Context) ModuleModuleLinkPtrOutput {
-	return o.ApplyT(func(v ModuleModuleLink) *ModuleModuleLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModuleModuleLink) *ModuleModuleLink {
 		return &v
 	}).(ModuleModuleLinkPtrOutput)
 }
+
 func (o ModuleModuleLinkOutput) Hash() ModuleModuleLinkHashPtrOutput {
 	return o.ApplyT(func(v ModuleModuleLink) *ModuleModuleLinkHash { return v.Hash }).(ModuleModuleLinkHashPtrOutput)
 }
@@ -133,7 +134,13 @@ func (o ModuleModuleLinkPtrOutput) ToModuleModuleLinkPtrOutputWithContext(ctx co
 }
 
 func (o ModuleModuleLinkPtrOutput) Elem() ModuleModuleLinkOutput {
-	return o.ApplyT(func(v *ModuleModuleLink) ModuleModuleLink { return *v }).(ModuleModuleLinkOutput)
+	return o.ApplyT(func(v *ModuleModuleLink) ModuleModuleLink {
+		if v != nil {
+			return *v
+		}
+		var ret ModuleModuleLink
+		return ret
+	}).(ModuleModuleLinkOutput)
 }
 
 func (o ModuleModuleLinkPtrOutput) Hash() ModuleModuleLinkHashPtrOutput {
@@ -248,10 +255,11 @@ func (o ModuleModuleLinkHashOutput) ToModuleModuleLinkHashPtrOutput() ModuleModu
 }
 
 func (o ModuleModuleLinkHashOutput) ToModuleModuleLinkHashPtrOutputWithContext(ctx context.Context) ModuleModuleLinkHashPtrOutput {
-	return o.ApplyT(func(v ModuleModuleLinkHash) *ModuleModuleLinkHash {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModuleModuleLinkHash) *ModuleModuleLinkHash {
 		return &v
 	}).(ModuleModuleLinkHashPtrOutput)
 }
+
 func (o ModuleModuleLinkHashOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v ModuleModuleLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
@@ -275,7 +283,13 @@ func (o ModuleModuleLinkHashPtrOutput) ToModuleModuleLinkHashPtrOutputWithContex
 }
 
 func (o ModuleModuleLinkHashPtrOutput) Elem() ModuleModuleLinkHashOutput {
-	return o.ApplyT(func(v *ModuleModuleLinkHash) ModuleModuleLinkHash { return *v }).(ModuleModuleLinkHashOutput)
+	return o.ApplyT(func(v *ModuleModuleLinkHash) ModuleModuleLinkHash {
+		if v != nil {
+			return *v
+		}
+		var ret ModuleModuleLinkHash
+		return ret
+	}).(ModuleModuleLinkHashOutput)
 }
 
 func (o ModuleModuleLinkHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
@@ -505,10 +519,11 @@ func (o RunBookPublishContentLinkOutput) ToRunBookPublishContentLinkPtrOutput() 
 }
 
 func (o RunBookPublishContentLinkOutput) ToRunBookPublishContentLinkPtrOutputWithContext(ctx context.Context) RunBookPublishContentLinkPtrOutput {
-	return o.ApplyT(func(v RunBookPublishContentLink) *RunBookPublishContentLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunBookPublishContentLink) *RunBookPublishContentLink {
 		return &v
 	}).(RunBookPublishContentLinkPtrOutput)
 }
+
 func (o RunBookPublishContentLinkOutput) Hash() RunBookPublishContentLinkHashPtrOutput {
 	return o.ApplyT(func(v RunBookPublishContentLink) *RunBookPublishContentLinkHash { return v.Hash }).(RunBookPublishContentLinkHashPtrOutput)
 }
@@ -537,7 +552,13 @@ func (o RunBookPublishContentLinkPtrOutput) ToRunBookPublishContentLinkPtrOutput
 }
 
 func (o RunBookPublishContentLinkPtrOutput) Elem() RunBookPublishContentLinkOutput {
-	return o.ApplyT(func(v *RunBookPublishContentLink) RunBookPublishContentLink { return *v }).(RunBookPublishContentLinkOutput)
+	return o.ApplyT(func(v *RunBookPublishContentLink) RunBookPublishContentLink {
+		if v != nil {
+			return *v
+		}
+		var ret RunBookPublishContentLink
+		return ret
+	}).(RunBookPublishContentLinkOutput)
 }
 
 func (o RunBookPublishContentLinkPtrOutput) Hash() RunBookPublishContentLinkHashPtrOutput {
@@ -661,10 +682,11 @@ func (o RunBookPublishContentLinkHashOutput) ToRunBookPublishContentLinkHashPtrO
 }
 
 func (o RunBookPublishContentLinkHashOutput) ToRunBookPublishContentLinkHashPtrOutputWithContext(ctx context.Context) RunBookPublishContentLinkHashPtrOutput {
-	return o.ApplyT(func(v RunBookPublishContentLinkHash) *RunBookPublishContentLinkHash {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunBookPublishContentLinkHash) *RunBookPublishContentLinkHash {
 		return &v
 	}).(RunBookPublishContentLinkHashPtrOutput)
 }
+
 func (o RunBookPublishContentLinkHashOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v RunBookPublishContentLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
@@ -688,7 +710,13 @@ func (o RunBookPublishContentLinkHashPtrOutput) ToRunBookPublishContentLinkHashP
 }
 
 func (o RunBookPublishContentLinkHashPtrOutput) Elem() RunBookPublishContentLinkHashOutput {
-	return o.ApplyT(func(v *RunBookPublishContentLinkHash) RunBookPublishContentLinkHash { return *v }).(RunBookPublishContentLinkHashOutput)
+	return o.ApplyT(func(v *RunBookPublishContentLinkHash) RunBookPublishContentLinkHash {
+		if v != nil {
+			return *v
+		}
+		var ret RunBookPublishContentLinkHash
+		return ret
+	}).(RunBookPublishContentLinkHashOutput)
 }
 
 func (o RunBookPublishContentLinkHashPtrOutput) Algorithm() pulumi.StringPtrOutput {

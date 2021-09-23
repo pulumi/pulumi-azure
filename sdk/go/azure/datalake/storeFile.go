@@ -178,7 +178,7 @@ type StoreFileArrayInput interface {
 type StoreFileArray []StoreFileInput
 
 func (StoreFileArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StoreFile)(nil))
+	return reflect.TypeOf((*[]*StoreFile)(nil)).Elem()
 }
 
 func (i StoreFileArray) ToStoreFileArrayOutput() StoreFileArrayOutput {
@@ -203,7 +203,7 @@ type StoreFileMapInput interface {
 type StoreFileMap map[string]StoreFileInput
 
 func (StoreFileMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StoreFile)(nil))
+	return reflect.TypeOf((*map[string]*StoreFile)(nil)).Elem()
 }
 
 func (i StoreFileMap) ToStoreFileMapOutput() StoreFileMapOutput {
@@ -214,9 +214,7 @@ func (i StoreFileMap) ToStoreFileMapOutputWithContext(ctx context.Context) Store
 	return pulumi.ToOutputWithContext(ctx, i).(StoreFileMapOutput)
 }
 
-type StoreFileOutput struct {
-	*pulumi.OutputState
-}
+type StoreFileOutput struct{ *pulumi.OutputState }
 
 func (StoreFileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StoreFile)(nil))
@@ -235,14 +233,12 @@ func (o StoreFileOutput) ToStoreFilePtrOutput() StoreFilePtrOutput {
 }
 
 func (o StoreFileOutput) ToStoreFilePtrOutputWithContext(ctx context.Context) StoreFilePtrOutput {
-	return o.ApplyT(func(v StoreFile) *StoreFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StoreFile) *StoreFile {
 		return &v
 	}).(StoreFilePtrOutput)
 }
 
-type StoreFilePtrOutput struct {
-	*pulumi.OutputState
-}
+type StoreFilePtrOutput struct{ *pulumi.OutputState }
 
 func (StoreFilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StoreFile)(nil))
@@ -254,6 +250,16 @@ func (o StoreFilePtrOutput) ToStoreFilePtrOutput() StoreFilePtrOutput {
 
 func (o StoreFilePtrOutput) ToStoreFilePtrOutputWithContext(ctx context.Context) StoreFilePtrOutput {
 	return o
+}
+
+func (o StoreFilePtrOutput) Elem() StoreFileOutput {
+	return o.ApplyT(func(v *StoreFile) StoreFile {
+		if v != nil {
+			return *v
+		}
+		var ret StoreFile
+		return ret
+	}).(StoreFileOutput)
 }
 
 type StoreFileArrayOutput struct{ *pulumi.OutputState }

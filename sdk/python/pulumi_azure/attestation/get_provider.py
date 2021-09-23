@@ -12,6 +12,7 @@ __all__ = [
     'GetProviderResult',
     'AwaitableGetProviderResult',
     'get_provider',
+    'get_provider_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,13 @@ def get_provider(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags,
         trust_model=__ret__.trust_model)
+
+
+@_utilities.lift_output_func(get_provider)
+def get_provider_output(name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

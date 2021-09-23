@@ -351,7 +351,7 @@ type ModuleArrayInput interface {
 type ModuleArray []ModuleInput
 
 func (ModuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Module)(nil))
+	return reflect.TypeOf((*[]*Module)(nil)).Elem()
 }
 
 func (i ModuleArray) ToModuleArrayOutput() ModuleArrayOutput {
@@ -376,7 +376,7 @@ type ModuleMapInput interface {
 type ModuleMap map[string]ModuleInput
 
 func (ModuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Module)(nil))
+	return reflect.TypeOf((*map[string]*Module)(nil)).Elem()
 }
 
 func (i ModuleMap) ToModuleMapOutput() ModuleMapOutput {
@@ -387,9 +387,7 @@ func (i ModuleMap) ToModuleMapOutputWithContext(ctx context.Context) ModuleMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleMapOutput)
 }
 
-type ModuleOutput struct {
-	*pulumi.OutputState
-}
+type ModuleOutput struct{ *pulumi.OutputState }
 
 func (ModuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Module)(nil))
@@ -408,14 +406,12 @@ func (o ModuleOutput) ToModulePtrOutput() ModulePtrOutput {
 }
 
 func (o ModuleOutput) ToModulePtrOutputWithContext(ctx context.Context) ModulePtrOutput {
-	return o.ApplyT(func(v Module) *Module {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Module) *Module {
 		return &v
 	}).(ModulePtrOutput)
 }
 
-type ModulePtrOutput struct {
-	*pulumi.OutputState
-}
+type ModulePtrOutput struct{ *pulumi.OutputState }
 
 func (ModulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Module)(nil))
@@ -427,6 +423,16 @@ func (o ModulePtrOutput) ToModulePtrOutput() ModulePtrOutput {
 
 func (o ModulePtrOutput) ToModulePtrOutputWithContext(ctx context.Context) ModulePtrOutput {
 	return o
+}
+
+func (o ModulePtrOutput) Elem() ModuleOutput {
+	return o.ApplyT(func(v *Module) Module {
+		if v != nil {
+			return *v
+		}
+		var ret Module
+		return ret
+	}).(ModuleOutput)
 }
 
 type ModuleArrayOutput struct{ *pulumi.OutputState }

@@ -12,6 +12,7 @@ __all__ = [
     'GetQueueResult',
     'AwaitableGetQueueResult',
     'get_queue',
+    'get_queue_output',
 ]
 
 @pulumi.output_type
@@ -303,3 +304,31 @@ def get_queue(name: Optional[str] = None,
         requires_session=__ret__.requires_session,
         resource_group_name=__ret__.resource_group_name,
         status=__ret__.status)
+
+
+@_utilities.lift_output_func(get_queue)
+def get_queue_output(name: Optional[pulumi.Input[str]] = None,
+                     namespace_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
+    """
+    Use this data source to access information about an existing Service Bus Queue.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.servicebus.get_queue(name="existing",
+        resource_group_name="existing",
+        namespace_name="existing")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str name: The name of this Service Bus Queue.
+    :param str namespace_name: The name of the ServiceBus Namespace.
+    :param str resource_group_name: The name of the Resource Group where the Service Bus Queue exists.
+    """
+    ...

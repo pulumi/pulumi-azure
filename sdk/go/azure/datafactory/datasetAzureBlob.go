@@ -337,7 +337,7 @@ type DatasetAzureBlobArrayInput interface {
 type DatasetAzureBlobArray []DatasetAzureBlobInput
 
 func (DatasetAzureBlobArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DatasetAzureBlob)(nil))
+	return reflect.TypeOf((*[]*DatasetAzureBlob)(nil)).Elem()
 }
 
 func (i DatasetAzureBlobArray) ToDatasetAzureBlobArrayOutput() DatasetAzureBlobArrayOutput {
@@ -362,7 +362,7 @@ type DatasetAzureBlobMapInput interface {
 type DatasetAzureBlobMap map[string]DatasetAzureBlobInput
 
 func (DatasetAzureBlobMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DatasetAzureBlob)(nil))
+	return reflect.TypeOf((*map[string]*DatasetAzureBlob)(nil)).Elem()
 }
 
 func (i DatasetAzureBlobMap) ToDatasetAzureBlobMapOutput() DatasetAzureBlobMapOutput {
@@ -373,9 +373,7 @@ func (i DatasetAzureBlobMap) ToDatasetAzureBlobMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobMapOutput)
 }
 
-type DatasetAzureBlobOutput struct {
-	*pulumi.OutputState
-}
+type DatasetAzureBlobOutput struct{ *pulumi.OutputState }
 
 func (DatasetAzureBlobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetAzureBlob)(nil))
@@ -394,14 +392,12 @@ func (o DatasetAzureBlobOutput) ToDatasetAzureBlobPtrOutput() DatasetAzureBlobPt
 }
 
 func (o DatasetAzureBlobOutput) ToDatasetAzureBlobPtrOutputWithContext(ctx context.Context) DatasetAzureBlobPtrOutput {
-	return o.ApplyT(func(v DatasetAzureBlob) *DatasetAzureBlob {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetAzureBlob) *DatasetAzureBlob {
 		return &v
 	}).(DatasetAzureBlobPtrOutput)
 }
 
-type DatasetAzureBlobPtrOutput struct {
-	*pulumi.OutputState
-}
+type DatasetAzureBlobPtrOutput struct{ *pulumi.OutputState }
 
 func (DatasetAzureBlobPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DatasetAzureBlob)(nil))
@@ -413,6 +409,16 @@ func (o DatasetAzureBlobPtrOutput) ToDatasetAzureBlobPtrOutput() DatasetAzureBlo
 
 func (o DatasetAzureBlobPtrOutput) ToDatasetAzureBlobPtrOutputWithContext(ctx context.Context) DatasetAzureBlobPtrOutput {
 	return o
+}
+
+func (o DatasetAzureBlobPtrOutput) Elem() DatasetAzureBlobOutput {
+	return o.ApplyT(func(v *DatasetAzureBlob) DatasetAzureBlob {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetAzureBlob
+		return ret
+	}).(DatasetAzureBlobOutput)
 }
 
 type DatasetAzureBlobArrayOutput struct{ *pulumi.OutputState }

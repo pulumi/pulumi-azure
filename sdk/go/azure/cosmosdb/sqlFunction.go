@@ -220,7 +220,7 @@ type SqlFunctionArrayInput interface {
 type SqlFunctionArray []SqlFunctionInput
 
 func (SqlFunctionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SqlFunction)(nil))
+	return reflect.TypeOf((*[]*SqlFunction)(nil)).Elem()
 }
 
 func (i SqlFunctionArray) ToSqlFunctionArrayOutput() SqlFunctionArrayOutput {
@@ -245,7 +245,7 @@ type SqlFunctionMapInput interface {
 type SqlFunctionMap map[string]SqlFunctionInput
 
 func (SqlFunctionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SqlFunction)(nil))
+	return reflect.TypeOf((*map[string]*SqlFunction)(nil)).Elem()
 }
 
 func (i SqlFunctionMap) ToSqlFunctionMapOutput() SqlFunctionMapOutput {
@@ -256,9 +256,7 @@ func (i SqlFunctionMap) ToSqlFunctionMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SqlFunctionMapOutput)
 }
 
-type SqlFunctionOutput struct {
-	*pulumi.OutputState
-}
+type SqlFunctionOutput struct{ *pulumi.OutputState }
 
 func (SqlFunctionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlFunction)(nil))
@@ -277,14 +275,12 @@ func (o SqlFunctionOutput) ToSqlFunctionPtrOutput() SqlFunctionPtrOutput {
 }
 
 func (o SqlFunctionOutput) ToSqlFunctionPtrOutputWithContext(ctx context.Context) SqlFunctionPtrOutput {
-	return o.ApplyT(func(v SqlFunction) *SqlFunction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlFunction) *SqlFunction {
 		return &v
 	}).(SqlFunctionPtrOutput)
 }
 
-type SqlFunctionPtrOutput struct {
-	*pulumi.OutputState
-}
+type SqlFunctionPtrOutput struct{ *pulumi.OutputState }
 
 func (SqlFunctionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SqlFunction)(nil))
@@ -296,6 +292,16 @@ func (o SqlFunctionPtrOutput) ToSqlFunctionPtrOutput() SqlFunctionPtrOutput {
 
 func (o SqlFunctionPtrOutput) ToSqlFunctionPtrOutputWithContext(ctx context.Context) SqlFunctionPtrOutput {
 	return o
+}
+
+func (o SqlFunctionPtrOutput) Elem() SqlFunctionOutput {
+	return o.ApplyT(func(v *SqlFunction) SqlFunction {
+		if v != nil {
+			return *v
+		}
+		var ret SqlFunction
+		return ret
+	}).(SqlFunctionOutput)
 }
 
 type SqlFunctionArrayOutput struct{ *pulumi.OutputState }

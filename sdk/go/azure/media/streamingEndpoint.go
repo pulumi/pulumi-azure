@@ -436,7 +436,7 @@ type StreamingEndpointArrayInput interface {
 type StreamingEndpointArray []StreamingEndpointInput
 
 func (StreamingEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StreamingEndpoint)(nil))
+	return reflect.TypeOf((*[]*StreamingEndpoint)(nil)).Elem()
 }
 
 func (i StreamingEndpointArray) ToStreamingEndpointArrayOutput() StreamingEndpointArrayOutput {
@@ -461,7 +461,7 @@ type StreamingEndpointMapInput interface {
 type StreamingEndpointMap map[string]StreamingEndpointInput
 
 func (StreamingEndpointMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StreamingEndpoint)(nil))
+	return reflect.TypeOf((*map[string]*StreamingEndpoint)(nil)).Elem()
 }
 
 func (i StreamingEndpointMap) ToStreamingEndpointMapOutput() StreamingEndpointMapOutput {
@@ -472,9 +472,7 @@ func (i StreamingEndpointMap) ToStreamingEndpointMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointMapOutput)
 }
 
-type StreamingEndpointOutput struct {
-	*pulumi.OutputState
-}
+type StreamingEndpointOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamingEndpoint)(nil))
@@ -493,14 +491,12 @@ func (o StreamingEndpointOutput) ToStreamingEndpointPtrOutput() StreamingEndpoin
 }
 
 func (o StreamingEndpointOutput) ToStreamingEndpointPtrOutputWithContext(ctx context.Context) StreamingEndpointPtrOutput {
-	return o.ApplyT(func(v StreamingEndpoint) *StreamingEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpoint) *StreamingEndpoint {
 		return &v
 	}).(StreamingEndpointPtrOutput)
 }
 
-type StreamingEndpointPtrOutput struct {
-	*pulumi.OutputState
-}
+type StreamingEndpointPtrOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StreamingEndpoint)(nil))
@@ -512,6 +508,16 @@ func (o StreamingEndpointPtrOutput) ToStreamingEndpointPtrOutput() StreamingEndp
 
 func (o StreamingEndpointPtrOutput) ToStreamingEndpointPtrOutputWithContext(ctx context.Context) StreamingEndpointPtrOutput {
 	return o
+}
+
+func (o StreamingEndpointPtrOutput) Elem() StreamingEndpointOutput {
+	return o.ApplyT(func(v *StreamingEndpoint) StreamingEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingEndpoint
+		return ret
+	}).(StreamingEndpointOutput)
 }
 
 type StreamingEndpointArrayOutput struct{ *pulumi.OutputState }

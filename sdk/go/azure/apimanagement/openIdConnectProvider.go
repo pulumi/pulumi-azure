@@ -278,7 +278,7 @@ type OpenIdConnectProviderArrayInput interface {
 type OpenIdConnectProviderArray []OpenIdConnectProviderInput
 
 func (OpenIdConnectProviderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OpenIdConnectProvider)(nil))
+	return reflect.TypeOf((*[]*OpenIdConnectProvider)(nil)).Elem()
 }
 
 func (i OpenIdConnectProviderArray) ToOpenIdConnectProviderArrayOutput() OpenIdConnectProviderArrayOutput {
@@ -303,7 +303,7 @@ type OpenIdConnectProviderMapInput interface {
 type OpenIdConnectProviderMap map[string]OpenIdConnectProviderInput
 
 func (OpenIdConnectProviderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OpenIdConnectProvider)(nil))
+	return reflect.TypeOf((*map[string]*OpenIdConnectProvider)(nil)).Elem()
 }
 
 func (i OpenIdConnectProviderMap) ToOpenIdConnectProviderMapOutput() OpenIdConnectProviderMapOutput {
@@ -314,9 +314,7 @@ func (i OpenIdConnectProviderMap) ToOpenIdConnectProviderMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderMapOutput)
 }
 
-type OpenIdConnectProviderOutput struct {
-	*pulumi.OutputState
-}
+type OpenIdConnectProviderOutput struct{ *pulumi.OutputState }
 
 func (OpenIdConnectProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OpenIdConnectProvider)(nil))
@@ -335,14 +333,12 @@ func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderPtrOutput() OpenIdCo
 }
 
 func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderPtrOutputWithContext(ctx context.Context) OpenIdConnectProviderPtrOutput {
-	return o.ApplyT(func(v OpenIdConnectProvider) *OpenIdConnectProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdConnectProvider) *OpenIdConnectProvider {
 		return &v
 	}).(OpenIdConnectProviderPtrOutput)
 }
 
-type OpenIdConnectProviderPtrOutput struct {
-	*pulumi.OutputState
-}
+type OpenIdConnectProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (OpenIdConnectProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OpenIdConnectProvider)(nil))
@@ -354,6 +350,16 @@ func (o OpenIdConnectProviderPtrOutput) ToOpenIdConnectProviderPtrOutput() OpenI
 
 func (o OpenIdConnectProviderPtrOutput) ToOpenIdConnectProviderPtrOutputWithContext(ctx context.Context) OpenIdConnectProviderPtrOutput {
 	return o
+}
+
+func (o OpenIdConnectProviderPtrOutput) Elem() OpenIdConnectProviderOutput {
+	return o.ApplyT(func(v *OpenIdConnectProvider) OpenIdConnectProvider {
+		if v != nil {
+			return *v
+		}
+		var ret OpenIdConnectProvider
+		return ret
+	}).(OpenIdConnectProviderOutput)
 }
 
 type OpenIdConnectProviderArrayOutput struct{ *pulumi.OutputState }

@@ -313,7 +313,7 @@ type SqlPoolSecurityAlertPolicyArrayInput interface {
 type SqlPoolSecurityAlertPolicyArray []SqlPoolSecurityAlertPolicyInput
 
 func (SqlPoolSecurityAlertPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SqlPoolSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((*[]*SqlPoolSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (i SqlPoolSecurityAlertPolicyArray) ToSqlPoolSecurityAlertPolicyArrayOutput() SqlPoolSecurityAlertPolicyArrayOutput {
@@ -338,7 +338,7 @@ type SqlPoolSecurityAlertPolicyMapInput interface {
 type SqlPoolSecurityAlertPolicyMap map[string]SqlPoolSecurityAlertPolicyInput
 
 func (SqlPoolSecurityAlertPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SqlPoolSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((*map[string]*SqlPoolSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (i SqlPoolSecurityAlertPolicyMap) ToSqlPoolSecurityAlertPolicyMapOutput() SqlPoolSecurityAlertPolicyMapOutput {
@@ -349,9 +349,7 @@ func (i SqlPoolSecurityAlertPolicyMap) ToSqlPoolSecurityAlertPolicyMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolSecurityAlertPolicyMapOutput)
 }
 
-type SqlPoolSecurityAlertPolicyOutput struct {
-	*pulumi.OutputState
-}
+type SqlPoolSecurityAlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolSecurityAlertPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolSecurityAlertPolicy)(nil))
@@ -370,14 +368,12 @@ func (o SqlPoolSecurityAlertPolicyOutput) ToSqlPoolSecurityAlertPolicyPtrOutput(
 }
 
 func (o SqlPoolSecurityAlertPolicyOutput) ToSqlPoolSecurityAlertPolicyPtrOutputWithContext(ctx context.Context) SqlPoolSecurityAlertPolicyPtrOutput {
-	return o.ApplyT(func(v SqlPoolSecurityAlertPolicy) *SqlPoolSecurityAlertPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlPoolSecurityAlertPolicy) *SqlPoolSecurityAlertPolicy {
 		return &v
 	}).(SqlPoolSecurityAlertPolicyPtrOutput)
 }
 
-type SqlPoolSecurityAlertPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type SqlPoolSecurityAlertPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolSecurityAlertPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SqlPoolSecurityAlertPolicy)(nil))
@@ -389,6 +385,16 @@ func (o SqlPoolSecurityAlertPolicyPtrOutput) ToSqlPoolSecurityAlertPolicyPtrOutp
 
 func (o SqlPoolSecurityAlertPolicyPtrOutput) ToSqlPoolSecurityAlertPolicyPtrOutputWithContext(ctx context.Context) SqlPoolSecurityAlertPolicyPtrOutput {
 	return o
+}
+
+func (o SqlPoolSecurityAlertPolicyPtrOutput) Elem() SqlPoolSecurityAlertPolicyOutput {
+	return o.ApplyT(func(v *SqlPoolSecurityAlertPolicy) SqlPoolSecurityAlertPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret SqlPoolSecurityAlertPolicy
+		return ret
+	}).(SqlPoolSecurityAlertPolicyOutput)
 }
 
 type SqlPoolSecurityAlertPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -233,7 +233,7 @@ type ChannelWebChatArrayInput interface {
 type ChannelWebChatArray []ChannelWebChatInput
 
 func (ChannelWebChatArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ChannelWebChat)(nil))
+	return reflect.TypeOf((*[]*ChannelWebChat)(nil)).Elem()
 }
 
 func (i ChannelWebChatArray) ToChannelWebChatArrayOutput() ChannelWebChatArrayOutput {
@@ -258,7 +258,7 @@ type ChannelWebChatMapInput interface {
 type ChannelWebChatMap map[string]ChannelWebChatInput
 
 func (ChannelWebChatMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ChannelWebChat)(nil))
+	return reflect.TypeOf((*map[string]*ChannelWebChat)(nil)).Elem()
 }
 
 func (i ChannelWebChatMap) ToChannelWebChatMapOutput() ChannelWebChatMapOutput {
@@ -269,9 +269,7 @@ func (i ChannelWebChatMap) ToChannelWebChatMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelWebChatMapOutput)
 }
 
-type ChannelWebChatOutput struct {
-	*pulumi.OutputState
-}
+type ChannelWebChatOutput struct{ *pulumi.OutputState }
 
 func (ChannelWebChatOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelWebChat)(nil))
@@ -290,14 +288,12 @@ func (o ChannelWebChatOutput) ToChannelWebChatPtrOutput() ChannelWebChatPtrOutpu
 }
 
 func (o ChannelWebChatOutput) ToChannelWebChatPtrOutputWithContext(ctx context.Context) ChannelWebChatPtrOutput {
-	return o.ApplyT(func(v ChannelWebChat) *ChannelWebChat {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelWebChat) *ChannelWebChat {
 		return &v
 	}).(ChannelWebChatPtrOutput)
 }
 
-type ChannelWebChatPtrOutput struct {
-	*pulumi.OutputState
-}
+type ChannelWebChatPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelWebChatPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ChannelWebChat)(nil))
@@ -309,6 +305,16 @@ func (o ChannelWebChatPtrOutput) ToChannelWebChatPtrOutput() ChannelWebChatPtrOu
 
 func (o ChannelWebChatPtrOutput) ToChannelWebChatPtrOutputWithContext(ctx context.Context) ChannelWebChatPtrOutput {
 	return o
+}
+
+func (o ChannelWebChatPtrOutput) Elem() ChannelWebChatOutput {
+	return o.ApplyT(func(v *ChannelWebChat) ChannelWebChat {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelWebChat
+		return ret
+	}).(ChannelWebChatOutput)
 }
 
 type ChannelWebChatArrayOutput struct{ *pulumi.OutputState }

@@ -269,7 +269,7 @@ type DataExportRuleArrayInput interface {
 type DataExportRuleArray []DataExportRuleInput
 
 func (DataExportRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DataExportRule)(nil))
+	return reflect.TypeOf((*[]*DataExportRule)(nil)).Elem()
 }
 
 func (i DataExportRuleArray) ToDataExportRuleArrayOutput() DataExportRuleArrayOutput {
@@ -294,7 +294,7 @@ type DataExportRuleMapInput interface {
 type DataExportRuleMap map[string]DataExportRuleInput
 
 func (DataExportRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DataExportRule)(nil))
+	return reflect.TypeOf((*map[string]*DataExportRule)(nil)).Elem()
 }
 
 func (i DataExportRuleMap) ToDataExportRuleMapOutput() DataExportRuleMapOutput {
@@ -305,9 +305,7 @@ func (i DataExportRuleMap) ToDataExportRuleMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataExportRuleMapOutput)
 }
 
-type DataExportRuleOutput struct {
-	*pulumi.OutputState
-}
+type DataExportRuleOutput struct{ *pulumi.OutputState }
 
 func (DataExportRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataExportRule)(nil))
@@ -326,14 +324,12 @@ func (o DataExportRuleOutput) ToDataExportRulePtrOutput() DataExportRulePtrOutpu
 }
 
 func (o DataExportRuleOutput) ToDataExportRulePtrOutputWithContext(ctx context.Context) DataExportRulePtrOutput {
-	return o.ApplyT(func(v DataExportRule) *DataExportRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataExportRule) *DataExportRule {
 		return &v
 	}).(DataExportRulePtrOutput)
 }
 
-type DataExportRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type DataExportRulePtrOutput struct{ *pulumi.OutputState }
 
 func (DataExportRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DataExportRule)(nil))
@@ -345,6 +341,16 @@ func (o DataExportRulePtrOutput) ToDataExportRulePtrOutput() DataExportRulePtrOu
 
 func (o DataExportRulePtrOutput) ToDataExportRulePtrOutputWithContext(ctx context.Context) DataExportRulePtrOutput {
 	return o
+}
+
+func (o DataExportRulePtrOutput) Elem() DataExportRuleOutput {
+	return o.ApplyT(func(v *DataExportRule) DataExportRule {
+		if v != nil {
+			return *v
+		}
+		var ret DataExportRule
+		return ret
+	}).(DataExportRuleOutput)
 }
 
 type DataExportRuleArrayOutput struct{ *pulumi.OutputState }

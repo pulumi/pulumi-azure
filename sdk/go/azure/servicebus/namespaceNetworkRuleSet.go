@@ -270,7 +270,7 @@ type NamespaceNetworkRuleSetArrayInput interface {
 type NamespaceNetworkRuleSetArray []NamespaceNetworkRuleSetInput
 
 func (NamespaceNetworkRuleSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NamespaceNetworkRuleSet)(nil))
+	return reflect.TypeOf((*[]*NamespaceNetworkRuleSet)(nil)).Elem()
 }
 
 func (i NamespaceNetworkRuleSetArray) ToNamespaceNetworkRuleSetArrayOutput() NamespaceNetworkRuleSetArrayOutput {
@@ -295,7 +295,7 @@ type NamespaceNetworkRuleSetMapInput interface {
 type NamespaceNetworkRuleSetMap map[string]NamespaceNetworkRuleSetInput
 
 func (NamespaceNetworkRuleSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NamespaceNetworkRuleSet)(nil))
+	return reflect.TypeOf((*map[string]*NamespaceNetworkRuleSet)(nil)).Elem()
 }
 
 func (i NamespaceNetworkRuleSetMap) ToNamespaceNetworkRuleSetMapOutput() NamespaceNetworkRuleSetMapOutput {
@@ -306,9 +306,7 @@ func (i NamespaceNetworkRuleSetMap) ToNamespaceNetworkRuleSetMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetMapOutput)
 }
 
-type NamespaceNetworkRuleSetOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NamespaceNetworkRuleSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamespaceNetworkRuleSet)(nil))
@@ -327,14 +325,12 @@ func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetPtrOutput() Name
 }
 
 func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetPtrOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v NamespaceNetworkRuleSet) *NamespaceNetworkRuleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceNetworkRuleSet) *NamespaceNetworkRuleSet {
 		return &v
 	}).(NamespaceNetworkRuleSetPtrOutput)
 }
 
-type NamespaceNetworkRuleSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceNetworkRuleSetPtrOutput struct{ *pulumi.OutputState }
 
 func (NamespaceNetworkRuleSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NamespaceNetworkRuleSet)(nil))
@@ -346,6 +342,16 @@ func (o NamespaceNetworkRuleSetPtrOutput) ToNamespaceNetworkRuleSetPtrOutput() N
 
 func (o NamespaceNetworkRuleSetPtrOutput) ToNamespaceNetworkRuleSetPtrOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetPtrOutput {
 	return o
+}
+
+func (o NamespaceNetworkRuleSetPtrOutput) Elem() NamespaceNetworkRuleSetOutput {
+	return o.ApplyT(func(v *NamespaceNetworkRuleSet) NamespaceNetworkRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret NamespaceNetworkRuleSet
+		return ret
+	}).(NamespaceNetworkRuleSetOutput)
 }
 
 type NamespaceNetworkRuleSetArrayOutput struct{ *pulumi.OutputState }

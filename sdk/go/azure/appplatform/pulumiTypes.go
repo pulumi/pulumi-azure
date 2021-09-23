@@ -111,7 +111,7 @@ func (o SpringCloudAppIdentityOutput) ToSpringCloudAppIdentityPtrOutput() Spring
 }
 
 func (o SpringCloudAppIdentityOutput) ToSpringCloudAppIdentityPtrOutputWithContext(ctx context.Context) SpringCloudAppIdentityPtrOutput {
-	return o.ApplyT(func(v SpringCloudAppIdentity) *SpringCloudAppIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudAppIdentity) *SpringCloudAppIdentity {
 		return &v
 	}).(SpringCloudAppIdentityPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o SpringCloudAppIdentityPtrOutput) ToSpringCloudAppIdentityPtrOutputWithCo
 }
 
 func (o SpringCloudAppIdentityPtrOutput) Elem() SpringCloudAppIdentityOutput {
-	return o.ApplyT(func(v *SpringCloudAppIdentity) SpringCloudAppIdentity { return *v }).(SpringCloudAppIdentityOutput)
+	return o.ApplyT(func(v *SpringCloudAppIdentity) SpringCloudAppIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudAppIdentity
+		return ret
+	}).(SpringCloudAppIdentityOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
@@ -276,7 +282,7 @@ func (o SpringCloudAppPersistentDiskOutput) ToSpringCloudAppPersistentDiskPtrOut
 }
 
 func (o SpringCloudAppPersistentDiskOutput) ToSpringCloudAppPersistentDiskPtrOutputWithContext(ctx context.Context) SpringCloudAppPersistentDiskPtrOutput {
-	return o.ApplyT(func(v SpringCloudAppPersistentDisk) *SpringCloudAppPersistentDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudAppPersistentDisk) *SpringCloudAppPersistentDisk {
 		return &v
 	}).(SpringCloudAppPersistentDiskPtrOutput)
 }
@@ -306,7 +312,13 @@ func (o SpringCloudAppPersistentDiskPtrOutput) ToSpringCloudAppPersistentDiskPtr
 }
 
 func (o SpringCloudAppPersistentDiskPtrOutput) Elem() SpringCloudAppPersistentDiskOutput {
-	return o.ApplyT(func(v *SpringCloudAppPersistentDisk) SpringCloudAppPersistentDisk { return *v }).(SpringCloudAppPersistentDiskOutput)
+	return o.ApplyT(func(v *SpringCloudAppPersistentDisk) SpringCloudAppPersistentDisk {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudAppPersistentDisk
+		return ret
+	}).(SpringCloudAppPersistentDiskOutput)
 }
 
 // Specifies the mount path of the persistent disk. Defaults to `/persistent`.
@@ -442,7 +454,7 @@ func (o SpringCloudServiceConfigServerGitSettingOutput) ToSpringCloudServiceConf
 }
 
 func (o SpringCloudServiceConfigServerGitSettingOutput) ToSpringCloudServiceConfigServerGitSettingPtrOutputWithContext(ctx context.Context) SpringCloudServiceConfigServerGitSettingPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSetting) *SpringCloudServiceConfigServerGitSetting {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceConfigServerGitSetting) *SpringCloudServiceConfigServerGitSetting {
 		return &v
 	}).(SpringCloudServiceConfigServerGitSettingPtrOutput)
 }
@@ -498,7 +510,13 @@ func (o SpringCloudServiceConfigServerGitSettingPtrOutput) ToSpringCloudServiceC
 }
 
 func (o SpringCloudServiceConfigServerGitSettingPtrOutput) Elem() SpringCloudServiceConfigServerGitSettingOutput {
-	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSetting) SpringCloudServiceConfigServerGitSetting { return *v }).(SpringCloudServiceConfigServerGitSettingOutput)
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSetting) SpringCloudServiceConfigServerGitSetting {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudServiceConfigServerGitSetting
+		return ret
+	}).(SpringCloudServiceConfigServerGitSettingOutput)
 }
 
 // A `httpBasicAuth` block as defined below.
@@ -658,7 +676,7 @@ func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ToSpringClo
 }
 
 func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ToSpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutputWithContext(ctx context.Context) SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingHttpBasicAuth) *SpringCloudServiceConfigServerGitSettingHttpBasicAuth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceConfigServerGitSettingHttpBasicAuth) *SpringCloudServiceConfigServerGitSettingHttpBasicAuth {
 		return &v
 	}).(SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput)
 }
@@ -689,7 +707,11 @@ func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) ToSpring
 
 func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) Elem() SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput {
 	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingHttpBasicAuth) SpringCloudServiceConfigServerGitSettingHttpBasicAuth {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudServiceConfigServerGitSettingHttpBasicAuth
+		return ret
 	}).(SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput)
 }
 
@@ -965,7 +987,7 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) T
 }
 
 func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) ToSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutputWithContext(ctx context.Context) SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) *SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) *SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth {
 		return &v
 	}).(SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput)
 }
@@ -996,7 +1018,11 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput
 
 func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput) Elem() SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput {
 	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth
+		return ret
 	}).(SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput)
 }
 
@@ -1125,7 +1151,7 @@ func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) ToSprin
 }
 
 func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) ToSpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutputWithContext(ctx context.Context) SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositorySshAuth) *SpringCloudServiceConfigServerGitSettingRepositorySshAuth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceConfigServerGitSettingRepositorySshAuth) *SpringCloudServiceConfigServerGitSettingRepositorySshAuth {
 		return &v
 	}).(SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput)
 }
@@ -1168,7 +1194,11 @@ func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) ToSp
 
 func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) Elem() SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput {
 	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingRepositorySshAuth) SpringCloudServiceConfigServerGitSettingRepositorySshAuth {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudServiceConfigServerGitSettingRepositorySshAuth
+		return ret
 	}).(SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput)
 }
 
@@ -1317,7 +1347,7 @@ func (o SpringCloudServiceConfigServerGitSettingSshAuthOutput) ToSpringCloudServ
 }
 
 func (o SpringCloudServiceConfigServerGitSettingSshAuthOutput) ToSpringCloudServiceConfigServerGitSettingSshAuthPtrOutputWithContext(ctx context.Context) SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingSshAuth) *SpringCloudServiceConfigServerGitSettingSshAuth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceConfigServerGitSettingSshAuth) *SpringCloudServiceConfigServerGitSettingSshAuth {
 		return &v
 	}).(SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput)
 }
@@ -1358,7 +1388,11 @@ func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) ToSpringCloudS
 
 func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) Elem() SpringCloudServiceConfigServerGitSettingSshAuthOutput {
 	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingSshAuth) SpringCloudServiceConfigServerGitSettingSshAuth {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudServiceConfigServerGitSettingSshAuth
+		return ret
 	}).(SpringCloudServiceConfigServerGitSettingSshAuthOutput)
 }
 
@@ -1511,7 +1545,7 @@ func (o SpringCloudServiceNetworkOutput) ToSpringCloudServiceNetworkPtrOutput() 
 }
 
 func (o SpringCloudServiceNetworkOutput) ToSpringCloudServiceNetworkPtrOutputWithContext(ctx context.Context) SpringCloudServiceNetworkPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceNetwork) *SpringCloudServiceNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceNetwork) *SpringCloudServiceNetwork {
 		return &v
 	}).(SpringCloudServiceNetworkPtrOutput)
 }
@@ -1556,7 +1590,13 @@ func (o SpringCloudServiceNetworkPtrOutput) ToSpringCloudServiceNetworkPtrOutput
 }
 
 func (o SpringCloudServiceNetworkPtrOutput) Elem() SpringCloudServiceNetworkOutput {
-	return o.ApplyT(func(v *SpringCloudServiceNetwork) SpringCloudServiceNetwork { return *v }).(SpringCloudServiceNetworkOutput)
+	return o.ApplyT(func(v *SpringCloudServiceNetwork) SpringCloudServiceNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudServiceNetwork
+		return ret
+	}).(SpringCloudServiceNetworkOutput)
 }
 
 // Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
@@ -1840,7 +1880,7 @@ func (o SpringCloudServiceTraceOutput) ToSpringCloudServiceTracePtrOutput() Spri
 }
 
 func (o SpringCloudServiceTraceOutput) ToSpringCloudServiceTracePtrOutputWithContext(ctx context.Context) SpringCloudServiceTracePtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceTrace) *SpringCloudServiceTrace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceTrace) *SpringCloudServiceTrace {
 		return &v
 	}).(SpringCloudServiceTracePtrOutput)
 }
@@ -1875,7 +1915,13 @@ func (o SpringCloudServiceTracePtrOutput) ToSpringCloudServiceTracePtrOutputWith
 }
 
 func (o SpringCloudServiceTracePtrOutput) Elem() SpringCloudServiceTraceOutput {
-	return o.ApplyT(func(v *SpringCloudServiceTrace) SpringCloudServiceTrace { return *v }).(SpringCloudServiceTraceOutput)
+	return o.ApplyT(func(v *SpringCloudServiceTrace) SpringCloudServiceTrace {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudServiceTrace
+		return ret
+	}).(SpringCloudServiceTraceOutput)
 }
 
 // The connection string used for Application Insights.

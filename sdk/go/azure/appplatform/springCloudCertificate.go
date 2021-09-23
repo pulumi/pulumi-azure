@@ -321,7 +321,7 @@ type SpringCloudCertificateArrayInput interface {
 type SpringCloudCertificateArray []SpringCloudCertificateInput
 
 func (SpringCloudCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SpringCloudCertificate)(nil))
+	return reflect.TypeOf((*[]*SpringCloudCertificate)(nil)).Elem()
 }
 
 func (i SpringCloudCertificateArray) ToSpringCloudCertificateArrayOutput() SpringCloudCertificateArrayOutput {
@@ -346,7 +346,7 @@ type SpringCloudCertificateMapInput interface {
 type SpringCloudCertificateMap map[string]SpringCloudCertificateInput
 
 func (SpringCloudCertificateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SpringCloudCertificate)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudCertificate)(nil)).Elem()
 }
 
 func (i SpringCloudCertificateMap) ToSpringCloudCertificateMapOutput() SpringCloudCertificateMapOutput {
@@ -357,9 +357,7 @@ func (i SpringCloudCertificateMap) ToSpringCloudCertificateMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCertificateMapOutput)
 }
 
-type SpringCloudCertificateOutput struct {
-	*pulumi.OutputState
-}
+type SpringCloudCertificateOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SpringCloudCertificate)(nil))
@@ -378,14 +376,12 @@ func (o SpringCloudCertificateOutput) ToSpringCloudCertificatePtrOutput() Spring
 }
 
 func (o SpringCloudCertificateOutput) ToSpringCloudCertificatePtrOutputWithContext(ctx context.Context) SpringCloudCertificatePtrOutput {
-	return o.ApplyT(func(v SpringCloudCertificate) *SpringCloudCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudCertificate) *SpringCloudCertificate {
 		return &v
 	}).(SpringCloudCertificatePtrOutput)
 }
 
-type SpringCloudCertificatePtrOutput struct {
-	*pulumi.OutputState
-}
+type SpringCloudCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCertificatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SpringCloudCertificate)(nil))
@@ -397,6 +393,16 @@ func (o SpringCloudCertificatePtrOutput) ToSpringCloudCertificatePtrOutput() Spr
 
 func (o SpringCloudCertificatePtrOutput) ToSpringCloudCertificatePtrOutputWithContext(ctx context.Context) SpringCloudCertificatePtrOutput {
 	return o
+}
+
+func (o SpringCloudCertificatePtrOutput) Elem() SpringCloudCertificateOutput {
+	return o.ApplyT(func(v *SpringCloudCertificate) SpringCloudCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudCertificate
+		return ret
+	}).(SpringCloudCertificateOutput)
 }
 
 type SpringCloudCertificateArrayOutput struct{ *pulumi.OutputState }

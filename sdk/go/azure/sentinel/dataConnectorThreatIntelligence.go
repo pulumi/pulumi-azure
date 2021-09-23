@@ -208,7 +208,7 @@ type DataConnectorThreatIntelligenceArrayInput interface {
 type DataConnectorThreatIntelligenceArray []DataConnectorThreatIntelligenceInput
 
 func (DataConnectorThreatIntelligenceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DataConnectorThreatIntelligence)(nil))
+	return reflect.TypeOf((*[]*DataConnectorThreatIntelligence)(nil)).Elem()
 }
 
 func (i DataConnectorThreatIntelligenceArray) ToDataConnectorThreatIntelligenceArrayOutput() DataConnectorThreatIntelligenceArrayOutput {
@@ -233,7 +233,7 @@ type DataConnectorThreatIntelligenceMapInput interface {
 type DataConnectorThreatIntelligenceMap map[string]DataConnectorThreatIntelligenceInput
 
 func (DataConnectorThreatIntelligenceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DataConnectorThreatIntelligence)(nil))
+	return reflect.TypeOf((*map[string]*DataConnectorThreatIntelligence)(nil)).Elem()
 }
 
 func (i DataConnectorThreatIntelligenceMap) ToDataConnectorThreatIntelligenceMapOutput() DataConnectorThreatIntelligenceMapOutput {
@@ -244,9 +244,7 @@ func (i DataConnectorThreatIntelligenceMap) ToDataConnectorThreatIntelligenceMap
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorThreatIntelligenceMapOutput)
 }
 
-type DataConnectorThreatIntelligenceOutput struct {
-	*pulumi.OutputState
-}
+type DataConnectorThreatIntelligenceOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorThreatIntelligenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataConnectorThreatIntelligence)(nil))
@@ -265,14 +263,12 @@ func (o DataConnectorThreatIntelligenceOutput) ToDataConnectorThreatIntelligence
 }
 
 func (o DataConnectorThreatIntelligenceOutput) ToDataConnectorThreatIntelligencePtrOutputWithContext(ctx context.Context) DataConnectorThreatIntelligencePtrOutput {
-	return o.ApplyT(func(v DataConnectorThreatIntelligence) *DataConnectorThreatIntelligence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorThreatIntelligence) *DataConnectorThreatIntelligence {
 		return &v
 	}).(DataConnectorThreatIntelligencePtrOutput)
 }
 
-type DataConnectorThreatIntelligencePtrOutput struct {
-	*pulumi.OutputState
-}
+type DataConnectorThreatIntelligencePtrOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorThreatIntelligencePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DataConnectorThreatIntelligence)(nil))
@@ -284,6 +280,16 @@ func (o DataConnectorThreatIntelligencePtrOutput) ToDataConnectorThreatIntellige
 
 func (o DataConnectorThreatIntelligencePtrOutput) ToDataConnectorThreatIntelligencePtrOutputWithContext(ctx context.Context) DataConnectorThreatIntelligencePtrOutput {
 	return o
+}
+
+func (o DataConnectorThreatIntelligencePtrOutput) Elem() DataConnectorThreatIntelligenceOutput {
+	return o.ApplyT(func(v *DataConnectorThreatIntelligence) DataConnectorThreatIntelligence {
+		if v != nil {
+			return *v
+		}
+		var ret DataConnectorThreatIntelligence
+		return ret
+	}).(DataConnectorThreatIntelligenceOutput)
 }
 
 type DataConnectorThreatIntelligenceArrayOutput struct{ *pulumi.OutputState }

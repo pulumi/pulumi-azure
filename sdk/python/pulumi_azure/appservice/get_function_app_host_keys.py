@@ -12,6 +12,7 @@ __all__ = [
     'GetFunctionAppHostKeysResult',
     'AwaitableGetFunctionAppHostKeysResult',
     'get_function_app_host_keys',
+    'get_function_app_host_keys_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,27 @@ def get_function_app_host_keys(name: Optional[str] = None,
         name=__ret__.name,
         primary_key=__ret__.primary_key,
         resource_group_name=__ret__.resource_group_name)
+
+
+@_utilities.lift_output_func(get_function_app_host_keys)
+def get_function_app_host_keys_output(name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionAppHostKeysResult]:
+    """
+    Use this data source to fetch the Host Keys of an existing Function App
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_function_app_host_keys(name="example-function",
+        resource_group_name=azurerm_resource_group["example"]["name"])
+    ```
+
+
+    :param str name: The name of the Function App.
+    :param str resource_group_name: The name of the Resource Group where the Function App exists.
+    """
+    ...

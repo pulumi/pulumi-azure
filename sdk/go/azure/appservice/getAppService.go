@@ -4,6 +4,9 @@
 package appservice
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -92,4 +95,147 @@ type LookupAppServiceResult struct {
 	SourceControls []GetAppServiceSourceControl `pulumi:"sourceControls"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupAppServiceOutput(ctx *pulumi.Context, args LookupAppServiceOutputArgs, opts ...pulumi.InvokeOption) LookupAppServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAppServiceResult, error) {
+			args := v.(LookupAppServiceArgs)
+			r, err := LookupAppService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAppServiceResultOutput)
+}
+
+// A collection of arguments for invoking getAppService.
+type LookupAppServiceOutputArgs struct {
+	// The name of the App Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group where the App Service exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAppServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAppServiceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAppService.
+type LookupAppServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAppServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAppServiceResult)(nil)).Elem()
+}
+
+func (o LookupAppServiceResultOutput) ToLookupAppServiceResultOutput() LookupAppServiceResultOutput {
+	return o
+}
+
+func (o LookupAppServiceResultOutput) ToLookupAppServiceResultOutputWithContext(ctx context.Context) LookupAppServiceResultOutput {
+	return o
+}
+
+// The ID of the App Service Plan within which the App Service exists.
+func (o LookupAppServiceResultOutput) AppServicePlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) string { return v.AppServicePlanId }).(pulumi.StringOutput)
+}
+
+// A key-value pair of App Settings for the App Service.
+func (o LookupAppServiceResultOutput) AppSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) map[string]string { return v.AppSettings }).(pulumi.StringMapOutput)
+}
+
+// Does the App Service send session affinity cookies, which route client requests in the same session to the same instance?
+func (o LookupAppServiceResultOutput) ClientAffinityEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) bool { return v.ClientAffinityEnabled }).(pulumi.BoolOutput)
+}
+
+// Does the App Service require client certificates for incoming requests?
+func (o LookupAppServiceResultOutput) ClientCertEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) bool { return v.ClientCertEnabled }).(pulumi.BoolOutput)
+}
+
+// An `connectionString` block as defined below.
+func (o LookupAppServiceResultOutput) ConnectionStrings() GetAppServiceConnectionStringArrayOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) []GetAppServiceConnectionString { return v.ConnectionStrings }).(GetAppServiceConnectionStringArrayOutput)
+}
+
+// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+func (o LookupAppServiceResultOutput) CustomDomainVerificationId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) string { return v.CustomDomainVerificationId }).(pulumi.StringOutput)
+}
+
+// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
+func (o LookupAppServiceResultOutput) DefaultSiteHostname() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) string { return v.DefaultSiteHostname }).(pulumi.StringOutput)
+}
+
+// Is the App Service Enabled?
+func (o LookupAppServiceResultOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Can the App Service only be accessed via HTTPS?
+func (o LookupAppServiceResultOutput) HttpsOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) bool { return v.HttpsOnly }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupAppServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure location where the App Service exists.
+func (o LookupAppServiceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name for this IP Restriction.
+func (o LookupAppServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+func (o LookupAppServiceResultOutput) OutboundIpAddressLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) []string { return v.OutboundIpAddressLists }).(pulumi.StringArrayOutput)
+}
+
+// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+func (o LookupAppServiceResultOutput) OutboundIpAddresses() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) string { return v.OutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
+func (o LookupAppServiceResultOutput) PossibleOutboundIpAddressLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) []string { return v.PossibleOutboundIpAddressLists }).(pulumi.StringArrayOutput)
+}
+
+// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+func (o LookupAppServiceResultOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) string { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+func (o LookupAppServiceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `siteConfig` block as defined below.
+func (o LookupAppServiceResultOutput) SiteConfigs() GetAppServiceSiteConfigArrayOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) []GetAppServiceSiteConfig { return v.SiteConfigs }).(GetAppServiceSiteConfigArrayOutput)
+}
+
+func (o LookupAppServiceResultOutput) SiteCredentials() GetAppServiceSiteCredentialArrayOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) []GetAppServiceSiteCredential { return v.SiteCredentials }).(GetAppServiceSiteCredentialArrayOutput)
+}
+
+// A `sourceControl` block as defined below.
+func (o LookupAppServiceResultOutput) SourceControls() GetAppServiceSourceControlArrayOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) []GetAppServiceSourceControl { return v.SourceControls }).(GetAppServiceSourceControlArrayOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o LookupAppServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAppServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAppServiceResultOutput{})
 }

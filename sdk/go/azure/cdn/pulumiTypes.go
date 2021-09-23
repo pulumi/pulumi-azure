@@ -419,7 +419,7 @@ func (o EndpointDeliveryRuleCacheExpirationActionOutput) ToEndpointDeliveryRuleC
 }
 
 func (o EndpointDeliveryRuleCacheExpirationActionOutput) ToEndpointDeliveryRuleCacheExpirationActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheExpirationActionPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleCacheExpirationAction) *EndpointDeliveryRuleCacheExpirationAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeliveryRuleCacheExpirationAction) *EndpointDeliveryRuleCacheExpirationAction {
 		return &v
 	}).(EndpointDeliveryRuleCacheExpirationActionPtrOutput)
 }
@@ -450,7 +450,11 @@ func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) ToEndpointDeliveryRu
 
 func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) Elem() EndpointDeliveryRuleCacheExpirationActionOutput {
 	return o.ApplyT(func(v *EndpointDeliveryRuleCacheExpirationAction) EndpointDeliveryRuleCacheExpirationAction {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeliveryRuleCacheExpirationAction
+		return ret
 	}).(EndpointDeliveryRuleCacheExpirationActionOutput)
 }
 
@@ -571,7 +575,7 @@ func (o EndpointDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointDeliveryR
 }
 
 func (o EndpointDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleCacheKeyQueryStringAction) *EndpointDeliveryRuleCacheKeyQueryStringAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeliveryRuleCacheKeyQueryStringAction) *EndpointDeliveryRuleCacheKeyQueryStringAction {
 		return &v
 	}).(EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput)
 }
@@ -602,7 +606,11 @@ func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) ToEndpointDelive
 
 func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) Elem() EndpointDeliveryRuleCacheKeyQueryStringActionOutput {
 	return o.ApplyT(func(v *EndpointDeliveryRuleCacheKeyQueryStringAction) EndpointDeliveryRuleCacheKeyQueryStringAction {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeliveryRuleCacheKeyQueryStringAction
+		return ret
 	}).(EndpointDeliveryRuleCacheKeyQueryStringActionOutput)
 }
 
@@ -860,7 +868,7 @@ func (o EndpointDeliveryRuleDeviceConditionOutput) ToEndpointDeliveryRuleDeviceC
 }
 
 func (o EndpointDeliveryRuleDeviceConditionOutput) ToEndpointDeliveryRuleDeviceConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleDeviceConditionPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) *EndpointDeliveryRuleDeviceCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeliveryRuleDeviceCondition) *EndpointDeliveryRuleDeviceCondition {
 		return &v
 	}).(EndpointDeliveryRuleDeviceConditionPtrOutput)
 }
@@ -895,7 +903,13 @@ func (o EndpointDeliveryRuleDeviceConditionPtrOutput) ToEndpointDeliveryRuleDevi
 }
 
 func (o EndpointDeliveryRuleDeviceConditionPtrOutput) Elem() EndpointDeliveryRuleDeviceConditionOutput {
-	return o.ApplyT(func(v *EndpointDeliveryRuleDeviceCondition) EndpointDeliveryRuleDeviceCondition { return *v }).(EndpointDeliveryRuleDeviceConditionOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleDeviceCondition) EndpointDeliveryRuleDeviceCondition {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeliveryRuleDeviceCondition
+		return ret
+	}).(EndpointDeliveryRuleDeviceConditionOutput)
 }
 
 // Valid values are `Desktop` and `Mobile`.
@@ -2003,7 +2017,7 @@ func (o EndpointDeliveryRuleRequestMethodConditionOutput) ToEndpointDeliveryRule
 }
 
 func (o EndpointDeliveryRuleRequestMethodConditionOutput) ToEndpointDeliveryRuleRequestMethodConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestMethodConditionPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) *EndpointDeliveryRuleRequestMethodCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeliveryRuleRequestMethodCondition) *EndpointDeliveryRuleRequestMethodCondition {
 		return &v
 	}).(EndpointDeliveryRuleRequestMethodConditionPtrOutput)
 }
@@ -2039,7 +2053,11 @@ func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) ToEndpointDeliveryR
 
 func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) Elem() EndpointDeliveryRuleRequestMethodConditionOutput {
 	return o.ApplyT(func(v *EndpointDeliveryRuleRequestMethodCondition) EndpointDeliveryRuleRequestMethodCondition {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeliveryRuleRequestMethodCondition
+		return ret
 	}).(EndpointDeliveryRuleRequestMethodConditionOutput)
 }
 
@@ -2174,7 +2192,7 @@ func (o EndpointDeliveryRuleRequestSchemeConditionOutput) ToEndpointDeliveryRule
 }
 
 func (o EndpointDeliveryRuleRequestSchemeConditionOutput) ToEndpointDeliveryRuleRequestSchemeConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestSchemeConditionPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) *EndpointDeliveryRuleRequestSchemeCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeliveryRuleRequestSchemeCondition) *EndpointDeliveryRuleRequestSchemeCondition {
 		return &v
 	}).(EndpointDeliveryRuleRequestSchemeConditionPtrOutput)
 }
@@ -2210,7 +2228,11 @@ func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) ToEndpointDeliveryR
 
 func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) Elem() EndpointDeliveryRuleRequestSchemeConditionOutput {
 	return o.ApplyT(func(v *EndpointDeliveryRuleRequestSchemeCondition) EndpointDeliveryRuleRequestSchemeCondition {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeliveryRuleRequestSchemeCondition
+		return ret
 	}).(EndpointDeliveryRuleRequestSchemeConditionOutput)
 }
 
@@ -2853,7 +2875,7 @@ func (o EndpointDeliveryRuleUrlRedirectActionOutput) ToEndpointDeliveryRuleUrlRe
 }
 
 func (o EndpointDeliveryRuleUrlRedirectActionOutput) ToEndpointDeliveryRuleUrlRedirectActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRedirectActionPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *EndpointDeliveryRuleUrlRedirectAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeliveryRuleUrlRedirectAction) *EndpointDeliveryRuleUrlRedirectAction {
 		return &v
 	}).(EndpointDeliveryRuleUrlRedirectActionPtrOutput)
 }
@@ -2903,7 +2925,13 @@ func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) ToEndpointDeliveryRuleUr
 }
 
 func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Elem() EndpointDeliveryRuleUrlRedirectActionOutput {
-	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRedirectAction) EndpointDeliveryRuleUrlRedirectAction { return *v }).(EndpointDeliveryRuleUrlRedirectActionOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRedirectAction) EndpointDeliveryRuleUrlRedirectAction {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeliveryRuleUrlRedirectAction
+		return ret
+	}).(EndpointDeliveryRuleUrlRedirectActionOutput)
 }
 
 // Specifies the fragment part of the URL. This value must not start with a `#`.
@@ -3067,7 +3095,7 @@ func (o EndpointDeliveryRuleUrlRewriteActionOutput) ToEndpointDeliveryRuleUrlRew
 }
 
 func (o EndpointDeliveryRuleUrlRewriteActionOutput) ToEndpointDeliveryRuleUrlRewriteActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRewriteActionPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) *EndpointDeliveryRuleUrlRewriteAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeliveryRuleUrlRewriteAction) *EndpointDeliveryRuleUrlRewriteAction {
 		return &v
 	}).(EndpointDeliveryRuleUrlRewriteActionPtrOutput)
 }
@@ -3102,7 +3130,13 @@ func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) ToEndpointDeliveryRuleUrl
 }
 
 func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) Elem() EndpointDeliveryRuleUrlRewriteActionOutput {
-	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRewriteAction) EndpointDeliveryRuleUrlRewriteAction { return *v }).(EndpointDeliveryRuleUrlRewriteActionOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRewriteAction) EndpointDeliveryRuleUrlRewriteAction {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeliveryRuleUrlRewriteAction
+		return ret
+	}).(EndpointDeliveryRuleUrlRewriteActionOutput)
 }
 
 // This value must start with a `/` and can't be longer than 260 characters.
@@ -3363,7 +3397,7 @@ func (o EndpointGlobalDeliveryRuleOutput) ToEndpointGlobalDeliveryRulePtrOutput(
 }
 
 func (o EndpointGlobalDeliveryRuleOutput) ToEndpointGlobalDeliveryRulePtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRulePtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRule {
 		return &v
 	}).(EndpointGlobalDeliveryRulePtrOutput)
 }
@@ -3425,7 +3459,13 @@ func (o EndpointGlobalDeliveryRulePtrOutput) ToEndpointGlobalDeliveryRulePtrOutp
 }
 
 func (o EndpointGlobalDeliveryRulePtrOutput) Elem() EndpointGlobalDeliveryRuleOutput {
-	return o.ApplyT(func(v *EndpointGlobalDeliveryRule) EndpointGlobalDeliveryRule { return *v }).(EndpointGlobalDeliveryRuleOutput)
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRule) EndpointGlobalDeliveryRule {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointGlobalDeliveryRule
+		return ret
+	}).(EndpointGlobalDeliveryRuleOutput)
 }
 
 // A `cacheExpirationAction` block as defined above.
@@ -3585,7 +3625,7 @@ func (o EndpointGlobalDeliveryRuleCacheExpirationActionOutput) ToEndpointGlobalD
 }
 
 func (o EndpointGlobalDeliveryRuleCacheExpirationActionOutput) ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheExpirationAction) *EndpointGlobalDeliveryRuleCacheExpirationAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointGlobalDeliveryRuleCacheExpirationAction) *EndpointGlobalDeliveryRuleCacheExpirationAction {
 		return &v
 	}).(EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput)
 }
@@ -3616,7 +3656,11 @@ func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) ToEndpointGlob
 
 func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) Elem() EndpointGlobalDeliveryRuleCacheExpirationActionOutput {
 	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleCacheExpirationAction) EndpointGlobalDeliveryRuleCacheExpirationAction {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointGlobalDeliveryRuleCacheExpirationAction
+		return ret
 	}).(EndpointGlobalDeliveryRuleCacheExpirationActionOutput)
 }
 
@@ -3737,7 +3781,7 @@ func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointGlo
 }
 
 func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
 		return &v
 	}).(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput)
 }
@@ -3768,7 +3812,11 @@ func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) ToEndpoint
 
 func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) Elem() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput {
 	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointGlobalDeliveryRuleCacheKeyQueryStringAction
+		return ret
 	}).(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput)
 }
 
@@ -4135,7 +4183,7 @@ func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) ToEndpointGlobalDeliv
 }
 
 func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *EndpointGlobalDeliveryRuleUrlRedirectAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointGlobalDeliveryRuleUrlRedirectAction) *EndpointGlobalDeliveryRuleUrlRedirectAction {
 		return &v
 	}).(EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput)
 }
@@ -4186,7 +4234,11 @@ func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) ToEndpointGlobalDe
 
 func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Elem() EndpointGlobalDeliveryRuleUrlRedirectActionOutput {
 	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRedirectAction) EndpointGlobalDeliveryRuleUrlRedirectAction {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointGlobalDeliveryRuleUrlRedirectAction
+		return ret
 	}).(EndpointGlobalDeliveryRuleUrlRedirectActionOutput)
 }
 
@@ -4351,7 +4403,7 @@ func (o EndpointGlobalDeliveryRuleUrlRewriteActionOutput) ToEndpointGlobalDelive
 }
 
 func (o EndpointGlobalDeliveryRuleUrlRewriteActionOutput) ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) *EndpointGlobalDeliveryRuleUrlRewriteAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointGlobalDeliveryRuleUrlRewriteAction) *EndpointGlobalDeliveryRuleUrlRewriteAction {
 		return &v
 	}).(EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput)
 }
@@ -4387,7 +4439,11 @@ func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) ToEndpointGlobalDel
 
 func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) Elem() EndpointGlobalDeliveryRuleUrlRewriteActionOutput {
 	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRewriteAction) EndpointGlobalDeliveryRuleUrlRewriteAction {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointGlobalDeliveryRuleUrlRewriteAction
+		return ret
 	}).(EndpointGlobalDeliveryRuleUrlRewriteActionOutput)
 }
 

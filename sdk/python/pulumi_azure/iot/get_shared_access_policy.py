@@ -12,6 +12,7 @@ __all__ = [
     'GetSharedAccessPolicyResult',
     'AwaitableGetSharedAccessPolicyResult',
     'get_shared_access_policy',
+    'get_shared_access_policy_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,30 @@ def get_shared_access_policy(iothub_name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         secondary_connection_string=__ret__.secondary_connection_string,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(get_shared_access_policy)
+def get_shared_access_policy_output(iothub_name: Optional[pulumi.Input[str]] = None,
+                                    name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedAccessPolicyResult]:
+    """
+    Use this data source to access information about an existing IotHub Shared Access Policy
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.iot.get_shared_access_policy(name="example",
+        resource_group_name=azurerm_resource_group["example"]["name"],
+        iothub_name=azurerm_iothub["example"]["name"])
+    ```
+
+
+    :param str iothub_name: The name of the IoTHub to which this Shared Access Policy belongs.
+    :param str name: Specifies the name of the IotHub Shared Access Policy resource.
+    :param str resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created.
+    """
+    ...

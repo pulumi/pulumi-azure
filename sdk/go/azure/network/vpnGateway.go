@@ -270,7 +270,7 @@ type VpnGatewayArrayInput interface {
 type VpnGatewayArray []VpnGatewayInput
 
 func (VpnGatewayArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpnGateway)(nil))
+	return reflect.TypeOf((*[]*VpnGateway)(nil)).Elem()
 }
 
 func (i VpnGatewayArray) ToVpnGatewayArrayOutput() VpnGatewayArrayOutput {
@@ -295,7 +295,7 @@ type VpnGatewayMapInput interface {
 type VpnGatewayMap map[string]VpnGatewayInput
 
 func (VpnGatewayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpnGateway)(nil))
+	return reflect.TypeOf((*map[string]*VpnGateway)(nil)).Elem()
 }
 
 func (i VpnGatewayMap) ToVpnGatewayMapOutput() VpnGatewayMapOutput {
@@ -306,9 +306,7 @@ func (i VpnGatewayMap) ToVpnGatewayMapOutputWithContext(ctx context.Context) Vpn
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayMapOutput)
 }
 
-type VpnGatewayOutput struct {
-	*pulumi.OutputState
-}
+type VpnGatewayOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpnGateway)(nil))
@@ -327,14 +325,12 @@ func (o VpnGatewayOutput) ToVpnGatewayPtrOutput() VpnGatewayPtrOutput {
 }
 
 func (o VpnGatewayOutput) ToVpnGatewayPtrOutputWithContext(ctx context.Context) VpnGatewayPtrOutput {
-	return o.ApplyT(func(v VpnGateway) *VpnGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnGateway) *VpnGateway {
 		return &v
 	}).(VpnGatewayPtrOutput)
 }
 
-type VpnGatewayPtrOutput struct {
-	*pulumi.OutputState
-}
+type VpnGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VpnGateway)(nil))
@@ -346,6 +342,16 @@ func (o VpnGatewayPtrOutput) ToVpnGatewayPtrOutput() VpnGatewayPtrOutput {
 
 func (o VpnGatewayPtrOutput) ToVpnGatewayPtrOutputWithContext(ctx context.Context) VpnGatewayPtrOutput {
 	return o
+}
+
+func (o VpnGatewayPtrOutput) Elem() VpnGatewayOutput {
+	return o.ApplyT(func(v *VpnGateway) VpnGateway {
+		if v != nil {
+			return *v
+		}
+		var ret VpnGateway
+		return ret
+	}).(VpnGatewayOutput)
 }
 
 type VpnGatewayArrayOutput struct{ *pulumi.OutputState }

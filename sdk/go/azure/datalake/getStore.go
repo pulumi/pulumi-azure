@@ -4,6 +4,9 @@
 package datalake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -69,4 +72,91 @@ type LookupStoreResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Current monthly commitment tier for the account.
 	Tier string `pulumi:"tier"`
+}
+
+func LookupStoreOutput(ctx *pulumi.Context, args LookupStoreOutputArgs, opts ...pulumi.InvokeOption) LookupStoreResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStoreResult, error) {
+			args := v.(LookupStoreArgs)
+			r, err := LookupStore(ctx, &args, opts...)
+			return *r, err
+		}).(LookupStoreResultOutput)
+}
+
+// A collection of arguments for invoking getStore.
+type LookupStoreOutputArgs struct {
+	// The name of the Data Lake Store.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the Resource Group where the Data Lake Store exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupStoreOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStoreArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getStore.
+type LookupStoreResultOutput struct{ *pulumi.OutputState }
+
+func (LookupStoreResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStoreResult)(nil)).Elem()
+}
+
+func (o LookupStoreResultOutput) ToLookupStoreResultOutput() LookupStoreResultOutput {
+	return o
+}
+
+func (o LookupStoreResultOutput) ToLookupStoreResultOutputWithContext(ctx context.Context) LookupStoreResultOutput {
+	return o
+}
+
+// the Encryption State of this Data Lake Store Account, such as `Enabled` or `Disabled`.
+func (o LookupStoreResultOutput) EncryptionState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStoreResult) string { return v.EncryptionState }).(pulumi.StringOutput)
+}
+
+// the Encryption Type used for this Data Lake Store Account.
+func (o LookupStoreResultOutput) EncryptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStoreResult) string { return v.EncryptionType }).(pulumi.StringOutput)
+}
+
+// are Azure Service IP's allowed through the firewall?
+func (o LookupStoreResultOutput) FirewallAllowAzureIps() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStoreResult) string { return v.FirewallAllowAzureIps }).(pulumi.StringOutput)
+}
+
+// the state of the firewall, such as `Enabled` or `Disabled`.
+func (o LookupStoreResultOutput) FirewallState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStoreResult) string { return v.FirewallState }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupStoreResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStoreResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupStoreResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStoreResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupStoreResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStoreResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupStoreResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStoreResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the Data Lake Store.
+func (o LookupStoreResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupStoreResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Current monthly commitment tier for the account.
+func (o LookupStoreResultOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStoreResult) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupStoreResultOutput{})
 }

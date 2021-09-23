@@ -324,7 +324,7 @@ type ContentKeyPolicyArrayInput interface {
 type ContentKeyPolicyArray []ContentKeyPolicyInput
 
 func (ContentKeyPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ContentKeyPolicy)(nil))
+	return reflect.TypeOf((*[]*ContentKeyPolicy)(nil)).Elem()
 }
 
 func (i ContentKeyPolicyArray) ToContentKeyPolicyArrayOutput() ContentKeyPolicyArrayOutput {
@@ -349,7 +349,7 @@ type ContentKeyPolicyMapInput interface {
 type ContentKeyPolicyMap map[string]ContentKeyPolicyInput
 
 func (ContentKeyPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ContentKeyPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ContentKeyPolicy)(nil)).Elem()
 }
 
 func (i ContentKeyPolicyMap) ToContentKeyPolicyMapOutput() ContentKeyPolicyMapOutput {
@@ -360,9 +360,7 @@ func (i ContentKeyPolicyMap) ToContentKeyPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyMapOutput)
 }
 
-type ContentKeyPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ContentKeyPolicyOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContentKeyPolicy)(nil))
@@ -381,14 +379,12 @@ func (o ContentKeyPolicyOutput) ToContentKeyPolicyPtrOutput() ContentKeyPolicyPt
 }
 
 func (o ContentKeyPolicyOutput) ToContentKeyPolicyPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicy) *ContentKeyPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicy) *ContentKeyPolicy {
 		return &v
 	}).(ContentKeyPolicyPtrOutput)
 }
 
-type ContentKeyPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ContentKeyPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ContentKeyPolicy)(nil))
@@ -400,6 +396,16 @@ func (o ContentKeyPolicyPtrOutput) ToContentKeyPolicyPtrOutput() ContentKeyPolic
 
 func (o ContentKeyPolicyPtrOutput) ToContentKeyPolicyPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPtrOutput {
 	return o
+}
+
+func (o ContentKeyPolicyPtrOutput) Elem() ContentKeyPolicyOutput {
+	return o.ApplyT(func(v *ContentKeyPolicy) ContentKeyPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicy
+		return ret
+	}).(ContentKeyPolicyOutput)
 }
 
 type ContentKeyPolicyArrayOutput struct{ *pulumi.OutputState }

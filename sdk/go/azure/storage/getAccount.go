@@ -4,6 +4,9 @@
 package storage
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -147,4 +150,276 @@ type LookupAccountResult struct {
 	SecondaryWebHost string `pulumi:"secondaryWebHost"`
 	// A mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAccountResult, error) {
+			args := v.(LookupAccountArgs)
+			r, err := LookupAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAccountResultOutput)
+}
+
+// A collection of arguments for invoking getAccount.
+type LookupAccountOutputArgs struct {
+	// The minimum supported TLS version for this storage account.
+	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	// Specifies the name of the Storage Account
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group the Storage Account is located in.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAccount.
+type LookupAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountResult)(nil)).Elem()
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutput() LookupAccountResultOutput {
+	return o
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx context.Context) LookupAccountResultOutput {
+	return o
+}
+
+// The access tier for `BlobStorage` accounts.
+func (o LookupAccountResultOutput) AccessTier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.AccessTier }).(pulumi.StringOutput)
+}
+
+// The Kind of account.
+func (o LookupAccountResultOutput) AccountKind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.AccountKind }).(pulumi.StringOutput)
+}
+
+// The type of replication used for this storage account.
+func (o LookupAccountResultOutput) AccountReplicationType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.AccountReplicationType }).(pulumi.StringOutput)
+}
+
+// The Tier of this storage account.
+func (o LookupAccountResultOutput) AccountTier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.AccountTier }).(pulumi.StringOutput)
+}
+
+// Is public access allowed to all blobs or containers in the storage account?
+func (o LookupAccountResultOutput) AllowBlobPublicAccess() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.AllowBlobPublicAccess }).(pulumi.BoolOutput)
+}
+
+// A `customDomain` block as documented below.
+func (o LookupAccountResultOutput) CustomDomains() GetAccountCustomDomainArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountCustomDomain { return v.CustomDomains }).(GetAccountCustomDomainArrayOutput)
+}
+
+// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+// for more information.
+func (o LookupAccountResultOutput) EnableHttpsTrafficOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableHttpsTrafficOnly }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Is Hierarchical Namespace enabled?
+func (o LookupAccountResultOutput) IsHnsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.IsHnsEnabled }).(pulumi.BoolOutput)
+}
+
+// The Azure location where the Storage Account exists
+func (o LookupAccountResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The minimum supported TLS version for this storage account.
+func (o LookupAccountResultOutput) MinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// The Custom Domain Name used for the Storage Account.
+func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The primary access key for the Storage Account.
+func (o LookupAccountResultOutput) PrimaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryAccessKey }).(pulumi.StringOutput)
+}
+
+// The connection string associated with the primary blob location
+func (o LookupAccountResultOutput) PrimaryBlobConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryBlobConnectionString }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for blob storage in the primary location.
+func (o LookupAccountResultOutput) PrimaryBlobEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryBlobEndpoint }).(pulumi.StringOutput)
+}
+
+// The hostname with port if applicable for blob storage in the primary location.
+func (o LookupAccountResultOutput) PrimaryBlobHost() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryBlobHost }).(pulumi.StringOutput)
+}
+
+// The connection string associated with the primary location
+func (o LookupAccountResultOutput) PrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for DFS storage in the primary location.
+func (o LookupAccountResultOutput) PrimaryDfsEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryDfsEndpoint }).(pulumi.StringOutput)
+}
+
+// The hostname with port if applicable for DFS storage in the primary location.
+func (o LookupAccountResultOutput) PrimaryDfsHost() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryDfsHost }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for file storage in the primary location.
+func (o LookupAccountResultOutput) PrimaryFileEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryFileEndpoint }).(pulumi.StringOutput)
+}
+
+// The hostname with port if applicable for file storage in the primary location.
+func (o LookupAccountResultOutput) PrimaryFileHost() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryFileHost }).(pulumi.StringOutput)
+}
+
+// The primary location of the Storage Account.
+func (o LookupAccountResultOutput) PrimaryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryLocation }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for queue storage in the primary location.
+func (o LookupAccountResultOutput) PrimaryQueueEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryQueueEndpoint }).(pulumi.StringOutput)
+}
+
+// The hostname with port if applicable for queue storage in the primary location.
+func (o LookupAccountResultOutput) PrimaryQueueHost() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryQueueHost }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for table storage in the primary location.
+func (o LookupAccountResultOutput) PrimaryTableEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryTableEndpoint }).(pulumi.StringOutput)
+}
+
+// The hostname with port if applicable for table storage in the primary location.
+func (o LookupAccountResultOutput) PrimaryTableHost() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryTableHost }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for web storage in the primary location.
+func (o LookupAccountResultOutput) PrimaryWebEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryWebEndpoint }).(pulumi.StringOutput)
+}
+
+// The hostname with port if applicable for web storage in the primary location.
+func (o LookupAccountResultOutput) PrimaryWebHost() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryWebHost }).(pulumi.StringOutput)
+}
+
+func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The secondary access key for the Storage Account.
+func (o LookupAccountResultOutput) SecondaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryAccessKey }).(pulumi.StringOutput)
+}
+
+// The connection string associated with the secondary blob location
+func (o LookupAccountResultOutput) SecondaryBlobConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryBlobConnectionString }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for blob storage in the secondary location.
+func (o LookupAccountResultOutput) SecondaryBlobEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryBlobEndpoint }).(pulumi.StringOutput)
+}
+
+// The hostname with port if applicable for blob storage in the secondary location.
+func (o LookupAccountResultOutput) SecondaryBlobHost() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryBlobHost }).(pulumi.StringOutput)
+}
+
+// The connection string associated with the secondary location
+func (o LookupAccountResultOutput) SecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for DFS storage in the secondary location.
+func (o LookupAccountResultOutput) SecondaryDfsEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryDfsEndpoint }).(pulumi.StringOutput)
+}
+
+// The hostname with port if applicable for DFS storage in the secondary location.
+func (o LookupAccountResultOutput) SecondaryDfsHost() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryDfsHost }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for file storage in the secondary location.
+func (o LookupAccountResultOutput) SecondaryFileEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryFileEndpoint }).(pulumi.StringOutput)
+}
+
+// The hostname with port if applicable for file storage in the secondary location.
+func (o LookupAccountResultOutput) SecondaryFileHost() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryFileHost }).(pulumi.StringOutput)
+}
+
+// The secondary location of the Storage Account.
+func (o LookupAccountResultOutput) SecondaryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryLocation }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for queue storage in the secondary location.
+func (o LookupAccountResultOutput) SecondaryQueueEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryQueueEndpoint }).(pulumi.StringOutput)
+}
+
+// The hostname with port if applicable for queue storage in the secondary location.
+func (o LookupAccountResultOutput) SecondaryQueueHost() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryQueueHost }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for table storage in the secondary location.
+func (o LookupAccountResultOutput) SecondaryTableEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryTableEndpoint }).(pulumi.StringOutput)
+}
+
+// The hostname with port if applicable for table storage in the secondary location.
+func (o LookupAccountResultOutput) SecondaryTableHost() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryTableHost }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for web storage in the secondary location.
+func (o LookupAccountResultOutput) SecondaryWebEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryWebEndpoint }).(pulumi.StringOutput)
+}
+
+// The hostname with port if applicable for web storage in the secondary location.
+func (o LookupAccountResultOutput) SecondaryWebHost() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryWebHost }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assigned to the resource.
+func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAccountResultOutput{})
 }

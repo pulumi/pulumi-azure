@@ -404,7 +404,7 @@ type HadoopClusterArrayInput interface {
 type HadoopClusterArray []HadoopClusterInput
 
 func (HadoopClusterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*HadoopCluster)(nil))
+	return reflect.TypeOf((*[]*HadoopCluster)(nil)).Elem()
 }
 
 func (i HadoopClusterArray) ToHadoopClusterArrayOutput() HadoopClusterArrayOutput {
@@ -429,7 +429,7 @@ type HadoopClusterMapInput interface {
 type HadoopClusterMap map[string]HadoopClusterInput
 
 func (HadoopClusterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*HadoopCluster)(nil))
+	return reflect.TypeOf((*map[string]*HadoopCluster)(nil)).Elem()
 }
 
 func (i HadoopClusterMap) ToHadoopClusterMapOutput() HadoopClusterMapOutput {
@@ -440,9 +440,7 @@ func (i HadoopClusterMap) ToHadoopClusterMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMapOutput)
 }
 
-type HadoopClusterOutput struct {
-	*pulumi.OutputState
-}
+type HadoopClusterOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HadoopCluster)(nil))
@@ -461,14 +459,12 @@ func (o HadoopClusterOutput) ToHadoopClusterPtrOutput() HadoopClusterPtrOutput {
 }
 
 func (o HadoopClusterOutput) ToHadoopClusterPtrOutputWithContext(ctx context.Context) HadoopClusterPtrOutput {
-	return o.ApplyT(func(v HadoopCluster) *HadoopCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopCluster) *HadoopCluster {
 		return &v
 	}).(HadoopClusterPtrOutput)
 }
 
-type HadoopClusterPtrOutput struct {
-	*pulumi.OutputState
-}
+type HadoopClusterPtrOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HadoopCluster)(nil))
@@ -480,6 +476,16 @@ func (o HadoopClusterPtrOutput) ToHadoopClusterPtrOutput() HadoopClusterPtrOutpu
 
 func (o HadoopClusterPtrOutput) ToHadoopClusterPtrOutputWithContext(ctx context.Context) HadoopClusterPtrOutput {
 	return o
+}
+
+func (o HadoopClusterPtrOutput) Elem() HadoopClusterOutput {
+	return o.ApplyT(func(v *HadoopCluster) HadoopCluster {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopCluster
+		return ret
+	}).(HadoopClusterOutput)
 }
 
 type HadoopClusterArrayOutput struct{ *pulumi.OutputState }

@@ -224,7 +224,7 @@ type SpringCloudActiveDeploymentArrayInput interface {
 type SpringCloudActiveDeploymentArray []SpringCloudActiveDeploymentInput
 
 func (SpringCloudActiveDeploymentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SpringCloudActiveDeployment)(nil))
+	return reflect.TypeOf((*[]*SpringCloudActiveDeployment)(nil)).Elem()
 }
 
 func (i SpringCloudActiveDeploymentArray) ToSpringCloudActiveDeploymentArrayOutput() SpringCloudActiveDeploymentArrayOutput {
@@ -249,7 +249,7 @@ type SpringCloudActiveDeploymentMapInput interface {
 type SpringCloudActiveDeploymentMap map[string]SpringCloudActiveDeploymentInput
 
 func (SpringCloudActiveDeploymentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SpringCloudActiveDeployment)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudActiveDeployment)(nil)).Elem()
 }
 
 func (i SpringCloudActiveDeploymentMap) ToSpringCloudActiveDeploymentMapOutput() SpringCloudActiveDeploymentMapOutput {
@@ -260,9 +260,7 @@ func (i SpringCloudActiveDeploymentMap) ToSpringCloudActiveDeploymentMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudActiveDeploymentMapOutput)
 }
 
-type SpringCloudActiveDeploymentOutput struct {
-	*pulumi.OutputState
-}
+type SpringCloudActiveDeploymentOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudActiveDeploymentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SpringCloudActiveDeployment)(nil))
@@ -281,14 +279,12 @@ func (o SpringCloudActiveDeploymentOutput) ToSpringCloudActiveDeploymentPtrOutpu
 }
 
 func (o SpringCloudActiveDeploymentOutput) ToSpringCloudActiveDeploymentPtrOutputWithContext(ctx context.Context) SpringCloudActiveDeploymentPtrOutput {
-	return o.ApplyT(func(v SpringCloudActiveDeployment) *SpringCloudActiveDeployment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudActiveDeployment) *SpringCloudActiveDeployment {
 		return &v
 	}).(SpringCloudActiveDeploymentPtrOutput)
 }
 
-type SpringCloudActiveDeploymentPtrOutput struct {
-	*pulumi.OutputState
-}
+type SpringCloudActiveDeploymentPtrOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudActiveDeploymentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SpringCloudActiveDeployment)(nil))
@@ -300,6 +296,16 @@ func (o SpringCloudActiveDeploymentPtrOutput) ToSpringCloudActiveDeploymentPtrOu
 
 func (o SpringCloudActiveDeploymentPtrOutput) ToSpringCloudActiveDeploymentPtrOutputWithContext(ctx context.Context) SpringCloudActiveDeploymentPtrOutput {
 	return o
+}
+
+func (o SpringCloudActiveDeploymentPtrOutput) Elem() SpringCloudActiveDeploymentOutput {
+	return o.ApplyT(func(v *SpringCloudActiveDeployment) SpringCloudActiveDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudActiveDeployment
+		return ret
+	}).(SpringCloudActiveDeploymentOutput)
 }
 
 type SpringCloudActiveDeploymentArrayOutput struct{ *pulumi.OutputState }

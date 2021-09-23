@@ -117,10 +117,11 @@ func (o DatabaseExtendedAuditingPolicyTypeOutput) ToDatabaseExtendedAuditingPoli
 }
 
 func (o DatabaseExtendedAuditingPolicyTypeOutput) ToDatabaseExtendedAuditingPolicyTypePtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyTypePtrOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) *DatabaseExtendedAuditingPolicyType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseExtendedAuditingPolicyType) *DatabaseExtendedAuditingPolicyType {
 		return &v
 	}).(DatabaseExtendedAuditingPolicyTypePtrOutput)
 }
+
 func (o DatabaseExtendedAuditingPolicyTypeOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) *bool { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -160,7 +161,13 @@ func (o DatabaseExtendedAuditingPolicyTypePtrOutput) ToDatabaseExtendedAuditingP
 }
 
 func (o DatabaseExtendedAuditingPolicyTypePtrOutput) Elem() DatabaseExtendedAuditingPolicyTypeOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicyType) DatabaseExtendedAuditingPolicyType { return *v }).(DatabaseExtendedAuditingPolicyTypeOutput)
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicyType) DatabaseExtendedAuditingPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseExtendedAuditingPolicyType
+		return ret
+	}).(DatabaseExtendedAuditingPolicyTypeOutput)
 }
 
 func (o DatabaseExtendedAuditingPolicyTypePtrOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
@@ -317,7 +324,7 @@ func (o DatabaseLongTermRetentionPolicyOutput) ToDatabaseLongTermRetentionPolicy
 }
 
 func (o DatabaseLongTermRetentionPolicyOutput) ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx context.Context) DatabaseLongTermRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v DatabaseLongTermRetentionPolicy) *DatabaseLongTermRetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseLongTermRetentionPolicy) *DatabaseLongTermRetentionPolicy {
 		return &v
 	}).(DatabaseLongTermRetentionPolicyPtrOutput)
 }
@@ -357,7 +364,13 @@ func (o DatabaseLongTermRetentionPolicyPtrOutput) ToDatabaseLongTermRetentionPol
 }
 
 func (o DatabaseLongTermRetentionPolicyPtrOutput) Elem() DatabaseLongTermRetentionPolicyOutput {
-	return o.ApplyT(func(v *DatabaseLongTermRetentionPolicy) DatabaseLongTermRetentionPolicy { return *v }).(DatabaseLongTermRetentionPolicyOutput)
+	return o.ApplyT(func(v *DatabaseLongTermRetentionPolicy) DatabaseLongTermRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseLongTermRetentionPolicy
+		return ret
+	}).(DatabaseLongTermRetentionPolicyOutput)
 }
 
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
@@ -493,7 +506,7 @@ func (o DatabaseShortTermRetentionPolicyOutput) ToDatabaseShortTermRetentionPoli
 }
 
 func (o DatabaseShortTermRetentionPolicyOutput) ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(ctx context.Context) DatabaseShortTermRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v DatabaseShortTermRetentionPolicy) *DatabaseShortTermRetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseShortTermRetentionPolicy) *DatabaseShortTermRetentionPolicy {
 		return &v
 	}).(DatabaseShortTermRetentionPolicyPtrOutput)
 }
@@ -518,7 +531,13 @@ func (o DatabaseShortTermRetentionPolicyPtrOutput) ToDatabaseShortTermRetentionP
 }
 
 func (o DatabaseShortTermRetentionPolicyPtrOutput) Elem() DatabaseShortTermRetentionPolicyOutput {
-	return o.ApplyT(func(v *DatabaseShortTermRetentionPolicy) DatabaseShortTermRetentionPolicy { return *v }).(DatabaseShortTermRetentionPolicyOutput)
+	return o.ApplyT(func(v *DatabaseShortTermRetentionPolicy) DatabaseShortTermRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseShortTermRetentionPolicy
+		return ret
+	}).(DatabaseShortTermRetentionPolicyOutput)
 }
 
 // Point In Time Restore configuration. Value has to be between `7` and `35`.
@@ -652,7 +671,7 @@ func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyPtrO
 }
 
 func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *DatabaseThreatDetectionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseThreatDetectionPolicy) *DatabaseThreatDetectionPolicy {
 		return &v
 	}).(DatabaseThreatDetectionPolicyPtrOutput)
 }
@@ -712,7 +731,13 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) ToDatabaseThreatDetectionPolicyP
 }
 
 func (o DatabaseThreatDetectionPolicyPtrOutput) Elem() DatabaseThreatDetectionPolicyOutput {
-	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) DatabaseThreatDetectionPolicy { return *v }).(DatabaseThreatDetectionPolicyOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) DatabaseThreatDetectionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseThreatDetectionPolicy
+		return ret
+	}).(DatabaseThreatDetectionPolicyOutput)
 }
 
 // Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
@@ -989,7 +1014,7 @@ func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPt
 }
 
 func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
-	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) *ElasticPoolPerDatabaseSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPoolPerDatabaseSettings) *ElasticPoolPerDatabaseSettings {
 		return &v
 	}).(ElasticPoolPerDatabaseSettingsPtrOutput)
 }
@@ -1019,7 +1044,13 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) ToElasticPoolPerDatabaseSetting
 }
 
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) Elem() ElasticPoolPerDatabaseSettingsOutput {
-	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) ElasticPoolPerDatabaseSettings { return *v }).(ElasticPoolPerDatabaseSettingsOutput)
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) ElasticPoolPerDatabaseSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ElasticPoolPerDatabaseSettings
+		return ret
+	}).(ElasticPoolPerDatabaseSettingsOutput)
 }
 
 // The maximum capacity any one database can consume.
@@ -1147,7 +1178,7 @@ func (o ElasticPoolSkuOutput) ToElasticPoolSkuPtrOutput() ElasticPoolSkuPtrOutpu
 }
 
 func (o ElasticPoolSkuOutput) ToElasticPoolSkuPtrOutputWithContext(ctx context.Context) ElasticPoolSkuPtrOutput {
-	return o.ApplyT(func(v ElasticPoolSku) *ElasticPoolSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPoolSku) *ElasticPoolSku {
 		return &v
 	}).(ElasticPoolSkuPtrOutput)
 }
@@ -1187,7 +1218,13 @@ func (o ElasticPoolSkuPtrOutput) ToElasticPoolSkuPtrOutputWithContext(ctx contex
 }
 
 func (o ElasticPoolSkuPtrOutput) Elem() ElasticPoolSkuOutput {
-	return o.ApplyT(func(v *ElasticPoolSku) ElasticPoolSku { return *v }).(ElasticPoolSkuOutput)
+	return o.ApplyT(func(v *ElasticPoolSku) ElasticPoolSku {
+		if v != nil {
+			return *v
+		}
+		var ret ElasticPoolSku
+		return ret
+	}).(ElasticPoolSkuOutput)
 }
 
 // The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
@@ -1331,7 +1368,7 @@ func (o ServerAzureadAdministratorOutput) ToServerAzureadAdministratorPtrOutput(
 }
 
 func (o ServerAzureadAdministratorOutput) ToServerAzureadAdministratorPtrOutputWithContext(ctx context.Context) ServerAzureadAdministratorPtrOutput {
-	return o.ApplyT(func(v ServerAzureadAdministrator) *ServerAzureadAdministrator {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerAzureadAdministrator) *ServerAzureadAdministrator {
 		return &v
 	}).(ServerAzureadAdministratorPtrOutput)
 }
@@ -1366,7 +1403,13 @@ func (o ServerAzureadAdministratorPtrOutput) ToServerAzureadAdministratorPtrOutp
 }
 
 func (o ServerAzureadAdministratorPtrOutput) Elem() ServerAzureadAdministratorOutput {
-	return o.ApplyT(func(v *ServerAzureadAdministrator) ServerAzureadAdministrator { return *v }).(ServerAzureadAdministratorOutput)
+	return o.ApplyT(func(v *ServerAzureadAdministrator) ServerAzureadAdministrator {
+		if v != nil {
+			return *v
+		}
+		var ret ServerAzureadAdministrator
+		return ret
+	}).(ServerAzureadAdministratorOutput)
 }
 
 // (Required)  The login username of the Azure AD Administrator of this SQL Server.
@@ -1508,7 +1551,7 @@ func (o ServerExtendedAuditingPolicyTypeOutput) ToServerExtendedAuditingPolicyTy
 }
 
 func (o ServerExtendedAuditingPolicyTypeOutput) ToServerExtendedAuditingPolicyTypePtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyTypePtrOutput {
-	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *ServerExtendedAuditingPolicyType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerExtendedAuditingPolicyType) *ServerExtendedAuditingPolicyType {
 		return &v
 	}).(ServerExtendedAuditingPolicyTypePtrOutput)
 }
@@ -1553,7 +1596,13 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) ToServerExtendedAuditingPolic
 }
 
 func (o ServerExtendedAuditingPolicyTypePtrOutput) Elem() ServerExtendedAuditingPolicyTypeOutput {
-	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) ServerExtendedAuditingPolicyType { return *v }).(ServerExtendedAuditingPolicyTypeOutput)
+	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) ServerExtendedAuditingPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret ServerExtendedAuditingPolicyType
+		return ret
+	}).(ServerExtendedAuditingPolicyTypeOutput)
 }
 
 // (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
@@ -1707,7 +1756,7 @@ func (o ServerIdentityOutput) ToServerIdentityPtrOutput() ServerIdentityPtrOutpu
 }
 
 func (o ServerIdentityOutput) ToServerIdentityPtrOutputWithContext(ctx context.Context) ServerIdentityPtrOutput {
-	return o.ApplyT(func(v ServerIdentity) *ServerIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerIdentity) *ServerIdentity {
 		return &v
 	}).(ServerIdentityPtrOutput)
 }
@@ -1742,7 +1791,13 @@ func (o ServerIdentityPtrOutput) ToServerIdentityPtrOutputWithContext(ctx contex
 }
 
 func (o ServerIdentityPtrOutput) Elem() ServerIdentityOutput {
-	return o.ApplyT(func(v *ServerIdentity) ServerIdentity { return *v }).(ServerIdentityOutput)
+	return o.ApplyT(func(v *ServerIdentity) ServerIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ServerIdentity
+		return ret
+	}).(ServerIdentityOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this SQL Server.
@@ -1876,7 +1931,7 @@ func (o ServerVulnerabilityAssessmentRecurringScansOutput) ToServerVulnerability
 }
 
 func (o ServerVulnerabilityAssessmentRecurringScansOutput) ToServerVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) ServerVulnerabilityAssessmentRecurringScansPtrOutput {
-	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) *ServerVulnerabilityAssessmentRecurringScans {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerVulnerabilityAssessmentRecurringScans) *ServerVulnerabilityAssessmentRecurringScans {
 		return &v
 	}).(ServerVulnerabilityAssessmentRecurringScansPtrOutput)
 }
@@ -1912,7 +1967,11 @@ func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) ToServerVulnerabil
 
 func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Elem() ServerVulnerabilityAssessmentRecurringScansOutput {
 	return o.ApplyT(func(v *ServerVulnerabilityAssessmentRecurringScans) ServerVulnerabilityAssessmentRecurringScans {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServerVulnerabilityAssessmentRecurringScans
+		return ret
 	}).(ServerVulnerabilityAssessmentRecurringScansOutput)
 }
 
@@ -2063,7 +2122,7 @@ func (o VirtualMachineAutoBackupOutput) ToVirtualMachineAutoBackupPtrOutput() Vi
 }
 
 func (o VirtualMachineAutoBackupOutput) ToVirtualMachineAutoBackupPtrOutputWithContext(ctx context.Context) VirtualMachineAutoBackupPtrOutput {
-	return o.ApplyT(func(v VirtualMachineAutoBackup) *VirtualMachineAutoBackup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAutoBackup) *VirtualMachineAutoBackup {
 		return &v
 	}).(VirtualMachineAutoBackupPtrOutput)
 }
@@ -2118,7 +2177,13 @@ func (o VirtualMachineAutoBackupPtrOutput) ToVirtualMachineAutoBackupPtrOutputWi
 }
 
 func (o VirtualMachineAutoBackupPtrOutput) Elem() VirtualMachineAutoBackupOutput {
-	return o.ApplyT(func(v *VirtualMachineAutoBackup) VirtualMachineAutoBackup { return *v }).(VirtualMachineAutoBackupOutput)
+	return o.ApplyT(func(v *VirtualMachineAutoBackup) VirtualMachineAutoBackup {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineAutoBackup
+		return ret
+	}).(VirtualMachineAutoBackupOutput)
 }
 
 // Enable or disable encryption for backups. Defaults to `false`.
@@ -2296,7 +2361,7 @@ func (o VirtualMachineAutoBackupManualScheduleOutput) ToVirtualMachineAutoBackup
 }
 
 func (o VirtualMachineAutoBackupManualScheduleOutput) ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(ctx context.Context) VirtualMachineAutoBackupManualSchedulePtrOutput {
-	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) *VirtualMachineAutoBackupManualSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAutoBackupManualSchedule) *VirtualMachineAutoBackupManualSchedule {
 		return &v
 	}).(VirtualMachineAutoBackupManualSchedulePtrOutput)
 }
@@ -2336,7 +2401,13 @@ func (o VirtualMachineAutoBackupManualSchedulePtrOutput) ToVirtualMachineAutoBac
 }
 
 func (o VirtualMachineAutoBackupManualSchedulePtrOutput) Elem() VirtualMachineAutoBackupManualScheduleOutput {
-	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) VirtualMachineAutoBackupManualSchedule { return *v }).(VirtualMachineAutoBackupManualScheduleOutput)
+	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) VirtualMachineAutoBackupManualSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineAutoBackupManualSchedule
+		return ret
+	}).(VirtualMachineAutoBackupManualScheduleOutput)
 }
 
 // Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backupScheduleAutomated` is false.
@@ -2480,7 +2551,7 @@ func (o VirtualMachineAutoPatchingOutput) ToVirtualMachineAutoPatchingPtrOutput(
 }
 
 func (o VirtualMachineAutoPatchingOutput) ToVirtualMachineAutoPatchingPtrOutputWithContext(ctx context.Context) VirtualMachineAutoPatchingPtrOutput {
-	return o.ApplyT(func(v VirtualMachineAutoPatching) *VirtualMachineAutoPatching {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAutoPatching) *VirtualMachineAutoPatching {
 		return &v
 	}).(VirtualMachineAutoPatchingPtrOutput)
 }
@@ -2515,7 +2586,13 @@ func (o VirtualMachineAutoPatchingPtrOutput) ToVirtualMachineAutoPatchingPtrOutp
 }
 
 func (o VirtualMachineAutoPatchingPtrOutput) Elem() VirtualMachineAutoPatchingOutput {
-	return o.ApplyT(func(v *VirtualMachineAutoPatching) VirtualMachineAutoPatching { return *v }).(VirtualMachineAutoPatchingOutput)
+	return o.ApplyT(func(v *VirtualMachineAutoPatching) VirtualMachineAutoPatching {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineAutoPatching
+		return ret
+	}).(VirtualMachineAutoPatchingOutput)
 }
 
 // The day of week to apply the patch on.
@@ -2653,7 +2730,7 @@ func (o VirtualMachineKeyVaultCredentialOutput) ToVirtualMachineKeyVaultCredenti
 }
 
 func (o VirtualMachineKeyVaultCredentialOutput) ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(ctx context.Context) VirtualMachineKeyVaultCredentialPtrOutput {
-	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) *VirtualMachineKeyVaultCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineKeyVaultCredential) *VirtualMachineKeyVaultCredential {
 		return &v
 	}).(VirtualMachineKeyVaultCredentialPtrOutput)
 }
@@ -2693,7 +2770,13 @@ func (o VirtualMachineKeyVaultCredentialPtrOutput) ToVirtualMachineKeyVaultCrede
 }
 
 func (o VirtualMachineKeyVaultCredentialPtrOutput) Elem() VirtualMachineKeyVaultCredentialOutput {
-	return o.ApplyT(func(v *VirtualMachineKeyVaultCredential) VirtualMachineKeyVaultCredential { return *v }).(VirtualMachineKeyVaultCredentialOutput)
+	return o.ApplyT(func(v *VirtualMachineKeyVaultCredential) VirtualMachineKeyVaultCredential {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineKeyVaultCredential
+		return ret
+	}).(VirtualMachineKeyVaultCredentialOutput)
 }
 
 // The azure Key Vault url. Changing this forces a new resource to be created.
@@ -2845,7 +2928,7 @@ func (o VirtualMachineStorageConfigurationOutput) ToVirtualMachineStorageConfigu
 }
 
 func (o VirtualMachineStorageConfigurationOutput) ToVirtualMachineStorageConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationPtrOutput {
-	return o.ApplyT(func(v VirtualMachineStorageConfiguration) *VirtualMachineStorageConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineStorageConfiguration) *VirtualMachineStorageConfiguration {
 		return &v
 	}).(VirtualMachineStorageConfigurationPtrOutput)
 }
@@ -2896,7 +2979,13 @@ func (o VirtualMachineStorageConfigurationPtrOutput) ToVirtualMachineStorageConf
 }
 
 func (o VirtualMachineStorageConfigurationPtrOutput) Elem() VirtualMachineStorageConfigurationOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) VirtualMachineStorageConfiguration { return *v }).(VirtualMachineStorageConfigurationOutput)
+	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) VirtualMachineStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineStorageConfiguration
+		return ret
+	}).(VirtualMachineStorageConfigurationOutput)
 }
 
 // An `storageSettings` as defined below.
@@ -3046,7 +3135,7 @@ func (o VirtualMachineStorageConfigurationDataSettingsOutput) ToVirtualMachineSt
 }
 
 func (o VirtualMachineStorageConfigurationDataSettingsOutput) ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationDataSettingsPtrOutput {
-	return o.ApplyT(func(v VirtualMachineStorageConfigurationDataSettings) *VirtualMachineStorageConfigurationDataSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineStorageConfigurationDataSettings) *VirtualMachineStorageConfigurationDataSettings {
 		return &v
 	}).(VirtualMachineStorageConfigurationDataSettingsPtrOutput)
 }
@@ -3077,7 +3166,11 @@ func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) ToVirtualMachin
 
 func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) Elem() VirtualMachineStorageConfigurationDataSettingsOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageConfigurationDataSettings) VirtualMachineStorageConfigurationDataSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineStorageConfigurationDataSettings
+		return ret
 	}).(VirtualMachineStorageConfigurationDataSettingsOutput)
 }
 
@@ -3198,7 +3291,7 @@ func (o VirtualMachineStorageConfigurationLogSettingsOutput) ToVirtualMachineSto
 }
 
 func (o VirtualMachineStorageConfigurationLogSettingsOutput) ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationLogSettingsPtrOutput {
-	return o.ApplyT(func(v VirtualMachineStorageConfigurationLogSettings) *VirtualMachineStorageConfigurationLogSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineStorageConfigurationLogSettings) *VirtualMachineStorageConfigurationLogSettings {
 		return &v
 	}).(VirtualMachineStorageConfigurationLogSettingsPtrOutput)
 }
@@ -3229,7 +3322,11 @@ func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) ToVirtualMachine
 
 func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) Elem() VirtualMachineStorageConfigurationLogSettingsOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageConfigurationLogSettings) VirtualMachineStorageConfigurationLogSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineStorageConfigurationLogSettings
+		return ret
 	}).(VirtualMachineStorageConfigurationLogSettingsOutput)
 }
 
@@ -3350,7 +3447,7 @@ func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) ToVirtualMachine
 }
 
 func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
-	return o.ApplyT(func(v VirtualMachineStorageConfigurationTempDbSettings) *VirtualMachineStorageConfigurationTempDbSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineStorageConfigurationTempDbSettings) *VirtualMachineStorageConfigurationTempDbSettings {
 		return &v
 	}).(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput)
 }
@@ -3381,7 +3478,11 @@ func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) ToVirtualMach
 
 func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) Elem() VirtualMachineStorageConfigurationTempDbSettingsOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageConfigurationTempDbSettings) VirtualMachineStorageConfigurationTempDbSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineStorageConfigurationTempDbSettings
+		return ret
 	}).(VirtualMachineStorageConfigurationTempDbSettingsOutput)
 }
 

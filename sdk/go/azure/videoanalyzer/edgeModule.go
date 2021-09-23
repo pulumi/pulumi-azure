@@ -261,7 +261,7 @@ type EdgeModuleArrayInput interface {
 type EdgeModuleArray []EdgeModuleInput
 
 func (EdgeModuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EdgeModule)(nil))
+	return reflect.TypeOf((*[]*EdgeModule)(nil)).Elem()
 }
 
 func (i EdgeModuleArray) ToEdgeModuleArrayOutput() EdgeModuleArrayOutput {
@@ -286,7 +286,7 @@ type EdgeModuleMapInput interface {
 type EdgeModuleMap map[string]EdgeModuleInput
 
 func (EdgeModuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EdgeModule)(nil))
+	return reflect.TypeOf((*map[string]*EdgeModule)(nil)).Elem()
 }
 
 func (i EdgeModuleMap) ToEdgeModuleMapOutput() EdgeModuleMapOutput {
@@ -297,9 +297,7 @@ func (i EdgeModuleMap) ToEdgeModuleMapOutputWithContext(ctx context.Context) Edg
 	return pulumi.ToOutputWithContext(ctx, i).(EdgeModuleMapOutput)
 }
 
-type EdgeModuleOutput struct {
-	*pulumi.OutputState
-}
+type EdgeModuleOutput struct{ *pulumi.OutputState }
 
 func (EdgeModuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EdgeModule)(nil))
@@ -318,14 +316,12 @@ func (o EdgeModuleOutput) ToEdgeModulePtrOutput() EdgeModulePtrOutput {
 }
 
 func (o EdgeModuleOutput) ToEdgeModulePtrOutputWithContext(ctx context.Context) EdgeModulePtrOutput {
-	return o.ApplyT(func(v EdgeModule) *EdgeModule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdgeModule) *EdgeModule {
 		return &v
 	}).(EdgeModulePtrOutput)
 }
 
-type EdgeModulePtrOutput struct {
-	*pulumi.OutputState
-}
+type EdgeModulePtrOutput struct{ *pulumi.OutputState }
 
 func (EdgeModulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EdgeModule)(nil))
@@ -337,6 +333,16 @@ func (o EdgeModulePtrOutput) ToEdgeModulePtrOutput() EdgeModulePtrOutput {
 
 func (o EdgeModulePtrOutput) ToEdgeModulePtrOutputWithContext(ctx context.Context) EdgeModulePtrOutput {
 	return o
+}
+
+func (o EdgeModulePtrOutput) Elem() EdgeModuleOutput {
+	return o.ApplyT(func(v *EdgeModule) EdgeModule {
+		if v != nil {
+			return *v
+		}
+		var ret EdgeModule
+		return ret
+	}).(EdgeModuleOutput)
 }
 
 type EdgeModuleArrayOutput struct{ *pulumi.OutputState }

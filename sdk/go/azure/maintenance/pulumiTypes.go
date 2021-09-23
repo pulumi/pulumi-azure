@@ -119,7 +119,7 @@ func (o ConfigurationWindowOutput) ToConfigurationWindowPtrOutput() Configuratio
 }
 
 func (o ConfigurationWindowOutput) ToConfigurationWindowPtrOutputWithContext(ctx context.Context) ConfigurationWindowPtrOutput {
-	return o.ApplyT(func(v ConfigurationWindow) *ConfigurationWindow {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationWindow) *ConfigurationWindow {
 		return &v
 	}).(ConfigurationWindowPtrOutput)
 }
@@ -164,7 +164,13 @@ func (o ConfigurationWindowPtrOutput) ToConfigurationWindowPtrOutputWithContext(
 }
 
 func (o ConfigurationWindowPtrOutput) Elem() ConfigurationWindowOutput {
-	return o.ApplyT(func(v *ConfigurationWindow) ConfigurationWindow { return *v }).(ConfigurationWindowOutput)
+	return o.ApplyT(func(v *ConfigurationWindow) ConfigurationWindow {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationWindow
+		return ret
+	}).(ConfigurationWindowOutput)
 }
 
 // The duration of the maintenance window in HH:mm format.

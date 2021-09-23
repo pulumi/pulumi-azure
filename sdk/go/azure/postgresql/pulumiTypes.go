@@ -107,7 +107,7 @@ func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityPt
 }
 
 func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityPtrOutput {
-	return o.ApplyT(func(v FlexibleServerHighAvailability) *FlexibleServerHighAvailability {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerHighAvailability) *FlexibleServerHighAvailability {
 		return &v
 	}).(FlexibleServerHighAvailabilityPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o FlexibleServerHighAvailabilityPtrOutput) ToFlexibleServerHighAvailabilit
 }
 
 func (o FlexibleServerHighAvailabilityPtrOutput) Elem() FlexibleServerHighAvailabilityOutput {
-	return o.ApplyT(func(v *FlexibleServerHighAvailability) FlexibleServerHighAvailability { return *v }).(FlexibleServerHighAvailabilityOutput)
+	return o.ApplyT(func(v *FlexibleServerHighAvailability) FlexibleServerHighAvailability {
+		if v != nil {
+			return *v
+		}
+		var ret FlexibleServerHighAvailability
+		return ret
+	}).(FlexibleServerHighAvailabilityOutput)
 }
 
 // The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
@@ -261,7 +267,7 @@ func (o FlexibleServerMaintenanceWindowOutput) ToFlexibleServerMaintenanceWindow
 }
 
 func (o FlexibleServerMaintenanceWindowOutput) ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowPtrOutput {
-	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *FlexibleServerMaintenanceWindow {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerMaintenanceWindow) *FlexibleServerMaintenanceWindow {
 		return &v
 	}).(FlexibleServerMaintenanceWindowPtrOutput)
 }
@@ -296,7 +302,13 @@ func (o FlexibleServerMaintenanceWindowPtrOutput) ToFlexibleServerMaintenanceWin
 }
 
 func (o FlexibleServerMaintenanceWindowPtrOutput) Elem() FlexibleServerMaintenanceWindowOutput {
-	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) FlexibleServerMaintenanceWindow { return *v }).(FlexibleServerMaintenanceWindowOutput)
+	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) FlexibleServerMaintenanceWindow {
+		if v != nil {
+			return *v
+		}
+		var ret FlexibleServerMaintenanceWindow
+		return ret
+	}).(FlexibleServerMaintenanceWindowOutput)
 }
 
 // The day of week for maintenance window. Defaults to `0`.
@@ -430,7 +442,7 @@ func (o ServerIdentityOutput) ToServerIdentityPtrOutput() ServerIdentityPtrOutpu
 }
 
 func (o ServerIdentityOutput) ToServerIdentityPtrOutputWithContext(ctx context.Context) ServerIdentityPtrOutput {
-	return o.ApplyT(func(v ServerIdentity) *ServerIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerIdentity) *ServerIdentity {
 		return &v
 	}).(ServerIdentityPtrOutput)
 }
@@ -465,7 +477,13 @@ func (o ServerIdentityPtrOutput) ToServerIdentityPtrOutputWithContext(ctx contex
 }
 
 func (o ServerIdentityPtrOutput) Elem() ServerIdentityOutput {
-	return o.ApplyT(func(v *ServerIdentity) ServerIdentity { return *v }).(ServerIdentityOutput)
+	return o.ApplyT(func(v *ServerIdentity) ServerIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ServerIdentity
+		return ret
+	}).(ServerIdentityOutput)
 }
 
 // The Client ID of the Service Principal assigned to this PostgreSQL Server.
@@ -611,7 +629,7 @@ func (o ServerStorageProfileOutput) ToServerStorageProfilePtrOutput() ServerStor
 }
 
 func (o ServerStorageProfileOutput) ToServerStorageProfilePtrOutputWithContext(ctx context.Context) ServerStorageProfilePtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *ServerStorageProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerStorageProfile) *ServerStorageProfile {
 		return &v
 	}).(ServerStorageProfilePtrOutput)
 }
@@ -655,7 +673,13 @@ func (o ServerStorageProfilePtrOutput) ToServerStorageProfilePtrOutputWithContex
 }
 
 func (o ServerStorageProfilePtrOutput) Elem() ServerStorageProfileOutput {
-	return o.ApplyT(func(v *ServerStorageProfile) ServerStorageProfile { return *v }).(ServerStorageProfileOutput)
+	return o.ApplyT(func(v *ServerStorageProfile) ServerStorageProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ServerStorageProfile
+		return ret
+	}).(ServerStorageProfileOutput)
 }
 
 // Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
@@ -819,7 +843,7 @@ func (o ServerThreatDetectionPolicyOutput) ToServerThreatDetectionPolicyPtrOutpu
 }
 
 func (o ServerThreatDetectionPolicyOutput) ToServerThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) ServerThreatDetectionPolicyPtrOutput {
-	return o.ApplyT(func(v ServerThreatDetectionPolicy) *ServerThreatDetectionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerThreatDetectionPolicy) *ServerThreatDetectionPolicy {
 		return &v
 	}).(ServerThreatDetectionPolicyPtrOutput)
 }
@@ -874,7 +898,13 @@ func (o ServerThreatDetectionPolicyPtrOutput) ToServerThreatDetectionPolicyPtrOu
 }
 
 func (o ServerThreatDetectionPolicyPtrOutput) Elem() ServerThreatDetectionPolicyOutput {
-	return o.ApplyT(func(v *ServerThreatDetectionPolicy) ServerThreatDetectionPolicy { return *v }).(ServerThreatDetectionPolicyOutput)
+	return o.ApplyT(func(v *ServerThreatDetectionPolicy) ServerThreatDetectionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ServerThreatDetectionPolicy
+		return ret
+	}).(ServerThreatDetectionPolicyOutput)
 }
 
 // Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.

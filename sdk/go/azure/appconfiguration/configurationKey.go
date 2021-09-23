@@ -367,7 +367,7 @@ type ConfigurationKeyArrayInput interface {
 type ConfigurationKeyArray []ConfigurationKeyInput
 
 func (ConfigurationKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ConfigurationKey)(nil))
+	return reflect.TypeOf((*[]*ConfigurationKey)(nil)).Elem()
 }
 
 func (i ConfigurationKeyArray) ToConfigurationKeyArrayOutput() ConfigurationKeyArrayOutput {
@@ -392,7 +392,7 @@ type ConfigurationKeyMapInput interface {
 type ConfigurationKeyMap map[string]ConfigurationKeyInput
 
 func (ConfigurationKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ConfigurationKey)(nil))
+	return reflect.TypeOf((*map[string]*ConfigurationKey)(nil)).Elem()
 }
 
 func (i ConfigurationKeyMap) ToConfigurationKeyMapOutput() ConfigurationKeyMapOutput {
@@ -403,9 +403,7 @@ func (i ConfigurationKeyMap) ToConfigurationKeyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationKeyMapOutput)
 }
 
-type ConfigurationKeyOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationKeyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationKey)(nil))
@@ -424,14 +422,12 @@ func (o ConfigurationKeyOutput) ToConfigurationKeyPtrOutput() ConfigurationKeyPt
 }
 
 func (o ConfigurationKeyOutput) ToConfigurationKeyPtrOutputWithContext(ctx context.Context) ConfigurationKeyPtrOutput {
-	return o.ApplyT(func(v ConfigurationKey) *ConfigurationKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationKey) *ConfigurationKey {
 		return &v
 	}).(ConfigurationKeyPtrOutput)
 }
 
-type ConfigurationKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ConfigurationKey)(nil))
@@ -443,6 +439,16 @@ func (o ConfigurationKeyPtrOutput) ToConfigurationKeyPtrOutput() ConfigurationKe
 
 func (o ConfigurationKeyPtrOutput) ToConfigurationKeyPtrOutputWithContext(ctx context.Context) ConfigurationKeyPtrOutput {
 	return o
+}
+
+func (o ConfigurationKeyPtrOutput) Elem() ConfigurationKeyOutput {
+	return o.ApplyT(func(v *ConfigurationKey) ConfigurationKey {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationKey
+		return ret
+	}).(ConfigurationKeyOutput)
 }
 
 type ConfigurationKeyArrayOutput struct{ *pulumi.OutputState }

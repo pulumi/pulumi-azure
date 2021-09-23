@@ -317,7 +317,7 @@ type IntegrationRuntimeManagedArrayInput interface {
 type IntegrationRuntimeManagedArray []IntegrationRuntimeManagedInput
 
 func (IntegrationRuntimeManagedArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntegrationRuntimeManaged)(nil))
+	return reflect.TypeOf((*[]*IntegrationRuntimeManaged)(nil)).Elem()
 }
 
 func (i IntegrationRuntimeManagedArray) ToIntegrationRuntimeManagedArrayOutput() IntegrationRuntimeManagedArrayOutput {
@@ -342,7 +342,7 @@ type IntegrationRuntimeManagedMapInput interface {
 type IntegrationRuntimeManagedMap map[string]IntegrationRuntimeManagedInput
 
 func (IntegrationRuntimeManagedMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntegrationRuntimeManaged)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationRuntimeManaged)(nil)).Elem()
 }
 
 func (i IntegrationRuntimeManagedMap) ToIntegrationRuntimeManagedMapOutput() IntegrationRuntimeManagedMapOutput {
@@ -353,9 +353,7 @@ func (i IntegrationRuntimeManagedMap) ToIntegrationRuntimeManagedMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeManagedMapOutput)
 }
 
-type IntegrationRuntimeManagedOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationRuntimeManagedOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeManagedOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationRuntimeManaged)(nil))
@@ -374,14 +372,12 @@ func (o IntegrationRuntimeManagedOutput) ToIntegrationRuntimeManagedPtrOutput() 
 }
 
 func (o IntegrationRuntimeManagedOutput) ToIntegrationRuntimeManagedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeManagedPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManaged) *IntegrationRuntimeManaged {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeManaged) *IntegrationRuntimeManaged {
 		return &v
 	}).(IntegrationRuntimeManagedPtrOutput)
 }
 
-type IntegrationRuntimeManagedPtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationRuntimeManagedPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeManagedPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationRuntimeManaged)(nil))
@@ -393,6 +389,16 @@ func (o IntegrationRuntimeManagedPtrOutput) ToIntegrationRuntimeManagedPtrOutput
 
 func (o IntegrationRuntimeManagedPtrOutput) ToIntegrationRuntimeManagedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeManagedPtrOutput {
 	return o
+}
+
+func (o IntegrationRuntimeManagedPtrOutput) Elem() IntegrationRuntimeManagedOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeManaged) IntegrationRuntimeManaged {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeManaged
+		return ret
+	}).(IntegrationRuntimeManagedOutput)
 }
 
 type IntegrationRuntimeManagedArrayOutput struct{ *pulumi.OutputState }

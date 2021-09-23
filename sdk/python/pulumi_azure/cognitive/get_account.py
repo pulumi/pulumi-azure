@@ -12,6 +12,7 @@ __all__ = [
     'GetAccountResult',
     'AwaitableGetAccountResult',
     'get_account',
+    'get_account_output',
 ]
 
 @pulumi.output_type
@@ -198,3 +199,28 @@ def get_account(name: Optional[str] = None,
         secondary_access_key=__ret__.secondary_access_key,
         sku_name=__ret__.sku_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_account)
+def get_account_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+    """
+    Use this data source to access information about an existing Cognitive Services Account.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    test = azure.cognitive.get_account(name="example-account",
+        resource_group_name="cognitive_account_rg")
+    pulumi.export("primaryAccessKey", test.primary_access_key)
+    ```
+
+
+    :param str name: Specifies the name of the Cognitive Services Account.
+    :param str resource_group_name: Specifies the name of the resource group where the Cognitive Services Account resides.
+    """
+    ...

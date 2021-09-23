@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,87 @@ type LookupVirtualNetworkResult struct {
 	Subnets []string `pulumi:"subnets"`
 	// A mapping of name - virtual network id of the virtual network peerings.
 	VnetPeerings map[string]string `pulumi:"vnetPeerings"`
+}
+
+func LookupVirtualNetworkOutput(ctx *pulumi.Context, args LookupVirtualNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualNetworkResult, error) {
+			args := v.(LookupVirtualNetworkArgs)
+			r, err := LookupVirtualNetwork(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualNetworkResultOutput)
+}
+
+// A collection of arguments for invoking getVirtualNetwork.
+type LookupVirtualNetworkOutputArgs struct {
+	// Specifies the name of the Virtual Network.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the resource group the Virtual Network is located in.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupVirtualNetworkOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVirtualNetwork.
+type LookupVirtualNetworkResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualNetworkResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkResult)(nil)).Elem()
+}
+
+func (o LookupVirtualNetworkResultOutput) ToLookupVirtualNetworkResultOutput() LookupVirtualNetworkResultOutput {
+	return o
+}
+
+func (o LookupVirtualNetworkResultOutput) ToLookupVirtualNetworkResultOutputWithContext(ctx context.Context) LookupVirtualNetworkResultOutput {
+	return o
+}
+
+// The list of address spaces used by the virtual network.
+func (o LookupVirtualNetworkResultOutput) AddressSpaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) []string { return v.AddressSpaces }).(pulumi.StringArrayOutput)
+}
+
+// The list of DNS servers used by the virtual network.
+func (o LookupVirtualNetworkResultOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+// The GUID of the virtual network.
+func (o LookupVirtualNetworkResultOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) string { return v.Guid }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupVirtualNetworkResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Location of the virtual network.
+func (o LookupVirtualNetworkResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualNetworkResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualNetworkResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The list of name of the subnets that are attached to this virtual network.
+func (o LookupVirtualNetworkResultOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+// A mapping of name - virtual network id of the virtual network peerings.
+func (o LookupVirtualNetworkResultOutput) VnetPeerings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) map[string]string { return v.VnetPeerings }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualNetworkResultOutput{})
 }

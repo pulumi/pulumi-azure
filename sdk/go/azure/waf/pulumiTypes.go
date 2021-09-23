@@ -481,7 +481,7 @@ func (o PolicyManagedRulesOutput) ToPolicyManagedRulesPtrOutput() PolicyManagedR
 }
 
 func (o PolicyManagedRulesOutput) ToPolicyManagedRulesPtrOutputWithContext(ctx context.Context) PolicyManagedRulesPtrOutput {
-	return o.ApplyT(func(v PolicyManagedRules) *PolicyManagedRules {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyManagedRules) *PolicyManagedRules {
 		return &v
 	}).(PolicyManagedRulesPtrOutput)
 }
@@ -511,7 +511,13 @@ func (o PolicyManagedRulesPtrOutput) ToPolicyManagedRulesPtrOutputWithContext(ct
 }
 
 func (o PolicyManagedRulesPtrOutput) Elem() PolicyManagedRulesOutput {
-	return o.ApplyT(func(v *PolicyManagedRules) PolicyManagedRules { return *v }).(PolicyManagedRulesOutput)
+	return o.ApplyT(func(v *PolicyManagedRules) PolicyManagedRules {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyManagedRules
+		return ret
+	}).(PolicyManagedRulesOutput)
 }
 
 // One or more `exclusion` block defined below.
@@ -981,7 +987,7 @@ func (o PolicyPolicySettingsOutput) ToPolicyPolicySettingsPtrOutput() PolicyPoli
 }
 
 func (o PolicyPolicySettingsOutput) ToPolicyPolicySettingsPtrOutputWithContext(ctx context.Context) PolicyPolicySettingsPtrOutput {
-	return o.ApplyT(func(v PolicyPolicySettings) *PolicyPolicySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPolicySettings) *PolicyPolicySettings {
 		return &v
 	}).(PolicyPolicySettingsPtrOutput)
 }
@@ -1026,7 +1032,13 @@ func (o PolicyPolicySettingsPtrOutput) ToPolicyPolicySettingsPtrOutputWithContex
 }
 
 func (o PolicyPolicySettingsPtrOutput) Elem() PolicyPolicySettingsOutput {
-	return o.ApplyT(func(v *PolicyPolicySettings) PolicyPolicySettings { return *v }).(PolicyPolicySettingsOutput)
+	return o.ApplyT(func(v *PolicyPolicySettings) PolicyPolicySettings {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyPolicySettings
+		return ret
+	}).(PolicyPolicySettingsOutput)
 }
 
 // Describes if the policy is in enabled state or disabled state. Defaults to `true`.

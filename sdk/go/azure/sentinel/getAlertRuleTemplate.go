@@ -4,6 +4,9 @@
 package sentinel
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,77 @@ type GetAlertRuleTemplateResult struct {
 	ScheduledTemplates []GetAlertRuleTemplateScheduledTemplate `pulumi:"scheduledTemplates"`
 	// A `securityIncidentTemplate` block as defined below. This only applies to Sentinel MS Security Incident Alert Rule Template.
 	SecurityIncidentTemplates []GetAlertRuleTemplateSecurityIncidentTemplate `pulumi:"securityIncidentTemplates"`
+}
+
+func GetAlertRuleTemplateOutput(ctx *pulumi.Context, args GetAlertRuleTemplateOutputArgs, opts ...pulumi.InvokeOption) GetAlertRuleTemplateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAlertRuleTemplateResult, error) {
+			args := v.(GetAlertRuleTemplateArgs)
+			r, err := GetAlertRuleTemplate(ctx, &args, opts...)
+			return *r, err
+		}).(GetAlertRuleTemplateResultOutput)
+}
+
+// A collection of arguments for invoking getAlertRuleTemplate.
+type GetAlertRuleTemplateOutputArgs struct {
+	// The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The ID of the Log Analytics Workspace.
+	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+	// The name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (GetAlertRuleTemplateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleTemplateArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAlertRuleTemplate.
+type GetAlertRuleTemplateResultOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleTemplateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleTemplateResult)(nil)).Elem()
+}
+
+func (o GetAlertRuleTemplateResultOutput) ToGetAlertRuleTemplateResultOutput() GetAlertRuleTemplateResultOutput {
+	return o
+}
+
+func (o GetAlertRuleTemplateResultOutput) ToGetAlertRuleTemplateResultOutputWithContext(ctx context.Context) GetAlertRuleTemplateResultOutput {
+	return o
+}
+
+func (o GetAlertRuleTemplateResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetAlertRuleTemplateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetAlertRuleTemplateResultOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateResult) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+}
+
+func (o GetAlertRuleTemplateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `scheduledTemplate` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
+func (o GetAlertRuleTemplateResultOutput) ScheduledTemplates() GetAlertRuleTemplateScheduledTemplateArrayOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateResult) []GetAlertRuleTemplateScheduledTemplate {
+		return v.ScheduledTemplates
+	}).(GetAlertRuleTemplateScheduledTemplateArrayOutput)
+}
+
+// A `securityIncidentTemplate` block as defined below. This only applies to Sentinel MS Security Incident Alert Rule Template.
+func (o GetAlertRuleTemplateResultOutput) SecurityIncidentTemplates() GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateResult) []GetAlertRuleTemplateSecurityIncidentTemplate {
+		return v.SecurityIncidentTemplates
+	}).(GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAlertRuleTemplateResultOutput{})
 }

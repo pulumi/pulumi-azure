@@ -257,7 +257,7 @@ type EndpointCustomDomainArrayInput interface {
 type EndpointCustomDomainArray []EndpointCustomDomainInput
 
 func (EndpointCustomDomainArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EndpointCustomDomain)(nil))
+	return reflect.TypeOf((*[]*EndpointCustomDomain)(nil)).Elem()
 }
 
 func (i EndpointCustomDomainArray) ToEndpointCustomDomainArrayOutput() EndpointCustomDomainArrayOutput {
@@ -282,7 +282,7 @@ type EndpointCustomDomainMapInput interface {
 type EndpointCustomDomainMap map[string]EndpointCustomDomainInput
 
 func (EndpointCustomDomainMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EndpointCustomDomain)(nil))
+	return reflect.TypeOf((*map[string]*EndpointCustomDomain)(nil)).Elem()
 }
 
 func (i EndpointCustomDomainMap) ToEndpointCustomDomainMapOutput() EndpointCustomDomainMapOutput {
@@ -293,9 +293,7 @@ func (i EndpointCustomDomainMap) ToEndpointCustomDomainMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDomainMapOutput)
 }
 
-type EndpointCustomDomainOutput struct {
-	*pulumi.OutputState
-}
+type EndpointCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (EndpointCustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EndpointCustomDomain)(nil))
@@ -314,14 +312,12 @@ func (o EndpointCustomDomainOutput) ToEndpointCustomDomainPtrOutput() EndpointCu
 }
 
 func (o EndpointCustomDomainOutput) ToEndpointCustomDomainPtrOutputWithContext(ctx context.Context) EndpointCustomDomainPtrOutput {
-	return o.ApplyT(func(v EndpointCustomDomain) *EndpointCustomDomain {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointCustomDomain) *EndpointCustomDomain {
 		return &v
 	}).(EndpointCustomDomainPtrOutput)
 }
 
-type EndpointCustomDomainPtrOutput struct {
-	*pulumi.OutputState
-}
+type EndpointCustomDomainPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointCustomDomainPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EndpointCustomDomain)(nil))
@@ -333,6 +329,16 @@ func (o EndpointCustomDomainPtrOutput) ToEndpointCustomDomainPtrOutput() Endpoin
 
 func (o EndpointCustomDomainPtrOutput) ToEndpointCustomDomainPtrOutputWithContext(ctx context.Context) EndpointCustomDomainPtrOutput {
 	return o
+}
+
+func (o EndpointCustomDomainPtrOutput) Elem() EndpointCustomDomainOutput {
+	return o.ApplyT(func(v *EndpointCustomDomain) EndpointCustomDomain {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointCustomDomain
+		return ret
+	}).(EndpointCustomDomainOutput)
 }
 
 type EndpointCustomDomainArrayOutput struct{ *pulumi.OutputState }

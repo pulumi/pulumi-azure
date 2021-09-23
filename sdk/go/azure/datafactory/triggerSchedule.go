@@ -323,7 +323,7 @@ type TriggerScheduleArrayInput interface {
 type TriggerScheduleArray []TriggerScheduleInput
 
 func (TriggerScheduleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TriggerSchedule)(nil))
+	return reflect.TypeOf((*[]*TriggerSchedule)(nil)).Elem()
 }
 
 func (i TriggerScheduleArray) ToTriggerScheduleArrayOutput() TriggerScheduleArrayOutput {
@@ -348,7 +348,7 @@ type TriggerScheduleMapInput interface {
 type TriggerScheduleMap map[string]TriggerScheduleInput
 
 func (TriggerScheduleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TriggerSchedule)(nil))
+	return reflect.TypeOf((*map[string]*TriggerSchedule)(nil)).Elem()
 }
 
 func (i TriggerScheduleMap) ToTriggerScheduleMapOutput() TriggerScheduleMapOutput {
@@ -359,9 +359,7 @@ func (i TriggerScheduleMap) ToTriggerScheduleMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerScheduleMapOutput)
 }
 
-type TriggerScheduleOutput struct {
-	*pulumi.OutputState
-}
+type TriggerScheduleOutput struct{ *pulumi.OutputState }
 
 func (TriggerScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TriggerSchedule)(nil))
@@ -380,14 +378,12 @@ func (o TriggerScheduleOutput) ToTriggerSchedulePtrOutput() TriggerSchedulePtrOu
 }
 
 func (o TriggerScheduleOutput) ToTriggerSchedulePtrOutputWithContext(ctx context.Context) TriggerSchedulePtrOutput {
-	return o.ApplyT(func(v TriggerSchedule) *TriggerSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerSchedule) *TriggerSchedule {
 		return &v
 	}).(TriggerSchedulePtrOutput)
 }
 
-type TriggerSchedulePtrOutput struct {
-	*pulumi.OutputState
-}
+type TriggerSchedulePtrOutput struct{ *pulumi.OutputState }
 
 func (TriggerSchedulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TriggerSchedule)(nil))
@@ -399,6 +395,16 @@ func (o TriggerSchedulePtrOutput) ToTriggerSchedulePtrOutput() TriggerSchedulePt
 
 func (o TriggerSchedulePtrOutput) ToTriggerSchedulePtrOutputWithContext(ctx context.Context) TriggerSchedulePtrOutput {
 	return o
+}
+
+func (o TriggerSchedulePtrOutput) Elem() TriggerScheduleOutput {
+	return o.ApplyT(func(v *TriggerSchedule) TriggerSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerSchedule
+		return ret
+	}).(TriggerScheduleOutput)
 }
 
 type TriggerScheduleArrayOutput struct{ *pulumi.OutputState }

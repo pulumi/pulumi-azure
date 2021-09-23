@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,87 @@ type LookupLocalNetworkGatewayResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the Local Network Gateway.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupLocalNetworkGatewayOutput(ctx *pulumi.Context, args LookupLocalNetworkGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupLocalNetworkGatewayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLocalNetworkGatewayResult, error) {
+			args := v.(LookupLocalNetworkGatewayArgs)
+			r, err := LookupLocalNetworkGateway(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLocalNetworkGatewayResultOutput)
+}
+
+// A collection of arguments for invoking getLocalNetworkGateway.
+type LookupLocalNetworkGatewayOutputArgs struct {
+	// The name of the Local Network Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Local Network Gateway exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupLocalNetworkGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLocalNetworkGatewayArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLocalNetworkGateway.
+type LookupLocalNetworkGatewayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLocalNetworkGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLocalNetworkGatewayResult)(nil)).Elem()
+}
+
+func (o LookupLocalNetworkGatewayResultOutput) ToLookupLocalNetworkGatewayResultOutput() LookupLocalNetworkGatewayResultOutput {
+	return o
+}
+
+func (o LookupLocalNetworkGatewayResultOutput) ToLookupLocalNetworkGatewayResultOutputWithContext(ctx context.Context) LookupLocalNetworkGatewayResultOutput {
+	return o
+}
+
+// The list of string CIDRs representing the address spaces the gateway exposes.
+func (o LookupLocalNetworkGatewayResultOutput) AddressSpaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupLocalNetworkGatewayResult) []string { return v.AddressSpaces }).(pulumi.StringArrayOutput)
+}
+
+// A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
+func (o LookupLocalNetworkGatewayResultOutput) BgpSettings() GetLocalNetworkGatewayBgpSettingArrayOutput {
+	return o.ApplyT(func(v LookupLocalNetworkGatewayResult) []GetLocalNetworkGatewayBgpSetting { return v.BgpSettings }).(GetLocalNetworkGatewayBgpSettingArrayOutput)
+}
+
+// The gateway IP address the Local Network Gateway uses.
+func (o LookupLocalNetworkGatewayResultOutput) GatewayAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocalNetworkGatewayResult) string { return v.GatewayAddress }).(pulumi.StringOutput)
+}
+
+// The gateway FQDN the Local Network Gateway uses.
+func (o LookupLocalNetworkGatewayResultOutput) GatewayFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocalNetworkGatewayResult) string { return v.GatewayFqdn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupLocalNetworkGatewayResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocalNetworkGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure Region where the Local Network Gateway exists.
+func (o LookupLocalNetworkGatewayResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocalNetworkGatewayResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupLocalNetworkGatewayResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocalNetworkGatewayResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupLocalNetworkGatewayResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocalNetworkGatewayResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the Local Network Gateway.
+func (o LookupLocalNetworkGatewayResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupLocalNetworkGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLocalNetworkGatewayResultOutput{})
 }

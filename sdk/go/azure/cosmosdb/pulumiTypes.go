@@ -111,7 +111,7 @@ func (o AccountBackupOutput) ToAccountBackupPtrOutput() AccountBackupPtrOutput {
 }
 
 func (o AccountBackupOutput) ToAccountBackupPtrOutputWithContext(ctx context.Context) AccountBackupPtrOutput {
-	return o.ApplyT(func(v AccountBackup) *AccountBackup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountBackup) *AccountBackup {
 		return &v
 	}).(AccountBackupPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o AccountBackupPtrOutput) ToAccountBackupPtrOutputWithContext(ctx context.
 }
 
 func (o AccountBackupPtrOutput) Elem() AccountBackupOutput {
-	return o.ApplyT(func(v *AccountBackup) AccountBackup { return *v }).(AccountBackupOutput)
+	return o.ApplyT(func(v *AccountBackup) AccountBackup {
+		if v != nil {
+			return *v
+		}
+		var ret AccountBackup
+		return ret
+	}).(AccountBackupOutput)
 }
 
 // The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
@@ -377,7 +383,7 @@ func (o AccountConsistencyPolicyOutput) ToAccountConsistencyPolicyPtrOutput() Ac
 }
 
 func (o AccountConsistencyPolicyOutput) ToAccountConsistencyPolicyPtrOutputWithContext(ctx context.Context) AccountConsistencyPolicyPtrOutput {
-	return o.ApplyT(func(v AccountConsistencyPolicy) *AccountConsistencyPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountConsistencyPolicy) *AccountConsistencyPolicy {
 		return &v
 	}).(AccountConsistencyPolicyPtrOutput)
 }
@@ -412,7 +418,13 @@ func (o AccountConsistencyPolicyPtrOutput) ToAccountConsistencyPolicyPtrOutputWi
 }
 
 func (o AccountConsistencyPolicyPtrOutput) Elem() AccountConsistencyPolicyOutput {
-	return o.ApplyT(func(v *AccountConsistencyPolicy) AccountConsistencyPolicy { return *v }).(AccountConsistencyPolicyOutput)
+	return o.ApplyT(func(v *AccountConsistencyPolicy) AccountConsistencyPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AccountConsistencyPolicy
+		return ret
+	}).(AccountConsistencyPolicyOutput)
 }
 
 // The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
@@ -554,7 +566,7 @@ func (o AccountCorsRuleOutput) ToAccountCorsRulePtrOutput() AccountCorsRulePtrOu
 }
 
 func (o AccountCorsRuleOutput) ToAccountCorsRulePtrOutputWithContext(ctx context.Context) AccountCorsRulePtrOutput {
-	return o.ApplyT(func(v AccountCorsRule) *AccountCorsRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountCorsRule) *AccountCorsRule {
 		return &v
 	}).(AccountCorsRulePtrOutput)
 }
@@ -599,7 +611,13 @@ func (o AccountCorsRulePtrOutput) ToAccountCorsRulePtrOutputWithContext(ctx cont
 }
 
 func (o AccountCorsRulePtrOutput) Elem() AccountCorsRuleOutput {
-	return o.ApplyT(func(v *AccountCorsRule) AccountCorsRule { return *v }).(AccountCorsRuleOutput)
+	return o.ApplyT(func(v *AccountCorsRule) AccountCorsRule {
+		if v != nil {
+			return *v
+		}
+		var ret AccountCorsRule
+		return ret
+	}).(AccountCorsRuleOutput)
 }
 
 // A list of headers that are allowed to be a part of the cross-origin request.
@@ -892,7 +910,7 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOu
 }
 
 func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
-	return o.ApplyT(func(v AccountIdentity) *AccountIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
 }
@@ -927,7 +945,13 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
-	return o.ApplyT(func(v *AccountIdentity) AccountIdentity { return *v }).(AccountIdentityOutput)
+	return o.ApplyT(func(v *AccountIdentity) AccountIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccountIdentity
+		return ret
+	}).(AccountIdentityOutput)
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -1159,7 +1183,7 @@ func (o CassandraKeyspaceAutoscaleSettingsOutput) ToCassandraKeyspaceAutoscaleSe
 }
 
 func (o CassandraKeyspaceAutoscaleSettingsOutput) ToCassandraKeyspaceAutoscaleSettingsPtrOutputWithContext(ctx context.Context) CassandraKeyspaceAutoscaleSettingsPtrOutput {
-	return o.ApplyT(func(v CassandraKeyspaceAutoscaleSettings) *CassandraKeyspaceAutoscaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraKeyspaceAutoscaleSettings) *CassandraKeyspaceAutoscaleSettings {
 		return &v
 	}).(CassandraKeyspaceAutoscaleSettingsPtrOutput)
 }
@@ -1184,7 +1208,13 @@ func (o CassandraKeyspaceAutoscaleSettingsPtrOutput) ToCassandraKeyspaceAutoscal
 }
 
 func (o CassandraKeyspaceAutoscaleSettingsPtrOutput) Elem() CassandraKeyspaceAutoscaleSettingsOutput {
-	return o.ApplyT(func(v *CassandraKeyspaceAutoscaleSettings) CassandraKeyspaceAutoscaleSettings { return *v }).(CassandraKeyspaceAutoscaleSettingsOutput)
+	return o.ApplyT(func(v *CassandraKeyspaceAutoscaleSettings) CassandraKeyspaceAutoscaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CassandraKeyspaceAutoscaleSettings
+		return ret
+	}).(CassandraKeyspaceAutoscaleSettingsOutput)
 }
 
 // The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
@@ -1290,7 +1320,7 @@ func (o CassandraTableAutoscaleSettingsOutput) ToCassandraTableAutoscaleSettings
 }
 
 func (o CassandraTableAutoscaleSettingsOutput) ToCassandraTableAutoscaleSettingsPtrOutputWithContext(ctx context.Context) CassandraTableAutoscaleSettingsPtrOutput {
-	return o.ApplyT(func(v CassandraTableAutoscaleSettings) *CassandraTableAutoscaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraTableAutoscaleSettings) *CassandraTableAutoscaleSettings {
 		return &v
 	}).(CassandraTableAutoscaleSettingsPtrOutput)
 }
@@ -1315,7 +1345,13 @@ func (o CassandraTableAutoscaleSettingsPtrOutput) ToCassandraTableAutoscaleSetti
 }
 
 func (o CassandraTableAutoscaleSettingsPtrOutput) Elem() CassandraTableAutoscaleSettingsOutput {
-	return o.ApplyT(func(v *CassandraTableAutoscaleSettings) CassandraTableAutoscaleSettings { return *v }).(CassandraTableAutoscaleSettingsOutput)
+	return o.ApplyT(func(v *CassandraTableAutoscaleSettings) CassandraTableAutoscaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CassandraTableAutoscaleSettings
+		return ret
+	}).(CassandraTableAutoscaleSettingsOutput)
 }
 
 // The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
@@ -1429,7 +1465,7 @@ func (o CassandraTableSchemaOutput) ToCassandraTableSchemaPtrOutput() CassandraT
 }
 
 func (o CassandraTableSchemaOutput) ToCassandraTableSchemaPtrOutputWithContext(ctx context.Context) CassandraTableSchemaPtrOutput {
-	return o.ApplyT(func(v CassandraTableSchema) *CassandraTableSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraTableSchema) *CassandraTableSchema {
 		return &v
 	}).(CassandraTableSchemaPtrOutput)
 }
@@ -1464,7 +1500,13 @@ func (o CassandraTableSchemaPtrOutput) ToCassandraTableSchemaPtrOutputWithContex
 }
 
 func (o CassandraTableSchemaPtrOutput) Elem() CassandraTableSchemaOutput {
-	return o.ApplyT(func(v *CassandraTableSchema) CassandraTableSchema { return *v }).(CassandraTableSchemaOutput)
+	return o.ApplyT(func(v *CassandraTableSchema) CassandraTableSchema {
+		if v != nil {
+			return *v
+		}
+		var ret CassandraTableSchema
+		return ret
+	}).(CassandraTableSchemaOutput)
 }
 
 // One or more `clusterKey` blocks as defined below.
@@ -1899,7 +1941,7 @@ func (o GremlinDatabaseAutoscaleSettingsOutput) ToGremlinDatabaseAutoscaleSettin
 }
 
 func (o GremlinDatabaseAutoscaleSettingsOutput) ToGremlinDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) GremlinDatabaseAutoscaleSettingsPtrOutput {
-	return o.ApplyT(func(v GremlinDatabaseAutoscaleSettings) *GremlinDatabaseAutoscaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GremlinDatabaseAutoscaleSettings) *GremlinDatabaseAutoscaleSettings {
 		return &v
 	}).(GremlinDatabaseAutoscaleSettingsPtrOutput)
 }
@@ -1924,7 +1966,13 @@ func (o GremlinDatabaseAutoscaleSettingsPtrOutput) ToGremlinDatabaseAutoscaleSet
 }
 
 func (o GremlinDatabaseAutoscaleSettingsPtrOutput) Elem() GremlinDatabaseAutoscaleSettingsOutput {
-	return o.ApplyT(func(v *GremlinDatabaseAutoscaleSettings) GremlinDatabaseAutoscaleSettings { return *v }).(GremlinDatabaseAutoscaleSettingsOutput)
+	return o.ApplyT(func(v *GremlinDatabaseAutoscaleSettings) GremlinDatabaseAutoscaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GremlinDatabaseAutoscaleSettings
+		return ret
+	}).(GremlinDatabaseAutoscaleSettingsOutput)
 }
 
 // The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
@@ -2030,7 +2078,7 @@ func (o GremlinGraphAutoscaleSettingsOutput) ToGremlinGraphAutoscaleSettingsPtrO
 }
 
 func (o GremlinGraphAutoscaleSettingsOutput) ToGremlinGraphAutoscaleSettingsPtrOutputWithContext(ctx context.Context) GremlinGraphAutoscaleSettingsPtrOutput {
-	return o.ApplyT(func(v GremlinGraphAutoscaleSettings) *GremlinGraphAutoscaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GremlinGraphAutoscaleSettings) *GremlinGraphAutoscaleSettings {
 		return &v
 	}).(GremlinGraphAutoscaleSettingsPtrOutput)
 }
@@ -2055,7 +2103,13 @@ func (o GremlinGraphAutoscaleSettingsPtrOutput) ToGremlinGraphAutoscaleSettingsP
 }
 
 func (o GremlinGraphAutoscaleSettingsPtrOutput) Elem() GremlinGraphAutoscaleSettingsOutput {
-	return o.ApplyT(func(v *GremlinGraphAutoscaleSettings) GremlinGraphAutoscaleSettings { return *v }).(GremlinGraphAutoscaleSettingsOutput)
+	return o.ApplyT(func(v *GremlinGraphAutoscaleSettings) GremlinGraphAutoscaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GremlinGraphAutoscaleSettings
+		return ret
+	}).(GremlinGraphAutoscaleSettingsOutput)
 }
 
 // The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
@@ -2823,7 +2877,7 @@ func (o MongoCollectionAutoscaleSettingsOutput) ToMongoCollectionAutoscaleSettin
 }
 
 func (o MongoCollectionAutoscaleSettingsOutput) ToMongoCollectionAutoscaleSettingsPtrOutputWithContext(ctx context.Context) MongoCollectionAutoscaleSettingsPtrOutput {
-	return o.ApplyT(func(v MongoCollectionAutoscaleSettings) *MongoCollectionAutoscaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoCollectionAutoscaleSettings) *MongoCollectionAutoscaleSettings {
 		return &v
 	}).(MongoCollectionAutoscaleSettingsPtrOutput)
 }
@@ -2848,7 +2902,13 @@ func (o MongoCollectionAutoscaleSettingsPtrOutput) ToMongoCollectionAutoscaleSet
 }
 
 func (o MongoCollectionAutoscaleSettingsPtrOutput) Elem() MongoCollectionAutoscaleSettingsOutput {
-	return o.ApplyT(func(v *MongoCollectionAutoscaleSettings) MongoCollectionAutoscaleSettings { return *v }).(MongoCollectionAutoscaleSettingsOutput)
+	return o.ApplyT(func(v *MongoCollectionAutoscaleSettings) MongoCollectionAutoscaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MongoCollectionAutoscaleSettings
+		return ret
+	}).(MongoCollectionAutoscaleSettingsOutput)
 }
 
 // The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
@@ -3166,7 +3226,7 @@ func (o MongoDatabaseAutoscaleSettingsOutput) ToMongoDatabaseAutoscaleSettingsPt
 }
 
 func (o MongoDatabaseAutoscaleSettingsOutput) ToMongoDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) MongoDatabaseAutoscaleSettingsPtrOutput {
-	return o.ApplyT(func(v MongoDatabaseAutoscaleSettings) *MongoDatabaseAutoscaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoDatabaseAutoscaleSettings) *MongoDatabaseAutoscaleSettings {
 		return &v
 	}).(MongoDatabaseAutoscaleSettingsPtrOutput)
 }
@@ -3191,7 +3251,13 @@ func (o MongoDatabaseAutoscaleSettingsPtrOutput) ToMongoDatabaseAutoscaleSetting
 }
 
 func (o MongoDatabaseAutoscaleSettingsPtrOutput) Elem() MongoDatabaseAutoscaleSettingsOutput {
-	return o.ApplyT(func(v *MongoDatabaseAutoscaleSettings) MongoDatabaseAutoscaleSettings { return *v }).(MongoDatabaseAutoscaleSettingsOutput)
+	return o.ApplyT(func(v *MongoDatabaseAutoscaleSettings) MongoDatabaseAutoscaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MongoDatabaseAutoscaleSettings
+		return ret
+	}).(MongoDatabaseAutoscaleSettingsOutput)
 }
 
 // The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
@@ -3297,7 +3363,7 @@ func (o SqlContainerAutoscaleSettingsOutput) ToSqlContainerAutoscaleSettingsPtrO
 }
 
 func (o SqlContainerAutoscaleSettingsOutput) ToSqlContainerAutoscaleSettingsPtrOutputWithContext(ctx context.Context) SqlContainerAutoscaleSettingsPtrOutput {
-	return o.ApplyT(func(v SqlContainerAutoscaleSettings) *SqlContainerAutoscaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlContainerAutoscaleSettings) *SqlContainerAutoscaleSettings {
 		return &v
 	}).(SqlContainerAutoscaleSettingsPtrOutput)
 }
@@ -3322,7 +3388,13 @@ func (o SqlContainerAutoscaleSettingsPtrOutput) ToSqlContainerAutoscaleSettingsP
 }
 
 func (o SqlContainerAutoscaleSettingsPtrOutput) Elem() SqlContainerAutoscaleSettingsOutput {
-	return o.ApplyT(func(v *SqlContainerAutoscaleSettings) SqlContainerAutoscaleSettings { return *v }).(SqlContainerAutoscaleSettingsOutput)
+	return o.ApplyT(func(v *SqlContainerAutoscaleSettings) SqlContainerAutoscaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SqlContainerAutoscaleSettings
+		return ret
+	}).(SqlContainerAutoscaleSettingsOutput)
 }
 
 // The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
@@ -3436,7 +3508,7 @@ func (o SqlContainerConflictResolutionPolicyOutput) ToSqlContainerConflictResolu
 }
 
 func (o SqlContainerConflictResolutionPolicyOutput) ToSqlContainerConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) SqlContainerConflictResolutionPolicyPtrOutput {
-	return o.ApplyT(func(v SqlContainerConflictResolutionPolicy) *SqlContainerConflictResolutionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlContainerConflictResolutionPolicy) *SqlContainerConflictResolutionPolicy {
 		return &v
 	}).(SqlContainerConflictResolutionPolicyPtrOutput)
 }
@@ -3471,7 +3543,13 @@ func (o SqlContainerConflictResolutionPolicyPtrOutput) ToSqlContainerConflictRes
 }
 
 func (o SqlContainerConflictResolutionPolicyPtrOutput) Elem() SqlContainerConflictResolutionPolicyOutput {
-	return o.ApplyT(func(v *SqlContainerConflictResolutionPolicy) SqlContainerConflictResolutionPolicy { return *v }).(SqlContainerConflictResolutionPolicyOutput)
+	return o.ApplyT(func(v *SqlContainerConflictResolutionPolicy) SqlContainerConflictResolutionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret SqlContainerConflictResolutionPolicy
+		return ret
+	}).(SqlContainerConflictResolutionPolicyOutput)
 }
 
 // The conflict resolution path in the case of `LastWriterWins` mode.
@@ -3613,7 +3691,7 @@ func (o SqlContainerIndexingPolicyOutput) ToSqlContainerIndexingPolicyPtrOutput(
 }
 
 func (o SqlContainerIndexingPolicyOutput) ToSqlContainerIndexingPolicyPtrOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyPtrOutput {
-	return o.ApplyT(func(v SqlContainerIndexingPolicy) *SqlContainerIndexingPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlContainerIndexingPolicy) *SqlContainerIndexingPolicy {
 		return &v
 	}).(SqlContainerIndexingPolicyPtrOutput)
 }
@@ -3660,7 +3738,13 @@ func (o SqlContainerIndexingPolicyPtrOutput) ToSqlContainerIndexingPolicyPtrOutp
 }
 
 func (o SqlContainerIndexingPolicyPtrOutput) Elem() SqlContainerIndexingPolicyOutput {
-	return o.ApplyT(func(v *SqlContainerIndexingPolicy) SqlContainerIndexingPolicy { return *v }).(SqlContainerIndexingPolicyOutput)
+	return o.ApplyT(func(v *SqlContainerIndexingPolicy) SqlContainerIndexingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret SqlContainerIndexingPolicy
+		return ret
+	}).(SqlContainerIndexingPolicyOutput)
 }
 
 // One or more `compositeIndex` blocks as defined below.
@@ -4408,7 +4492,7 @@ func (o SqlDatabaseAutoscaleSettingsOutput) ToSqlDatabaseAutoscaleSettingsPtrOut
 }
 
 func (o SqlDatabaseAutoscaleSettingsOutput) ToSqlDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) SqlDatabaseAutoscaleSettingsPtrOutput {
-	return o.ApplyT(func(v SqlDatabaseAutoscaleSettings) *SqlDatabaseAutoscaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlDatabaseAutoscaleSettings) *SqlDatabaseAutoscaleSettings {
 		return &v
 	}).(SqlDatabaseAutoscaleSettingsPtrOutput)
 }
@@ -4433,7 +4517,13 @@ func (o SqlDatabaseAutoscaleSettingsPtrOutput) ToSqlDatabaseAutoscaleSettingsPtr
 }
 
 func (o SqlDatabaseAutoscaleSettingsPtrOutput) Elem() SqlDatabaseAutoscaleSettingsOutput {
-	return o.ApplyT(func(v *SqlDatabaseAutoscaleSettings) SqlDatabaseAutoscaleSettings { return *v }).(SqlDatabaseAutoscaleSettingsOutput)
+	return o.ApplyT(func(v *SqlDatabaseAutoscaleSettings) SqlDatabaseAutoscaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SqlDatabaseAutoscaleSettings
+		return ret
+	}).(SqlDatabaseAutoscaleSettingsOutput)
 }
 
 // The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
@@ -4539,7 +4629,7 @@ func (o TableAutoscaleSettingsOutput) ToTableAutoscaleSettingsPtrOutput() TableA
 }
 
 func (o TableAutoscaleSettingsOutput) ToTableAutoscaleSettingsPtrOutputWithContext(ctx context.Context) TableAutoscaleSettingsPtrOutput {
-	return o.ApplyT(func(v TableAutoscaleSettings) *TableAutoscaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableAutoscaleSettings) *TableAutoscaleSettings {
 		return &v
 	}).(TableAutoscaleSettingsPtrOutput)
 }
@@ -4564,7 +4654,13 @@ func (o TableAutoscaleSettingsPtrOutput) ToTableAutoscaleSettingsPtrOutputWithCo
 }
 
 func (o TableAutoscaleSettingsPtrOutput) Elem() TableAutoscaleSettingsOutput {
-	return o.ApplyT(func(v *TableAutoscaleSettings) TableAutoscaleSettings { return *v }).(TableAutoscaleSettingsOutput)
+	return o.ApplyT(func(v *TableAutoscaleSettings) TableAutoscaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret TableAutoscaleSettings
+		return ret
+	}).(TableAutoscaleSettingsOutput)
 }
 
 // The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.

@@ -4,6 +4,9 @@
 package trafficmanager
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,4 +58,51 @@ type GetGeographicalLocationResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
+}
+
+func GetGeographicalLocationOutput(ctx *pulumi.Context, args GetGeographicalLocationOutputArgs, opts ...pulumi.InvokeOption) GetGeographicalLocationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetGeographicalLocationResult, error) {
+			args := v.(GetGeographicalLocationArgs)
+			r, err := GetGeographicalLocation(ctx, &args, opts...)
+			return *r, err
+		}).(GetGeographicalLocationResultOutput)
+}
+
+// A collection of arguments for invoking getGeographicalLocation.
+type GetGeographicalLocationOutputArgs struct {
+	// Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetGeographicalLocationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGeographicalLocationArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getGeographicalLocation.
+type GetGeographicalLocationResultOutput struct{ *pulumi.OutputState }
+
+func (GetGeographicalLocationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGeographicalLocationResult)(nil)).Elem()
+}
+
+func (o GetGeographicalLocationResultOutput) ToGetGeographicalLocationResultOutput() GetGeographicalLocationResultOutput {
+	return o
+}
+
+func (o GetGeographicalLocationResultOutput) ToGetGeographicalLocationResultOutputWithContext(ctx context.Context) GetGeographicalLocationResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetGeographicalLocationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGeographicalLocationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetGeographicalLocationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGeographicalLocationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetGeographicalLocationResultOutput{})
 }

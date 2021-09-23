@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,76 @@ type LookupSharedImageGalleryResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The unique name assigned to the Shared Image Gallery.
 	UniqueName string `pulumi:"uniqueName"`
+}
+
+func LookupSharedImageGalleryOutput(ctx *pulumi.Context, args LookupSharedImageGalleryOutputArgs, opts ...pulumi.InvokeOption) LookupSharedImageGalleryResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSharedImageGalleryResult, error) {
+			args := v.(LookupSharedImageGalleryArgs)
+			r, err := LookupSharedImageGallery(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSharedImageGalleryResultOutput)
+}
+
+// A collection of arguments for invoking getSharedImageGallery.
+type LookupSharedImageGalleryOutputArgs struct {
+	// The name of the Shared Image Gallery.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group in which the Shared Image Gallery exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupSharedImageGalleryOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSharedImageGalleryArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSharedImageGallery.
+type LookupSharedImageGalleryResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSharedImageGalleryResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSharedImageGalleryResult)(nil)).Elem()
+}
+
+func (o LookupSharedImageGalleryResultOutput) ToLookupSharedImageGalleryResultOutput() LookupSharedImageGalleryResultOutput {
+	return o
+}
+
+func (o LookupSharedImageGalleryResultOutput) ToLookupSharedImageGalleryResultOutputWithContext(ctx context.Context) LookupSharedImageGalleryResultOutput {
+	return o
+}
+
+// A description for the Shared Image Gallery.
+func (o LookupSharedImageGalleryResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageGalleryResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSharedImageGalleryResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageGalleryResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupSharedImageGalleryResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageGalleryResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupSharedImageGalleryResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageGalleryResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSharedImageGalleryResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageGalleryResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags which are assigned to the Shared Image Gallery.
+func (o LookupSharedImageGalleryResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSharedImageGalleryResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The unique name assigned to the Shared Image Gallery.
+func (o LookupSharedImageGalleryResultOutput) UniqueName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageGalleryResult) string { return v.UniqueName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSharedImageGalleryResultOutput{})
 }

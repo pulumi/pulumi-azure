@@ -246,7 +246,7 @@ type CassandraKeyspaceArrayInput interface {
 type CassandraKeyspaceArray []CassandraKeyspaceInput
 
 func (CassandraKeyspaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CassandraKeyspace)(nil))
+	return reflect.TypeOf((*[]*CassandraKeyspace)(nil)).Elem()
 }
 
 func (i CassandraKeyspaceArray) ToCassandraKeyspaceArrayOutput() CassandraKeyspaceArrayOutput {
@@ -271,7 +271,7 @@ type CassandraKeyspaceMapInput interface {
 type CassandraKeyspaceMap map[string]CassandraKeyspaceInput
 
 func (CassandraKeyspaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CassandraKeyspace)(nil))
+	return reflect.TypeOf((*map[string]*CassandraKeyspace)(nil)).Elem()
 }
 
 func (i CassandraKeyspaceMap) ToCassandraKeyspaceMapOutput() CassandraKeyspaceMapOutput {
@@ -282,9 +282,7 @@ func (i CassandraKeyspaceMap) ToCassandraKeyspaceMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceMapOutput)
 }
 
-type CassandraKeyspaceOutput struct {
-	*pulumi.OutputState
-}
+type CassandraKeyspaceOutput struct{ *pulumi.OutputState }
 
 func (CassandraKeyspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CassandraKeyspace)(nil))
@@ -303,14 +301,12 @@ func (o CassandraKeyspaceOutput) ToCassandraKeyspacePtrOutput() CassandraKeyspac
 }
 
 func (o CassandraKeyspaceOutput) ToCassandraKeyspacePtrOutputWithContext(ctx context.Context) CassandraKeyspacePtrOutput {
-	return o.ApplyT(func(v CassandraKeyspace) *CassandraKeyspace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraKeyspace) *CassandraKeyspace {
 		return &v
 	}).(CassandraKeyspacePtrOutput)
 }
 
-type CassandraKeyspacePtrOutput struct {
-	*pulumi.OutputState
-}
+type CassandraKeyspacePtrOutput struct{ *pulumi.OutputState }
 
 func (CassandraKeyspacePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CassandraKeyspace)(nil))
@@ -322,6 +318,16 @@ func (o CassandraKeyspacePtrOutput) ToCassandraKeyspacePtrOutput() CassandraKeys
 
 func (o CassandraKeyspacePtrOutput) ToCassandraKeyspacePtrOutputWithContext(ctx context.Context) CassandraKeyspacePtrOutput {
 	return o
+}
+
+func (o CassandraKeyspacePtrOutput) Elem() CassandraKeyspaceOutput {
+	return o.ApplyT(func(v *CassandraKeyspace) CassandraKeyspace {
+		if v != nil {
+			return *v
+		}
+		var ret CassandraKeyspace
+		return ret
+	}).(CassandraKeyspaceOutput)
 }
 
 type CassandraKeyspaceArrayOutput struct{ *pulumi.OutputState }

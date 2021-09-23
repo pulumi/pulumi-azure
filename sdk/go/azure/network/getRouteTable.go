@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,78 @@ type LookupRouteTableResult struct {
 	Subnets []string `pulumi:"subnets"`
 	// A mapping of tags assigned to the Route Table.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupRouteTableOutput(ctx *pulumi.Context, args LookupRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupRouteTableResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRouteTableResult, error) {
+			args := v.(LookupRouteTableArgs)
+			r, err := LookupRouteTable(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRouteTableResultOutput)
+}
+
+// A collection of arguments for invoking getRouteTable.
+type LookupRouteTableOutputArgs struct {
+	// The name of the Route Table.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group in which the Route Table exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupRouteTableOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRouteTableArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRouteTable.
+type LookupRouteTableResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRouteTableResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRouteTableResult)(nil)).Elem()
+}
+
+func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutput() LookupRouteTableResultOutput {
+	return o
+}
+
+func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutputWithContext(ctx context.Context) LookupRouteTableResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupRouteTableResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure Region in which the Route Table exists.
+func (o LookupRouteTableResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the Route.
+func (o LookupRouteTableResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupRouteTableResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// One or more `route` blocks as documented below.
+func (o LookupRouteTableResultOutput) Routes() GetRouteTableRouteArrayOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) []GetRouteTableRoute { return v.Routes }).(GetRouteTableRouteArrayOutput)
+}
+
+// The collection of Subnets associated with this route table.
+func (o LookupRouteTableResultOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+// A mapping of tags assigned to the Route Table.
+func (o LookupRouteTableResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRouteTableResultOutput{})
 }

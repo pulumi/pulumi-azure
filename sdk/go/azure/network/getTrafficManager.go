@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,4 +56,51 @@ type GetTrafficManagerResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
+}
+
+func GetTrafficManagerOutput(ctx *pulumi.Context, args GetTrafficManagerOutputArgs, opts ...pulumi.InvokeOption) GetTrafficManagerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetTrafficManagerResult, error) {
+			args := v.(GetTrafficManagerArgs)
+			r, err := GetTrafficManager(ctx, &args, opts...)
+			return *r, err
+		}).(GetTrafficManagerResultOutput)
+}
+
+// A collection of arguments for invoking getTrafficManager.
+type GetTrafficManagerOutputArgs struct {
+	// Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficManagerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficManagerArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTrafficManager.
+type GetTrafficManagerResultOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficManagerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficManagerResult)(nil)).Elem()
+}
+
+func (o GetTrafficManagerResultOutput) ToGetTrafficManagerResultOutput() GetTrafficManagerResultOutput {
+	return o
+}
+
+func (o GetTrafficManagerResultOutput) ToGetTrafficManagerResultOutputWithContext(ctx context.Context) GetTrafficManagerResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetTrafficManagerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficManagerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetTrafficManagerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficManagerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetTrafficManagerResultOutput{})
 }

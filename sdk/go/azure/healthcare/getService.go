@@ -4,6 +4,9 @@
 package healthcare
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,4 +77,100 @@ type LookupServiceResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceResult, error) {
+			args := v.(LookupServiceArgs)
+			r, err := LookupService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceResultOutput)
+}
+
+// A collection of arguments for invoking getService.
+type LookupServiceOutputArgs struct {
+	// The Azure Region where the Service is located.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Specifies the name of the Healthcare Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group in which the Healthcare Service exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getService.
+type LookupServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceResult)(nil)).Elem()
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutput() LookupServiceResultOutput {
+	return o
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx context.Context) LookupServiceResultOutput {
+	return o
+}
+
+func (o LookupServiceResultOutput) AccessPolicyObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []string { return v.AccessPolicyObjectIds }).(pulumi.StringArrayOutput)
+}
+
+// An `authenticationConfiguration` block as defined below.
+func (o LookupServiceResultOutput) AuthenticationConfigurations() GetServiceAuthenticationConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceAuthenticationConfiguration {
+		return v.AuthenticationConfigurations
+	}).(GetServiceAuthenticationConfigurationArrayOutput)
+}
+
+// A `corsConfiguration` block as defined below.
+func (o LookupServiceResultOutput) CorsConfigurations() GetServiceCorsConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceCorsConfiguration { return v.CorsConfigurations }).(GetServiceCorsConfigurationArrayOutput)
+}
+
+// The versionless Key Vault Key ID for CMK encryption of the backing database.
+func (o LookupServiceResultOutput) CosmosdbKeyVaultKeyVersionlessId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.CosmosdbKeyVaultKeyVersionlessId }).(pulumi.StringOutput)
+}
+
+// The provisioned throughput for the backing database.
+func (o LookupServiceResultOutput) CosmosdbThroughput() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServiceResult) int { return v.CosmosdbThroughput }).(pulumi.IntOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The type of the service.
+func (o LookupServiceResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The Azure Region where the Service is located.
+func (o LookupServiceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceResultOutput{})
 }

@@ -4,6 +4,9 @@
 package proximity
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,4 +61,65 @@ type LookupPlacementGroupResult struct {
 	Name              string            `pulumi:"name"`
 	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	Tags              map[string]string `pulumi:"tags"`
+}
+
+func LookupPlacementGroupOutput(ctx *pulumi.Context, args LookupPlacementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupPlacementGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPlacementGroupResult, error) {
+			args := v.(LookupPlacementGroupArgs)
+			r, err := LookupPlacementGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPlacementGroupResultOutput)
+}
+
+// A collection of arguments for invoking getPlacementGroup.
+type LookupPlacementGroupOutputArgs struct {
+	// The name of the Proximity Placement Group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group in which the Proximity Placement Group exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPlacementGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPlacementGroupArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPlacementGroup.
+type LookupPlacementGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPlacementGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPlacementGroupResult)(nil)).Elem()
+}
+
+func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutput() LookupPlacementGroupResultOutput {
+	return o
+}
+
+func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutputWithContext(ctx context.Context) LookupPlacementGroupResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupPlacementGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupPlacementGroupResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupPlacementGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupPlacementGroupResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupPlacementGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPlacementGroupResultOutput{})
 }

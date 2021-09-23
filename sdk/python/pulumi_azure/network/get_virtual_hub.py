@@ -12,6 +12,7 @@ __all__ = [
     'GetVirtualHubResult',
     'AwaitableGetVirtualHubResult',
     'get_virtual_hub',
+    'get_virtual_hub_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,28 @@ def get_virtual_hub(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags,
         virtual_wan_id=__ret__.virtual_wan_id)
+
+
+@_utilities.lift_output_func(get_virtual_hub)
+def get_virtual_hub_output(name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubResult]:
+    """
+    Uses this data source to access information about an existing Virtual Hub.
+
+    ## Virtual Hub Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_virtual_hub(name="example-hub",
+        resource_group_name="example-resources")
+    pulumi.export("virtualHubId", example.id)
+    ```
+
+
+    :param str name: The name of the Virtual Hub.
+    :param str resource_group_name: The Name of the Resource Group where the Virtual Hub exists.
+    """
+    ...

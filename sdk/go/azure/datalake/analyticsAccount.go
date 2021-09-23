@@ -241,7 +241,7 @@ type AnalyticsAccountArrayInput interface {
 type AnalyticsAccountArray []AnalyticsAccountInput
 
 func (AnalyticsAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AnalyticsAccount)(nil))
+	return reflect.TypeOf((*[]*AnalyticsAccount)(nil)).Elem()
 }
 
 func (i AnalyticsAccountArray) ToAnalyticsAccountArrayOutput() AnalyticsAccountArrayOutput {
@@ -266,7 +266,7 @@ type AnalyticsAccountMapInput interface {
 type AnalyticsAccountMap map[string]AnalyticsAccountInput
 
 func (AnalyticsAccountMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AnalyticsAccount)(nil))
+	return reflect.TypeOf((*map[string]*AnalyticsAccount)(nil)).Elem()
 }
 
 func (i AnalyticsAccountMap) ToAnalyticsAccountMapOutput() AnalyticsAccountMapOutput {
@@ -277,9 +277,7 @@ func (i AnalyticsAccountMap) ToAnalyticsAccountMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsAccountMapOutput)
 }
 
-type AnalyticsAccountOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsAccountOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AnalyticsAccount)(nil))
@@ -298,14 +296,12 @@ func (o AnalyticsAccountOutput) ToAnalyticsAccountPtrOutput() AnalyticsAccountPt
 }
 
 func (o AnalyticsAccountOutput) ToAnalyticsAccountPtrOutputWithContext(ctx context.Context) AnalyticsAccountPtrOutput {
-	return o.ApplyT(func(v AnalyticsAccount) *AnalyticsAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsAccount) *AnalyticsAccount {
 		return &v
 	}).(AnalyticsAccountPtrOutput)
 }
 
-type AnalyticsAccountPtrOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsAccountPtrOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsAccountPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AnalyticsAccount)(nil))
@@ -317,6 +313,16 @@ func (o AnalyticsAccountPtrOutput) ToAnalyticsAccountPtrOutput() AnalyticsAccoun
 
 func (o AnalyticsAccountPtrOutput) ToAnalyticsAccountPtrOutputWithContext(ctx context.Context) AnalyticsAccountPtrOutput {
 	return o
+}
+
+func (o AnalyticsAccountPtrOutput) Elem() AnalyticsAccountOutput {
+	return o.ApplyT(func(v *AnalyticsAccount) AnalyticsAccount {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsAccount
+		return ret
+	}).(AnalyticsAccountOutput)
 }
 
 type AnalyticsAccountArrayOutput struct{ *pulumi.OutputState }

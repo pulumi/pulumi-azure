@@ -111,7 +111,7 @@ func (o ApiDiagnosticBackendRequestOutput) ToApiDiagnosticBackendRequestPtrOutpu
 }
 
 func (o ApiDiagnosticBackendRequestOutput) ToApiDiagnosticBackendRequestPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestPtrOutput {
-	return o.ApplyT(func(v ApiDiagnosticBackendRequest) *ApiDiagnosticBackendRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticBackendRequest) *ApiDiagnosticBackendRequest {
 		return &v
 	}).(ApiDiagnosticBackendRequestPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o ApiDiagnosticBackendRequestPtrOutput) ToApiDiagnosticBackendRequestPtrOu
 }
 
 func (o ApiDiagnosticBackendRequestPtrOutput) Elem() ApiDiagnosticBackendRequestOutput {
-	return o.ApplyT(func(v *ApiDiagnosticBackendRequest) ApiDiagnosticBackendRequest { return *v }).(ApiDiagnosticBackendRequestOutput)
+	return o.ApplyT(func(v *ApiDiagnosticBackendRequest) ApiDiagnosticBackendRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDiagnosticBackendRequest
+		return ret
+	}).(ApiDiagnosticBackendRequestOutput)
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -276,7 +282,7 @@ func (o ApiDiagnosticBackendRequestDataMaskingOutput) ToApiDiagnosticBackendRequ
 }
 
 func (o ApiDiagnosticBackendRequestDataMaskingOutput) ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingPtrOutput {
-	return o.ApplyT(func(v ApiDiagnosticBackendRequestDataMasking) *ApiDiagnosticBackendRequestDataMasking {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticBackendRequestDataMasking) *ApiDiagnosticBackendRequestDataMasking {
 		return &v
 	}).(ApiDiagnosticBackendRequestDataMaskingPtrOutput)
 }
@@ -310,7 +316,13 @@ func (o ApiDiagnosticBackendRequestDataMaskingPtrOutput) ToApiDiagnosticBackendR
 }
 
 func (o ApiDiagnosticBackendRequestDataMaskingPtrOutput) Elem() ApiDiagnosticBackendRequestDataMaskingOutput {
-	return o.ApplyT(func(v *ApiDiagnosticBackendRequestDataMasking) ApiDiagnosticBackendRequestDataMasking { return *v }).(ApiDiagnosticBackendRequestDataMaskingOutput)
+	return o.ApplyT(func(v *ApiDiagnosticBackendRequestDataMasking) ApiDiagnosticBackendRequestDataMasking {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDiagnosticBackendRequestDataMasking
+		return ret
+	}).(ApiDiagnosticBackendRequestDataMaskingOutput)
 }
 
 // A `headers` block as defined below.
@@ -646,7 +658,7 @@ func (o ApiDiagnosticBackendResponseOutput) ToApiDiagnosticBackendResponsePtrOut
 }
 
 func (o ApiDiagnosticBackendResponseOutput) ToApiDiagnosticBackendResponsePtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponsePtrOutput {
-	return o.ApplyT(func(v ApiDiagnosticBackendResponse) *ApiDiagnosticBackendResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticBackendResponse) *ApiDiagnosticBackendResponse {
 		return &v
 	}).(ApiDiagnosticBackendResponsePtrOutput)
 }
@@ -681,7 +693,13 @@ func (o ApiDiagnosticBackendResponsePtrOutput) ToApiDiagnosticBackendResponsePtr
 }
 
 func (o ApiDiagnosticBackendResponsePtrOutput) Elem() ApiDiagnosticBackendResponseOutput {
-	return o.ApplyT(func(v *ApiDiagnosticBackendResponse) ApiDiagnosticBackendResponse { return *v }).(ApiDiagnosticBackendResponseOutput)
+	return o.ApplyT(func(v *ApiDiagnosticBackendResponse) ApiDiagnosticBackendResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDiagnosticBackendResponse
+		return ret
+	}).(ApiDiagnosticBackendResponseOutput)
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -811,7 +829,7 @@ func (o ApiDiagnosticBackendResponseDataMaskingOutput) ToApiDiagnosticBackendRes
 }
 
 func (o ApiDiagnosticBackendResponseDataMaskingOutput) ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingPtrOutput {
-	return o.ApplyT(func(v ApiDiagnosticBackendResponseDataMasking) *ApiDiagnosticBackendResponseDataMasking {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticBackendResponseDataMasking) *ApiDiagnosticBackendResponseDataMasking {
 		return &v
 	}).(ApiDiagnosticBackendResponseDataMaskingPtrOutput)
 }
@@ -845,7 +863,13 @@ func (o ApiDiagnosticBackendResponseDataMaskingPtrOutput) ToApiDiagnosticBackend
 }
 
 func (o ApiDiagnosticBackendResponseDataMaskingPtrOutput) Elem() ApiDiagnosticBackendResponseDataMaskingOutput {
-	return o.ApplyT(func(v *ApiDiagnosticBackendResponseDataMasking) ApiDiagnosticBackendResponseDataMasking { return *v }).(ApiDiagnosticBackendResponseDataMaskingOutput)
+	return o.ApplyT(func(v *ApiDiagnosticBackendResponseDataMasking) ApiDiagnosticBackendResponseDataMasking {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDiagnosticBackendResponseDataMasking
+		return ret
+	}).(ApiDiagnosticBackendResponseDataMaskingOutput)
 }
 
 // A `headers` block as defined below.
@@ -1181,7 +1205,7 @@ func (o ApiDiagnosticFrontendRequestOutput) ToApiDiagnosticFrontendRequestPtrOut
 }
 
 func (o ApiDiagnosticFrontendRequestOutput) ToApiDiagnosticFrontendRequestPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestPtrOutput {
-	return o.ApplyT(func(v ApiDiagnosticFrontendRequest) *ApiDiagnosticFrontendRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticFrontendRequest) *ApiDiagnosticFrontendRequest {
 		return &v
 	}).(ApiDiagnosticFrontendRequestPtrOutput)
 }
@@ -1216,7 +1240,13 @@ func (o ApiDiagnosticFrontendRequestPtrOutput) ToApiDiagnosticFrontendRequestPtr
 }
 
 func (o ApiDiagnosticFrontendRequestPtrOutput) Elem() ApiDiagnosticFrontendRequestOutput {
-	return o.ApplyT(func(v *ApiDiagnosticFrontendRequest) ApiDiagnosticFrontendRequest { return *v }).(ApiDiagnosticFrontendRequestOutput)
+	return o.ApplyT(func(v *ApiDiagnosticFrontendRequest) ApiDiagnosticFrontendRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDiagnosticFrontendRequest
+		return ret
+	}).(ApiDiagnosticFrontendRequestOutput)
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -1346,7 +1376,7 @@ func (o ApiDiagnosticFrontendRequestDataMaskingOutput) ToApiDiagnosticFrontendRe
 }
 
 func (o ApiDiagnosticFrontendRequestDataMaskingOutput) ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
-	return o.ApplyT(func(v ApiDiagnosticFrontendRequestDataMasking) *ApiDiagnosticFrontendRequestDataMasking {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticFrontendRequestDataMasking) *ApiDiagnosticFrontendRequestDataMasking {
 		return &v
 	}).(ApiDiagnosticFrontendRequestDataMaskingPtrOutput)
 }
@@ -1380,7 +1410,13 @@ func (o ApiDiagnosticFrontendRequestDataMaskingPtrOutput) ToApiDiagnosticFronten
 }
 
 func (o ApiDiagnosticFrontendRequestDataMaskingPtrOutput) Elem() ApiDiagnosticFrontendRequestDataMaskingOutput {
-	return o.ApplyT(func(v *ApiDiagnosticFrontendRequestDataMasking) ApiDiagnosticFrontendRequestDataMasking { return *v }).(ApiDiagnosticFrontendRequestDataMaskingOutput)
+	return o.ApplyT(func(v *ApiDiagnosticFrontendRequestDataMasking) ApiDiagnosticFrontendRequestDataMasking {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDiagnosticFrontendRequestDataMasking
+		return ret
+	}).(ApiDiagnosticFrontendRequestDataMaskingOutput)
 }
 
 // A `headers` block as defined below.
@@ -1716,7 +1752,7 @@ func (o ApiDiagnosticFrontendResponseOutput) ToApiDiagnosticFrontendResponsePtrO
 }
 
 func (o ApiDiagnosticFrontendResponseOutput) ToApiDiagnosticFrontendResponsePtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponsePtrOutput {
-	return o.ApplyT(func(v ApiDiagnosticFrontendResponse) *ApiDiagnosticFrontendResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticFrontendResponse) *ApiDiagnosticFrontendResponse {
 		return &v
 	}).(ApiDiagnosticFrontendResponsePtrOutput)
 }
@@ -1751,7 +1787,13 @@ func (o ApiDiagnosticFrontendResponsePtrOutput) ToApiDiagnosticFrontendResponseP
 }
 
 func (o ApiDiagnosticFrontendResponsePtrOutput) Elem() ApiDiagnosticFrontendResponseOutput {
-	return o.ApplyT(func(v *ApiDiagnosticFrontendResponse) ApiDiagnosticFrontendResponse { return *v }).(ApiDiagnosticFrontendResponseOutput)
+	return o.ApplyT(func(v *ApiDiagnosticFrontendResponse) ApiDiagnosticFrontendResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDiagnosticFrontendResponse
+		return ret
+	}).(ApiDiagnosticFrontendResponseOutput)
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -1881,7 +1923,7 @@ func (o ApiDiagnosticFrontendResponseDataMaskingOutput) ToApiDiagnosticFrontendR
 }
 
 func (o ApiDiagnosticFrontendResponseDataMaskingOutput) ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
-	return o.ApplyT(func(v ApiDiagnosticFrontendResponseDataMasking) *ApiDiagnosticFrontendResponseDataMasking {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticFrontendResponseDataMasking) *ApiDiagnosticFrontendResponseDataMasking {
 		return &v
 	}).(ApiDiagnosticFrontendResponseDataMaskingPtrOutput)
 }
@@ -1915,7 +1957,13 @@ func (o ApiDiagnosticFrontendResponseDataMaskingPtrOutput) ToApiDiagnosticFronte
 }
 
 func (o ApiDiagnosticFrontendResponseDataMaskingPtrOutput) Elem() ApiDiagnosticFrontendResponseDataMaskingOutput {
-	return o.ApplyT(func(v *ApiDiagnosticFrontendResponseDataMasking) ApiDiagnosticFrontendResponseDataMasking { return *v }).(ApiDiagnosticFrontendResponseDataMaskingOutput)
+	return o.ApplyT(func(v *ApiDiagnosticFrontendResponseDataMasking) ApiDiagnosticFrontendResponseDataMasking {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDiagnosticFrontendResponseDataMasking
+		return ret
+	}).(ApiDiagnosticFrontendResponseDataMaskingOutput)
 }
 
 // A `headers` block as defined below.
@@ -2251,7 +2299,7 @@ func (o ApiImportOutput) ToApiImportPtrOutput() ApiImportPtrOutput {
 }
 
 func (o ApiImportOutput) ToApiImportPtrOutputWithContext(ctx context.Context) ApiImportPtrOutput {
-	return o.ApplyT(func(v ApiImport) *ApiImport {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiImport) *ApiImport {
 		return &v
 	}).(ApiImportPtrOutput)
 }
@@ -2286,7 +2334,13 @@ func (o ApiImportPtrOutput) ToApiImportPtrOutputWithContext(ctx context.Context)
 }
 
 func (o ApiImportPtrOutput) Elem() ApiImportOutput {
-	return o.ApplyT(func(v *ApiImport) ApiImport { return *v }).(ApiImportOutput)
+	return o.ApplyT(func(v *ApiImport) ApiImport {
+		if v != nil {
+			return *v
+		}
+		var ret ApiImport
+		return ret
+	}).(ApiImportOutput)
 }
 
 // The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
@@ -2416,7 +2470,7 @@ func (o ApiImportWsdlSelectorOutput) ToApiImportWsdlSelectorPtrOutput() ApiImpor
 }
 
 func (o ApiImportWsdlSelectorOutput) ToApiImportWsdlSelectorPtrOutputWithContext(ctx context.Context) ApiImportWsdlSelectorPtrOutput {
-	return o.ApplyT(func(v ApiImportWsdlSelector) *ApiImportWsdlSelector {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiImportWsdlSelector) *ApiImportWsdlSelector {
 		return &v
 	}).(ApiImportWsdlSelectorPtrOutput)
 }
@@ -2446,7 +2500,13 @@ func (o ApiImportWsdlSelectorPtrOutput) ToApiImportWsdlSelectorPtrOutputWithCont
 }
 
 func (o ApiImportWsdlSelectorPtrOutput) Elem() ApiImportWsdlSelectorOutput {
-	return o.ApplyT(func(v *ApiImportWsdlSelector) ApiImportWsdlSelector { return *v }).(ApiImportWsdlSelectorOutput)
+	return o.ApplyT(func(v *ApiImportWsdlSelector) ApiImportWsdlSelector {
+		if v != nil {
+			return *v
+		}
+		var ret ApiImportWsdlSelector
+		return ret
+	}).(ApiImportWsdlSelectorOutput)
 }
 
 // The name of endpoint (port) to import from WSDL.
@@ -2566,7 +2626,7 @@ func (o ApiOauth2AuthorizationOutput) ToApiOauth2AuthorizationPtrOutput() ApiOau
 }
 
 func (o ApiOauth2AuthorizationOutput) ToApiOauth2AuthorizationPtrOutputWithContext(ctx context.Context) ApiOauth2AuthorizationPtrOutput {
-	return o.ApplyT(func(v ApiOauth2Authorization) *ApiOauth2Authorization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOauth2Authorization) *ApiOauth2Authorization {
 		return &v
 	}).(ApiOauth2AuthorizationPtrOutput)
 }
@@ -2596,7 +2656,13 @@ func (o ApiOauth2AuthorizationPtrOutput) ToApiOauth2AuthorizationPtrOutputWithCo
 }
 
 func (o ApiOauth2AuthorizationPtrOutput) Elem() ApiOauth2AuthorizationOutput {
-	return o.ApplyT(func(v *ApiOauth2Authorization) ApiOauth2Authorization { return *v }).(ApiOauth2AuthorizationOutput)
+	return o.ApplyT(func(v *ApiOauth2Authorization) ApiOauth2Authorization {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOauth2Authorization
+		return ret
+	}).(ApiOauth2AuthorizationOutput)
 }
 
 // OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
@@ -2716,7 +2782,7 @@ func (o ApiOpenidAuthenticationOutput) ToApiOpenidAuthenticationPtrOutput() ApiO
 }
 
 func (o ApiOpenidAuthenticationOutput) ToApiOpenidAuthenticationPtrOutputWithContext(ctx context.Context) ApiOpenidAuthenticationPtrOutput {
-	return o.ApplyT(func(v ApiOpenidAuthentication) *ApiOpenidAuthentication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOpenidAuthentication) *ApiOpenidAuthentication {
 		return &v
 	}).(ApiOpenidAuthenticationPtrOutput)
 }
@@ -2746,7 +2812,13 @@ func (o ApiOpenidAuthenticationPtrOutput) ToApiOpenidAuthenticationPtrOutputWith
 }
 
 func (o ApiOpenidAuthenticationPtrOutput) Elem() ApiOpenidAuthenticationOutput {
-	return o.ApplyT(func(v *ApiOpenidAuthentication) ApiOpenidAuthentication { return *v }).(ApiOpenidAuthenticationOutput)
+	return o.ApplyT(func(v *ApiOpenidAuthentication) ApiOpenidAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOpenidAuthentication
+		return ret
+	}).(ApiOpenidAuthenticationOutput)
 }
 
 // How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
@@ -2874,7 +2946,7 @@ func (o ApiOperationRequestOutput) ToApiOperationRequestPtrOutput() ApiOperation
 }
 
 func (o ApiOperationRequestOutput) ToApiOperationRequestPtrOutputWithContext(ctx context.Context) ApiOperationRequestPtrOutput {
-	return o.ApplyT(func(v ApiOperationRequest) *ApiOperationRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOperationRequest) *ApiOperationRequest {
 		return &v
 	}).(ApiOperationRequestPtrOutput)
 }
@@ -2914,7 +2986,13 @@ func (o ApiOperationRequestPtrOutput) ToApiOperationRequestPtrOutputWithContext(
 }
 
 func (o ApiOperationRequestPtrOutput) Elem() ApiOperationRequestOutput {
-	return o.ApplyT(func(v *ApiOperationRequest) ApiOperationRequest { return *v }).(ApiOperationRequestOutput)
+	return o.ApplyT(func(v *ApiOperationRequest) ApiOperationRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOperationRequest
+		return ret
+	}).(ApiOperationRequestOutput)
 }
 
 // A description of the HTTP Request, which may include HTML tags.
@@ -4300,7 +4378,7 @@ func (o ApiSubscriptionKeyParameterNamesOutput) ToApiSubscriptionKeyParameterNam
 }
 
 func (o ApiSubscriptionKeyParameterNamesOutput) ToApiSubscriptionKeyParameterNamesPtrOutputWithContext(ctx context.Context) ApiSubscriptionKeyParameterNamesPtrOutput {
-	return o.ApplyT(func(v ApiSubscriptionKeyParameterNames) *ApiSubscriptionKeyParameterNames {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiSubscriptionKeyParameterNames) *ApiSubscriptionKeyParameterNames {
 		return &v
 	}).(ApiSubscriptionKeyParameterNamesPtrOutput)
 }
@@ -4330,7 +4408,13 @@ func (o ApiSubscriptionKeyParameterNamesPtrOutput) ToApiSubscriptionKeyParameter
 }
 
 func (o ApiSubscriptionKeyParameterNamesPtrOutput) Elem() ApiSubscriptionKeyParameterNamesOutput {
-	return o.ApplyT(func(v *ApiSubscriptionKeyParameterNames) ApiSubscriptionKeyParameterNames { return *v }).(ApiSubscriptionKeyParameterNamesOutput)
+	return o.ApplyT(func(v *ApiSubscriptionKeyParameterNames) ApiSubscriptionKeyParameterNames {
+		if v != nil {
+			return *v
+		}
+		var ret ApiSubscriptionKeyParameterNames
+		return ret
+	}).(ApiSubscriptionKeyParameterNamesOutput)
 }
 
 // The name of the HTTP Header which should be used for the Subscription Key.
@@ -4564,7 +4648,7 @@ func (o BackendCredentialsOutput) ToBackendCredentialsPtrOutput() BackendCredent
 }
 
 func (o BackendCredentialsOutput) ToBackendCredentialsPtrOutputWithContext(ctx context.Context) BackendCredentialsPtrOutput {
-	return o.ApplyT(func(v BackendCredentials) *BackendCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendCredentials) *BackendCredentials {
 		return &v
 	}).(BackendCredentialsPtrOutput)
 }
@@ -4604,7 +4688,13 @@ func (o BackendCredentialsPtrOutput) ToBackendCredentialsPtrOutputWithContext(ct
 }
 
 func (o BackendCredentialsPtrOutput) Elem() BackendCredentialsOutput {
-	return o.ApplyT(func(v *BackendCredentials) BackendCredentials { return *v }).(BackendCredentialsOutput)
+	return o.ApplyT(func(v *BackendCredentials) BackendCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret BackendCredentials
+		return ret
+	}).(BackendCredentialsOutput)
 }
 
 // An `authorization` block as defined below.
@@ -4744,7 +4834,7 @@ func (o BackendCredentialsAuthorizationOutput) ToBackendCredentialsAuthorization
 }
 
 func (o BackendCredentialsAuthorizationOutput) ToBackendCredentialsAuthorizationPtrOutputWithContext(ctx context.Context) BackendCredentialsAuthorizationPtrOutput {
-	return o.ApplyT(func(v BackendCredentialsAuthorization) *BackendCredentialsAuthorization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendCredentialsAuthorization) *BackendCredentialsAuthorization {
 		return &v
 	}).(BackendCredentialsAuthorizationPtrOutput)
 }
@@ -4774,7 +4864,13 @@ func (o BackendCredentialsAuthorizationPtrOutput) ToBackendCredentialsAuthorizat
 }
 
 func (o BackendCredentialsAuthorizationPtrOutput) Elem() BackendCredentialsAuthorizationOutput {
-	return o.ApplyT(func(v *BackendCredentialsAuthorization) BackendCredentialsAuthorization { return *v }).(BackendCredentialsAuthorizationOutput)
+	return o.ApplyT(func(v *BackendCredentialsAuthorization) BackendCredentialsAuthorization {
+		if v != nil {
+			return *v
+		}
+		var ret BackendCredentialsAuthorization
+		return ret
+	}).(BackendCredentialsAuthorizationOutput)
 }
 
 // The authentication Parameter value.
@@ -4898,7 +4994,7 @@ func (o BackendProxyOutput) ToBackendProxyPtrOutput() BackendProxyPtrOutput {
 }
 
 func (o BackendProxyOutput) ToBackendProxyPtrOutputWithContext(ctx context.Context) BackendProxyPtrOutput {
-	return o.ApplyT(func(v BackendProxy) *BackendProxy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendProxy) *BackendProxy {
 		return &v
 	}).(BackendProxyPtrOutput)
 }
@@ -4933,7 +5029,13 @@ func (o BackendProxyPtrOutput) ToBackendProxyPtrOutputWithContext(ctx context.Co
 }
 
 func (o BackendProxyPtrOutput) Elem() BackendProxyOutput {
-	return o.ApplyT(func(v *BackendProxy) BackendProxy { return *v }).(BackendProxyOutput)
+	return o.ApplyT(func(v *BackendProxy) BackendProxy {
+		if v != nil {
+			return *v
+		}
+		var ret BackendProxy
+		return ret
+	}).(BackendProxyOutput)
 }
 
 // The password to connect to the proxy server.
@@ -5079,7 +5181,7 @@ func (o BackendServiceFabricClusterOutput) ToBackendServiceFabricClusterPtrOutpu
 }
 
 func (o BackendServiceFabricClusterOutput) ToBackendServiceFabricClusterPtrOutputWithContext(ctx context.Context) BackendServiceFabricClusterPtrOutput {
-	return o.ApplyT(func(v BackendServiceFabricCluster) *BackendServiceFabricCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendServiceFabricCluster) *BackendServiceFabricCluster {
 		return &v
 	}).(BackendServiceFabricClusterPtrOutput)
 }
@@ -5131,7 +5233,13 @@ func (o BackendServiceFabricClusterPtrOutput) ToBackendServiceFabricClusterPtrOu
 }
 
 func (o BackendServiceFabricClusterPtrOutput) Elem() BackendServiceFabricClusterOutput {
-	return o.ApplyT(func(v *BackendServiceFabricCluster) BackendServiceFabricCluster { return *v }).(BackendServiceFabricClusterOutput)
+	return o.ApplyT(func(v *BackendServiceFabricCluster) BackendServiceFabricCluster {
+		if v != nil {
+			return *v
+		}
+		var ret BackendServiceFabricCluster
+		return ret
+	}).(BackendServiceFabricClusterOutput)
 }
 
 // The client certificate resource id for the management endpoint.
@@ -5397,7 +5505,7 @@ func (o BackendTlsOutput) ToBackendTlsPtrOutput() BackendTlsPtrOutput {
 }
 
 func (o BackendTlsOutput) ToBackendTlsPtrOutputWithContext(ctx context.Context) BackendTlsPtrOutput {
-	return o.ApplyT(func(v BackendTls) *BackendTls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendTls) *BackendTls {
 		return &v
 	}).(BackendTlsPtrOutput)
 }
@@ -5427,7 +5535,13 @@ func (o BackendTlsPtrOutput) ToBackendTlsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o BackendTlsPtrOutput) Elem() BackendTlsOutput {
-	return o.ApplyT(func(v *BackendTls) BackendTls { return *v }).(BackendTlsOutput)
+	return o.ApplyT(func(v *BackendTls) BackendTls {
+		if v != nil {
+			return *v
+		}
+		var ret BackendTls
+		return ret
+	}).(BackendTlsOutput)
 }
 
 // Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
@@ -6343,7 +6457,7 @@ func (o DiagnosticBackendRequestOutput) ToDiagnosticBackendRequestPtrOutput() Di
 }
 
 func (o DiagnosticBackendRequestOutput) ToDiagnosticBackendRequestPtrOutputWithContext(ctx context.Context) DiagnosticBackendRequestPtrOutput {
-	return o.ApplyT(func(v DiagnosticBackendRequest) *DiagnosticBackendRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticBackendRequest) *DiagnosticBackendRequest {
 		return &v
 	}).(DiagnosticBackendRequestPtrOutput)
 }
@@ -6377,7 +6491,13 @@ func (o DiagnosticBackendRequestPtrOutput) ToDiagnosticBackendRequestPtrOutputWi
 }
 
 func (o DiagnosticBackendRequestPtrOutput) Elem() DiagnosticBackendRequestOutput {
-	return o.ApplyT(func(v *DiagnosticBackendRequest) DiagnosticBackendRequest { return *v }).(DiagnosticBackendRequestOutput)
+	return o.ApplyT(func(v *DiagnosticBackendRequest) DiagnosticBackendRequest {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticBackendRequest
+		return ret
+	}).(DiagnosticBackendRequestOutput)
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -6502,10 +6622,11 @@ func (o DiagnosticBackendRequestDataMaskingOutput) ToDiagnosticBackendRequestDat
 }
 
 func (o DiagnosticBackendRequestDataMaskingOutput) ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingPtrOutput {
-	return o.ApplyT(func(v DiagnosticBackendRequestDataMasking) *DiagnosticBackendRequestDataMasking {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticBackendRequestDataMasking) *DiagnosticBackendRequestDataMasking {
 		return &v
 	}).(DiagnosticBackendRequestDataMaskingPtrOutput)
 }
+
 func (o DiagnosticBackendRequestDataMaskingOutput) Headers() DiagnosticBackendRequestDataMaskingHeaderArrayOutput {
 	return o.ApplyT(func(v DiagnosticBackendRequestDataMasking) []DiagnosticBackendRequestDataMaskingHeader {
 		return v.Headers
@@ -6533,7 +6654,13 @@ func (o DiagnosticBackendRequestDataMaskingPtrOutput) ToDiagnosticBackendRequest
 }
 
 func (o DiagnosticBackendRequestDataMaskingPtrOutput) Elem() DiagnosticBackendRequestDataMaskingOutput {
-	return o.ApplyT(func(v *DiagnosticBackendRequestDataMasking) DiagnosticBackendRequestDataMasking { return *v }).(DiagnosticBackendRequestDataMaskingOutput)
+	return o.ApplyT(func(v *DiagnosticBackendRequestDataMasking) DiagnosticBackendRequestDataMasking {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticBackendRequestDataMasking
+		return ret
+	}).(DiagnosticBackendRequestDataMaskingOutput)
 }
 
 func (o DiagnosticBackendRequestDataMaskingPtrOutput) Headers() DiagnosticBackendRequestDataMaskingHeaderArrayOutput {
@@ -6853,7 +6980,7 @@ func (o DiagnosticBackendResponseOutput) ToDiagnosticBackendResponsePtrOutput() 
 }
 
 func (o DiagnosticBackendResponseOutput) ToDiagnosticBackendResponsePtrOutputWithContext(ctx context.Context) DiagnosticBackendResponsePtrOutput {
-	return o.ApplyT(func(v DiagnosticBackendResponse) *DiagnosticBackendResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticBackendResponse) *DiagnosticBackendResponse {
 		return &v
 	}).(DiagnosticBackendResponsePtrOutput)
 }
@@ -6887,7 +7014,13 @@ func (o DiagnosticBackendResponsePtrOutput) ToDiagnosticBackendResponsePtrOutput
 }
 
 func (o DiagnosticBackendResponsePtrOutput) Elem() DiagnosticBackendResponseOutput {
-	return o.ApplyT(func(v *DiagnosticBackendResponse) DiagnosticBackendResponse { return *v }).(DiagnosticBackendResponseOutput)
+	return o.ApplyT(func(v *DiagnosticBackendResponse) DiagnosticBackendResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticBackendResponse
+		return ret
+	}).(DiagnosticBackendResponseOutput)
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -7012,10 +7145,11 @@ func (o DiagnosticBackendResponseDataMaskingOutput) ToDiagnosticBackendResponseD
 }
 
 func (o DiagnosticBackendResponseDataMaskingOutput) ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingPtrOutput {
-	return o.ApplyT(func(v DiagnosticBackendResponseDataMasking) *DiagnosticBackendResponseDataMasking {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticBackendResponseDataMasking) *DiagnosticBackendResponseDataMasking {
 		return &v
 	}).(DiagnosticBackendResponseDataMaskingPtrOutput)
 }
+
 func (o DiagnosticBackendResponseDataMaskingOutput) Headers() DiagnosticBackendResponseDataMaskingHeaderArrayOutput {
 	return o.ApplyT(func(v DiagnosticBackendResponseDataMasking) []DiagnosticBackendResponseDataMaskingHeader {
 		return v.Headers
@@ -7043,7 +7177,13 @@ func (o DiagnosticBackendResponseDataMaskingPtrOutput) ToDiagnosticBackendRespon
 }
 
 func (o DiagnosticBackendResponseDataMaskingPtrOutput) Elem() DiagnosticBackendResponseDataMaskingOutput {
-	return o.ApplyT(func(v *DiagnosticBackendResponseDataMasking) DiagnosticBackendResponseDataMasking { return *v }).(DiagnosticBackendResponseDataMaskingOutput)
+	return o.ApplyT(func(v *DiagnosticBackendResponseDataMasking) DiagnosticBackendResponseDataMasking {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticBackendResponseDataMasking
+		return ret
+	}).(DiagnosticBackendResponseDataMaskingOutput)
 }
 
 func (o DiagnosticBackendResponseDataMaskingPtrOutput) Headers() DiagnosticBackendResponseDataMaskingHeaderArrayOutput {
@@ -7363,7 +7503,7 @@ func (o DiagnosticFrontendRequestOutput) ToDiagnosticFrontendRequestPtrOutput() 
 }
 
 func (o DiagnosticFrontendRequestOutput) ToDiagnosticFrontendRequestPtrOutputWithContext(ctx context.Context) DiagnosticFrontendRequestPtrOutput {
-	return o.ApplyT(func(v DiagnosticFrontendRequest) *DiagnosticFrontendRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticFrontendRequest) *DiagnosticFrontendRequest {
 		return &v
 	}).(DiagnosticFrontendRequestPtrOutput)
 }
@@ -7397,7 +7537,13 @@ func (o DiagnosticFrontendRequestPtrOutput) ToDiagnosticFrontendRequestPtrOutput
 }
 
 func (o DiagnosticFrontendRequestPtrOutput) Elem() DiagnosticFrontendRequestOutput {
-	return o.ApplyT(func(v *DiagnosticFrontendRequest) DiagnosticFrontendRequest { return *v }).(DiagnosticFrontendRequestOutput)
+	return o.ApplyT(func(v *DiagnosticFrontendRequest) DiagnosticFrontendRequest {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticFrontendRequest
+		return ret
+	}).(DiagnosticFrontendRequestOutput)
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -7522,10 +7668,11 @@ func (o DiagnosticFrontendRequestDataMaskingOutput) ToDiagnosticFrontendRequestD
 }
 
 func (o DiagnosticFrontendRequestDataMaskingOutput) ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingPtrOutput {
-	return o.ApplyT(func(v DiagnosticFrontendRequestDataMasking) *DiagnosticFrontendRequestDataMasking {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticFrontendRequestDataMasking) *DiagnosticFrontendRequestDataMasking {
 		return &v
 	}).(DiagnosticFrontendRequestDataMaskingPtrOutput)
 }
+
 func (o DiagnosticFrontendRequestDataMaskingOutput) Headers() DiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
 	return o.ApplyT(func(v DiagnosticFrontendRequestDataMasking) []DiagnosticFrontendRequestDataMaskingHeader {
 		return v.Headers
@@ -7553,7 +7700,13 @@ func (o DiagnosticFrontendRequestDataMaskingPtrOutput) ToDiagnosticFrontendReque
 }
 
 func (o DiagnosticFrontendRequestDataMaskingPtrOutput) Elem() DiagnosticFrontendRequestDataMaskingOutput {
-	return o.ApplyT(func(v *DiagnosticFrontendRequestDataMasking) DiagnosticFrontendRequestDataMasking { return *v }).(DiagnosticFrontendRequestDataMaskingOutput)
+	return o.ApplyT(func(v *DiagnosticFrontendRequestDataMasking) DiagnosticFrontendRequestDataMasking {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticFrontendRequestDataMasking
+		return ret
+	}).(DiagnosticFrontendRequestDataMaskingOutput)
 }
 
 func (o DiagnosticFrontendRequestDataMaskingPtrOutput) Headers() DiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
@@ -7873,7 +8026,7 @@ func (o DiagnosticFrontendResponseOutput) ToDiagnosticFrontendResponsePtrOutput(
 }
 
 func (o DiagnosticFrontendResponseOutput) ToDiagnosticFrontendResponsePtrOutputWithContext(ctx context.Context) DiagnosticFrontendResponsePtrOutput {
-	return o.ApplyT(func(v DiagnosticFrontendResponse) *DiagnosticFrontendResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticFrontendResponse) *DiagnosticFrontendResponse {
 		return &v
 	}).(DiagnosticFrontendResponsePtrOutput)
 }
@@ -7907,7 +8060,13 @@ func (o DiagnosticFrontendResponsePtrOutput) ToDiagnosticFrontendResponsePtrOutp
 }
 
 func (o DiagnosticFrontendResponsePtrOutput) Elem() DiagnosticFrontendResponseOutput {
-	return o.ApplyT(func(v *DiagnosticFrontendResponse) DiagnosticFrontendResponse { return *v }).(DiagnosticFrontendResponseOutput)
+	return o.ApplyT(func(v *DiagnosticFrontendResponse) DiagnosticFrontendResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticFrontendResponse
+		return ret
+	}).(DiagnosticFrontendResponseOutput)
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -8032,10 +8191,11 @@ func (o DiagnosticFrontendResponseDataMaskingOutput) ToDiagnosticFrontendRespons
 }
 
 func (o DiagnosticFrontendResponseDataMaskingOutput) ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingPtrOutput {
-	return o.ApplyT(func(v DiagnosticFrontendResponseDataMasking) *DiagnosticFrontendResponseDataMasking {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticFrontendResponseDataMasking) *DiagnosticFrontendResponseDataMasking {
 		return &v
 	}).(DiagnosticFrontendResponseDataMaskingPtrOutput)
 }
+
 func (o DiagnosticFrontendResponseDataMaskingOutput) Headers() DiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
 	return o.ApplyT(func(v DiagnosticFrontendResponseDataMasking) []DiagnosticFrontendResponseDataMaskingHeader {
 		return v.Headers
@@ -8063,7 +8223,13 @@ func (o DiagnosticFrontendResponseDataMaskingPtrOutput) ToDiagnosticFrontendResp
 }
 
 func (o DiagnosticFrontendResponseDataMaskingPtrOutput) Elem() DiagnosticFrontendResponseDataMaskingOutput {
-	return o.ApplyT(func(v *DiagnosticFrontendResponseDataMasking) DiagnosticFrontendResponseDataMasking { return *v }).(DiagnosticFrontendResponseDataMaskingOutput)
+	return o.ApplyT(func(v *DiagnosticFrontendResponseDataMasking) DiagnosticFrontendResponseDataMasking {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticFrontendResponseDataMasking
+		return ret
+	}).(DiagnosticFrontendResponseDataMaskingOutput)
 }
 
 func (o DiagnosticFrontendResponseDataMaskingPtrOutput) Headers() DiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
@@ -8389,7 +8555,7 @@ func (o GatewayLocationDataOutput) ToGatewayLocationDataPtrOutput() GatewayLocat
 }
 
 func (o GatewayLocationDataOutput) ToGatewayLocationDataPtrOutputWithContext(ctx context.Context) GatewayLocationDataPtrOutput {
-	return o.ApplyT(func(v GatewayLocationData) *GatewayLocationData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayLocationData) *GatewayLocationData {
 		return &v
 	}).(GatewayLocationDataPtrOutput)
 }
@@ -8429,7 +8595,13 @@ func (o GatewayLocationDataPtrOutput) ToGatewayLocationDataPtrOutputWithContext(
 }
 
 func (o GatewayLocationDataPtrOutput) Elem() GatewayLocationDataOutput {
-	return o.ApplyT(func(v *GatewayLocationData) GatewayLocationData { return *v }).(GatewayLocationDataOutput)
+	return o.ApplyT(func(v *GatewayLocationData) GatewayLocationData {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayLocationData
+		return ret
+	}).(GatewayLocationDataOutput)
 }
 
 // The city or locality where the resource is located.
@@ -8565,7 +8737,7 @@ func (o LoggerApplicationInsightsOutput) ToLoggerApplicationInsightsPtrOutput() 
 }
 
 func (o LoggerApplicationInsightsOutput) ToLoggerApplicationInsightsPtrOutputWithContext(ctx context.Context) LoggerApplicationInsightsPtrOutput {
-	return o.ApplyT(func(v LoggerApplicationInsights) *LoggerApplicationInsights {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggerApplicationInsights) *LoggerApplicationInsights {
 		return &v
 	}).(LoggerApplicationInsightsPtrOutput)
 }
@@ -8590,7 +8762,13 @@ func (o LoggerApplicationInsightsPtrOutput) ToLoggerApplicationInsightsPtrOutput
 }
 
 func (o LoggerApplicationInsightsPtrOutput) Elem() LoggerApplicationInsightsOutput {
-	return o.ApplyT(func(v *LoggerApplicationInsights) LoggerApplicationInsights { return *v }).(LoggerApplicationInsightsOutput)
+	return o.ApplyT(func(v *LoggerApplicationInsights) LoggerApplicationInsights {
+		if v != nil {
+			return *v
+		}
+		var ret LoggerApplicationInsights
+		return ret
+	}).(LoggerApplicationInsightsOutput)
 }
 
 // The instrumentation key used to push data to Application Insights.
@@ -8700,7 +8878,7 @@ func (o LoggerEventhubOutput) ToLoggerEventhubPtrOutput() LoggerEventhubPtrOutpu
 }
 
 func (o LoggerEventhubOutput) ToLoggerEventhubPtrOutputWithContext(ctx context.Context) LoggerEventhubPtrOutput {
-	return o.ApplyT(func(v LoggerEventhub) *LoggerEventhub {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggerEventhub) *LoggerEventhub {
 		return &v
 	}).(LoggerEventhubPtrOutput)
 }
@@ -8730,7 +8908,13 @@ func (o LoggerEventhubPtrOutput) ToLoggerEventhubPtrOutputWithContext(ctx contex
 }
 
 func (o LoggerEventhubPtrOutput) Elem() LoggerEventhubOutput {
-	return o.ApplyT(func(v *LoggerEventhub) LoggerEventhub { return *v }).(LoggerEventhubOutput)
+	return o.ApplyT(func(v *LoggerEventhub) LoggerEventhub {
+		if v != nil {
+			return *v
+		}
+		var ret LoggerEventhub
+		return ret
+	}).(LoggerEventhubOutput)
 }
 
 // The connection string of an EventHub Namespace.
@@ -8850,7 +9034,7 @@ func (o NamedValueValueFromKeyVaultOutput) ToNamedValueValueFromKeyVaultPtrOutpu
 }
 
 func (o NamedValueValueFromKeyVaultOutput) ToNamedValueValueFromKeyVaultPtrOutputWithContext(ctx context.Context) NamedValueValueFromKeyVaultPtrOutput {
-	return o.ApplyT(func(v NamedValueValueFromKeyVault) *NamedValueValueFromKeyVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamedValueValueFromKeyVault) *NamedValueValueFromKeyVault {
 		return &v
 	}).(NamedValueValueFromKeyVaultPtrOutput)
 }
@@ -8880,7 +9064,13 @@ func (o NamedValueValueFromKeyVaultPtrOutput) ToNamedValueValueFromKeyVaultPtrOu
 }
 
 func (o NamedValueValueFromKeyVaultPtrOutput) Elem() NamedValueValueFromKeyVaultOutput {
-	return o.ApplyT(func(v *NamedValueValueFromKeyVault) NamedValueValueFromKeyVault { return *v }).(NamedValueValueFromKeyVaultOutput)
+	return o.ApplyT(func(v *NamedValueValueFromKeyVault) NamedValueValueFromKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret NamedValueValueFromKeyVault
+		return ret
+	}).(NamedValueValueFromKeyVaultOutput)
 }
 
 // The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
@@ -9131,7 +9321,7 @@ func (o ServiceAdditionalLocationVirtualNetworkConfigurationOutput) ToServiceAdd
 }
 
 func (o ServiceAdditionalLocationVirtualNetworkConfigurationOutput) ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceAdditionalLocationVirtualNetworkConfiguration) *ServiceAdditionalLocationVirtualNetworkConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAdditionalLocationVirtualNetworkConfiguration) *ServiceAdditionalLocationVirtualNetworkConfiguration {
 		return &v
 	}).(ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput)
 }
@@ -9157,7 +9347,11 @@ func (o ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput) ToService
 
 func (o ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput) Elem() ServiceAdditionalLocationVirtualNetworkConfigurationOutput {
 	return o.ApplyT(func(v *ServiceAdditionalLocationVirtualNetworkConfiguration) ServiceAdditionalLocationVirtualNetworkConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAdditionalLocationVirtualNetworkConfiguration
+		return ret
 	}).(ServiceAdditionalLocationVirtualNetworkConfigurationOutput)
 }
 
@@ -9422,7 +9616,7 @@ func (o ServiceHostnameConfigurationOutput) ToServiceHostnameConfigurationPtrOut
 }
 
 func (o ServiceHostnameConfigurationOutput) ToServiceHostnameConfigurationPtrOutputWithContext(ctx context.Context) ServiceHostnameConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceHostnameConfiguration) *ServiceHostnameConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceHostnameConfiguration) *ServiceHostnameConfiguration {
 		return &v
 	}).(ServiceHostnameConfigurationPtrOutput)
 }
@@ -9469,7 +9663,13 @@ func (o ServiceHostnameConfigurationPtrOutput) ToServiceHostnameConfigurationPtr
 }
 
 func (o ServiceHostnameConfigurationPtrOutput) Elem() ServiceHostnameConfigurationOutput {
-	return o.ApplyT(func(v *ServiceHostnameConfiguration) ServiceHostnameConfiguration { return *v }).(ServiceHostnameConfigurationOutput)
+	return o.ApplyT(func(v *ServiceHostnameConfiguration) ServiceHostnameConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceHostnameConfiguration
+		return ret
+	}).(ServiceHostnameConfigurationOutput)
 }
 
 // One or more `developerPortal` blocks as documented below.
@@ -10481,7 +10681,7 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutput() ServiceIdentityPtrOu
 }
 
 func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context.Context) ServiceIdentityPtrOutput {
-	return o.ApplyT(func(v ServiceIdentity) *ServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIdentity) *ServiceIdentity {
 		return &v
 	}).(ServiceIdentityPtrOutput)
 }
@@ -10521,7 +10721,13 @@ func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
-	return o.ApplyT(func(v *ServiceIdentity) ServiceIdentity { return *v }).(ServiceIdentityOutput)
+	return o.ApplyT(func(v *ServiceIdentity) ServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceIdentity
+		return ret
+	}).(ServiceIdentityOutput)
 }
 
 // A list of IDs for User Assigned Managed Identity resources to be assigned.
@@ -10661,7 +10867,7 @@ func (o ServicePolicyOutput) ToServicePolicyPtrOutput() ServicePolicyPtrOutput {
 }
 
 func (o ServicePolicyOutput) ToServicePolicyPtrOutputWithContext(ctx context.Context) ServicePolicyPtrOutput {
-	return o.ApplyT(func(v ServicePolicy) *ServicePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePolicy) *ServicePolicy {
 		return &v
 	}).(ServicePolicyPtrOutput)
 }
@@ -10691,7 +10897,13 @@ func (o ServicePolicyPtrOutput) ToServicePolicyPtrOutputWithContext(ctx context.
 }
 
 func (o ServicePolicyPtrOutput) Elem() ServicePolicyOutput {
-	return o.ApplyT(func(v *ServicePolicy) ServicePolicy { return *v }).(ServicePolicyOutput)
+	return o.ApplyT(func(v *ServicePolicy) ServicePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePolicy
+		return ret
+	}).(ServicePolicyOutput)
 }
 
 // The XML Content for this Policy.
@@ -10807,7 +11019,7 @@ func (o ServiceProtocolsOutput) ToServiceProtocolsPtrOutput() ServiceProtocolsPt
 }
 
 func (o ServiceProtocolsOutput) ToServiceProtocolsPtrOutputWithContext(ctx context.Context) ServiceProtocolsPtrOutput {
-	return o.ApplyT(func(v ServiceProtocols) *ServiceProtocols {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceProtocols) *ServiceProtocols {
 		return &v
 	}).(ServiceProtocolsPtrOutput)
 }
@@ -10832,7 +11044,13 @@ func (o ServiceProtocolsPtrOutput) ToServiceProtocolsPtrOutputWithContext(ctx co
 }
 
 func (o ServiceProtocolsPtrOutput) Elem() ServiceProtocolsOutput {
-	return o.ApplyT(func(v *ServiceProtocols) ServiceProtocols { return *v }).(ServiceProtocolsOutput)
+	return o.ApplyT(func(v *ServiceProtocols) ServiceProtocols {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceProtocols
+		return ret
+	}).(ServiceProtocolsOutput)
 }
 
 // Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
@@ -11002,7 +11220,7 @@ func (o ServiceSecurityOutput) ToServiceSecurityPtrOutput() ServiceSecurityPtrOu
 }
 
 func (o ServiceSecurityOutput) ToServiceSecurityPtrOutputWithContext(ctx context.Context) ServiceSecurityPtrOutput {
-	return o.ApplyT(func(v ServiceSecurity) *ServiceSecurity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSecurity) *ServiceSecurity {
 		return &v
 	}).(ServiceSecurityPtrOutput)
 }
@@ -11107,7 +11325,13 @@ func (o ServiceSecurityPtrOutput) ToServiceSecurityPtrOutputWithContext(ctx cont
 }
 
 func (o ServiceSecurityPtrOutput) Elem() ServiceSecurityOutput {
-	return o.ApplyT(func(v *ServiceSecurity) ServiceSecurity { return *v }).(ServiceSecurityOutput)
+	return o.ApplyT(func(v *ServiceSecurity) ServiceSecurity {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSecurity
+		return ret
+	}).(ServiceSecurityOutput)
 }
 
 // Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
@@ -11373,7 +11597,7 @@ func (o ServiceSignInOutput) ToServiceSignInPtrOutput() ServiceSignInPtrOutput {
 }
 
 func (o ServiceSignInOutput) ToServiceSignInPtrOutputWithContext(ctx context.Context) ServiceSignInPtrOutput {
-	return o.ApplyT(func(v ServiceSignIn) *ServiceSignIn {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSignIn) *ServiceSignIn {
 		return &v
 	}).(ServiceSignInPtrOutput)
 }
@@ -11398,7 +11622,13 @@ func (o ServiceSignInPtrOutput) ToServiceSignInPtrOutputWithContext(ctx context.
 }
 
 func (o ServiceSignInPtrOutput) Elem() ServiceSignInOutput {
-	return o.ApplyT(func(v *ServiceSignIn) ServiceSignIn { return *v }).(ServiceSignInOutput)
+	return o.ApplyT(func(v *ServiceSignIn) ServiceSignIn {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSignIn
+		return ret
+	}).(ServiceSignInOutput)
 }
 
 // Should anonymous users be redirected to the sign in page?
@@ -11508,7 +11738,7 @@ func (o ServiceSignUpOutput) ToServiceSignUpPtrOutput() ServiceSignUpPtrOutput {
 }
 
 func (o ServiceSignUpOutput) ToServiceSignUpPtrOutputWithContext(ctx context.Context) ServiceSignUpPtrOutput {
-	return o.ApplyT(func(v ServiceSignUp) *ServiceSignUp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSignUp) *ServiceSignUp {
 		return &v
 	}).(ServiceSignUpPtrOutput)
 }
@@ -11538,7 +11768,13 @@ func (o ServiceSignUpPtrOutput) ToServiceSignUpPtrOutputWithContext(ctx context.
 }
 
 func (o ServiceSignUpPtrOutput) Elem() ServiceSignUpOutput {
-	return o.ApplyT(func(v *ServiceSignUp) ServiceSignUp { return *v }).(ServiceSignUpOutput)
+	return o.ApplyT(func(v *ServiceSignUp) ServiceSignUp {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSignUp
+		return ret
+	}).(ServiceSignUpOutput)
 }
 
 // Can users sign up on the development portal?
@@ -11662,7 +11898,7 @@ func (o ServiceSignUpTermsOfServiceOutput) ToServiceSignUpTermsOfServicePtrOutpu
 }
 
 func (o ServiceSignUpTermsOfServiceOutput) ToServiceSignUpTermsOfServicePtrOutputWithContext(ctx context.Context) ServiceSignUpTermsOfServicePtrOutput {
-	return o.ApplyT(func(v ServiceSignUpTermsOfService) *ServiceSignUpTermsOfService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSignUpTermsOfService) *ServiceSignUpTermsOfService {
 		return &v
 	}).(ServiceSignUpTermsOfServicePtrOutput)
 }
@@ -11697,7 +11933,13 @@ func (o ServiceSignUpTermsOfServicePtrOutput) ToServiceSignUpTermsOfServicePtrOu
 }
 
 func (o ServiceSignUpTermsOfServicePtrOutput) Elem() ServiceSignUpTermsOfServiceOutput {
-	return o.ApplyT(func(v *ServiceSignUpTermsOfService) ServiceSignUpTermsOfService { return *v }).(ServiceSignUpTermsOfServiceOutput)
+	return o.ApplyT(func(v *ServiceSignUpTermsOfService) ServiceSignUpTermsOfService {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSignUpTermsOfService
+		return ret
+	}).(ServiceSignUpTermsOfServiceOutput)
 }
 
 // Should the user be asked for consent during sign up?
@@ -11835,7 +12077,7 @@ func (o ServiceTenantAccessOutput) ToServiceTenantAccessPtrOutput() ServiceTenan
 }
 
 func (o ServiceTenantAccessOutput) ToServiceTenantAccessPtrOutputWithContext(ctx context.Context) ServiceTenantAccessPtrOutput {
-	return o.ApplyT(func(v ServiceTenantAccess) *ServiceTenantAccess {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceTenantAccess) *ServiceTenantAccess {
 		return &v
 	}).(ServiceTenantAccessPtrOutput)
 }
@@ -11875,7 +12117,13 @@ func (o ServiceTenantAccessPtrOutput) ToServiceTenantAccessPtrOutputWithContext(
 }
 
 func (o ServiceTenantAccessPtrOutput) Elem() ServiceTenantAccessOutput {
-	return o.ApplyT(func(v *ServiceTenantAccess) ServiceTenantAccess { return *v }).(ServiceTenantAccessOutput)
+	return o.ApplyT(func(v *ServiceTenantAccess) ServiceTenantAccess {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceTenantAccess
+		return ret
+	}).(ServiceTenantAccessOutput)
 }
 
 // Should the access to the management api be enabled?
@@ -12011,7 +12259,7 @@ func (o ServiceVirtualNetworkConfigurationOutput) ToServiceVirtualNetworkConfigu
 }
 
 func (o ServiceVirtualNetworkConfigurationOutput) ToServiceVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceVirtualNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceVirtualNetworkConfiguration) *ServiceVirtualNetworkConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceVirtualNetworkConfiguration) *ServiceVirtualNetworkConfiguration {
 		return &v
 	}).(ServiceVirtualNetworkConfigurationPtrOutput)
 }
@@ -12036,7 +12284,13 @@ func (o ServiceVirtualNetworkConfigurationPtrOutput) ToServiceVirtualNetworkConf
 }
 
 func (o ServiceVirtualNetworkConfigurationPtrOutput) Elem() ServiceVirtualNetworkConfigurationOutput {
-	return o.ApplyT(func(v *ServiceVirtualNetworkConfiguration) ServiceVirtualNetworkConfiguration { return *v }).(ServiceVirtualNetworkConfigurationOutput)
+	return o.ApplyT(func(v *ServiceVirtualNetworkConfiguration) ServiceVirtualNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceVirtualNetworkConfiguration
+		return ret
+	}).(ServiceVirtualNetworkConfigurationOutput)
 }
 
 // The id of the subnet that will be used for the API Management.

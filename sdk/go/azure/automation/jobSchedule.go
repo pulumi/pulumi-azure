@@ -245,7 +245,7 @@ type JobScheduleArrayInput interface {
 type JobScheduleArray []JobScheduleInput
 
 func (JobScheduleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*JobSchedule)(nil))
+	return reflect.TypeOf((*[]*JobSchedule)(nil)).Elem()
 }
 
 func (i JobScheduleArray) ToJobScheduleArrayOutput() JobScheduleArrayOutput {
@@ -270,7 +270,7 @@ type JobScheduleMapInput interface {
 type JobScheduleMap map[string]JobScheduleInput
 
 func (JobScheduleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*JobSchedule)(nil))
+	return reflect.TypeOf((*map[string]*JobSchedule)(nil)).Elem()
 }
 
 func (i JobScheduleMap) ToJobScheduleMapOutput() JobScheduleMapOutput {
@@ -281,9 +281,7 @@ func (i JobScheduleMap) ToJobScheduleMapOutputWithContext(ctx context.Context) J
 	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleMapOutput)
 }
 
-type JobScheduleOutput struct {
-	*pulumi.OutputState
-}
+type JobScheduleOutput struct{ *pulumi.OutputState }
 
 func (JobScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobSchedule)(nil))
@@ -302,14 +300,12 @@ func (o JobScheduleOutput) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
 }
 
 func (o JobScheduleOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
-	return o.ApplyT(func(v JobSchedule) *JobSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobSchedule) *JobSchedule {
 		return &v
 	}).(JobSchedulePtrOutput)
 }
 
-type JobSchedulePtrOutput struct {
-	*pulumi.OutputState
-}
+type JobSchedulePtrOutput struct{ *pulumi.OutputState }
 
 func (JobSchedulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**JobSchedule)(nil))
@@ -321,6 +317,16 @@ func (o JobSchedulePtrOutput) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
 
 func (o JobSchedulePtrOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
 	return o
+}
+
+func (o JobSchedulePtrOutput) Elem() JobScheduleOutput {
+	return o.ApplyT(func(v *JobSchedule) JobSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret JobSchedule
+		return ret
+	}).(JobScheduleOutput)
 }
 
 type JobScheduleArrayOutput struct{ *pulumi.OutputState }

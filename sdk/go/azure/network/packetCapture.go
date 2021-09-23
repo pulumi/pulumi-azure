@@ -240,7 +240,7 @@ type PacketCaptureArrayInput interface {
 type PacketCaptureArray []PacketCaptureInput
 
 func (PacketCaptureArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PacketCapture)(nil))
+	return reflect.TypeOf((*[]*PacketCapture)(nil)).Elem()
 }
 
 func (i PacketCaptureArray) ToPacketCaptureArrayOutput() PacketCaptureArrayOutput {
@@ -265,7 +265,7 @@ type PacketCaptureMapInput interface {
 type PacketCaptureMap map[string]PacketCaptureInput
 
 func (PacketCaptureMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PacketCapture)(nil))
+	return reflect.TypeOf((*map[string]*PacketCapture)(nil)).Elem()
 }
 
 func (i PacketCaptureMap) ToPacketCaptureMapOutput() PacketCaptureMapOutput {
@@ -276,9 +276,7 @@ func (i PacketCaptureMap) ToPacketCaptureMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureMapOutput)
 }
 
-type PacketCaptureOutput struct {
-	*pulumi.OutputState
-}
+type PacketCaptureOutput struct{ *pulumi.OutputState }
 
 func (PacketCaptureOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PacketCapture)(nil))
@@ -297,14 +295,12 @@ func (o PacketCaptureOutput) ToPacketCapturePtrOutput() PacketCapturePtrOutput {
 }
 
 func (o PacketCaptureOutput) ToPacketCapturePtrOutputWithContext(ctx context.Context) PacketCapturePtrOutput {
-	return o.ApplyT(func(v PacketCapture) *PacketCapture {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PacketCapture) *PacketCapture {
 		return &v
 	}).(PacketCapturePtrOutput)
 }
 
-type PacketCapturePtrOutput struct {
-	*pulumi.OutputState
-}
+type PacketCapturePtrOutput struct{ *pulumi.OutputState }
 
 func (PacketCapturePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PacketCapture)(nil))
@@ -316,6 +312,16 @@ func (o PacketCapturePtrOutput) ToPacketCapturePtrOutput() PacketCapturePtrOutpu
 
 func (o PacketCapturePtrOutput) ToPacketCapturePtrOutputWithContext(ctx context.Context) PacketCapturePtrOutput {
 	return o
+}
+
+func (o PacketCapturePtrOutput) Elem() PacketCaptureOutput {
+	return o.ApplyT(func(v *PacketCapture) PacketCapture {
+		if v != nil {
+			return *v
+		}
+		var ret PacketCapture
+		return ret
+	}).(PacketCaptureOutput)
 }
 
 type PacketCaptureArrayOutput struct{ *pulumi.OutputState }

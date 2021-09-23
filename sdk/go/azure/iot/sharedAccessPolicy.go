@@ -280,7 +280,7 @@ type SharedAccessPolicyArrayInput interface {
 type SharedAccessPolicyArray []SharedAccessPolicyInput
 
 func (SharedAccessPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SharedAccessPolicy)(nil))
+	return reflect.TypeOf((*[]*SharedAccessPolicy)(nil)).Elem()
 }
 
 func (i SharedAccessPolicyArray) ToSharedAccessPolicyArrayOutput() SharedAccessPolicyArrayOutput {
@@ -305,7 +305,7 @@ type SharedAccessPolicyMapInput interface {
 type SharedAccessPolicyMap map[string]SharedAccessPolicyInput
 
 func (SharedAccessPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SharedAccessPolicy)(nil))
+	return reflect.TypeOf((*map[string]*SharedAccessPolicy)(nil)).Elem()
 }
 
 func (i SharedAccessPolicyMap) ToSharedAccessPolicyMapOutput() SharedAccessPolicyMapOutput {
@@ -316,9 +316,7 @@ func (i SharedAccessPolicyMap) ToSharedAccessPolicyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessPolicyMapOutput)
 }
 
-type SharedAccessPolicyOutput struct {
-	*pulumi.OutputState
-}
+type SharedAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SharedAccessPolicy)(nil))
@@ -337,14 +335,12 @@ func (o SharedAccessPolicyOutput) ToSharedAccessPolicyPtrOutput() SharedAccessPo
 }
 
 func (o SharedAccessPolicyOutput) ToSharedAccessPolicyPtrOutputWithContext(ctx context.Context) SharedAccessPolicyPtrOutput {
-	return o.ApplyT(func(v SharedAccessPolicy) *SharedAccessPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedAccessPolicy) *SharedAccessPolicy {
 		return &v
 	}).(SharedAccessPolicyPtrOutput)
 }
 
-type SharedAccessPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type SharedAccessPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SharedAccessPolicy)(nil))
@@ -356,6 +352,16 @@ func (o SharedAccessPolicyPtrOutput) ToSharedAccessPolicyPtrOutput() SharedAcces
 
 func (o SharedAccessPolicyPtrOutput) ToSharedAccessPolicyPtrOutputWithContext(ctx context.Context) SharedAccessPolicyPtrOutput {
 	return o
+}
+
+func (o SharedAccessPolicyPtrOutput) Elem() SharedAccessPolicyOutput {
+	return o.ApplyT(func(v *SharedAccessPolicy) SharedAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret SharedAccessPolicy
+		return ret
+	}).(SharedAccessPolicyOutput)
 }
 
 type SharedAccessPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -190,7 +190,7 @@ type MeshApplicationArrayInput interface {
 type MeshApplicationArray []MeshApplicationInput
 
 func (MeshApplicationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MeshApplication)(nil))
+	return reflect.TypeOf((*[]*MeshApplication)(nil)).Elem()
 }
 
 func (i MeshApplicationArray) ToMeshApplicationArrayOutput() MeshApplicationArrayOutput {
@@ -215,7 +215,7 @@ type MeshApplicationMapInput interface {
 type MeshApplicationMap map[string]MeshApplicationInput
 
 func (MeshApplicationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MeshApplication)(nil))
+	return reflect.TypeOf((*map[string]*MeshApplication)(nil)).Elem()
 }
 
 func (i MeshApplicationMap) ToMeshApplicationMapOutput() MeshApplicationMapOutput {
@@ -226,9 +226,7 @@ func (i MeshApplicationMap) ToMeshApplicationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationMapOutput)
 }
 
-type MeshApplicationOutput struct {
-	*pulumi.OutputState
-}
+type MeshApplicationOutput struct{ *pulumi.OutputState }
 
 func (MeshApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MeshApplication)(nil))
@@ -247,14 +245,12 @@ func (o MeshApplicationOutput) ToMeshApplicationPtrOutput() MeshApplicationPtrOu
 }
 
 func (o MeshApplicationOutput) ToMeshApplicationPtrOutputWithContext(ctx context.Context) MeshApplicationPtrOutput {
-	return o.ApplyT(func(v MeshApplication) *MeshApplication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeshApplication) *MeshApplication {
 		return &v
 	}).(MeshApplicationPtrOutput)
 }
 
-type MeshApplicationPtrOutput struct {
-	*pulumi.OutputState
-}
+type MeshApplicationPtrOutput struct{ *pulumi.OutputState }
 
 func (MeshApplicationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MeshApplication)(nil))
@@ -266,6 +262,16 @@ func (o MeshApplicationPtrOutput) ToMeshApplicationPtrOutput() MeshApplicationPt
 
 func (o MeshApplicationPtrOutput) ToMeshApplicationPtrOutputWithContext(ctx context.Context) MeshApplicationPtrOutput {
 	return o
+}
+
+func (o MeshApplicationPtrOutput) Elem() MeshApplicationOutput {
+	return o.ApplyT(func(v *MeshApplication) MeshApplication {
+		if v != nil {
+			return *v
+		}
+		var ret MeshApplication
+		return ret
+	}).(MeshApplicationOutput)
 }
 
 type MeshApplicationArrayOutput struct{ *pulumi.OutputState }

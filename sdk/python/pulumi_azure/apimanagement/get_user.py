@@ -12,6 +12,7 @@ __all__ = [
     'GetUserResult',
     'AwaitableGetUserResult',
     'get_user',
+    'get_user_output',
 ]
 
 @pulumi.output_type
@@ -161,3 +162,19 @@ def get_user(api_management_name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         state=__ret__.state,
         user_id=__ret__.user_id)
+
+
+@_utilities.lift_output_func(get_user)
+def get_user_output(api_management_name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    user_id: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+    """
+    Use this data source to access information about an existing API Management User.
+
+
+    :param str api_management_name: The Name of the API Management Service in which this User exists.
+    :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
+    :param str user_id: The Identifier for the User.
+    """
+    ...

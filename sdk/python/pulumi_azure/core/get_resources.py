@@ -13,6 +13,7 @@ __all__ = [
     'GetResourcesResult',
     'AwaitableGetResourcesResult',
     'get_resources',
+    'get_resources_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,21 @@ def get_resources(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         resources=__ret__.resources,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_resources)
+def get_resources_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+                         required_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                         resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
+                         type: Optional[pulumi.Input[Optional[str]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcesResult]:
+    """
+    Use this data source to access information about existing resources.
+
+
+    :param str name: The name of the Resource.
+    :param Mapping[str, str] required_tags: A mapping of tags which the resource has to have in order to be included in the result.
+    :param str resource_group_name: The name of the Resource group where the Resources are located.
+    :param str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+    """
+    ...

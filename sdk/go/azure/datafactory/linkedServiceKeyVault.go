@@ -293,7 +293,7 @@ type LinkedServiceKeyVaultArrayInput interface {
 type LinkedServiceKeyVaultArray []LinkedServiceKeyVaultInput
 
 func (LinkedServiceKeyVaultArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LinkedServiceKeyVault)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceKeyVault)(nil)).Elem()
 }
 
 func (i LinkedServiceKeyVaultArray) ToLinkedServiceKeyVaultArrayOutput() LinkedServiceKeyVaultArrayOutput {
@@ -318,7 +318,7 @@ type LinkedServiceKeyVaultMapInput interface {
 type LinkedServiceKeyVaultMap map[string]LinkedServiceKeyVaultInput
 
 func (LinkedServiceKeyVaultMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LinkedServiceKeyVault)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceKeyVault)(nil)).Elem()
 }
 
 func (i LinkedServiceKeyVaultMap) ToLinkedServiceKeyVaultMapOutput() LinkedServiceKeyVaultMapOutput {
@@ -329,9 +329,7 @@ func (i LinkedServiceKeyVaultMap) ToLinkedServiceKeyVaultMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKeyVaultMapOutput)
 }
 
-type LinkedServiceKeyVaultOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceKeyVaultOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceKeyVaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedServiceKeyVault)(nil))
@@ -350,14 +348,12 @@ func (o LinkedServiceKeyVaultOutput) ToLinkedServiceKeyVaultPtrOutput() LinkedSe
 }
 
 func (o LinkedServiceKeyVaultOutput) ToLinkedServiceKeyVaultPtrOutputWithContext(ctx context.Context) LinkedServiceKeyVaultPtrOutput {
-	return o.ApplyT(func(v LinkedServiceKeyVault) *LinkedServiceKeyVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceKeyVault) *LinkedServiceKeyVault {
 		return &v
 	}).(LinkedServiceKeyVaultPtrOutput)
 }
 
-type LinkedServiceKeyVaultPtrOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceKeyVaultPtrOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceKeyVaultPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinkedServiceKeyVault)(nil))
@@ -369,6 +365,16 @@ func (o LinkedServiceKeyVaultPtrOutput) ToLinkedServiceKeyVaultPtrOutput() Linke
 
 func (o LinkedServiceKeyVaultPtrOutput) ToLinkedServiceKeyVaultPtrOutputWithContext(ctx context.Context) LinkedServiceKeyVaultPtrOutput {
 	return o
+}
+
+func (o LinkedServiceKeyVaultPtrOutput) Elem() LinkedServiceKeyVaultOutput {
+	return o.ApplyT(func(v *LinkedServiceKeyVault) LinkedServiceKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceKeyVault
+		return ret
+	}).(LinkedServiceKeyVaultOutput)
 }
 
 type LinkedServiceKeyVaultArrayOutput struct{ *pulumi.OutputState }

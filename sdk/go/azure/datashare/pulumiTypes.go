@@ -111,7 +111,7 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOu
 }
 
 func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
-	return o.ApplyT(func(v AccountIdentity) *AccountIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
-	return o.ApplyT(func(v *AccountIdentity) AccountIdentity { return *v }).(AccountIdentityOutput)
+	return o.ApplyT(func(v *AccountIdentity) AccountIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccountIdentity
+		return ret
+	}).(AccountIdentityOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
@@ -280,7 +286,7 @@ func (o DatasetBlobStorageStorageAccountOutput) ToDatasetBlobStorageStorageAccou
 }
 
 func (o DatasetBlobStorageStorageAccountOutput) ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountPtrOutput {
-	return o.ApplyT(func(v DatasetBlobStorageStorageAccount) *DatasetBlobStorageStorageAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetBlobStorageStorageAccount) *DatasetBlobStorageStorageAccount {
 		return &v
 	}).(DatasetBlobStorageStorageAccountPtrOutput)
 }
@@ -315,7 +321,13 @@ func (o DatasetBlobStorageStorageAccountPtrOutput) ToDatasetBlobStorageStorageAc
 }
 
 func (o DatasetBlobStorageStorageAccountPtrOutput) Elem() DatasetBlobStorageStorageAccountOutput {
-	return o.ApplyT(func(v *DatasetBlobStorageStorageAccount) DatasetBlobStorageStorageAccount { return *v }).(DatasetBlobStorageStorageAccountOutput)
+	return o.ApplyT(func(v *DatasetBlobStorageStorageAccount) DatasetBlobStorageStorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetBlobStorageStorageAccount
+		return ret
+	}).(DatasetBlobStorageStorageAccountOutput)
 }
 
 // The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
@@ -449,7 +461,7 @@ func (o ShareSnapshotScheduleOutput) ToShareSnapshotSchedulePtrOutput() ShareSna
 }
 
 func (o ShareSnapshotScheduleOutput) ToShareSnapshotSchedulePtrOutputWithContext(ctx context.Context) ShareSnapshotSchedulePtrOutput {
-	return o.ApplyT(func(v ShareSnapshotSchedule) *ShareSnapshotSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShareSnapshotSchedule) *ShareSnapshotSchedule {
 		return &v
 	}).(ShareSnapshotSchedulePtrOutput)
 }
@@ -484,7 +496,13 @@ func (o ShareSnapshotSchedulePtrOutput) ToShareSnapshotSchedulePtrOutputWithCont
 }
 
 func (o ShareSnapshotSchedulePtrOutput) Elem() ShareSnapshotScheduleOutput {
-	return o.ApplyT(func(v *ShareSnapshotSchedule) ShareSnapshotSchedule { return *v }).(ShareSnapshotScheduleOutput)
+	return o.ApplyT(func(v *ShareSnapshotSchedule) ShareSnapshotSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret ShareSnapshotSchedule
+		return ret
+	}).(ShareSnapshotScheduleOutput)
 }
 
 // The name of the snapshot schedule.

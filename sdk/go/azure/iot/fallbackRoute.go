@@ -284,7 +284,7 @@ type FallbackRouteArrayInput interface {
 type FallbackRouteArray []FallbackRouteInput
 
 func (FallbackRouteArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FallbackRoute)(nil))
+	return reflect.TypeOf((*[]*FallbackRoute)(nil)).Elem()
 }
 
 func (i FallbackRouteArray) ToFallbackRouteArrayOutput() FallbackRouteArrayOutput {
@@ -309,7 +309,7 @@ type FallbackRouteMapInput interface {
 type FallbackRouteMap map[string]FallbackRouteInput
 
 func (FallbackRouteMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FallbackRoute)(nil))
+	return reflect.TypeOf((*map[string]*FallbackRoute)(nil)).Elem()
 }
 
 func (i FallbackRouteMap) ToFallbackRouteMapOutput() FallbackRouteMapOutput {
@@ -320,9 +320,7 @@ func (i FallbackRouteMap) ToFallbackRouteMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FallbackRouteMapOutput)
 }
 
-type FallbackRouteOutput struct {
-	*pulumi.OutputState
-}
+type FallbackRouteOutput struct{ *pulumi.OutputState }
 
 func (FallbackRouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FallbackRoute)(nil))
@@ -341,14 +339,12 @@ func (o FallbackRouteOutput) ToFallbackRoutePtrOutput() FallbackRoutePtrOutput {
 }
 
 func (o FallbackRouteOutput) ToFallbackRoutePtrOutputWithContext(ctx context.Context) FallbackRoutePtrOutput {
-	return o.ApplyT(func(v FallbackRoute) *FallbackRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FallbackRoute) *FallbackRoute {
 		return &v
 	}).(FallbackRoutePtrOutput)
 }
 
-type FallbackRoutePtrOutput struct {
-	*pulumi.OutputState
-}
+type FallbackRoutePtrOutput struct{ *pulumi.OutputState }
 
 func (FallbackRoutePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FallbackRoute)(nil))
@@ -360,6 +356,16 @@ func (o FallbackRoutePtrOutput) ToFallbackRoutePtrOutput() FallbackRoutePtrOutpu
 
 func (o FallbackRoutePtrOutput) ToFallbackRoutePtrOutputWithContext(ctx context.Context) FallbackRoutePtrOutput {
 	return o
+}
+
+func (o FallbackRoutePtrOutput) Elem() FallbackRouteOutput {
+	return o.ApplyT(func(v *FallbackRoute) FallbackRoute {
+		if v != nil {
+			return *v
+		}
+		var ret FallbackRoute
+		return ret
+	}).(FallbackRouteOutput)
 }
 
 type FallbackRouteArrayOutput struct{ *pulumi.OutputState }

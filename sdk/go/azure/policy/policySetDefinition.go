@@ -313,7 +313,7 @@ type PolicySetDefinitionArrayInput interface {
 type PolicySetDefinitionArray []PolicySetDefinitionInput
 
 func (PolicySetDefinitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PolicySetDefinition)(nil))
+	return reflect.TypeOf((*[]*PolicySetDefinition)(nil)).Elem()
 }
 
 func (i PolicySetDefinitionArray) ToPolicySetDefinitionArrayOutput() PolicySetDefinitionArrayOutput {
@@ -338,7 +338,7 @@ type PolicySetDefinitionMapInput interface {
 type PolicySetDefinitionMap map[string]PolicySetDefinitionInput
 
 func (PolicySetDefinitionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PolicySetDefinition)(nil))
+	return reflect.TypeOf((*map[string]*PolicySetDefinition)(nil)).Elem()
 }
 
 func (i PolicySetDefinitionMap) ToPolicySetDefinitionMapOutput() PolicySetDefinitionMapOutput {
@@ -349,9 +349,7 @@ func (i PolicySetDefinitionMap) ToPolicySetDefinitionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionMapOutput)
 }
 
-type PolicySetDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type PolicySetDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PolicySetDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicySetDefinition)(nil))
@@ -370,14 +368,12 @@ func (o PolicySetDefinitionOutput) ToPolicySetDefinitionPtrOutput() PolicySetDef
 }
 
 func (o PolicySetDefinitionOutput) ToPolicySetDefinitionPtrOutputWithContext(ctx context.Context) PolicySetDefinitionPtrOutput {
-	return o.ApplyT(func(v PolicySetDefinition) *PolicySetDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySetDefinition) *PolicySetDefinition {
 		return &v
 	}).(PolicySetDefinitionPtrOutput)
 }
 
-type PolicySetDefinitionPtrOutput struct {
-	*pulumi.OutputState
-}
+type PolicySetDefinitionPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicySetDefinitionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PolicySetDefinition)(nil))
@@ -389,6 +385,16 @@ func (o PolicySetDefinitionPtrOutput) ToPolicySetDefinitionPtrOutput() PolicySet
 
 func (o PolicySetDefinitionPtrOutput) ToPolicySetDefinitionPtrOutputWithContext(ctx context.Context) PolicySetDefinitionPtrOutput {
 	return o
+}
+
+func (o PolicySetDefinitionPtrOutput) Elem() PolicySetDefinitionOutput {
+	return o.ApplyT(func(v *PolicySetDefinition) PolicySetDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySetDefinition
+		return ret
+	}).(PolicySetDefinitionOutput)
 }
 
 type PolicySetDefinitionArrayOutput struct{ *pulumi.OutputState }

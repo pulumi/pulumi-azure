@@ -376,7 +376,7 @@ type LiveEventArrayInput interface {
 type LiveEventArray []LiveEventInput
 
 func (LiveEventArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LiveEvent)(nil))
+	return reflect.TypeOf((*[]*LiveEvent)(nil)).Elem()
 }
 
 func (i LiveEventArray) ToLiveEventArrayOutput() LiveEventArrayOutput {
@@ -401,7 +401,7 @@ type LiveEventMapInput interface {
 type LiveEventMap map[string]LiveEventInput
 
 func (LiveEventMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LiveEvent)(nil))
+	return reflect.TypeOf((*map[string]*LiveEvent)(nil)).Elem()
 }
 
 func (i LiveEventMap) ToLiveEventMapOutput() LiveEventMapOutput {
@@ -412,9 +412,7 @@ func (i LiveEventMap) ToLiveEventMapOutputWithContext(ctx context.Context) LiveE
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventMapOutput)
 }
 
-type LiveEventOutput struct {
-	*pulumi.OutputState
-}
+type LiveEventOutput struct{ *pulumi.OutputState }
 
 func (LiveEventOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LiveEvent)(nil))
@@ -433,14 +431,12 @@ func (o LiveEventOutput) ToLiveEventPtrOutput() LiveEventPtrOutput {
 }
 
 func (o LiveEventOutput) ToLiveEventPtrOutputWithContext(ctx context.Context) LiveEventPtrOutput {
-	return o.ApplyT(func(v LiveEvent) *LiveEvent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEvent) *LiveEvent {
 		return &v
 	}).(LiveEventPtrOutput)
 }
 
-type LiveEventPtrOutput struct {
-	*pulumi.OutputState
-}
+type LiveEventPtrOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LiveEvent)(nil))
@@ -452,6 +448,16 @@ func (o LiveEventPtrOutput) ToLiveEventPtrOutput() LiveEventPtrOutput {
 
 func (o LiveEventPtrOutput) ToLiveEventPtrOutputWithContext(ctx context.Context) LiveEventPtrOutput {
 	return o
+}
+
+func (o LiveEventPtrOutput) Elem() LiveEventOutput {
+	return o.ApplyT(func(v *LiveEvent) LiveEvent {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEvent
+		return ret
+	}).(LiveEventOutput)
 }
 
 type LiveEventArrayOutput struct{ *pulumi.OutputState }

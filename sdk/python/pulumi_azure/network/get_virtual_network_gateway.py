@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualNetworkGatewayResult',
     'AwaitableGetVirtualNetworkGatewayResult',
     'get_virtual_network_gateway',
+    'get_virtual_network_gateway_output',
 ]
 
 @pulumi.output_type
@@ -278,3 +279,28 @@ def get_virtual_network_gateway(name: Optional[str] = None,
         type=__ret__.type,
         vpn_client_configurations=__ret__.vpn_client_configurations,
         vpn_type=__ret__.vpn_type)
+
+
+@_utilities.lift_output_func(get_virtual_network_gateway)
+def get_virtual_network_gateway_output(name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayResult]:
+    """
+    Use this data source to access information about an existing Virtual Network Gateway.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_virtual_network_gateway(name="production",
+        resource_group_name="networking")
+    pulumi.export("virtualNetworkGatewayId", example.id)
+    ```
+
+
+    :param str name: Specifies the name of the Virtual Network Gateway.
+    :param str resource_group_name: Specifies the name of the resource group the Virtual Network Gateway is located in.
+    """
+    ...

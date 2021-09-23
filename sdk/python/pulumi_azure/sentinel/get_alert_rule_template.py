@@ -13,6 +13,7 @@ __all__ = [
     'GetAlertRuleTemplateResult',
     'AwaitableGetAlertRuleTemplateResult',
     'get_alert_rule_template',
+    'get_alert_rule_template_output',
 ]
 
 @pulumi.output_type
@@ -134,3 +135,30 @@ def get_alert_rule_template(display_name: Optional[str] = None,
         name=__ret__.name,
         scheduled_templates=__ret__.scheduled_templates,
         security_incident_templates=__ret__.security_incident_templates)
+
+
+@_utilities.lift_output_func(get_alert_rule_template)
+def get_alert_rule_template_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                   log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                                   name: Optional[pulumi.Input[Optional[str]]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertRuleTemplateResult]:
+    """
+    Use this data source to access information about an existing Sentinel Alert Rule Template.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.sentinel.get_alert_rule_template(log_analytics_workspace_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1",
+        display_name="Create incidents based on Azure Security Center for IoT alerts")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+    :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace.
+    :param str name: The name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+    """
+    ...

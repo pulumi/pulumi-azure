@@ -196,7 +196,7 @@ type SyncGroupArrayInput interface {
 type SyncGroupArray []SyncGroupInput
 
 func (SyncGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SyncGroup)(nil))
+	return reflect.TypeOf((*[]*SyncGroup)(nil)).Elem()
 }
 
 func (i SyncGroupArray) ToSyncGroupArrayOutput() SyncGroupArrayOutput {
@@ -221,7 +221,7 @@ type SyncGroupMapInput interface {
 type SyncGroupMap map[string]SyncGroupInput
 
 func (SyncGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SyncGroup)(nil))
+	return reflect.TypeOf((*map[string]*SyncGroup)(nil)).Elem()
 }
 
 func (i SyncGroupMap) ToSyncGroupMapOutput() SyncGroupMapOutput {
@@ -232,9 +232,7 @@ func (i SyncGroupMap) ToSyncGroupMapOutputWithContext(ctx context.Context) SyncG
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupMapOutput)
 }
 
-type SyncGroupOutput struct {
-	*pulumi.OutputState
-}
+type SyncGroupOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyncGroup)(nil))
@@ -253,14 +251,12 @@ func (o SyncGroupOutput) ToSyncGroupPtrOutput() SyncGroupPtrOutput {
 }
 
 func (o SyncGroupOutput) ToSyncGroupPtrOutputWithContext(ctx context.Context) SyncGroupPtrOutput {
-	return o.ApplyT(func(v SyncGroup) *SyncGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncGroup) *SyncGroup {
 		return &v
 	}).(SyncGroupPtrOutput)
 }
 
-type SyncGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type SyncGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SyncGroup)(nil))
@@ -272,6 +268,16 @@ func (o SyncGroupPtrOutput) ToSyncGroupPtrOutput() SyncGroupPtrOutput {
 
 func (o SyncGroupPtrOutput) ToSyncGroupPtrOutputWithContext(ctx context.Context) SyncGroupPtrOutput {
 	return o
+}
+
+func (o SyncGroupPtrOutput) Elem() SyncGroupOutput {
+	return o.ApplyT(func(v *SyncGroup) SyncGroup {
+		if v != nil {
+			return *v
+		}
+		var ret SyncGroup
+		return ret
+	}).(SyncGroupOutput)
 }
 
 type SyncGroupArrayOutput struct{ *pulumi.OutputState }

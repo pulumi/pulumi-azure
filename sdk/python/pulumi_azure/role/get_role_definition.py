@@ -13,6 +13,7 @@ __all__ = [
     'GetRoleDefinitionResult',
     'AwaitableGetRoleDefinitionResult',
     'get_role_definition',
+    'get_role_definition_output',
 ]
 
 warnings.warn("""azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition""", DeprecationWarning)
@@ -135,3 +136,15 @@ def get_role_definition(name: Optional[str] = None,
         role_definition_id=__ret__.role_definition_id,
         scope=__ret__.scope,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_role_definition)
+def get_role_definition_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+                               role_definition_id: Optional[pulumi.Input[Optional[str]]] = None,
+                               scope: Optional[pulumi.Input[Optional[str]]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleDefinitionResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    pulumi.log.warn("""get_role_definition is deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition""")
+    ...

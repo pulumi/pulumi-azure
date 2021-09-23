@@ -279,7 +279,7 @@ type LinkedServiceMysqlArrayInput interface {
 type LinkedServiceMysqlArray []LinkedServiceMysqlInput
 
 func (LinkedServiceMysqlArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LinkedServiceMysql)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceMysql)(nil)).Elem()
 }
 
 func (i LinkedServiceMysqlArray) ToLinkedServiceMysqlArrayOutput() LinkedServiceMysqlArrayOutput {
@@ -304,7 +304,7 @@ type LinkedServiceMysqlMapInput interface {
 type LinkedServiceMysqlMap map[string]LinkedServiceMysqlInput
 
 func (LinkedServiceMysqlMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LinkedServiceMysql)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceMysql)(nil)).Elem()
 }
 
 func (i LinkedServiceMysqlMap) ToLinkedServiceMysqlMapOutput() LinkedServiceMysqlMapOutput {
@@ -315,9 +315,7 @@ func (i LinkedServiceMysqlMap) ToLinkedServiceMysqlMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMysqlMapOutput)
 }
 
-type LinkedServiceMysqlOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceMysqlOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceMysqlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedServiceMysql)(nil))
@@ -336,14 +334,12 @@ func (o LinkedServiceMysqlOutput) ToLinkedServiceMysqlPtrOutput() LinkedServiceM
 }
 
 func (o LinkedServiceMysqlOutput) ToLinkedServiceMysqlPtrOutputWithContext(ctx context.Context) LinkedServiceMysqlPtrOutput {
-	return o.ApplyT(func(v LinkedServiceMysql) *LinkedServiceMysql {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceMysql) *LinkedServiceMysql {
 		return &v
 	}).(LinkedServiceMysqlPtrOutput)
 }
 
-type LinkedServiceMysqlPtrOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceMysqlPtrOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceMysqlPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinkedServiceMysql)(nil))
@@ -355,6 +351,16 @@ func (o LinkedServiceMysqlPtrOutput) ToLinkedServiceMysqlPtrOutput() LinkedServi
 
 func (o LinkedServiceMysqlPtrOutput) ToLinkedServiceMysqlPtrOutputWithContext(ctx context.Context) LinkedServiceMysqlPtrOutput {
 	return o
+}
+
+func (o LinkedServiceMysqlPtrOutput) Elem() LinkedServiceMysqlOutput {
+	return o.ApplyT(func(v *LinkedServiceMysql) LinkedServiceMysql {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceMysql
+		return ret
+	}).(LinkedServiceMysqlOutput)
 }
 
 type LinkedServiceMysqlArrayOutput struct{ *pulumi.OutputState }

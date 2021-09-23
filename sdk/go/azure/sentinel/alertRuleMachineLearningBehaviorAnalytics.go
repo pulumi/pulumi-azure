@@ -222,7 +222,7 @@ type AlertRuleMachineLearningBehaviorAnalyticsArrayInput interface {
 type AlertRuleMachineLearningBehaviorAnalyticsArray []AlertRuleMachineLearningBehaviorAnalyticsInput
 
 func (AlertRuleMachineLearningBehaviorAnalyticsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AlertRuleMachineLearningBehaviorAnalytics)(nil))
+	return reflect.TypeOf((*[]*AlertRuleMachineLearningBehaviorAnalytics)(nil)).Elem()
 }
 
 func (i AlertRuleMachineLearningBehaviorAnalyticsArray) ToAlertRuleMachineLearningBehaviorAnalyticsArrayOutput() AlertRuleMachineLearningBehaviorAnalyticsArrayOutput {
@@ -247,7 +247,7 @@ type AlertRuleMachineLearningBehaviorAnalyticsMapInput interface {
 type AlertRuleMachineLearningBehaviorAnalyticsMap map[string]AlertRuleMachineLearningBehaviorAnalyticsInput
 
 func (AlertRuleMachineLearningBehaviorAnalyticsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AlertRuleMachineLearningBehaviorAnalytics)(nil))
+	return reflect.TypeOf((*map[string]*AlertRuleMachineLearningBehaviorAnalytics)(nil)).Elem()
 }
 
 func (i AlertRuleMachineLearningBehaviorAnalyticsMap) ToAlertRuleMachineLearningBehaviorAnalyticsMapOutput() AlertRuleMachineLearningBehaviorAnalyticsMapOutput {
@@ -258,9 +258,7 @@ func (i AlertRuleMachineLearningBehaviorAnalyticsMap) ToAlertRuleMachineLearning
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMachineLearningBehaviorAnalyticsMapOutput)
 }
 
-type AlertRuleMachineLearningBehaviorAnalyticsOutput struct {
-	*pulumi.OutputState
-}
+type AlertRuleMachineLearningBehaviorAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleMachineLearningBehaviorAnalyticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertRuleMachineLearningBehaviorAnalytics)(nil))
@@ -279,14 +277,12 @@ func (o AlertRuleMachineLearningBehaviorAnalyticsOutput) ToAlertRuleMachineLearn
 }
 
 func (o AlertRuleMachineLearningBehaviorAnalyticsOutput) ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutputWithContext(ctx context.Context) AlertRuleMachineLearningBehaviorAnalyticsPtrOutput {
-	return o.ApplyT(func(v AlertRuleMachineLearningBehaviorAnalytics) *AlertRuleMachineLearningBehaviorAnalytics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleMachineLearningBehaviorAnalytics) *AlertRuleMachineLearningBehaviorAnalytics {
 		return &v
 	}).(AlertRuleMachineLearningBehaviorAnalyticsPtrOutput)
 }
 
-type AlertRuleMachineLearningBehaviorAnalyticsPtrOutput struct {
-	*pulumi.OutputState
-}
+type AlertRuleMachineLearningBehaviorAnalyticsPtrOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleMachineLearningBehaviorAnalyticsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AlertRuleMachineLearningBehaviorAnalytics)(nil))
@@ -298,6 +294,16 @@ func (o AlertRuleMachineLearningBehaviorAnalyticsPtrOutput) ToAlertRuleMachineLe
 
 func (o AlertRuleMachineLearningBehaviorAnalyticsPtrOutput) ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutputWithContext(ctx context.Context) AlertRuleMachineLearningBehaviorAnalyticsPtrOutput {
 	return o
+}
+
+func (o AlertRuleMachineLearningBehaviorAnalyticsPtrOutput) Elem() AlertRuleMachineLearningBehaviorAnalyticsOutput {
+	return o.ApplyT(func(v *AlertRuleMachineLearningBehaviorAnalytics) AlertRuleMachineLearningBehaviorAnalytics {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleMachineLearningBehaviorAnalytics
+		return ret
+	}).(AlertRuleMachineLearningBehaviorAnalyticsOutput)
 }
 
 type AlertRuleMachineLearningBehaviorAnalyticsArrayOutput struct{ *pulumi.OutputState }

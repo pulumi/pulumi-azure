@@ -4,6 +4,9 @@
 package sentinel
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,57 @@ type GetAlertRuleResult struct {
 	Id                      string `pulumi:"id"`
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	Name                    string `pulumi:"name"`
+}
+
+func GetAlertRuleOutput(ctx *pulumi.Context, args GetAlertRuleOutputArgs, opts ...pulumi.InvokeOption) GetAlertRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAlertRuleResult, error) {
+			args := v.(GetAlertRuleArgs)
+			r, err := GetAlertRule(ctx, &args, opts...)
+			return *r, err
+		}).(GetAlertRuleResultOutput)
+}
+
+// A collection of arguments for invoking getAlertRule.
+type GetAlertRuleOutputArgs struct {
+	// The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.
+	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+	// The name which should be used for this Sentinel Alert Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetAlertRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAlertRule.
+type GetAlertRuleResultOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleResult)(nil)).Elem()
+}
+
+func (o GetAlertRuleResultOutput) ToGetAlertRuleResultOutput() GetAlertRuleResultOutput {
+	return o
+}
+
+func (o GetAlertRuleResultOutput) ToGetAlertRuleResultOutputWithContext(ctx context.Context) GetAlertRuleResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetAlertRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetAlertRuleResultOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleResult) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+}
+
+func (o GetAlertRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAlertRuleResultOutput{})
 }

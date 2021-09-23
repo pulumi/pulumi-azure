@@ -228,7 +228,7 @@ type DscConfigurationArrayInput interface {
 type DscConfigurationArray []DscConfigurationInput
 
 func (DscConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DscConfiguration)(nil))
+	return reflect.TypeOf((*[]*DscConfiguration)(nil)).Elem()
 }
 
 func (i DscConfigurationArray) ToDscConfigurationArrayOutput() DscConfigurationArrayOutput {
@@ -253,7 +253,7 @@ type DscConfigurationMapInput interface {
 type DscConfigurationMap map[string]DscConfigurationInput
 
 func (DscConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DscConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*DscConfiguration)(nil)).Elem()
 }
 
 func (i DscConfigurationMap) ToDscConfigurationMapOutput() DscConfigurationMapOutput {
@@ -264,9 +264,7 @@ func (i DscConfigurationMap) ToDscConfigurationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationMapOutput)
 }
 
-type DscConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type DscConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DscConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DscConfiguration)(nil))
@@ -285,14 +283,12 @@ func (o DscConfigurationOutput) ToDscConfigurationPtrOutput() DscConfigurationPt
 }
 
 func (o DscConfigurationOutput) ToDscConfigurationPtrOutputWithContext(ctx context.Context) DscConfigurationPtrOutput {
-	return o.ApplyT(func(v DscConfiguration) *DscConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DscConfiguration) *DscConfiguration {
 		return &v
 	}).(DscConfigurationPtrOutput)
 }
 
-type DscConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type DscConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DscConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DscConfiguration)(nil))
@@ -304,6 +300,16 @@ func (o DscConfigurationPtrOutput) ToDscConfigurationPtrOutput() DscConfiguratio
 
 func (o DscConfigurationPtrOutput) ToDscConfigurationPtrOutputWithContext(ctx context.Context) DscConfigurationPtrOutput {
 	return o
+}
+
+func (o DscConfigurationPtrOutput) Elem() DscConfigurationOutput {
+	return o.ApplyT(func(v *DscConfiguration) DscConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DscConfiguration
+		return ret
+	}).(DscConfigurationOutput)
 }
 
 type DscConfigurationArrayOutput struct{ *pulumi.OutputState }

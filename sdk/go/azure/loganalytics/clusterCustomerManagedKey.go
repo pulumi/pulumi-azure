@@ -162,7 +162,7 @@ type ClusterCustomerManagedKeyArrayInput interface {
 type ClusterCustomerManagedKeyArray []ClusterCustomerManagedKeyInput
 
 func (ClusterCustomerManagedKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ClusterCustomerManagedKey)(nil))
+	return reflect.TypeOf((*[]*ClusterCustomerManagedKey)(nil)).Elem()
 }
 
 func (i ClusterCustomerManagedKeyArray) ToClusterCustomerManagedKeyArrayOutput() ClusterCustomerManagedKeyArrayOutput {
@@ -187,7 +187,7 @@ type ClusterCustomerManagedKeyMapInput interface {
 type ClusterCustomerManagedKeyMap map[string]ClusterCustomerManagedKeyInput
 
 func (ClusterCustomerManagedKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ClusterCustomerManagedKey)(nil))
+	return reflect.TypeOf((*map[string]*ClusterCustomerManagedKey)(nil)).Elem()
 }
 
 func (i ClusterCustomerManagedKeyMap) ToClusterCustomerManagedKeyMapOutput() ClusterCustomerManagedKeyMapOutput {
@@ -198,9 +198,7 @@ func (i ClusterCustomerManagedKeyMap) ToClusterCustomerManagedKeyMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCustomerManagedKeyMapOutput)
 }
 
-type ClusterCustomerManagedKeyOutput struct {
-	*pulumi.OutputState
-}
+type ClusterCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (ClusterCustomerManagedKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCustomerManagedKey)(nil))
@@ -219,14 +217,12 @@ func (o ClusterCustomerManagedKeyOutput) ToClusterCustomerManagedKeyPtrOutput() 
 }
 
 func (o ClusterCustomerManagedKeyOutput) ToClusterCustomerManagedKeyPtrOutputWithContext(ctx context.Context) ClusterCustomerManagedKeyPtrOutput {
-	return o.ApplyT(func(v ClusterCustomerManagedKey) *ClusterCustomerManagedKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCustomerManagedKey) *ClusterCustomerManagedKey {
 		return &v
 	}).(ClusterCustomerManagedKeyPtrOutput)
 }
 
-type ClusterCustomerManagedKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ClusterCustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCustomerManagedKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCustomerManagedKey)(nil))
@@ -238,6 +234,16 @@ func (o ClusterCustomerManagedKeyPtrOutput) ToClusterCustomerManagedKeyPtrOutput
 
 func (o ClusterCustomerManagedKeyPtrOutput) ToClusterCustomerManagedKeyPtrOutputWithContext(ctx context.Context) ClusterCustomerManagedKeyPtrOutput {
 	return o
+}
+
+func (o ClusterCustomerManagedKeyPtrOutput) Elem() ClusterCustomerManagedKeyOutput {
+	return o.ApplyT(func(v *ClusterCustomerManagedKey) ClusterCustomerManagedKey {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCustomerManagedKey
+		return ret
+	}).(ClusterCustomerManagedKeyOutput)
 }
 
 type ClusterCustomerManagedKeyArrayOutput struct{ *pulumi.OutputState }
