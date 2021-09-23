@@ -23,6 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:synapse/firewallRule:FirewallRule":
 		r = &FirewallRule{}
+	case "azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure":
+		r = &IntegrationRuntimeAzure{}
+	case "azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted":
+		r = &IntegrationRuntimeSelfHosted{}
+	case "azure:synapse/linkedService:LinkedService":
+		r = &LinkedService{}
 	case "azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint":
 		r = &ManagedPrivateEndpoint{}
 	case "azure:synapse/privateLinkHub:PrivateLinkHub":
@@ -33,8 +39,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SparkPool{}
 	case "azure:synapse/sqlPool:SqlPool":
 		r = &SqlPool{}
+	case "azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy":
+		r = &SqlPoolSecurityAlertPolicy{}
+	case "azure:synapse/sqlPoolVulnerabilityAssessment:SqlPoolVulnerabilityAssessment":
+		r = &SqlPoolVulnerabilityAssessment{}
 	case "azure:synapse/workspace:Workspace":
 		r = &Workspace{}
+	case "azure:synapse/workspaceKey:WorkspaceKey":
+		r = &WorkspaceKey{}
+	case "azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy":
+		r = &WorkspaceSecurityAlertPolicy{}
+	case "azure:synapse/workspaceVulnerabilityAssessment:WorkspaceVulnerabilityAssessment":
+		r = &WorkspaceVulnerabilityAssessment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -51,6 +67,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"synapse/firewallRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"synapse/integrationRuntimeAzure",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"synapse/integrationRuntimeSelfHosted",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"synapse/linkedService",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -80,7 +111,32 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"synapse/sqlPoolSecurityAlertPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"synapse/sqlPoolVulnerabilityAssessment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"synapse/workspace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"synapse/workspaceKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"synapse/workspaceSecurityAlertPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"synapse/workspaceVulnerabilityAssessment",
 		&module{version},
 	)
 }

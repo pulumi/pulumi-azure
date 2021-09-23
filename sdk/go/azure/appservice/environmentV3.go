@@ -15,6 +15,87 @@ import (
 //
 // > **NOTE:** App Service Environment V3 is currently in Preview.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.2.0/24"),
+// 			},
+// 			Delegations: network.SubnetDelegationArray{
+// 				&network.SubnetDelegationArgs{
+// 					Name: pulumi.String("delegation"),
+// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+// 						Name: pulumi.String("Microsoft.Web/hostingEnvironments"),
+// 						Actions: pulumi.StringArray{
+// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = appservice.NewEnvironmentV3(ctx, "exampleEnvironmentV3", &appservice.EnvironmentV3Args{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			SubnetId:          exampleSubnet.ID(),
+// 			ClusterSettings: appservice.EnvironmentV3ClusterSettingArray{
+// 				&appservice.EnvironmentV3ClusterSettingArgs{
+// 					Name:  pulumi.String("DisableTls1.0"),
+// 					Value: pulumi.String("1"),
+// 				},
+// 				&appservice.EnvironmentV3ClusterSettingArgs{
+// 					Name:  pulumi.String("InternalEncryption"),
+// 					Value: pulumi.String("true"),
+// 				},
+// 				&appservice.EnvironmentV3ClusterSettingArgs{
+// 					Name:  pulumi.String("FrontEndSSLCipherSuiteOrder"),
+// 					Value: pulumi.String("TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"env":         pulumi.String("production"),
+// 				"terraformed": pulumi.String("true"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // A 3rd Generation (v3) App Service Environment can be imported using the `resource id`, e.g.

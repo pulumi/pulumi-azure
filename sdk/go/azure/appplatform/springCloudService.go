@@ -54,8 +54,8 @@ import (
 // 				},
 // 			},
 // 			Trace: &appplatform.SpringCloudServiceTraceArgs{
-// 				InstrumentationKey: exampleInsights.InstrumentationKey,
-// 				SampleRate:         pulumi.Float64(10),
+// 				ConnectionString: exampleInsights.ConnectionString,
+// 				SampleRate:       pulumi.Float64(10),
 // 			},
 // 			Tags: pulumi.StringMap{
 // 				"Env": pulumi.String("staging"),

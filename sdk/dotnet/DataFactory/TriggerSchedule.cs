@@ -61,6 +61,12 @@ namespace Pulumi.Azure.DataFactory
     public partial class TriggerSchedule : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+        /// </summary>
+        [Output("activated")]
+        public Output<bool> Activated { get; private set; } = null!;
+
+        /// <summary>
         /// List of tags that can be used for describing the Data Factory Schedule Trigger.
         /// </summary>
         [Output("annotations")]
@@ -178,6 +184,12 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class TriggerScheduleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+        /// </summary>
+        [Input("activated")]
+        public Input<bool>? Activated { get; set; }
+
         [Input("annotations")]
         private InputList<string>? _annotations;
 
@@ -269,6 +281,12 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class TriggerScheduleState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+        /// </summary>
+        [Input("activated")]
+        public Input<bool>? Activated { get; set; }
+
         [Input("annotations")]
         private InputList<string>? _annotations;
 

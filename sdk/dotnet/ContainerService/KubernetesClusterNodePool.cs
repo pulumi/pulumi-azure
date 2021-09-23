@@ -157,7 +157,7 @@ namespace Pulumi.Azure.ContainerService
         /// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("osSku")]
-        public Output<string?> OsSku { get; private set; } = null!;
+        public Output<string> OsSku { get; private set; } = null!;
 
         /// <summary>
         /// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.

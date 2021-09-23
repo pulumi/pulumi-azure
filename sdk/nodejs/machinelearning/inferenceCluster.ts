@@ -127,9 +127,13 @@ export class InferenceCluster extends pulumi.CustomResource {
      */
     public readonly clusterPurpose!: pulumi.Output<string | undefined>;
     /**
-     * The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
+     * The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+     */
+    public readonly identity!: pulumi.Output<outputs.machinelearning.InferenceClusterIdentity | undefined>;
     /**
      * The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
@@ -170,6 +174,7 @@ export class InferenceCluster extends pulumi.CustomResource {
             const state = argsOrState as InferenceClusterState | undefined;
             inputs["clusterPurpose"] = state ? state.clusterPurpose : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["kubernetesClusterId"] = state ? state.kubernetesClusterId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
@@ -186,6 +191,7 @@ export class InferenceCluster extends pulumi.CustomResource {
             }
             inputs["clusterPurpose"] = args ? args.clusterPurpose : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["kubernetesClusterId"] = args ? args.kubernetesClusterId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
@@ -209,9 +215,13 @@ export interface InferenceClusterState {
      */
     clusterPurpose?: pulumi.Input<string>;
     /**
-     * The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
+     * The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
     description?: pulumi.Input<string>;
+    /**
+     * A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+     */
+    identity?: pulumi.Input<inputs.machinelearning.InferenceClusterIdentity>;
     /**
      * The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
@@ -247,9 +257,13 @@ export interface InferenceClusterArgs {
      */
     clusterPurpose?: pulumi.Input<string>;
     /**
-     * The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
+     * The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
     description?: pulumi.Input<string>;
+    /**
+     * A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+     */
+    identity?: pulumi.Input<inputs.machinelearning.InferenceClusterIdentity>;
     /**
      * The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */

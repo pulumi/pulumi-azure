@@ -112,7 +112,7 @@ type Server struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy ServerThreatDetectionPolicyPtrOutput `pulumi:"threatDetectionPolicy"`
-	// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+	// Specifies the version of MySQL to use. Valid values are `5.7`, or `8.0`. Changing this forces a new resource to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -200,7 +200,7 @@ type serverState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy *ServerThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
-	// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+	// Specifies the version of MySQL to use. Valid values are `5.7`, or `8.0`. Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
 }
 
@@ -251,7 +251,7 @@ type ServerState struct {
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy ServerThreatDetectionPolicyPtrInput
-	// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+	// Specifies the version of MySQL to use. Valid values are `5.7`, or `8.0`. Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput
 }
 
@@ -304,7 +304,7 @@ type serverArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy *ServerThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
-	// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+	// Specifies the version of MySQL to use. Valid values are `5.7`, or `8.0`. Changing this forces a new resource to be created.
 	Version string `pulumi:"version"`
 }
 
@@ -354,7 +354,7 @@ type ServerArgs struct {
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy ServerThreatDetectionPolicyPtrInput
-	// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+	// Specifies the version of MySQL to use. Valid values are `5.7`, or `8.0`. Changing this forces a new resource to be created.
 	Version pulumi.StringInput
 }
 

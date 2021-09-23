@@ -109,6 +109,7 @@ namespace Pulumi.Azure
 
              public class Features
              {
+                public Pulumi.Azure.Config.Types.FeaturesApiManagement? ApiManagement { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesCognitiveAccount? CognitiveAccount { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesKeyVault? KeyVault { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesLogAnalyticsWorkspace? LogAnalyticsWorkspace { get; set; } = null!;
@@ -117,6 +118,11 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesTemplateDeployment? TemplateDeployment { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesVirtualMachine? VirtualMachine { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesVirtualMachineScaleSet? VirtualMachineScaleSet { get; set; } = null!;
+            }
+
+             public class FeaturesApiManagement
+             {
+                public bool? PurgeSoftDeleteOnDestroy { get; set; }
             }
 
              public class FeaturesCognitiveAccount

@@ -9,16 +9,50 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'LinkedServiceIntegrationRuntime',
     'SparkPoolAutoPause',
     'SparkPoolAutoScale',
     'SparkPoolLibraryRequirement',
     'SqlPoolRestore',
+    'SqlPoolVulnerabilityAssessmentRecurringScans',
     'WorkspaceAadAdmin',
     'WorkspaceAzureDevopsRepo',
+    'WorkspaceCustomerManagedKey',
     'WorkspaceGithubRepo',
     'WorkspaceIdentity',
+    'WorkspaceVulnerabilityAssessmentRecurringScans',
     'GetWorkspaceIdentityResult',
 ]
+
+@pulumi.output_type
+class LinkedServiceIntegrationRuntime(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The integration runtime reference to associate with the Synapse Linked Service.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the integration runtime.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The integration runtime reference to associate with the Synapse Linked Service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the integration runtime.
+        """
+        return pulumi.get(self, "parameters")
+
 
 @pulumi.output_type
 class SparkPoolAutoPause(dict):
@@ -178,6 +212,66 @@ class SqlPoolRestore(dict):
         The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
         """
         return pulumi.get(self, "source_database_id")
+
+
+@pulumi.output_type
+class SqlPoolVulnerabilityAssessmentRecurringScans(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailSubscriptionAdminsEnabled":
+            suggest = "email_subscription_admins_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlPoolVulnerabilityAssessmentRecurringScans. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlPoolVulnerabilityAssessmentRecurringScans.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlPoolVulnerabilityAssessmentRecurringScans.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_subscription_admins_enabled: Optional[bool] = None,
+                 emails: Optional[Sequence[str]] = None,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool email_subscription_admins_enabled: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        :param Sequence[str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param bool enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+        if email_subscription_admins_enabled is not None:
+            pulumi.set(__self__, "email_subscription_admins_enabled", email_subscription_admins_enabled)
+        if emails is not None:
+            pulumi.set(__self__, "emails", emails)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="emailSubscriptionAdminsEnabled")
+    def email_subscription_admins_enabled(self) -> Optional[bool]:
+        """
+        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        """
+        return pulumi.get(self, "email_subscription_admins_enabled")
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Optional[Sequence[str]]:
+        """
+        Specifies an array of e-mail addresses to which the scan notification is sent.
+        """
+        return pulumi.get(self, "emails")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -341,6 +435,55 @@ class WorkspaceAzureDevopsRepo(dict):
 
 
 @pulumi.output_type
+class WorkspaceCustomerManagedKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVersionlessId":
+            suggest = "key_versionless_id"
+        elif key == "keyName":
+            suggest = "key_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceCustomerManagedKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceCustomerManagedKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceCustomerManagedKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_versionless_id: str,
+                 key_name: Optional[str] = None):
+        """
+        :param str key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        :param str key_name: An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+        """
+        pulumi.set(__self__, "key_versionless_id", key_versionless_id)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+
+    @property
+    @pulumi.getter(name="keyVersionlessId")
+    def key_versionless_id(self) -> str:
+        """
+        The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        """
+        return pulumi.get(self, "key_versionless_id")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        """
+        An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+        """
+        return pulumi.get(self, "key_name")
+
+
+@pulumi.output_type
 class WorkspaceGithubRepo(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -488,6 +631,66 @@ class WorkspaceIdentity(dict):
         The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class WorkspaceVulnerabilityAssessmentRecurringScans(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailSubscriptionAdminsEnabled":
+            suggest = "email_subscription_admins_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceVulnerabilityAssessmentRecurringScans. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceVulnerabilityAssessmentRecurringScans.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceVulnerabilityAssessmentRecurringScans.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_subscription_admins_enabled: Optional[bool] = None,
+                 emails: Optional[Sequence[str]] = None,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool email_subscription_admins_enabled: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        :param Sequence[str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param bool enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+        if email_subscription_admins_enabled is not None:
+            pulumi.set(__self__, "email_subscription_admins_enabled", email_subscription_admins_enabled)
+        if emails is not None:
+            pulumi.set(__self__, "emails", emails)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="emailSubscriptionAdminsEnabled")
+    def email_subscription_admins_enabled(self) -> Optional[bool]:
+        """
+        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        """
+        return pulumi.get(self, "email_subscription_admins_enabled")
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Optional[Sequence[str]]:
+        """
+        Specifies an array of e-mail addresses to which the scan notification is sent.
+        """
+        return pulumi.get(self, "emails")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

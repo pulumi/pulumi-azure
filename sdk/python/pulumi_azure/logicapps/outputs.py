@@ -20,6 +20,11 @@ __all__ = [
     'IntegrationAccountCertificateKeyVaultKey',
     'IntegrationAccountPartnerBusinessIdentity',
     'TriggerRecurrenceSchedule',
+    'WorkflowAccessControl',
+    'WorkflowAccessControlAction',
+    'WorkflowAccessControlContent',
+    'WorkflowAccessControlTrigger',
+    'WorkflowAccessControlWorkflowManagement',
 ]
 
 @pulumi.output_type
@@ -556,5 +561,217 @@ class TriggerRecurrenceSchedule(dict):
         Specifies a list of days when the trigger should run. Valid values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
         """
         return pulumi.get(self, "on_these_days")
+
+
+@pulumi.output_type
+class WorkflowAccessControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workflowManagement":
+            suggest = "workflow_management"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowAccessControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowAccessControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowAccessControl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Optional['outputs.WorkflowAccessControlAction'] = None,
+                 content: Optional['outputs.WorkflowAccessControlContent'] = None,
+                 trigger: Optional['outputs.WorkflowAccessControlTrigger'] = None,
+                 workflow_management: Optional['outputs.WorkflowAccessControlWorkflowManagement'] = None):
+        """
+        :param 'WorkflowAccessControlActionArgs' action: A `action` block as defined below.
+        :param 'WorkflowAccessControlContentArgs' content: A `content` block as defined below.
+        :param 'WorkflowAccessControlTriggerArgs' trigger: A `trigger` block as defined below.
+        :param 'WorkflowAccessControlWorkflowManagementArgs' workflow_management: A `workflow_management` block as defined below.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if trigger is not None:
+            pulumi.set(__self__, "trigger", trigger)
+        if workflow_management is not None:
+            pulumi.set(__self__, "workflow_management", workflow_management)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.WorkflowAccessControlAction']:
+        """
+        A `action` block as defined below.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional['outputs.WorkflowAccessControlContent']:
+        """
+        A `content` block as defined below.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> Optional['outputs.WorkflowAccessControlTrigger']:
+        """
+        A `trigger` block as defined below.
+        """
+        return pulumi.get(self, "trigger")
+
+    @property
+    @pulumi.getter(name="workflowManagement")
+    def workflow_management(self) -> Optional['outputs.WorkflowAccessControlWorkflowManagement']:
+        """
+        A `workflow_management` block as defined below.
+        """
+        return pulumi.get(self, "workflow_management")
+
+
+@pulumi.output_type
+class WorkflowAccessControlAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedCallerIpAddressRanges":
+            suggest = "allowed_caller_ip_address_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowAccessControlAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowAccessControlAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowAccessControlAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_caller_ip_address_ranges: Sequence[str]):
+        """
+        :param Sequence[str] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
+        """
+        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+
+    @property
+    @pulumi.getter(name="allowedCallerIpAddressRanges")
+    def allowed_caller_ip_address_ranges(self) -> Sequence[str]:
+        """
+        A list of the allowed caller IP address ranges.
+        """
+        return pulumi.get(self, "allowed_caller_ip_address_ranges")
+
+
+@pulumi.output_type
+class WorkflowAccessControlContent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedCallerIpAddressRanges":
+            suggest = "allowed_caller_ip_address_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowAccessControlContent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowAccessControlContent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowAccessControlContent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_caller_ip_address_ranges: Sequence[str]):
+        """
+        :param Sequence[str] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
+        """
+        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+
+    @property
+    @pulumi.getter(name="allowedCallerIpAddressRanges")
+    def allowed_caller_ip_address_ranges(self) -> Sequence[str]:
+        """
+        A list of the allowed caller IP address ranges.
+        """
+        return pulumi.get(self, "allowed_caller_ip_address_ranges")
+
+
+@pulumi.output_type
+class WorkflowAccessControlTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedCallerIpAddressRanges":
+            suggest = "allowed_caller_ip_address_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowAccessControlTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowAccessControlTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowAccessControlTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_caller_ip_address_ranges: Sequence[str]):
+        """
+        :param Sequence[str] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
+        """
+        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+
+    @property
+    @pulumi.getter(name="allowedCallerIpAddressRanges")
+    def allowed_caller_ip_address_ranges(self) -> Sequence[str]:
+        """
+        A list of the allowed caller IP address ranges.
+        """
+        return pulumi.get(self, "allowed_caller_ip_address_ranges")
+
+
+@pulumi.output_type
+class WorkflowAccessControlWorkflowManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedCallerIpAddressRanges":
+            suggest = "allowed_caller_ip_address_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowAccessControlWorkflowManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowAccessControlWorkflowManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowAccessControlWorkflowManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_caller_ip_address_ranges: Sequence[str]):
+        """
+        :param Sequence[str] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
+        """
+        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+
+    @property
+    @pulumi.getter(name="allowedCallerIpAddressRanges")
+    def allowed_caller_ip_address_ranges(self) -> Sequence[str]:
+        """
+        A list of the allowed caller IP address ranges.
+        """
+        return pulumi.get(self, "allowed_caller_ip_address_ranges")
 
 

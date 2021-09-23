@@ -5715,6 +5715,30 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "synapse/integrationRuntimeAzure",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure": "IntegrationRuntimeAzure"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "synapse/integrationRuntimeSelfHosted",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted": "IntegrationRuntimeSelfHosted"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "synapse/linkedService",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/linkedService:LinkedService": "LinkedService"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "synapse/managedPrivateEndpoint",
   "fqn": "pulumi_azure.synapse",
   "classes": {
@@ -5755,10 +5779,50 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "synapse/sqlPoolSecurityAlertPolicy",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy": "SqlPoolSecurityAlertPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "synapse/sqlPoolVulnerabilityAssessment",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/sqlPoolVulnerabilityAssessment:SqlPoolVulnerabilityAssessment": "SqlPoolVulnerabilityAssessment"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "synapse/workspace",
   "fqn": "pulumi_azure.synapse",
   "classes": {
    "azure:synapse/workspace:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "synapse/workspaceKey",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/workspaceKey:WorkspaceKey": "WorkspaceKey"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "synapse/workspaceSecurityAlertPolicy",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy": "WorkspaceSecurityAlertPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "synapse/workspaceVulnerabilityAssessment",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/workspaceVulnerabilityAssessment:WorkspaceVulnerabilityAssessment": "WorkspaceVulnerabilityAssessment"
   }
  },
  {

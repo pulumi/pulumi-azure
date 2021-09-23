@@ -120,7 +120,7 @@ func (o BackendAddressPoolBackendAddressArrayOutput) Index(i pulumi.IntInput) Ba
 }
 
 type LoadBalancerFrontendIpConfiguration struct {
-	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
 	// `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The id of the Frontend IP Configuration.
@@ -161,7 +161,7 @@ type LoadBalancerFrontendIpConfigurationInput interface {
 }
 
 type LoadBalancerFrontendIpConfigurationArgs struct {
-	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
 	// `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	// The id of the Frontend IP Configuration.
@@ -241,7 +241,7 @@ func (o LoadBalancerFrontendIpConfigurationOutput) ToLoadBalancerFrontendIpConfi
 	return o
 }
 
-// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
 // `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
 func (o LoadBalancerFrontendIpConfigurationOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)

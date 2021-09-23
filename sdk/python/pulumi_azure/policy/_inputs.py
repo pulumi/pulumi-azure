@@ -249,43 +249,35 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
 @pulumi.input_type
 class VirtualMachineConfigurationAssignmentConfigurationArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  assignment_type: Optional[pulumi.Input[str]] = None,
                  content_hash: Optional[pulumi.Input[str]] = None,
                  content_uri: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         :param pulumi.Input[str] assignment_type: The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
         :param pulumi.Input[str] content_hash: The content hash for the Guest Configuration package.
         :param pulumi.Input[str] content_uri: The content URI where the Guest Configuration package is stored.
+        :param pulumi.Input[str] name: This field is no longer used and will be removed in the next major version of the Azure Provider.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]] parameters: One or more `parameter` blocks which define what configuration parameters and values against.
         :param pulumi.Input[str] version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
-        pulumi.set(__self__, "name", name)
         if assignment_type is not None:
             pulumi.set(__self__, "assignment_type", assignment_type)
         if content_hash is not None:
             pulumi.set(__self__, "content_hash", content_hash)
         if content_uri is not None:
             pulumi.set(__self__, "content_uri", content_uri)
+        if name is not None:
+            warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
+            pulumi.log.warn("""name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if version is not None:
             pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="assignmentType")
@@ -322,6 +314,18 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
     @content_uri.setter
     def content_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_uri", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        This field is no longer used and will be removed in the next major version of the Azure Provider.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter

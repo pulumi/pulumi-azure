@@ -279,39 +279,32 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 name: str,
                  assignment_type: Optional[str] = None,
                  content_hash: Optional[str] = None,
                  content_uri: Optional[str] = None,
+                 name: Optional[str] = None,
                  parameters: Optional[Sequence['outputs.VirtualMachineConfigurationAssignmentConfigurationParameter']] = None,
                  version: Optional[str] = None):
         """
-        :param str name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         :param str assignment_type: The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
         :param str content_hash: The content hash for the Guest Configuration package.
         :param str content_uri: The content URI where the Guest Configuration package is stored.
+        :param str name: This field is no longer used and will be removed in the next major version of the Azure Provider.
         :param Sequence['VirtualMachineConfigurationAssignmentConfigurationParameterArgs'] parameters: One or more `parameter` blocks which define what configuration parameters and values against.
         :param str version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
-        pulumi.set(__self__, "name", name)
         if assignment_type is not None:
             pulumi.set(__self__, "assignment_type", assignment_type)
         if content_hash is not None:
             pulumi.set(__self__, "content_hash", content_hash)
         if content_uri is not None:
             pulumi.set(__self__, "content_uri", content_uri)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if version is not None:
             pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-        """
-        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="assignmentType")
@@ -336,6 +329,14 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
         The content URI where the Guest Configuration package is stored.
         """
         return pulumi.get(self, "content_uri")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        This field is no longer used and will be removed in the next major version of the Azure Provider.
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter

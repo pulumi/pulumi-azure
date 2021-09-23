@@ -9,15 +9,57 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'LinkedServiceIntegrationRuntimeArgs',
     'SparkPoolAutoPauseArgs',
     'SparkPoolAutoScaleArgs',
     'SparkPoolLibraryRequirementArgs',
     'SqlPoolRestoreArgs',
+    'SqlPoolVulnerabilityAssessmentRecurringScansArgs',
     'WorkspaceAadAdminArgs',
     'WorkspaceAzureDevopsRepoArgs',
+    'WorkspaceCustomerManagedKeyArgs',
     'WorkspaceGithubRepoArgs',
     'WorkspaceIdentityArgs',
+    'WorkspaceVulnerabilityAssessmentRecurringScansArgs',
 ]
+
+@pulumi.input_type
+class LinkedServiceIntegrationRuntimeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: The integration runtime reference to associate with the Synapse Linked Service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the integration runtime.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The integration runtime reference to associate with the Synapse Linked Service.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of parameters to associate with the integration runtime.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
 
 @pulumi.input_type
 class SparkPoolAutoPauseArgs:
@@ -150,6 +192,61 @@ class SqlPoolRestoreArgs:
     @source_database_id.setter
     def source_database_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_database_id", value)
+
+
+@pulumi.input_type
+class SqlPoolVulnerabilityAssessmentRecurringScansArgs:
+    def __init__(__self__, *,
+                 email_subscription_admins_enabled: Optional[pulumi.Input[bool]] = None,
+                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] email_subscription_admins_enabled: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param pulumi.Input[bool] enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+        if email_subscription_admins_enabled is not None:
+            pulumi.set(__self__, "email_subscription_admins_enabled", email_subscription_admins_enabled)
+        if emails is not None:
+            pulumi.set(__self__, "emails", emails)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="emailSubscriptionAdminsEnabled")
+    def email_subscription_admins_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        """
+        return pulumi.get(self, "email_subscription_admins_enabled")
+
+    @email_subscription_admins_enabled.setter
+    def email_subscription_admins_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "email_subscription_admins_enabled", value)
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies an array of e-mail addresses to which the scan notification is sent.
+        """
+        return pulumi.get(self, "emails")
+
+    @emails.setter
+    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "emails", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type
@@ -303,6 +400,44 @@ class WorkspaceAzureDevopsRepoArgs:
 
 
 @pulumi.input_type
+class WorkspaceCustomerManagedKeyArgs:
+    def __init__(__self__, *,
+                 key_versionless_id: pulumi.Input[str],
+                 key_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        :param pulumi.Input[str] key_name: An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+        """
+        pulumi.set(__self__, "key_versionless_id", key_versionless_id)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+
+    @property
+    @pulumi.getter(name="keyVersionlessId")
+    def key_versionless_id(self) -> pulumi.Input[str]:
+        """
+        The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        """
+        return pulumi.get(self, "key_versionless_id")
+
+    @key_versionless_id.setter
+    def key_versionless_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_versionless_id", value)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
+
+
+@pulumi.input_type
 class WorkspaceGithubRepoArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
@@ -438,5 +573,60 @@ class WorkspaceIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class WorkspaceVulnerabilityAssessmentRecurringScansArgs:
+    def __init__(__self__, *,
+                 email_subscription_admins_enabled: Optional[pulumi.Input[bool]] = None,
+                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] email_subscription_admins_enabled: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param pulumi.Input[bool] enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+        if email_subscription_admins_enabled is not None:
+            pulumi.set(__self__, "email_subscription_admins_enabled", email_subscription_admins_enabled)
+        if emails is not None:
+            pulumi.set(__self__, "emails", emails)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="emailSubscriptionAdminsEnabled")
+    def email_subscription_admins_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        """
+        return pulumi.get(self, "email_subscription_admins_enabled")
+
+    @email_subscription_admins_enabled.setter
+    def email_subscription_admins_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "email_subscription_admins_enabled", value)
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies an array of e-mail addresses to which the scan notification is sent.
+        """
+        return pulumi.get(self, "emails")
+
+    @emails.setter
+    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "emails", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 

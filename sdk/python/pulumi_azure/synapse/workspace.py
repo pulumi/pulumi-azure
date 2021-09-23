@@ -21,7 +21,7 @@ class WorkspaceArgs:
                  storage_data_lake_gen2_filesystem_id: pulumi.Input[str],
                  aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
                  azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
-                 customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
+                 customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  github_repo: Optional[pulumi.Input['WorkspaceGithubRepoArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
-        :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -56,8 +56,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "aad_admin", aad_admin)
         if azure_devops_repo is not None:
             pulumi.set(__self__, "azure_devops_repo", azure_devops_repo)
-        if customer_managed_key_versionless_id is not None:
-            pulumi.set(__self__, "customer_managed_key_versionless_id", customer_managed_key_versionless_id)
+        if customer_managed_key is not None:
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if data_exfiltration_protection_enabled is not None:
             pulumi.set(__self__, "data_exfiltration_protection_enabled", data_exfiltration_protection_enabled)
         if github_repo is not None:
@@ -148,16 +148,16 @@ class WorkspaceArgs:
         pulumi.set(self, "azure_devops_repo", value)
 
     @property
-    @pulumi.getter(name="customerManagedKeyVersionlessId")
-    def customer_managed_key_versionless_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']]:
         """
-        The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        A `customer_managed_key` block as defined below.
         """
-        return pulumi.get(self, "customer_managed_key_versionless_id")
+        return pulumi.get(self, "customer_managed_key")
 
-    @customer_managed_key_versionless_id.setter
-    def customer_managed_key_versionless_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "customer_managed_key_versionless_id", value)
+    @customer_managed_key.setter
+    def customer_managed_key(self, value: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']]):
+        pulumi.set(self, "customer_managed_key", value)
 
     @property
     @pulumi.getter(name="dataExfiltrationProtectionEnabled")
@@ -262,7 +262,7 @@ class _WorkspaceState:
                  aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
                  azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
                  connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
+                 customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  github_repo: Optional[pulumi.Input['WorkspaceGithubRepoArgs']] = None,
                  identities: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceIdentityArgs']]]] = None,
@@ -281,7 +281,7 @@ class _WorkspaceState:
         :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
-        :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceIdentityArgs']]] identities: An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
@@ -302,8 +302,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "azure_devops_repo", azure_devops_repo)
         if connectivity_endpoints is not None:
             pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
-        if customer_managed_key_versionless_id is not None:
-            pulumi.set(__self__, "customer_managed_key_versionless_id", customer_managed_key_versionless_id)
+        if customer_managed_key is not None:
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if data_exfiltration_protection_enabled is not None:
             pulumi.set(__self__, "data_exfiltration_protection_enabled", data_exfiltration_protection_enabled)
         if github_repo is not None:
@@ -368,16 +368,16 @@ class _WorkspaceState:
         pulumi.set(self, "connectivity_endpoints", value)
 
     @property
-    @pulumi.getter(name="customerManagedKeyVersionlessId")
-    def customer_managed_key_versionless_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']]:
         """
-        The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        A `customer_managed_key` block as defined below.
         """
-        return pulumi.get(self, "customer_managed_key_versionless_id")
+        return pulumi.get(self, "customer_managed_key")
 
-    @customer_managed_key_versionless_id.setter
-    def customer_managed_key_versionless_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "customer_managed_key_versionless_id", value)
+    @customer_managed_key.setter
+    def customer_managed_key(self, value: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']]):
+        pulumi.set(self, "customer_managed_key", value)
 
     @property
     @pulumi.getter(name="dataExfiltrationProtectionEnabled")
@@ -543,7 +543,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
                  azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
-                 customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
+                 customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -603,7 +603,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
-        :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -682,7 +682,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
                  azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
-                 customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
+                 customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -709,7 +709,7 @@ class Workspace(pulumi.CustomResource):
 
             __props__.__dict__["aad_admin"] = aad_admin
             __props__.__dict__["azure_devops_repo"] = azure_devops_repo
-            __props__.__dict__["customer_managed_key_versionless_id"] = customer_managed_key_versionless_id
+            __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["data_exfiltration_protection_enabled"] = data_exfiltration_protection_enabled
             __props__.__dict__["github_repo"] = github_repo
             __props__.__dict__["location"] = location
@@ -745,7 +745,7 @@ class Workspace(pulumi.CustomResource):
             aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
             azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
             connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
+            customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
             data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
             github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
             identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]]] = None,
@@ -769,7 +769,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
-        :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]] identities: An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
@@ -791,7 +791,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["aad_admin"] = aad_admin
         __props__.__dict__["azure_devops_repo"] = azure_devops_repo
         __props__.__dict__["connectivity_endpoints"] = connectivity_endpoints
-        __props__.__dict__["customer_managed_key_versionless_id"] = customer_managed_key_versionless_id
+        __props__.__dict__["customer_managed_key"] = customer_managed_key
         __props__.__dict__["data_exfiltration_protection_enabled"] = data_exfiltration_protection_enabled
         __props__.__dict__["github_repo"] = github_repo
         __props__.__dict__["identities"] = identities
@@ -832,12 +832,12 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "connectivity_endpoints")
 
     @property
-    @pulumi.getter(name="customerManagedKeyVersionlessId")
-    def customer_managed_key_versionless_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> pulumi.Output[Optional['outputs.WorkspaceCustomerManagedKey']]:
         """
-        The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        A `customer_managed_key` block as defined below.
         """
-        return pulumi.get(self, "customer_managed_key_versionless_id")
+        return pulumi.get(self, "customer_managed_key")
 
     @property
     @pulumi.getter(name="dataExfiltrationProtectionEnabled")

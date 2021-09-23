@@ -136,6 +136,7 @@ func TestAccMsiRenamed(t *testing.T) {
 }
 
 func TestAccBlob(t *testing.T) {
+	t.Skip("Temp skipping due to functions issues")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "blob"),

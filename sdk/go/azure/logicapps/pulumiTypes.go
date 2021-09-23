@@ -1588,6 +1588,718 @@ func (o TriggerRecurrenceSchedulePtrOutput) OnTheseDays() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
+type WorkflowAccessControl struct {
+	// A `action` block as defined below.
+	Action *WorkflowAccessControlAction `pulumi:"action"`
+	// A `content` block as defined below.
+	Content *WorkflowAccessControlContent `pulumi:"content"`
+	// A `trigger` block as defined below.
+	Trigger *WorkflowAccessControlTrigger `pulumi:"trigger"`
+	// A `workflowManagement` block as defined below.
+	WorkflowManagement *WorkflowAccessControlWorkflowManagement `pulumi:"workflowManagement"`
+}
+
+// WorkflowAccessControlInput is an input type that accepts WorkflowAccessControlArgs and WorkflowAccessControlOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlInput` via:
+//
+//          WorkflowAccessControlArgs{...}
+type WorkflowAccessControlInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlOutput() WorkflowAccessControlOutput
+	ToWorkflowAccessControlOutputWithContext(context.Context) WorkflowAccessControlOutput
+}
+
+type WorkflowAccessControlArgs struct {
+	// A `action` block as defined below.
+	Action WorkflowAccessControlActionPtrInput `pulumi:"action"`
+	// A `content` block as defined below.
+	Content WorkflowAccessControlContentPtrInput `pulumi:"content"`
+	// A `trigger` block as defined below.
+	Trigger WorkflowAccessControlTriggerPtrInput `pulumi:"trigger"`
+	// A `workflowManagement` block as defined below.
+	WorkflowManagement WorkflowAccessControlWorkflowManagementPtrInput `pulumi:"workflowManagement"`
+}
+
+func (WorkflowAccessControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControl)(nil)).Elem()
+}
+
+func (i WorkflowAccessControlArgs) ToWorkflowAccessControlOutput() WorkflowAccessControlOutput {
+	return i.ToWorkflowAccessControlOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlArgs) ToWorkflowAccessControlOutputWithContext(ctx context.Context) WorkflowAccessControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlOutput)
+}
+
+func (i WorkflowAccessControlArgs) ToWorkflowAccessControlPtrOutput() WorkflowAccessControlPtrOutput {
+	return i.ToWorkflowAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlArgs) ToWorkflowAccessControlPtrOutputWithContext(ctx context.Context) WorkflowAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlOutput).ToWorkflowAccessControlPtrOutputWithContext(ctx)
+}
+
+// WorkflowAccessControlPtrInput is an input type that accepts WorkflowAccessControlArgs, WorkflowAccessControlPtr and WorkflowAccessControlPtrOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlPtrInput` via:
+//
+//          WorkflowAccessControlArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowAccessControlPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlPtrOutput() WorkflowAccessControlPtrOutput
+	ToWorkflowAccessControlPtrOutputWithContext(context.Context) WorkflowAccessControlPtrOutput
+}
+
+type workflowAccessControlPtrType WorkflowAccessControlArgs
+
+func WorkflowAccessControlPtr(v *WorkflowAccessControlArgs) WorkflowAccessControlPtrInput {
+	return (*workflowAccessControlPtrType)(v)
+}
+
+func (*workflowAccessControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowAccessControl)(nil)).Elem()
+}
+
+func (i *workflowAccessControlPtrType) ToWorkflowAccessControlPtrOutput() WorkflowAccessControlPtrOutput {
+	return i.ToWorkflowAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowAccessControlPtrType) ToWorkflowAccessControlPtrOutputWithContext(ctx context.Context) WorkflowAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlPtrOutput)
+}
+
+type WorkflowAccessControlOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControl)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlOutput) ToWorkflowAccessControlOutput() WorkflowAccessControlOutput {
+	return o
+}
+
+func (o WorkflowAccessControlOutput) ToWorkflowAccessControlOutputWithContext(ctx context.Context) WorkflowAccessControlOutput {
+	return o
+}
+
+func (o WorkflowAccessControlOutput) ToWorkflowAccessControlPtrOutput() WorkflowAccessControlPtrOutput {
+	return o.ToWorkflowAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowAccessControlOutput) ToWorkflowAccessControlPtrOutputWithContext(ctx context.Context) WorkflowAccessControlPtrOutput {
+	return o.ApplyT(func(v WorkflowAccessControl) *WorkflowAccessControl {
+		return &v
+	}).(WorkflowAccessControlPtrOutput)
+}
+
+// A `action` block as defined below.
+func (o WorkflowAccessControlOutput) Action() WorkflowAccessControlActionPtrOutput {
+	return o.ApplyT(func(v WorkflowAccessControl) *WorkflowAccessControlAction { return v.Action }).(WorkflowAccessControlActionPtrOutput)
+}
+
+// A `content` block as defined below.
+func (o WorkflowAccessControlOutput) Content() WorkflowAccessControlContentPtrOutput {
+	return o.ApplyT(func(v WorkflowAccessControl) *WorkflowAccessControlContent { return v.Content }).(WorkflowAccessControlContentPtrOutput)
+}
+
+// A `trigger` block as defined below.
+func (o WorkflowAccessControlOutput) Trigger() WorkflowAccessControlTriggerPtrOutput {
+	return o.ApplyT(func(v WorkflowAccessControl) *WorkflowAccessControlTrigger { return v.Trigger }).(WorkflowAccessControlTriggerPtrOutput)
+}
+
+// A `workflowManagement` block as defined below.
+func (o WorkflowAccessControlOutput) WorkflowManagement() WorkflowAccessControlWorkflowManagementPtrOutput {
+	return o.ApplyT(func(v WorkflowAccessControl) *WorkflowAccessControlWorkflowManagement { return v.WorkflowManagement }).(WorkflowAccessControlWorkflowManagementPtrOutput)
+}
+
+type WorkflowAccessControlPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowAccessControl)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlPtrOutput) ToWorkflowAccessControlPtrOutput() WorkflowAccessControlPtrOutput {
+	return o
+}
+
+func (o WorkflowAccessControlPtrOutput) ToWorkflowAccessControlPtrOutputWithContext(ctx context.Context) WorkflowAccessControlPtrOutput {
+	return o
+}
+
+func (o WorkflowAccessControlPtrOutput) Elem() WorkflowAccessControlOutput {
+	return o.ApplyT(func(v *WorkflowAccessControl) WorkflowAccessControl { return *v }).(WorkflowAccessControlOutput)
+}
+
+// A `action` block as defined below.
+func (o WorkflowAccessControlPtrOutput) Action() WorkflowAccessControlActionPtrOutput {
+	return o.ApplyT(func(v *WorkflowAccessControl) *WorkflowAccessControlAction {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(WorkflowAccessControlActionPtrOutput)
+}
+
+// A `content` block as defined below.
+func (o WorkflowAccessControlPtrOutput) Content() WorkflowAccessControlContentPtrOutput {
+	return o.ApplyT(func(v *WorkflowAccessControl) *WorkflowAccessControlContent {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(WorkflowAccessControlContentPtrOutput)
+}
+
+// A `trigger` block as defined below.
+func (o WorkflowAccessControlPtrOutput) Trigger() WorkflowAccessControlTriggerPtrOutput {
+	return o.ApplyT(func(v *WorkflowAccessControl) *WorkflowAccessControlTrigger {
+		if v == nil {
+			return nil
+		}
+		return v.Trigger
+	}).(WorkflowAccessControlTriggerPtrOutput)
+}
+
+// A `workflowManagement` block as defined below.
+func (o WorkflowAccessControlPtrOutput) WorkflowManagement() WorkflowAccessControlWorkflowManagementPtrOutput {
+	return o.ApplyT(func(v *WorkflowAccessControl) *WorkflowAccessControlWorkflowManagement {
+		if v == nil {
+			return nil
+		}
+		return v.WorkflowManagement
+	}).(WorkflowAccessControlWorkflowManagementPtrOutput)
+}
+
+type WorkflowAccessControlAction struct {
+	// A list of the allowed caller IP address ranges.
+	AllowedCallerIpAddressRanges []string `pulumi:"allowedCallerIpAddressRanges"`
+}
+
+// WorkflowAccessControlActionInput is an input type that accepts WorkflowAccessControlActionArgs and WorkflowAccessControlActionOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlActionInput` via:
+//
+//          WorkflowAccessControlActionArgs{...}
+type WorkflowAccessControlActionInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlActionOutput() WorkflowAccessControlActionOutput
+	ToWorkflowAccessControlActionOutputWithContext(context.Context) WorkflowAccessControlActionOutput
+}
+
+type WorkflowAccessControlActionArgs struct {
+	// A list of the allowed caller IP address ranges.
+	AllowedCallerIpAddressRanges pulumi.StringArrayInput `pulumi:"allowedCallerIpAddressRanges"`
+}
+
+func (WorkflowAccessControlActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControlAction)(nil)).Elem()
+}
+
+func (i WorkflowAccessControlActionArgs) ToWorkflowAccessControlActionOutput() WorkflowAccessControlActionOutput {
+	return i.ToWorkflowAccessControlActionOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlActionArgs) ToWorkflowAccessControlActionOutputWithContext(ctx context.Context) WorkflowAccessControlActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlActionOutput)
+}
+
+func (i WorkflowAccessControlActionArgs) ToWorkflowAccessControlActionPtrOutput() WorkflowAccessControlActionPtrOutput {
+	return i.ToWorkflowAccessControlActionPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlActionArgs) ToWorkflowAccessControlActionPtrOutputWithContext(ctx context.Context) WorkflowAccessControlActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlActionOutput).ToWorkflowAccessControlActionPtrOutputWithContext(ctx)
+}
+
+// WorkflowAccessControlActionPtrInput is an input type that accepts WorkflowAccessControlActionArgs, WorkflowAccessControlActionPtr and WorkflowAccessControlActionPtrOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlActionPtrInput` via:
+//
+//          WorkflowAccessControlActionArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowAccessControlActionPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlActionPtrOutput() WorkflowAccessControlActionPtrOutput
+	ToWorkflowAccessControlActionPtrOutputWithContext(context.Context) WorkflowAccessControlActionPtrOutput
+}
+
+type workflowAccessControlActionPtrType WorkflowAccessControlActionArgs
+
+func WorkflowAccessControlActionPtr(v *WorkflowAccessControlActionArgs) WorkflowAccessControlActionPtrInput {
+	return (*workflowAccessControlActionPtrType)(v)
+}
+
+func (*workflowAccessControlActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowAccessControlAction)(nil)).Elem()
+}
+
+func (i *workflowAccessControlActionPtrType) ToWorkflowAccessControlActionPtrOutput() WorkflowAccessControlActionPtrOutput {
+	return i.ToWorkflowAccessControlActionPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowAccessControlActionPtrType) ToWorkflowAccessControlActionPtrOutputWithContext(ctx context.Context) WorkflowAccessControlActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlActionPtrOutput)
+}
+
+type WorkflowAccessControlActionOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControlAction)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlActionOutput) ToWorkflowAccessControlActionOutput() WorkflowAccessControlActionOutput {
+	return o
+}
+
+func (o WorkflowAccessControlActionOutput) ToWorkflowAccessControlActionOutputWithContext(ctx context.Context) WorkflowAccessControlActionOutput {
+	return o
+}
+
+func (o WorkflowAccessControlActionOutput) ToWorkflowAccessControlActionPtrOutput() WorkflowAccessControlActionPtrOutput {
+	return o.ToWorkflowAccessControlActionPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowAccessControlActionOutput) ToWorkflowAccessControlActionPtrOutputWithContext(ctx context.Context) WorkflowAccessControlActionPtrOutput {
+	return o.ApplyT(func(v WorkflowAccessControlAction) *WorkflowAccessControlAction {
+		return &v
+	}).(WorkflowAccessControlActionPtrOutput)
+}
+
+// A list of the allowed caller IP address ranges.
+func (o WorkflowAccessControlActionOutput) AllowedCallerIpAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkflowAccessControlAction) []string { return v.AllowedCallerIpAddressRanges }).(pulumi.StringArrayOutput)
+}
+
+type WorkflowAccessControlActionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowAccessControlAction)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlActionPtrOutput) ToWorkflowAccessControlActionPtrOutput() WorkflowAccessControlActionPtrOutput {
+	return o
+}
+
+func (o WorkflowAccessControlActionPtrOutput) ToWorkflowAccessControlActionPtrOutputWithContext(ctx context.Context) WorkflowAccessControlActionPtrOutput {
+	return o
+}
+
+func (o WorkflowAccessControlActionPtrOutput) Elem() WorkflowAccessControlActionOutput {
+	return o.ApplyT(func(v *WorkflowAccessControlAction) WorkflowAccessControlAction { return *v }).(WorkflowAccessControlActionOutput)
+}
+
+// A list of the allowed caller IP address ranges.
+func (o WorkflowAccessControlActionPtrOutput) AllowedCallerIpAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkflowAccessControlAction) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedCallerIpAddressRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+type WorkflowAccessControlContent struct {
+	// A list of the allowed caller IP address ranges.
+	AllowedCallerIpAddressRanges []string `pulumi:"allowedCallerIpAddressRanges"`
+}
+
+// WorkflowAccessControlContentInput is an input type that accepts WorkflowAccessControlContentArgs and WorkflowAccessControlContentOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlContentInput` via:
+//
+//          WorkflowAccessControlContentArgs{...}
+type WorkflowAccessControlContentInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlContentOutput() WorkflowAccessControlContentOutput
+	ToWorkflowAccessControlContentOutputWithContext(context.Context) WorkflowAccessControlContentOutput
+}
+
+type WorkflowAccessControlContentArgs struct {
+	// A list of the allowed caller IP address ranges.
+	AllowedCallerIpAddressRanges pulumi.StringArrayInput `pulumi:"allowedCallerIpAddressRanges"`
+}
+
+func (WorkflowAccessControlContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControlContent)(nil)).Elem()
+}
+
+func (i WorkflowAccessControlContentArgs) ToWorkflowAccessControlContentOutput() WorkflowAccessControlContentOutput {
+	return i.ToWorkflowAccessControlContentOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlContentArgs) ToWorkflowAccessControlContentOutputWithContext(ctx context.Context) WorkflowAccessControlContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlContentOutput)
+}
+
+func (i WorkflowAccessControlContentArgs) ToWorkflowAccessControlContentPtrOutput() WorkflowAccessControlContentPtrOutput {
+	return i.ToWorkflowAccessControlContentPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlContentArgs) ToWorkflowAccessControlContentPtrOutputWithContext(ctx context.Context) WorkflowAccessControlContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlContentOutput).ToWorkflowAccessControlContentPtrOutputWithContext(ctx)
+}
+
+// WorkflowAccessControlContentPtrInput is an input type that accepts WorkflowAccessControlContentArgs, WorkflowAccessControlContentPtr and WorkflowAccessControlContentPtrOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlContentPtrInput` via:
+//
+//          WorkflowAccessControlContentArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowAccessControlContentPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlContentPtrOutput() WorkflowAccessControlContentPtrOutput
+	ToWorkflowAccessControlContentPtrOutputWithContext(context.Context) WorkflowAccessControlContentPtrOutput
+}
+
+type workflowAccessControlContentPtrType WorkflowAccessControlContentArgs
+
+func WorkflowAccessControlContentPtr(v *WorkflowAccessControlContentArgs) WorkflowAccessControlContentPtrInput {
+	return (*workflowAccessControlContentPtrType)(v)
+}
+
+func (*workflowAccessControlContentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowAccessControlContent)(nil)).Elem()
+}
+
+func (i *workflowAccessControlContentPtrType) ToWorkflowAccessControlContentPtrOutput() WorkflowAccessControlContentPtrOutput {
+	return i.ToWorkflowAccessControlContentPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowAccessControlContentPtrType) ToWorkflowAccessControlContentPtrOutputWithContext(ctx context.Context) WorkflowAccessControlContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlContentPtrOutput)
+}
+
+type WorkflowAccessControlContentOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControlContent)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlContentOutput) ToWorkflowAccessControlContentOutput() WorkflowAccessControlContentOutput {
+	return o
+}
+
+func (o WorkflowAccessControlContentOutput) ToWorkflowAccessControlContentOutputWithContext(ctx context.Context) WorkflowAccessControlContentOutput {
+	return o
+}
+
+func (o WorkflowAccessControlContentOutput) ToWorkflowAccessControlContentPtrOutput() WorkflowAccessControlContentPtrOutput {
+	return o.ToWorkflowAccessControlContentPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowAccessControlContentOutput) ToWorkflowAccessControlContentPtrOutputWithContext(ctx context.Context) WorkflowAccessControlContentPtrOutput {
+	return o.ApplyT(func(v WorkflowAccessControlContent) *WorkflowAccessControlContent {
+		return &v
+	}).(WorkflowAccessControlContentPtrOutput)
+}
+
+// A list of the allowed caller IP address ranges.
+func (o WorkflowAccessControlContentOutput) AllowedCallerIpAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkflowAccessControlContent) []string { return v.AllowedCallerIpAddressRanges }).(pulumi.StringArrayOutput)
+}
+
+type WorkflowAccessControlContentPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowAccessControlContent)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlContentPtrOutput) ToWorkflowAccessControlContentPtrOutput() WorkflowAccessControlContentPtrOutput {
+	return o
+}
+
+func (o WorkflowAccessControlContentPtrOutput) ToWorkflowAccessControlContentPtrOutputWithContext(ctx context.Context) WorkflowAccessControlContentPtrOutput {
+	return o
+}
+
+func (o WorkflowAccessControlContentPtrOutput) Elem() WorkflowAccessControlContentOutput {
+	return o.ApplyT(func(v *WorkflowAccessControlContent) WorkflowAccessControlContent { return *v }).(WorkflowAccessControlContentOutput)
+}
+
+// A list of the allowed caller IP address ranges.
+func (o WorkflowAccessControlContentPtrOutput) AllowedCallerIpAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkflowAccessControlContent) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedCallerIpAddressRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+type WorkflowAccessControlTrigger struct {
+	// A list of the allowed caller IP address ranges.
+	AllowedCallerIpAddressRanges []string `pulumi:"allowedCallerIpAddressRanges"`
+}
+
+// WorkflowAccessControlTriggerInput is an input type that accepts WorkflowAccessControlTriggerArgs and WorkflowAccessControlTriggerOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlTriggerInput` via:
+//
+//          WorkflowAccessControlTriggerArgs{...}
+type WorkflowAccessControlTriggerInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlTriggerOutput() WorkflowAccessControlTriggerOutput
+	ToWorkflowAccessControlTriggerOutputWithContext(context.Context) WorkflowAccessControlTriggerOutput
+}
+
+type WorkflowAccessControlTriggerArgs struct {
+	// A list of the allowed caller IP address ranges.
+	AllowedCallerIpAddressRanges pulumi.StringArrayInput `pulumi:"allowedCallerIpAddressRanges"`
+}
+
+func (WorkflowAccessControlTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControlTrigger)(nil)).Elem()
+}
+
+func (i WorkflowAccessControlTriggerArgs) ToWorkflowAccessControlTriggerOutput() WorkflowAccessControlTriggerOutput {
+	return i.ToWorkflowAccessControlTriggerOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlTriggerArgs) ToWorkflowAccessControlTriggerOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerOutput)
+}
+
+func (i WorkflowAccessControlTriggerArgs) ToWorkflowAccessControlTriggerPtrOutput() WorkflowAccessControlTriggerPtrOutput {
+	return i.ToWorkflowAccessControlTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlTriggerArgs) ToWorkflowAccessControlTriggerPtrOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerOutput).ToWorkflowAccessControlTriggerPtrOutputWithContext(ctx)
+}
+
+// WorkflowAccessControlTriggerPtrInput is an input type that accepts WorkflowAccessControlTriggerArgs, WorkflowAccessControlTriggerPtr and WorkflowAccessControlTriggerPtrOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlTriggerPtrInput` via:
+//
+//          WorkflowAccessControlTriggerArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowAccessControlTriggerPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlTriggerPtrOutput() WorkflowAccessControlTriggerPtrOutput
+	ToWorkflowAccessControlTriggerPtrOutputWithContext(context.Context) WorkflowAccessControlTriggerPtrOutput
+}
+
+type workflowAccessControlTriggerPtrType WorkflowAccessControlTriggerArgs
+
+func WorkflowAccessControlTriggerPtr(v *WorkflowAccessControlTriggerArgs) WorkflowAccessControlTriggerPtrInput {
+	return (*workflowAccessControlTriggerPtrType)(v)
+}
+
+func (*workflowAccessControlTriggerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowAccessControlTrigger)(nil)).Elem()
+}
+
+func (i *workflowAccessControlTriggerPtrType) ToWorkflowAccessControlTriggerPtrOutput() WorkflowAccessControlTriggerPtrOutput {
+	return i.ToWorkflowAccessControlTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowAccessControlTriggerPtrType) ToWorkflowAccessControlTriggerPtrOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerPtrOutput)
+}
+
+type WorkflowAccessControlTriggerOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControlTrigger)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlTriggerOutput) ToWorkflowAccessControlTriggerOutput() WorkflowAccessControlTriggerOutput {
+	return o
+}
+
+func (o WorkflowAccessControlTriggerOutput) ToWorkflowAccessControlTriggerOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOutput {
+	return o
+}
+
+func (o WorkflowAccessControlTriggerOutput) ToWorkflowAccessControlTriggerPtrOutput() WorkflowAccessControlTriggerPtrOutput {
+	return o.ToWorkflowAccessControlTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowAccessControlTriggerOutput) ToWorkflowAccessControlTriggerPtrOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerPtrOutput {
+	return o.ApplyT(func(v WorkflowAccessControlTrigger) *WorkflowAccessControlTrigger {
+		return &v
+	}).(WorkflowAccessControlTriggerPtrOutput)
+}
+
+// A list of the allowed caller IP address ranges.
+func (o WorkflowAccessControlTriggerOutput) AllowedCallerIpAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkflowAccessControlTrigger) []string { return v.AllowedCallerIpAddressRanges }).(pulumi.StringArrayOutput)
+}
+
+type WorkflowAccessControlTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowAccessControlTrigger)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlTriggerPtrOutput) ToWorkflowAccessControlTriggerPtrOutput() WorkflowAccessControlTriggerPtrOutput {
+	return o
+}
+
+func (o WorkflowAccessControlTriggerPtrOutput) ToWorkflowAccessControlTriggerPtrOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerPtrOutput {
+	return o
+}
+
+func (o WorkflowAccessControlTriggerPtrOutput) Elem() WorkflowAccessControlTriggerOutput {
+	return o.ApplyT(func(v *WorkflowAccessControlTrigger) WorkflowAccessControlTrigger { return *v }).(WorkflowAccessControlTriggerOutput)
+}
+
+// A list of the allowed caller IP address ranges.
+func (o WorkflowAccessControlTriggerPtrOutput) AllowedCallerIpAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkflowAccessControlTrigger) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedCallerIpAddressRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+type WorkflowAccessControlWorkflowManagement struct {
+	// A list of the allowed caller IP address ranges.
+	AllowedCallerIpAddressRanges []string `pulumi:"allowedCallerIpAddressRanges"`
+}
+
+// WorkflowAccessControlWorkflowManagementInput is an input type that accepts WorkflowAccessControlWorkflowManagementArgs and WorkflowAccessControlWorkflowManagementOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlWorkflowManagementInput` via:
+//
+//          WorkflowAccessControlWorkflowManagementArgs{...}
+type WorkflowAccessControlWorkflowManagementInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlWorkflowManagementOutput() WorkflowAccessControlWorkflowManagementOutput
+	ToWorkflowAccessControlWorkflowManagementOutputWithContext(context.Context) WorkflowAccessControlWorkflowManagementOutput
+}
+
+type WorkflowAccessControlWorkflowManagementArgs struct {
+	// A list of the allowed caller IP address ranges.
+	AllowedCallerIpAddressRanges pulumi.StringArrayInput `pulumi:"allowedCallerIpAddressRanges"`
+}
+
+func (WorkflowAccessControlWorkflowManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControlWorkflowManagement)(nil)).Elem()
+}
+
+func (i WorkflowAccessControlWorkflowManagementArgs) ToWorkflowAccessControlWorkflowManagementOutput() WorkflowAccessControlWorkflowManagementOutput {
+	return i.ToWorkflowAccessControlWorkflowManagementOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlWorkflowManagementArgs) ToWorkflowAccessControlWorkflowManagementOutputWithContext(ctx context.Context) WorkflowAccessControlWorkflowManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlWorkflowManagementOutput)
+}
+
+func (i WorkflowAccessControlWorkflowManagementArgs) ToWorkflowAccessControlWorkflowManagementPtrOutput() WorkflowAccessControlWorkflowManagementPtrOutput {
+	return i.ToWorkflowAccessControlWorkflowManagementPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlWorkflowManagementArgs) ToWorkflowAccessControlWorkflowManagementPtrOutputWithContext(ctx context.Context) WorkflowAccessControlWorkflowManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlWorkflowManagementOutput).ToWorkflowAccessControlWorkflowManagementPtrOutputWithContext(ctx)
+}
+
+// WorkflowAccessControlWorkflowManagementPtrInput is an input type that accepts WorkflowAccessControlWorkflowManagementArgs, WorkflowAccessControlWorkflowManagementPtr and WorkflowAccessControlWorkflowManagementPtrOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlWorkflowManagementPtrInput` via:
+//
+//          WorkflowAccessControlWorkflowManagementArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowAccessControlWorkflowManagementPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlWorkflowManagementPtrOutput() WorkflowAccessControlWorkflowManagementPtrOutput
+	ToWorkflowAccessControlWorkflowManagementPtrOutputWithContext(context.Context) WorkflowAccessControlWorkflowManagementPtrOutput
+}
+
+type workflowAccessControlWorkflowManagementPtrType WorkflowAccessControlWorkflowManagementArgs
+
+func WorkflowAccessControlWorkflowManagementPtr(v *WorkflowAccessControlWorkflowManagementArgs) WorkflowAccessControlWorkflowManagementPtrInput {
+	return (*workflowAccessControlWorkflowManagementPtrType)(v)
+}
+
+func (*workflowAccessControlWorkflowManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowAccessControlWorkflowManagement)(nil)).Elem()
+}
+
+func (i *workflowAccessControlWorkflowManagementPtrType) ToWorkflowAccessControlWorkflowManagementPtrOutput() WorkflowAccessControlWorkflowManagementPtrOutput {
+	return i.ToWorkflowAccessControlWorkflowManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowAccessControlWorkflowManagementPtrType) ToWorkflowAccessControlWorkflowManagementPtrOutputWithContext(ctx context.Context) WorkflowAccessControlWorkflowManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlWorkflowManagementPtrOutput)
+}
+
+type WorkflowAccessControlWorkflowManagementOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlWorkflowManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControlWorkflowManagement)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlWorkflowManagementOutput) ToWorkflowAccessControlWorkflowManagementOutput() WorkflowAccessControlWorkflowManagementOutput {
+	return o
+}
+
+func (o WorkflowAccessControlWorkflowManagementOutput) ToWorkflowAccessControlWorkflowManagementOutputWithContext(ctx context.Context) WorkflowAccessControlWorkflowManagementOutput {
+	return o
+}
+
+func (o WorkflowAccessControlWorkflowManagementOutput) ToWorkflowAccessControlWorkflowManagementPtrOutput() WorkflowAccessControlWorkflowManagementPtrOutput {
+	return o.ToWorkflowAccessControlWorkflowManagementPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowAccessControlWorkflowManagementOutput) ToWorkflowAccessControlWorkflowManagementPtrOutputWithContext(ctx context.Context) WorkflowAccessControlWorkflowManagementPtrOutput {
+	return o.ApplyT(func(v WorkflowAccessControlWorkflowManagement) *WorkflowAccessControlWorkflowManagement {
+		return &v
+	}).(WorkflowAccessControlWorkflowManagementPtrOutput)
+}
+
+// A list of the allowed caller IP address ranges.
+func (o WorkflowAccessControlWorkflowManagementOutput) AllowedCallerIpAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkflowAccessControlWorkflowManagement) []string { return v.AllowedCallerIpAddressRanges }).(pulumi.StringArrayOutput)
+}
+
+type WorkflowAccessControlWorkflowManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlWorkflowManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowAccessControlWorkflowManagement)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlWorkflowManagementPtrOutput) ToWorkflowAccessControlWorkflowManagementPtrOutput() WorkflowAccessControlWorkflowManagementPtrOutput {
+	return o
+}
+
+func (o WorkflowAccessControlWorkflowManagementPtrOutput) ToWorkflowAccessControlWorkflowManagementPtrOutputWithContext(ctx context.Context) WorkflowAccessControlWorkflowManagementPtrOutput {
+	return o
+}
+
+func (o WorkflowAccessControlWorkflowManagementPtrOutput) Elem() WorkflowAccessControlWorkflowManagementOutput {
+	return o.ApplyT(func(v *WorkflowAccessControlWorkflowManagement) WorkflowAccessControlWorkflowManagement { return *v }).(WorkflowAccessControlWorkflowManagementOutput)
+}
+
+// A list of the allowed caller IP address ranges.
+func (o WorkflowAccessControlWorkflowManagementPtrOutput) AllowedCallerIpAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkflowAccessControlWorkflowManagement) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedCallerIpAddressRanges
+	}).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionHttpRunAfterOutput{})
 	pulumi.RegisterOutputType(ActionHttpRunAfterArrayOutput{})
@@ -1609,4 +2321,14 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationAccountPartnerBusinessIdentityArrayOutput{})
 	pulumi.RegisterOutputType(TriggerRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(TriggerRecurrenceSchedulePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlActionOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlActionPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlContentOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlContentPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlTriggerOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlTriggerPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlWorkflowManagementOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlWorkflowManagementPtrOutput{})
 }

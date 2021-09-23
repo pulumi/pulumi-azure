@@ -1579,7 +1579,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osSku")
-    def os_sku(self) -> pulumi.Output[Optional[str]]:
+    def os_sku(self) -> pulumi.Output[str]:
         """
         OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
         """

@@ -26,9 +26,12 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
- *     serviceDelegation: [{
- *         name: "Microsoft.Web/hostingEnvironments",
- *         actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
+ *     delegations: [{
+ *         name: "delegation",
+ *         serviceDelegation: {
+ *             name: "Microsoft.Web/hostingEnvironments",
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
+ *         },
  *     }],
  * });
  * const exampleEnvironmentV3 = new azure.appservice.EnvironmentV3("exampleEnvironmentV3", {

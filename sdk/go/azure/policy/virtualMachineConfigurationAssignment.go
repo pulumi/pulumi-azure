@@ -11,7 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Applies a Configuration Policy to a Virtual Machine.
+// Applies a Guest Configuration Policy to a Virtual Machine.
+//
+// > **NOTE:** You can create Guest Configuration Policies without defining a `compute.Extension` resource, however the policies will not be executed until a `compute.Extension` has been provisioned to the virtual machine.
 //
 // ## Example Usage
 //
@@ -110,8 +112,8 @@ import (
 // 			Location:         exampleWindowsVirtualMachine.Location,
 // 			VirtualMachineId: exampleWindowsVirtualMachine.ID(),
 // 			Configuration: &policy.VirtualMachineConfigurationAssignmentConfigurationArgs{
-// 				Name:    pulumi.String("AzureWindowsBaseline"),
-// 				Version: pulumi.String("1.*"),
+// 				AssignmentType: pulumi.String("ApplyAndMonitor"),
+// 				Version:        pulumi.String("1.*"),
 // 				Parameters: policy.VirtualMachineConfigurationAssignmentConfigurationParameterArray{
 // 					&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
 // 						Name:  pulumi.String("Minimum Password Length;ExpectedValue"),
@@ -158,7 +160,7 @@ type VirtualMachineConfigurationAssignment struct {
 	Configuration VirtualMachineConfigurationAssignmentConfigurationOutput `pulumi:"configuration"`
 	// The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
@@ -203,7 +205,7 @@ type virtualMachineConfigurationAssignmentState struct {
 	Configuration *VirtualMachineConfigurationAssignmentConfiguration `pulumi:"configuration"`
 	// The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
@@ -214,7 +216,7 @@ type VirtualMachineConfigurationAssignmentState struct {
 	Configuration VirtualMachineConfigurationAssignmentConfigurationPtrInput
 	// The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
 	VirtualMachineId pulumi.StringPtrInput
@@ -229,7 +231,7 @@ type virtualMachineConfigurationAssignmentArgs struct {
 	Configuration VirtualMachineConfigurationAssignmentConfiguration `pulumi:"configuration"`
 	// The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
 	VirtualMachineId string `pulumi:"virtualMachineId"`
@@ -241,7 +243,7 @@ type VirtualMachineConfigurationAssignmentArgs struct {
 	Configuration VirtualMachineConfigurationAssignmentConfigurationInput
 	// The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
 	VirtualMachineId pulumi.StringInput

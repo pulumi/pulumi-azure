@@ -12,14 +12,32 @@ namespace Pulumi.Azure.MachineLearning.Inputs
 
     public sealed class ComputeClusterIdentityGetArgs : Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
+        /// <summary>
+        /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// The Type of Identity which should be used for this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

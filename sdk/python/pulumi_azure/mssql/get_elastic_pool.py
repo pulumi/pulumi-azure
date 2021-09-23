@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetElasticPoolResult',
@@ -19,7 +20,7 @@ class GetElasticPoolResult:
     """
     A collection of values returned by getElasticPool.
     """
-    def __init__(__self__, id=None, license_type=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_db_max_capacity=None, per_db_min_capacity=None, resource_group_name=None, server_name=None, tags=None, zone_redundant=None):
+    def __init__(__self__, id=None, license_type=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_db_max_capacity=None, per_db_min_capacity=None, resource_group_name=None, server_name=None, skus=None, tags=None, zone_redundant=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -50,6 +51,9 @@ class GetElasticPoolResult:
         if server_name and not isinstance(server_name, str):
             raise TypeError("Expected argument 'server_name' to be a str")
         pulumi.set(__self__, "server_name", server_name)
+        if skus and not isinstance(skus, list):
+            raise TypeError("Expected argument 'skus' to be a list")
+        pulumi.set(__self__, "skus", skus)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -100,6 +104,9 @@ class GetElasticPoolResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Specifies the SKU Name for this Elasticpool.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -127,6 +134,14 @@ class GetElasticPoolResult:
     @pulumi.getter(name="serverName")
     def server_name(self) -> str:
         return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter
+    def skus(self) -> Sequence['outputs.GetElasticPoolSkusResult']:
+        """
+        A `sku` block as defined below.
+        """
+        return pulumi.get(self, "skus")
 
     @property
     @pulumi.getter
@@ -161,6 +176,7 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
             per_db_min_capacity=self.per_db_min_capacity,
             resource_group_name=self.resource_group_name,
             server_name=self.server_name,
+            skus=self.skus,
             tags=self.tags,
             zone_redundant=self.zone_redundant)
 
@@ -210,5 +226,6 @@ def get_elastic_pool(name: Optional[str] = None,
         per_db_min_capacity=__ret__.per_db_min_capacity,
         resource_group_name=__ret__.resource_group_name,
         server_name=__ret__.server_name,
+        skus=__ret__.skus,
         tags=__ret__.tags,
         zone_redundant=__ret__.zone_redundant)

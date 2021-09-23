@@ -11,9 +11,13 @@ import (
 )
 
 type ComputeClusterIdentity struct {
+	// A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
 	PrincipalId *string `pulumi:"principalId"`
-	TenantId    *string `pulumi:"tenantId"`
-	// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+	TenantId *string `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -29,9 +33,13 @@ type ComputeClusterIdentityInput interface {
 }
 
 type ComputeClusterIdentityArgs struct {
+	// A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -111,15 +119,23 @@ func (o ComputeClusterIdentityOutput) ToComputeClusterIdentityPtrOutputWithConte
 		return &v
 	}).(ComputeClusterIdentityPtrOutput)
 }
+
+// A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ComputeClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
 func (o ComputeClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
 func (o ComputeClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+// The Type of Identity which should be used for this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Cluster to be created.
 func (o ComputeClusterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -142,6 +158,17 @@ func (o ComputeClusterIdentityPtrOutput) Elem() ComputeClusterIdentityOutput {
 	return o.ApplyT(func(v *ComputeClusterIdentity) ComputeClusterIdentity { return *v }).(ComputeClusterIdentityOutput)
 }
 
+// A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ComputeClusterIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
 func (o ComputeClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeClusterIdentity) *string {
 		if v == nil {
@@ -151,6 +178,7 @@ func (o ComputeClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
 func (o ComputeClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeClusterIdentity) *string {
 		if v == nil {
@@ -160,7 +188,7 @@ func (o ComputeClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+// The Type of Identity which should be used for this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Cluster to be created.
 func (o ComputeClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeClusterIdentity) *string {
 		if v == nil {
@@ -336,6 +364,175 @@ func (o ComputeClusterScaleSettingsPtrOutput) ScaleDownNodesAfterIdleDuration() 
 			return nil
 		}
 		return &v.ScaleDownNodesAfterIdleDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeClusterSsh struct {
+	// Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+	AdminPassword *string `pulumi:"adminPassword"`
+	// Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
+	AdminUsername string `pulumi:"adminUsername"`
+	// SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+	KeyValue *string `pulumi:"keyValue"`
+}
+
+// ComputeClusterSshInput is an input type that accepts ComputeClusterSshArgs and ComputeClusterSshOutput values.
+// You can construct a concrete instance of `ComputeClusterSshInput` via:
+//
+//          ComputeClusterSshArgs{...}
+type ComputeClusterSshInput interface {
+	pulumi.Input
+
+	ToComputeClusterSshOutput() ComputeClusterSshOutput
+	ToComputeClusterSshOutputWithContext(context.Context) ComputeClusterSshOutput
+}
+
+type ComputeClusterSshArgs struct {
+	// Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
+	// Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
+	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	// SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+	KeyValue pulumi.StringPtrInput `pulumi:"keyValue"`
+}
+
+func (ComputeClusterSshArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeClusterSsh)(nil)).Elem()
+}
+
+func (i ComputeClusterSshArgs) ToComputeClusterSshOutput() ComputeClusterSshOutput {
+	return i.ToComputeClusterSshOutputWithContext(context.Background())
+}
+
+func (i ComputeClusterSshArgs) ToComputeClusterSshOutputWithContext(ctx context.Context) ComputeClusterSshOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterSshOutput)
+}
+
+func (i ComputeClusterSshArgs) ToComputeClusterSshPtrOutput() ComputeClusterSshPtrOutput {
+	return i.ToComputeClusterSshPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeClusterSshArgs) ToComputeClusterSshPtrOutputWithContext(ctx context.Context) ComputeClusterSshPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterSshOutput).ToComputeClusterSshPtrOutputWithContext(ctx)
+}
+
+// ComputeClusterSshPtrInput is an input type that accepts ComputeClusterSshArgs, ComputeClusterSshPtr and ComputeClusterSshPtrOutput values.
+// You can construct a concrete instance of `ComputeClusterSshPtrInput` via:
+//
+//          ComputeClusterSshArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeClusterSshPtrInput interface {
+	pulumi.Input
+
+	ToComputeClusterSshPtrOutput() ComputeClusterSshPtrOutput
+	ToComputeClusterSshPtrOutputWithContext(context.Context) ComputeClusterSshPtrOutput
+}
+
+type computeClusterSshPtrType ComputeClusterSshArgs
+
+func ComputeClusterSshPtr(v *ComputeClusterSshArgs) ComputeClusterSshPtrInput {
+	return (*computeClusterSshPtrType)(v)
+}
+
+func (*computeClusterSshPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeClusterSsh)(nil)).Elem()
+}
+
+func (i *computeClusterSshPtrType) ToComputeClusterSshPtrOutput() ComputeClusterSshPtrOutput {
+	return i.ToComputeClusterSshPtrOutputWithContext(context.Background())
+}
+
+func (i *computeClusterSshPtrType) ToComputeClusterSshPtrOutputWithContext(ctx context.Context) ComputeClusterSshPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterSshPtrOutput)
+}
+
+type ComputeClusterSshOutput struct{ *pulumi.OutputState }
+
+func (ComputeClusterSshOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeClusterSsh)(nil)).Elem()
+}
+
+func (o ComputeClusterSshOutput) ToComputeClusterSshOutput() ComputeClusterSshOutput {
+	return o
+}
+
+func (o ComputeClusterSshOutput) ToComputeClusterSshOutputWithContext(ctx context.Context) ComputeClusterSshOutput {
+	return o
+}
+
+func (o ComputeClusterSshOutput) ToComputeClusterSshPtrOutput() ComputeClusterSshPtrOutput {
+	return o.ToComputeClusterSshPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeClusterSshOutput) ToComputeClusterSshPtrOutputWithContext(ctx context.Context) ComputeClusterSshPtrOutput {
+	return o.ApplyT(func(v ComputeClusterSsh) *ComputeClusterSsh {
+		return &v
+	}).(ComputeClusterSshPtrOutput)
+}
+
+// Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterSshOutput) AdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeClusterSsh) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+}
+
+// Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterSshOutput) AdminUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeClusterSsh) string { return v.AdminUsername }).(pulumi.StringOutput)
+}
+
+// SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterSshOutput) KeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeClusterSsh) *string { return v.KeyValue }).(pulumi.StringPtrOutput)
+}
+
+type ComputeClusterSshPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeClusterSshPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeClusterSsh)(nil)).Elem()
+}
+
+func (o ComputeClusterSshPtrOutput) ToComputeClusterSshPtrOutput() ComputeClusterSshPtrOutput {
+	return o
+}
+
+func (o ComputeClusterSshPtrOutput) ToComputeClusterSshPtrOutputWithContext(ctx context.Context) ComputeClusterSshPtrOutput {
+	return o
+}
+
+func (o ComputeClusterSshPtrOutput) Elem() ComputeClusterSshOutput {
+	return o.ApplyT(func(v *ComputeClusterSsh) ComputeClusterSsh { return *v }).(ComputeClusterSshOutput)
+}
+
+// Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterSshPtrOutput) AdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeClusterSsh) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterSshPtrOutput) AdminUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeClusterSsh) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdminUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterSshPtrOutput) KeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeClusterSsh) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyValue
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -843,6 +1040,194 @@ func (o ComputeInstanceSshPtrOutput) Username() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceClusterIdentity struct {
+	// A list of User Managed Identity ID's which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+	TenantId *string `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Type string `pulumi:"type"`
+}
+
+// InferenceClusterIdentityInput is an input type that accepts InferenceClusterIdentityArgs and InferenceClusterIdentityOutput values.
+// You can construct a concrete instance of `InferenceClusterIdentityInput` via:
+//
+//          InferenceClusterIdentityArgs{...}
+type InferenceClusterIdentityInput interface {
+	pulumi.Input
+
+	ToInferenceClusterIdentityOutput() InferenceClusterIdentityOutput
+	ToInferenceClusterIdentityOutputWithContext(context.Context) InferenceClusterIdentityOutput
+}
+
+type InferenceClusterIdentityArgs struct {
+	// A list of User Managed Identity ID's which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (InferenceClusterIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceClusterIdentity)(nil)).Elem()
+}
+
+func (i InferenceClusterIdentityArgs) ToInferenceClusterIdentityOutput() InferenceClusterIdentityOutput {
+	return i.ToInferenceClusterIdentityOutputWithContext(context.Background())
+}
+
+func (i InferenceClusterIdentityArgs) ToInferenceClusterIdentityOutputWithContext(ctx context.Context) InferenceClusterIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterIdentityOutput)
+}
+
+func (i InferenceClusterIdentityArgs) ToInferenceClusterIdentityPtrOutput() InferenceClusterIdentityPtrOutput {
+	return i.ToInferenceClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceClusterIdentityArgs) ToInferenceClusterIdentityPtrOutputWithContext(ctx context.Context) InferenceClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterIdentityOutput).ToInferenceClusterIdentityPtrOutputWithContext(ctx)
+}
+
+// InferenceClusterIdentityPtrInput is an input type that accepts InferenceClusterIdentityArgs, InferenceClusterIdentityPtr and InferenceClusterIdentityPtrOutput values.
+// You can construct a concrete instance of `InferenceClusterIdentityPtrInput` via:
+//
+//          InferenceClusterIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type InferenceClusterIdentityPtrInput interface {
+	pulumi.Input
+
+	ToInferenceClusterIdentityPtrOutput() InferenceClusterIdentityPtrOutput
+	ToInferenceClusterIdentityPtrOutputWithContext(context.Context) InferenceClusterIdentityPtrOutput
+}
+
+type inferenceClusterIdentityPtrType InferenceClusterIdentityArgs
+
+func InferenceClusterIdentityPtr(v *InferenceClusterIdentityArgs) InferenceClusterIdentityPtrInput {
+	return (*inferenceClusterIdentityPtrType)(v)
+}
+
+func (*inferenceClusterIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceClusterIdentity)(nil)).Elem()
+}
+
+func (i *inferenceClusterIdentityPtrType) ToInferenceClusterIdentityPtrOutput() InferenceClusterIdentityPtrOutput {
+	return i.ToInferenceClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceClusterIdentityPtrType) ToInferenceClusterIdentityPtrOutputWithContext(ctx context.Context) InferenceClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterIdentityPtrOutput)
+}
+
+type InferenceClusterIdentityOutput struct{ *pulumi.OutputState }
+
+func (InferenceClusterIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceClusterIdentity)(nil)).Elem()
+}
+
+func (o InferenceClusterIdentityOutput) ToInferenceClusterIdentityOutput() InferenceClusterIdentityOutput {
+	return o
+}
+
+func (o InferenceClusterIdentityOutput) ToInferenceClusterIdentityOutputWithContext(ctx context.Context) InferenceClusterIdentityOutput {
+	return o
+}
+
+func (o InferenceClusterIdentityOutput) ToInferenceClusterIdentityPtrOutput() InferenceClusterIdentityPtrOutput {
+	return o.ToInferenceClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceClusterIdentityOutput) ToInferenceClusterIdentityPtrOutputWithContext(ctx context.Context) InferenceClusterIdentityPtrOutput {
+	return o.ApplyT(func(v InferenceClusterIdentity) *InferenceClusterIdentity {
+		return &v
+	}).(InferenceClusterIdentityPtrOutput)
+}
+
+// A list of User Managed Identity ID's which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InferenceClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+func (o InferenceClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+func (o InferenceClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type InferenceClusterIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceClusterIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceClusterIdentity)(nil)).Elem()
+}
+
+func (o InferenceClusterIdentityPtrOutput) ToInferenceClusterIdentityPtrOutput() InferenceClusterIdentityPtrOutput {
+	return o
+}
+
+func (o InferenceClusterIdentityPtrOutput) ToInferenceClusterIdentityPtrOutputWithContext(ctx context.Context) InferenceClusterIdentityPtrOutput {
+	return o
+}
+
+func (o InferenceClusterIdentityPtrOutput) Elem() InferenceClusterIdentityOutput {
+	return o.ApplyT(func(v *InferenceClusterIdentity) InferenceClusterIdentity { return *v }).(InferenceClusterIdentityOutput)
+}
+
+// A list of User Managed Identity ID's which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InferenceClusterIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+func (o InferenceClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+func (o InferenceClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1521,12 +1906,16 @@ func init() {
 	pulumi.RegisterOutputType(ComputeClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ComputeClusterScaleSettingsOutput{})
 	pulumi.RegisterOutputType(ComputeClusterScaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ComputeClusterSshOutput{})
+	pulumi.RegisterOutputType(ComputeClusterSshPtrOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceAssignToUserOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceAssignToUserPtrOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceIdentityOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceSshOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceSshPtrOutput{})
+	pulumi.RegisterOutputType(InferenceClusterIdentityOutput{})
+	pulumi.RegisterOutputType(InferenceClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(InferenceClusterSslOutput{})
 	pulumi.RegisterOutputType(InferenceClusterSslPtrOutput{})
 	pulumi.RegisterOutputType(SynapseSparkIdentityOutput{})

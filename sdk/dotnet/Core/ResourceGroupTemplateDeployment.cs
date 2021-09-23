@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Resource Group Template Deployment.
     /// 
-    /// &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. You can opt-out of this by setting the `delete_nested_items_during_deletion` field within the `template_deployment` block of the `features` block to `false`.
+    /// &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `delete_nested_items_during_deletion` field to `false` within the `template_deployment` block.
     /// 
     /// ## Import
     /// 

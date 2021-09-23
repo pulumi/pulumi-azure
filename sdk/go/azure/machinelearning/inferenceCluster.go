@@ -150,8 +150,10 @@ type InferenceCluster struct {
 
 	// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 	ClusterPurpose pulumi.StringPtrOutput `pulumi:"clusterPurpose"`
-	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Identity InferenceClusterIdentityPtrOutput `pulumi:"identity"`
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId pulumi.StringOutput `pulumi:"kubernetesClusterId"`
 	// The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -203,8 +205,10 @@ func GetInferenceCluster(ctx *pulumi.Context,
 type inferenceClusterState struct {
 	// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 	ClusterPurpose *string `pulumi:"clusterPurpose"`
-	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description *string `pulumi:"description"`
+	// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Identity *InferenceClusterIdentity `pulumi:"identity"`
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId *string `pulumi:"kubernetesClusterId"`
 	// The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -222,8 +226,10 @@ type inferenceClusterState struct {
 type InferenceClusterState struct {
 	// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 	ClusterPurpose pulumi.StringPtrInput
-	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description pulumi.StringPtrInput
+	// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Identity InferenceClusterIdentityPtrInput
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId pulumi.StringPtrInput
 	// The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -245,8 +251,10 @@ func (InferenceClusterState) ElementType() reflect.Type {
 type inferenceClusterArgs struct {
 	// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 	ClusterPurpose *string `pulumi:"clusterPurpose"`
-	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description *string `pulumi:"description"`
+	// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Identity *InferenceClusterIdentity `pulumi:"identity"`
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId string `pulumi:"kubernetesClusterId"`
 	// The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -265,8 +273,10 @@ type inferenceClusterArgs struct {
 type InferenceClusterArgs struct {
 	// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 	ClusterPurpose pulumi.StringPtrInput
-	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description pulumi.StringPtrInput
+	// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Identity InferenceClusterIdentityPtrInput
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId pulumi.StringInput
 	// The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.

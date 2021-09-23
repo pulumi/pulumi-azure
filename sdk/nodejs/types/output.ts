@@ -2069,9 +2069,13 @@ export namespace appplatform {
 
     export interface SpringCloudServiceTrace {
         /**
-         * The Instrumentation Key used for Application Insights.
+         * The connection string used for Application Insights.
          */
-        instrumentationKey: string;
+        connectionString?: string;
+        /**
+         * @deprecated This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.
+         */
+        instrumentationKey?: string;
         /**
          * The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
          */
@@ -8130,6 +8134,7 @@ export namespace compute {
 
 export namespace config {
     export interface Features {
+        apiManagement?: outputs.config.FeaturesApiManagement;
         cognitiveAccount?: outputs.config.FeaturesCognitiveAccount;
         keyVault?: outputs.config.FeaturesKeyVault;
         logAnalyticsWorkspace?: outputs.config.FeaturesLogAnalyticsWorkspace;
@@ -8138,6 +8143,10 @@ export namespace config {
         templateDeployment?: outputs.config.FeaturesTemplateDeployment;
         virtualMachine?: outputs.config.FeaturesVirtualMachine;
         virtualMachineScaleSet?: outputs.config.FeaturesVirtualMachineScaleSet;
+    }
+
+    export interface FeaturesApiManagement {
+        purgeSoftDeleteOnDestroy?: boolean;
     }
 
     export interface FeaturesCognitiveAccount {
@@ -9408,7 +9417,7 @@ export namespace containerservice {
         /**
          * OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
          */
-        osSku?: string;
+        osSku: string;
         /**
          * The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
          */
@@ -18619,7 +18628,7 @@ export namespace lb {
 
     export interface LoadBalancerFrontendIpConfiguration {
         /**
-         * A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+         * A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`. 
          * `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
          */
         availabilityZone: string;
@@ -18896,14 +18905,71 @@ export namespace logicapps {
         onTheseDays?: string[];
     }
 
+    export interface WorkflowAccessControl {
+        /**
+         * A `action` block as defined below.
+         */
+        action?: outputs.logicapps.WorkflowAccessControlAction;
+        /**
+         * A `content` block as defined below.
+         */
+        content?: outputs.logicapps.WorkflowAccessControlContent;
+        /**
+         * A `trigger` block as defined below.
+         */
+        trigger?: outputs.logicapps.WorkflowAccessControlTrigger;
+        /**
+         * A `workflowManagement` block as defined below.
+         */
+        workflowManagement?: outputs.logicapps.WorkflowAccessControlWorkflowManagement;
+    }
+
+    export interface WorkflowAccessControlAction {
+        /**
+         * A list of the allowed caller IP address ranges.
+         */
+        allowedCallerIpAddressRanges: string[];
+    }
+
+    export interface WorkflowAccessControlContent {
+        /**
+         * A list of the allowed caller IP address ranges.
+         */
+        allowedCallerIpAddressRanges: string[];
+    }
+
+    export interface WorkflowAccessControlTrigger {
+        /**
+         * A list of the allowed caller IP address ranges.
+         */
+        allowedCallerIpAddressRanges: string[];
+    }
+
+    export interface WorkflowAccessControlWorkflowManagement {
+        /**
+         * A list of the allowed caller IP address ranges.
+         */
+        allowedCallerIpAddressRanges: string[];
+    }
+
 }
 
 export namespace machinelearning {
     export interface ComputeClusterIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+         */
         principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+         */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * The Type of Identity which should be used for this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Cluster to be created.
          */
         type: string;
     }
@@ -18921,6 +18987,21 @@ export namespace machinelearning {
          * Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
          */
         scaleDownNodesAfterIdleDuration: string;
+    }
+
+    export interface ComputeClusterSsh {
+        /**
+         * Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
+        adminPassword?: string;
+        /**
+         * Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
+        adminUsername: string;
+        /**
+         * SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
+        keyValue?: string;
     }
 
     export interface ComputeInstanceAssignToUser {
@@ -18971,6 +19052,25 @@ export namespace machinelearning {
     export interface GetWorkspaceIdentity {
         principalId: string;
         tenantId: string;
+        type: string;
+    }
+
+    export interface InferenceClusterIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+         */
+        tenantId: string;
+        /**
+         * The Type of Identity which should be used for this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Inference Cluster to be created.
+         */
         type: string;
     }
 
@@ -21380,6 +21480,25 @@ export namespace mssql {
         name: string;
         /**
          * The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+         */
+        tier: string;
+    }
+
+    export interface GetElasticPoolSkus {
+        /**
+         * The scale up/out capacity, representing server's compute units.
+         */
+        capacity: number;
+        /**
+         * The `family` of hardware.
+         */
+        family: string;
+        /**
+         * The name of the elastic pool.
+         */
+        name: string;
+        /**
+         * The tier of the particular SKU.
          */
         tier: string;
     }
@@ -25496,15 +25615,17 @@ export namespace policy {
         /**
          * The content hash for the Guest Configuration package.
          */
-        contentHash?: string;
+        contentHash: string;
         /**
          * The content URI where the Guest Configuration package is stored.
          */
-        contentUri?: string;
+        contentUri: string;
         /**
-         * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+         * This field is no longer used and will be removed in the next major version of the Azure Provider.
+         *
+         * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
          */
-        name: string;
+        name?: string;
         /**
          * One or more `parameter` blocks which define what configuration parameters and values against.
          */
@@ -28125,6 +28246,17 @@ export namespace synapse {
         type: string;
     }
 
+    export interface LinkedServiceIntegrationRuntime {
+        /**
+         * The integration runtime reference to associate with the Synapse Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the integration runtime.
+         */
+        parameters?: {[key: string]: string};
+    }
+
     export interface SparkPoolAutoPause {
         /**
          * Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
@@ -28163,6 +28295,21 @@ export namespace synapse {
          * The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
          */
         sourceDatabaseId: string;
+    }
+
+    export interface SqlPoolVulnerabilityAssessmentRecurringScans {
+        /**
+         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+         */
+        emailSubscriptionAdminsEnabled?: boolean;
+        /**
+         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         */
+        emails?: string[];
+        /**
+         * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+         */
+        enabled?: boolean;
     }
 
     export interface WorkspaceAadAdmin {
@@ -28207,6 +28354,17 @@ export namespace synapse {
         tenantId?: string;
     }
 
+    export interface WorkspaceCustomerManagedKey {
+        /**
+         * An identifier for the key. Name needs to match the name of the key used with the `azure.synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+         */
+        keyName?: string;
+        /**
+         * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+         */
+        keyVersionlessId: string;
+    }
+
     export interface WorkspaceGithubRepo {
         /**
          * Specifies the GitHub account name.
@@ -28243,6 +28401,21 @@ export namespace synapse {
          * The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          */
         type: string;
+    }
+
+    export interface WorkspaceVulnerabilityAssessmentRecurringScans {
+        /**
+         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+         */
+        emailSubscriptionAdminsEnabled?: boolean;
+        /**
+         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         */
+        emails?: string[];
+        /**
+         * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+         */
+        enabled?: boolean;
     }
 
 }

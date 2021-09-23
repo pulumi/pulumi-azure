@@ -48,6 +48,12 @@ namespace Pulumi.Azure.LogicApps
     public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>
+        /// A `access_control` block as defined below.
+        /// </summary>
+        [Output("accessControl")]
+        public Output<Outputs.WorkflowAccessControl?> AccessControl { get; private set; } = null!;
+
+        /// <summary>
         /// The Access Endpoint for the Logic App Workflow.
         /// </summary>
         [Output("accessEndpoint")]
@@ -64,6 +70,9 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Output("connectorOutboundIpAddresses")]
         public Output<ImmutableArray<string>> ConnectorOutboundIpAddresses { get; private set; } = null!;
+
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
@@ -184,6 +193,15 @@ namespace Pulumi.Azure.LogicApps
     public sealed class WorkflowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `access_control` block as defined below.
+        /// </summary>
+        [Input("accessControl")]
+        public Input<Inputs.WorkflowAccessControlArgs>? AccessControl { get; set; }
+
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
         /// </summary>
         [Input("integrationServiceEnvironmentId")]
@@ -269,6 +287,12 @@ namespace Pulumi.Azure.LogicApps
     public sealed class WorkflowState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `access_control` block as defined below.
+        /// </summary>
+        [Input("accessControl")]
+        public Input<Inputs.WorkflowAccessControlGetArgs>? AccessControl { get; set; }
+
+        /// <summary>
         /// The Access Endpoint for the Logic App Workflow.
         /// </summary>
         [Input("accessEndpoint")]
@@ -297,6 +321,9 @@ namespace Pulumi.Azure.LogicApps
             get => _connectorOutboundIpAddresses ?? (_connectorOutboundIpAddresses = new InputList<string>());
             set => _connectorOutboundIpAddresses = value;
         }
+
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.

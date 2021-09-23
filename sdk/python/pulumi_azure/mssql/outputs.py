@@ -29,6 +29,7 @@ __all__ = [
     'VirtualMachineStorageConfigurationDataSettings',
     'VirtualMachineStorageConfigurationLogSettings',
     'VirtualMachineStorageConfigurationTempDbSettings',
+    'GetElasticPoolSkusResult',
     'GetServerIdentityResult',
 ]
 
@@ -1308,6 +1309,57 @@ class VirtualMachineStorageConfigurationTempDbSettings(dict):
         A list of Logical Unit Numbers for the disks.
         """
         return pulumi.get(self, "luns")
+
+
+@pulumi.output_type
+class GetElasticPoolSkusResult(dict):
+    def __init__(__self__, *,
+                 capacity: int,
+                 family: str,
+                 name: str,
+                 tier: str):
+        """
+        :param int capacity: The scale up/out capacity, representing server's compute units.
+        :param str family: The `family` of hardware.
+        :param str name: The name of the elastic pool.
+        :param str tier: The tier of the particular SKU.
+        """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "family", family)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> int:
+        """
+        The scale up/out capacity, representing server's compute units.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> str:
+        """
+        The `family` of hardware.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the elastic pool.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The tier of the particular SKU.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

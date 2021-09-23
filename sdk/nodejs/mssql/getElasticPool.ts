@@ -79,6 +79,9 @@ export interface GetElasticPoolResult {
      * The max data size of the elastic pool in gigabytes.
      */
     readonly maxSizeGb: number;
+    /**
+     * Specifies the SKU Name for this Elasticpool.
+     */
     readonly name: string;
     /**
      * The maximum capacity any one database can consume.
@@ -90,6 +93,10 @@ export interface GetElasticPoolResult {
     readonly perDbMinCapacity: number;
     readonly resourceGroupName: string;
     readonly serverName: string;
+    /**
+     * A `sku` block as defined below.
+     */
+    readonly skus: outputs.mssql.GetElasticPoolSkus[];
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -1879,13 +1879,21 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_blueprint_assignment": {Tok: azureResource(azureBlueprint, "Assignment")},
 
 			// Synapse
-			"azurerm_synapse_workspace":                {Tok: azureResource(azureSynapse, "Workspace")},
-			"azurerm_synapse_firewall_rule":            {Tok: azureResource(azureSynapse, "FirewallRule")},
-			"azurerm_synapse_spark_pool":               {Tok: azureResource(azureSynapse, "SparkPool")},
-			"azurerm_synapse_sql_pool":                 {Tok: azureResource(azureSynapse, "SqlPool")},
-			"azurerm_synapse_role_assignment":          {Tok: azureResource(azureSynapse, "RoleAssignment")},
-			"azurerm_synapse_managed_private_endpoint": {Tok: azureResource(azureSynapse, "ManagedPrivateEndpoint")},
-			"azurerm_synapse_private_link_hub":         {Tok: azureResource(azureSynapse, "PrivateLinkHub")},
+			"azurerm_synapse_workspace":                          {Tok: azureResource(azureSynapse, "Workspace")},
+			"azurerm_synapse_firewall_rule":                      {Tok: azureResource(azureSynapse, "FirewallRule")},
+			"azurerm_synapse_spark_pool":                         {Tok: azureResource(azureSynapse, "SparkPool")},
+			"azurerm_synapse_sql_pool":                           {Tok: azureResource(azureSynapse, "SqlPool")},
+			"azurerm_synapse_role_assignment":                    {Tok: azureResource(azureSynapse, "RoleAssignment")},
+			"azurerm_synapse_managed_private_endpoint":           {Tok: azureResource(azureSynapse, "ManagedPrivateEndpoint")},
+			"azurerm_synapse_private_link_hub":                   {Tok: azureResource(azureSynapse, "PrivateLinkHub")},
+			"azurerm_synapse_integration_runtime_self_hosted":    {Tok: azureResource(azureSynapse, "IntegrationRuntimeSelfHosted")},
+			"azurerm_synapse_integration_runtime_azure":          {Tok: azureResource(azureSynapse, "IntegrationRuntimeAzure")},
+			"azurerm_synapse_linked_service":                     {Tok: azureResource(azureSynapse, "LinkedService")},
+			"azurerm_synapse_sql_pool_security_alert_policy":     {Tok: azureResource(azureSynapse, "SqlPoolSecurityAlertPolicy")},
+			"azurerm_synapse_sql_pool_vulnerability_assessment":  {Tok: azureResource(azureSynapse, "SqlPoolVulnerabilityAssessment")},
+			"azurerm_synapse_workspace_security_alert_policy":    {Tok: azureResource(azureSynapse, "WorkspaceSecurityAlertPolicy")},
+			"azurerm_synapse_workspace_vulnerability_assessment": {Tok: azureResource(azureSynapse, "WorkspaceVulnerabilityAssessment")},
+			"azurerm_synapse_workspace_key":                      {Tok: azureResource(azureSynapse, "WorkspaceKey")},
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},
@@ -2127,12 +2135,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_template_spec_version":              {Tok: azureDataSource(azureCore, "getTemplateSpecVersion")},
 			"azurerm_policy_definition":                  {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
 			"azurerm_policy_set_definition":              {Tok: azureDataSource(azurePolicy, "getPolicySetDefinition")},
-			"azurerm_platform_image":                     {Tok: azureDataSource(azureCompute, "getPlatformImage")},
-			"azurerm_managed_disk":                       {Tok: azureDataSource(azureCompute, "getManagedDisk")},
-			"azurerm_shared_image_versions":              {Tok: azureDataSource(azureCompute, "getSharedImageVersions")},
-			"azurerm_backup_policy_vm":                   {Tok: azureDataSource(azureBackup, "getPolicyVM")},
-			"azurerm_storage_account":                    {Tok: azureDataSource(azureStorage, "getAccount")},
-			"azurerm_storage_account_sas":                {Tok: azureDataSource(azureStorage, "getAccountSAS")},
+			"azurerm_policy_virtual_machine_configuration_assignment": {
+				Tok: azureDataSource(azurePolicy, "getVirtualMachineConfigurationAssignment"),
+			},
+			"azurerm_platform_image":        {Tok: azureDataSource(azureCompute, "getPlatformImage")},
+			"azurerm_managed_disk":          {Tok: azureDataSource(azureCompute, "getManagedDisk")},
+			"azurerm_shared_image_versions": {Tok: azureDataSource(azureCompute, "getSharedImageVersions")},
+			"azurerm_backup_policy_vm":      {Tok: azureDataSource(azureBackup, "getPolicyVM")},
+			"azurerm_storage_account":       {Tok: azureDataSource(azureStorage, "getAccount")},
+			"azurerm_storage_account_sas":   {Tok: azureDataSource(azureStorage, "getAccountSAS")},
 			"azurerm_storage_account_blob_container_sas": {
 				Tok: azureDataSource(azureStorage, "getAccountBlobContainerSAS"),
 			},
@@ -2265,6 +2276,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@azure/ms-rest-nodeauth":       "^3.0.0",
 				"azure-functions-ts-essentials": "^1.3.2",
 				"moment":                        "2.24.0",
+				"node-fetch":                    "^2.3.0",
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				DestFiles: []string{

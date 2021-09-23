@@ -49,7 +49,7 @@ namespace Pulumi.Azure.AppPlatform
     ///             },
     ///             Trace = new Azure.AppPlatform.Inputs.SpringCloudServiceTraceArgs
     ///             {
-    ///                 InstrumentationKey = exampleInsights.InstrumentationKey,
+    ///                 ConnectionString = exampleInsights.ConnectionString,
     ///                 SampleRate = 10,
     ///             },
     ///             Tags = 

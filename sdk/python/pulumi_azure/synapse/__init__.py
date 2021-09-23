@@ -7,11 +7,19 @@ import typing
 # Export this package's modules as members:
 from .firewall_rule import *
 from .get_workspace import *
+from .integration_runtime_azure import *
+from .integration_runtime_self_hosted import *
+from .linked_service import *
 from .managed_private_endpoint import *
 from .private_link_hub import *
 from .role_assignment import *
 from .spark_pool import *
 from .sql_pool import *
+from .sql_pool_security_alert_policy import *
+from .sql_pool_vulnerability_assessment import *
 from .workspace import *
+from .workspace_key import *
+from .workspace_security_alert_policy import *
+from .workspace_vulnerability_assessment import *
 from ._inputs import *
 from . import outputs

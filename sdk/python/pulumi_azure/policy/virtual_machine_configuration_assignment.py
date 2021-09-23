@@ -24,7 +24,7 @@ class VirtualMachineConfigurationAssignmentArgs:
         :param pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationArgs'] configuration: A `configuration` block as defined below.
         :param pulumi.Input[str] virtual_machine_id: The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
@@ -73,7 +73,7 @@ class VirtualMachineConfigurationAssignmentArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+        The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -93,7 +93,7 @@ class _VirtualMachineConfigurationAssignmentState:
         Input properties used for looking up and filtering VirtualMachineConfigurationAssignment resources.
         :param pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationArgs'] configuration: A `configuration` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
         """
         if configuration is not None:
@@ -133,7 +133,7 @@ class _VirtualMachineConfigurationAssignmentState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+        The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -165,7 +165,9 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Applies a Configuration Policy to a Virtual Machine.
+        Applies a Guest Configuration Policy to a Virtual Machine.
+
+        > **NOTE:** You can create Guest Configuration Policies without defining a `compute.Extension` resource, however the policies will not be executed until a `compute.Extension` has been provisioned to the virtual machine.
 
         ## Example Usage
 
@@ -220,7 +222,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             location=example_windows_virtual_machine.location,
             virtual_machine_id=example_windows_virtual_machine.id,
             configuration=azure.policy.VirtualMachineConfigurationAssignmentConfigurationArgs(
-                name="AzureWindowsBaseline",
+                assignment_type="ApplyAndMonitor",
                 version="1.*",
                 parameters=[
                     azure.policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs(
@@ -259,7 +261,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['VirtualMachineConfigurationAssignmentConfigurationArgs']] configuration: A `configuration` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
         """
         ...
@@ -269,7 +271,9 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
                  args: VirtualMachineConfigurationAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Applies a Configuration Policy to a Virtual Machine.
+        Applies a Guest Configuration Policy to a Virtual Machine.
+
+        > **NOTE:** You can create Guest Configuration Policies without defining a `compute.Extension` resource, however the policies will not be executed until a `compute.Extension` has been provisioned to the virtual machine.
 
         ## Example Usage
 
@@ -324,7 +328,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             location=example_windows_virtual_machine.location,
             virtual_machine_id=example_windows_virtual_machine.id,
             configuration=azure.policy.VirtualMachineConfigurationAssignmentConfigurationArgs(
-                name="AzureWindowsBaseline",
+                assignment_type="ApplyAndMonitor",
                 version="1.*",
                 parameters=[
                     azure.policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs(
@@ -421,7 +425,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['VirtualMachineConfigurationAssignmentConfigurationArgs']] configuration: A `configuration` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -454,7 +458,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Policy Virtual Machine Configuration Assignment. Changing this forces a new resource to be created.
+        The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

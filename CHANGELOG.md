@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.77.0 of the AzureRM Terraform Provider
+  * Please note there is a *breaking change* to `azure.synapse.Workspace`. `customerManagedKeyVersionlessId` has changed to be part of the `customerManagedKey` struct.
 
 ---
 

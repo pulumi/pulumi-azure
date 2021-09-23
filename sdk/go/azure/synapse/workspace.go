@@ -89,8 +89,8 @@ type Workspace struct {
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrOutput `pulumi:"azureDevopsRepo"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
-	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
-	CustomerManagedKeyVersionlessId pulumi.StringPtrOutput `pulumi:"customerManagedKeyVersionlessId"`
+	// A `customerManagedKey` block as defined below.
+	CustomerManagedKey WorkspaceCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
 	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
 	DataExfiltrationProtectionEnabled pulumi.BoolPtrOutput `pulumi:"dataExfiltrationProtectionEnabled"`
 	// A `githubRepo` block as defined below.
@@ -166,8 +166,8 @@ type workspaceState struct {
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
-	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
-	CustomerManagedKeyVersionlessId *string `pulumi:"customerManagedKeyVersionlessId"`
+	// A `customerManagedKey` block as defined below.
+	CustomerManagedKey *WorkspaceCustomerManagedKey `pulumi:"customerManagedKey"`
 	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
 	DataExfiltrationProtectionEnabled *bool `pulumi:"dataExfiltrationProtectionEnabled"`
 	// A `githubRepo` block as defined below.
@@ -203,8 +203,8 @@ type WorkspaceState struct {
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints pulumi.StringMapInput
-	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
-	CustomerManagedKeyVersionlessId pulumi.StringPtrInput
+	// A `customerManagedKey` block as defined below.
+	CustomerManagedKey WorkspaceCustomerManagedKeyPtrInput
 	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
 	DataExfiltrationProtectionEnabled pulumi.BoolPtrInput
 	// A `githubRepo` block as defined below.
@@ -242,8 +242,8 @@ type workspaceArgs struct {
 	AadAdmin *WorkspaceAadAdmin `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
-	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
-	CustomerManagedKeyVersionlessId *string `pulumi:"customerManagedKeyVersionlessId"`
+	// A `customerManagedKey` block as defined below.
+	CustomerManagedKey *WorkspaceCustomerManagedKey `pulumi:"customerManagedKey"`
 	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
 	DataExfiltrationProtectionEnabled *bool `pulumi:"dataExfiltrationProtectionEnabled"`
 	// A `githubRepo` block as defined below.
@@ -276,8 +276,8 @@ type WorkspaceArgs struct {
 	AadAdmin WorkspaceAadAdminPtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
-	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
-	CustomerManagedKeyVersionlessId pulumi.StringPtrInput
+	// A `customerManagedKey` block as defined below.
+	CustomerManagedKey WorkspaceCustomerManagedKeyPtrInput
 	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
 	DataExfiltrationProtectionEnabled pulumi.BoolPtrInput
 	// A `githubRepo` block as defined below.
