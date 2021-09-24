@@ -39,6 +39,7 @@ __all__ = [
     'DatasetParquetSchemaColumnArgs',
     'DatasetPostgresqlSchemaColumnArgs',
     'DatasetSnowflakeSchemaColumnArgs',
+    'DatasetSnowflakeStructureColumnArgs',
     'DatasetSqlServerTableSchemaColumnArgs',
     'FactoryGithubConfigurationArgs',
     'FactoryGlobalParameterArgs',
@@ -1831,6 +1832,76 @@ class DatasetPostgresqlSchemaColumnArgs:
 class DatasetSnowflakeSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 precision: Optional[pulumi.Input[int]] = None,
+                 scale: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the column.
+        :param pulumi.Input[int] precision: The total number of digits allowed.
+        :param pulumi.Input[int] scale: The number of digits allowed to the right of the decimal point.
+        :param pulumi.Input[str] type: Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[pulumi.Input[int]]:
+        """
+        The total number of digits allowed.
+        """
+        return pulumi.get(self, "precision")
+
+    @precision.setter
+    def precision(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "precision", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of digits allowed to the right of the decimal point.
+        """
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scale", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class DatasetSnowflakeStructureColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -2077,8 +2148,8 @@ class FactoryIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+        :param pulumi.Input[str] type: Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
         :param pulumi.Input[str] principal_id: The ID of the Principal (Client) in Azure Active Directory
         :param pulumi.Input[str] tenant_id: Specifies the Tenant ID associated with the VSTS account.
         """
@@ -2094,7 +2165,7 @@ class FactoryIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
+        Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -2106,7 +2177,7 @@ class FactoryIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+        Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
         """
         return pulumi.get(self, "identity_ids")
 

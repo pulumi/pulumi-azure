@@ -98,6 +98,12 @@ namespace Pulumi.Azure.Bot
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The Signing Secret that will be used to sign the requests.
+        /// </summary>
+        [Output("signingSecret")]
+        public Output<string?> SigningSecret { get; private set; } = null!;
+
+        /// <summary>
         /// The Verification Token that will be used to authenticate with Slack.
         /// </summary>
         [Output("verificationToken")]
@@ -186,6 +192,12 @@ namespace Pulumi.Azure.Bot
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The Signing Secret that will be used to sign the requests.
+        /// </summary>
+        [Input("signingSecret")]
+        public Input<string>? SigningSecret { get; set; }
+
+        /// <summary>
         /// The Verification Token that will be used to authenticate with Slack.
         /// </summary>
         [Input("verificationToken", required: true)]
@@ -233,6 +245,12 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The Signing Secret that will be used to sign the requests.
+        /// </summary>
+        [Input("signingSecret")]
+        public Input<string>? SigningSecret { get; set; }
 
         /// <summary>
         /// The Verification Token that will be used to authenticate with Slack.

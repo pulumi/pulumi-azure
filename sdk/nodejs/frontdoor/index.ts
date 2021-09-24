@@ -8,11 +8,13 @@ import * as utilities from "../utilities";
 export * from "./customHttpsConfiguration";
 export * from "./firewallPolicy";
 export * from "./frontdoor";
+export * from "./rulesEngine";
 
 // Import resources to register:
 import { CustomHttpsConfiguration } from "./customHttpsConfiguration";
 import { FirewallPolicy } from "./firewallPolicy";
 import { Frontdoor } from "./frontdoor";
+import { RulesEngine } from "./rulesEngine";
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +26,8 @@ const _module = {
                 return new FirewallPolicy(name, <any>undefined, { urn })
             case "azure:frontdoor/frontdoor:Frontdoor":
                 return new Frontdoor(name, <any>undefined, { urn })
+            case "azure:frontdoor/rulesEngine:RulesEngine":
+                return new RulesEngine(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -32,3 +36,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "frontdoor/customHttpsConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "frontdoor/firewallPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "frontdoor/frontdoor", _module)
+pulumi.runtime.registerResourceModule("azure", "frontdoor/rulesEngine", _module)

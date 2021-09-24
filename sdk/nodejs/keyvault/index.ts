@@ -21,6 +21,8 @@ export * from "./getSecrets";
 export * from "./key";
 export * from "./keyVault";
 export * from "./managedHardwareSecurityModule";
+export * from "./managedStorageAccount";
+export * from "./managedStorageAccountSasTokenDefinition";
 export * from "./secret";
 
 // Import resources to register:
@@ -31,6 +33,8 @@ import { CertificateIssuer } from "./certificateIssuer";
 import { Key } from "./key";
 import { KeyVault } from "./keyVault";
 import { ManagedHardwareSecurityModule } from "./managedHardwareSecurityModule";
+import { ManagedStorageAccount } from "./managedStorageAccount";
+import { ManagedStorageAccountSasTokenDefinition } from "./managedStorageAccountSasTokenDefinition";
 import { Secret } from "./secret";
 
 const _module = {
@@ -51,6 +55,10 @@ const _module = {
                 return new KeyVault(name, <any>undefined, { urn })
             case "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule":
                 return new ManagedHardwareSecurityModule(name, <any>undefined, { urn })
+            case "azure:keyvault/managedStorageAccount:ManagedStorageAccount":
+                return new ManagedStorageAccount(name, <any>undefined, { urn })
+            case "azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition":
+                return new ManagedStorageAccountSasTokenDefinition(name, <any>undefined, { urn })
             case "azure:keyvault/secret:Secret":
                 return new Secret(name, <any>undefined, { urn })
             default:
@@ -65,4 +73,6 @@ pulumi.runtime.registerResourceModule("azure", "keyvault/certificateIssuer", _mo
 pulumi.runtime.registerResourceModule("azure", "keyvault/key", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/keyVault", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModule", _module)
+pulumi.runtime.registerResourceModule("azure", "keyvault/managedStorageAccount", _module)
+pulumi.runtime.registerResourceModule("azure", "keyvault/managedStorageAccountSasTokenDefinition", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/secret", _module)

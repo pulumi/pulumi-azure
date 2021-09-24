@@ -27,6 +27,11 @@ __all__ = [
     'FrontdoorRoutingRuleArgs',
     'FrontdoorRoutingRuleForwardingConfigurationArgs',
     'FrontdoorRoutingRuleRedirectConfigurationArgs',
+    'RulesEngineRuleArgs',
+    'RulesEngineRuleActionArgs',
+    'RulesEngineRuleActionRequestHeaderArgs',
+    'RulesEngineRuleActionResponseHeaderArgs',
+    'RulesEngineRuleMatchConditionArgs',
 ]
 
 @pulumi.input_type
@@ -1652,5 +1657,321 @@ class FrontdoorRoutingRuleRedirectConfigurationArgs:
     @custom_query_string.setter
     def custom_query_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_query_string", value)
+
+
+@pulumi.input_type
+class RulesEngineRuleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 priority: pulumi.Input[int],
+                 action: Optional[pulumi.Input['RulesEngineRuleActionArgs']] = None,
+                 match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgs']]]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the rule.
+        :param pulumi.Input[int] priority: Priority of the rule, must be unique per rules engine definition.
+        :param pulumi.Input['RulesEngineRuleActionArgs'] action: A `rule_action` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgs']]] match_conditions: One or more `match_condition` block as defined below.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if match_conditions is not None:
+            pulumi.set(__self__, "match_conditions", match_conditions)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Priority of the rule, must be unique per rules engine definition.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['RulesEngineRuleActionArgs']]:
+        """
+        A `rule_action` block as defined below.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['RulesEngineRuleActionArgs']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="matchConditions")
+    def match_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgs']]]]:
+        """
+        One or more `match_condition` block as defined below.
+        """
+        return pulumi.get(self, "match_conditions")
+
+    @match_conditions.setter
+    def match_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgs']]]]):
+        pulumi.set(self, "match_conditions", value)
+
+
+@pulumi.input_type
+class RulesEngineRuleActionArgs:
+    def __init__(__self__, *,
+                 request_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgs']]]] = None,
+                 response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgs']]] request_headers: A `request_header` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgs']]] response_headers: A `response_header` block as defined below.
+        """
+        if request_headers is not None:
+            pulumi.set(__self__, "request_headers", request_headers)
+        if response_headers is not None:
+            pulumi.set(__self__, "response_headers", response_headers)
+
+    @property
+    @pulumi.getter(name="requestHeaders")
+    def request_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgs']]]]:
+        """
+        A `request_header` block as defined below.
+        """
+        return pulumi.get(self, "request_headers")
+
+    @request_headers.setter
+    def request_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgs']]]]):
+        pulumi.set(self, "request_headers", value)
+
+    @property
+    @pulumi.getter(name="responseHeaders")
+    def response_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgs']]]]:
+        """
+        A `response_header` block as defined below.
+        """
+        return pulumi.get(self, "response_headers")
+
+    @response_headers.setter
+    def response_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgs']]]]):
+        pulumi.set(self, "response_headers", value)
+
+
+@pulumi.input_type
+class RulesEngineRuleActionRequestHeaderArgs:
+    def __init__(__self__, *,
+                 header_action_type: Optional[pulumi.Input[str]] = None,
+                 header_name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] header_action_type: can be set to `Overwrite`, `Append` or `Delete`.
+        :param pulumi.Input[str] header_name: header name (string).
+        :param pulumi.Input[str] value: value name (string).
+        """
+        if header_action_type is not None:
+            pulumi.set(__self__, "header_action_type", header_action_type)
+        if header_name is not None:
+            pulumi.set(__self__, "header_name", header_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="headerActionType")
+    def header_action_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        can be set to `Overwrite`, `Append` or `Delete`.
+        """
+        return pulumi.get(self, "header_action_type")
+
+    @header_action_type.setter
+    def header_action_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "header_action_type", value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        header name (string).
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "header_name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        value name (string).
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RulesEngineRuleActionResponseHeaderArgs:
+    def __init__(__self__, *,
+                 header_action_type: Optional[pulumi.Input[str]] = None,
+                 header_name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] header_action_type: can be set to `Overwrite`, `Append` or `Delete`.
+        :param pulumi.Input[str] header_name: header name (string).
+        :param pulumi.Input[str] value: value name (string).
+        """
+        if header_action_type is not None:
+            pulumi.set(__self__, "header_action_type", header_action_type)
+        if header_name is not None:
+            pulumi.set(__self__, "header_name", header_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="headerActionType")
+    def header_action_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        can be set to `Overwrite`, `Append` or `Delete`.
+        """
+        return pulumi.get(self, "header_action_type")
+
+    @header_action_type.setter
+    def header_action_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "header_action_type", value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        header name (string).
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "header_name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        value name (string).
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RulesEngineRuleMatchConditionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 selector: Optional[pulumi.Input[str]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 variable: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] operator: can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
+        :param pulumi.Input[bool] negate_condition: can be set to `true` or `false` to negate the given condition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: can contain one or more strings.
+        :param pulumi.Input[str] variable: can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if variable is not None:
+            pulumi.set(__self__, "variable", variable)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        can be set to `true` or `false` to negate the given condition.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "selector")
+
+    @selector.setter
+    def selector(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "selector", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transforms", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        can contain one or more strings.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+    @property
+    @pulumi.getter
+    def variable(self) -> Optional[pulumi.Input[str]]:
+        """
+        can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
+        """
+        return pulumi.get(self, "variable")
+
+    @variable.setter
+    def variable(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "variable", value)
 
 

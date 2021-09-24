@@ -2888,6 +2888,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "frontdoor/rulesEngine",
+  "fqn": "pulumi_azure.frontdoor",
+  "classes": {
+   "azure:frontdoor/rulesEngine:RulesEngine": "RulesEngine"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "hdinsight/hBaseCluster",
   "fqn": "pulumi_azure.hdinsight",
   "classes": {
@@ -3228,6 +3236,22 @@ _utilities.register(
   "fqn": "pulumi_azure.keyvault",
   "classes": {
    "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule": "ManagedHardwareSecurityModule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "keyvault/managedStorageAccount",
+  "fqn": "pulumi_azure.keyvault",
+  "classes": {
+   "azure:keyvault/managedStorageAccount:ManagedStorageAccount": "ManagedStorageAccount"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "keyvault/managedStorageAccountSasTokenDefinition",
+  "fqn": "pulumi_azure.keyvault",
+  "classes": {
+   "azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition": "ManagedStorageAccountSasTokenDefinition"
   }
  },
  {
@@ -4036,6 +4060,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mssql",
   "classes": {
    "azure:mssql/elasticPool:ElasticPool": "ElasticPool"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mssql/failoverGroup",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/failoverGroup:FailoverGroup": "FailoverGroup"
   }
  },
  {
@@ -5880,6 +5912,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "synapse/sqlPoolExtendedAuditingPolicy",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy": "SqlPoolExtendedAuditingPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "synapse/sqlPoolSecurityAlertPolicy",
   "fqn": "pulumi_azure.synapse",
   "classes": {
@@ -5900,6 +5940,14 @@ _utilities.register(
   "fqn": "pulumi_azure.synapse",
   "classes": {
    "azure:synapse/workspace:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "synapse/workspaceExtendedAuditingPolicy",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy": "WorkspaceExtendedAuditingPolicy"
   }
  },
  {

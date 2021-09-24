@@ -85,6 +85,8 @@ type ChannelSlack struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The Signing Secret that will be used to sign the requests.
+	SigningSecret pulumi.StringPtrOutput `pulumi:"signingSecret"`
 	// The Verification Token that will be used to authenticate with Slack.
 	VerificationToken pulumi.StringOutput `pulumi:"verificationToken"`
 }
@@ -145,6 +147,8 @@ type channelSlackState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The Signing Secret that will be used to sign the requests.
+	SigningSecret *string `pulumi:"signingSecret"`
 	// The Verification Token that will be used to authenticate with Slack.
 	VerificationToken *string `pulumi:"verificationToken"`
 }
@@ -162,6 +166,8 @@ type ChannelSlackState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The Signing Secret that will be used to sign the requests.
+	SigningSecret pulumi.StringPtrInput
 	// The Verification Token that will be used to authenticate with Slack.
 	VerificationToken pulumi.StringPtrInput
 }
@@ -183,6 +189,8 @@ type channelSlackArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The Signing Secret that will be used to sign the requests.
+	SigningSecret *string `pulumi:"signingSecret"`
 	// The Verification Token that will be used to authenticate with Slack.
 	VerificationToken string `pulumi:"verificationToken"`
 }
@@ -201,6 +209,8 @@ type ChannelSlackArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The Signing Secret that will be used to sign the requests.
+	SigningSecret pulumi.StringPtrInput
 	// The Verification Token that will be used to authenticate with Slack.
 	VerificationToken pulumi.StringInput
 }

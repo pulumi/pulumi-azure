@@ -64,7 +64,9 @@ import (
 //
 // ## Import
 //
-// Data Factory Snowflake Datasets can be imported using the `resource id`, e.g.
+// Data Factory Snowflake Datasets can be imported using the `resource id`,
+//
+// e.g.
 //
 // ```sh
 //  $ pulumi import azure:datafactory/datasetSnowflake:DatasetSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
@@ -94,6 +96,8 @@ type DatasetSnowflake struct {
 	SchemaColumns DatasetSnowflakeSchemaColumnArrayOutput `pulumi:"schemaColumns"`
 	// The schema name of the Data Factory Dataset Snowflake.
 	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
+	// Deprecated: This block has been deprecated in favour of `schema_column` and will be removed.
+	StructureColumns DatasetSnowflakeStructureColumnArrayOutput `pulumi:"structureColumns"`
 	// The table name of the Data Factory Dataset Snowflake.
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 }
@@ -158,6 +162,8 @@ type datasetSnowflakeState struct {
 	SchemaColumns []DatasetSnowflakeSchemaColumn `pulumi:"schemaColumns"`
 	// The schema name of the Data Factory Dataset Snowflake.
 	SchemaName *string `pulumi:"schemaName"`
+	// Deprecated: This block has been deprecated in favour of `schema_column` and will be removed.
+	StructureColumns []DatasetSnowflakeStructureColumn `pulumi:"structureColumns"`
 	// The table name of the Data Factory Dataset Snowflake.
 	TableName *string `pulumi:"tableName"`
 }
@@ -185,6 +191,8 @@ type DatasetSnowflakeState struct {
 	SchemaColumns DatasetSnowflakeSchemaColumnArrayInput
 	// The schema name of the Data Factory Dataset Snowflake.
 	SchemaName pulumi.StringPtrInput
+	// Deprecated: This block has been deprecated in favour of `schema_column` and will be removed.
+	StructureColumns DatasetSnowflakeStructureColumnArrayInput
 	// The table name of the Data Factory Dataset Snowflake.
 	TableName pulumi.StringPtrInput
 }
@@ -216,6 +224,8 @@ type datasetSnowflakeArgs struct {
 	SchemaColumns []DatasetSnowflakeSchemaColumn `pulumi:"schemaColumns"`
 	// The schema name of the Data Factory Dataset Snowflake.
 	SchemaName *string `pulumi:"schemaName"`
+	// Deprecated: This block has been deprecated in favour of `schema_column` and will be removed.
+	StructureColumns []DatasetSnowflakeStructureColumn `pulumi:"structureColumns"`
 	// The table name of the Data Factory Dataset Snowflake.
 	TableName *string `pulumi:"tableName"`
 }
@@ -244,6 +254,8 @@ type DatasetSnowflakeArgs struct {
 	SchemaColumns DatasetSnowflakeSchemaColumnArrayInput
 	// The schema name of the Data Factory Dataset Snowflake.
 	SchemaName pulumi.StringPtrInput
+	// Deprecated: This block has been deprecated in favour of `schema_column` and will be removed.
+	StructureColumns DatasetSnowflakeStructureColumnArrayInput
 	// The table name of the Data Factory Dataset Snowflake.
 	TableName pulumi.StringPtrInput
 }

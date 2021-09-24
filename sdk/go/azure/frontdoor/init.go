@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FirewallPolicy{}
 	case "azure:frontdoor/frontdoor:Frontdoor":
 		r = &Frontdoor{}
+	case "azure:frontdoor/rulesEngine:RulesEngine":
+		r = &RulesEngine{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"frontdoor/frontdoor",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"frontdoor/rulesEngine",
 		&module{version},
 	)
 }

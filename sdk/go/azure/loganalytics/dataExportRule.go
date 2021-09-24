@@ -59,6 +59,7 @@ import (
 // 			TableNames: pulumi.StringArray{
 // 				pulumi.String("Heartbeat"),
 // 			},
+// 			Enabled: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err

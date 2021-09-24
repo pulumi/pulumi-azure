@@ -223,6 +223,14 @@ class SmartDetectionRule(pulumi.CustomResource):
             enabled=False)
         ```
 
+        ## Import
+
+        Application Insights Smart Detection Rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appinsights/smartDetectionRule:SmartDetectionRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/mycomponent1/SmartDetectionRule/myrule1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_email_recipients: Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
@@ -256,6 +264,14 @@ class SmartDetectionRule(pulumi.CustomResource):
         example_smart_detection_rule = azure.appinsights.SmartDetectionRule("exampleSmartDetectionRule",
             application_insights_id=example_insights.id,
             enabled=False)
+        ```
+
+        ## Import
+
+        Application Insights Smart Detection Rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appinsights/smartDetectionRule:SmartDetectionRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/mycomponent1/SmartDetectionRule/myrule1
         ```
 
         :param str resource_name: The name of the resource.

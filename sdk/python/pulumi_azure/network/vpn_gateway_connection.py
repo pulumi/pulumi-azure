@@ -232,6 +232,54 @@ class VpnGatewayConnection(pulumi.CustomResource):
         """
         Manages a VPN Gateway Connection.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            virtual_wan_id=example_virtual_wan.id,
+            address_prefix="10.0.0.0/24")
+        example_vpn_gateway = azure.network.VpnGateway("exampleVpnGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            virtual_hub_id=example_virtual_hub.id)
+        example_vpn_site = azure.network.VpnSite("exampleVpnSite",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            virtual_wan_id=example_virtual_wan.id,
+            links=[
+                azure.network.VpnSiteLinkArgs(
+                    name="link1",
+                    ip_address="10.1.0.0",
+                ),
+                azure.network.VpnSiteLinkArgs(
+                    name="link2",
+                    ip_address="10.2.0.0",
+                ),
+            ])
+        example_vpn_gateway_connection = azure.network.VpnGatewayConnection("exampleVpnGatewayConnection",
+            vpn_gateway_id=example_vpn_gateway.id,
+            remote_vpn_site_id=example_vpn_site.id,
+            vpn_links=[
+                azure.network.VpnGatewayConnectionVpnLinkArgs(
+                    name="link1",
+                    vpn_site_link_id=example_vpn_site.links[0].id,
+                ),
+                azure.network.VpnGatewayConnectionVpnLinkArgs(
+                    name="link2",
+                    vpn_site_link_id=example_vpn_site.links[1].id,
+                ),
+            ])
+        ```
+
         ## Import
 
         VPN Gateway Connections can be imported using the `resource id`, e.g.
@@ -257,6 +305,54 @@ class VpnGatewayConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VPN Gateway Connection.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            virtual_wan_id=example_virtual_wan.id,
+            address_prefix="10.0.0.0/24")
+        example_vpn_gateway = azure.network.VpnGateway("exampleVpnGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            virtual_hub_id=example_virtual_hub.id)
+        example_vpn_site = azure.network.VpnSite("exampleVpnSite",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            virtual_wan_id=example_virtual_wan.id,
+            links=[
+                azure.network.VpnSiteLinkArgs(
+                    name="link1",
+                    ip_address="10.1.0.0",
+                ),
+                azure.network.VpnSiteLinkArgs(
+                    name="link2",
+                    ip_address="10.2.0.0",
+                ),
+            ])
+        example_vpn_gateway_connection = azure.network.VpnGatewayConnection("exampleVpnGatewayConnection",
+            vpn_gateway_id=example_vpn_gateway.id,
+            remote_vpn_site_id=example_vpn_site.id,
+            vpn_links=[
+                azure.network.VpnGatewayConnectionVpnLinkArgs(
+                    name="link1",
+                    vpn_site_link_id=example_vpn_site.links[0].id,
+                ),
+                azure.network.VpnGatewayConnectionVpnLinkArgs(
+                    name="link2",
+                    vpn_site_link_id=example_vpn_site.links[1].id,
+                ),
+            ])
+        ```
 
         ## Import
 

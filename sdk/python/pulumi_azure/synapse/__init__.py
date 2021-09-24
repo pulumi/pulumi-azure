@@ -15,9 +15,11 @@ from .private_link_hub import *
 from .role_assignment import *
 from .spark_pool import *
 from .sql_pool import *
+from .sql_pool_extended_auditing_policy import *
 from .sql_pool_security_alert_policy import *
 from .sql_pool_vulnerability_assessment import *
 from .workspace import *
+from .workspace_extended_auditing_policy import *
 from .workspace_key import *
 from .workspace_security_alert_policy import *
 from .workspace_vulnerability_assessment import *

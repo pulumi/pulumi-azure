@@ -65,6 +65,7 @@ export interface GetEndpointConnectionResult {
      * The name of the private endpoint.
      */
     readonly name: string;
+    readonly networkInterfaces: outputs.privatelink.GetEndpointConnectionNetworkInterface[];
     readonly privateServiceConnections: outputs.privatelink.GetEndpointConnectionPrivateServiceConnection[];
     readonly resourceGroupName: string;
 }

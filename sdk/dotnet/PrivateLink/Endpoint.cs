@@ -187,6 +187,9 @@ namespace Pulumi.Azure.PrivateLink
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("networkInterfaces")]
+        public Output<ImmutableArray<Outputs.EndpointNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
+
         [Output("privateDnsZoneConfigs")]
         public Output<ImmutableArray<Outputs.EndpointPrivateDnsZoneConfig>> PrivateDnsZoneConfigs { get; private set; } = null!;
 
@@ -340,6 +343,14 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("networkInterfaces")]
+        private InputList<Inputs.EndpointNetworkInterfaceGetArgs>? _networkInterfaces;
+        public InputList<Inputs.EndpointNetworkInterfaceGetArgs> NetworkInterfaces
+        {
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.EndpointNetworkInterfaceGetArgs>());
+            set => _networkInterfaces = value;
+        }
 
         [Input("privateDnsZoneConfigs")]
         private InputList<Inputs.EndpointPrivateDnsZoneConfigGetArgs>? _privateDnsZoneConfigs;

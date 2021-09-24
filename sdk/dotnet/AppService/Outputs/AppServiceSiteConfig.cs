@@ -123,7 +123,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
         /// <summary>
-        /// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        /// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
         /// </summary>
         public readonly bool? VnetRouteAllEnabled;
         /// <summary>

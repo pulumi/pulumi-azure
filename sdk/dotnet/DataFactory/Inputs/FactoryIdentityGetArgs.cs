@@ -16,7 +16,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+        /// Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
+        /// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

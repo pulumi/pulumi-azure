@@ -13,19 +13,25 @@ namespace Pulumi.Azure.DataFactory.Inputs
     public sealed class DatasetSnowflakeSchemaColumnArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the column.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The name of the column.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        /// The total number of digits allowed.
+        /// </summary>
+        [Input("precision")]
+        public Input<int>? Precision { get; set; }
+
+        /// <summary>
+        /// The number of digits allowed to the right of the decimal point.
+        /// </summary>
+        [Input("scale")]
+        public Input<int>? Scale { get; set; }
+
+        /// <summary>
+        /// Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -147,6 +147,7 @@ export class Endpoint extends pulumi.CustomResource {
      * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.privatelink.EndpointNetworkInterface[]>;
     public /*out*/ readonly privateDnsZoneConfigs!: pulumi.Output<outputs.privatelink.EndpointPrivateDnsZoneConfig[]>;
     /**
      * A `privateDnsZoneGroup` block as defined below.
@@ -185,6 +186,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["customDnsConfigs"] = state ? state.customDnsConfigs : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
             inputs["privateDnsZoneConfigs"] = state ? state.privateDnsZoneConfigs : undefined;
             inputs["privateDnsZoneGroup"] = state ? state.privateDnsZoneGroup : undefined;
             inputs["privateServiceConnection"] = state ? state.privateServiceConnection : undefined;
@@ -210,6 +212,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["customDnsConfigs"] = undefined /*out*/;
+            inputs["networkInterfaces"] = undefined /*out*/;
             inputs["privateDnsZoneConfigs"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -232,6 +235,7 @@ export interface EndpointState {
      * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointNetworkInterface>[]>;
     privateDnsZoneConfigs?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointPrivateDnsZoneConfig>[]>;
     /**
      * A `privateDnsZoneGroup` block as defined below.

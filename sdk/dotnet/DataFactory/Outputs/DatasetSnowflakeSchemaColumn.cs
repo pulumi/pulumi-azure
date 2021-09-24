@@ -14,28 +14,35 @@ namespace Pulumi.Azure.DataFactory.Outputs
     public sealed class DatasetSnowflakeSchemaColumn
     {
         /// <summary>
-        /// The description of the column.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// The name of the column.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        /// The total number of digits allowed.
+        /// </summary>
+        public readonly int? Precision;
+        /// <summary>
+        /// The number of digits allowed to the right of the decimal point.
+        /// </summary>
+        public readonly int? Scale;
+        /// <summary>
+        /// Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
         /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
         private DatasetSnowflakeSchemaColumn(
-            string? description,
-
             string name,
+
+            int? precision,
+
+            int? scale,
 
             string? type)
         {
-            Description = description;
             Name = name;
+            Precision = precision;
+            Scale = scale;
             Type = type;
         }
     }

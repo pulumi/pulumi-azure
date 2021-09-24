@@ -49,6 +49,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///             {
     ///                 "Heartbeat",
     ///             },
+    ///             Enabled = true,
     ///         });
     ///     }
     /// 

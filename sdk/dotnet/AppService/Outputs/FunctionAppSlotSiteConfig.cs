@@ -74,6 +74,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
+        public readonly bool? VnetRouteAllEnabled;
         /// <summary>
         /// Should WebSockets be enabled?
         /// </summary>
@@ -119,6 +120,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             bool? use32BitWorkerProcess,
 
+            bool? vnetRouteAllEnabled,
+
             bool? websocketsEnabled)
         {
             AlwaysOn = alwaysOn;
@@ -140,6 +143,7 @@ namespace Pulumi.Azure.AppService.Outputs
             ScmType = scmType;
             ScmUseMainIpRestriction = scmUseMainIpRestriction;
             Use32BitWorkerProcess = use32BitWorkerProcess;
+            VnetRouteAllEnabled = vnetRouteAllEnabled;
             WebsocketsEnabled = websocketsEnabled;
         }
     }

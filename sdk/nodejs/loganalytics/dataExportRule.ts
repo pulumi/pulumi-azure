@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  *     workspaceResourceId: exampleAnalyticsWorkspace.id,
  *     destinationResourceId: exampleAccount.id,
  *     tableNames: ["Heartbeat"],
+ *     enabled: true,
  * });
  * ```
  *

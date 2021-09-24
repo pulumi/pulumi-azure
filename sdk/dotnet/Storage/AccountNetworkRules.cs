@@ -130,6 +130,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the ID of the storage account. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("storageAccountId")]
+        public Output<string> StorageAccountId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         /// </summary>
         [Output("storageAccountName")]
@@ -232,14 +238,20 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Specifies the ID of the storage account. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
 
         /// <summary>
         /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         [Input("virtualNetworkSubnetIds")]
         private InputList<string>? _virtualNetworkSubnetIds;
@@ -307,6 +319,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Specifies the ID of the storage account. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
 
         /// <summary>
         /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.

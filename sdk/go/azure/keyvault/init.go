@@ -35,6 +35,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KeyVault{}
 	case "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule":
 		r = &ManagedHardwareSecurityModule{}
+	case "azure:keyvault/managedStorageAccount:ManagedStorageAccount":
+		r = &ManagedStorageAccount{}
+	case "azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition":
+		r = &ManagedStorageAccountSasTokenDefinition{}
 	case "azure:keyvault/secret:Secret":
 		r = &Secret{}
 	default:
@@ -83,6 +87,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"keyvault/managedHardwareSecurityModule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"keyvault/managedStorageAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"keyvault/managedStorageAccountSasTokenDefinition",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

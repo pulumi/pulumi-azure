@@ -2769,6 +2769,655 @@ func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectType() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+type RulesEngineRule struct {
+	// A `ruleAction` block as defined below.
+	Action *RulesEngineRuleAction `pulumi:"action"`
+	// One or more `matchCondition` block as defined below.
+	MatchConditions []RulesEngineRuleMatchCondition `pulumi:"matchConditions"`
+	// The name of the rule.
+	Name string `pulumi:"name"`
+	// Priority of the rule, must be unique per rules engine definition.
+	Priority int `pulumi:"priority"`
+}
+
+// RulesEngineRuleInput is an input type that accepts RulesEngineRuleArgs and RulesEngineRuleOutput values.
+// You can construct a concrete instance of `RulesEngineRuleInput` via:
+//
+//          RulesEngineRuleArgs{...}
+type RulesEngineRuleInput interface {
+	pulumi.Input
+
+	ToRulesEngineRuleOutput() RulesEngineRuleOutput
+	ToRulesEngineRuleOutputWithContext(context.Context) RulesEngineRuleOutput
+}
+
+type RulesEngineRuleArgs struct {
+	// A `ruleAction` block as defined below.
+	Action RulesEngineRuleActionPtrInput `pulumi:"action"`
+	// One or more `matchCondition` block as defined below.
+	MatchConditions RulesEngineRuleMatchConditionArrayInput `pulumi:"matchConditions"`
+	// The name of the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Priority of the rule, must be unique per rules engine definition.
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (RulesEngineRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineRule)(nil)).Elem()
+}
+
+func (i RulesEngineRuleArgs) ToRulesEngineRuleOutput() RulesEngineRuleOutput {
+	return i.ToRulesEngineRuleOutputWithContext(context.Background())
+}
+
+func (i RulesEngineRuleArgs) ToRulesEngineRuleOutputWithContext(ctx context.Context) RulesEngineRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleOutput)
+}
+
+// RulesEngineRuleArrayInput is an input type that accepts RulesEngineRuleArray and RulesEngineRuleArrayOutput values.
+// You can construct a concrete instance of `RulesEngineRuleArrayInput` via:
+//
+//          RulesEngineRuleArray{ RulesEngineRuleArgs{...} }
+type RulesEngineRuleArrayInput interface {
+	pulumi.Input
+
+	ToRulesEngineRuleArrayOutput() RulesEngineRuleArrayOutput
+	ToRulesEngineRuleArrayOutputWithContext(context.Context) RulesEngineRuleArrayOutput
+}
+
+type RulesEngineRuleArray []RulesEngineRuleInput
+
+func (RulesEngineRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesEngineRule)(nil)).Elem()
+}
+
+func (i RulesEngineRuleArray) ToRulesEngineRuleArrayOutput() RulesEngineRuleArrayOutput {
+	return i.ToRulesEngineRuleArrayOutputWithContext(context.Background())
+}
+
+func (i RulesEngineRuleArray) ToRulesEngineRuleArrayOutputWithContext(ctx context.Context) RulesEngineRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleArrayOutput)
+}
+
+type RulesEngineRuleOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineRule)(nil)).Elem()
+}
+
+func (o RulesEngineRuleOutput) ToRulesEngineRuleOutput() RulesEngineRuleOutput {
+	return o
+}
+
+func (o RulesEngineRuleOutput) ToRulesEngineRuleOutputWithContext(ctx context.Context) RulesEngineRuleOutput {
+	return o
+}
+
+// A `ruleAction` block as defined below.
+func (o RulesEngineRuleOutput) Action() RulesEngineRuleActionPtrOutput {
+	return o.ApplyT(func(v RulesEngineRule) *RulesEngineRuleAction { return v.Action }).(RulesEngineRuleActionPtrOutput)
+}
+
+// One or more `matchCondition` block as defined below.
+func (o RulesEngineRuleOutput) MatchConditions() RulesEngineRuleMatchConditionArrayOutput {
+	return o.ApplyT(func(v RulesEngineRule) []RulesEngineRuleMatchCondition { return v.MatchConditions }).(RulesEngineRuleMatchConditionArrayOutput)
+}
+
+// The name of the rule.
+func (o RulesEngineRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RulesEngineRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Priority of the rule, must be unique per rules engine definition.
+func (o RulesEngineRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v RulesEngineRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type RulesEngineRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesEngineRule)(nil)).Elem()
+}
+
+func (o RulesEngineRuleArrayOutput) ToRulesEngineRuleArrayOutput() RulesEngineRuleArrayOutput {
+	return o
+}
+
+func (o RulesEngineRuleArrayOutput) ToRulesEngineRuleArrayOutputWithContext(ctx context.Context) RulesEngineRuleArrayOutput {
+	return o
+}
+
+func (o RulesEngineRuleArrayOutput) Index(i pulumi.IntInput) RulesEngineRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesEngineRule {
+		return vs[0].([]RulesEngineRule)[vs[1].(int)]
+	}).(RulesEngineRuleOutput)
+}
+
+type RulesEngineRuleAction struct {
+	// A `requestHeader` block as defined below.
+	RequestHeaders []RulesEngineRuleActionRequestHeader `pulumi:"requestHeaders"`
+	// A `responseHeader` block as defined below.
+	ResponseHeaders []RulesEngineRuleActionResponseHeader `pulumi:"responseHeaders"`
+}
+
+// RulesEngineRuleActionInput is an input type that accepts RulesEngineRuleActionArgs and RulesEngineRuleActionOutput values.
+// You can construct a concrete instance of `RulesEngineRuleActionInput` via:
+//
+//          RulesEngineRuleActionArgs{...}
+type RulesEngineRuleActionInput interface {
+	pulumi.Input
+
+	ToRulesEngineRuleActionOutput() RulesEngineRuleActionOutput
+	ToRulesEngineRuleActionOutputWithContext(context.Context) RulesEngineRuleActionOutput
+}
+
+type RulesEngineRuleActionArgs struct {
+	// A `requestHeader` block as defined below.
+	RequestHeaders RulesEngineRuleActionRequestHeaderArrayInput `pulumi:"requestHeaders"`
+	// A `responseHeader` block as defined below.
+	ResponseHeaders RulesEngineRuleActionResponseHeaderArrayInput `pulumi:"responseHeaders"`
+}
+
+func (RulesEngineRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineRuleAction)(nil)).Elem()
+}
+
+func (i RulesEngineRuleActionArgs) ToRulesEngineRuleActionOutput() RulesEngineRuleActionOutput {
+	return i.ToRulesEngineRuleActionOutputWithContext(context.Background())
+}
+
+func (i RulesEngineRuleActionArgs) ToRulesEngineRuleActionOutputWithContext(ctx context.Context) RulesEngineRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionOutput)
+}
+
+func (i RulesEngineRuleActionArgs) ToRulesEngineRuleActionPtrOutput() RulesEngineRuleActionPtrOutput {
+	return i.ToRulesEngineRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (i RulesEngineRuleActionArgs) ToRulesEngineRuleActionPtrOutputWithContext(ctx context.Context) RulesEngineRuleActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionOutput).ToRulesEngineRuleActionPtrOutputWithContext(ctx)
+}
+
+// RulesEngineRuleActionPtrInput is an input type that accepts RulesEngineRuleActionArgs, RulesEngineRuleActionPtr and RulesEngineRuleActionPtrOutput values.
+// You can construct a concrete instance of `RulesEngineRuleActionPtrInput` via:
+//
+//          RulesEngineRuleActionArgs{...}
+//
+//  or:
+//
+//          nil
+type RulesEngineRuleActionPtrInput interface {
+	pulumi.Input
+
+	ToRulesEngineRuleActionPtrOutput() RulesEngineRuleActionPtrOutput
+	ToRulesEngineRuleActionPtrOutputWithContext(context.Context) RulesEngineRuleActionPtrOutput
+}
+
+type rulesEngineRuleActionPtrType RulesEngineRuleActionArgs
+
+func RulesEngineRuleActionPtr(v *RulesEngineRuleActionArgs) RulesEngineRuleActionPtrInput {
+	return (*rulesEngineRuleActionPtrType)(v)
+}
+
+func (*rulesEngineRuleActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulesEngineRuleAction)(nil)).Elem()
+}
+
+func (i *rulesEngineRuleActionPtrType) ToRulesEngineRuleActionPtrOutput() RulesEngineRuleActionPtrOutput {
+	return i.ToRulesEngineRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (i *rulesEngineRuleActionPtrType) ToRulesEngineRuleActionPtrOutputWithContext(ctx context.Context) RulesEngineRuleActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionPtrOutput)
+}
+
+type RulesEngineRuleActionOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineRuleAction)(nil)).Elem()
+}
+
+func (o RulesEngineRuleActionOutput) ToRulesEngineRuleActionOutput() RulesEngineRuleActionOutput {
+	return o
+}
+
+func (o RulesEngineRuleActionOutput) ToRulesEngineRuleActionOutputWithContext(ctx context.Context) RulesEngineRuleActionOutput {
+	return o
+}
+
+func (o RulesEngineRuleActionOutput) ToRulesEngineRuleActionPtrOutput() RulesEngineRuleActionPtrOutput {
+	return o.ToRulesEngineRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (o RulesEngineRuleActionOutput) ToRulesEngineRuleActionPtrOutputWithContext(ctx context.Context) RulesEngineRuleActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesEngineRuleAction) *RulesEngineRuleAction {
+		return &v
+	}).(RulesEngineRuleActionPtrOutput)
+}
+
+// A `requestHeader` block as defined below.
+func (o RulesEngineRuleActionOutput) RequestHeaders() RulesEngineRuleActionRequestHeaderArrayOutput {
+	return o.ApplyT(func(v RulesEngineRuleAction) []RulesEngineRuleActionRequestHeader { return v.RequestHeaders }).(RulesEngineRuleActionRequestHeaderArrayOutput)
+}
+
+// A `responseHeader` block as defined below.
+func (o RulesEngineRuleActionOutput) ResponseHeaders() RulesEngineRuleActionResponseHeaderArrayOutput {
+	return o.ApplyT(func(v RulesEngineRuleAction) []RulesEngineRuleActionResponseHeader { return v.ResponseHeaders }).(RulesEngineRuleActionResponseHeaderArrayOutput)
+}
+
+type RulesEngineRuleActionPtrOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineRuleActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulesEngineRuleAction)(nil)).Elem()
+}
+
+func (o RulesEngineRuleActionPtrOutput) ToRulesEngineRuleActionPtrOutput() RulesEngineRuleActionPtrOutput {
+	return o
+}
+
+func (o RulesEngineRuleActionPtrOutput) ToRulesEngineRuleActionPtrOutputWithContext(ctx context.Context) RulesEngineRuleActionPtrOutput {
+	return o
+}
+
+func (o RulesEngineRuleActionPtrOutput) Elem() RulesEngineRuleActionOutput {
+	return o.ApplyT(func(v *RulesEngineRuleAction) RulesEngineRuleAction {
+		if v != nil {
+			return *v
+		}
+		var ret RulesEngineRuleAction
+		return ret
+	}).(RulesEngineRuleActionOutput)
+}
+
+// A `requestHeader` block as defined below.
+func (o RulesEngineRuleActionPtrOutput) RequestHeaders() RulesEngineRuleActionRequestHeaderArrayOutput {
+	return o.ApplyT(func(v *RulesEngineRuleAction) []RulesEngineRuleActionRequestHeader {
+		if v == nil {
+			return nil
+		}
+		return v.RequestHeaders
+	}).(RulesEngineRuleActionRequestHeaderArrayOutput)
+}
+
+// A `responseHeader` block as defined below.
+func (o RulesEngineRuleActionPtrOutput) ResponseHeaders() RulesEngineRuleActionResponseHeaderArrayOutput {
+	return o.ApplyT(func(v *RulesEngineRuleAction) []RulesEngineRuleActionResponseHeader {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseHeaders
+	}).(RulesEngineRuleActionResponseHeaderArrayOutput)
+}
+
+type RulesEngineRuleActionRequestHeader struct {
+	// can be set to `Overwrite`, `Append` or `Delete`.
+	HeaderActionType *string `pulumi:"headerActionType"`
+	// header name (string).
+	HeaderName *string `pulumi:"headerName"`
+	// value name (string).
+	Value *string `pulumi:"value"`
+}
+
+// RulesEngineRuleActionRequestHeaderInput is an input type that accepts RulesEngineRuleActionRequestHeaderArgs and RulesEngineRuleActionRequestHeaderOutput values.
+// You can construct a concrete instance of `RulesEngineRuleActionRequestHeaderInput` via:
+//
+//          RulesEngineRuleActionRequestHeaderArgs{...}
+type RulesEngineRuleActionRequestHeaderInput interface {
+	pulumi.Input
+
+	ToRulesEngineRuleActionRequestHeaderOutput() RulesEngineRuleActionRequestHeaderOutput
+	ToRulesEngineRuleActionRequestHeaderOutputWithContext(context.Context) RulesEngineRuleActionRequestHeaderOutput
+}
+
+type RulesEngineRuleActionRequestHeaderArgs struct {
+	// can be set to `Overwrite`, `Append` or `Delete`.
+	HeaderActionType pulumi.StringPtrInput `pulumi:"headerActionType"`
+	// header name (string).
+	HeaderName pulumi.StringPtrInput `pulumi:"headerName"`
+	// value name (string).
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (RulesEngineRuleActionRequestHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineRuleActionRequestHeader)(nil)).Elem()
+}
+
+func (i RulesEngineRuleActionRequestHeaderArgs) ToRulesEngineRuleActionRequestHeaderOutput() RulesEngineRuleActionRequestHeaderOutput {
+	return i.ToRulesEngineRuleActionRequestHeaderOutputWithContext(context.Background())
+}
+
+func (i RulesEngineRuleActionRequestHeaderArgs) ToRulesEngineRuleActionRequestHeaderOutputWithContext(ctx context.Context) RulesEngineRuleActionRequestHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionRequestHeaderOutput)
+}
+
+// RulesEngineRuleActionRequestHeaderArrayInput is an input type that accepts RulesEngineRuleActionRequestHeaderArray and RulesEngineRuleActionRequestHeaderArrayOutput values.
+// You can construct a concrete instance of `RulesEngineRuleActionRequestHeaderArrayInput` via:
+//
+//          RulesEngineRuleActionRequestHeaderArray{ RulesEngineRuleActionRequestHeaderArgs{...} }
+type RulesEngineRuleActionRequestHeaderArrayInput interface {
+	pulumi.Input
+
+	ToRulesEngineRuleActionRequestHeaderArrayOutput() RulesEngineRuleActionRequestHeaderArrayOutput
+	ToRulesEngineRuleActionRequestHeaderArrayOutputWithContext(context.Context) RulesEngineRuleActionRequestHeaderArrayOutput
+}
+
+type RulesEngineRuleActionRequestHeaderArray []RulesEngineRuleActionRequestHeaderInput
+
+func (RulesEngineRuleActionRequestHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesEngineRuleActionRequestHeader)(nil)).Elem()
+}
+
+func (i RulesEngineRuleActionRequestHeaderArray) ToRulesEngineRuleActionRequestHeaderArrayOutput() RulesEngineRuleActionRequestHeaderArrayOutput {
+	return i.ToRulesEngineRuleActionRequestHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i RulesEngineRuleActionRequestHeaderArray) ToRulesEngineRuleActionRequestHeaderArrayOutputWithContext(ctx context.Context) RulesEngineRuleActionRequestHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionRequestHeaderArrayOutput)
+}
+
+type RulesEngineRuleActionRequestHeaderOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineRuleActionRequestHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineRuleActionRequestHeader)(nil)).Elem()
+}
+
+func (o RulesEngineRuleActionRequestHeaderOutput) ToRulesEngineRuleActionRequestHeaderOutput() RulesEngineRuleActionRequestHeaderOutput {
+	return o
+}
+
+func (o RulesEngineRuleActionRequestHeaderOutput) ToRulesEngineRuleActionRequestHeaderOutputWithContext(ctx context.Context) RulesEngineRuleActionRequestHeaderOutput {
+	return o
+}
+
+// can be set to `Overwrite`, `Append` or `Delete`.
+func (o RulesEngineRuleActionRequestHeaderOutput) HeaderActionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesEngineRuleActionRequestHeader) *string { return v.HeaderActionType }).(pulumi.StringPtrOutput)
+}
+
+// header name (string).
+func (o RulesEngineRuleActionRequestHeaderOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesEngineRuleActionRequestHeader) *string { return v.HeaderName }).(pulumi.StringPtrOutput)
+}
+
+// value name (string).
+func (o RulesEngineRuleActionRequestHeaderOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesEngineRuleActionRequestHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type RulesEngineRuleActionRequestHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineRuleActionRequestHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesEngineRuleActionRequestHeader)(nil)).Elem()
+}
+
+func (o RulesEngineRuleActionRequestHeaderArrayOutput) ToRulesEngineRuleActionRequestHeaderArrayOutput() RulesEngineRuleActionRequestHeaderArrayOutput {
+	return o
+}
+
+func (o RulesEngineRuleActionRequestHeaderArrayOutput) ToRulesEngineRuleActionRequestHeaderArrayOutputWithContext(ctx context.Context) RulesEngineRuleActionRequestHeaderArrayOutput {
+	return o
+}
+
+func (o RulesEngineRuleActionRequestHeaderArrayOutput) Index(i pulumi.IntInput) RulesEngineRuleActionRequestHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesEngineRuleActionRequestHeader {
+		return vs[0].([]RulesEngineRuleActionRequestHeader)[vs[1].(int)]
+	}).(RulesEngineRuleActionRequestHeaderOutput)
+}
+
+type RulesEngineRuleActionResponseHeader struct {
+	// can be set to `Overwrite`, `Append` or `Delete`.
+	HeaderActionType *string `pulumi:"headerActionType"`
+	// header name (string).
+	HeaderName *string `pulumi:"headerName"`
+	// value name (string).
+	Value *string `pulumi:"value"`
+}
+
+// RulesEngineRuleActionResponseHeaderInput is an input type that accepts RulesEngineRuleActionResponseHeaderArgs and RulesEngineRuleActionResponseHeaderOutput values.
+// You can construct a concrete instance of `RulesEngineRuleActionResponseHeaderInput` via:
+//
+//          RulesEngineRuleActionResponseHeaderArgs{...}
+type RulesEngineRuleActionResponseHeaderInput interface {
+	pulumi.Input
+
+	ToRulesEngineRuleActionResponseHeaderOutput() RulesEngineRuleActionResponseHeaderOutput
+	ToRulesEngineRuleActionResponseHeaderOutputWithContext(context.Context) RulesEngineRuleActionResponseHeaderOutput
+}
+
+type RulesEngineRuleActionResponseHeaderArgs struct {
+	// can be set to `Overwrite`, `Append` or `Delete`.
+	HeaderActionType pulumi.StringPtrInput `pulumi:"headerActionType"`
+	// header name (string).
+	HeaderName pulumi.StringPtrInput `pulumi:"headerName"`
+	// value name (string).
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (RulesEngineRuleActionResponseHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineRuleActionResponseHeader)(nil)).Elem()
+}
+
+func (i RulesEngineRuleActionResponseHeaderArgs) ToRulesEngineRuleActionResponseHeaderOutput() RulesEngineRuleActionResponseHeaderOutput {
+	return i.ToRulesEngineRuleActionResponseHeaderOutputWithContext(context.Background())
+}
+
+func (i RulesEngineRuleActionResponseHeaderArgs) ToRulesEngineRuleActionResponseHeaderOutputWithContext(ctx context.Context) RulesEngineRuleActionResponseHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionResponseHeaderOutput)
+}
+
+// RulesEngineRuleActionResponseHeaderArrayInput is an input type that accepts RulesEngineRuleActionResponseHeaderArray and RulesEngineRuleActionResponseHeaderArrayOutput values.
+// You can construct a concrete instance of `RulesEngineRuleActionResponseHeaderArrayInput` via:
+//
+//          RulesEngineRuleActionResponseHeaderArray{ RulesEngineRuleActionResponseHeaderArgs{...} }
+type RulesEngineRuleActionResponseHeaderArrayInput interface {
+	pulumi.Input
+
+	ToRulesEngineRuleActionResponseHeaderArrayOutput() RulesEngineRuleActionResponseHeaderArrayOutput
+	ToRulesEngineRuleActionResponseHeaderArrayOutputWithContext(context.Context) RulesEngineRuleActionResponseHeaderArrayOutput
+}
+
+type RulesEngineRuleActionResponseHeaderArray []RulesEngineRuleActionResponseHeaderInput
+
+func (RulesEngineRuleActionResponseHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesEngineRuleActionResponseHeader)(nil)).Elem()
+}
+
+func (i RulesEngineRuleActionResponseHeaderArray) ToRulesEngineRuleActionResponseHeaderArrayOutput() RulesEngineRuleActionResponseHeaderArrayOutput {
+	return i.ToRulesEngineRuleActionResponseHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i RulesEngineRuleActionResponseHeaderArray) ToRulesEngineRuleActionResponseHeaderArrayOutputWithContext(ctx context.Context) RulesEngineRuleActionResponseHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionResponseHeaderArrayOutput)
+}
+
+type RulesEngineRuleActionResponseHeaderOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineRuleActionResponseHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineRuleActionResponseHeader)(nil)).Elem()
+}
+
+func (o RulesEngineRuleActionResponseHeaderOutput) ToRulesEngineRuleActionResponseHeaderOutput() RulesEngineRuleActionResponseHeaderOutput {
+	return o
+}
+
+func (o RulesEngineRuleActionResponseHeaderOutput) ToRulesEngineRuleActionResponseHeaderOutputWithContext(ctx context.Context) RulesEngineRuleActionResponseHeaderOutput {
+	return o
+}
+
+// can be set to `Overwrite`, `Append` or `Delete`.
+func (o RulesEngineRuleActionResponseHeaderOutput) HeaderActionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesEngineRuleActionResponseHeader) *string { return v.HeaderActionType }).(pulumi.StringPtrOutput)
+}
+
+// header name (string).
+func (o RulesEngineRuleActionResponseHeaderOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesEngineRuleActionResponseHeader) *string { return v.HeaderName }).(pulumi.StringPtrOutput)
+}
+
+// value name (string).
+func (o RulesEngineRuleActionResponseHeaderOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesEngineRuleActionResponseHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type RulesEngineRuleActionResponseHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineRuleActionResponseHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesEngineRuleActionResponseHeader)(nil)).Elem()
+}
+
+func (o RulesEngineRuleActionResponseHeaderArrayOutput) ToRulesEngineRuleActionResponseHeaderArrayOutput() RulesEngineRuleActionResponseHeaderArrayOutput {
+	return o
+}
+
+func (o RulesEngineRuleActionResponseHeaderArrayOutput) ToRulesEngineRuleActionResponseHeaderArrayOutputWithContext(ctx context.Context) RulesEngineRuleActionResponseHeaderArrayOutput {
+	return o
+}
+
+func (o RulesEngineRuleActionResponseHeaderArrayOutput) Index(i pulumi.IntInput) RulesEngineRuleActionResponseHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesEngineRuleActionResponseHeader {
+		return vs[0].([]RulesEngineRuleActionResponseHeader)[vs[1].(int)]
+	}).(RulesEngineRuleActionResponseHeaderOutput)
+}
+
+type RulesEngineRuleMatchCondition struct {
+	// can be set to `true` or `false` to negate the given condition.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
+	Operator string  `pulumi:"operator"`
+	Selector *string `pulumi:"selector"`
+	// can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
+	Transforms []string `pulumi:"transforms"`
+	// can contain one or more strings.
+	Values []string `pulumi:"values"`
+	// can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
+	Variable *string `pulumi:"variable"`
+}
+
+// RulesEngineRuleMatchConditionInput is an input type that accepts RulesEngineRuleMatchConditionArgs and RulesEngineRuleMatchConditionOutput values.
+// You can construct a concrete instance of `RulesEngineRuleMatchConditionInput` via:
+//
+//          RulesEngineRuleMatchConditionArgs{...}
+type RulesEngineRuleMatchConditionInput interface {
+	pulumi.Input
+
+	ToRulesEngineRuleMatchConditionOutput() RulesEngineRuleMatchConditionOutput
+	ToRulesEngineRuleMatchConditionOutputWithContext(context.Context) RulesEngineRuleMatchConditionOutput
+}
+
+type RulesEngineRuleMatchConditionArgs struct {
+	// can be set to `true` or `false` to negate the given condition.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
+	Operator pulumi.StringInput    `pulumi:"operator"`
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+	// can contain one or more strings.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+	// can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
+	Variable pulumi.StringPtrInput `pulumi:"variable"`
+}
+
+func (RulesEngineRuleMatchConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineRuleMatchCondition)(nil)).Elem()
+}
+
+func (i RulesEngineRuleMatchConditionArgs) ToRulesEngineRuleMatchConditionOutput() RulesEngineRuleMatchConditionOutput {
+	return i.ToRulesEngineRuleMatchConditionOutputWithContext(context.Background())
+}
+
+func (i RulesEngineRuleMatchConditionArgs) ToRulesEngineRuleMatchConditionOutputWithContext(ctx context.Context) RulesEngineRuleMatchConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleMatchConditionOutput)
+}
+
+// RulesEngineRuleMatchConditionArrayInput is an input type that accepts RulesEngineRuleMatchConditionArray and RulesEngineRuleMatchConditionArrayOutput values.
+// You can construct a concrete instance of `RulesEngineRuleMatchConditionArrayInput` via:
+//
+//          RulesEngineRuleMatchConditionArray{ RulesEngineRuleMatchConditionArgs{...} }
+type RulesEngineRuleMatchConditionArrayInput interface {
+	pulumi.Input
+
+	ToRulesEngineRuleMatchConditionArrayOutput() RulesEngineRuleMatchConditionArrayOutput
+	ToRulesEngineRuleMatchConditionArrayOutputWithContext(context.Context) RulesEngineRuleMatchConditionArrayOutput
+}
+
+type RulesEngineRuleMatchConditionArray []RulesEngineRuleMatchConditionInput
+
+func (RulesEngineRuleMatchConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesEngineRuleMatchCondition)(nil)).Elem()
+}
+
+func (i RulesEngineRuleMatchConditionArray) ToRulesEngineRuleMatchConditionArrayOutput() RulesEngineRuleMatchConditionArrayOutput {
+	return i.ToRulesEngineRuleMatchConditionArrayOutputWithContext(context.Background())
+}
+
+func (i RulesEngineRuleMatchConditionArray) ToRulesEngineRuleMatchConditionArrayOutputWithContext(ctx context.Context) RulesEngineRuleMatchConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleMatchConditionArrayOutput)
+}
+
+type RulesEngineRuleMatchConditionOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineRuleMatchConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineRuleMatchCondition)(nil)).Elem()
+}
+
+func (o RulesEngineRuleMatchConditionOutput) ToRulesEngineRuleMatchConditionOutput() RulesEngineRuleMatchConditionOutput {
+	return o
+}
+
+func (o RulesEngineRuleMatchConditionOutput) ToRulesEngineRuleMatchConditionOutputWithContext(ctx context.Context) RulesEngineRuleMatchConditionOutput {
+	return o
+}
+
+// can be set to `true` or `false` to negate the given condition.
+func (o RulesEngineRuleMatchConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RulesEngineRuleMatchCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
+func (o RulesEngineRuleMatchConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RulesEngineRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+func (o RulesEngineRuleMatchConditionOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesEngineRuleMatchCondition) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+// can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
+func (o RulesEngineRuleMatchConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RulesEngineRuleMatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// can contain one or more strings.
+func (o RulesEngineRuleMatchConditionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RulesEngineRuleMatchCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+// can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
+func (o RulesEngineRuleMatchConditionOutput) Variable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesEngineRuleMatchCondition) *string { return v.Variable }).(pulumi.StringPtrOutput)
+}
+
+type RulesEngineRuleMatchConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineRuleMatchConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesEngineRuleMatchCondition)(nil)).Elem()
+}
+
+func (o RulesEngineRuleMatchConditionArrayOutput) ToRulesEngineRuleMatchConditionArrayOutput() RulesEngineRuleMatchConditionArrayOutput {
+	return o
+}
+
+func (o RulesEngineRuleMatchConditionArrayOutput) ToRulesEngineRuleMatchConditionArrayOutputWithContext(ctx context.Context) RulesEngineRuleMatchConditionArrayOutput {
+	return o
+}
+
+func (o RulesEngineRuleMatchConditionArrayOutput) Index(i pulumi.IntInput) RulesEngineRuleMatchConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesEngineRuleMatchCondition {
+		return vs[0].([]RulesEngineRuleMatchCondition)[vs[1].(int)]
+	}).(RulesEngineRuleMatchConditionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomHttpsConfigurationCustomHttpsConfigurationOutput{})
 	pulumi.RegisterOutputType(CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput{})
@@ -2806,4 +3455,14 @@ func init() {
 	pulumi.RegisterOutputType(FrontdoorRoutingRuleForwardingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorRoutingRuleRedirectConfigurationOutput{})
 	pulumi.RegisterOutputType(FrontdoorRoutingRuleRedirectConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RulesEngineRuleOutput{})
+	pulumi.RegisterOutputType(RulesEngineRuleArrayOutput{})
+	pulumi.RegisterOutputType(RulesEngineRuleActionOutput{})
+	pulumi.RegisterOutputType(RulesEngineRuleActionPtrOutput{})
+	pulumi.RegisterOutputType(RulesEngineRuleActionRequestHeaderOutput{})
+	pulumi.RegisterOutputType(RulesEngineRuleActionRequestHeaderArrayOutput{})
+	pulumi.RegisterOutputType(RulesEngineRuleActionResponseHeaderOutput{})
+	pulumi.RegisterOutputType(RulesEngineRuleActionResponseHeaderArrayOutput{})
+	pulumi.RegisterOutputType(RulesEngineRuleMatchConditionOutput{})
+	pulumi.RegisterOutputType(RulesEngineRuleMatchConditionArrayOutput{})
 }

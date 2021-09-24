@@ -26,6 +26,7 @@ class DatasetSnowflakeArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
+                 structure_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeStructureColumnArgs']]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DatasetSnowflake resource.
@@ -61,6 +62,11 @@ class DatasetSnowflakeArgs:
             pulumi.set(__self__, "schema_columns", schema_columns)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
+        if structure_columns is not None:
+            warnings.warn("""This block has been deprecated in favour of `schema_column` and will be removed.""", DeprecationWarning)
+            pulumi.log.warn("""structure_columns is deprecated: This block has been deprecated in favour of `schema_column` and will be removed.""")
+        if structure_columns is not None:
+            pulumi.set(__self__, "structure_columns", structure_columns)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
 
@@ -197,6 +203,15 @@ class DatasetSnowflakeArgs:
         pulumi.set(self, "schema_name", value)
 
     @property
+    @pulumi.getter(name="structureColumns")
+    def structure_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeStructureColumnArgs']]]]:
+        return pulumi.get(self, "structure_columns")
+
+    @structure_columns.setter
+    def structure_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeStructureColumnArgs']]]]):
+        pulumi.set(self, "structure_columns", value)
+
+    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -223,6 +238,7 @@ class _DatasetSnowflakeState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
+                 structure_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeStructureColumnArgs']]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DatasetSnowflake resources.
@@ -261,6 +277,11 @@ class _DatasetSnowflakeState:
             pulumi.set(__self__, "schema_columns", schema_columns)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
+        if structure_columns is not None:
+            warnings.warn("""This block has been deprecated in favour of `schema_column` and will be removed.""", DeprecationWarning)
+            pulumi.log.warn("""structure_columns is deprecated: This block has been deprecated in favour of `schema_column` and will be removed.""")
+        if structure_columns is not None:
+            pulumi.set(__self__, "structure_columns", structure_columns)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
 
@@ -397,6 +418,15 @@ class _DatasetSnowflakeState:
         pulumi.set(self, "schema_name", value)
 
     @property
+    @pulumi.getter(name="structureColumns")
+    def structure_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeStructureColumnArgs']]]]:
+        return pulumi.get(self, "structure_columns")
+
+    @structure_columns.setter
+    def structure_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeStructureColumnArgs']]]]):
+        pulumi.set(self, "structure_columns", value)
+
+    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -425,6 +455,7 @@ class DatasetSnowflake(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
+                 structure_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeStructureColumnArgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -454,7 +485,9 @@ class DatasetSnowflake(pulumi.CustomResource):
 
         ## Import
 
-        Data Factory Snowflake Datasets can be imported using the `resource id`, e.g.
+        Data Factory Snowflake Datasets can be imported using the `resource id`,
+
+        e.g.
 
         ```sh
          $ pulumi import azure:datafactory/datasetSnowflake:DatasetSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
@@ -508,7 +541,9 @@ class DatasetSnowflake(pulumi.CustomResource):
 
         ## Import
 
-        Data Factory Snowflake Datasets can be imported using the `resource id`, e.g.
+        Data Factory Snowflake Datasets can be imported using the `resource id`,
+
+        e.g.
 
         ```sh
          $ pulumi import azure:datafactory/datasetSnowflake:DatasetSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
@@ -540,6 +575,7 @@ class DatasetSnowflake(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
+                 structure_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeStructureColumnArgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -570,6 +606,10 @@ class DatasetSnowflake(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["schema_columns"] = schema_columns
             __props__.__dict__["schema_name"] = schema_name
+            if structure_columns is not None and not opts.urn:
+                warnings.warn("""This block has been deprecated in favour of `schema_column` and will be removed.""", DeprecationWarning)
+                pulumi.log.warn("""structure_columns is deprecated: This block has been deprecated in favour of `schema_column` and will be removed.""")
+            __props__.__dict__["structure_columns"] = structure_columns
             __props__.__dict__["table_name"] = table_name
         super(DatasetSnowflake, __self__).__init__(
             'azure:datafactory/datasetSnowflake:DatasetSnowflake',
@@ -592,6 +632,7 @@ class DatasetSnowflake(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]]] = None,
             schema_name: Optional[pulumi.Input[str]] = None,
+            structure_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeStructureColumnArgs']]]]] = None,
             table_name: Optional[pulumi.Input[str]] = None) -> 'DatasetSnowflake':
         """
         Get an existing DatasetSnowflake resource's state with the given name, id, and optional extra
@@ -628,6 +669,7 @@ class DatasetSnowflake(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["schema_columns"] = schema_columns
         __props__.__dict__["schema_name"] = schema_name
+        __props__.__dict__["structure_columns"] = structure_columns
         __props__.__dict__["table_name"] = table_name
         return DatasetSnowflake(resource_name, opts=opts, __props__=__props__)
 
@@ -718,6 +760,11 @@ class DatasetSnowflake(pulumi.CustomResource):
         The schema name of the Data Factory Dataset Snowflake.
         """
         return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="structureColumns")
+    def structure_columns(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetSnowflakeStructureColumn']]]:
+        return pulumi.get(self, "structure_columns")
 
     @property
     @pulumi.getter(name="tableName")

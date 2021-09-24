@@ -135,6 +135,7 @@ class _EndpointState:
                  custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]] = None,
                  private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]]] = None,
                  private_dns_zone_group: Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']] = None,
                  private_service_connection: Optional[pulumi.Input['EndpointPrivateServiceConnectionArgs']] = None,
@@ -157,6 +158,8 @@ class _EndpointState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
         if private_dns_zone_configs is not None:
             pulumi.set(__self__, "private_dns_zone_configs", private_dns_zone_configs)
         if private_dns_zone_group is not None:
@@ -202,6 +205,15 @@ class _EndpointState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]]:
+        return pulumi.get(self, "network_interfaces")
+
+    @network_interfaces.setter
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]]):
+        pulumi.set(self, "network_interfaces", value)
 
     @property
     @pulumi.getter(name="privateDnsZoneConfigs")
@@ -532,6 +544,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["custom_dns_configs"] = None
+            __props__.__dict__["network_interfaces"] = None
             __props__.__dict__["private_dns_zone_configs"] = None
         super(Endpoint, __self__).__init__(
             'azure:privatelink/endpoint:Endpoint',
@@ -546,6 +559,7 @@ class Endpoint(pulumi.CustomResource):
             custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointCustomDnsConfigArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArgs']]]]] = None,
             private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneConfigArgs']]]]] = None,
             private_dns_zone_group: Optional[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneGroupArgs']]] = None,
             private_service_connection: Optional[pulumi.Input[pulumi.InputType['EndpointPrivateServiceConnectionArgs']]] = None,
@@ -574,6 +588,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["custom_dns_configs"] = custom_dns_configs
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_interfaces"] = network_interfaces
         __props__.__dict__["private_dns_zone_configs"] = private_dns_zone_configs
         __props__.__dict__["private_dns_zone_group"] = private_dns_zone_group
         __props__.__dict__["private_service_connection"] = private_service_connection
@@ -602,6 +617,11 @@ class Endpoint(pulumi.CustomResource):
         Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> pulumi.Output[Sequence['outputs.EndpointNetworkInterface']]:
+        return pulumi.get(self, "network_interfaces")
 
     @property
     @pulumi.getter(name="privateDnsZoneConfigs")

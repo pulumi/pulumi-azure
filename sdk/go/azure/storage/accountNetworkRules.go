@@ -115,8 +115,14 @@ type AccountNetworkRulesType struct {
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayOutput `pulumi:"privateLinkAccessRules"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+	//
+	// Deprecated: Deprecated in favour of `storage_account_id`
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+	//
+	// Deprecated: Deprecated in favour of `storage_account_id`
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 	// A list of virtual network subnet ids to to secure the storage account.
 	VirtualNetworkSubnetIds pulumi.StringArrayOutput `pulumi:"virtualNetworkSubnetIds"`
@@ -131,12 +137,6 @@ func NewAccountNetworkRulesType(ctx *pulumi.Context,
 
 	if args.DefaultAction == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultAction'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.StorageAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
 	var resource AccountNetworkRulesType
 	err := ctx.RegisterResource("azure:storage/accountNetworkRules:AccountNetworkRules", name, args, &resource, opts...)
@@ -169,8 +169,14 @@ type accountNetworkRulesTypeState struct {
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules []AccountNetworkRulesPrivateLinkAccessRule `pulumi:"privateLinkAccessRules"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+	//
+	// Deprecated: Deprecated in favour of `storage_account_id`
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+	//
+	// Deprecated: Deprecated in favour of `storage_account_id`
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// A list of virtual network subnet ids to to secure the storage account.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
@@ -186,8 +192,14 @@ type AccountNetworkRulesTypeState struct {
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+	//
+	// Deprecated: Deprecated in favour of `storage_account_id`
 	ResourceGroupName pulumi.StringPtrInput
+	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrInput
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+	//
+	// Deprecated: Deprecated in favour of `storage_account_id`
 	StorageAccountName pulumi.StringPtrInput
 	// A list of virtual network subnet ids to to secure the storage account.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput
@@ -207,9 +219,15 @@ type accountNetworkRulesTypeArgs struct {
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules []AccountNetworkRulesPrivateLinkAccessRule `pulumi:"privateLinkAccessRules"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	//
+	// Deprecated: Deprecated in favour of `storage_account_id`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-	StorageAccountName string `pulumi:"storageAccountName"`
+	//
+	// Deprecated: Deprecated in favour of `storage_account_id`
+	StorageAccountName *string `pulumi:"storageAccountName"`
 	// A list of virtual network subnet ids to to secure the storage account.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
@@ -225,9 +243,15 @@ type AccountNetworkRulesTypeArgs struct {
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
+	//
+	// Deprecated: Deprecated in favour of `storage_account_id`
+	ResourceGroupName pulumi.StringPtrInput
+	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrInput
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-	StorageAccountName pulumi.StringInput
+	//
+	// Deprecated: Deprecated in favour of `storage_account_id`
+	StorageAccountName pulumi.StringPtrInput
 	// A list of virtual network subnet ids to to secure the storage account.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput
 }

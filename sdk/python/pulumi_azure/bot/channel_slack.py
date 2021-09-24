@@ -19,7 +19,8 @@ class ChannelSlackArgs:
                  resource_group_name: pulumi.Input[str],
                  verification_token: pulumi.Input[str],
                  landing_page_url: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None):
+                 location: Optional[pulumi.Input[str]] = None,
+                 signing_secret: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ChannelSlack resource.
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -29,6 +30,7 @@ class ChannelSlackArgs:
         :param pulumi.Input[str] verification_token: The Verification Token that will be used to authenticate with Slack.
         :param pulumi.Input[str] landing_page_url: The Slack Landing Page URL.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] signing_secret: The Signing Secret that will be used to sign the requests.
         """
         pulumi.set(__self__, "bot_name", bot_name)
         pulumi.set(__self__, "client_id", client_id)
@@ -39,6 +41,8 @@ class ChannelSlackArgs:
             pulumi.set(__self__, "landing_page_url", landing_page_url)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if signing_secret is not None:
+            pulumi.set(__self__, "signing_secret", signing_secret)
 
     @property
     @pulumi.getter(name="botName")
@@ -124,6 +128,18 @@ class ChannelSlackArgs:
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
 
+    @property
+    @pulumi.getter(name="signingSecret")
+    def signing_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Signing Secret that will be used to sign the requests.
+        """
+        return pulumi.get(self, "signing_secret")
+
+    @signing_secret.setter
+    def signing_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signing_secret", value)
+
 
 @pulumi.input_type
 class _ChannelSlackState:
@@ -134,6 +150,7 @@ class _ChannelSlackState:
                  landing_page_url: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 signing_secret: Optional[pulumi.Input[str]] = None,
                  verification_token: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ChannelSlack resources.
@@ -143,6 +160,7 @@ class _ChannelSlackState:
         :param pulumi.Input[str] landing_page_url: The Slack Landing Page URL.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] signing_secret: The Signing Secret that will be used to sign the requests.
         :param pulumi.Input[str] verification_token: The Verification Token that will be used to authenticate with Slack.
         """
         if bot_name is not None:
@@ -157,6 +175,8 @@ class _ChannelSlackState:
             pulumi.set(__self__, "location", location)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if signing_secret is not None:
+            pulumi.set(__self__, "signing_secret", signing_secret)
         if verification_token is not None:
             pulumi.set(__self__, "verification_token", verification_token)
 
@@ -233,6 +253,18 @@ class _ChannelSlackState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="signingSecret")
+    def signing_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Signing Secret that will be used to sign the requests.
+        """
+        return pulumi.get(self, "signing_secret")
+
+    @signing_secret.setter
+    def signing_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signing_secret", value)
+
+    @property
     @pulumi.getter(name="verificationToken")
     def verification_token(self) -> Optional[pulumi.Input[str]]:
         """
@@ -256,6 +288,7 @@ class ChannelSlack(pulumi.CustomResource):
                  landing_page_url: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 signing_secret: Optional[pulumi.Input[str]] = None,
                  verification_token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -301,6 +334,7 @@ class ChannelSlack(pulumi.CustomResource):
         :param pulumi.Input[str] landing_page_url: The Slack Landing Page URL.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] signing_secret: The Signing Secret that will be used to sign the requests.
         :param pulumi.Input[str] verification_token: The Verification Token that will be used to authenticate with Slack.
         """
         ...
@@ -365,6 +399,7 @@ class ChannelSlack(pulumi.CustomResource):
                  landing_page_url: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 signing_secret: Optional[pulumi.Input[str]] = None,
                  verification_token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -392,6 +427,7 @@ class ChannelSlack(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["signing_secret"] = signing_secret
             if verification_token is None and not opts.urn:
                 raise TypeError("Missing required property 'verification_token'")
             __props__.__dict__["verification_token"] = verification_token
@@ -411,6 +447,7 @@ class ChannelSlack(pulumi.CustomResource):
             landing_page_url: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            signing_secret: Optional[pulumi.Input[str]] = None,
             verification_token: Optional[pulumi.Input[str]] = None) -> 'ChannelSlack':
         """
         Get an existing ChannelSlack resource's state with the given name, id, and optional extra
@@ -425,6 +462,7 @@ class ChannelSlack(pulumi.CustomResource):
         :param pulumi.Input[str] landing_page_url: The Slack Landing Page URL.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] signing_secret: The Signing Secret that will be used to sign the requests.
         :param pulumi.Input[str] verification_token: The Verification Token that will be used to authenticate with Slack.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -437,6 +475,7 @@ class ChannelSlack(pulumi.CustomResource):
         __props__.__dict__["landing_page_url"] = landing_page_url
         __props__.__dict__["location"] = location
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["signing_secret"] = signing_secret
         __props__.__dict__["verification_token"] = verification_token
         return ChannelSlack(resource_name, opts=opts, __props__=__props__)
 
@@ -487,6 +526,14 @@ class ChannelSlack(pulumi.CustomResource):
         The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="signingSecret")
+    def signing_secret(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Signing Secret that will be used to sign the requests.
+        """
+        return pulumi.get(self, "signing_secret")
 
     @property
     @pulumi.getter(name="verificationToken")

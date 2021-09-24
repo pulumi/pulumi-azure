@@ -81,6 +81,7 @@ namespace Pulumi.Azure.PrivateLink
         /// The name of the private endpoint.
         /// </summary>
         public readonly string Name;
+        public readonly ImmutableArray<Outputs.GetEndpointConnectionNetworkInterfaceResult> NetworkInterfaces;
         public readonly ImmutableArray<Outputs.GetEndpointConnectionPrivateServiceConnectionResult> PrivateServiceConnections;
         public readonly string ResourceGroupName;
 
@@ -92,6 +93,8 @@ namespace Pulumi.Azure.PrivateLink
 
             string name,
 
+            ImmutableArray<Outputs.GetEndpointConnectionNetworkInterfaceResult> networkInterfaces,
+
             ImmutableArray<Outputs.GetEndpointConnectionPrivateServiceConnectionResult> privateServiceConnections,
 
             string resourceGroupName)
@@ -99,6 +102,7 @@ namespace Pulumi.Azure.PrivateLink
             Id = id;
             Location = location;
             Name = name;
+            NetworkInterfaces = networkInterfaces;
             PrivateServiceConnections = privateServiceConnections;
             ResourceGroupName = resourceGroupName;
         }

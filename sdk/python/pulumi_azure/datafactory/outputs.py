@@ -40,6 +40,7 @@ __all__ = [
     'DatasetParquetSchemaColumn',
     'DatasetPostgresqlSchemaColumn',
     'DatasetSnowflakeSchemaColumn',
+    'DatasetSnowflakeStructureColumn',
     'DatasetSqlServerTableSchemaColumn',
     'FactoryGithubConfiguration',
     'FactoryGlobalParameter',
@@ -1673,6 +1674,60 @@ class DatasetPostgresqlSchemaColumn(dict):
 class DatasetSnowflakeSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
+                 precision: Optional[int] = None,
+                 scale: Optional[int] = None,
+                 type: Optional[str] = None):
+        """
+        :param str name: The name of the column.
+        :param int precision: The total number of digits allowed.
+        :param int scale: The number of digits allowed to the right of the decimal point.
+        :param str type: Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        The total number of digits allowed.
+        """
+        return pulumi.get(self, "precision")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[int]:
+        """
+        The number of digits allowed to the right of the decimal point.
+        """
+        return pulumi.get(self, "scale")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DatasetSnowflakeStructureColumn(dict):
+    def __init__(__self__, *,
+                 name: str,
                  description: Optional[str] = None,
                  type: Optional[str] = None):
         """
@@ -1909,8 +1964,8 @@ class FactoryIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
-        :param Sequence[str] identity_ids: Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+        :param str type: Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
         :param str principal_id: The ID of the Principal (Client) in Azure Active Directory
         :param str tenant_id: Specifies the Tenant ID associated with the VSTS account.
         """
@@ -1926,7 +1981,7 @@ class FactoryIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
+        Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -1934,7 +1989,7 @@ class FactoryIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+        Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
         """
         return pulumi.get(self, "identity_ids")
 

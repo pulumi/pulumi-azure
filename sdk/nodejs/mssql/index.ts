@@ -9,6 +9,7 @@ export * from "./database";
 export * from "./databaseExtendedAuditingPolicy";
 export * from "./databaseVulnerabilityAssessmentRuleBaseline";
 export * from "./elasticPool";
+export * from "./failoverGroup";
 export * from "./firewallRule";
 export * from "./getDatabase";
 export * from "./getElasticPool";
@@ -28,6 +29,7 @@ import { Database } from "./database";
 import { DatabaseExtendedAuditingPolicy } from "./databaseExtendedAuditingPolicy";
 import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
 import { ElasticPool } from "./elasticPool";
+import { FailoverGroup } from "./failoverGroup";
 import { FirewallRule } from "./firewallRule";
 import { JobAgent } from "./jobAgent";
 import { JobCredential } from "./jobCredential";
@@ -51,6 +53,8 @@ const _module = {
                 return new DatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
             case "azure:mssql/elasticPool:ElasticPool":
                 return new ElasticPool(name, <any>undefined, { urn })
+            case "azure:mssql/failoverGroup:FailoverGroup":
+                return new FailoverGroup(name, <any>undefined, { urn })
             case "azure:mssql/firewallRule:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
             case "azure:mssql/jobAgent:JobAgent":
@@ -80,6 +84,7 @@ pulumi.runtime.registerResourceModule("azure", "mssql/database", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/databaseExtendedAuditingPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/databaseVulnerabilityAssessmentRuleBaseline", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/elasticPool", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/failoverGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/firewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobAgent", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobCredential", _module)

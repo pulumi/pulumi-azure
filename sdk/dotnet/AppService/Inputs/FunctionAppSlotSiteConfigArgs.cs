@@ -122,6 +122,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }
 
+        [Input("vnetRouteAllEnabled")]
+        public Input<bool>? VnetRouteAllEnabled { get; set; }
+
         /// <summary>
         /// Should WebSockets be enabled?
         /// </summary>

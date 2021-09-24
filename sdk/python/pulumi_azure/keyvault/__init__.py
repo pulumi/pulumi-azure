@@ -21,6 +21,8 @@ from .get_secrets import *
 from .key import *
 from .key_vault import *
 from .managed_hardware_security_module import *
+from .managed_storage_account import *
+from .managed_storage_account_sas_token_definition import *
 from .secret import *
 from ._inputs import *
 from . import outputs

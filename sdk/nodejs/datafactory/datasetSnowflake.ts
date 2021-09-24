@@ -35,7 +35,9 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Data Factory Snowflake Datasets can be imported using the `resource id`, e.g.
+ * Data Factory Snowflake Datasets can be imported using the `resource id`,
+ *
+ * e.g.
  *
  * ```sh
  *  $ pulumi import azure:datafactory/datasetSnowflake:DatasetSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
@@ -114,6 +116,10 @@ export class DatasetSnowflake extends pulumi.CustomResource {
      */
     public readonly schemaName!: pulumi.Output<string | undefined>;
     /**
+     * @deprecated This block has been deprecated in favour of `schema_column` and will be removed.
+     */
+    public readonly structureColumns!: pulumi.Output<outputs.datafactory.DatasetSnowflakeStructureColumn[] | undefined>;
+    /**
      * The table name of the Data Factory Dataset Snowflake.
      */
     public readonly tableName!: pulumi.Output<string | undefined>;
@@ -142,6 +148,7 @@ export class DatasetSnowflake extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["schemaColumns"] = state ? state.schemaColumns : undefined;
             inputs["schemaName"] = state ? state.schemaName : undefined;
+            inputs["structureColumns"] = state ? state.structureColumns : undefined;
             inputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as DatasetSnowflakeArgs | undefined;
@@ -165,6 +172,7 @@ export class DatasetSnowflake extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["schemaColumns"] = args ? args.schemaColumns : undefined;
             inputs["schemaName"] = args ? args.schemaName : undefined;
+            inputs["structureColumns"] = args ? args.structureColumns : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
         }
         if (!opts.version) {
@@ -223,6 +231,10 @@ export interface DatasetSnowflakeState {
      */
     schemaName?: pulumi.Input<string>;
     /**
+     * @deprecated This block has been deprecated in favour of `schema_column` and will be removed.
+     */
+    structureColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetSnowflakeStructureColumn>[]>;
+    /**
      * The table name of the Data Factory Dataset Snowflake.
      */
     tableName?: pulumi.Input<string>;
@@ -276,6 +288,10 @@ export interface DatasetSnowflakeArgs {
      * The schema name of the Data Factory Dataset Snowflake.
      */
     schemaName?: pulumi.Input<string>;
+    /**
+     * @deprecated This block has been deprecated in favour of `schema_column` and will be removed.
+     */
+    structureColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetSnowflakeStructureColumn>[]>;
     /**
      * The table name of the Data Factory Dataset Snowflake.
      */

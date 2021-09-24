@@ -11,10 +11,12 @@ from . import outputs
 
 __all__ = [
     'EndpointCustomDnsConfig',
+    'EndpointNetworkInterface',
     'EndpointPrivateDnsZoneConfig',
     'EndpointPrivateDnsZoneConfigRecordSet',
     'EndpointPrivateDnsZoneGroup',
     'EndpointPrivateServiceConnection',
+    'GetEndpointConnectionNetworkInterfaceResult',
     'GetEndpointConnectionPrivateServiceConnectionResult',
     'GetServiceEndpointConnectionsPrivateEndpointConnectionResult',
     'GetServiceNatIpConfigurationResult',
@@ -66,6 +68,37 @@ class EndpointCustomDnsConfig(dict):
         A list of all IP Addresses that map to the `private_dns_zone` fqdn.
         """
         return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class EndpointNetworkInterface(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str id: The ID of the Private DNS Zone Config.
+        :param str name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the Private DNS Zone Config.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -398,6 +431,35 @@ class EndpointPrivateServiceConnection(dict):
         A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subresource_names")
+
+
+@pulumi.output_type
+class GetEndpointConnectionNetworkInterfaceResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        :param str id: The ID of the network interface associated with the private endpoint.
+        :param str name: Specifies the Name of the private endpoint.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the network interface associated with the private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the Name of the private endpoint.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

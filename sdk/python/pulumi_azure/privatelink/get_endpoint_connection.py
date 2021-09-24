@@ -21,7 +21,7 @@ class GetEndpointConnectionResult:
     """
     A collection of values returned by getEndpointConnection.
     """
-    def __init__(__self__, id=None, location=None, name=None, private_service_connections=None, resource_group_name=None):
+    def __init__(__self__, id=None, location=None, name=None, network_interfaces=None, private_service_connections=None, resource_group_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -31,6 +31,9 @@ class GetEndpointConnectionResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_interfaces and not isinstance(network_interfaces, list):
+            raise TypeError("Expected argument 'network_interfaces' to be a list")
+        pulumi.set(__self__, "network_interfaces", network_interfaces)
         if private_service_connections and not isinstance(private_service_connections, list):
             raise TypeError("Expected argument 'private_service_connections' to be a list")
         pulumi.set(__self__, "private_service_connections", private_service_connections)
@@ -63,6 +66,11 @@ class GetEndpointConnectionResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Sequence['outputs.GetEndpointConnectionNetworkInterfaceResult']:
+        return pulumi.get(self, "network_interfaces")
+
+    @property
     @pulumi.getter(name="privateServiceConnections")
     def private_service_connections(self) -> Sequence['outputs.GetEndpointConnectionPrivateServiceConnectionResult']:
         return pulumi.get(self, "private_service_connections")
@@ -82,6 +90,7 @@ class AwaitableGetEndpointConnectionResult(GetEndpointConnectionResult):
             id=self.id,
             location=self.location,
             name=self.name,
+            network_interfaces=self.network_interfaces,
             private_service_connections=self.private_service_connections,
             resource_group_name=self.resource_group_name)
 
@@ -120,6 +129,7 @@ def get_endpoint_connection(name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
+        network_interfaces=__ret__.network_interfaces,
         private_service_connections=__ret__.private_service_connections,
         resource_group_name=__ret__.resource_group_name)
 

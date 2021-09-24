@@ -3009,7 +3009,7 @@ type AppServiceSiteConfig struct {
 	ScmUseMainIpRestriction *bool `pulumi:"scmUseMainIpRestriction"`
 	// Should the App Service run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
-	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
 	VnetRouteAllEnabled *bool `pulumi:"vnetRouteAllEnabled"`
 	// Should WebSockets be enabled?
 	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
@@ -3084,7 +3084,7 @@ type AppServiceSiteConfigArgs struct {
 	ScmUseMainIpRestriction pulumi.BoolPtrInput `pulumi:"scmUseMainIpRestriction"`
 	// Should the App Service run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
-	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
 	VnetRouteAllEnabled pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
 	// Should WebSockets be enabled?
 	WebsocketsEnabled pulumi.BoolPtrInput `pulumi:"websocketsEnabled"`
@@ -3308,7 +3308,7 @@ func (o AppServiceSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
 }
 
-// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
 func (o AppServiceSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.VnetRouteAllEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -3626,7 +3626,7 @@ func (o AppServiceSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
 func (o AppServiceSiteConfigPtrOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppServiceSiteConfig) *bool {
 		if v == nil {
@@ -6995,6 +6995,8 @@ type FunctionAppSiteConfig struct {
 	ScmUseMainIpRestriction *bool `pulumi:"scmUseMainIpRestriction"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+	VnetRouteAllEnabled *bool `pulumi:"vnetRouteAllEnabled"`
 	// Should WebSockets be enabled?
 	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
 }
@@ -7048,6 +7050,8 @@ type FunctionAppSiteConfigArgs struct {
 	ScmUseMainIpRestriction pulumi.BoolPtrInput `pulumi:"scmUseMainIpRestriction"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
+	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+	VnetRouteAllEnabled pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
 	// Should WebSockets be enabled?
 	WebsocketsEnabled pulumi.BoolPtrInput `pulumi:"websocketsEnabled"`
 }
@@ -7221,6 +7225,11 @@ func (o FunctionAppSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOut
 // Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 func (o FunctionAppSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
+}
+
+// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+func (o FunctionAppSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) *bool { return v.VnetRouteAllEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should WebSockets be enabled?
@@ -7438,6 +7447,16 @@ func (o FunctionAppSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOu
 			return nil
 		}
 		return v.Use32BitWorkerProcess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+func (o FunctionAppSiteConfigPtrOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VnetRouteAllEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -9984,6 +10003,7 @@ type FunctionAppSlotSiteConfig struct {
 	ScmUseMainIpRestriction       *bool                                       `pulumi:"scmUseMainIpRestriction"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	VnetRouteAllEnabled   *bool `pulumi:"vnetRouteAllEnabled"`
 	// Should WebSockets be enabled?
 	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
 }
@@ -10033,6 +10053,7 @@ type FunctionAppSlotSiteConfigArgs struct {
 	ScmUseMainIpRestriction       pulumi.BoolPtrInput                                 `pulumi:"scmUseMainIpRestriction"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
+	VnetRouteAllEnabled   pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
 	// Should WebSockets be enabled?
 	WebsocketsEnabled pulumi.BoolPtrInput `pulumi:"websocketsEnabled"`
 }
@@ -10204,6 +10225,10 @@ func (o FunctionAppSlotSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolPt
 // Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 func (o FunctionAppSlotSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
+}
+
+func (o FunctionAppSlotSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *bool { return v.VnetRouteAllEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should WebSockets be enabled?
@@ -10417,6 +10442,15 @@ func (o FunctionAppSlotSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolP
 			return nil
 		}
 		return v.Use32BitWorkerProcess
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FunctionAppSlotSiteConfigPtrOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VnetRouteAllEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -16281,7 +16315,8 @@ type GetAppServiceSiteConfig struct {
 	ScmUseMainIpRestriction bool `pulumi:"scmUseMainIpRestriction"`
 	// Does the App Service run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess bool `pulumi:"use32BitWorkerProcess"`
-	VnetRouteAllEnabled   bool `pulumi:"vnetRouteAllEnabled"`
+	// (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
+	VnetRouteAllEnabled bool `pulumi:"vnetRouteAllEnabled"`
 	// Are WebSockets enabled for this App Service?
 	WebsocketsEnabled bool `pulumi:"websocketsEnabled"`
 	// Windows Container Docker Image for the AppService.
@@ -16354,7 +16389,8 @@ type GetAppServiceSiteConfigArgs struct {
 	ScmUseMainIpRestriction pulumi.BoolInput `pulumi:"scmUseMainIpRestriction"`
 	// Does the App Service run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess pulumi.BoolInput `pulumi:"use32BitWorkerProcess"`
-	VnetRouteAllEnabled   pulumi.BoolInput `pulumi:"vnetRouteAllEnabled"`
+	// (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
+	VnetRouteAllEnabled pulumi.BoolInput `pulumi:"vnetRouteAllEnabled"`
 	// Are WebSockets enabled for this App Service?
 	WebsocketsEnabled pulumi.BoolInput `pulumi:"websocketsEnabled"`
 	// Windows Container Docker Image for the AppService.
@@ -16547,6 +16583,7 @@ func (o GetAppServiceSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolOutput
 	return o.ApplyT(func(v GetAppServiceSiteConfig) bool { return v.Use32BitWorkerProcess }).(pulumi.BoolOutput)
 }
 
+// (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
 func (o GetAppServiceSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfig) bool { return v.VnetRouteAllEnabled }).(pulumi.BoolOutput)
 }
@@ -17966,6 +18003,8 @@ type GetFunctionAppSiteConfig struct {
 	ScmUseMainIpRestriction bool `pulumi:"scmUseMainIpRestriction"`
 	// Does the App Service run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess bool `pulumi:"use32BitWorkerProcess"`
+	// (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
+	VnetRouteAllEnabled bool `pulumi:"vnetRouteAllEnabled"`
 	// Are WebSockets enabled for this App Service?
 	WebsocketsEnabled bool `pulumi:"websocketsEnabled"`
 }
@@ -18018,6 +18057,8 @@ type GetFunctionAppSiteConfigArgs struct {
 	ScmUseMainIpRestriction pulumi.BoolInput `pulumi:"scmUseMainIpRestriction"`
 	// Does the App Service run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess pulumi.BoolInput `pulumi:"use32BitWorkerProcess"`
+	// (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
+	VnetRouteAllEnabled pulumi.BoolInput `pulumi:"vnetRouteAllEnabled"`
 	// Are WebSockets enabled for this App Service?
 	WebsocketsEnabled pulumi.BoolInput `pulumi:"websocketsEnabled"`
 }
@@ -18166,6 +18207,11 @@ func (o GetFunctionAppSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolOut
 // Does the App Service run in 32 bit mode, rather than 64 bit mode?
 func (o GetFunctionAppSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfig) bool { return v.Use32BitWorkerProcess }).(pulumi.BoolOutput)
+}
+
+// (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
+func (o GetFunctionAppSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) bool { return v.VnetRouteAllEnabled }).(pulumi.BoolOutput)
 }
 
 // Are WebSockets enabled for this App Service?

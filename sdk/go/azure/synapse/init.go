@@ -39,12 +39,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SparkPool{}
 	case "azure:synapse/sqlPool:SqlPool":
 		r = &SqlPool{}
+	case "azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy":
+		r = &SqlPoolExtendedAuditingPolicy{}
 	case "azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy":
 		r = &SqlPoolSecurityAlertPolicy{}
 	case "azure:synapse/sqlPoolVulnerabilityAssessment:SqlPoolVulnerabilityAssessment":
 		r = &SqlPoolVulnerabilityAssessment{}
 	case "azure:synapse/workspace:Workspace":
 		r = &Workspace{}
+	case "azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy":
+		r = &WorkspaceExtendedAuditingPolicy{}
 	case "azure:synapse/workspaceKey:WorkspaceKey":
 		r = &WorkspaceKey{}
 	case "azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy":
@@ -111,6 +115,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"synapse/sqlPoolExtendedAuditingPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"synapse/sqlPoolSecurityAlertPolicy",
 		&module{version},
 	)
@@ -122,6 +131,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"synapse/workspace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"synapse/workspaceExtendedAuditingPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
