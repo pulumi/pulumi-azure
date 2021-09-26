@@ -52,7 +52,9 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// ## Import
     /// 
-    /// Data Factory Snowflake Datasets can be imported using the `resource id`, e.g.
+    /// Data Factory Snowflake Datasets can be imported using the `resource id`,
+    /// 
+    /// e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:datafactory/datasetSnowflake:DatasetSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
@@ -126,6 +128,9 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("schemaName")]
         public Output<string?> SchemaName { get; private set; } = null!;
+
+        [Output("structureColumns")]
+        public Output<ImmutableArray<Outputs.DatasetSnowflakeStructureColumn>> StructureColumns { get; private set; } = null!;
 
         /// <summary>
         /// The table name of the Data Factory Dataset Snowflake.
@@ -269,6 +274,15 @@ namespace Pulumi.Azure.DataFactory
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }
 
+        [Input("structureColumns")]
+        private InputList<Inputs.DatasetSnowflakeStructureColumnArgs>? _structureColumns;
+        [Obsolete(@"This block has been deprecated in favour of `schema_column` and will be removed.")]
+        public InputList<Inputs.DatasetSnowflakeStructureColumnArgs> StructureColumns
+        {
+            get => _structureColumns ?? (_structureColumns = new InputList<Inputs.DatasetSnowflakeStructureColumnArgs>());
+            set => _structureColumns = value;
+        }
+
         /// <summary>
         /// The table name of the Data Factory Dataset Snowflake.
         /// </summary>
@@ -371,6 +385,15 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }
+
+        [Input("structureColumns")]
+        private InputList<Inputs.DatasetSnowflakeStructureColumnGetArgs>? _structureColumns;
+        [Obsolete(@"This block has been deprecated in favour of `schema_column` and will be removed.")]
+        public InputList<Inputs.DatasetSnowflakeStructureColumnGetArgs> StructureColumns
+        {
+            get => _structureColumns ?? (_structureColumns = new InputList<Inputs.DatasetSnowflakeStructureColumnGetArgs>());
+            set => _structureColumns = value;
+        }
 
         /// <summary>
         /// The table name of the Data Factory Dataset Snowflake.

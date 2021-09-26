@@ -94,6 +94,10 @@ export class ChannelSlack extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The Signing Secret that will be used to sign the requests.
+     */
+    public readonly signingSecret!: pulumi.Output<string | undefined>;
+    /**
      * The Verification Token that will be used to authenticate with Slack.
      */
     public readonly verificationToken!: pulumi.Output<string>;
@@ -117,6 +121,7 @@ export class ChannelSlack extends pulumi.CustomResource {
             inputs["landingPageUrl"] = state ? state.landingPageUrl : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["signingSecret"] = state ? state.signingSecret : undefined;
             inputs["verificationToken"] = state ? state.verificationToken : undefined;
         } else {
             const args = argsOrState as ChannelSlackArgs | undefined;
@@ -141,6 +146,7 @@ export class ChannelSlack extends pulumi.CustomResource {
             inputs["landingPageUrl"] = args ? args.landingPageUrl : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["signingSecret"] = args ? args.signingSecret : undefined;
             inputs["verificationToken"] = args ? args.verificationToken : undefined;
         }
         if (!opts.version) {
@@ -179,6 +185,10 @@ export interface ChannelSlackState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * The Signing Secret that will be used to sign the requests.
+     */
+    signingSecret?: pulumi.Input<string>;
+    /**
      * The Verification Token that will be used to authenticate with Slack.
      */
     verificationToken?: pulumi.Input<string>;
@@ -212,6 +222,10 @@ export interface ChannelSlackArgs {
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Signing Secret that will be used to sign the requests.
+     */
+    signingSecret?: pulumi.Input<string>;
     /**
      * The Verification Token that will be used to authenticate with Slack.
      */

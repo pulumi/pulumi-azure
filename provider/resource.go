@@ -952,11 +952,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iot_security_device_group": {Tok: azureResource(azureIot, "SecurityDeviceGroup")},
 
 			// KeyVault
-			"azurerm_key_vault":                    {Tok: azureResource(azureKeyVault, "KeyVault")},
-			"azurerm_key_vault_access_policy":      {Tok: azureResource(azureKeyVault, "AccessPolicy")},
-			"azurerm_key_vault_key":                {Tok: azureResource(azureKeyVault, "Key")},
-			"azurerm_key_vault_secret":             {Tok: azureResource(azureKeyVault, "Secret")},
-			"azurerm_key_vault_certificate_issuer": {Tok: azureResource(azureKeyVault, "CertificateIssuer")},
+			"azurerm_key_vault":                         {Tok: azureResource(azureKeyVault, "KeyVault")},
+			"azurerm_key_vault_access_policy":           {Tok: azureResource(azureKeyVault, "AccessPolicy")},
+			"azurerm_key_vault_key":                     {Tok: azureResource(azureKeyVault, "Key")},
+			"azurerm_key_vault_secret":                  {Tok: azureResource(azureKeyVault, "Secret")},
+			"azurerm_key_vault_certificate_issuer":      {Tok: azureResource(azureKeyVault, "CertificateIssuer")},
+			"azurerm_key_vault_managed_storage_account": {Tok: azureResource(azureKeyVault, "ManagedStorageAccount")},
+			"azurerm_key_vault_managed_storage_account_sas_token_definition": {
+				Tok: azureResource(azureKeyVault, "ManagedStorageAccountSasTokenDefinition"),
+			},
 			"azurerm_key_vault_managed_hardware_security_module": {
 				Tok: azureResource(azureKeyVault, "ManagedHardwareSecurityModule"),
 			},
@@ -1198,6 +1202,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_job_agent":                          {Tok: azureResource(azureMSSQL, "JobAgent")},
 			"azurerm_mssql_job_credential":                     {Tok: azureResource(azureMSSQL, "JobCredential")},
 			"azurerm_mssql_server_transparent_data_encryption": {Tok: azureResource(azureMSSQL, "ServerTransparentDataEncryption")},
+			"azurerm_mssql_failover_group":                     {Tok: azureResource(azureMSSQL, "FailoverGroup")},
 
 			// MySQL
 			"azurerm_mysql_configuration": {
@@ -1722,6 +1727,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"azurerm_frontdoor_rules_engine": {Tok: azureResource(azureFrontdoor, "RulesEngine")},
 
 			// Bot
 			"azurerm_bot_channels_registration":      {Tok: azureResource(azureBot, "ChannelsRegistration")},
@@ -1894,6 +1900,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_synapse_workspace_security_alert_policy":    {Tok: azureResource(azureSynapse, "WorkspaceSecurityAlertPolicy")},
 			"azurerm_synapse_workspace_vulnerability_assessment": {Tok: azureResource(azureSynapse, "WorkspaceVulnerabilityAssessment")},
 			"azurerm_synapse_workspace_key":                      {Tok: azureResource(azureSynapse, "WorkspaceKey")},
+			"azurerm_synapse_sql_pool_extended_auditing_policy":  {Tok: azureResource(azureSynapse, "SqlPoolExtendedAuditingPolicy")},
+			"azurerm_synapse_workspace_extended_auditing_policy": {Tok: azureResource(azureSynapse, "WorkspaceExtendedAuditingPolicy")},
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},

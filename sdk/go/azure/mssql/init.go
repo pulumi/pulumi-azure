@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DatabaseVulnerabilityAssessmentRuleBaseline{}
 	case "azure:mssql/elasticPool:ElasticPool":
 		r = &ElasticPool{}
+	case "azure:mssql/failoverGroup:FailoverGroup":
+		r = &FailoverGroup{}
 	case "azure:mssql/firewallRule:FirewallRule":
 		r = &FirewallRule{}
 	case "azure:mssql/jobAgent:JobAgent":
@@ -80,6 +82,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mssql/elasticPool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/failoverGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

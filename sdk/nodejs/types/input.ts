@@ -2093,7 +2093,7 @@ export namespace appservice {
          */
         use32BitWorkerProcess?: pulumi.Input<boolean>;
         /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
@@ -2567,6 +2567,10 @@ export namespace appservice {
          */
         use32BitWorkerProcess?: pulumi.Input<boolean>;
         /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
+        /**
          * Should WebSockets be enabled?
          */
         websocketsEnabled?: pulumi.Input<boolean>;
@@ -2914,6 +2918,7 @@ export namespace appservice {
          * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          */
         use32BitWorkerProcess?: pulumi.Input<boolean>;
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
          * Should WebSockets be enabled?
          */
@@ -9568,6 +9573,25 @@ export namespace datafactory {
 
     export interface DatasetSnowflakeSchemaColumn {
         /**
+         * The name of the column.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The total number of digits allowed.
+         */
+        precision?: pulumi.Input<number>;
+        /**
+         * The number of digits allowed to the right of the decimal point.
+         */
+        scale?: pulumi.Input<number>;
+        /**
+         * Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface DatasetSnowflakeStructureColumn {
+        /**
          * The description of the column.
          */
         description?: pulumi.Input<string>;
@@ -9636,7 +9660,7 @@ export namespace datafactory {
 
     export interface FactoryIdentity {
         /**
-         * Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+         * Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -9648,7 +9672,7 @@ export namespace datafactory {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
+         * Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -12736,6 +12760,90 @@ export namespace frontdoor {
          * Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
          */
         redirectType: pulumi.Input<string>;
+    }
+
+    export interface RulesEngineRule {
+        /**
+         * A `ruleAction` block as defined below.
+         */
+        action?: pulumi.Input<inputs.frontdoor.RulesEngineRuleAction>;
+        /**
+         * One or more `matchCondition` block as defined below.
+         */
+        matchConditions?: pulumi.Input<pulumi.Input<inputs.frontdoor.RulesEngineRuleMatchCondition>[]>;
+        /**
+         * The name of the rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Priority of the rule, must be unique per rules engine definition.
+         */
+        priority: pulumi.Input<number>;
+    }
+
+    export interface RulesEngineRuleAction {
+        /**
+         * A `requestHeader` block as defined below.
+         */
+        requestHeaders?: pulumi.Input<pulumi.Input<inputs.frontdoor.RulesEngineRuleActionRequestHeader>[]>;
+        /**
+         * A `responseHeader` block as defined below.
+         */
+        responseHeaders?: pulumi.Input<pulumi.Input<inputs.frontdoor.RulesEngineRuleActionResponseHeader>[]>;
+    }
+
+    export interface RulesEngineRuleActionRequestHeader {
+        /**
+         * can be set to `Overwrite`, `Append` or `Delete`.
+         */
+        headerActionType?: pulumi.Input<string>;
+        /**
+         * header name (string).
+         */
+        headerName?: pulumi.Input<string>;
+        /**
+         * value name (string).
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface RulesEngineRuleActionResponseHeader {
+        /**
+         * can be set to `Overwrite`, `Append` or `Delete`.
+         */
+        headerActionType?: pulumi.Input<string>;
+        /**
+         * header name (string).
+         */
+        headerName?: pulumi.Input<string>;
+        /**
+         * value name (string).
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface RulesEngineRuleMatchCondition {
+        /**
+         * can be set to `true` or `false` to negate the given condition.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
+         */
+        operator: pulumi.Input<string>;
+        selector?: pulumi.Input<string>;
+        /**
+         * can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * can contain one or more strings.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
+         */
+        variable?: pulumi.Input<string>;
     }
 }
 
@@ -18588,6 +18696,32 @@ export namespace mssql {
         tier: pulumi.Input<string>;
     }
 
+    export interface FailoverGroupPartnerServer {
+        /**
+         * The ID of a partner SQL server to include in the failover group.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * The location of the partner server.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * The replication role of the partner server. Possible values include `Primary` or `Secondary`.
+         */
+        role?: pulumi.Input<string>;
+    }
+
+    export interface FailoverGroupReadWriteEndpointFailoverPolicy {
+        /**
+         * The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
+         */
+        graceMinutes?: pulumi.Input<number>;
+        /**
+         * The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
+         */
+        mode: pulumi.Input<string>;
+    }
+
     export interface ServerAzureadAdministrator {
         /**
          * (Required)  The login username of the Azure AD Administrator of this SQL Server.
@@ -22163,6 +22297,17 @@ export namespace privatelink {
          * A list of all IP Addresses that map to the `privateDnsZone` fqdn.
          */
         ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EndpointNetworkInterface {
+        /**
+         * The ID of the Private DNS Zone Config.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
     }
 
     export interface EndpointPrivateDnsZoneConfig {

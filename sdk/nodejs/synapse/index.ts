@@ -15,9 +15,11 @@ export * from "./privateLinkHub";
 export * from "./roleAssignment";
 export * from "./sparkPool";
 export * from "./sqlPool";
+export * from "./sqlPoolExtendedAuditingPolicy";
 export * from "./sqlPoolSecurityAlertPolicy";
 export * from "./sqlPoolVulnerabilityAssessment";
 export * from "./workspace";
+export * from "./workspaceExtendedAuditingPolicy";
 export * from "./workspaceKey";
 export * from "./workspaceSecurityAlertPolicy";
 export * from "./workspaceVulnerabilityAssessment";
@@ -32,9 +34,11 @@ import { PrivateLinkHub } from "./privateLinkHub";
 import { RoleAssignment } from "./roleAssignment";
 import { SparkPool } from "./sparkPool";
 import { SqlPool } from "./sqlPool";
+import { SqlPoolExtendedAuditingPolicy } from "./sqlPoolExtendedAuditingPolicy";
 import { SqlPoolSecurityAlertPolicy } from "./sqlPoolSecurityAlertPolicy";
 import { SqlPoolVulnerabilityAssessment } from "./sqlPoolVulnerabilityAssessment";
 import { Workspace } from "./workspace";
+import { WorkspaceExtendedAuditingPolicy } from "./workspaceExtendedAuditingPolicy";
 import { WorkspaceKey } from "./workspaceKey";
 import { WorkspaceSecurityAlertPolicy } from "./workspaceSecurityAlertPolicy";
 import { WorkspaceVulnerabilityAssessment } from "./workspaceVulnerabilityAssessment";
@@ -61,12 +65,16 @@ const _module = {
                 return new SparkPool(name, <any>undefined, { urn })
             case "azure:synapse/sqlPool:SqlPool":
                 return new SqlPool(name, <any>undefined, { urn })
+            case "azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy":
+                return new SqlPoolExtendedAuditingPolicy(name, <any>undefined, { urn })
             case "azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy":
                 return new SqlPoolSecurityAlertPolicy(name, <any>undefined, { urn })
             case "azure:synapse/sqlPoolVulnerabilityAssessment:SqlPoolVulnerabilityAssessment":
                 return new SqlPoolVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure:synapse/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
+            case "azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy":
+                return new WorkspaceExtendedAuditingPolicy(name, <any>undefined, { urn })
             case "azure:synapse/workspaceKey:WorkspaceKey":
                 return new WorkspaceKey(name, <any>undefined, { urn })
             case "azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy":
@@ -87,9 +95,11 @@ pulumi.runtime.registerResourceModule("azure", "synapse/privateLinkHub", _module
 pulumi.runtime.registerResourceModule("azure", "synapse/roleAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/sparkPool", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/sqlPool", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolExtendedAuditingPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolSecurityAlertPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspace", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/workspaceExtendedAuditingPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspaceKey", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspaceSecurityAlertPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspaceVulnerabilityAssessment", _module)

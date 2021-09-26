@@ -198,6 +198,7 @@ type Endpoint struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
 	Name                  pulumi.StringOutput                     `pulumi:"name"`
+	NetworkInterfaces     EndpointNetworkInterfaceArrayOutput     `pulumi:"networkInterfaces"`
 	PrivateDnsZoneConfigs EndpointPrivateDnsZoneConfigArrayOutput `pulumi:"privateDnsZoneConfigs"`
 	// A `privateDnsZoneGroup` block as defined below.
 	PrivateDnsZoneGroup EndpointPrivateDnsZoneGroupPtrOutput `pulumi:"privateDnsZoneGroup"`
@@ -254,6 +255,7 @@ type endpointState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
 	Name                  *string                        `pulumi:"name"`
+	NetworkInterfaces     []EndpointNetworkInterface     `pulumi:"networkInterfaces"`
 	PrivateDnsZoneConfigs []EndpointPrivateDnsZoneConfig `pulumi:"privateDnsZoneConfigs"`
 	// A `privateDnsZoneGroup` block as defined below.
 	PrivateDnsZoneGroup *EndpointPrivateDnsZoneGroup `pulumi:"privateDnsZoneGroup"`
@@ -273,6 +275,7 @@ type EndpointState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
 	Name                  pulumi.StringPtrInput
+	NetworkInterfaces     EndpointNetworkInterfaceArrayInput
 	PrivateDnsZoneConfigs EndpointPrivateDnsZoneConfigArrayInput
 	// A `privateDnsZoneGroup` block as defined below.
 	PrivateDnsZoneGroup EndpointPrivateDnsZoneGroupPtrInput

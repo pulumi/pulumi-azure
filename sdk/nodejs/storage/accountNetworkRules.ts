@@ -105,10 +105,18 @@ export class AccountNetworkRules extends pulumi.CustomResource {
     public readonly privateLinkAccessRules!: pulumi.Output<outputs.storage.AccountNetworkRulesPrivateLinkAccessRule[] | undefined>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+     *
+     * @deprecated Deprecated in favour of `storage_account_id`
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Specifies the ID of the storage account. Changing this forces a new resource to be created.
+     */
+    public readonly storageAccountId!: pulumi.Output<string>;
+    /**
      * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+     *
+     * @deprecated Deprecated in favour of `storage_account_id`
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
@@ -134,6 +142,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
             inputs["ipRules"] = state ? state.ipRules : undefined;
             inputs["privateLinkAccessRules"] = state ? state.privateLinkAccessRules : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
             inputs["virtualNetworkSubnetIds"] = state ? state.virtualNetworkSubnetIds : undefined;
         } else {
@@ -141,17 +150,12 @@ export class AccountNetworkRules extends pulumi.CustomResource {
             if ((!args || args.defaultAction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountName'");
-            }
             inputs["bypasses"] = args ? args.bypasses : undefined;
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
             inputs["ipRules"] = args ? args.ipRules : undefined;
             inputs["privateLinkAccessRules"] = args ? args.privateLinkAccessRules : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["virtualNetworkSubnetIds"] = args ? args.virtualNetworkSubnetIds : undefined;
         }
@@ -184,10 +188,18 @@ export interface AccountNetworkRulesState {
     privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[]>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+     *
+     * @deprecated Deprecated in favour of `storage_account_id`
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * Specifies the ID of the storage account. Changing this forces a new resource to be created.
+     */
+    storageAccountId?: pulumi.Input<string>;
+    /**
      * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+     *
+     * @deprecated Deprecated in favour of `storage_account_id`
      */
     storageAccountName?: pulumi.Input<string>;
     /**
@@ -218,12 +230,20 @@ export interface AccountNetworkRulesArgs {
     privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[]>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+     *
+     * @deprecated Deprecated in favour of `storage_account_id`
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Specifies the ID of the storage account. Changing this forces a new resource to be created.
+     */
+    storageAccountId?: pulumi.Input<string>;
     /**
      * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+     *
+     * @deprecated Deprecated in favour of `storage_account_id`
      */
-    storageAccountName: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
     /**
      * A list of virtual network subnet ids to to secure the storage account.
      */

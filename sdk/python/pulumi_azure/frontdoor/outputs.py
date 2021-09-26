@@ -28,6 +28,11 @@ __all__ = [
     'FrontdoorRoutingRule',
     'FrontdoorRoutingRuleForwardingConfiguration',
     'FrontdoorRoutingRuleRedirectConfiguration',
+    'RulesEngineRule',
+    'RulesEngineRuleAction',
+    'RulesEngineRuleActionRequestHeader',
+    'RulesEngineRuleActionResponseHeader',
+    'RulesEngineRuleMatchCondition',
 ]
 
 @pulumi.output_type
@@ -1628,5 +1633,340 @@ class FrontdoorRoutingRuleRedirectConfiguration(dict):
         Replace any existing query string from the incoming request URL.
         """
         return pulumi.get(self, "custom_query_string")
+
+
+@pulumi.output_type
+class RulesEngineRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchConditions":
+            suggest = "match_conditions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulesEngineRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulesEngineRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulesEngineRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 priority: int,
+                 action: Optional['outputs.RulesEngineRuleAction'] = None,
+                 match_conditions: Optional[Sequence['outputs.RulesEngineRuleMatchCondition']] = None):
+        """
+        :param str name: The name of the rule.
+        :param int priority: Priority of the rule, must be unique per rules engine definition.
+        :param 'RulesEngineRuleActionArgs' action: A `rule_action` block as defined below.
+        :param Sequence['RulesEngineRuleMatchConditionArgs'] match_conditions: One or more `match_condition` block as defined below.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if match_conditions is not None:
+            pulumi.set(__self__, "match_conditions", match_conditions)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Priority of the rule, must be unique per rules engine definition.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.RulesEngineRuleAction']:
+        """
+        A `rule_action` block as defined below.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="matchConditions")
+    def match_conditions(self) -> Optional[Sequence['outputs.RulesEngineRuleMatchCondition']]:
+        """
+        One or more `match_condition` block as defined below.
+        """
+        return pulumi.get(self, "match_conditions")
+
+
+@pulumi.output_type
+class RulesEngineRuleAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestHeaders":
+            suggest = "request_headers"
+        elif key == "responseHeaders":
+            suggest = "response_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulesEngineRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulesEngineRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulesEngineRuleAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 request_headers: Optional[Sequence['outputs.RulesEngineRuleActionRequestHeader']] = None,
+                 response_headers: Optional[Sequence['outputs.RulesEngineRuleActionResponseHeader']] = None):
+        """
+        :param Sequence['RulesEngineRuleActionRequestHeaderArgs'] request_headers: A `request_header` block as defined below.
+        :param Sequence['RulesEngineRuleActionResponseHeaderArgs'] response_headers: A `response_header` block as defined below.
+        """
+        if request_headers is not None:
+            pulumi.set(__self__, "request_headers", request_headers)
+        if response_headers is not None:
+            pulumi.set(__self__, "response_headers", response_headers)
+
+    @property
+    @pulumi.getter(name="requestHeaders")
+    def request_headers(self) -> Optional[Sequence['outputs.RulesEngineRuleActionRequestHeader']]:
+        """
+        A `request_header` block as defined below.
+        """
+        return pulumi.get(self, "request_headers")
+
+    @property
+    @pulumi.getter(name="responseHeaders")
+    def response_headers(self) -> Optional[Sequence['outputs.RulesEngineRuleActionResponseHeader']]:
+        """
+        A `response_header` block as defined below.
+        """
+        return pulumi.get(self, "response_headers")
+
+
+@pulumi.output_type
+class RulesEngineRuleActionRequestHeader(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerActionType":
+            suggest = "header_action_type"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulesEngineRuleActionRequestHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulesEngineRuleActionRequestHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulesEngineRuleActionRequestHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_action_type: Optional[str] = None,
+                 header_name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str header_action_type: can be set to `Overwrite`, `Append` or `Delete`.
+        :param str header_name: header name (string).
+        :param str value: value name (string).
+        """
+        if header_action_type is not None:
+            pulumi.set(__self__, "header_action_type", header_action_type)
+        if header_name is not None:
+            pulumi.set(__self__, "header_name", header_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="headerActionType")
+    def header_action_type(self) -> Optional[str]:
+        """
+        can be set to `Overwrite`, `Append` or `Delete`.
+        """
+        return pulumi.get(self, "header_action_type")
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> Optional[str]:
+        """
+        header name (string).
+        """
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        value name (string).
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RulesEngineRuleActionResponseHeader(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerActionType":
+            suggest = "header_action_type"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulesEngineRuleActionResponseHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulesEngineRuleActionResponseHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulesEngineRuleActionResponseHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_action_type: Optional[str] = None,
+                 header_name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str header_action_type: can be set to `Overwrite`, `Append` or `Delete`.
+        :param str header_name: header name (string).
+        :param str value: value name (string).
+        """
+        if header_action_type is not None:
+            pulumi.set(__self__, "header_action_type", header_action_type)
+        if header_name is not None:
+            pulumi.set(__self__, "header_name", header_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="headerActionType")
+    def header_action_type(self) -> Optional[str]:
+        """
+        can be set to `Overwrite`, `Append` or `Delete`.
+        """
+        return pulumi.get(self, "header_action_type")
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> Optional[str]:
+        """
+        header name (string).
+        """
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        value name (string).
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RulesEngineRuleMatchCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulesEngineRuleMatchCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulesEngineRuleMatchCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulesEngineRuleMatchCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator: str,
+                 negate_condition: Optional[bool] = None,
+                 selector: Optional[str] = None,
+                 transforms: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None,
+                 variable: Optional[str] = None):
+        """
+        :param str operator: can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
+        :param bool negate_condition: can be set to `true` or `false` to negate the given condition.
+        :param Sequence[str] transforms: can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
+        :param Sequence[str] values: can contain one or more strings.
+        :param str variable: can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if variable is not None:
+            pulumi.set(__self__, "variable", variable)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        can be set to `true` or `false` to negate the given condition.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
+        """
+        return pulumi.get(self, "transforms")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        can contain one or more strings.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter
+    def variable(self) -> Optional[str]:
+        """
+        can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
+        """
+        return pulumi.get(self, "variable")
 
 

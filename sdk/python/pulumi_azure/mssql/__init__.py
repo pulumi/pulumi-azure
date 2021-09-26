@@ -9,6 +9,7 @@ from .database import *
 from .database_extended_auditing_policy import *
 from .database_vulnerability_assessment_rule_baseline import *
 from .elastic_pool import *
+from .failover_group import *
 from .firewall_rule import *
 from .get_database import *
 from .get_elastic_pool import *

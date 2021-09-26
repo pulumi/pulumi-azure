@@ -94,6 +94,12 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+        /// </summary>
+        [Output("discoveryUrl")]
+        public Output<string> DiscoveryUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Friendly name for this Machine Learning Workspace.
         /// </summary>
         [Output("friendlyName")]
@@ -112,6 +118,12 @@ namespace Pulumi.Azure.MachineLearning
         public Output<Outputs.WorkspaceIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The compute name for image build of the Machine Learning Workspace.
+        /// </summary>
+        [Output("imageBuildComputeName")]
+        public Output<string?> ImageBuildComputeName { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keyVaultId")]
@@ -128,6 +140,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable public access when this Machine Learning Workspace is behind VNet.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -236,6 +254,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.WorkspaceIdentityArgs> Identity { get; set; } = null!;
 
         /// <summary>
+        /// The compute name for image build of the Machine Learning Workspace.
+        /// </summary>
+        [Input("imageBuildComputeName")]
+        public Input<string>? ImageBuildComputeName { get; set; }
+
+        /// <summary>
         /// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultId", required: true)]
@@ -252,6 +276,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Enable public access when this Machine Learning Workspace is behind VNet.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -309,6 +339,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+        /// </summary>
+        [Input("discoveryUrl")]
+        public Input<string>? DiscoveryUrl { get; set; }
+
+        /// <summary>
         /// Friendly name for this Machine Learning Workspace.
         /// </summary>
         [Input("friendlyName")]
@@ -327,6 +363,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.WorkspaceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
+        /// The compute name for image build of the Machine Learning Workspace.
+        /// </summary>
+        [Input("imageBuildComputeName")]
+        public Input<string>? ImageBuildComputeName { get; set; }
+
+        /// <summary>
         /// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultId")]
@@ -343,6 +385,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Enable public access when this Machine Learning Workspace is behind VNet.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.

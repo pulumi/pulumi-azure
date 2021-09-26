@@ -4624,11 +4624,13 @@ func (o DatasetPostgresqlSchemaColumnArrayOutput) Index(i pulumi.IntInput) Datas
 }
 
 type DatasetSnowflakeSchemaColumn struct {
-	// The description of the column.
-	Description *string `pulumi:"description"`
 	// The name of the column.
 	Name string `pulumi:"name"`
-	// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+	// The total number of digits allowed.
+	Precision *int `pulumi:"precision"`
+	// The number of digits allowed to the right of the decimal point.
+	Scale *int `pulumi:"scale"`
+	// Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
 	Type *string `pulumi:"type"`
 }
 
@@ -4644,11 +4646,13 @@ type DatasetSnowflakeSchemaColumnInput interface {
 }
 
 type DatasetSnowflakeSchemaColumnArgs struct {
-	// The description of the column.
-	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The name of the column.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+	// The total number of digits allowed.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// The number of digits allowed to the right of the decimal point.
+	Scale pulumi.IntPtrInput `pulumi:"scale"`
+	// Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -4703,17 +4707,22 @@ func (o DatasetSnowflakeSchemaColumnOutput) ToDatasetSnowflakeSchemaColumnOutput
 	return o
 }
 
-// The description of the column.
-func (o DatasetSnowflakeSchemaColumnOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetSnowflakeSchemaColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
 // The name of the column.
 func (o DatasetSnowflakeSchemaColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetSnowflakeSchemaColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+// The total number of digits allowed.
+func (o DatasetSnowflakeSchemaColumnOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatasetSnowflakeSchemaColumn) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// The number of digits allowed to the right of the decimal point.
+func (o DatasetSnowflakeSchemaColumnOutput) Scale() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatasetSnowflakeSchemaColumn) *int { return v.Scale }).(pulumi.IntPtrOutput)
+}
+
+// Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
 func (o DatasetSnowflakeSchemaColumnOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetSnowflakeSchemaColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4736,6 +4745,121 @@ func (o DatasetSnowflakeSchemaColumnArrayOutput) Index(i pulumi.IntInput) Datase
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetSnowflakeSchemaColumn {
 		return vs[0].([]DatasetSnowflakeSchemaColumn)[vs[1].(int)]
 	}).(DatasetSnowflakeSchemaColumnOutput)
+}
+
+type DatasetSnowflakeStructureColumn struct {
+	// The description of the column.
+	Description *string `pulumi:"description"`
+	// The name of the column.
+	Name string `pulumi:"name"`
+	// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+	Type *string `pulumi:"type"`
+}
+
+// DatasetSnowflakeStructureColumnInput is an input type that accepts DatasetSnowflakeStructureColumnArgs and DatasetSnowflakeStructureColumnOutput values.
+// You can construct a concrete instance of `DatasetSnowflakeStructureColumnInput` via:
+//
+//          DatasetSnowflakeStructureColumnArgs{...}
+type DatasetSnowflakeStructureColumnInput interface {
+	pulumi.Input
+
+	ToDatasetSnowflakeStructureColumnOutput() DatasetSnowflakeStructureColumnOutput
+	ToDatasetSnowflakeStructureColumnOutputWithContext(context.Context) DatasetSnowflakeStructureColumnOutput
+}
+
+type DatasetSnowflakeStructureColumnArgs struct {
+	// The description of the column.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the column.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DatasetSnowflakeStructureColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSnowflakeStructureColumn)(nil)).Elem()
+}
+
+func (i DatasetSnowflakeStructureColumnArgs) ToDatasetSnowflakeStructureColumnOutput() DatasetSnowflakeStructureColumnOutput {
+	return i.ToDatasetSnowflakeStructureColumnOutputWithContext(context.Background())
+}
+
+func (i DatasetSnowflakeStructureColumnArgs) ToDatasetSnowflakeStructureColumnOutputWithContext(ctx context.Context) DatasetSnowflakeStructureColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakeStructureColumnOutput)
+}
+
+// DatasetSnowflakeStructureColumnArrayInput is an input type that accepts DatasetSnowflakeStructureColumnArray and DatasetSnowflakeStructureColumnArrayOutput values.
+// You can construct a concrete instance of `DatasetSnowflakeStructureColumnArrayInput` via:
+//
+//          DatasetSnowflakeStructureColumnArray{ DatasetSnowflakeStructureColumnArgs{...} }
+type DatasetSnowflakeStructureColumnArrayInput interface {
+	pulumi.Input
+
+	ToDatasetSnowflakeStructureColumnArrayOutput() DatasetSnowflakeStructureColumnArrayOutput
+	ToDatasetSnowflakeStructureColumnArrayOutputWithContext(context.Context) DatasetSnowflakeStructureColumnArrayOutput
+}
+
+type DatasetSnowflakeStructureColumnArray []DatasetSnowflakeStructureColumnInput
+
+func (DatasetSnowflakeStructureColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetSnowflakeStructureColumn)(nil)).Elem()
+}
+
+func (i DatasetSnowflakeStructureColumnArray) ToDatasetSnowflakeStructureColumnArrayOutput() DatasetSnowflakeStructureColumnArrayOutput {
+	return i.ToDatasetSnowflakeStructureColumnArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetSnowflakeStructureColumnArray) ToDatasetSnowflakeStructureColumnArrayOutputWithContext(ctx context.Context) DatasetSnowflakeStructureColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakeStructureColumnArrayOutput)
+}
+
+type DatasetSnowflakeStructureColumnOutput struct{ *pulumi.OutputState }
+
+func (DatasetSnowflakeStructureColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSnowflakeStructureColumn)(nil)).Elem()
+}
+
+func (o DatasetSnowflakeStructureColumnOutput) ToDatasetSnowflakeStructureColumnOutput() DatasetSnowflakeStructureColumnOutput {
+	return o
+}
+
+func (o DatasetSnowflakeStructureColumnOutput) ToDatasetSnowflakeStructureColumnOutputWithContext(ctx context.Context) DatasetSnowflakeStructureColumnOutput {
+	return o
+}
+
+// The description of the column.
+func (o DatasetSnowflakeStructureColumnOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetSnowflakeStructureColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the column.
+func (o DatasetSnowflakeStructureColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetSnowflakeStructureColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+func (o DatasetSnowflakeStructureColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetSnowflakeStructureColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DatasetSnowflakeStructureColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetSnowflakeStructureColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetSnowflakeStructureColumn)(nil)).Elem()
+}
+
+func (o DatasetSnowflakeStructureColumnArrayOutput) ToDatasetSnowflakeStructureColumnArrayOutput() DatasetSnowflakeStructureColumnArrayOutput {
+	return o
+}
+
+func (o DatasetSnowflakeStructureColumnArrayOutput) ToDatasetSnowflakeStructureColumnArrayOutputWithContext(ctx context.Context) DatasetSnowflakeStructureColumnArrayOutput {
+	return o
+}
+
+func (o DatasetSnowflakeStructureColumnArrayOutput) Index(i pulumi.IntInput) DatasetSnowflakeStructureColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetSnowflakeStructureColumn {
+		return vs[0].([]DatasetSnowflakeStructureColumn)[vs[1].(int)]
+	}).(DatasetSnowflakeStructureColumnOutput)
 }
 
 type DatasetSqlServerTableSchemaColumn struct {
@@ -5182,13 +5306,13 @@ func (o FactoryGlobalParameterArrayOutput) Index(i pulumi.IntInput) FactoryGloba
 }
 
 type FactoryIdentity struct {
-	// Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+	// Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the Principal (Client) in Azure Active Directory
 	PrincipalId *string `pulumi:"principalId"`
 	// Specifies the Tenant ID associated with the VSTS account.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
+	// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -5204,13 +5328,13 @@ type FactoryIdentityInput interface {
 }
 
 type FactoryIdentityArgs struct {
-	// Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+	// Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the Principal (Client) in Azure Active Directory
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// Specifies the Tenant ID associated with the VSTS account.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
+	// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5291,7 +5415,7 @@ func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutputWithContext(ctx context
 	}).(FactoryIdentityPtrOutput)
 }
 
-// Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+// Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
 func (o FactoryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FactoryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -5306,7 +5430,7 @@ func (o FactoryIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FactoryIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
+// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
 func (o FactoryIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5335,7 +5459,7 @@ func (o FactoryIdentityPtrOutput) Elem() FactoryIdentityOutput {
 	}).(FactoryIdentityOutput)
 }
 
-// Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+// Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
 func (o FactoryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FactoryIdentity) []string {
 		if v == nil {
@@ -5365,7 +5489,7 @@ func (o FactoryIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
+// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
 func (o FactoryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryIdentity) *string {
 		if v == nil {
@@ -11661,6 +11785,8 @@ func init() {
 	pulumi.RegisterOutputType(DatasetPostgresqlSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetSnowflakeSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetSnowflakeSchemaColumnArrayOutput{})
+	pulumi.RegisterOutputType(DatasetSnowflakeStructureColumnOutput{})
+	pulumi.RegisterOutputType(DatasetSnowflakeStructureColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetSqlServerTableSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetSqlServerTableSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(FactoryGithubConfigurationOutput{})

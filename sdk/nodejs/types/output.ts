@@ -2473,7 +2473,7 @@ export namespace appservice {
          */
         use32BitWorkerProcess?: boolean;
         /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled: boolean;
         /**
@@ -2947,6 +2947,10 @@ export namespace appservice {
          */
         use32BitWorkerProcess?: boolean;
         /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
+        vnetRouteAllEnabled: boolean;
+        /**
          * Should WebSockets be enabled?
          */
         websocketsEnabled?: boolean;
@@ -3294,6 +3298,7 @@ export namespace appservice {
          * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          */
         use32BitWorkerProcess?: boolean;
+        vnetRouteAllEnabled: boolean;
         /**
          * Should WebSockets be enabled?
          */
@@ -3595,6 +3600,9 @@ export namespace appservice {
          * Does the App Service run in 32 bit mode, rather than 64 bit mode?
          */
         use32BitWorkerProcess: boolean;
+        /**
+         * (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
+         */
         vnetRouteAllEnabled: boolean;
         /**
          * Are WebSockets enabled for this App Service?
@@ -3861,6 +3869,10 @@ export namespace appservice {
          * Does the App Service run in 32 bit mode, rather than 64 bit mode?
          */
         use32BitWorkerProcess: boolean;
+        /**
+         * (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
+         */
+        vnetRouteAllEnabled: boolean;
         /**
          * Are WebSockets enabled for this App Service?
          */
@@ -11561,6 +11573,25 @@ export namespace datafactory {
 
     export interface DatasetSnowflakeSchemaColumn {
         /**
+         * The name of the column.
+         */
+        name: string;
+        /**
+         * The total number of digits allowed.
+         */
+        precision?: number;
+        /**
+         * The number of digits allowed to the right of the decimal point.
+         */
+        scale?: number;
+        /**
+         * Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
+         */
+        type?: string;
+    }
+
+    export interface DatasetSnowflakeStructureColumn {
+        /**
          * The description of the column.
          */
         description?: string;
@@ -11629,7 +11660,7 @@ export namespace datafactory {
 
     export interface FactoryIdentity {
         /**
-         * Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+         * Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
          */
         identityIds?: string[];
         /**
@@ -11641,7 +11672,7 @@ export namespace datafactory {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
+         * Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
          */
         type: string;
     }
@@ -15015,6 +15046,90 @@ export namespace frontdoor {
          * Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
          */
         redirectType: string;
+    }
+
+    export interface RulesEngineRule {
+        /**
+         * A `ruleAction` block as defined below.
+         */
+        action?: outputs.frontdoor.RulesEngineRuleAction;
+        /**
+         * One or more `matchCondition` block as defined below.
+         */
+        matchConditions?: outputs.frontdoor.RulesEngineRuleMatchCondition[];
+        /**
+         * The name of the rule.
+         */
+        name: string;
+        /**
+         * Priority of the rule, must be unique per rules engine definition.
+         */
+        priority: number;
+    }
+
+    export interface RulesEngineRuleAction {
+        /**
+         * A `requestHeader` block as defined below.
+         */
+        requestHeaders?: outputs.frontdoor.RulesEngineRuleActionRequestHeader[];
+        /**
+         * A `responseHeader` block as defined below.
+         */
+        responseHeaders?: outputs.frontdoor.RulesEngineRuleActionResponseHeader[];
+    }
+
+    export interface RulesEngineRuleActionRequestHeader {
+        /**
+         * can be set to `Overwrite`, `Append` or `Delete`.
+         */
+        headerActionType?: string;
+        /**
+         * header name (string).
+         */
+        headerName?: string;
+        /**
+         * value name (string).
+         */
+        value?: string;
+    }
+
+    export interface RulesEngineRuleActionResponseHeader {
+        /**
+         * can be set to `Overwrite`, `Append` or `Delete`.
+         */
+        headerActionType?: string;
+        /**
+         * header name (string).
+         */
+        headerName?: string;
+        /**
+         * value name (string).
+         */
+        value?: string;
+    }
+
+    export interface RulesEngineRuleMatchCondition {
+        /**
+         * can be set to `true` or `false` to negate the given condition.
+         */
+        negateCondition?: boolean;
+        /**
+         * can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
+         */
+        operator: string;
+        selector?: string;
+        /**
+         * can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
+         */
+        transforms?: string[];
+        /**
+         * can contain one or more strings.
+         */
+        values?: string[];
+        /**
+         * can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
+         */
+        variable?: string;
     }
 
 }
@@ -21484,6 +21599,32 @@ export namespace mssql {
         tier: string;
     }
 
+    export interface FailoverGroupPartnerServer {
+        /**
+         * The ID of a partner SQL server to include in the failover group.
+         */
+        id: string;
+        /**
+         * The location of the partner server.
+         */
+        location: string;
+        /**
+         * The replication role of the partner server. Possible values include `Primary` or `Secondary`.
+         */
+        role: string;
+    }
+
+    export interface FailoverGroupReadWriteEndpointFailoverPolicy {
+        /**
+         * The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
+         */
+        graceMinutes?: number;
+        /**
+         * The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
+         */
+        mode: string;
+    }
+
     export interface GetElasticPoolSkus {
         /**
          * The scale up/out capacity, representing server's compute units.
@@ -21725,7 +21866,6 @@ export namespace mssql {
          */
         luns: number[];
     }
-
 }
 
 export namespace mysql {
@@ -25880,6 +26020,17 @@ export namespace privatelink {
         ipAddresses: string[];
     }
 
+    export interface EndpointNetworkInterface {
+        /**
+         * The ID of the Private DNS Zone Config.
+         */
+        id: string;
+        /**
+         * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+         */
+        name: string;
+    }
+
     export interface EndpointPrivateDnsZoneConfig {
         /**
          * The ID of the Private DNS Zone Config.
@@ -25966,6 +26117,17 @@ export namespace privatelink {
          * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
          */
         subresourceNames?: string[];
+    }
+
+    export interface GetEndpointConnectionNetworkInterface {
+        /**
+         * The ID of the network interface associated with the private endpoint.
+         */
+        id: string;
+        /**
+         * Specifies the Name of the private endpoint.
+         */
+        name: string;
     }
 
     export interface GetEndpointConnectionPrivateServiceConnection {
@@ -28351,7 +28513,7 @@ export namespace synapse {
         /**
          * the ID of the tenant for the Azure DevOps account.
          */
-        tenantId?: string;
+        tenantId: string;
     }
 
     export interface WorkspaceCustomerManagedKey {

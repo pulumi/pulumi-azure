@@ -61,6 +61,7 @@ type GetEndpointConnectionResult struct {
 	Location string `pulumi:"location"`
 	// The name of the private endpoint.
 	Name                      string                                          `pulumi:"name"`
+	NetworkInterfaces         []GetEndpointConnectionNetworkInterface         `pulumi:"networkInterfaces"`
 	PrivateServiceConnections []GetEndpointConnectionPrivateServiceConnection `pulumi:"privateServiceConnections"`
 	ResourceGroupName         string                                          `pulumi:"resourceGroupName"`
 }
@@ -114,6 +115,12 @@ func (o GetEndpointConnectionResultOutput) Location() pulumi.StringOutput {
 // The name of the private endpoint.
 func (o GetEndpointConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointConnectionResultOutput) NetworkInterfaces() GetEndpointConnectionNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v GetEndpointConnectionResult) []GetEndpointConnectionNetworkInterface {
+		return v.NetworkInterfaces
+	}).(GetEndpointConnectionNetworkInterfaceArrayOutput)
 }
 
 func (o GetEndpointConnectionResultOutput) PrivateServiceConnections() GetEndpointConnectionPrivateServiceConnectionArrayOutput {

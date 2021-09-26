@@ -99,18 +99,24 @@ type Workspace struct {
 	ContainerRegistryId pulumi.StringPtrOutput `pulumi:"containerRegistryId"`
 	// The description of this Machine Learning Workspace.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+	DiscoveryUrl pulumi.StringOutput `pulumi:"discoveryUrl"`
 	// Friendly name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact pulumi.BoolPtrOutput `pulumi:"highBusinessImpact"`
 	// An `identity` block defined below.
 	Identity WorkspaceIdentityOutput `pulumi:"identity"`
+	// The compute name for image build of the Machine Learning Workspace.
+	ImageBuildComputeName pulumi.StringPtrOutput `pulumi:"imageBuildComputeName"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Enable public access when this Machine Learning Workspace is behind VNet.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
@@ -171,18 +177,24 @@ type workspaceState struct {
 	ContainerRegistryId *string `pulumi:"containerRegistryId"`
 	// The description of this Machine Learning Workspace.
 	Description *string `pulumi:"description"`
+	// The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+	DiscoveryUrl *string `pulumi:"discoveryUrl"`
 	// Friendly name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
 	// An `identity` block defined below.
 	Identity *WorkspaceIdentity `pulumi:"identity"`
+	// The compute name for image build of the Machine Learning Workspace.
+	ImageBuildComputeName *string `pulumi:"imageBuildComputeName"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Enable public access when this Machine Learning Workspace is behind VNet.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
@@ -200,18 +212,24 @@ type WorkspaceState struct {
 	ContainerRegistryId pulumi.StringPtrInput
 	// The description of this Machine Learning Workspace.
 	Description pulumi.StringPtrInput
+	// The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+	DiscoveryUrl pulumi.StringPtrInput
 	// Friendly name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact pulumi.BoolPtrInput
 	// An `identity` block defined below.
 	Identity WorkspaceIdentityPtrInput
+	// The compute name for image build of the Machine Learning Workspace.
+	ImageBuildComputeName pulumi.StringPtrInput
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Enable public access when this Machine Learning Workspace is behind VNet.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
@@ -239,12 +257,16 @@ type workspaceArgs struct {
 	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
 	// An `identity` block defined below.
 	Identity WorkspaceIdentity `pulumi:"identity"`
+	// The compute name for image build of the Machine Learning Workspace.
+	ImageBuildComputeName *string `pulumi:"imageBuildComputeName"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Enable public access when this Machine Learning Workspace is behind VNet.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
@@ -269,12 +291,16 @@ type WorkspaceArgs struct {
 	HighBusinessImpact pulumi.BoolPtrInput
 	// An `identity` block defined below.
 	Identity WorkspaceIdentityInput
+	// The compute name for image build of the Machine Learning Workspace.
+	ImageBuildComputeName pulumi.StringPtrInput
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Enable public access when this Machine Learning Workspace is behind VNet.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.

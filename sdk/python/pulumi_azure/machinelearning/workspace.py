@@ -24,8 +24,10 @@ class WorkspaceArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
+                 image_build_compute_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -39,8 +41,10 @@ class WorkspaceArgs:
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
@@ -57,10 +61,14 @@ class WorkspaceArgs:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if high_business_impact is not None:
             pulumi.set(__self__, "high_business_impact", high_business_impact)
+        if image_build_compute_name is not None:
+            pulumi.set(__self__, "image_build_compute_name", image_build_compute_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
@@ -175,6 +183,18 @@ class WorkspaceArgs:
         pulumi.set(self, "high_business_impact", value)
 
     @property
+    @pulumi.getter(name="imageBuildComputeName")
+    def image_build_compute_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compute name for image build of the Machine Learning Workspace.
+        """
+        return pulumi.get(self, "image_build_compute_name")
+
+    @image_build_compute_name.setter
+    def image_build_compute_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_build_compute_name", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -197,6 +217,18 @@ class WorkspaceArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable public access when this Machine Learning Workspace is behind VNet.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="skuName")
@@ -229,12 +261,15 @@ class _WorkspaceState:
                  application_insights_id: Optional[pulumi.Input[str]] = None,
                  container_registry_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 discovery_url: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
+                 image_build_compute_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -244,12 +279,15 @@ class _WorkspaceState:
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
+        :param pulumi.Input[str] discovery_url: The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
         :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block defined below.
+        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -261,18 +299,24 @@ class _WorkspaceState:
             pulumi.set(__self__, "container_registry_id", container_registry_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if discovery_url is not None:
+            pulumi.set(__self__, "discovery_url", discovery_url)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if high_business_impact is not None:
             pulumi.set(__self__, "high_business_impact", high_business_impact)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if image_build_compute_name is not None:
+            pulumi.set(__self__, "image_build_compute_name", image_build_compute_name)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
@@ -319,6 +363,18 @@ class _WorkspaceState:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+        """
+        return pulumi.get(self, "discovery_url")
+
+    @discovery_url.setter
+    def discovery_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "discovery_url", value)
+
+    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -355,6 +411,18 @@ class _WorkspaceState:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="imageBuildComputeName")
+    def image_build_compute_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compute name for image build of the Machine Learning Workspace.
+        """
+        return pulumi.get(self, "image_build_compute_name")
+
+    @image_build_compute_name.setter
+    def image_build_compute_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_build_compute_name", value)
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -389,6 +457,18 @@ class _WorkspaceState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable public access when this Machine Learning Workspace is behind VNet.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -450,9 +530,11 @@ class Workspace(pulumi.CustomResource):
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
+                 image_build_compute_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -510,9 +592,11 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block defined below.
+        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -589,9 +673,11 @@ class Workspace(pulumi.CustomResource):
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
+                 image_build_compute_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -618,11 +704,13 @@ class Workspace(pulumi.CustomResource):
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["image_build_compute_name"] = image_build_compute_name
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__.__dict__["key_vault_id"] = key_vault_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -631,6 +719,7 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["discovery_url"] = None
         super(Workspace, __self__).__init__(
             'azure:machinelearning/workspace:Workspace',
             resource_name,
@@ -644,12 +733,15 @@ class Workspace(pulumi.CustomResource):
             application_insights_id: Optional[pulumi.Input[str]] = None,
             container_registry_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            discovery_url: Optional[pulumi.Input[str]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
             high_business_impact: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
+            image_build_compute_name: Optional[pulumi.Input[str]] = None,
             key_vault_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -664,12 +756,15 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
+        :param pulumi.Input[str] discovery_url: The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
         :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block defined below.
+        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -682,12 +777,15 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["application_insights_id"] = application_insights_id
         __props__.__dict__["container_registry_id"] = container_registry_id
         __props__.__dict__["description"] = description
+        __props__.__dict__["discovery_url"] = discovery_url
         __props__.__dict__["friendly_name"] = friendly_name
         __props__.__dict__["high_business_impact"] = high_business_impact
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["image_build_compute_name"] = image_build_compute_name
         __props__.__dict__["key_vault_id"] = key_vault_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["storage_account_id"] = storage_account_id
@@ -719,6 +817,14 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> pulumi.Output[str]:
+        """
+        The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+        """
+        return pulumi.get(self, "discovery_url")
+
+    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
@@ -743,6 +849,14 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter(name="imageBuildComputeName")
+    def image_build_compute_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The compute name for image build of the Machine Learning Workspace.
+        """
+        return pulumi.get(self, "image_build_compute_name")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Output[str]:
         """
@@ -765,6 +879,14 @@ class Workspace(pulumi.CustomResource):
         Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable public access when this Machine Learning Workspace is behind VNet.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

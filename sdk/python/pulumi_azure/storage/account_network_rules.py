@@ -16,31 +16,43 @@ __all__ = ['AccountNetworkRulesInitArgs', 'AccountNetworkRules']
 class AccountNetworkRulesInitArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
-                 storage_account_name: pulumi.Input[str],
                  bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AccountNetworkRules resource.
         :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]] private_link_access_rules: One or More `private_link_access` block as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: Specifies the ID of the storage account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to to secure the storage account.
         """
         pulumi.set(__self__, "default_action", default_action)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
         if bypasses is not None:
             pulumi.set(__self__, "bypasses", bypasses)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
         if private_link_access_rules is not None:
             pulumi.set(__self__, "private_link_access_rules", private_link_access_rules)
+        if resource_group_name is not None:
+            warnings.warn("""Deprecated in favour of `storage_account_id`""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favour of `storage_account_id`""")
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if storage_account_name is not None:
+            warnings.warn("""Deprecated in favour of `storage_account_id`""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_name is deprecated: Deprecated in favour of `storage_account_id`""")
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
         if virtual_network_subnet_ids is not None:
             pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
 
@@ -55,30 +67,6 @@ class AccountNetworkRulesInitArgs:
     @default_action.setter
     def default_action(self, value: pulumi.Input[str]):
         pulumi.set(self, "default_action", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Input[str]:
-        """
-        Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "storage_account_name", value)
 
     @property
     @pulumi.getter
@@ -117,6 +105,42 @@ class AccountNetworkRulesInitArgs:
         pulumi.set(self, "private_link_access_rules", value)
 
     @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the storage account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetIds")
     def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -137,6 +161,7 @@ class _AccountNetworkRulesState:
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -146,6 +171,7 @@ class _AccountNetworkRulesState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]] private_link_access_rules: One or More `private_link_access` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: Specifies the ID of the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to to secure the storage account.
         """
@@ -158,7 +184,15 @@ class _AccountNetworkRulesState:
         if private_link_access_rules is not None:
             pulumi.set(__self__, "private_link_access_rules", private_link_access_rules)
         if resource_group_name is not None:
+            warnings.warn("""Deprecated in favour of `storage_account_id`""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favour of `storage_account_id`""")
+        if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if storage_account_name is not None:
+            warnings.warn("""Deprecated in favour of `storage_account_id`""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_name is deprecated: Deprecated in favour of `storage_account_id`""")
         if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
         if virtual_network_subnet_ids is not None:
@@ -225,6 +259,18 @@ class _AccountNetworkRulesState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the storage account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -259,6 +305,7 @@ class AccountNetworkRules(pulumi.CustomResource):
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -319,6 +366,7 @@ class AccountNetworkRules(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] private_link_access_rules: One or More `private_link_access` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: Specifies the ID of the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to to secure the storage account.
         """
@@ -398,6 +446,7 @@ class AccountNetworkRules(pulumi.CustomResource):
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -418,11 +467,14 @@ class AccountNetworkRules(pulumi.CustomResource):
             __props__.__dict__["default_action"] = default_action
             __props__.__dict__["ip_rules"] = ip_rules
             __props__.__dict__["private_link_access_rules"] = private_link_access_rules
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
+            if resource_group_name is not None and not opts.urn:
+                warnings.warn("""Deprecated in favour of `storage_account_id`""", DeprecationWarning)
+                pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favour of `storage_account_id`""")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if storage_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_name'")
+            __props__.__dict__["storage_account_id"] = storage_account_id
+            if storage_account_name is not None and not opts.urn:
+                warnings.warn("""Deprecated in favour of `storage_account_id`""", DeprecationWarning)
+                pulumi.log.warn("""storage_account_name is deprecated: Deprecated in favour of `storage_account_id`""")
             __props__.__dict__["storage_account_name"] = storage_account_name
             __props__.__dict__["virtual_network_subnet_ids"] = virtual_network_subnet_ids
         super(AccountNetworkRules, __self__).__init__(
@@ -440,6 +492,7 @@ class AccountNetworkRules(pulumi.CustomResource):
             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            storage_account_id: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None,
             virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'AccountNetworkRules':
         """
@@ -454,6 +507,7 @@ class AccountNetworkRules(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] private_link_access_rules: One or More `private_link_access` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: Specifies the ID of the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to to secure the storage account.
         """
@@ -466,6 +520,7 @@ class AccountNetworkRules(pulumi.CustomResource):
         __props__.__dict__["ip_rules"] = ip_rules
         __props__.__dict__["private_link_access_rules"] = private_link_access_rules
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["storage_account_name"] = storage_account_name
         __props__.__dict__["virtual_network_subnet_ids"] = virtual_network_subnet_ids
         return AccountNetworkRules(resource_name, opts=opts, __props__=__props__)
@@ -509,6 +564,14 @@ class AccountNetworkRules(pulumi.CustomResource):
         The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Output[str]:
+        """
+        Specifies the ID of the storage account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
 
     @property
     @pulumi.getter(name="storageAccountName")

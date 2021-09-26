@@ -94,6 +94,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+     */
+    public /*out*/ readonly discoveryUrl!: pulumi.Output<string>;
+    /**
      * Friendly name for this Machine Learning Workspace.
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
@@ -106,6 +110,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.machinelearning.WorkspaceIdentity>;
     /**
+     * The compute name for image build of the Machine Learning Workspace.
+     */
+    public readonly imageBuildComputeName!: pulumi.Output<string | undefined>;
+    /**
      * The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     public readonly keyVaultId!: pulumi.Output<string>;
@@ -117,6 +125,10 @@ export class Workspace extends pulumi.CustomResource {
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Enable public access when this Machine Learning Workspace is behind VNet.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -150,12 +162,15 @@ export class Workspace extends pulumi.CustomResource {
             inputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
             inputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["discoveryUrl"] = state ? state.discoveryUrl : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
             inputs["highBusinessImpact"] = state ? state.highBusinessImpact : undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["imageBuildComputeName"] = state ? state.imageBuildComputeName : undefined;
             inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
@@ -183,13 +198,16 @@ export class Workspace extends pulumi.CustomResource {
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["highBusinessImpact"] = args ? args.highBusinessImpact : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["imageBuildComputeName"] = args ? args.imageBuildComputeName : undefined;
             inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["discoveryUrl"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -215,6 +233,10 @@ export interface WorkspaceState {
      */
     description?: pulumi.Input<string>;
     /**
+     * The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+     */
+    discoveryUrl?: pulumi.Input<string>;
+    /**
      * Friendly name for this Machine Learning Workspace.
      */
     friendlyName?: pulumi.Input<string>;
@@ -227,6 +249,10 @@ export interface WorkspaceState {
      */
     identity?: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
     /**
+     * The compute name for image build of the Machine Learning Workspace.
+     */
+    imageBuildComputeName?: pulumi.Input<string>;
+    /**
      * The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     keyVaultId?: pulumi.Input<string>;
@@ -238,6 +264,10 @@ export interface WorkspaceState {
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Enable public access when this Machine Learning Workspace is behind VNet.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -285,6 +315,10 @@ export interface WorkspaceArgs {
      */
     identity: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
     /**
+     * The compute name for image build of the Machine Learning Workspace.
+     */
+    imageBuildComputeName?: pulumi.Input<string>;
+    /**
      * The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     keyVaultId: pulumi.Input<string>;
@@ -296,6 +330,10 @@ export interface WorkspaceArgs {
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Enable public access when this Machine Learning Workspace is behind VNet.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */

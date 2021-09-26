@@ -266,7 +266,8 @@ class DataExportRule(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             workspace_resource_id=example_analytics_workspace.id,
             destination_resource_id=example_account.id,
-            table_names=["Heartbeat"])
+            table_names=["Heartbeat"],
+            enabled=True)
         ```
 
         ## Import
@@ -316,7 +317,8 @@ class DataExportRule(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             workspace_resource_id=example_analytics_workspace.id,
             destination_resource_id=example_account.id,
-            table_names=["Heartbeat"])
+            table_names=["Heartbeat"],
+            enabled=True)
         ```
 
         ## Import

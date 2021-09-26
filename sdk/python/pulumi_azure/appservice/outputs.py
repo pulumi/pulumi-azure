@@ -1354,7 +1354,7 @@ class AppServiceSiteConfig(dict):
         :param str scm_type: The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
         :param bool use32_bit_worker_process: Should the App Service run in 32 bit mode, rather than 64 bit mode?
-        :param bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        :param bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should WebSockets be enabled?
         :param str windows_fx_version: The Windows Docker container image (`DOCKER|<user/image:tag>`)
         """
@@ -1646,7 +1646,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[bool]:
         """
-        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
@@ -3158,6 +3158,8 @@ class FunctionAppSiteConfig(dict):
             suggest = "scm_use_main_ip_restriction"
         elif key == "use32BitWorkerProcess":
             suggest = "use32_bit_worker_process"
+        elif key == "vnetRouteAllEnabled":
+            suggest = "vnet_route_all_enabled"
         elif key == "websocketsEnabled":
             suggest = "websockets_enabled"
 
@@ -3192,6 +3194,7 @@ class FunctionAppSiteConfig(dict):
                  scm_type: Optional[str] = None,
                  scm_use_main_ip_restriction: Optional[bool] = None,
                  use32_bit_worker_process: Optional[bool] = None,
+                 vnet_route_all_enabled: Optional[bool] = None,
                  websockets_enabled: Optional[bool] = None):
         """
         :param bool always_on: Should the Function App be loaded at all times? Defaults to `false`.
@@ -3212,6 +3215,7 @@ class FunctionAppSiteConfig(dict):
         :param str scm_type: The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
         :param bool use32_bit_worker_process: Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+        :param bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should WebSockets be enabled?
         """
         if always_on is not None:
@@ -3252,6 +3256,8 @@ class FunctionAppSiteConfig(dict):
             pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
         if use32_bit_worker_process is not None:
             pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         if websockets_enabled is not None:
             pulumi.set(__self__, "websockets_enabled", websockets_enabled)
 
@@ -3403,6 +3409,14 @@ class FunctionAppSiteConfig(dict):
         Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         """
         return pulumi.get(self, "use32_bit_worker_process")
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[bool]:
+        """
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
 
     @property
     @pulumi.getter(name="websocketsEnabled")
@@ -4521,6 +4535,8 @@ class FunctionAppSlotSiteConfig(dict):
             suggest = "scm_use_main_ip_restriction"
         elif key == "use32BitWorkerProcess":
             suggest = "use32_bit_worker_process"
+        elif key == "vnetRouteAllEnabled":
+            suggest = "vnet_route_all_enabled"
         elif key == "websocketsEnabled":
             suggest = "websockets_enabled"
 
@@ -4555,6 +4571,7 @@ class FunctionAppSlotSiteConfig(dict):
                  scm_type: Optional[str] = None,
                  scm_use_main_ip_restriction: Optional[bool] = None,
                  use32_bit_worker_process: Optional[bool] = None,
+                 vnet_route_all_enabled: Optional[bool] = None,
                  websockets_enabled: Optional[bool] = None):
         """
         :param bool always_on: Should the Function App be loaded at all times? Defaults to `false`.
@@ -4611,6 +4628,8 @@ class FunctionAppSlotSiteConfig(dict):
             pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
         if use32_bit_worker_process is not None:
             pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         if websockets_enabled is not None:
             pulumi.set(__self__, "websockets_enabled", websockets_enabled)
 
@@ -4750,6 +4769,11 @@ class FunctionAppSlotSiteConfig(dict):
         Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         """
         return pulumi.get(self, "use32_bit_worker_process")
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "vnet_route_all_enabled")
 
     @property
     @pulumi.getter(name="websocketsEnabled")
@@ -7343,6 +7367,7 @@ class GetAppServiceSiteConfigResult(dict):
         :param str scm_type: The type of Source Control enabled for this App Service.
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main.
         :param bool use32_bit_worker_process: Does the App Service run in 32 bit mode, rather than 64 bit mode?
+        :param bool vnet_route_all_enabled: (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
         :param bool websockets_enabled: Are WebSockets enabled for this App Service?
         :param str windows_fx_version: Windows Container Docker Image for the AppService.
         """
@@ -7596,6 +7621,9 @@ class GetAppServiceSiteConfigResult(dict):
     @property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> bool:
+        """
+        (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
+        """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @property
@@ -8173,6 +8201,7 @@ class GetFunctionAppSiteConfigResult(dict):
                  scm_type: str,
                  scm_use_main_ip_restriction: bool,
                  use32_bit_worker_process: bool,
+                 vnet_route_all_enabled: bool,
                  websockets_enabled: bool):
         """
         :param bool always_on: Is the app loaded at all times?
@@ -8192,6 +8221,7 @@ class GetFunctionAppSiteConfigResult(dict):
         :param str scm_type: The type of Source Control enabled for this App Service.
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main.
         :param bool use32_bit_worker_process: Does the App Service run in 32 bit mode, rather than 64 bit mode?
+        :param bool vnet_route_all_enabled: (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
         :param bool websockets_enabled: Are WebSockets enabled for this App Service?
         """
         pulumi.set(__self__, "always_on", always_on)
@@ -8213,6 +8243,7 @@ class GetFunctionAppSiteConfigResult(dict):
         pulumi.set(__self__, "scm_type", scm_type)
         pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
         pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
+        pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         pulumi.set(__self__, "websockets_enabled", websockets_enabled)
 
     @property
@@ -8360,6 +8391,14 @@ class GetFunctionAppSiteConfigResult(dict):
         Does the App Service run in 32 bit mode, rather than 64 bit mode?
         """
         return pulumi.get(self, "use32_bit_worker_process")
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> bool:
+        """
+        (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
 
     @property
     @pulumi.getter(name="websocketsEnabled")

@@ -116,6 +116,112 @@ func (o EndpointCustomDnsConfigArrayOutput) Index(i pulumi.IntInput) EndpointCus
 	}).(EndpointCustomDnsConfigOutput)
 }
 
+type EndpointNetworkInterface struct {
+	// The ID of the Private DNS Zone Config.
+	Id *string `pulumi:"id"`
+	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+}
+
+// EndpointNetworkInterfaceInput is an input type that accepts EndpointNetworkInterfaceArgs and EndpointNetworkInterfaceOutput values.
+// You can construct a concrete instance of `EndpointNetworkInterfaceInput` via:
+//
+//          EndpointNetworkInterfaceArgs{...}
+type EndpointNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToEndpointNetworkInterfaceOutput() EndpointNetworkInterfaceOutput
+	ToEndpointNetworkInterfaceOutputWithContext(context.Context) EndpointNetworkInterfaceOutput
+}
+
+type EndpointNetworkInterfaceArgs struct {
+	// The ID of the Private DNS Zone Config.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (EndpointNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointNetworkInterface)(nil)).Elem()
+}
+
+func (i EndpointNetworkInterfaceArgs) ToEndpointNetworkInterfaceOutput() EndpointNetworkInterfaceOutput {
+	return i.ToEndpointNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i EndpointNetworkInterfaceArgs) ToEndpointNetworkInterfaceOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceOutput)
+}
+
+// EndpointNetworkInterfaceArrayInput is an input type that accepts EndpointNetworkInterfaceArray and EndpointNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `EndpointNetworkInterfaceArrayInput` via:
+//
+//          EndpointNetworkInterfaceArray{ EndpointNetworkInterfaceArgs{...} }
+type EndpointNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToEndpointNetworkInterfaceArrayOutput() EndpointNetworkInterfaceArrayOutput
+	ToEndpointNetworkInterfaceArrayOutputWithContext(context.Context) EndpointNetworkInterfaceArrayOutput
+}
+
+type EndpointNetworkInterfaceArray []EndpointNetworkInterfaceInput
+
+func (EndpointNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointNetworkInterface)(nil)).Elem()
+}
+
+func (i EndpointNetworkInterfaceArray) ToEndpointNetworkInterfaceArrayOutput() EndpointNetworkInterfaceArrayOutput {
+	return i.ToEndpointNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointNetworkInterfaceArray) ToEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceArrayOutput)
+}
+
+type EndpointNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (EndpointNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointNetworkInterface)(nil)).Elem()
+}
+
+func (o EndpointNetworkInterfaceOutput) ToEndpointNetworkInterfaceOutput() EndpointNetworkInterfaceOutput {
+	return o
+}
+
+func (o EndpointNetworkInterfaceOutput) ToEndpointNetworkInterfaceOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOutput {
+	return o
+}
+
+// The ID of the Private DNS Zone Config.
+func (o EndpointNetworkInterfaceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointNetworkInterface) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+func (o EndpointNetworkInterfaceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointNetworkInterface) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type EndpointNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointNetworkInterface)(nil)).Elem()
+}
+
+func (o EndpointNetworkInterfaceArrayOutput) ToEndpointNetworkInterfaceArrayOutput() EndpointNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o EndpointNetworkInterfaceArrayOutput) ToEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o EndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) EndpointNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointNetworkInterface {
+		return vs[0].([]EndpointNetworkInterface)[vs[1].(int)]
+	}).(EndpointNetworkInterfaceOutput)
+}
+
 type EndpointPrivateDnsZoneConfig struct {
 	// The ID of the Private DNS Zone Config.
 	Id *string `pulumi:"id"`
@@ -799,6 +905,112 @@ func (o EndpointPrivateServiceConnectionPtrOutput) SubresourceNames() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
+type GetEndpointConnectionNetworkInterface struct {
+	// The ID of the network interface associated with the private endpoint.
+	Id string `pulumi:"id"`
+	// Specifies the Name of the private endpoint.
+	Name string `pulumi:"name"`
+}
+
+// GetEndpointConnectionNetworkInterfaceInput is an input type that accepts GetEndpointConnectionNetworkInterfaceArgs and GetEndpointConnectionNetworkInterfaceOutput values.
+// You can construct a concrete instance of `GetEndpointConnectionNetworkInterfaceInput` via:
+//
+//          GetEndpointConnectionNetworkInterfaceArgs{...}
+type GetEndpointConnectionNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToGetEndpointConnectionNetworkInterfaceOutput() GetEndpointConnectionNetworkInterfaceOutput
+	ToGetEndpointConnectionNetworkInterfaceOutputWithContext(context.Context) GetEndpointConnectionNetworkInterfaceOutput
+}
+
+type GetEndpointConnectionNetworkInterfaceArgs struct {
+	// The ID of the network interface associated with the private endpoint.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies the Name of the private endpoint.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetEndpointConnectionNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointConnectionNetworkInterface)(nil)).Elem()
+}
+
+func (i GetEndpointConnectionNetworkInterfaceArgs) ToGetEndpointConnectionNetworkInterfaceOutput() GetEndpointConnectionNetworkInterfaceOutput {
+	return i.ToGetEndpointConnectionNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i GetEndpointConnectionNetworkInterfaceArgs) ToGetEndpointConnectionNetworkInterfaceOutputWithContext(ctx context.Context) GetEndpointConnectionNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointConnectionNetworkInterfaceOutput)
+}
+
+// GetEndpointConnectionNetworkInterfaceArrayInput is an input type that accepts GetEndpointConnectionNetworkInterfaceArray and GetEndpointConnectionNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `GetEndpointConnectionNetworkInterfaceArrayInput` via:
+//
+//          GetEndpointConnectionNetworkInterfaceArray{ GetEndpointConnectionNetworkInterfaceArgs{...} }
+type GetEndpointConnectionNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointConnectionNetworkInterfaceArrayOutput() GetEndpointConnectionNetworkInterfaceArrayOutput
+	ToGetEndpointConnectionNetworkInterfaceArrayOutputWithContext(context.Context) GetEndpointConnectionNetworkInterfaceArrayOutput
+}
+
+type GetEndpointConnectionNetworkInterfaceArray []GetEndpointConnectionNetworkInterfaceInput
+
+func (GetEndpointConnectionNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointConnectionNetworkInterface)(nil)).Elem()
+}
+
+func (i GetEndpointConnectionNetworkInterfaceArray) ToGetEndpointConnectionNetworkInterfaceArrayOutput() GetEndpointConnectionNetworkInterfaceArrayOutput {
+	return i.ToGetEndpointConnectionNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointConnectionNetworkInterfaceArray) ToGetEndpointConnectionNetworkInterfaceArrayOutputWithContext(ctx context.Context) GetEndpointConnectionNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointConnectionNetworkInterfaceArrayOutput)
+}
+
+type GetEndpointConnectionNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointConnectionNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointConnectionNetworkInterface)(nil)).Elem()
+}
+
+func (o GetEndpointConnectionNetworkInterfaceOutput) ToGetEndpointConnectionNetworkInterfaceOutput() GetEndpointConnectionNetworkInterfaceOutput {
+	return o
+}
+
+func (o GetEndpointConnectionNetworkInterfaceOutput) ToGetEndpointConnectionNetworkInterfaceOutputWithContext(ctx context.Context) GetEndpointConnectionNetworkInterfaceOutput {
+	return o
+}
+
+// The ID of the network interface associated with the private endpoint.
+func (o GetEndpointConnectionNetworkInterfaceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointConnectionNetworkInterface) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the Name of the private endpoint.
+func (o GetEndpointConnectionNetworkInterfaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointConnectionNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetEndpointConnectionNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointConnectionNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointConnectionNetworkInterface)(nil)).Elem()
+}
+
+func (o GetEndpointConnectionNetworkInterfaceArrayOutput) ToGetEndpointConnectionNetworkInterfaceArrayOutput() GetEndpointConnectionNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o GetEndpointConnectionNetworkInterfaceArrayOutput) ToGetEndpointConnectionNetworkInterfaceArrayOutputWithContext(ctx context.Context) GetEndpointConnectionNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o GetEndpointConnectionNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) GetEndpointConnectionNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointConnectionNetworkInterface {
+		return vs[0].([]GetEndpointConnectionNetworkInterface)[vs[1].(int)]
+	}).(GetEndpointConnectionNetworkInterfaceOutput)
+}
+
 type GetEndpointConnectionPrivateServiceConnection struct {
 	// Specifies the Name of the private endpoint.
 	Name string `pulumi:"name"`
@@ -1225,6 +1437,8 @@ func (o GetServiceNatIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetSer
 func init() {
 	pulumi.RegisterOutputType(EndpointCustomDnsConfigOutput{})
 	pulumi.RegisterOutputType(EndpointCustomDnsConfigArrayOutput{})
+	pulumi.RegisterOutputType(EndpointNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(EndpointNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(EndpointPrivateDnsZoneConfigOutput{})
 	pulumi.RegisterOutputType(EndpointPrivateDnsZoneConfigArrayOutput{})
 	pulumi.RegisterOutputType(EndpointPrivateDnsZoneConfigRecordSetOutput{})
@@ -1233,6 +1447,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointPrivateDnsZoneGroupPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPrivateServiceConnectionOutput{})
 	pulumi.RegisterOutputType(EndpointPrivateServiceConnectionPtrOutput{})
+	pulumi.RegisterOutputType(GetEndpointConnectionNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(GetEndpointConnectionNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointConnectionPrivateServiceConnectionOutput{})
 	pulumi.RegisterOutputType(GetEndpointConnectionPrivateServiceConnectionArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceEndpointConnectionsPrivateEndpointConnectionOutput{})

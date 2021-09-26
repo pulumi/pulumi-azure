@@ -121,6 +121,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Does the App Service run in 32 bit mode, rather than 64 bit mode?
         /// </summary>
         public readonly bool Use32BitWorkerProcess;
+        /// <summary>
+        /// (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
+        /// </summary>
         public readonly bool VnetRouteAllEnabled;
         /// <summary>
         /// Are WebSockets enabled for this App Service?

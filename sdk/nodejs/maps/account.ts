@@ -76,7 +76,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
-     * The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
+     * The sku of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -152,7 +152,7 @@ export interface AccountState {
      */
     secondaryAccessKey?: pulumi.Input<string>;
     /**
-     * The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
+     * The sku of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -178,7 +178,7 @@ export interface AccountArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
+     * The sku of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
      */
     skuName: pulumi.Input<string>;
     /**

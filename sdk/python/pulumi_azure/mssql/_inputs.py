@@ -16,6 +16,8 @@ __all__ = [
     'DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs',
     'ElasticPoolPerDatabaseSettingsArgs',
     'ElasticPoolSkuArgs',
+    'FailoverGroupPartnerServerArgs',
+    'FailoverGroupReadWriteEndpointFailoverPolicyArgs',
     'ServerAzureadAdministratorArgs',
     'ServerExtendedAuditingPolicyArgs',
     'ServerIdentityArgs',
@@ -466,6 +468,98 @@ class ElasticPoolSkuArgs:
     @family.setter
     def family(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "family", value)
+
+
+@pulumi.input_type
+class FailoverGroupPartnerServerArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of a partner SQL server to include in the failover group.
+        :param pulumi.Input[str] location: The location of the partner server.
+        :param pulumi.Input[str] role: The replication role of the partner server. Possible values include `Primary` or `Secondary`.
+        """
+        pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of a partner SQL server to include in the failover group.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the partner server.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The replication role of the partner server. Possible values include `Primary` or `Secondary`.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
+
+
+@pulumi.input_type
+class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 grace_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] mode: The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
+        :param pulumi.Input[int] grace_minutes: The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if grace_minutes is not None:
+            pulumi.set(__self__, "grace_minutes", grace_minutes)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="graceMinutes")
+    def grace_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
+        """
+        return pulumi.get(self, "grace_minutes")
+
+    @grace_minutes.setter
+    def grace_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "grace_minutes", value)
 
 
 @pulumi.input_type
