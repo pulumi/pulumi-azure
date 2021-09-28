@@ -12,6 +12,66 @@ namespace Pulumi.Azure.DataShare
     /// <summary>
     /// Manages a Data Share Kusto Cluster Dataset.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.DataShare.Account("exampleAccount", new Azure.DataShare.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var exampleShare = new Azure.DataShare.Share("exampleShare", new Azure.DataShare.ShareArgs
+    ///         {
+    ///             AccountId = exampleAccount.Id,
+    ///             Kind = "InPlace",
+    ///         });
+    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///             {
+    ///                 Name = "Dev(No SLA)_Standard_D11_v2",
+    ///                 Capacity = 1,
+    ///             },
+    ///         });
+    ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
+    ///         {
+    ///             Scope = exampleCluster.Id,
+    ///             RoleDefinitionName = "Contributor",
+    ///             PrincipalId = exampleAccount.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///         });
+    ///         var exampleDatasetKustoCluster = new Azure.DataShare.DatasetKustoCluster("exampleDatasetKustoCluster", new Azure.DataShare.DatasetKustoClusterArgs
+    ///         {
+    ///             ShareId = exampleShare.Id,
+    ///             KustoClusterId = exampleCluster.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleAssignment,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Share Kusto Cluster Datasets can be imported using the `resource id`, e.g.

@@ -15,6 +15,174 @@ import (
 //
 // > **Note**: Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/en-us/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/authorization"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/dataprotection"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/postgresql"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
+// 			Location:                   exampleResourceGroup.Location,
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			SkuName:                    pulumi.String("B_Gen5_2"),
+// 			StorageMb:                  pulumi.Int(5120),
+// 			BackupRetentionDays:        pulumi.Int(7),
+// 			GeoRedundantBackupEnabled:  pulumi.Bool(false),
+// 			AutoGrowEnabled:            pulumi.Bool(true),
+// 			AdministratorLogin:         pulumi.String("psqladminun"),
+// 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
+// 			Version:                    pulumi.String("9.5"),
+// 			SslEnforcementEnabled:      pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = postgresql.NewFirewallRule(ctx, "exampleFirewallRule", &postgresql.FirewallRuleArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ServerName:        exampleServer.Name,
+// 			StartIpAddress:    pulumi.String("0.0.0.0"),
+// 			EndIpAddress:      pulumi.String("0.0.0.0"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDatabase, err := postgresql.NewDatabase(ctx, "exampleDatabase", &postgresql.DatabaseArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ServerName:        exampleServer.Name,
+// 			Charset:           pulumi.String("UTF8"),
+// 			Collation:         pulumi.String("English_United States.1252"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			DatastoreType:     pulumi.String("VaultStore"),
+// 			Redundancy:        pulumi.String("LocallyRedundant"),
+// 			Identity: &dataprotection.BackupVaultIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+// 			Location:                exampleResourceGroup.Location,
+// 			ResourceGroupName:       exampleResourceGroup.Name,
+// 			TenantId:                pulumi.String(current.TenantId),
+// 			SkuName:                 pulumi.String("premium"),
+// 			SoftDeleteRetentionDays: pulumi.Int(7),
+// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+// 				&keyvault.KeyVaultAccessPolicyArgs{
+// 					TenantId: pulumi.String(current.TenantId),
+// 					ObjectId: pulumi.String(current.ObjectId),
+// 					KeyPermissions: pulumi.StringArray{
+// 						pulumi.String("create"),
+// 						pulumi.String("get"),
+// 					},
+// 					SecretPermissions: pulumi.StringArray{
+// 						pulumi.String("set"),
+// 						pulumi.String("get"),
+// 						pulumi.String("delete"),
+// 						pulumi.String("purge"),
+// 						pulumi.String("recover"),
+// 					},
+// 				},
+// 				&keyvault.KeyVaultAccessPolicyArgs{
+// 					TenantId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (string, error) {
+// 						return identity.TenantId, nil
+// 					}).(pulumi.StringOutput),
+// 					ObjectId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (string, error) {
+// 						return identity.PrincipalId, nil
+// 					}).(pulumi.StringOutput),
+// 					KeyPermissions: pulumi.StringArray{
+// 						pulumi.String("create"),
+// 						pulumi.String("get"),
+// 					},
+// 					SecretPermissions: pulumi.StringArray{
+// 						pulumi.String("set"),
+// 						pulumi.String("get"),
+// 						pulumi.String("delete"),
+// 						pulumi.String("purge"),
+// 						pulumi.String("recover"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSecret, err := keyvault.NewSecret(ctx, "exampleSecret", &keyvault.SecretArgs{
+// 			Value: pulumi.All(exampleServer.Name, exampleDatabase.Name, exampleServer.Name).ApplyT(func(_args []interface{}) (string, error) {
+// 				exampleServerName := _args[0].(string)
+// 				exampleDatabaseName := _args[1].(string)
+// 				exampleServerName1 := _args[2].(string)
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v", "Server=", exampleServerName, ".postgres.database.azure.com;Database=", exampleDatabaseName, ";Port=5432;User Id=psqladminun@", exampleServerName1, ";Password=H@Sh1CoR3!;Ssl Mode=Require;"), nil
+// 			}).(pulumi.StringOutput),
+// 			KeyVaultId: exampleKeyVault.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleBackupPolicyPostgresql, err := dataprotection.NewBackupPolicyPostgresql(ctx, "exampleBackupPolicyPostgresql", &dataprotection.BackupPolicyPostgresqlArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			VaultName:         exampleBackupVault.Name,
+// 			BackupRepeatingTimeIntervals: pulumi.StringArray{
+// 				pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
+// 			},
+// 			DefaultRetentionDuration: pulumi.String("P4M"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+// 			Scope:              exampleServer.ID(),
+// 			RoleDefinitionName: pulumi.String("Reader"),
+// 			PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (string, error) {
+// 				return identity.PrincipalId, nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = dataprotection.NewBackupInstancePostgresql(ctx, "exampleBackupInstancePostgresql", &dataprotection.BackupInstancePostgresqlArgs{
+// 			Location:                           exampleResourceGroup.Location,
+// 			VaultId:                            exampleBackupVault.ID(),
+// 			DatabaseId:                         exampleDatabase.ID(),
+// 			BackupPolicyId:                     exampleBackupPolicyPostgresql.ID(),
+// 			DatabaseCredentialKeyVaultSecretId: exampleSecret.VersionlessId,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Backup Instance PostgreSQL can be imported using the `resource id`, e.g.

@@ -482,6 +482,136 @@ class ReplicatedVM(pulumi.CustomResource):
         """
         Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
+        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
+        primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
+            resource_group_name=primary_resource_group.name,
+            address_spaces=["192.168.1.0/24"],
+            location=primary_resource_group.location)
+        primary_subnet = azure.network.Subnet("primarySubnet",
+            resource_group_name=primary_resource_group.name,
+            virtual_network_name=primary_virtual_network.name,
+            address_prefixes=["192.168.1.0/24"])
+        primary_public_ip = azure.network.PublicIp("primaryPublicIp",
+            allocation_method="Static",
+            location=primary_resource_group.location,
+            resource_group_name=primary_resource_group.name,
+            sku="Basic")
+        vm_network_interface = azure.network.NetworkInterface("vmNetworkInterface",
+            location=primary_resource_group.location,
+            resource_group_name=primary_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="vm",
+                subnet_id=primary_subnet.id,
+                private_ip_address_allocation="Dynamic",
+                public_ip_address_id=primary_public_ip.id,
+            )])
+        vm_virtual_machine = azure.compute.VirtualMachine("vmVirtualMachine",
+            location=primary_resource_group.location,
+            resource_group_name=primary_resource_group.name,
+            vm_size="Standard_B1s",
+            network_interface_ids=[vm_network_interface.id],
+            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
+                publisher="OpenLogic",
+                offer="CentOS",
+                sku="7.5",
+                version="latest",
+            ),
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+                name="vm-os-disk",
+                os_type="Linux",
+                caching="ReadWrite",
+                create_option="FromImage",
+                managed_disk_type="Premium_LRS",
+            ),
+            os_profile=azure.compute.VirtualMachineOsProfileArgs(
+                admin_username="test-admin-123",
+                admin_password="test-pwd-123",
+                computer_name="vm",
+            ),
+            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
+                disable_password_authentication=False,
+            ))
+        vault = azure.recoveryservices.Vault("vault",
+            location=secondary_resource_group.location,
+            resource_group_name=secondary_resource_group.name,
+            sku="Standard")
+        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            location=primary_resource_group.location)
+        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            location=secondary_resource_group.location)
+        primary_protection_container = azure.siterecovery.ProtectionContainer("primaryProtectionContainer",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            recovery_fabric_name=primary_fabric.name)
+        secondary_protection_container = azure.siterecovery.ProtectionContainer("secondaryProtectionContainer",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            recovery_fabric_name=secondary_fabric.name)
+        policy = azure.siterecovery.ReplicationPolicy("policy",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            recovery_point_retention_in_minutes=24 * 60,
+            application_consistent_snapshot_frequency_in_minutes=4 * 60)
+        container_mapping = azure.siterecovery.ProtectionContainerMapping("container-mapping",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            recovery_fabric_name=primary_fabric.name,
+            recovery_source_protection_container_name=primary_protection_container.name,
+            recovery_target_protection_container_id=secondary_protection_container.id,
+            recovery_replication_policy_id=policy.id)
+        primary_account = azure.storage.Account("primaryAccount",
+            location=primary_resource_group.location,
+            resource_group_name=primary_resource_group.name,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
+            resource_group_name=secondary_resource_group.name,
+            address_spaces=["192.168.2.0/24"],
+            location=secondary_resource_group.location)
+        secondary_subnet = azure.network.Subnet("secondarySubnet",
+            resource_group_name=secondary_resource_group.name,
+            virtual_network_name=secondary_virtual_network.name,
+            address_prefixes=["192.168.2.0/24"])
+        secondary_public_ip = azure.network.PublicIp("secondaryPublicIp",
+            allocation_method="Static",
+            location=secondary_resource_group.location,
+            resource_group_name=secondary_resource_group.name,
+            sku="Basic")
+        vm_replication = azure.siterecovery.ReplicatedVM("vm-replication",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            source_recovery_fabric_name=primary_fabric.name,
+            source_vm_id=vm_virtual_machine.id,
+            recovery_replication_policy_id=policy.id,
+            source_recovery_protection_container_name=primary_protection_container.name,
+            target_resource_group_id=secondary_resource_group.id,
+            target_recovery_fabric_id=secondary_fabric.id,
+            target_recovery_protection_container_id=secondary_protection_container.id,
+            managed_disks=[azure.siterecovery.ReplicatedVMManagedDiskArgs(
+                disk_id=vm_virtual_machine.storage_os_disk.managed_disk_id,
+                staging_storage_account_id=primary_account.id,
+                target_resource_group_id=secondary_resource_group.id,
+                target_disk_type="Premium_LRS",
+                target_replica_disk_type="Premium_LRS",
+            )],
+            network_interfaces=[azure.siterecovery.ReplicatedVMNetworkInterfaceArgs(
+                source_network_interface_id=vm_network_interface.id,
+                target_subnet_name="network2-subnet",
+                recovery_public_ip_address_id=secondary_public_ip.id,
+            )])
+        ```
+
         ## Import
 
         Site Recovery Replicated VM's can be imported using the `resource id`, e.g.
@@ -514,6 +644,136 @@ class ReplicatedVM(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
+        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
+        primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
+            resource_group_name=primary_resource_group.name,
+            address_spaces=["192.168.1.0/24"],
+            location=primary_resource_group.location)
+        primary_subnet = azure.network.Subnet("primarySubnet",
+            resource_group_name=primary_resource_group.name,
+            virtual_network_name=primary_virtual_network.name,
+            address_prefixes=["192.168.1.0/24"])
+        primary_public_ip = azure.network.PublicIp("primaryPublicIp",
+            allocation_method="Static",
+            location=primary_resource_group.location,
+            resource_group_name=primary_resource_group.name,
+            sku="Basic")
+        vm_network_interface = azure.network.NetworkInterface("vmNetworkInterface",
+            location=primary_resource_group.location,
+            resource_group_name=primary_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="vm",
+                subnet_id=primary_subnet.id,
+                private_ip_address_allocation="Dynamic",
+                public_ip_address_id=primary_public_ip.id,
+            )])
+        vm_virtual_machine = azure.compute.VirtualMachine("vmVirtualMachine",
+            location=primary_resource_group.location,
+            resource_group_name=primary_resource_group.name,
+            vm_size="Standard_B1s",
+            network_interface_ids=[vm_network_interface.id],
+            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
+                publisher="OpenLogic",
+                offer="CentOS",
+                sku="7.5",
+                version="latest",
+            ),
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+                name="vm-os-disk",
+                os_type="Linux",
+                caching="ReadWrite",
+                create_option="FromImage",
+                managed_disk_type="Premium_LRS",
+            ),
+            os_profile=azure.compute.VirtualMachineOsProfileArgs(
+                admin_username="test-admin-123",
+                admin_password="test-pwd-123",
+                computer_name="vm",
+            ),
+            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
+                disable_password_authentication=False,
+            ))
+        vault = azure.recoveryservices.Vault("vault",
+            location=secondary_resource_group.location,
+            resource_group_name=secondary_resource_group.name,
+            sku="Standard")
+        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            location=primary_resource_group.location)
+        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            location=secondary_resource_group.location)
+        primary_protection_container = azure.siterecovery.ProtectionContainer("primaryProtectionContainer",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            recovery_fabric_name=primary_fabric.name)
+        secondary_protection_container = azure.siterecovery.ProtectionContainer("secondaryProtectionContainer",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            recovery_fabric_name=secondary_fabric.name)
+        policy = azure.siterecovery.ReplicationPolicy("policy",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            recovery_point_retention_in_minutes=24 * 60,
+            application_consistent_snapshot_frequency_in_minutes=4 * 60)
+        container_mapping = azure.siterecovery.ProtectionContainerMapping("container-mapping",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            recovery_fabric_name=primary_fabric.name,
+            recovery_source_protection_container_name=primary_protection_container.name,
+            recovery_target_protection_container_id=secondary_protection_container.id,
+            recovery_replication_policy_id=policy.id)
+        primary_account = azure.storage.Account("primaryAccount",
+            location=primary_resource_group.location,
+            resource_group_name=primary_resource_group.name,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
+            resource_group_name=secondary_resource_group.name,
+            address_spaces=["192.168.2.0/24"],
+            location=secondary_resource_group.location)
+        secondary_subnet = azure.network.Subnet("secondarySubnet",
+            resource_group_name=secondary_resource_group.name,
+            virtual_network_name=secondary_virtual_network.name,
+            address_prefixes=["192.168.2.0/24"])
+        secondary_public_ip = azure.network.PublicIp("secondaryPublicIp",
+            allocation_method="Static",
+            location=secondary_resource_group.location,
+            resource_group_name=secondary_resource_group.name,
+            sku="Basic")
+        vm_replication = azure.siterecovery.ReplicatedVM("vm-replication",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            source_recovery_fabric_name=primary_fabric.name,
+            source_vm_id=vm_virtual_machine.id,
+            recovery_replication_policy_id=policy.id,
+            source_recovery_protection_container_name=primary_protection_container.name,
+            target_resource_group_id=secondary_resource_group.id,
+            target_recovery_fabric_id=secondary_fabric.id,
+            target_recovery_protection_container_id=secondary_protection_container.id,
+            managed_disks=[azure.siterecovery.ReplicatedVMManagedDiskArgs(
+                disk_id=vm_virtual_machine.storage_os_disk.managed_disk_id,
+                staging_storage_account_id=primary_account.id,
+                target_resource_group_id=secondary_resource_group.id,
+                target_disk_type="Premium_LRS",
+                target_replica_disk_type="Premium_LRS",
+            )],
+            network_interfaces=[azure.siterecovery.ReplicatedVMNetworkInterfaceArgs(
+                source_network_interface_id=vm_network_interface.id,
+                target_subnet_name="network2-subnet",
+                recovery_public_ip_address_id=secondary_public_ip.id,
+            )])
+        ```
 
         ## Import
 

@@ -12,6 +12,44 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a Logic App Integration Account Assembly.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.UTF8.GetBytes(File.ReadAllText(path)))
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new Azure.LogicApps.IntegrationAccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "Basic",
+    ///         });
+    ///         var exampleIntegrationAccountAssembly = new Azure.LogicApps.IntegrationAccountAssembly("exampleIntegrationAccountAssembly", new Azure.LogicApps.IntegrationAccountAssemblyArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             IntegrationAccountName = exampleIntegrationAccount.Name,
+    ///             AssemblyName = "TestAssembly",
+    ///             Content = ReadFileBase64("testdata/log4net.dll"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Logic App Integration Account Assemblies can be imported using the `resource id`, e.g.

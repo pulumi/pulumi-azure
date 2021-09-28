@@ -12,6 +12,93 @@ namespace Pulumi.Azure.LogAnalytics
     /// <summary>
     /// Manages a Log Analytics Cluster Customer Managed Key.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleCluster = new Azure.LogAnalytics.Cluster("exampleCluster", new Azure.LogAnalytics.ClusterArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Identity = new Azure.LogAnalytics.Inputs.ClusterIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = data.Azurerm_client_config.Current.Tenant_id,
+    ///             SkuName = "premium",
+    ///             AccessPolicies = 
+    ///             {
+    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 {
+    ///                     TenantId = data.Azurerm_client_config.Current.Tenant_id,
+    ///                     ObjectId = data.Azurerm_client_config.Current.Object_id,
+    ///                     KeyPermissions = 
+    ///                     {
+    ///                         "create",
+    ///                         "get",
+    ///                     },
+    ///                     SecretPermissions = 
+    ///                     {
+    ///                         "set",
+    ///                     },
+    ///                 },
+    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 {
+    ///                     TenantId = exampleCluster.Identity.Apply(identity =&gt; identity.TenantId),
+    ///                     ObjectId = exampleCluster.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///                     KeyPermissions = 
+    ///                     {
+    ///                         "get",
+    ///                         "unwrapkey",
+    ///                         "wrapkey",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Production" },
+    ///             },
+    ///         });
+    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyType = "RSA",
+    ///             KeySize = 2048,
+    ///             KeyOpts = 
+    ///             {
+    ///                 "decrypt",
+    ///                 "encrypt",
+    ///                 "sign",
+    ///                 "unwrapKey",
+    ///                 "verify",
+    ///                 "wrapKey",
+    ///             },
+    ///         });
+    ///         var exampleClusterCustomerManagedKey = new Azure.LogAnalytics.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", new Azure.LogAnalytics.ClusterCustomerManagedKeyArgs
+    ///         {
+    ///             LogAnalyticsClusterId = exampleCluster.Id,
+    ///             KeyVaultKeyId = exampleKey.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Log Analytics Cluster Customer Managed Keys can be imported using the `resource id`, e.g.

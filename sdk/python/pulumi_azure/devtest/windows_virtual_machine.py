@@ -588,6 +588,45 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         """
         Manages a Windows Virtual Machine within a Dev Test Lab.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_lab = azure.devtest.Lab("exampleLab",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "Sydney": "Australia",
+            })
+        example_virtual_network = azure.devtest.VirtualNetwork("exampleVirtualNetwork",
+            lab_name=example_lab.name,
+            resource_group_name=example_resource_group.name,
+            subnet=azure.devtest.VirtualNetworkSubnetArgs(
+                use_public_ip_address="Allow",
+                use_in_virtual_machine_creation="Allow",
+            ))
+        example_windows_virtual_machine = azure.devtest.WindowsVirtualMachine("exampleWindowsVirtualMachine",
+            lab_name=example_lab.name,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_DS2",
+            username="exampleuser99",
+            password="Pa$w0rd1234!",
+            lab_virtual_network_id=example_virtual_network.id,
+            lab_subnet_name=example_virtual_network.subnet.name,
+            storage_type="Premium",
+            notes="Some notes about this Virtual Machine.",
+            gallery_image_reference=azure.devtest.WindowsVirtualMachineGalleryImageReferenceArgs(
+                offer="WindowsServer",
+                publisher="MicrosoftWindowsServer",
+                sku="2019-Datacenter",
+                version="latest",
+            ))
+        ```
+
         ## Import
 
         DevTest Windows Virtual Machines can be imported using the `resource id`, e.g.
@@ -623,6 +662,45 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Windows Virtual Machine within a Dev Test Lab.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_lab = azure.devtest.Lab("exampleLab",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "Sydney": "Australia",
+            })
+        example_virtual_network = azure.devtest.VirtualNetwork("exampleVirtualNetwork",
+            lab_name=example_lab.name,
+            resource_group_name=example_resource_group.name,
+            subnet=azure.devtest.VirtualNetworkSubnetArgs(
+                use_public_ip_address="Allow",
+                use_in_virtual_machine_creation="Allow",
+            ))
+        example_windows_virtual_machine = azure.devtest.WindowsVirtualMachine("exampleWindowsVirtualMachine",
+            lab_name=example_lab.name,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_DS2",
+            username="exampleuser99",
+            password="Pa$w0rd1234!",
+            lab_virtual_network_id=example_virtual_network.id,
+            lab_subnet_name=example_virtual_network.subnet.name,
+            storage_type="Premium",
+            notes="Some notes about this Virtual Machine.",
+            gallery_image_reference=azure.devtest.WindowsVirtualMachineGalleryImageReferenceArgs(
+                offer="WindowsServer",
+                publisher="MicrosoftWindowsServer",
+                sku="2019-Datacenter",
+                version="latest",
+            ))
+        ```
 
         ## Import
 

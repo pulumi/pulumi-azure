@@ -164,6 +164,27 @@ class IotHubCertificate(pulumi.CustomResource):
         """
         Manages an IotHub Device Provisioning Service Certificate.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IotHubDpsSkuArgs(
+                name="S1",
+                capacity=1,
+            ))
+        example_iot_hub_certificate = azure.iot.IotHubCertificate("exampleIotHubCertificate",
+            resource_group_name=example_resource_group.name,
+            iot_dps_name=example_iot_hub_dps.name,
+            certificate_content=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.cer"))
+        ```
+
         ## Import
 
         IoTHub Device Provisioning Service Certificates can be imported using the `resource id`, e.g.
@@ -187,6 +208,27 @@ class IotHubCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Device Provisioning Service Certificate.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IotHubDpsSkuArgs(
+                name="S1",
+                capacity=1,
+            ))
+        example_iot_hub_certificate = azure.iot.IotHubCertificate("exampleIotHubCertificate",
+            resource_group_name=example_resource_group.name,
+            iot_dps_name=example_iot_hub_dps.name,
+            certificate_content=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.cer"))
+        ```
 
         ## Import
 

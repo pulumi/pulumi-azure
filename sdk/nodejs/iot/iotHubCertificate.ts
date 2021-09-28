@@ -7,6 +7,29 @@ import * as utilities from "../utilities";
 /**
  * Manages an IotHub Device Provisioning Service Certificate.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * from "fs";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleIotHubDps = new azure.iot.IotHubDps("exampleIotHubDps", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: {
+ *         name: "S1",
+ *         capacity: "1",
+ *     },
+ * });
+ * const exampleIotHubCertificate = new azure.iot.IotHubCertificate("exampleIotHubCertificate", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     iotDpsName: exampleIotHubDps.name,
+ *     certificateContent: Buffer.from(fs.readFileSync("example.cer"), 'binary').toString('base64'),
+ * });
+ * ```
+ *
  * ## Import
  *
  * IoTHub Device Provisioning Service Certificates can be imported using the `resource id`, e.g.

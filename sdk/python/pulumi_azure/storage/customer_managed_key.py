@@ -197,6 +197,89 @@ class CustomerManagedKey(pulumi.CustomResource):
         """
         Manages a Customer Managed Key for a Storage Account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            purge_protection_enabled=True)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS",
+            identity=azure.storage.AccountIdentityArgs(
+                type="SystemAssigned",
+            ))
+        storage = azure.keyvault.AccessPolicy("storage",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=example_account.identity.principal_id,
+            key_permissions=[
+                "get",
+                "create",
+                "list",
+                "restore",
+                "recover",
+                "unwrapkey",
+                "wrapkey",
+                "purge",
+                "encrypt",
+                "decrypt",
+                "sign",
+                "verify",
+            ],
+            secret_permissions=["get"])
+        client = azure.keyvault.AccessPolicy("client",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "get",
+                "create",
+                "delete",
+                "list",
+                "restore",
+                "recover",
+                "unwrapkey",
+                "wrapkey",
+                "purge",
+                "encrypt",
+                "decrypt",
+                "sign",
+                "verify",
+            ],
+            secret_permissions=["get"])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    storage,
+                ]))
+        example_customer_managed_key = azure.storage.CustomerManagedKey("exampleCustomerManagedKey",
+            storage_account_id=example_account.id,
+            key_vault_id=example_key_vault.id,
+            key_name=example_key.name)
+        ```
+
         ## Import
 
         Customer Managed Keys for a Storage Account can be imported using the `resource id` of the Storage Account, e.g.
@@ -221,6 +304,89 @@ class CustomerManagedKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Customer Managed Key for a Storage Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            purge_protection_enabled=True)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS",
+            identity=azure.storage.AccountIdentityArgs(
+                type="SystemAssigned",
+            ))
+        storage = azure.keyvault.AccessPolicy("storage",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=example_account.identity.principal_id,
+            key_permissions=[
+                "get",
+                "create",
+                "list",
+                "restore",
+                "recover",
+                "unwrapkey",
+                "wrapkey",
+                "purge",
+                "encrypt",
+                "decrypt",
+                "sign",
+                "verify",
+            ],
+            secret_permissions=["get"])
+        client = azure.keyvault.AccessPolicy("client",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "get",
+                "create",
+                "delete",
+                "list",
+                "restore",
+                "recover",
+                "unwrapkey",
+                "wrapkey",
+                "purge",
+                "encrypt",
+                "decrypt",
+                "sign",
+                "verify",
+            ],
+            secret_permissions=["get"])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    storage,
+                ]))
+        example_customer_managed_key = azure.storage.CustomerManagedKey("exampleCustomerManagedKey",
+            storage_account_id=example_account.id,
+            key_vault_id=example_key_vault.id,
+            key_name=example_key.name)
+        ```
 
         ## Import
 

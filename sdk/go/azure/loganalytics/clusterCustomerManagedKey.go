@@ -13,6 +13,102 @@ import (
 
 // Manages a Log Analytics Cluster Customer Managed Key.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/loganalytics"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleCluster, err := loganalytics.NewCluster(ctx, "exampleCluster", &loganalytics.ClusterArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			Identity: &loganalytics.ClusterIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			TenantId:          pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
+// 			SkuName:           pulumi.String("premium"),
+// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+// 				&keyvault.KeyVaultAccessPolicyArgs{
+// 					TenantId: pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
+// 					ObjectId: pulumi.Any(data.Azurerm_client_config.Current.Object_id),
+// 					KeyPermissions: pulumi.StringArray{
+// 						pulumi.String("create"),
+// 						pulumi.String("get"),
+// 					},
+// 					SecretPermissions: pulumi.StringArray{
+// 						pulumi.String("set"),
+// 					},
+// 				},
+// 				&keyvault.KeyVaultAccessPolicyArgs{
+// 					TenantId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (string, error) {
+// 						return identity.TenantId, nil
+// 					}).(pulumi.StringOutput),
+// 					ObjectId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (string, error) {
+// 						return identity.PrincipalId, nil
+// 					}).(pulumi.StringOutput),
+// 					KeyPermissions: pulumi.StringArray{
+// 						pulumi.String("get"),
+// 						pulumi.String("unwrapkey"),
+// 						pulumi.String("wrapkey"),
+// 					},
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("Production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+// 			KeyVaultId: exampleKeyVault.ID(),
+// 			KeyType:    pulumi.String("RSA"),
+// 			KeySize:    pulumi.Int(2048),
+// 			KeyOpts: pulumi.StringArray{
+// 				pulumi.String("decrypt"),
+// 				pulumi.String("encrypt"),
+// 				pulumi.String("sign"),
+// 				pulumi.String("unwrapKey"),
+// 				pulumi.String("verify"),
+// 				pulumi.String("wrapKey"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = loganalytics.NewClusterCustomerManagedKey(ctx, "exampleClusterCustomerManagedKey", &loganalytics.ClusterCustomerManagedKeyArgs{
+// 			LogAnalyticsClusterId: exampleCluster.ID(),
+// 			KeyVaultKeyId:         exampleKey.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Log Analytics Cluster Customer Managed Keys can be imported using the `resource id`, e.g.

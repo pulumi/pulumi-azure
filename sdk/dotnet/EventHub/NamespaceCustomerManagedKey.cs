@@ -12,6 +12,109 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages a Customer Managed Key for a EventHub Namespace.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleCluster = new Azure.EventHub.Cluster("exampleCluster", new Azure.EventHub.ClusterArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             SkuName = "Dedicated_1",
+    ///         });
+    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "Standard",
+    ///             DedicatedClusterId = exampleCluster.Id,
+    ///             Identity = new Azure.EventHub.Inputs.EventHubNamespaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "standard",
+    ///             SoftDeleteEnabled = true,
+    ///             PurgeProtectionEnabled = true,
+    ///         });
+    ///         var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = exampleEventHubNamespace.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///             ObjectId = exampleEventHubNamespace.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "get",
+    ///                 "unwrapkey",
+    ///                 "wrapkey",
+    ///             },
+    ///         });
+    ///         var example2 = new Azure.KeyVault.AccessPolicy("example2", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "create",
+    ///                 "delete",
+    ///                 "get",
+    ///                 "list",
+    ///                 "purge",
+    ///                 "recover",
+    ///             },
+    ///         });
+    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyType = "RSA",
+    ///             KeySize = 2048,
+    ///             KeyOpts = 
+    ///             {
+    ///                 "decrypt",
+    ///                 "encrypt",
+    ///                 "sign",
+    ///                 "unwrapKey",
+    ///                 "verify",
+    ///                 "wrapKey",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleAccessPolicy,
+    ///                 example2,
+    ///             },
+    ///         });
+    ///         var exampleNamespaceCustomerManagedKey = new Azure.EventHub.NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey", new Azure.EventHub.NamespaceCustomerManagedKeyArgs
+    ///         {
+    ///             EventhubNamespaceId = exampleEventHubNamespace.Id,
+    ///             KeyVaultKeyIds = 
+    ///             {
+    ///                 exampleKey.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Customer Managed Keys for a EventHub Namespace can be imported using the `resource id`, e.g.

@@ -17,6 +17,121 @@ import (
 //
 // > **Note:** Deployments to a Management Group are always Incrementally applied. Existing resources that are not part of the template will not be removed.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/management"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "00000000-0000-0000-0000-000000000000"
+// 		exampleGroup, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = management.NewGroupTemplateDeployment(ctx, "exampleGroupTemplateDeployment", &management.GroupTemplateDeploymentArgs{
+// 			Location:          pulumi.String("West Europe"),
+// 			ManagementGroupId: pulumi.String(exampleGroup.Id),
+// 			TemplateContent:   pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"", "$", "schema\": \"https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#\",\n", "  \"contentVersion\": \"1.0.0.0\",\n", "  \"parameters\": {\n", "    \"policyAssignmentName\": {\n", "      \"type\": \"string\",\n", "      \"defaultValue\": \"[guid(parameters('policyDefinitionID'), resourceGroup().name)]\",\n", "      \"metadata\": {\n", "        \"description\": \"Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides.\"\n", "      }\n", "    },\n", "    \"policyDefinitionID\": {\n", "      \"type\": \"string\",\n", "      \"metadata\": {\n", "        \"description\": \"Specifies the ID of the policy definition or policy set definition being assigned.\"\n", "      }\n", "    }\n", "  },\n", "  \"resources\": [\n", "    {\n", "      \"type\": \"Microsoft.Authorization/policyAssignments\",\n", "      \"name\": \"[parameters('policyAssignmentName')]\",\n", "      \"apiVersion\": \"2019-09-01\",\n", "      \"properties\": {\n", "        \"scope\": \"[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]\",\n", "        \"policyDefinitionId\": \"[parameters('policyDefinitionID')]\"\n", "      }\n", "    }\n", "  ]\n", "}\n")),
+// 			ParametersContent: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"", "$", "schema\": \"https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#\",\n", "  \"contentVersion\": \"1.0.0.0\",\n", "  \"parameters\": {\n", "    \"policyDefinitionID\": {\n", "      \"value\": \"/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a\"\n", "    }\n", "  }\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/management"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "00000000-0000-0000-0000-000000000000"
+// 		exampleGroup, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = management.NewGroupTemplateDeployment(ctx, "exampleGroupTemplateDeployment", &management.GroupTemplateDeploymentArgs{
+// 			Location:          pulumi.String("West Europe"),
+// 			ManagementGroupId: pulumi.String(exampleGroup.Id),
+// 			TemplateContent:   readFileOrPanic("templates/example-deploy-template.json"),
+// 			ParametersContent: readFileOrPanic("templates/example-deploy-params.json"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/management"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "00000000-0000-0000-0000-000000000000"
+// 		exampleGroup, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleTemplateSpecVersion, err := core.GetTemplateSpecVersion(ctx, &core.GetTemplateSpecVersionArgs{
+// 			Name:              "exampleTemplateForManagementGroup",
+// 			ResourceGroupName: "exampleResourceGroup",
+// 			Version:           "v1.0.9",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = management.NewGroupTemplateDeployment(ctx, "exampleGroupTemplateDeployment", &management.GroupTemplateDeploymentArgs{
+// 			Location:              pulumi.String("West Europe"),
+// 			ManagementGroupId:     pulumi.String(exampleGroup.Id),
+// 			TemplateSpecVersionId: pulumi.String(exampleTemplateSpecVersion.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Management Group Template Deployments can be imported using the `resource id`, e.g.

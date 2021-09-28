@@ -234,6 +234,62 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         > **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete & Purge Protection enabled - which are not yet supported by this provider.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            enabled_for_disk_encryption=True,
+            soft_delete_enabled=True,
+            purge_protection_enabled=True)
+        example_user = azure.keyvault.AccessPolicy("example-user",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "get",
+                "create",
+                "delete",
+            ])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_user]))
+        example_disk_encryption_set = azure.compute.DiskEncryptionSet("exampleDiskEncryptionSet",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            key_vault_key_id=example_key.id,
+            identity=azure.compute.DiskEncryptionSetIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_disk = azure.keyvault.AccessPolicy("example-disk",
+            key_vault_id=example_key_vault.id,
+            tenant_id=example_disk_encryption_set.identity.tenant_id,
+            object_id=example_disk_encryption_set.identity.principal_id,
+            key_permissions=[
+                "Get",
+                "WrapKey",
+                "UnwrapKey",
+            ])
+        ```
+
         ## Import
 
         Disk Encryption Sets can be imported using the `resource id`, e.g.
@@ -261,6 +317,62 @@ class DiskEncryptionSet(pulumi.CustomResource):
         Manages a Disk Encryption Set.
 
         > **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete & Purge Protection enabled - which are not yet supported by this provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            enabled_for_disk_encryption=True,
+            soft_delete_enabled=True,
+            purge_protection_enabled=True)
+        example_user = azure.keyvault.AccessPolicy("example-user",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "get",
+                "create",
+                "delete",
+            ])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_user]))
+        example_disk_encryption_set = azure.compute.DiskEncryptionSet("exampleDiskEncryptionSet",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            key_vault_key_id=example_key.id,
+            identity=azure.compute.DiskEncryptionSetIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_disk = azure.keyvault.AccessPolicy("example-disk",
+            key_vault_id=example_key_vault.id,
+            tenant_id=example_disk_encryption_set.identity.tenant_id,
+            object_id=example_disk_encryption_set.identity.principal_id,
+            key_permissions=[
+                "Get",
+                "WrapKey",
+                "UnwrapKey",
+            ])
+        ```
 
         ## Import
 

@@ -24,7 +24,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	case "azure:storage/account:Account":
 		r = &Account{}
 	case "azure:storage/accountNetworkRules:AccountNetworkRules":
-		r = &AccountNetworkRulesType{}
+		r = &AccountNetworkRules{}
 	case "azure:storage/blob:Blob":
 		r = &Blob{}
 	case "azure:storage/blobInventoryPolicy:BlobInventoryPolicy":

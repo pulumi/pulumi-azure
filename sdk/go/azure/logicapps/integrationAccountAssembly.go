@@ -13,6 +13,58 @@ import (
 
 // Manages a Logic App Integration Account Assembly.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/base64"
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/logicapps"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func filebase64OrPanic(path string) pulumi.StringPtrInput {
+// 	if fileData, err := ioutil.ReadFile(path); err == nil {
+// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+// 	} else {
+// 		panic(err.Error())
+// 	}
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			SkuName:           pulumi.String("Basic"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = logicapps.NewIntegrationAccountAssembly(ctx, "exampleIntegrationAccountAssembly", &logicapps.IntegrationAccountAssemblyArgs{
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			IntegrationAccountName: exampleIntegrationAccount.Name,
+// 			AssemblyName:           pulumi.String("TestAssembly"),
+// 			Content:                filebase64OrPanic("testdata/log4net.dll"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Logic App Integration Account Assemblies can be imported using the `resource id`, e.g.

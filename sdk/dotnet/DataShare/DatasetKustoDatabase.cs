@@ -12,6 +12,72 @@ namespace Pulumi.Azure.DataShare
     /// <summary>
     /// Manages a Data Share Kusto Database Dataset.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.DataShare.Account("exampleAccount", new Azure.DataShare.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var exampleShare = new Azure.DataShare.Share("exampleShare", new Azure.DataShare.ShareArgs
+    ///         {
+    ///             AccountId = exampleAccount.Id,
+    ///             Kind = "InPlace",
+    ///         });
+    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///             {
+    ///                 Name = "Dev(No SLA)_Standard_D11_v2",
+    ///                 Capacity = 1,
+    ///             },
+    ///         });
+    ///         var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new Azure.Kusto.DatabaseArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ClusterName = exampleCluster.Name,
+    ///         });
+    ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
+    ///         {
+    ///             Scope = exampleCluster.Id,
+    ///             RoleDefinitionName = "Contributor",
+    ///             PrincipalId = exampleAccount.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///         });
+    ///         var exampleDatasetKustoDatabase = new Azure.DataShare.DatasetKustoDatabase("exampleDatasetKustoDatabase", new Azure.DataShare.DatasetKustoDatabaseArgs
+    ///         {
+    ///             ShareId = exampleShare.Id,
+    ///             KustoDatabaseId = exampleDatabase.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleAssignment,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Share Kusto Database Datasets can be imported using the `resource id`, e.g.

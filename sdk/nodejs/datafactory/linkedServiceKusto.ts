@@ -7,6 +7,50 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between a Kusto Cluster and Azure Data Factory.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         name: "Standard_D13_v2",
+ *         capacity: 2,
+ *     },
+ * });
+ * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     clusterName: exampleCluster.name,
+ * });
+ * const exampleLinkedServiceKusto = new azure.datafactory.LinkedServiceKusto("exampleLinkedServiceKusto", {
+ *     dataFactoryId: exampleFactory.id,
+ *     kustoEndpoint: exampleCluster.uri,
+ *     kustoDatabaseName: exampleDatabase.name,
+ *     useManagedIdentity: true,
+ * });
+ * const exampleDatabasePrincipalAssignment = new azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     clusterName: exampleCluster.name,
+ *     databaseName: exampleDatabase.name,
+ *     tenantId: exampleFactory.identity.apply(identity => identity.tenantId),
+ *     principalId: exampleFactory.identity.apply(identity => identity.principalId),
+ *     principalType: "App",
+ *     role: "Viewer",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Factory Linked Service's can be imported using the `resource id`, e.g.

@@ -465,6 +465,45 @@ class LinkedServiceKusto(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between a Kusto Cluster and Azure Data Factory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            identity=azure.datafactory.FactoryIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_cluster = azure.kusto.Cluster("exampleCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ))
+        example_database = azure.kusto.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name)
+        example_linked_service_kusto = azure.datafactory.LinkedServiceKusto("exampleLinkedServiceKusto",
+            data_factory_id=example_factory.id,
+            kusto_endpoint=example_cluster.uri,
+            kusto_database_name=example_database.name,
+            use_managed_identity=True)
+        example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment",
+            resource_group_name=example_resource_group.name,
+            cluster_name=example_cluster.name,
+            database_name=example_database.name,
+            tenant_id=example_factory.identity.tenant_id,
+            principal_id=example_factory.identity.principal_id,
+            principal_type="App",
+            role="Viewer")
+        ```
+
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -498,6 +537,45 @@ class LinkedServiceKusto(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a Kusto Cluster and Azure Data Factory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            identity=azure.datafactory.FactoryIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_cluster = azure.kusto.Cluster("exampleCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ))
+        example_database = azure.kusto.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name)
+        example_linked_service_kusto = azure.datafactory.LinkedServiceKusto("exampleLinkedServiceKusto",
+            data_factory_id=example_factory.id,
+            kusto_endpoint=example_cluster.uri,
+            kusto_database_name=example_database.name,
+            use_managed_identity=True)
+        example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment",
+            resource_group_name=example_resource_group.name,
+            cluster_name=example_cluster.name,
+            database_name=example_database.name,
+            tenant_id=example_factory.identity.tenant_id,
+            principal_id=example_factory.identity.principal_id,
+            principal_type="App",
+            role="Viewer")
+        ```
 
         ## Import
 

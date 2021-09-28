@@ -7,6 +7,68 @@ import * as utilities from "../utilities";
 /**
  * Manages a Log Analytics Cluster Customer Managed Key.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleCluster = new azure.loganalytics.Cluster("exampleCluster", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: data.azurerm_client_config.current.tenant_id,
+ *     skuName: "premium",
+ *     accessPolicies: [
+ *         {
+ *             tenantId: data.azurerm_client_config.current.tenant_id,
+ *             objectId: data.azurerm_client_config.current.object_id,
+ *             keyPermissions: [
+ *                 "create",
+ *                 "get",
+ *             ],
+ *             secretPermissions: ["set"],
+ *         },
+ *         {
+ *             tenantId: exampleCluster.identity.apply(identity => identity.tenantId),
+ *             objectId: exampleCluster.identity.apply(identity => identity.principalId),
+ *             keyPermissions: [
+ *                 "get",
+ *                 "unwrapkey",
+ *                 "wrapkey",
+ *             ],
+ *         },
+ *     ],
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * });
+ * const exampleClusterCustomerManagedKey = new azure.loganalytics.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", {
+ *     logAnalyticsClusterId: exampleCluster.id,
+ *     keyVaultKeyId: exampleKey.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Log Analytics Cluster Customer Managed Keys can be imported using the `resource id`, e.g.

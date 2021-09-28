@@ -12,6 +12,124 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Customer Managed Key for a Storage Account.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "standard",
+    ///             PurgeProtectionEnabled = true,
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "GRS",
+    ///             Identity = new Azure.Storage.Inputs.AccountIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var storage = new Azure.KeyVault.AccessPolicy("storage", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = exampleAccount.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "get",
+    ///                 "create",
+    ///                 "list",
+    ///                 "restore",
+    ///                 "recover",
+    ///                 "unwrapkey",
+    ///                 "wrapkey",
+    ///                 "purge",
+    ///                 "encrypt",
+    ///                 "decrypt",
+    ///                 "sign",
+    ///                 "verify",
+    ///             },
+    ///             SecretPermissions = 
+    ///             {
+    ///                 "get",
+    ///             },
+    ///         });
+    ///         var client = new Azure.KeyVault.AccessPolicy("client", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "get",
+    ///                 "create",
+    ///                 "delete",
+    ///                 "list",
+    ///                 "restore",
+    ///                 "recover",
+    ///                 "unwrapkey",
+    ///                 "wrapkey",
+    ///                 "purge",
+    ///                 "encrypt",
+    ///                 "decrypt",
+    ///                 "sign",
+    ///                 "verify",
+    ///             },
+    ///             SecretPermissions = 
+    ///             {
+    ///                 "get",
+    ///             },
+    ///         });
+    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyType = "RSA",
+    ///             KeySize = 2048,
+    ///             KeyOpts = 
+    ///             {
+    ///                 "decrypt",
+    ///                 "encrypt",
+    ///                 "sign",
+    ///                 "unwrapKey",
+    ///                 "verify",
+    ///                 "wrapKey",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 client,
+    ///                 storage,
+    ///             },
+    ///         });
+    ///         var exampleCustomerManagedKey = new Azure.Storage.CustomerManagedKey("exampleCustomerManagedKey", new Azure.Storage.CustomerManagedKeyArgs
+    ///         {
+    ///             StorageAccountId = exampleAccount.Id,
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyName = exampleKey.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Customer Managed Keys for a Storage Account can be imported using the `resource id` of the Storage Account, e.g.

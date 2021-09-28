@@ -7,6 +7,96 @@ import * as utilities from "../utilities";
 /**
  * Manages a Customer Managed Key for a Storage Account.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "GRS",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const storage = new azure.keyvault.AccessPolicy("storage", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: exampleAccount.identity.apply(identity => identity.principalId),
+ *     keyPermissions: [
+ *         "get",
+ *         "create",
+ *         "list",
+ *         "restore",
+ *         "recover",
+ *         "unwrapkey",
+ *         "wrapkey",
+ *         "purge",
+ *         "encrypt",
+ *         "decrypt",
+ *         "sign",
+ *         "verify",
+ *     ],
+ *     secretPermissions: ["get"],
+ * });
+ * const client = new azure.keyvault.AccessPolicy("client", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
+ *     keyPermissions: [
+ *         "get",
+ *         "create",
+ *         "delete",
+ *         "list",
+ *         "restore",
+ *         "recover",
+ *         "unwrapkey",
+ *         "wrapkey",
+ *         "purge",
+ *         "encrypt",
+ *         "decrypt",
+ *         "sign",
+ *         "verify",
+ *     ],
+ *     secretPermissions: ["get"],
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [
+ *         client,
+ *         storage,
+ *     ],
+ * });
+ * const exampleCustomerManagedKey = new azure.storage.CustomerManagedKey("exampleCustomerManagedKey", {
+ *     storageAccountId: exampleAccount.id,
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyName: exampleKey.name,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Customer Managed Keys for a Storage Account can be imported using the `resource id` of the Storage Account, e.g.

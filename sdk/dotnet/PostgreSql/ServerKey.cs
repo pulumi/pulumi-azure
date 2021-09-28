@@ -12,6 +12,118 @@ namespace Pulumi.Azure.PostgreSql
     /// <summary>
     /// Manages a Customer Managed Key for a PostgreSQL Server.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "premium",
+    ///             PurgeProtectionEnabled = true,
+    ///         });
+    ///         var exampleServer = new Azure.PostgreSql.Server("exampleServer", new Azure.PostgreSql.ServerArgs
+    ///         {
+    ///             Location = azurerm_resource_group.Test.Location,
+    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///             AdministratorLogin = "psqladminun",
+    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             SkuName = "GP_Gen5_2",
+    ///             Version = "11",
+    ///             StorageMb = 51200,
+    ///             SslEnforcementEnabled = true,
+    ///             Identity = new Azure.PostgreSql.Inputs.ServerIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var server = new Azure.KeyVault.AccessPolicy("server", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = exampleServer.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "get",
+    ///                 "unwrapkey",
+    ///                 "wrapkey",
+    ///             },
+    ///             SecretPermissions = 
+    ///             {
+    ///                 "get",
+    ///             },
+    ///         });
+    ///         var client = new Azure.KeyVault.AccessPolicy("client", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "get",
+    ///                 "create",
+    ///                 "delete",
+    ///                 "list",
+    ///                 "restore",
+    ///                 "recover",
+    ///                 "unwrapkey",
+    ///                 "wrapkey",
+    ///                 "purge",
+    ///                 "encrypt",
+    ///                 "decrypt",
+    ///                 "sign",
+    ///                 "verify",
+    ///             },
+    ///             SecretPermissions = 
+    ///             {
+    ///                 "get",
+    ///             },
+    ///         });
+    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyType = "RSA",
+    ///             KeySize = 2048,
+    ///             KeyOpts = 
+    ///             {
+    ///                 "decrypt",
+    ///                 "encrypt",
+    ///                 "sign",
+    ///                 "unwrapKey",
+    ///                 "verify",
+    ///                 "wrapKey",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 client,
+    ///                 server,
+    ///             },
+    ///         });
+    ///         var exampleServerKey = new Azure.PostgreSql.ServerKey("exampleServerKey", new Azure.PostgreSql.ServerKeyArgs
+    ///         {
+    ///             ServerId = exampleServer.Id,
+    ///             KeyVaultKeyId = exampleKey.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A PostgreSQL Server Key can be imported using the `resource id` of the PostgreSQL Server Key, e.g.

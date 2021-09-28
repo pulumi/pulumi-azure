@@ -7,6 +7,40 @@ import * as utilities from "../utilities";
 /**
  * Manages a certificate in an Azure Batch account.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * from "fs";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleBatch_accountAccount = new azure.batch.Account("exampleBatch/accountAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     poolAllocationMode: "BatchService",
+ *     storageAccountId: exampleAccount.id,
+ *     tags: {
+ *         env: "test",
+ *     },
+ * });
+ * const exampleCertificate = new azure.batch.Certificate("exampleCertificate", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountName: exampleBatch / accountAccount.name,
+ *     certificate: Buffer.from(fs.readFileSync("certificate.pfx"), 'binary').toString('base64'),
+ *     format: "Pfx",
+ *     password: "password",
+ *     thumbprint: "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
+ *     thumbprintAlgorithm: "SHA1",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Batch Certificates can be imported using the `resource id`, e.g.

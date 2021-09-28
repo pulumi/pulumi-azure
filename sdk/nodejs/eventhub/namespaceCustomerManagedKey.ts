@@ -7,6 +7,83 @@ import * as utilities from "../utilities";
 /**
  * Manages a Customer Managed Key for a EventHub Namespace.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleCluster = new azure.eventhub.Cluster("exampleCluster", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     skuName: "Dedicated_1",
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     dedicatedClusterId: exampleCluster.id,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const current = azure.core.getClientConfig({});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     softDeleteEnabled: true,
+ *     purgeProtectionEnabled: true,
+ * });
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: exampleEventHubNamespace.identity.apply(identity => identity?.tenantId),
+ *     objectId: exampleEventHubNamespace.identity.apply(identity => identity?.principalId),
+ *     keyPermissions: [
+ *         "get",
+ *         "unwrapkey",
+ *         "wrapkey",
+ *     ],
+ * });
+ * const example2 = new azure.keyvault.AccessPolicy("example2", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
+ *     keyPermissions: [
+ *         "create",
+ *         "delete",
+ *         "get",
+ *         "list",
+ *         "purge",
+ *         "recover",
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [
+ *         exampleAccessPolicy,
+ *         example2,
+ *     ],
+ * });
+ * const exampleNamespaceCustomerManagedKey = new azure.eventhub.NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey", {
+ *     eventhubNamespaceId: exampleEventHubNamespace.id,
+ *     keyVaultKeyIds: [exampleKey.id],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Customer Managed Keys for a EventHub Namespace can be imported using the `resource id`, e.g.

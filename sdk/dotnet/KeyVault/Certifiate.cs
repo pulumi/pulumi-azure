@@ -13,6 +13,120 @@ namespace Pulumi.Azure.KeyVault
     /// Manages a Key Vault Certificate.
     /// 
     /// ## Example Usage
+    /// ### Importing a PFX
+    /// 
+    /// &gt; **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.UTF8.GetBytes(File.ReadAllText(path)))
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "premium",
+    ///             AccessPolicies = 
+    ///             {
+    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 {
+    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
+    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///                     CertificatePermissions = 
+    ///                     {
+    ///                         "create",
+    ///                         "delete",
+    ///                         "deleteissuers",
+    ///                         "get",
+    ///                         "getissuers",
+    ///                         "import",
+    ///                         "list",
+    ///                         "listissuers",
+    ///                         "managecontacts",
+    ///                         "manageissuers",
+    ///                         "setissuers",
+    ///                         "update",
+    ///                     },
+    ///                     KeyPermissions = 
+    ///                     {
+    ///                         "backup",
+    ///                         "create",
+    ///                         "decrypt",
+    ///                         "delete",
+    ///                         "encrypt",
+    ///                         "get",
+    ///                         "import",
+    ///                         "list",
+    ///                         "purge",
+    ///                         "recover",
+    ///                         "restore",
+    ///                         "sign",
+    ///                         "unwrapKey",
+    ///                         "update",
+    ///                         "verify",
+    ///                         "wrapKey",
+    ///                     },
+    ///                     SecretPermissions = 
+    ///                     {
+    ///                         "backup",
+    ///                         "delete",
+    ///                         "get",
+    ///                         "list",
+    ///                         "purge",
+    ///                         "recover",
+    ///                         "restore",
+    ///                         "set",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new Azure.KeyVault.CertificateArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             Certificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
+    ///             {
+    ///                 Contents = ReadFileBase64("certificate-to-import.pfx"),
+    ///                 Password = "",
+    ///             },
+    ///             CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
+    ///             {
+    ///                 IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
+    ///                 {
+    ///                     Name = "Self",
+    ///                 },
+    ///                 KeyProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyKeyPropertiesArgs
+    ///                 {
+    ///                     Exportable = true,
+    ///                     KeySize = 2048,
+    ///                     KeyType = "RSA",
+    ///                     ReuseKey = false,
+    ///                 },
+    ///                 SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
+    ///                 {
+    ///                     ContentType = "application/x-pkcs12",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Generating a new certificate
     /// 
     /// ```csharp
