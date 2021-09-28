@@ -8,6 +8,49 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linux Virtual Machine within a Dev Test Lab.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * from "fs";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleLab = new azure.devtest.Lab("exampleLab", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tags: {
+ *         Sydney: "Australia",
+ *     },
+ * });
+ * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("exampleVirtualNetwork", {
+ *     labName: exampleLab.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     subnet: {
+ *         usePublicIpAddress: "Allow",
+ *         useInVirtualMachineCreation: "Allow",
+ *     },
+ * });
+ * const exampleLinuxVirtualMachine = new azure.devtest.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
+ *     labName: exampleLab.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     size: "Standard_DS2",
+ *     username: "exampleuser99",
+ *     sshKey: fs.readFileSync("~/.ssh/id_rsa.pub"),
+ *     labVirtualNetworkId: exampleVirtualNetwork.id,
+ *     labSubnetName: exampleVirtualNetwork.subnet.apply(subnet => subnet.name),
+ *     storageType: "Premium",
+ *     notes: "Some notes about this Virtual Machine.",
+ *     galleryImageReference: {
+ *         offer: "UbuntuServer",
+ *         publisher: "Canonical",
+ *         sku: "18.04-LTS",
+ *         version: "latest",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Dev Test Linux Virtual Machines can be imported using the `resource id`, e.g.

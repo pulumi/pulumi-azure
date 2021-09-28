@@ -7,6 +7,80 @@ import * as utilities from "../utilities";
 /**
  * Manages a Customer Managed Key for a Kusto Cluster.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
+ * });
+ * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
+ *     location: azurerm_resource_group.rg.location,
+ *     resourceGroupName: azurerm_resource_group.rg.name,
+ *     sku: {
+ *         name: "Standard_D13_v2",
+ *         capacity: 2,
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const cluster = new azure.keyvault.AccessPolicy("cluster", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: exampleCluster.identity.apply(identity => identity.principalId),
+ *     keyPermissions: [
+ *         "get",
+ *         "unwrapkey",
+ *         "wrapkey",
+ *     ],
+ * });
+ * const client = new azure.keyvault.AccessPolicy("client", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
+ *     keyPermissions: [
+ *         "get",
+ *         "list",
+ *         "create",
+ *         "delete",
+ *         "recover",
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [
+ *         client,
+ *         cluster,
+ *     ],
+ * });
+ * const exampleClusterCustomerManagedKey = new azure.kusto.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", {
+ *     clusterId: exampleCluster.id,
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyName: exampleKey.name,
+ *     keyVersion: exampleKey.version,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Customer Managed Keys for a Kusto Cluster can be imported using the `resource id`, e.g.

@@ -9,6 +9,91 @@ import * as utilities from "../utilities";
  * Manages a Key Vault Certificate.
  *
  * ## Example Usage
+ * ### Importing a PFX
+ *
+ * > **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * from "fs";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     accessPolicies: [{
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
+ *         certificatePermissions: [
+ *             "create",
+ *             "delete",
+ *             "deleteissuers",
+ *             "get",
+ *             "getissuers",
+ *             "import",
+ *             "list",
+ *             "listissuers",
+ *             "managecontacts",
+ *             "manageissuers",
+ *             "setissuers",
+ *             "update",
+ *         ],
+ *         keyPermissions: [
+ *             "backup",
+ *             "create",
+ *             "decrypt",
+ *             "delete",
+ *             "encrypt",
+ *             "get",
+ *             "import",
+ *             "list",
+ *             "purge",
+ *             "recover",
+ *             "restore",
+ *             "sign",
+ *             "unwrapKey",
+ *             "update",
+ *             "verify",
+ *             "wrapKey",
+ *         ],
+ *         secretPermissions: [
+ *             "backup",
+ *             "delete",
+ *             "get",
+ *             "list",
+ *             "purge",
+ *             "recover",
+ *             "restore",
+ *             "set",
+ *         ],
+ *     }],
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificate: {
+ *         contents: Buffer.from(fs.readFileSync("certificate-to-import.pfx"), 'binary').toString('base64'),
+ *         password: "",
+ *     },
+ *     certificatePolicy: {
+ *         issuerParameters: {
+ *             name: "Self",
+ *         },
+ *         keyProperties: {
+ *             exportable: true,
+ *             keySize: 2048,
+ *             keyType: "RSA",
+ *             reuseKey: false,
+ *         },
+ *         secretProperties: {
+ *             contentType: "application/x-pkcs12",
+ *         },
+ *     },
+ * });
+ * ```
  * ### Generating a new certificate
  *
  * ```typescript

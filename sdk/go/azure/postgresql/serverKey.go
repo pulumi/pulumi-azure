@@ -13,6 +13,131 @@ import (
 
 // Manages a Customer Managed Key for a PostgreSQL Server.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/postgresql"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+// 			Location:               exampleResourceGroup.Location,
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			TenantId:               pulumi.String(current.TenantId),
+// 			SkuName:                pulumi.String("premium"),
+// 			PurgeProtectionEnabled: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
+// 			Location:                   pulumi.Any(azurerm_resource_group.Test.Location),
+// 			ResourceGroupName:          pulumi.Any(azurerm_resource_group.Test.Name),
+// 			AdministratorLogin:         pulumi.String("psqladminun"),
+// 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
+// 			SkuName:                    pulumi.String("GP_Gen5_2"),
+// 			Version:                    pulumi.String("11"),
+// 			StorageMb:                  pulumi.Int(51200),
+// 			SslEnforcementEnabled:      pulumi.Bool(true),
+// 			Identity: &postgresql.ServerIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		server, err := keyvault.NewAccessPolicy(ctx, "server", &keyvault.AccessPolicyArgs{
+// 			KeyVaultId: exampleKeyVault.ID(),
+// 			TenantId:   pulumi.String(current.TenantId),
+// 			ObjectId: exampleServer.Identity.ApplyT(func(identity postgresql.ServerIdentity) (string, error) {
+// 				return identity.PrincipalId, nil
+// 			}).(pulumi.StringOutput),
+// 			KeyPermissions: pulumi.StringArray{
+// 				pulumi.String("get"),
+// 				pulumi.String("unwrapkey"),
+// 				pulumi.String("wrapkey"),
+// 			},
+// 			SecretPermissions: pulumi.StringArray{
+// 				pulumi.String("get"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
+// 			KeyVaultId: exampleKeyVault.ID(),
+// 			TenantId:   pulumi.String(current.TenantId),
+// 			ObjectId:   pulumi.String(current.ObjectId),
+// 			KeyPermissions: pulumi.StringArray{
+// 				pulumi.String("get"),
+// 				pulumi.String("create"),
+// 				pulumi.String("delete"),
+// 				pulumi.String("list"),
+// 				pulumi.String("restore"),
+// 				pulumi.String("recover"),
+// 				pulumi.String("unwrapkey"),
+// 				pulumi.String("wrapkey"),
+// 				pulumi.String("purge"),
+// 				pulumi.String("encrypt"),
+// 				pulumi.String("decrypt"),
+// 				pulumi.String("sign"),
+// 				pulumi.String("verify"),
+// 			},
+// 			SecretPermissions: pulumi.StringArray{
+// 				pulumi.String("get"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+// 			KeyVaultId: exampleKeyVault.ID(),
+// 			KeyType:    pulumi.String("RSA"),
+// 			KeySize:    pulumi.Int(2048),
+// 			KeyOpts: pulumi.StringArray{
+// 				pulumi.String("decrypt"),
+// 				pulumi.String("encrypt"),
+// 				pulumi.String("sign"),
+// 				pulumi.String("unwrapKey"),
+// 				pulumi.String("verify"),
+// 				pulumi.String("wrapKey"),
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			client,
+// 			server,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = postgresql.NewServerKey(ctx, "exampleServerKey", &postgresql.ServerKeyArgs{
+// 			ServerId:      exampleServer.ID(),
+// 			KeyVaultKeyId: exampleKey.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // A PostgreSQL Server Key can be imported using the `resource id` of the PostgreSQL Server Key, e.g.

@@ -232,6 +232,102 @@ class BackupInstancePostgresql(pulumi.CustomResource):
 
         > **Note**: Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/en-us/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.postgresql.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="B_Gen5_2",
+            storage_mb=5120,
+            backup_retention_days=7,
+            geo_redundant_backup_enabled=False,
+            auto_grow_enabled=True,
+            administrator_login="psqladminun",
+            administrator_login_password="H@Sh1CoR3!",
+            version="9.5",
+            ssl_enforcement_enabled=True)
+        example_firewall_rule = azure.postgresql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address="0.0.0.0",
+            end_ip_address="0.0.0.0")
+        example_database = azure.postgresql.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            charset="UTF8",
+            collation="English_United States.1252")
+        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant",
+            identity=azure.dataprotection.BackupVaultIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7,
+            access_policies=[
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id=current.tenant_id,
+                    object_id=current.object_id,
+                    key_permissions=[
+                        "create",
+                        "get",
+                    ],
+                    secret_permissions=[
+                        "set",
+                        "get",
+                        "delete",
+                        "purge",
+                        "recover",
+                    ],
+                ),
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id=example_backup_vault.identity.tenant_id,
+                    object_id=example_backup_vault.identity.principal_id,
+                    key_permissions=[
+                        "create",
+                        "get",
+                    ],
+                    secret_permissions=[
+                        "set",
+                        "get",
+                        "delete",
+                        "purge",
+                        "recover",
+                    ],
+                ),
+            ])
+        example_secret = azure.keyvault.Secret("exampleSecret",
+            value=pulumi.Output.all(example_server.name, example_database.name, example_server.name).apply(lambda exampleServerName, exampleDatabaseName, exampleServerName1: f"Server={example_server_name}.postgres.database.azure.com;Database={example_database_name};Port=5432;User Id=psqladminun@{example_server_name1};Password=H@Sh1CoR3!;Ssl Mode=Require;"),
+            key_vault_id=example_key_vault.id)
+        example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql",
+            resource_group_name=example_resource_group.name,
+            vault_name=example_backup_vault.name,
+            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
+            default_retention_duration="P4M")
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            scope=example_server.id,
+            role_definition_name="Reader",
+            principal_id=example_backup_vault.identity.principal_id)
+        example_backup_instance_postgresql = azure.dataprotection.BackupInstancePostgresql("exampleBackupInstancePostgresql",
+            location=example_resource_group.location,
+            vault_id=example_backup_vault.id,
+            database_id=example_database.id,
+            backup_policy_id=example_backup_policy_postgresql.id,
+            database_credential_key_vault_secret_id=example_secret.versionless_id)
+        ```
+
         ## Import
 
         Backup Instance PostgreSQL can be imported using the `resource id`, e.g.
@@ -259,6 +355,102 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         Manages a Backup Instance to back up PostgreSQL.
 
         > **Note**: Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/en-us/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.postgresql.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="B_Gen5_2",
+            storage_mb=5120,
+            backup_retention_days=7,
+            geo_redundant_backup_enabled=False,
+            auto_grow_enabled=True,
+            administrator_login="psqladminun",
+            administrator_login_password="H@Sh1CoR3!",
+            version="9.5",
+            ssl_enforcement_enabled=True)
+        example_firewall_rule = azure.postgresql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address="0.0.0.0",
+            end_ip_address="0.0.0.0")
+        example_database = azure.postgresql.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            charset="UTF8",
+            collation="English_United States.1252")
+        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant",
+            identity=azure.dataprotection.BackupVaultIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7,
+            access_policies=[
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id=current.tenant_id,
+                    object_id=current.object_id,
+                    key_permissions=[
+                        "create",
+                        "get",
+                    ],
+                    secret_permissions=[
+                        "set",
+                        "get",
+                        "delete",
+                        "purge",
+                        "recover",
+                    ],
+                ),
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id=example_backup_vault.identity.tenant_id,
+                    object_id=example_backup_vault.identity.principal_id,
+                    key_permissions=[
+                        "create",
+                        "get",
+                    ],
+                    secret_permissions=[
+                        "set",
+                        "get",
+                        "delete",
+                        "purge",
+                        "recover",
+                    ],
+                ),
+            ])
+        example_secret = azure.keyvault.Secret("exampleSecret",
+            value=pulumi.Output.all(example_server.name, example_database.name, example_server.name).apply(lambda exampleServerName, exampleDatabaseName, exampleServerName1: f"Server={example_server_name}.postgres.database.azure.com;Database={example_database_name};Port=5432;User Id=psqladminun@{example_server_name1};Password=H@Sh1CoR3!;Ssl Mode=Require;"),
+            key_vault_id=example_key_vault.id)
+        example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql",
+            resource_group_name=example_resource_group.name,
+            vault_name=example_backup_vault.name,
+            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
+            default_retention_duration="P4M")
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            scope=example_server.id,
+            role_definition_name="Reader",
+            principal_id=example_backup_vault.identity.principal_id)
+        example_backup_instance_postgresql = azure.dataprotection.BackupInstancePostgresql("exampleBackupInstancePostgresql",
+            location=example_resource_group.location,
+            vault_id=example_backup_vault.id,
+            database_id=example_database.id,
+            backup_policy_id=example_backup_policy_postgresql.id,
+            database_credential_key_vault_secret_id=example_secret.versionless_id)
+        ```
 
         ## Import
 

@@ -8,6 +8,153 @@ import * as utilities from "../utilities";
 /**
  * Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const primaryResourceGroup = new azure.core.ResourceGroup("primaryResourceGroup", {location: "West US"});
+ * const secondaryResourceGroup = new azure.core.ResourceGroup("secondaryResourceGroup", {location: "East US"});
+ * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primaryVirtualNetwork", {
+ *     resourceGroupName: primaryResourceGroup.name,
+ *     addressSpaces: ["192.168.1.0/24"],
+ *     location: primaryResourceGroup.location,
+ * });
+ * const primarySubnet = new azure.network.Subnet("primarySubnet", {
+ *     resourceGroupName: primaryResourceGroup.name,
+ *     virtualNetworkName: primaryVirtualNetwork.name,
+ *     addressPrefixes: ["192.168.1.0/24"],
+ * });
+ * const primaryPublicIp = new azure.network.PublicIp("primaryPublicIp", {
+ *     allocationMethod: "Static",
+ *     location: primaryResourceGroup.location,
+ *     resourceGroupName: primaryResourceGroup.name,
+ *     sku: "Basic",
+ * });
+ * const vmNetworkInterface = new azure.network.NetworkInterface("vmNetworkInterface", {
+ *     location: primaryResourceGroup.location,
+ *     resourceGroupName: primaryResourceGroup.name,
+ *     ipConfigurations: [{
+ *         name: "vm",
+ *         subnetId: primarySubnet.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *         publicIpAddressId: primaryPublicIp.id,
+ *     }],
+ * });
+ * const vmVirtualMachine = new azure.compute.VirtualMachine("vmVirtualMachine", {
+ *     location: primaryResourceGroup.location,
+ *     resourceGroupName: primaryResourceGroup.name,
+ *     vmSize: "Standard_B1s",
+ *     networkInterfaceIds: [vmNetworkInterface.id],
+ *     storageImageReference: {
+ *         publisher: "OpenLogic",
+ *         offer: "CentOS",
+ *         sku: "7.5",
+ *         version: "latest",
+ *     },
+ *     storageOsDisk: {
+ *         name: "vm-os-disk",
+ *         osType: "Linux",
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         managedDiskType: "Premium_LRS",
+ *     },
+ *     osProfile: {
+ *         adminUsername: "test-admin-123",
+ *         adminPassword: "test-pwd-123",
+ *         computerName: "vm",
+ *     },
+ *     osProfileLinuxConfig: {
+ *         disablePasswordAuthentication: false,
+ *     },
+ * });
+ * const vault = new azure.recoveryservices.Vault("vault", {
+ *     location: secondaryResourceGroup.location,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const primaryFabric = new azure.siterecovery.Fabric("primaryFabric", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     location: primaryResourceGroup.location,
+ * });
+ * const secondaryFabric = new azure.siterecovery.Fabric("secondaryFabric", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     location: secondaryResourceGroup.location,
+ * });
+ * const primaryProtectionContainer = new azure.siterecovery.ProtectionContainer("primaryProtectionContainer", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     recoveryFabricName: primaryFabric.name,
+ * });
+ * const secondaryProtectionContainer = new azure.siterecovery.ProtectionContainer("secondaryProtectionContainer", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     recoveryFabricName: secondaryFabric.name,
+ * });
+ * const policy = new azure.siterecovery.ReplicationPolicy("policy", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     recoveryPointRetentionInMinutes: 24 * 60,
+ *     applicationConsistentSnapshotFrequencyInMinutes: 4 * 60,
+ * });
+ * const container_mapping = new azure.siterecovery.ProtectionContainerMapping("container-mapping", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     recoveryFabricName: primaryFabric.name,
+ *     recoverySourceProtectionContainerName: primaryProtectionContainer.name,
+ *     recoveryTargetProtectionContainerId: secondaryProtectionContainer.id,
+ *     recoveryReplicationPolicyId: policy.id,
+ * });
+ * const primaryAccount = new azure.storage.Account("primaryAccount", {
+ *     location: primaryResourceGroup.location,
+ *     resourceGroupName: primaryResourceGroup.name,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const secondaryVirtualNetwork = new azure.network.VirtualNetwork("secondaryVirtualNetwork", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     addressSpaces: ["192.168.2.0/24"],
+ *     location: secondaryResourceGroup.location,
+ * });
+ * const secondarySubnet = new azure.network.Subnet("secondarySubnet", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     virtualNetworkName: secondaryVirtualNetwork.name,
+ *     addressPrefixes: ["192.168.2.0/24"],
+ * });
+ * const secondaryPublicIp = new azure.network.PublicIp("secondaryPublicIp", {
+ *     allocationMethod: "Static",
+ *     location: secondaryResourceGroup.location,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     sku: "Basic",
+ * });
+ * const vm_replication = new azure.siterecovery.ReplicatedVM("vm-replication", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     sourceRecoveryFabricName: primaryFabric.name,
+ *     sourceVmId: vmVirtualMachine.id,
+ *     recoveryReplicationPolicyId: policy.id,
+ *     sourceRecoveryProtectionContainerName: primaryProtectionContainer.name,
+ *     targetResourceGroupId: secondaryResourceGroup.id,
+ *     targetRecoveryFabricId: secondaryFabric.id,
+ *     targetRecoveryProtectionContainerId: secondaryProtectionContainer.id,
+ *     managedDisks: [{
+ *         diskId: vmVirtualMachine.storageOsDisk.apply(storageOsDisk => storageOsDisk.managedDiskId),
+ *         stagingStorageAccountId: primaryAccount.id,
+ *         targetResourceGroupId: secondaryResourceGroup.id,
+ *         targetDiskType: "Premium_LRS",
+ *         targetReplicaDiskType: "Premium_LRS",
+ *     }],
+ *     networkInterfaces: [{
+ *         sourceNetworkInterfaceId: vmNetworkInterface.id,
+ *         targetSubnetName: "network2-subnet",
+ *         recoveryPublicIpAddressId: secondaryPublicIp.id,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Site Recovery Replicated VM's can be imported using the `resource id`, e.g.

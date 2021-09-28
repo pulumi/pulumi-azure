@@ -622,6 +622,45 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Manages a Linux Virtual Machine within a Dev Test Lab.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_lab = azure.devtest.Lab("exampleLab",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "Sydney": "Australia",
+            })
+        example_virtual_network = azure.devtest.VirtualNetwork("exampleVirtualNetwork",
+            lab_name=example_lab.name,
+            resource_group_name=example_resource_group.name,
+            subnet=azure.devtest.VirtualNetworkSubnetArgs(
+                use_public_ip_address="Allow",
+                use_in_virtual_machine_creation="Allow",
+            ))
+        example_linux_virtual_machine = azure.devtest.LinuxVirtualMachine("exampleLinuxVirtualMachine",
+            lab_name=example_lab.name,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_DS2",
+            username="exampleuser99",
+            ssh_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+            lab_virtual_network_id=example_virtual_network.id,
+            lab_subnet_name=example_virtual_network.subnet.name,
+            storage_type="Premium",
+            notes="Some notes about this Virtual Machine.",
+            gallery_image_reference=azure.devtest.LinuxVirtualMachineGalleryImageReferenceArgs(
+                offer="UbuntuServer",
+                publisher="Canonical",
+                sku="18.04-LTS",
+                version="latest",
+            ))
+        ```
+
         ## Import
 
         Dev Test Linux Virtual Machines can be imported using the `resource id`, e.g.
@@ -658,6 +697,45 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linux Virtual Machine within a Dev Test Lab.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_lab = azure.devtest.Lab("exampleLab",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "Sydney": "Australia",
+            })
+        example_virtual_network = azure.devtest.VirtualNetwork("exampleVirtualNetwork",
+            lab_name=example_lab.name,
+            resource_group_name=example_resource_group.name,
+            subnet=azure.devtest.VirtualNetworkSubnetArgs(
+                use_public_ip_address="Allow",
+                use_in_virtual_machine_creation="Allow",
+            ))
+        example_linux_virtual_machine = azure.devtest.LinuxVirtualMachine("exampleLinuxVirtualMachine",
+            lab_name=example_lab.name,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_DS2",
+            username="exampleuser99",
+            ssh_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+            lab_virtual_network_id=example_virtual_network.id,
+            lab_subnet_name=example_virtual_network.subnet.name,
+            storage_type="Premium",
+            notes="Some notes about this Virtual Machine.",
+            gallery_image_reference=azure.devtest.LinuxVirtualMachineGalleryImageReferenceArgs(
+                offer="UbuntuServer",
+                publisher="Canonical",
+                sku="18.04-LTS",
+                version="latest",
+            ))
+        ```
 
         ## Import
 

@@ -12,6 +12,125 @@ namespace Pulumi.Azure.Batch
     /// <summary>
     /// Manages an Azure Batch pool.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.UTF8.GetBytes(File.ReadAllText(path)))
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleBatch_accountAccount = new Azure.Batch.Account("exampleBatch/accountAccount", new Azure.Batch.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             PoolAllocationMode = "BatchService",
+    ///             StorageAccountId = exampleAccount.Id,
+    ///             Tags = 
+    ///             {
+    ///                 { "env", "test" },
+    ///             },
+    ///         });
+    ///         var exampleCertificate = new Azure.Batch.Certificate("exampleCertificate", new Azure.Batch.CertificateArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AccountName = exampleBatch / accountAccount.Name,
+    ///             Certificate = ReadFileBase64("certificate.cer"),
+    ///             Format = "Cer",
+    ///             Thumbprint = "312d31a79fa0cef49c00f769afc2b73e9f4edf34",
+    ///             ThumbprintAlgorithm = "SHA1",
+    ///         });
+    ///         var examplePool = new Azure.Batch.Pool("examplePool", new Azure.Batch.PoolArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AccountName = exampleBatch / accountAccount.Name,
+    ///             DisplayName = "Test Acc Pool Auto",
+    ///             VmSize = "Standard_A1",
+    ///             NodeAgentSkuId = "batch.node.ubuntu 16.04",
+    ///             AutoScale = new Azure.Batch.Inputs.PoolAutoScaleArgs
+    ///             {
+    ///                 EvaluationInterval = "PT15M",
+    ///                 Formula = @"      startingNumberOfVMs = 1;
+    ///       maxNumberofVMs = 25;
+    ///       pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+    ///       pendingTaskSamples = pendingTaskSamplePercent &lt; 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));
+    ///       $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+    /// ",
+    ///             },
+    ///             StorageImageReference = new Azure.Batch.Inputs.PoolStorageImageReferenceArgs
+    ///             {
+    ///                 Publisher = "microsoft-azure-batch",
+    ///                 Offer = "ubuntu-server-container",
+    ///                 Sku = "16-04-lts",
+    ///                 Version = "latest",
+    ///             },
+    ///             ContainerConfiguration = new Azure.Batch.Inputs.PoolContainerConfigurationArgs
+    ///             {
+    ///                 Type = "DockerCompatible",
+    ///                 ContainerRegistries = 
+    ///                 {
+    ///                     new Azure.Batch.Inputs.PoolContainerConfigurationContainerRegistryArgs
+    ///                     {
+    ///                         RegistryServer = "docker.io",
+    ///                         UserName = "login",
+    ///                         Password = "apassword",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             StartTask = new Azure.Batch.Inputs.PoolStartTaskArgs
+    ///             {
+    ///                 CommandLine = "echo 'Hello World from $env'",
+    ///                 MaxTaskRetryCount = 1,
+    ///                 WaitForSuccess = true,
+    ///                 Environment = 
+    ///                 {
+    ///                     { "env", "TEST" },
+    ///                 },
+    ///                 UserIdentity = new Azure.Batch.Inputs.PoolStartTaskUserIdentityArgs
+    ///                 {
+    ///                     AutoUser = new Azure.Batch.Inputs.PoolStartTaskUserIdentityAutoUserArgs
+    ///                     {
+    ///                         ElevationLevel = "NonAdmin",
+    ///                         Scope = "Task",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Certificates = 
+    ///             {
+    ///                 new Azure.Batch.Inputs.PoolCertificateArgs
+    ///                 {
+    ///                     Id = exampleCertificate.Id,
+    ///                     Visibilities = 
+    ///                     {
+    ///                         "StartTask",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Batch Pools can be imported using the `resource id`, e.g.

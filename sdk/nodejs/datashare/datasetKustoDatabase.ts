@@ -7,6 +7,50 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Share Kusto Database Dataset.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.datashare.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleShare = new azure.datashare.Share("exampleShare", {
+ *     accountId: exampleAccount.id,
+ *     kind: "InPlace",
+ * });
+ * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         name: "Dev(No SLA)_Standard_D11_v2",
+ *         capacity: 1,
+ *     },
+ * });
+ * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     clusterName: exampleCluster.name,
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ *     scope: exampleCluster.id,
+ *     roleDefinitionName: "Contributor",
+ *     principalId: exampleAccount.identity.apply(identity => identity.principalId),
+ * });
+ * const exampleDatasetKustoDatabase = new azure.datashare.DatasetKustoDatabase("exampleDatasetKustoDatabase", {
+ *     shareId: exampleShare.id,
+ *     kustoDatabaseId: exampleDatabase.id,
+ * }, {
+ *     dependsOn: [exampleAssignment],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Share Kusto Database Datasets can be imported using the `resource id`, e.g.

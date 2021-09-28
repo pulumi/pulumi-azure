@@ -14,6 +14,127 @@ import (
 // Manages a Key Vault Certificate.
 //
 // ## Example Usage
+// ### Importing a PFX
+//
+// > **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/base64"
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func filebase64OrPanic(path string) pulumi.StringPtrInput {
+// 	if fileData, err := ioutil.ReadFile(path); err == nil {
+// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+// 	} else {
+// 		panic(err.Error())
+// 	}
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			TenantId:          pulumi.String(current.TenantId),
+// 			SkuName:           pulumi.String("premium"),
+// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+// 				&keyvault.KeyVaultAccessPolicyArgs{
+// 					TenantId: pulumi.String(current.TenantId),
+// 					ObjectId: pulumi.String(current.ObjectId),
+// 					CertificatePermissions: pulumi.StringArray{
+// 						pulumi.String("create"),
+// 						pulumi.String("delete"),
+// 						pulumi.String("deleteissuers"),
+// 						pulumi.String("get"),
+// 						pulumi.String("getissuers"),
+// 						pulumi.String("import"),
+// 						pulumi.String("list"),
+// 						pulumi.String("listissuers"),
+// 						pulumi.String("managecontacts"),
+// 						pulumi.String("manageissuers"),
+// 						pulumi.String("setissuers"),
+// 						pulumi.String("update"),
+// 					},
+// 					KeyPermissions: pulumi.StringArray{
+// 						pulumi.String("backup"),
+// 						pulumi.String("create"),
+// 						pulumi.String("decrypt"),
+// 						pulumi.String("delete"),
+// 						pulumi.String("encrypt"),
+// 						pulumi.String("get"),
+// 						pulumi.String("import"),
+// 						pulumi.String("list"),
+// 						pulumi.String("purge"),
+// 						pulumi.String("recover"),
+// 						pulumi.String("restore"),
+// 						pulumi.String("sign"),
+// 						pulumi.String("unwrapKey"),
+// 						pulumi.String("update"),
+// 						pulumi.String("verify"),
+// 						pulumi.String("wrapKey"),
+// 					},
+// 					SecretPermissions: pulumi.StringArray{
+// 						pulumi.String("backup"),
+// 						pulumi.String("delete"),
+// 						pulumi.String("get"),
+// 						pulumi.String("list"),
+// 						pulumi.String("purge"),
+// 						pulumi.String("recover"),
+// 						pulumi.String("restore"),
+// 						pulumi.String("set"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+// 			KeyVaultId: exampleKeyVault.ID(),
+// 			Certificate: &keyvault.CertificateCertificateArgs{
+// 				Contents: filebase64OrPanic("certificate-to-import.pfx"),
+// 				Password: pulumi.String(""),
+// 			},
+// 			CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
+// 				IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
+// 					Name: pulumi.String("Self"),
+// 				},
+// 				KeyProperties: &keyvault.CertificateCertificatePolicyKeyPropertiesArgs{
+// 					Exportable: pulumi.Bool(true),
+// 					KeySize:    pulumi.Int(2048),
+// 					KeyType:    pulumi.String("RSA"),
+// 					ReuseKey:   pulumi.Bool(false),
+// 				},
+// 				SecretProperties: &keyvault.CertificateCertificatePolicySecretPropertiesArgs{
+// 					ContentType: pulumi.String("application/x-pkcs12"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Generating a new certificate
 //
 // ```go

@@ -12,6 +12,103 @@ namespace Pulumi.Azure.Kusto
     /// <summary>
     /// Manages a Customer Managed Key for a Kusto Cluster.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "standard",
+    ///             PurgeProtectionEnabled = true,
+    ///         });
+    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
+    ///         {
+    ///             Location = azurerm_resource_group.Rg.Location,
+    ///             ResourceGroupName = azurerm_resource_group.Rg.Name,
+    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///             {
+    ///                 Name = "Standard_D13_v2",
+    ///                 Capacity = 2,
+    ///             },
+    ///             Identity = new Azure.Kusto.Inputs.ClusterIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var cluster = new Azure.KeyVault.AccessPolicy("cluster", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = exampleCluster.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "get",
+    ///                 "unwrapkey",
+    ///                 "wrapkey",
+    ///             },
+    ///         });
+    ///         var client = new Azure.KeyVault.AccessPolicy("client", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "get",
+    ///                 "list",
+    ///                 "create",
+    ///                 "delete",
+    ///                 "recover",
+    ///             },
+    ///         });
+    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyType = "RSA",
+    ///             KeySize = 2048,
+    ///             KeyOpts = 
+    ///             {
+    ///                 "decrypt",
+    ///                 "encrypt",
+    ///                 "sign",
+    ///                 "unwrapKey",
+    ///                 "verify",
+    ///                 "wrapKey",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 client,
+    ///                 cluster,
+    ///             },
+    ///         });
+    ///         var exampleClusterCustomerManagedKey = new Azure.Kusto.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", new Azure.Kusto.ClusterCustomerManagedKeyArgs
+    ///         {
+    ///             ClusterId = exampleCluster.Id,
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyName = exampleKey.Name,
+    ///             KeyVersion = exampleKey.Version,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Customer Managed Keys for a Kusto Cluster can be imported using the `resource id`, e.g.

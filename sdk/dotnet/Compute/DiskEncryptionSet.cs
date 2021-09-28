@@ -14,6 +14,91 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete &amp; Purge Protection enabled - which are not yet supported by this provider.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "premium",
+    ///             EnabledForDiskEncryption = true,
+    ///             SoftDeleteEnabled = true,
+    ///             PurgeProtectionEnabled = true,
+    ///         });
+    ///         var example_user = new Azure.KeyVault.AccessPolicy("example-user", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "get",
+    ///                 "create",
+    ///                 "delete",
+    ///             },
+    ///         });
+    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyType = "RSA",
+    ///             KeySize = 2048,
+    ///             KeyOpts = 
+    ///             {
+    ///                 "decrypt",
+    ///                 "encrypt",
+    ///                 "sign",
+    ///                 "unwrapKey",
+    ///                 "verify",
+    ///                 "wrapKey",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 example_user,
+    ///             },
+    ///         });
+    ///         var exampleDiskEncryptionSet = new Azure.Compute.DiskEncryptionSet("exampleDiskEncryptionSet", new Azure.Compute.DiskEncryptionSetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             KeyVaultKeyId = exampleKey.Id,
+    ///             Identity = new Azure.Compute.Inputs.DiskEncryptionSetIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var example_disk = new Azure.KeyVault.AccessPolicy("example-disk", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.TenantId),
+    ///             ObjectId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "Get",
+    ///                 "WrapKey",
+    ///                 "UnwrapKey",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Disk Encryption Sets can be imported using the `resource id`, e.g.

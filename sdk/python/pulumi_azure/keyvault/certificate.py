@@ -297,6 +297,89 @@ class Certificate(pulumi.CustomResource):
         Manages a Key Vault Certificate.
 
         ## Example Usage
+        ### Importing a PFX
+
+        > **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                certificate_permissions=[
+                    "create",
+                    "delete",
+                    "deleteissuers",
+                    "get",
+                    "getissuers",
+                    "import",
+                    "list",
+                    "listissuers",
+                    "managecontacts",
+                    "manageissuers",
+                    "setissuers",
+                    "update",
+                ],
+                key_permissions=[
+                    "backup",
+                    "create",
+                    "decrypt",
+                    "delete",
+                    "encrypt",
+                    "get",
+                    "import",
+                    "list",
+                    "purge",
+                    "recover",
+                    "restore",
+                    "sign",
+                    "unwrapKey",
+                    "update",
+                    "verify",
+                    "wrapKey",
+                ],
+                secret_permissions=[
+                    "backup",
+                    "delete",
+                    "get",
+                    "list",
+                    "purge",
+                    "recover",
+                    "restore",
+                    "set",
+                ],
+            )])
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate=azure.keyvault.CertificateCertificateArgs(
+                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
+                password="",
+            ),
+            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
+                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
+                    name="Self",
+                ),
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                    exportable=True,
+                    key_size=2048,
+                    key_type="RSA",
+                    reuse_key=False,
+                ),
+                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
+                    content_type="application/x-pkcs12",
+                ),
+            ))
+        ```
         ### Generating a new certificate
 
         ```python
@@ -429,6 +512,89 @@ class Certificate(pulumi.CustomResource):
         Manages a Key Vault Certificate.
 
         ## Example Usage
+        ### Importing a PFX
+
+        > **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                certificate_permissions=[
+                    "create",
+                    "delete",
+                    "deleteissuers",
+                    "get",
+                    "getissuers",
+                    "import",
+                    "list",
+                    "listissuers",
+                    "managecontacts",
+                    "manageissuers",
+                    "setissuers",
+                    "update",
+                ],
+                key_permissions=[
+                    "backup",
+                    "create",
+                    "decrypt",
+                    "delete",
+                    "encrypt",
+                    "get",
+                    "import",
+                    "list",
+                    "purge",
+                    "recover",
+                    "restore",
+                    "sign",
+                    "unwrapKey",
+                    "update",
+                    "verify",
+                    "wrapKey",
+                ],
+                secret_permissions=[
+                    "backup",
+                    "delete",
+                    "get",
+                    "list",
+                    "purge",
+                    "recover",
+                    "restore",
+                    "set",
+                ],
+            )])
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate=azure.keyvault.CertificateCertificateArgs(
+                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
+                password="",
+            ),
+            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
+                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
+                    name="Self",
+                ),
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                    exportable=True,
+                    key_size=2048,
+                    key_type="RSA",
+                    reuse_key=False,
+                ),
+                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
+                    content_type="application/x-pkcs12",
+                ),
+            ))
+        ```
         ### Generating a new certificate
 
         ```python

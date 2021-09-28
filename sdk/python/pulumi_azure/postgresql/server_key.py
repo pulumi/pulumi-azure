@@ -99,6 +99,83 @@ class ServerKey(pulumi.CustomResource):
         """
         Manages a Customer Managed Key for a PostgreSQL Server.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            purge_protection_enabled=True)
+        example_server = azure.postgresql.Server("exampleServer",
+            location=azurerm_resource_group["test"]["location"],
+            resource_group_name=azurerm_resource_group["test"]["name"],
+            administrator_login="psqladminun",
+            administrator_login_password="H@Sh1CoR3!",
+            sku_name="GP_Gen5_2",
+            version="11",
+            storage_mb=51200,
+            ssl_enforcement_enabled=True,
+            identity=azure.postgresql.ServerIdentityArgs(
+                type="SystemAssigned",
+            ))
+        server = azure.keyvault.AccessPolicy("server",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=example_server.identity.principal_id,
+            key_permissions=[
+                "get",
+                "unwrapkey",
+                "wrapkey",
+            ],
+            secret_permissions=["get"])
+        client = azure.keyvault.AccessPolicy("client",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "get",
+                "create",
+                "delete",
+                "list",
+                "restore",
+                "recover",
+                "unwrapkey",
+                "wrapkey",
+                "purge",
+                "encrypt",
+                "decrypt",
+                "sign",
+                "verify",
+            ],
+            secret_permissions=["get"])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    server,
+                ]))
+        example_server_key = azure.postgresql.ServerKey("exampleServerKey",
+            server_id=example_server.id,
+            key_vault_key_id=example_key.id)
+        ```
+
         ## Import
 
         A PostgreSQL Server Key can be imported using the `resource id` of the PostgreSQL Server Key, e.g.
@@ -120,6 +197,83 @@ class ServerKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Customer Managed Key for a PostgreSQL Server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            purge_protection_enabled=True)
+        example_server = azure.postgresql.Server("exampleServer",
+            location=azurerm_resource_group["test"]["location"],
+            resource_group_name=azurerm_resource_group["test"]["name"],
+            administrator_login="psqladminun",
+            administrator_login_password="H@Sh1CoR3!",
+            sku_name="GP_Gen5_2",
+            version="11",
+            storage_mb=51200,
+            ssl_enforcement_enabled=True,
+            identity=azure.postgresql.ServerIdentityArgs(
+                type="SystemAssigned",
+            ))
+        server = azure.keyvault.AccessPolicy("server",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=example_server.identity.principal_id,
+            key_permissions=[
+                "get",
+                "unwrapkey",
+                "wrapkey",
+            ],
+            secret_permissions=["get"])
+        client = azure.keyvault.AccessPolicy("client",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "get",
+                "create",
+                "delete",
+                "list",
+                "restore",
+                "recover",
+                "unwrapkey",
+                "wrapkey",
+                "purge",
+                "encrypt",
+                "decrypt",
+                "sign",
+                "verify",
+            ],
+            secret_permissions=["get"])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    client,
+                    server,
+                ]))
+        example_server_key = azure.postgresql.ServerKey("exampleServerKey",
+            server_id=example_server.id,
+            key_vault_key_id=example_key.id)
+        ```
 
         ## Import
 

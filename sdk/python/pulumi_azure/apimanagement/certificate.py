@@ -313,6 +313,80 @@ class Certificate(pulumi.CustomResource):
         Manages an Certificate within an API Management Service.
 
         ## Example Usage
+        ### With Base64 Certificate)
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@exmaple.com",
+            sku_name="Developer_1")
+        example_certificate = azure.apimanagement.Certificate("exampleCertificate",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            data=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.pfx"))
+        ```
+        ### With Key Vault Certificate)
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@terraform.io",
+            sku_name="Developer_1",
+            identity=azure.apimanagement.ServiceIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            soft_delete_enabled=True,
+            tenant_id=data["azurerm_client_config"]["example"]["tenant_id"],
+            sku_name="standard")
+        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
+            key_vault_id=example_key_vault.id,
+            tenant_id=example_service.identity.tenant_id,
+            object_id=example_service.identity.principal_id,
+            secret_permissions=["get"],
+            certificate_permissions=["get"])
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate=azure.keyvault.CertificateCertificateArgs(
+                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example_cert.pfx"),
+                password="terraform",
+            ),
+            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
+                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
+                    name="Self",
+                ),
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                    exportable=True,
+                    key_size=2048,
+                    key_type="RSA",
+                    reuse_key=False,
+                ),
+                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
+                    content_type="application/x-pkcs12",
+                ),
+            ))
+        example_apimanagement_certificate_certificate = azure.apimanagement.Certificate("exampleApimanagement/certificateCertificate",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            key_vault_secret_id=example_certificate.secret_id)
+        ```
 
         ## Import
 
@@ -342,6 +416,80 @@ class Certificate(pulumi.CustomResource):
         Manages an Certificate within an API Management Service.
 
         ## Example Usage
+        ### With Base64 Certificate)
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@exmaple.com",
+            sku_name="Developer_1")
+        example_certificate = azure.apimanagement.Certificate("exampleCertificate",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            data=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.pfx"))
+        ```
+        ### With Key Vault Certificate)
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@terraform.io",
+            sku_name="Developer_1",
+            identity=azure.apimanagement.ServiceIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            soft_delete_enabled=True,
+            tenant_id=data["azurerm_client_config"]["example"]["tenant_id"],
+            sku_name="standard")
+        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
+            key_vault_id=example_key_vault.id,
+            tenant_id=example_service.identity.tenant_id,
+            object_id=example_service.identity.principal_id,
+            secret_permissions=["get"],
+            certificate_permissions=["get"])
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate=azure.keyvault.CertificateCertificateArgs(
+                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example_cert.pfx"),
+                password="terraform",
+            ),
+            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
+                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
+                    name="Self",
+                ),
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                    exportable=True,
+                    key_size=2048,
+                    key_type="RSA",
+                    reuse_key=False,
+                ),
+                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
+                    content_type="application/x-pkcs12",
+                ),
+            ))
+        example_apimanagement_certificate_certificate = azure.apimanagement.Certificate("exampleApimanagement/certificateCertificate",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            key_vault_secret_id=example_certificate.secret_id)
+        ```
 
         ## Import
 

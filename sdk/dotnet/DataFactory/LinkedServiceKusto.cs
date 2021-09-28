@@ -12,6 +12,67 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Linked Service (connection) between a Kusto Cluster and Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///             {
+    ///                 Name = "Standard_D13_v2",
+    ///                 Capacity = 2,
+    ///             },
+    ///         });
+    ///         var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new Azure.Kusto.DatabaseArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ClusterName = exampleCluster.Name,
+    ///         });
+    ///         var exampleLinkedServiceKusto = new Azure.DataFactory.LinkedServiceKusto("exampleLinkedServiceKusto", new Azure.DataFactory.LinkedServiceKustoArgs
+    ///         {
+    ///             DataFactoryId = exampleFactory.Id,
+    ///             KustoEndpoint = exampleCluster.Uri,
+    ///             KustoDatabaseName = exampleDatabase.Name,
+    ///             UseManagedIdentity = true,
+    ///         });
+    ///         var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", new Azure.Kusto.DatabasePrincipalAssignmentArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ClusterName = exampleCluster.Name,
+    ///             DatabaseName = exampleDatabase.Name,
+    ///             TenantId = exampleFactory.Identity.Apply(identity =&gt; identity.TenantId),
+    ///             PrincipalId = exampleFactory.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///             PrincipalType = "App",
+    ///             Role = "Viewer",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Linked Service's can be imported using the `resource id`, e.g.

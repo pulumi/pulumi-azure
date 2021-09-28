@@ -13,6 +13,136 @@ namespace Pulumi.Azure.ApiManagement
     /// Manages an Certificate within an API Management Service.
     /// 
     /// ## Example Usage
+    /// ### With Base64 Certificate)
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.UTF8.GetBytes(File.ReadAllText(path)))
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             PublisherName = "My Company",
+    ///             PublisherEmail = "company@exmaple.com",
+    ///             SkuName = "Developer_1",
+    ///         });
+    ///         var exampleCertificate = new Azure.ApiManagement.Certificate("exampleCertificate", new Azure.ApiManagement.CertificateArgs
+    ///         {
+    ///             ApiManagementName = exampleService.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Data = ReadFileBase64("example.pfx"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### With Key Vault Certificate)
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.UTF8.GetBytes(File.ReadAllText(path)))
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             PublisherName = "My Company",
+    ///             PublisherEmail = "company@terraform.io",
+    ///             SkuName = "Developer_1",
+    ///             Identity = new Azure.ApiManagement.Inputs.ServiceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SoftDeleteEnabled = true,
+    ///             TenantId = data.Azurerm_client_config.Example.Tenant_id,
+    ///             SkuName = "standard",
+    ///         });
+    ///         var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = exampleService.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///             ObjectId = exampleService.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///             SecretPermissions = 
+    ///             {
+    ///                 "get",
+    ///             },
+    ///             CertificatePermissions = 
+    ///             {
+    ///                 "get",
+    ///             },
+    ///         });
+    ///         var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new Azure.KeyVault.CertificateArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             Certificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
+    ///             {
+    ///                 Contents = ReadFileBase64("example_cert.pfx"),
+    ///                 Password = "terraform",
+    ///             },
+    ///             CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
+    ///             {
+    ///                 IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
+    ///                 {
+    ///                     Name = "Self",
+    ///                 },
+    ///                 KeyProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyKeyPropertiesArgs
+    ///                 {
+    ///                     Exportable = true,
+    ///                     KeySize = 2048,
+    ///                     KeyType = "RSA",
+    ///                     ReuseKey = false,
+    ///                 },
+    ///                 SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
+    ///                 {
+    ///                     ContentType = "application/x-pkcs12",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleApimanagement_certificateCertificate = new Azure.ApiManagement.Certificate("exampleApimanagement/certificateCertificate", new Azure.ApiManagement.CertificateArgs
+    ///         {
+    ///             ApiManagementName = exampleService.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             KeyVaultSecretId = exampleCertificate.SecretId,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

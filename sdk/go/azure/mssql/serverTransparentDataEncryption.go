@@ -71,6 +71,122 @@ import (
 // 	})
 // }
 // ```
+// ### With Customer Managed Key
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/mssql"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("EastUs"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			Location:                   exampleResourceGroup.Location,
+// 			Version:                    pulumi.String("12.0"),
+// 			AdministratorLogin:         pulumi.String("missadministrator"),
+// 			AdministratorLoginPassword: pulumi.String("thisIsKat11"),
+// 			MinimumTlsVersion:          pulumi.String("1.2"),
+// 			AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
+// 				LoginUsername: pulumi.String("AzureAD Admin"),
+// 				ObjectId:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			},
+// 			ExtendedAuditingPolicy: &mssql.ServerExtendedAuditingPolicyArgs{
+// 				StorageEndpoint:                    pulumi.Any(azurerm_storage_account.Example.Primary_blob_endpoint),
+// 				StorageAccountAccessKey:            pulumi.Any(azurerm_storage_account.Example.Primary_access_key),
+// 				StorageAccountAccessKeyIsSecondary: pulumi.Bool(true),
+// 				RetentionInDays:                    pulumi.Int(6),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("production"),
+// 			},
+// 			Identity: &mssql.ServerIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+// 			Location:                 exampleResourceGroup.Location,
+// 			ResourceGroupName:        exampleResourceGroup.Name,
+// 			EnabledForDiskEncryption: pulumi.Bool(true),
+// 			TenantId:                 pulumi.String(current.TenantId),
+// 			SoftDeleteRetentionDays:  pulumi.Int(7),
+// 			PurgeProtectionEnabled:   pulumi.Bool(false),
+// 			SkuName:                  pulumi.String("standard"),
+// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+// 				&keyvault.KeyVaultAccessPolicyArgs{
+// 					TenantId: pulumi.String(current.TenantId),
+// 					ObjectId: pulumi.String(current.ObjectId),
+// 					KeyPermissions: pulumi.StringArray{
+// 						pulumi.String("Get"),
+// 						pulumi.String("List"),
+// 						pulumi.String("Create"),
+// 						pulumi.String("Delete"),
+// 						pulumi.String("Update"),
+// 						pulumi.String("Recover"),
+// 						pulumi.String("Purge"),
+// 					},
+// 				},
+// 				&keyvault.KeyVaultAccessPolicyArgs{
+// 					TenantId: exampleServer.Identity.ApplyT(func(identity mssql.ServerIdentity) (string, error) {
+// 						return identity.TenantId, nil
+// 					}).(pulumi.StringOutput),
+// 					ObjectId: exampleServer.Identity.ApplyT(func(identity mssql.ServerIdentity) (string, error) {
+// 						return identity.PrincipalId, nil
+// 					}).(pulumi.StringOutput),
+// 					KeyPermissions: pulumi.StringArray{
+// 						pulumi.String("Get"),
+// 						pulumi.String("WrapKey"),
+// 						pulumi.String("UnwrapKey"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+// 			KeyVaultId: exampleKeyVault.ID(),
+// 			KeyType:    pulumi.String("RSA"),
+// 			KeySize:    pulumi.Int(2048),
+// 			KeyOpts: pulumi.StringArray{
+// 				pulumi.String("unwrapKey"),
+// 				pulumi.String("wrapKey"),
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleKeyVault,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = mssql.NewServerTransparentDataEncryption(ctx, "exampleServerTransparentDataEncryption", &mssql.ServerTransparentDataEncryptionArgs{
+// 			ServerId:      exampleServer.ID(),
+// 			KeyVaultKeyId: exampleKey.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
