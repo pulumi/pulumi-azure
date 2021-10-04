@@ -341,7 +341,8 @@ class BudgetResourceGroupNotificationArgs:
                  contact_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 threshold_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] operator: The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
         :param pulumi.Input[int] threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
@@ -349,6 +350,7 @@ class BudgetResourceGroupNotificationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_groups: Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_roles: Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[bool] enabled: Should the notification be enabled?
+        :param pulumi.Input[str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "threshold", threshold)
@@ -360,6 +362,8 @@ class BudgetResourceGroupNotificationArgs:
             pulumi.set(__self__, "contact_roles", contact_roles)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if threshold_type is not None:
+            pulumi.set(__self__, "threshold_type", threshold_type)
 
     @property
     @pulumi.getter
@@ -432,6 +436,18 @@ class BudgetResourceGroupNotificationArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+        """
+        return pulumi.get(self, "threshold_type")
+
+    @threshold_type.setter
+    def threshold_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "threshold_type", value)
 
 
 @pulumi.input_type
@@ -786,7 +802,8 @@ class BudgetSubscriptionNotificationArgs:
                  contact_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 threshold_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] operator: The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
         :param pulumi.Input[int] threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
@@ -794,6 +811,7 @@ class BudgetSubscriptionNotificationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_groups: Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_roles: Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[bool] enabled: Should the notification be enabled?
+        :param pulumi.Input[str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "threshold", threshold)
@@ -805,6 +823,8 @@ class BudgetSubscriptionNotificationArgs:
             pulumi.set(__self__, "contact_roles", contact_roles)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if threshold_type is not None:
+            pulumi.set(__self__, "threshold_type", threshold_type)
 
     @property
     @pulumi.getter
@@ -877,6 +897,18 @@ class BudgetSubscriptionNotificationArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "threshold_type")
+
+    @threshold_type.setter
+    def threshold_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "threshold_type", value)
 
 
 @pulumi.input_type

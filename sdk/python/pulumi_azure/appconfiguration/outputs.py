@@ -7,8 +7,12 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'ConfigurationFeatureTargetingFilter',
+    'ConfigurationFeatureTargetingFilterGroup',
+    'ConfigurationFeatureTimewindowFilter',
     'ConfigurationStoreIdentity',
     'ConfigurationStorePrimaryReadKey',
     'ConfigurationStorePrimaryWriteKey',
@@ -19,6 +23,142 @@ __all__ = [
     'GetConfigurationStoreSecondaryReadKeyResult',
     'GetConfigurationStoreSecondaryWriteKeyResult',
 ]
+
+@pulumi.output_type
+class ConfigurationFeatureTargetingFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultRolloutPercentage":
+            suggest = "default_rollout_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationFeatureTargetingFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationFeatureTargetingFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationFeatureTargetingFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_rollout_percentage: int,
+                 groups: Optional[Sequence['outputs.ConfigurationFeatureTargetingFilterGroup']] = None,
+                 users: Optional[Sequence[str]] = None):
+        """
+        :param int default_rollout_percentage: A number representing the percentage of the entire user base.
+        :param Sequence['ConfigurationFeatureTargetingFilterGroupArgs'] groups: One or more blocks of type `groups` as defined below.
+        :param Sequence[str] users: A list of users to target for this feature.
+        """
+        pulumi.set(__self__, "default_rollout_percentage", default_rollout_percentage)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter(name="defaultRolloutPercentage")
+    def default_rollout_percentage(self) -> int:
+        """
+        A number representing the percentage of the entire user base.
+        """
+        return pulumi.get(self, "default_rollout_percentage")
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence['outputs.ConfigurationFeatureTargetingFilterGroup']]:
+        """
+        One or more blocks of type `groups` as defined below.
+        """
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence[str]]:
+        """
+        A list of users to target for this feature.
+        """
+        return pulumi.get(self, "users")
+
+
+@pulumi.output_type
+class ConfigurationFeatureTargetingFilterGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rolloutPercentage":
+            suggest = "rollout_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationFeatureTargetingFilterGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationFeatureTargetingFilterGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationFeatureTargetingFilterGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 rollout_percentage: int):
+        """
+        :param str name: The name of the group.
+        :param int rollout_percentage: Rollout percentage of the group.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "rollout_percentage", rollout_percentage)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="rolloutPercentage")
+    def rollout_percentage(self) -> int:
+        """
+        Rollout percentage of the group.
+        """
+        return pulumi.get(self, "rollout_percentage")
+
+
+@pulumi.output_type
+class ConfigurationFeatureTimewindowFilter(dict):
+    def __init__(__self__, *,
+                 end: Optional[str] = None,
+                 start: Optional[str] = None):
+        """
+        :param str end: The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+        :param str start: The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
+        """
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
+        """
+        return pulumi.get(self, "start")
+
 
 @pulumi.output_type
 class ConfigurationStoreIdentity(dict):

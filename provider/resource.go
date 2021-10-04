@@ -1042,6 +1042,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_logic_app_integration_account":             {Tok: azureResource(azureLogicApps, "IntegrationAccount")},
 			"azurerm_logic_app_integration_account_session":     {Tok: azureResource(azureLogicApps, "IntegrationAccountSession")},
 			"azurerm_logic_app_integration_account_certificate": {Tok: azureResource(azureLogicApps, "IntegrationAccountCertificate")},
+			"azurerm_logic_app_standard":                        {Tok: azureResource(azureLogicApps, "Standard")},
 			"azurerm_integration_service_environment": {
 				Tok: azureResource(azureLogicApps, "InterationServiceEnvironment"),
 			},
@@ -1767,8 +1768,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_netapp_snapshot": {Tok: azureResource(azureNetapp, "Snapshot")},
 
 			//AppConfiguration
-			"azurerm_app_configuration":     {Tok: azureResource(azureAppConfiguration, "ConfigurationStore")},
-			"azurerm_app_configuration_key": {Tok: azureResource(azureAppConfiguration, "ConfigurationKey")},
+			"azurerm_app_configuration":         {Tok: azureResource(azureAppConfiguration, "ConfigurationStore")},
+			"azurerm_app_configuration_key":     {Tok: azureResource(azureAppConfiguration, "ConfigurationKey")},
+			"azurerm_app_configuration_feature": {Tok: azureResource(azureAppConfiguration, "ConfigurationFeature")},
 
 			// Backup
 			"azurerm_backup_container_storage_account": {Tok: azureResource(azureBackup, "ContainerStorageAccount")},

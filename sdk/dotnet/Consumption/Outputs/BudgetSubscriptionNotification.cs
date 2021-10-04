@@ -37,6 +37,10 @@ namespace Pulumi.Azure.Consumption.Outputs
         /// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
         /// </summary>
         public readonly int Threshold;
+        /// <summary>
+        /// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? ThresholdType;
 
         [OutputConstructor]
         private BudgetSubscriptionNotification(
@@ -50,7 +54,9 @@ namespace Pulumi.Azure.Consumption.Outputs
 
             string @operator,
 
-            int threshold)
+            int threshold,
+
+            string? thresholdType)
         {
             ContactEmails = contactEmails;
             ContactGroups = contactGroups;
@@ -58,6 +64,7 @@ namespace Pulumi.Azure.Consumption.Outputs
             Enabled = enabled;
             Operator = @operator;
             Threshold = threshold;
+            ThresholdType = thresholdType;
         }
     }
 }

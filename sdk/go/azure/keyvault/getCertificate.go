@@ -70,11 +70,15 @@ type LookupCertificateResult struct {
 	CertificateDataBase64 string `pulumi:"certificateDataBase64"`
 	// A `certificatePolicy` block as defined below.
 	CertificatePolicies []GetCertificateCertificatePolicy `pulumi:"certificatePolicies"`
+	// Expiry date of certificate in RFC3339 format.
+	Expires string `pulumi:"expires"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// The name of the Certificate Issuer.
 	Name string `pulumi:"name"`
+	// Not Before date of certificate in RFC3339 format.
+	NotBefore string `pulumi:"notBefore"`
 	// The ID of the associated Key Vault Secret.
 	SecretId string `pulumi:"secretId"`
 	// A mapping of tags to assign to the resource.
@@ -138,6 +142,11 @@ func (o LookupCertificateResultOutput) CertificatePolicies() GetCertificateCerti
 	return o.ApplyT(func(v LookupCertificateResult) []GetCertificateCertificatePolicy { return v.CertificatePolicies }).(GetCertificateCertificatePolicyArrayOutput)
 }
 
+// Expiry date of certificate in RFC3339 format.
+func (o LookupCertificateResultOutput) Expires() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Expires }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
@@ -150,6 +159,11 @@ func (o LookupCertificateResultOutput) KeyVaultId() pulumi.StringOutput {
 // The name of the Certificate Issuer.
 func (o LookupCertificateResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Not Before date of certificate in RFC3339 format.
+func (o LookupCertificateResultOutput) NotBefore() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.NotBefore }).(pulumi.StringOutput)
 }
 
 // The ID of the associated Key Vault Secret.

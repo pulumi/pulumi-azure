@@ -94,6 +94,7 @@ namespace Pulumi.Azure.Consumption
     ///                     Enabled = false,
     ///                     Threshold = 100,
     ///                     Operator = "GreaterThan",
+    ///                     ThresholdType = "Forecasted",
     ///                     ContactEmails = 
     ///                     {
     ///                         "foo@example.com",
@@ -123,6 +124,12 @@ namespace Pulumi.Azure.Consumption
         /// </summary>
         [Output("amount")]
         public Output<double> Amount { get; private set; } = null!;
+
+        /// <summary>
+        /// The ETag of the Subscription Consumption Budget.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
         /// A `filter` block as defined below.
@@ -213,6 +220,12 @@ namespace Pulumi.Azure.Consumption
         public Input<double> Amount { get; set; } = null!;
 
         /// <summary>
+        /// The ETag of the Subscription Consumption Budget.
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
+        /// <summary>
         /// A `filter` block as defined below.
         /// </summary>
         [Input("filter")]
@@ -266,6 +279,12 @@ namespace Pulumi.Azure.Consumption
         /// </summary>
         [Input("amount")]
         public Input<double>? Amount { get; set; }
+
+        /// <summary>
+        /// The ETag of the Subscription Consumption Budget.
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
 
         /// <summary>
         /// A `filter` block as defined below.

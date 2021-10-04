@@ -16,6 +16,8 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **Note** This provider will automatically remove the OS Disk by default - this behaviour can be configured using the `features` configuration within the Provider configuration block.
     /// 
+    /// &gt; **Note** All arguments including the administrator login and password will be stored in the raw state as plain-text.
+    /// 
     /// &gt; **Note** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.VirtualMachine` resource instead.
     /// 
     /// &gt; **Note** This resource does not support attaching existing OS Disks. You can instead capture an image of the OS Disk or continue to use the `azure.compute.VirtualMachine` resource instead.

@@ -72,7 +72,7 @@ export class Subscription extends pulumi.CustomResource {
     }
 
     /**
-     * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+     * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
      */
     public readonly autoDeleteOnIdle!: pulumi.Output<string>;
     /**
@@ -100,7 +100,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly forwardTo!: pulumi.Output<string | undefined>;
     /**
-     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
      */
     public readonly lockDuration!: pulumi.Output<string>;
     /**
@@ -204,7 +204,7 @@ export class Subscription extends pulumi.CustomResource {
  */
 export interface SubscriptionState {
     /**
-     * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+     * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
     /**
@@ -232,7 +232,7 @@ export interface SubscriptionState {
      */
     forwardTo?: pulumi.Input<string>;
     /**
-     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
      */
     lockDuration?: pulumi.Input<string>;
     /**
@@ -270,7 +270,7 @@ export interface SubscriptionState {
  */
 export interface SubscriptionArgs {
     /**
-     * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+     * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
     /**
@@ -298,7 +298,7 @@ export interface SubscriptionArgs {
      */
     forwardTo?: pulumi.Input<string>;
     /**
-     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
      */
     lockDuration?: pulumi.Input<string>;
     /**

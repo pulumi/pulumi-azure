@@ -13,7 +13,7 @@ import (
 
 // Manages a MS SQL Database.
 //
-// > **NOTE:** The Database Extended Auditing Policy Can be set inline here as well as with the mssqlDatabaseExtendedAuditingPolicy resource resource. You can only use one or the other and using both will cause a conflict.
+// > **Note:** The Database Extended Auditing Policy can be set inline here, as well as with the mssqlDatabaseExtendedAuditingPolicy resource resource. You can only use one or the other and using both will cause a conflict.
 //
 // ## Example Usage
 //
@@ -96,7 +96,7 @@ type Database struct {
 	Collation pulumi.StringOutput `pulumi:"collation"`
 	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
-	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
+	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringOutput `pulumi:"creationSourceDatabaseId"`
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrOutput `pulumi:"elasticPoolId"`
@@ -132,7 +132,7 @@ type Database struct {
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyOutput `pulumi:"shortTermRetentionPolicy"`
-	// Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
 	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
@@ -182,7 +182,7 @@ type databaseState struct {
 	Collation *string `pulumi:"collation"`
 	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
 	CreateMode *string `pulumi:"createMode"`
-	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
+	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
@@ -218,7 +218,7 @@ type databaseState struct {
 	ServerId *string `pulumi:"serverId"`
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy *DatabaseShortTermRetentionPolicy `pulumi:"shortTermRetentionPolicy"`
-	// Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
@@ -237,7 +237,7 @@ type DatabaseState struct {
 	Collation pulumi.StringPtrInput
 	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
 	CreateMode pulumi.StringPtrInput
-	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
+	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringPtrInput
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
@@ -273,7 +273,7 @@ type DatabaseState struct {
 	ServerId pulumi.StringPtrInput
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyPtrInput
-	// Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
 	StorageAccountType pulumi.StringPtrInput
@@ -296,7 +296,7 @@ type databaseArgs struct {
 	Collation *string `pulumi:"collation"`
 	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
 	CreateMode *string `pulumi:"createMode"`
-	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
+	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
@@ -332,7 +332,7 @@ type databaseArgs struct {
 	ServerId string `pulumi:"serverId"`
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy *DatabaseShortTermRetentionPolicy `pulumi:"shortTermRetentionPolicy"`
-	// Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
@@ -352,7 +352,7 @@ type DatabaseArgs struct {
 	Collation pulumi.StringPtrInput
 	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
 	CreateMode pulumi.StringPtrInput
-	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
+	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringPtrInput
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
@@ -388,7 +388,7 @@ type DatabaseArgs struct {
 	ServerId pulumi.StringInput
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyPtrInput
-	// Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
 	StorageAccountType pulumi.StringPtrInput

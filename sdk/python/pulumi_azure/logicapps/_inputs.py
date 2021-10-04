@@ -18,6 +18,13 @@ __all__ = [
     'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs',
     'IntegrationAccountCertificateKeyVaultKeyArgs',
     'IntegrationAccountPartnerBusinessIdentityArgs',
+    'StandardConnectionStringArgs',
+    'StandardIdentityArgs',
+    'StandardSiteConfigArgs',
+    'StandardSiteConfigCorsArgs',
+    'StandardSiteConfigIpRestrictionArgs',
+    'StandardSiteConfigIpRestrictionHeadersArgs',
+    'StandardSiteCredentialArgs',
     'TriggerRecurrenceScheduleArgs',
     'WorkflowAccessControlArgs',
     'WorkflowAccessControlActionArgs',
@@ -505,6 +512,642 @@ class IntegrationAccountPartnerBusinessIdentityArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class StandardConnectionStringArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the Connection String.
+        :param pulumi.Input[str] type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        :param pulumi.Input[str] value: The value for the Connection String.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Connection String.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the Connection String.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class StandardIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the identity type of the Logic App Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+        :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the identity type of the Logic App Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class StandardSiteConfigArgs:
+    def __init__(__self__, *,
+                 always_on: Optional[pulumi.Input[bool]] = None,
+                 app_scale_limit: Optional[pulumi.Input[int]] = None,
+                 cors: Optional[pulumi.Input['StandardSiteConfigCorsArgs']] = None,
+                 dotnet_framework_version: Optional[pulumi.Input[str]] = None,
+                 elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
+                 ftps_state: Optional[pulumi.Input[str]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]] = None,
+                 linux_fx_version: Optional[pulumi.Input[str]] = None,
+                 min_tls_version: Optional[pulumi.Input[str]] = None,
+                 pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
+                 runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
+                 websockets_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] always_on: Should the Logic App be loaded at all times? Defaults to `false`.
+        :param pulumi.Input[int] app_scale_limit: The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        :param pulumi.Input['StandardSiteConfigCorsArgs'] cors: A `cors` block as defined below.
+        :param pulumi.Input[str] dotnet_framework_version: The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+        :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+        :param pulumi.Input[str] health_check_path: Path which will be checked for this Logic App health.
+        :param pulumi.Input[bool] http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+        :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+        :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+        :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        :param pulumi.Input[bool] use32_bit_worker_process: Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+        :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        :param pulumi.Input[bool] websockets_enabled: Should WebSockets be enabled?
+        """
+        if always_on is not None:
+            pulumi.set(__self__, "always_on", always_on)
+        if app_scale_limit is not None:
+            pulumi.set(__self__, "app_scale_limit", app_scale_limit)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if dotnet_framework_version is not None:
+            pulumi.set(__self__, "dotnet_framework_version", dotnet_framework_version)
+        if elastic_instance_minimum is not None:
+            pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
+        if ftps_state is not None:
+            pulumi.set(__self__, "ftps_state", ftps_state)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http2_enabled is not None:
+            pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restrictions is not None:
+            pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        if linux_fx_version is not None:
+            pulumi.set(__self__, "linux_fx_version", linux_fx_version)
+        if min_tls_version is not None:
+            pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if pre_warmed_instance_count is not None:
+            pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        if runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if use32_bit_worker_process is not None:
+            pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if websockets_enabled is not None:
+            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+
+    @property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Logic App be loaded at all times? Defaults to `false`.
+        """
+        return pulumi.get(self, "always_on")
+
+    @always_on.setter
+    def always_on(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_on", value)
+
+    @property
+    @pulumi.getter(name="appScaleLimit")
+    def app_scale_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        return pulumi.get(self, "app_scale_limit")
+
+    @app_scale_limit.setter
+    def app_scale_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "app_scale_limit", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['StandardSiteConfigCorsArgs']]:
+        """
+        A `cors` block as defined below.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['StandardSiteConfigCorsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="dotnetFrameworkVersion")
+    def dotnet_framework_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        """
+        return pulumi.get(self, "dotnet_framework_version")
+
+    @dotnet_framework_version.setter
+    def dotnet_framework_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dotnet_framework_version", value)
+
+    @property
+    @pulumi.getter(name="elasticInstanceMinimum")
+    def elastic_instance_minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+        """
+        return pulumi.get(self, "elastic_instance_minimum")
+
+    @elastic_instance_minimum.setter
+    def elastic_instance_minimum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "elastic_instance_minimum", value)
+
+    @property
+    @pulumi.getter(name="ftpsState")
+    def ftps_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+        """
+        return pulumi.get(self, "ftps_state")
+
+    @ftps_state.setter
+    def ftps_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ftps_state", value)
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path which will be checked for this Logic App health.
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @health_check_path.setter
+    def health_check_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_path", value)
+
+    @property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "http2_enabled")
+
+    @http2_enabled.setter
+    def http2_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http2_enabled", value)
+
+    @property
+    @pulumi.getter(name="ipRestrictions")
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]]:
+        """
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        """
+        return pulumi.get(self, "ip_restrictions")
+
+    @ip_restrictions.setter
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]]):
+        pulumi.set(self, "ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="linuxFxVersion")
+    def linux_fx_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+        """
+        return pulumi.get(self, "linux_fx_version")
+
+    @linux_fx_version.setter
+    def linux_fx_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linux_fx_version", value)
+
+    @property
+    @pulumi.getter(name="minTlsVersion")
+    def min_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+        """
+        return pulumi.get(self, "min_tls_version")
+
+    @min_tls_version.setter
+    def min_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min_tls_version", value)
+
+    @property
+    @pulumi.getter(name="preWarmedInstanceCount")
+    def pre_warmed_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+        """
+        return pulumi.get(self, "pre_warmed_instance_count")
+
+    @pre_warmed_instance_count.setter
+    def pre_warmed_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "pre_warmed_instance_count", value)
+
+    @property
+    @pulumi.getter(name="runtimeScaleMonitoringEnabled")
+    def runtime_scale_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        """
+        return pulumi.get(self, "runtime_scale_monitoring_enabled")
+
+    @runtime_scale_monitoring_enabled.setter
+    def runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "runtime_scale_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="use32BitWorkerProcess")
+    def use32_bit_worker_process(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+        """
+        return pulumi.get(self, "use32_bit_worker_process")
+
+    @use32_bit_worker_process.setter
+    def use32_bit_worker_process(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use32_bit_worker_process", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
+
+    @property
+    @pulumi.getter(name="websocketsEnabled")
+    def websockets_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should WebSockets be enabled?
+        """
+        return pulumi.get(self, "websockets_enabled")
+
+    @websockets_enabled.setter
+    def websockets_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "websockets_enabled", value)
+
+
+@pulumi.input_type
+class StandardSiteConfigCorsArgs:
+    def __init__(__self__, *,
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 support_credentials: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        :param pulumi.Input[bool] support_credentials: Are credentials supported?
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Are credentials supported?
+        """
+        return pulumi.get(self, "support_credentials")
+
+    @support_credentials.setter
+    def support_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "support_credentials", value)
+
+
+@pulumi.input_type
+class StandardSiteConfigIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
+        :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
+        :param pulumi.Input[str] name: The name for this IP Restriction.
+        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        The headers for this specific `ip_restriction` as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for this IP Restriction.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class StandardSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        :param pulumi.Input[str] x_fd_health_probe: A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class StandardSiteCredentialArgs:
+    def __init__(__self__, *,
+                 password: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] password: The password associated with the username, which can be used to publish to this App Service.
+        :param pulumi.Input[str] username: The username which can be used to publish to this App Service
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password associated with the username, which can be used to publish to this App Service.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username which can be used to publish to this App Service
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type

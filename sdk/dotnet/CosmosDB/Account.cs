@@ -205,7 +205,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        /// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         /// </summary>
         [Output("mongoServerVersion")]
         public Output<string> MongoServerVersion { get; private set; } = null!;
@@ -467,7 +467,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        /// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         /// </summary>
         [Input("mongoServerVersion")]
         public Input<string>? MongoServerVersion { get; set; }
@@ -678,7 +678,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        /// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         /// </summary>
         [Input("mongoServerVersion")]
         public Input<string>? MongoServerVersion { get; set; }

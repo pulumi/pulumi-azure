@@ -86,21 +86,37 @@ class _ServiceState:
     def __init__(__self__, *,
                  data_location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 primary_connection_string: Optional[pulumi.Input[str]] = None,
+                 primary_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_connection_string: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[str] data_location: The location where the Communication service stores its data at rest. Possible values are `Asia Pacific`, `Australia`, `Europe`, `UK` and `United States`. Defaults to `United States`.
         :param pulumi.Input[str] name: The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
+        :param pulumi.Input[str] primary_connection_string: The primary connection string of the Communication Service.
+        :param pulumi.Input[str] primary_key: The primary key of the Communication Service.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
+        :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Communication Service.
+        :param pulumi.Input[str] secondary_key: The secondary key of the Communication Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Communication Service.
         """
         if data_location is not None:
             pulumi.set(__self__, "data_location", data_location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if primary_connection_string is not None:
+            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_connection_string is not None:
+            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -129,6 +145,30 @@ class _ServiceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="primaryConnectionString")
+    def primary_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary connection string of the Communication Service.
+        """
+        return pulumi.get(self, "primary_connection_string")
+
+    @primary_connection_string.setter
+    def primary_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_connection_string", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary key of the Communication Service.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -139,6 +179,30 @@ class _ServiceState:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryConnectionString")
+    def secondary_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary connection string of the Communication Service.
+        """
+        return pulumi.get(self, "secondary_connection_string")
+
+    @secondary_connection_string.setter
+    def secondary_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_connection_string", value)
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary key of the Communication Service.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @secondary_key.setter
+    def secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_key", value)
 
     @property
     @pulumi.getter
@@ -259,6 +323,10 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["primary_connection_string"] = None
+            __props__.__dict__["primary_key"] = None
+            __props__.__dict__["secondary_connection_string"] = None
+            __props__.__dict__["secondary_key"] = None
         super(Service, __self__).__init__(
             'azure:communication/service:Service',
             resource_name,
@@ -271,7 +339,11 @@ class Service(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             data_location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            primary_connection_string: Optional[pulumi.Input[str]] = None,
+            primary_key: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            secondary_connection_string: Optional[pulumi.Input[str]] = None,
+            secondary_key: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
@@ -282,7 +354,11 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_location: The location where the Communication service stores its data at rest. Possible values are `Asia Pacific`, `Australia`, `Europe`, `UK` and `United States`. Defaults to `United States`.
         :param pulumi.Input[str] name: The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
+        :param pulumi.Input[str] primary_connection_string: The primary connection string of the Communication Service.
+        :param pulumi.Input[str] primary_key: The primary key of the Communication Service.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
+        :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Communication Service.
+        :param pulumi.Input[str] secondary_key: The secondary key of the Communication Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Communication Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -291,7 +367,11 @@ class Service(pulumi.CustomResource):
 
         __props__.__dict__["data_location"] = data_location
         __props__.__dict__["name"] = name
+        __props__.__dict__["primary_connection_string"] = primary_connection_string
+        __props__.__dict__["primary_key"] = primary_key
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secondary_connection_string"] = secondary_connection_string
+        __props__.__dict__["secondary_key"] = secondary_key
         __props__.__dict__["tags"] = tags
         return Service(resource_name, opts=opts, __props__=__props__)
 
@@ -312,12 +392,44 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="primaryConnectionString")
+    def primary_connection_string(self) -> pulumi.Output[str]:
+        """
+        The primary connection string of the Communication Service.
+        """
+        return pulumi.get(self, "primary_connection_string")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> pulumi.Output[str]:
+        """
+        The primary key of the Communication Service.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="secondaryConnectionString")
+    def secondary_connection_string(self) -> pulumi.Output[str]:
+        """
+        The secondary connection string of the Communication Service.
+        """
+        return pulumi.get(self, "secondary_connection_string")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> pulumi.Output[str]:
+        """
+        The secondary key of the Communication Service.
+        """
+        return pulumi.get(self, "secondary_key")
 
     @property
     @pulumi.getter

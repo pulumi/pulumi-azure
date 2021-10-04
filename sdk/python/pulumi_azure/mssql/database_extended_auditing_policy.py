@@ -22,6 +22,7 @@ class DatabaseExtendedAuditingPolicyInitArgs:
         """
         The set of arguments for constructing a DatabaseExtendedAuditingPolicy resource.
         :param pulumi.Input[str] database_id: The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor?
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
@@ -54,6 +55,9 @@ class DatabaseExtendedAuditingPolicyInitArgs:
     @property
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable audit events to Azure Monitor?
+        """
         return pulumi.get(self, "log_monitoring_enabled")
 
     @log_monitoring_enabled.setter
@@ -121,6 +125,7 @@ class _DatabaseExtendedAuditingPolicyState:
         """
         Input properties used for looking up and filtering DatabaseExtendedAuditingPolicy resources.
         :param pulumi.Input[str] database_id: The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor?
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
@@ -154,6 +159,9 @@ class _DatabaseExtendedAuditingPolicyState:
     @property
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable audit events to Azure Monitor?
+        """
         return pulumi.get(self, "log_monitoring_enabled")
 
     @log_monitoring_enabled.setter
@@ -264,6 +272,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_id: The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor?
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
@@ -380,6 +389,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_id: The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor?
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
@@ -408,6 +418,9 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable audit events to Azure Monitor?
+        """
         return pulumi.get(self, "log_monitoring_enabled")
 
     @property

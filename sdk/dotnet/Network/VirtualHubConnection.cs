@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Network
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///         });
-    ///         var test = new Azure.Network.VirtualWan("test", new Azure.Network.VirtualWanArgs
+    ///         var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new Azure.Network.VirtualWanArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
-    ///             VirtualWanId = azurerm_virtual_wan.Example.Id,
+    ///             VirtualWanId = exampleVirtualWan.Id,
     ///             AddressPrefix = "10.0.1.0/24",
     ///         });
     ///         var exampleVirtualHubConnection = new Azure.Network.VirtualHubConnection("exampleVirtualHubConnection", new Azure.Network.VirtualHubConnectionArgs

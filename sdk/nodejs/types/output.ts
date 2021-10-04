@@ -1574,6 +1574,43 @@ export namespace apimanagement {
 }
 
 export namespace appconfiguration {
+    export interface ConfigurationFeatureTargetingFilter {
+        /**
+         * A number representing the percentage of the entire user base.
+         */
+        defaultRolloutPercentage: number;
+        /**
+         * One or more blocks of type `groups` as defined below.
+         */
+        groups?: outputs.appconfiguration.ConfigurationFeatureTargetingFilterGroup[];
+        /**
+         * A list of users to target for this feature.
+         */
+        users?: string[];
+    }
+
+    export interface ConfigurationFeatureTargetingFilterGroup {
+        /**
+         * The name of the group.
+         */
+        name: string;
+        /**
+         * Rollout percentage of the group.
+         */
+        rolloutPercentage: number;
+    }
+
+    export interface ConfigurationFeatureTimewindowFilter {
+        /**
+         * The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+         */
+        end?: string;
+        /**
+         * The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
+         */
+        start?: string;
+    }
+
     export interface ConfigurationStoreIdentity {
         /**
          * A list of IDs for User Assigned Managed Identity resources to be assigned.
@@ -8311,6 +8348,10 @@ export namespace consumption {
          * Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
          */
         threshold: number;
+        /**
+         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+         */
+        thresholdType?: string;
     }
 
     export interface BudgetResourceGroupTimePeriod {
@@ -8435,6 +8476,10 @@ export namespace consumption {
          * Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
          */
         threshold: number;
+        /**
+         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+         */
+        thresholdType?: string;
     }
 
     export interface BudgetSubscriptionTimePeriod {
@@ -19003,6 +19048,175 @@ export namespace logicapps {
          * The value that identifies the documents that your logic apps receive.
          */
         value: string;
+    }
+
+    export interface StandardConnectionString {
+        /**
+         * The name of the Connection String.
+         */
+        name: string;
+        /**
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         */
+        type: string;
+        /**
+         * The value for the Connection String.
+         */
+        value: string;
+    }
+
+    export interface StandardIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of the Logic App Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+         */
+        type: string;
+    }
+
+    export interface StandardSiteConfig {
+        /**
+         * Should the Logic App be loaded at all times? Defaults to `false`.
+         */
+        alwaysOn?: boolean;
+        /**
+         * The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit: number;
+        /**
+         * A `cors` block as defined below.
+         */
+        cors: outputs.logicapps.StandardSiteConfigCors;
+        /**
+         * The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         */
+        dotnetFrameworkVersion?: string;
+        /**
+         * The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+         */
+        elasticInstanceMinimum: number;
+        /**
+         * State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+         */
+        ftpsState: string;
+        /**
+         * Path which will be checked for this Logic App health.
+         */
+        healthCheckPath?: string;
+        /**
+         * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: boolean;
+        /**
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         */
+        ipRestrictions: outputs.logicapps.StandardSiteConfigIpRestriction[];
+        /**
+         * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+         */
+        linuxFxVersion: string;
+        /**
+         * The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+         */
+        minTlsVersion: string;
+        /**
+         * The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+         */
+        preWarmedInstanceCount: number;
+        /**
+         * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+         */
+        runtimeScaleMonitoringEnabled?: boolean;
+        /**
+         * Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+         */
+        use32BitWorkerProcess?: boolean;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+         */
+        vnetRouteAllEnabled: boolean;
+        /**
+         * Should WebSockets be enabled?
+         */
+        websocketsEnabled?: boolean;
+    }
+
+    export interface StandardSiteConfigCors {
+        /**
+         * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+         */
+        allowedOrigins: string[];
+        /**
+         * Are credentials supported?
+         */
+        supportCredentials?: boolean;
+    }
+
+    export interface StandardSiteConfigIpRestriction {
+        /**
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
+        action?: string;
+        /**
+         * The headers for this specific `ipRestriction` as defined below.
+         */
+        headers: outputs.logicapps.StandardSiteConfigIpRestrictionHeaders;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
+        ipAddress?: string;
+        /**
+         * The name for this IP Restriction.
+         */
+        name: string;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface StandardSiteConfigIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+         */
+        xAzureFdids?: string[];
+        /**
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         */
+        xFdHealthProbe?: string;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         */
+        xForwardedFors?: string[];
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface StandardSiteCredential {
+        /**
+         * The password associated with the username, which can be used to publish to this App Service.
+         */
+        password: string;
+        /**
+         * The username which can be used to publish to this App Service
+         */
+        username: string;
     }
 
     export interface TriggerRecurrenceSchedule {

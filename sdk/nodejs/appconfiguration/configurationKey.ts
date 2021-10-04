@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure App Configuration Key.
  *
+ * > **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
+ *
  * ## Example Usage
  * ### `Kv` Type
  *
@@ -19,11 +21,19 @@ import * as utilities from "../utilities";
  *     resourceGroupName: rg.name,
  *     location: rg.location,
  * });
+ * const current = azure.core.getClientConfig({});
+ * const appconfDataowner = new azure.authorization.Assignment("appconfDataowner", {
+ *     scope: appconf.id,
+ *     roleDefinitionName: "App Configuration Data Owner",
+ *     principalId: current.then(current => current.objectId),
+ * });
  * const test = new azure.appconfiguration.ConfigurationKey("test", {
  *     configurationStoreId: appconf.id,
  *     key: "appConfKey1",
  *     label: "somelabel",
  *     value: "a test",
+ * }, {
+ *     dependsOn: [appconfDataowner],
  * });
  * ```
  * ### `Vault` Type
@@ -63,12 +73,19 @@ import * as utilities from "../utilities";
  *     value: "szechuan",
  *     keyVaultId: kv.id,
  * });
+ * const appconfDataowner = new azure.authorization.Assignment("appconfDataowner", {
+ *     scope: appconf.id,
+ *     roleDefinitionName: "App Configuration Data Owner",
+ *     principalId: current.then(current => current.objectId),
+ * });
  * const test = new azure.appconfiguration.ConfigurationKey("test", {
  *     configurationStoreId: azurerm_app_configuration.test.id,
  *     key: "key1",
  *     type: "vault",
  *     label: "label1",
  *     vaultKeyReference: kvs.id,
+ * }, {
+ *     dependsOn: [appconfDataowner],
  * });
  * ```
  *

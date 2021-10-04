@@ -13,6 +13,8 @@ import (
 
 // Manages an Azure App Configuration Key.
 //
+// > **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
+//
 // ## Example Usage
 // ### `Kv` Type
 //
@@ -21,6 +23,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appconfiguration"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/authorization"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -40,12 +43,26 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		appconfDataowner, err := authorization.NewAssignment(ctx, "appconfDataowner", &authorization.AssignmentArgs{
+// 			Scope:              appconf.ID(),
+// 			RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
+// 			PrincipalId:        pulumi.String(current.ObjectId),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = appconfiguration.NewConfigurationKey(ctx, "test", &appconfiguration.ConfigurationKeyArgs{
 // 			ConfigurationStoreId: appconf.ID(),
 // 			Key:                  pulumi.String("appConfKey1"),
 // 			Label:                pulumi.String("somelabel"),
 // 			Value:                pulumi.String("a test"),
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			appconfDataowner,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -59,6 +76,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appconfiguration"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/authorization"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -72,7 +90,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = appconfiguration.NewConfigurationStore(ctx, "appconf", &appconfiguration.ConfigurationStoreArgs{
+// 		appconf, err := appconfiguration.NewConfigurationStore(ctx, "appconf", &appconfiguration.ConfigurationStoreArgs{
 // 			ResourceGroupName: rg.Name,
 // 			Location:          rg.Location,
 // 		})
@@ -117,13 +135,23 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		appconfDataowner, err := authorization.NewAssignment(ctx, "appconfDataowner", &authorization.AssignmentArgs{
+// 			Scope:              appconf.ID(),
+// 			RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
+// 			PrincipalId:        pulumi.String(current.ObjectId),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = appconfiguration.NewConfigurationKey(ctx, "test", &appconfiguration.ConfigurationKeyArgs{
 // 			ConfigurationStoreId: pulumi.Any(azurerm_app_configuration.Test.Id),
 // 			Key:                  pulumi.String("key1"),
 // 			Type:                 pulumi.String("vault"),
 // 			Label:                pulumi.String("label1"),
 // 			VaultKeyReference:    kvs.ID(),
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			appconfDataowner,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

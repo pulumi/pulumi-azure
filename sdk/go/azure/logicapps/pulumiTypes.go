@@ -1449,6 +1449,1325 @@ func (o IntegrationAccountPartnerBusinessIdentityArrayOutput) Index(i pulumi.Int
 	}).(IntegrationAccountPartnerBusinessIdentityOutput)
 }
 
+type StandardConnectionString struct {
+	// The name of the Connection String.
+	Name string `pulumi:"name"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	Type string `pulumi:"type"`
+	// The value for the Connection String.
+	Value string `pulumi:"value"`
+}
+
+// StandardConnectionStringInput is an input type that accepts StandardConnectionStringArgs and StandardConnectionStringOutput values.
+// You can construct a concrete instance of `StandardConnectionStringInput` via:
+//
+//          StandardConnectionStringArgs{...}
+type StandardConnectionStringInput interface {
+	pulumi.Input
+
+	ToStandardConnectionStringOutput() StandardConnectionStringOutput
+	ToStandardConnectionStringOutputWithContext(context.Context) StandardConnectionStringOutput
+}
+
+type StandardConnectionStringArgs struct {
+	// The name of the Connection String.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value for the Connection String.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StandardConnectionStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardConnectionString)(nil)).Elem()
+}
+
+func (i StandardConnectionStringArgs) ToStandardConnectionStringOutput() StandardConnectionStringOutput {
+	return i.ToStandardConnectionStringOutputWithContext(context.Background())
+}
+
+func (i StandardConnectionStringArgs) ToStandardConnectionStringOutputWithContext(ctx context.Context) StandardConnectionStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardConnectionStringOutput)
+}
+
+// StandardConnectionStringArrayInput is an input type that accepts StandardConnectionStringArray and StandardConnectionStringArrayOutput values.
+// You can construct a concrete instance of `StandardConnectionStringArrayInput` via:
+//
+//          StandardConnectionStringArray{ StandardConnectionStringArgs{...} }
+type StandardConnectionStringArrayInput interface {
+	pulumi.Input
+
+	ToStandardConnectionStringArrayOutput() StandardConnectionStringArrayOutput
+	ToStandardConnectionStringArrayOutputWithContext(context.Context) StandardConnectionStringArrayOutput
+}
+
+type StandardConnectionStringArray []StandardConnectionStringInput
+
+func (StandardConnectionStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StandardConnectionString)(nil)).Elem()
+}
+
+func (i StandardConnectionStringArray) ToStandardConnectionStringArrayOutput() StandardConnectionStringArrayOutput {
+	return i.ToStandardConnectionStringArrayOutputWithContext(context.Background())
+}
+
+func (i StandardConnectionStringArray) ToStandardConnectionStringArrayOutputWithContext(ctx context.Context) StandardConnectionStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardConnectionStringArrayOutput)
+}
+
+type StandardConnectionStringOutput struct{ *pulumi.OutputState }
+
+func (StandardConnectionStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardConnectionString)(nil)).Elem()
+}
+
+func (o StandardConnectionStringOutput) ToStandardConnectionStringOutput() StandardConnectionStringOutput {
+	return o
+}
+
+func (o StandardConnectionStringOutput) ToStandardConnectionStringOutputWithContext(ctx context.Context) StandardConnectionStringOutput {
+	return o
+}
+
+// The name of the Connection String.
+func (o StandardConnectionStringOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StandardConnectionString) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+func (o StandardConnectionStringOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StandardConnectionString) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value for the Connection String.
+func (o StandardConnectionStringOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StandardConnectionString) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StandardConnectionStringArrayOutput struct{ *pulumi.OutputState }
+
+func (StandardConnectionStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StandardConnectionString)(nil)).Elem()
+}
+
+func (o StandardConnectionStringArrayOutput) ToStandardConnectionStringArrayOutput() StandardConnectionStringArrayOutput {
+	return o
+}
+
+func (o StandardConnectionStringArrayOutput) ToStandardConnectionStringArrayOutputWithContext(ctx context.Context) StandardConnectionStringArrayOutput {
+	return o
+}
+
+func (o StandardConnectionStringArrayOutput) Index(i pulumi.IntInput) StandardConnectionStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StandardConnectionString {
+		return vs[0].([]StandardConnectionString)[vs[1].(int)]
+	}).(StandardConnectionStringOutput)
+}
+
+type StandardIdentity struct {
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the identity type of the Logic App Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+	Type string `pulumi:"type"`
+}
+
+// StandardIdentityInput is an input type that accepts StandardIdentityArgs and StandardIdentityOutput values.
+// You can construct a concrete instance of `StandardIdentityInput` via:
+//
+//          StandardIdentityArgs{...}
+type StandardIdentityInput interface {
+	pulumi.Input
+
+	ToStandardIdentityOutput() StandardIdentityOutput
+	ToStandardIdentityOutputWithContext(context.Context) StandardIdentityOutput
+}
+
+type StandardIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the identity type of the Logic App Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StandardIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardIdentity)(nil)).Elem()
+}
+
+func (i StandardIdentityArgs) ToStandardIdentityOutput() StandardIdentityOutput {
+	return i.ToStandardIdentityOutputWithContext(context.Background())
+}
+
+func (i StandardIdentityArgs) ToStandardIdentityOutputWithContext(ctx context.Context) StandardIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardIdentityOutput)
+}
+
+func (i StandardIdentityArgs) ToStandardIdentityPtrOutput() StandardIdentityPtrOutput {
+	return i.ToStandardIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i StandardIdentityArgs) ToStandardIdentityPtrOutputWithContext(ctx context.Context) StandardIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardIdentityOutput).ToStandardIdentityPtrOutputWithContext(ctx)
+}
+
+// StandardIdentityPtrInput is an input type that accepts StandardIdentityArgs, StandardIdentityPtr and StandardIdentityPtrOutput values.
+// You can construct a concrete instance of `StandardIdentityPtrInput` via:
+//
+//          StandardIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type StandardIdentityPtrInput interface {
+	pulumi.Input
+
+	ToStandardIdentityPtrOutput() StandardIdentityPtrOutput
+	ToStandardIdentityPtrOutputWithContext(context.Context) StandardIdentityPtrOutput
+}
+
+type standardIdentityPtrType StandardIdentityArgs
+
+func StandardIdentityPtr(v *StandardIdentityArgs) StandardIdentityPtrInput {
+	return (*standardIdentityPtrType)(v)
+}
+
+func (*standardIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardIdentity)(nil)).Elem()
+}
+
+func (i *standardIdentityPtrType) ToStandardIdentityPtrOutput() StandardIdentityPtrOutput {
+	return i.ToStandardIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *standardIdentityPtrType) ToStandardIdentityPtrOutputWithContext(ctx context.Context) StandardIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardIdentityPtrOutput)
+}
+
+type StandardIdentityOutput struct{ *pulumi.OutputState }
+
+func (StandardIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardIdentity)(nil)).Elem()
+}
+
+func (o StandardIdentityOutput) ToStandardIdentityOutput() StandardIdentityOutput {
+	return o
+}
+
+func (o StandardIdentityOutput) ToStandardIdentityOutputWithContext(ctx context.Context) StandardIdentityOutput {
+	return o
+}
+
+func (o StandardIdentityOutput) ToStandardIdentityPtrOutput() StandardIdentityPtrOutput {
+	return o.ToStandardIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o StandardIdentityOutput) ToStandardIdentityPtrOutputWithContext(ctx context.Context) StandardIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardIdentity) *StandardIdentity {
+		return &v
+	}).(StandardIdentityPtrOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+func (o StandardIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+func (o StandardIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the Logic App Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+func (o StandardIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StandardIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type StandardIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (StandardIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardIdentity)(nil)).Elem()
+}
+
+func (o StandardIdentityPtrOutput) ToStandardIdentityPtrOutput() StandardIdentityPtrOutput {
+	return o
+}
+
+func (o StandardIdentityPtrOutput) ToStandardIdentityPtrOutputWithContext(ctx context.Context) StandardIdentityPtrOutput {
+	return o
+}
+
+func (o StandardIdentityPtrOutput) Elem() StandardIdentityOutput {
+	return o.ApplyT(func(v *StandardIdentity) StandardIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret StandardIdentity
+		return ret
+	}).(StandardIdentityOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+func (o StandardIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+func (o StandardIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the Logic App Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+func (o StandardIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type StandardSiteConfig struct {
+	// Should the Logic App be loaded at all times? Defaults to `false`.
+	AlwaysOn *bool `pulumi:"alwaysOn"`
+	// The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+	AppScaleLimit *int `pulumi:"appScaleLimit"`
+	// A `cors` block as defined below.
+	Cors *StandardSiteConfigCors `pulumi:"cors"`
+	// The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
+	// The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+	ElasticInstanceMinimum *int `pulumi:"elasticInstanceMinimum"`
+	// State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+	FtpsState *string `pulumi:"ftpsState"`
+	// Path which will be checked for this Logic App health.
+	HealthCheckPath *string `pulumi:"healthCheckPath"`
+	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+	Http2Enabled *bool `pulumi:"http2Enabled"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	IpRestrictions []StandardSiteConfigIpRestriction `pulumi:"ipRestrictions"`
+	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
+	// The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
+	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+	RuntimeScaleMonitoringEnabled *bool `pulumi:"runtimeScaleMonitoringEnabled"`
+	// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+	VnetRouteAllEnabled *bool `pulumi:"vnetRouteAllEnabled"`
+	// Should WebSockets be enabled?
+	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
+}
+
+// StandardSiteConfigInput is an input type that accepts StandardSiteConfigArgs and StandardSiteConfigOutput values.
+// You can construct a concrete instance of `StandardSiteConfigInput` via:
+//
+//          StandardSiteConfigArgs{...}
+type StandardSiteConfigInput interface {
+	pulumi.Input
+
+	ToStandardSiteConfigOutput() StandardSiteConfigOutput
+	ToStandardSiteConfigOutputWithContext(context.Context) StandardSiteConfigOutput
+}
+
+type StandardSiteConfigArgs struct {
+	// Should the Logic App be loaded at all times? Defaults to `false`.
+	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
+	// The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+	AppScaleLimit pulumi.IntPtrInput `pulumi:"appScaleLimit"`
+	// A `cors` block as defined below.
+	Cors StandardSiteConfigCorsPtrInput `pulumi:"cors"`
+	// The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
+	// The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+	ElasticInstanceMinimum pulumi.IntPtrInput `pulumi:"elasticInstanceMinimum"`
+	// State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
+	// Path which will be checked for this Logic App health.
+	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
+	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	IpRestrictions StandardSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
+	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
+	// The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
+	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput `pulumi:"runtimeScaleMonitoringEnabled"`
+	// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
+	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+	VnetRouteAllEnabled pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
+	// Should WebSockets be enabled?
+	WebsocketsEnabled pulumi.BoolPtrInput `pulumi:"websocketsEnabled"`
+}
+
+func (StandardSiteConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteConfig)(nil)).Elem()
+}
+
+func (i StandardSiteConfigArgs) ToStandardSiteConfigOutput() StandardSiteConfigOutput {
+	return i.ToStandardSiteConfigOutputWithContext(context.Background())
+}
+
+func (i StandardSiteConfigArgs) ToStandardSiteConfigOutputWithContext(ctx context.Context) StandardSiteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigOutput)
+}
+
+func (i StandardSiteConfigArgs) ToStandardSiteConfigPtrOutput() StandardSiteConfigPtrOutput {
+	return i.ToStandardSiteConfigPtrOutputWithContext(context.Background())
+}
+
+func (i StandardSiteConfigArgs) ToStandardSiteConfigPtrOutputWithContext(ctx context.Context) StandardSiteConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigOutput).ToStandardSiteConfigPtrOutputWithContext(ctx)
+}
+
+// StandardSiteConfigPtrInput is an input type that accepts StandardSiteConfigArgs, StandardSiteConfigPtr and StandardSiteConfigPtrOutput values.
+// You can construct a concrete instance of `StandardSiteConfigPtrInput` via:
+//
+//          StandardSiteConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type StandardSiteConfigPtrInput interface {
+	pulumi.Input
+
+	ToStandardSiteConfigPtrOutput() StandardSiteConfigPtrOutput
+	ToStandardSiteConfigPtrOutputWithContext(context.Context) StandardSiteConfigPtrOutput
+}
+
+type standardSiteConfigPtrType StandardSiteConfigArgs
+
+func StandardSiteConfigPtr(v *StandardSiteConfigArgs) StandardSiteConfigPtrInput {
+	return (*standardSiteConfigPtrType)(v)
+}
+
+func (*standardSiteConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardSiteConfig)(nil)).Elem()
+}
+
+func (i *standardSiteConfigPtrType) ToStandardSiteConfigPtrOutput() StandardSiteConfigPtrOutput {
+	return i.ToStandardSiteConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *standardSiteConfigPtrType) ToStandardSiteConfigPtrOutputWithContext(ctx context.Context) StandardSiteConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigPtrOutput)
+}
+
+type StandardSiteConfigOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteConfig)(nil)).Elem()
+}
+
+func (o StandardSiteConfigOutput) ToStandardSiteConfigOutput() StandardSiteConfigOutput {
+	return o
+}
+
+func (o StandardSiteConfigOutput) ToStandardSiteConfigOutputWithContext(ctx context.Context) StandardSiteConfigOutput {
+	return o
+}
+
+func (o StandardSiteConfigOutput) ToStandardSiteConfigPtrOutput() StandardSiteConfigPtrOutput {
+	return o.ToStandardSiteConfigPtrOutputWithContext(context.Background())
+}
+
+func (o StandardSiteConfigOutput) ToStandardSiteConfigPtrOutputWithContext(ctx context.Context) StandardSiteConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardSiteConfig) *StandardSiteConfig {
+		return &v
+	}).(StandardSiteConfigPtrOutput)
+}
+
+// Should the Logic App be loaded at all times? Defaults to `false`.
+func (o StandardSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
+}
+
+// The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+func (o StandardSiteConfigOutput) AppScaleLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *int { return v.AppScaleLimit }).(pulumi.IntPtrOutput)
+}
+
+// A `cors` block as defined below.
+func (o StandardSiteConfigOutput) Cors() StandardSiteConfigCorsPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *StandardSiteConfigCors { return v.Cors }).(StandardSiteConfigCorsPtrOutput)
+}
+
+// The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+func (o StandardSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *string { return v.DotnetFrameworkVersion }).(pulumi.StringPtrOutput)
+}
+
+// The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+func (o StandardSiteConfigOutput) ElasticInstanceMinimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *int { return v.ElasticInstanceMinimum }).(pulumi.IntPtrOutput)
+}
+
+// State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+func (o StandardSiteConfigOutput) FtpsState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
+}
+
+// Path which will be checked for this Logic App health.
+func (o StandardSiteConfigOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+func (o StandardSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+func (o StandardSiteConfigOutput) IpRestrictions() StandardSiteConfigIpRestrictionArrayOutput {
+	return o.ApplyT(func(v StandardSiteConfig) []StandardSiteConfigIpRestriction { return v.IpRestrictions }).(StandardSiteConfigIpRestrictionArrayOutput)
+}
+
+// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+func (o StandardSiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *string { return v.LinuxFxVersion }).(pulumi.StringPtrOutput)
+}
+
+// The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+func (o StandardSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+func (o StandardSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+func (o StandardSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+func (o StandardSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
+}
+
+// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+func (o StandardSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.VnetRouteAllEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should WebSockets be enabled?
+func (o StandardSiteConfigOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.WebsocketsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type StandardSiteConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardSiteConfig)(nil)).Elem()
+}
+
+func (o StandardSiteConfigPtrOutput) ToStandardSiteConfigPtrOutput() StandardSiteConfigPtrOutput {
+	return o
+}
+
+func (o StandardSiteConfigPtrOutput) ToStandardSiteConfigPtrOutputWithContext(ctx context.Context) StandardSiteConfigPtrOutput {
+	return o
+}
+
+func (o StandardSiteConfigPtrOutput) Elem() StandardSiteConfigOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) StandardSiteConfig {
+		if v != nil {
+			return *v
+		}
+		var ret StandardSiteConfig
+		return ret
+	}).(StandardSiteConfigOutput)
+}
+
+// Should the Logic App be loaded at all times? Defaults to `false`.
+func (o StandardSiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AlwaysOn
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+func (o StandardSiteConfigPtrOutput) AppScaleLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AppScaleLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// A `cors` block as defined below.
+func (o StandardSiteConfigPtrOutput) Cors() StandardSiteConfigCorsPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *StandardSiteConfigCors {
+		if v == nil {
+			return nil
+		}
+		return v.Cors
+	}).(StandardSiteConfigCorsPtrOutput)
+}
+
+// The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+func (o StandardSiteConfigPtrOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DotnetFrameworkVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+func (o StandardSiteConfigPtrOutput) ElasticInstanceMinimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticInstanceMinimum
+	}).(pulumi.IntPtrOutput)
+}
+
+// State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+func (o StandardSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FtpsState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path which will be checked for this Logic App health.
+func (o StandardSiteConfigPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+func (o StandardSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Http2Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+func (o StandardSiteConfigPtrOutput) IpRestrictions() StandardSiteConfigIpRestrictionArrayOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) []StandardSiteConfigIpRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.IpRestrictions
+	}).(StandardSiteConfigIpRestrictionArrayOutput)
+}
+
+// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+func (o StandardSiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinuxFxVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+func (o StandardSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinTlsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+func (o StandardSiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PreWarmedInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+func (o StandardSiteConfigPtrOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeScaleMonitoringEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+func (o StandardSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Use32BitWorkerProcess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+func (o StandardSiteConfigPtrOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VnetRouteAllEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should WebSockets be enabled?
+func (o StandardSiteConfigPtrOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WebsocketsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StandardSiteConfigCors struct {
+	// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Are credentials supported?
+	SupportCredentials *bool `pulumi:"supportCredentials"`
+}
+
+// StandardSiteConfigCorsInput is an input type that accepts StandardSiteConfigCorsArgs and StandardSiteConfigCorsOutput values.
+// You can construct a concrete instance of `StandardSiteConfigCorsInput` via:
+//
+//          StandardSiteConfigCorsArgs{...}
+type StandardSiteConfigCorsInput interface {
+	pulumi.Input
+
+	ToStandardSiteConfigCorsOutput() StandardSiteConfigCorsOutput
+	ToStandardSiteConfigCorsOutputWithContext(context.Context) StandardSiteConfigCorsOutput
+}
+
+type StandardSiteConfigCorsArgs struct {
+	// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Are credentials supported?
+	SupportCredentials pulumi.BoolPtrInput `pulumi:"supportCredentials"`
+}
+
+func (StandardSiteConfigCorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteConfigCors)(nil)).Elem()
+}
+
+func (i StandardSiteConfigCorsArgs) ToStandardSiteConfigCorsOutput() StandardSiteConfigCorsOutput {
+	return i.ToStandardSiteConfigCorsOutputWithContext(context.Background())
+}
+
+func (i StandardSiteConfigCorsArgs) ToStandardSiteConfigCorsOutputWithContext(ctx context.Context) StandardSiteConfigCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigCorsOutput)
+}
+
+func (i StandardSiteConfigCorsArgs) ToStandardSiteConfigCorsPtrOutput() StandardSiteConfigCorsPtrOutput {
+	return i.ToStandardSiteConfigCorsPtrOutputWithContext(context.Background())
+}
+
+func (i StandardSiteConfigCorsArgs) ToStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) StandardSiteConfigCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigCorsOutput).ToStandardSiteConfigCorsPtrOutputWithContext(ctx)
+}
+
+// StandardSiteConfigCorsPtrInput is an input type that accepts StandardSiteConfigCorsArgs, StandardSiteConfigCorsPtr and StandardSiteConfigCorsPtrOutput values.
+// You can construct a concrete instance of `StandardSiteConfigCorsPtrInput` via:
+//
+//          StandardSiteConfigCorsArgs{...}
+//
+//  or:
+//
+//          nil
+type StandardSiteConfigCorsPtrInput interface {
+	pulumi.Input
+
+	ToStandardSiteConfigCorsPtrOutput() StandardSiteConfigCorsPtrOutput
+	ToStandardSiteConfigCorsPtrOutputWithContext(context.Context) StandardSiteConfigCorsPtrOutput
+}
+
+type standardSiteConfigCorsPtrType StandardSiteConfigCorsArgs
+
+func StandardSiteConfigCorsPtr(v *StandardSiteConfigCorsArgs) StandardSiteConfigCorsPtrInput {
+	return (*standardSiteConfigCorsPtrType)(v)
+}
+
+func (*standardSiteConfigCorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardSiteConfigCors)(nil)).Elem()
+}
+
+func (i *standardSiteConfigCorsPtrType) ToStandardSiteConfigCorsPtrOutput() StandardSiteConfigCorsPtrOutput {
+	return i.ToStandardSiteConfigCorsPtrOutputWithContext(context.Background())
+}
+
+func (i *standardSiteConfigCorsPtrType) ToStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) StandardSiteConfigCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigCorsPtrOutput)
+}
+
+type StandardSiteConfigCorsOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteConfigCorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteConfigCors)(nil)).Elem()
+}
+
+func (o StandardSiteConfigCorsOutput) ToStandardSiteConfigCorsOutput() StandardSiteConfigCorsOutput {
+	return o
+}
+
+func (o StandardSiteConfigCorsOutput) ToStandardSiteConfigCorsOutputWithContext(ctx context.Context) StandardSiteConfigCorsOutput {
+	return o
+}
+
+func (o StandardSiteConfigCorsOutput) ToStandardSiteConfigCorsPtrOutput() StandardSiteConfigCorsPtrOutput {
+	return o.ToStandardSiteConfigCorsPtrOutputWithContext(context.Background())
+}
+
+func (o StandardSiteConfigCorsOutput) ToStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) StandardSiteConfigCorsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardSiteConfigCors) *StandardSiteConfigCors {
+		return &v
+	}).(StandardSiteConfigCorsPtrOutput)
+}
+
+// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+func (o StandardSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StandardSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Are credentials supported?
+func (o StandardSiteConfigCorsOutput) SupportCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigCors) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
+}
+
+type StandardSiteConfigCorsPtrOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteConfigCorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardSiteConfigCors)(nil)).Elem()
+}
+
+func (o StandardSiteConfigCorsPtrOutput) ToStandardSiteConfigCorsPtrOutput() StandardSiteConfigCorsPtrOutput {
+	return o
+}
+
+func (o StandardSiteConfigCorsPtrOutput) ToStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) StandardSiteConfigCorsPtrOutput {
+	return o
+}
+
+func (o StandardSiteConfigCorsPtrOutput) Elem() StandardSiteConfigCorsOutput {
+	return o.ApplyT(func(v *StandardSiteConfigCors) StandardSiteConfigCors {
+		if v != nil {
+			return *v
+		}
+		var ret StandardSiteConfigCors
+		return ret
+	}).(StandardSiteConfigCorsOutput)
+}
+
+// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+func (o StandardSiteConfigCorsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StandardSiteConfigCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+// Are credentials supported?
+func (o StandardSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfigCors) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SupportCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StandardSiteConfigIpRestriction struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+	Action *string `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below.
+	Headers *StandardSiteConfigIpRestrictionHeaders `pulumi:"headers"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress *string `pulumi:"ipAddress"`
+	// The name for this IP Restriction.
+	Name *string `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+	Priority *int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag *string `pulumi:"serviceTag"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// StandardSiteConfigIpRestrictionInput is an input type that accepts StandardSiteConfigIpRestrictionArgs and StandardSiteConfigIpRestrictionOutput values.
+// You can construct a concrete instance of `StandardSiteConfigIpRestrictionInput` via:
+//
+//          StandardSiteConfigIpRestrictionArgs{...}
+type StandardSiteConfigIpRestrictionInput interface {
+	pulumi.Input
+
+	ToStandardSiteConfigIpRestrictionOutput() StandardSiteConfigIpRestrictionOutput
+	ToStandardSiteConfigIpRestrictionOutputWithContext(context.Context) StandardSiteConfigIpRestrictionOutput
+}
+
+type StandardSiteConfigIpRestrictionArgs struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below.
+	Headers StandardSiteConfigIpRestrictionHeadersPtrInput `pulumi:"headers"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// The name for this IP Restriction.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (StandardSiteConfigIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i StandardSiteConfigIpRestrictionArgs) ToStandardSiteConfigIpRestrictionOutput() StandardSiteConfigIpRestrictionOutput {
+	return i.ToStandardSiteConfigIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i StandardSiteConfigIpRestrictionArgs) ToStandardSiteConfigIpRestrictionOutputWithContext(ctx context.Context) StandardSiteConfigIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigIpRestrictionOutput)
+}
+
+// StandardSiteConfigIpRestrictionArrayInput is an input type that accepts StandardSiteConfigIpRestrictionArray and StandardSiteConfigIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `StandardSiteConfigIpRestrictionArrayInput` via:
+//
+//          StandardSiteConfigIpRestrictionArray{ StandardSiteConfigIpRestrictionArgs{...} }
+type StandardSiteConfigIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToStandardSiteConfigIpRestrictionArrayOutput() StandardSiteConfigIpRestrictionArrayOutput
+	ToStandardSiteConfigIpRestrictionArrayOutputWithContext(context.Context) StandardSiteConfigIpRestrictionArrayOutput
+}
+
+type StandardSiteConfigIpRestrictionArray []StandardSiteConfigIpRestrictionInput
+
+func (StandardSiteConfigIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StandardSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i StandardSiteConfigIpRestrictionArray) ToStandardSiteConfigIpRestrictionArrayOutput() StandardSiteConfigIpRestrictionArrayOutput {
+	return i.ToStandardSiteConfigIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i StandardSiteConfigIpRestrictionArray) ToStandardSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) StandardSiteConfigIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigIpRestrictionArrayOutput)
+}
+
+type StandardSiteConfigIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteConfigIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o StandardSiteConfigIpRestrictionOutput) ToStandardSiteConfigIpRestrictionOutput() StandardSiteConfigIpRestrictionOutput {
+	return o
+}
+
+func (o StandardSiteConfigIpRestrictionOutput) ToStandardSiteConfigIpRestrictionOutputWithContext(ctx context.Context) StandardSiteConfigIpRestrictionOutput {
+	return o
+}
+
+// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+func (o StandardSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The headers for this specific `ipRestriction` as defined below.
+func (o StandardSiteConfigIpRestrictionOutput) Headers() StandardSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *StandardSiteConfigIpRestrictionHeaders { return v.Headers }).(StandardSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
+// The IP Address used for this IP Restriction in CIDR notation.
+func (o StandardSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The name for this IP Restriction.
+func (o StandardSiteConfigIpRestrictionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+func (o StandardSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The Service Tag used for this IP Restriction.
+func (o StandardSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
+func (o StandardSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+type StandardSiteConfigIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteConfigIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StandardSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o StandardSiteConfigIpRestrictionArrayOutput) ToStandardSiteConfigIpRestrictionArrayOutput() StandardSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o StandardSiteConfigIpRestrictionArrayOutput) ToStandardSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) StandardSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o StandardSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) StandardSiteConfigIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StandardSiteConfigIpRestriction {
+		return vs[0].([]StandardSiteConfigIpRestriction)[vs[1].(int)]
+	}).(StandardSiteConfigIpRestrictionOutput)
+}
+
+type StandardSiteConfigIpRestrictionHeaders struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe *string `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// StandardSiteConfigIpRestrictionHeadersInput is an input type that accepts StandardSiteConfigIpRestrictionHeadersArgs and StandardSiteConfigIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `StandardSiteConfigIpRestrictionHeadersInput` via:
+//
+//          StandardSiteConfigIpRestrictionHeadersArgs{...}
+type StandardSiteConfigIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToStandardSiteConfigIpRestrictionHeadersOutput() StandardSiteConfigIpRestrictionHeadersOutput
+	ToStandardSiteConfigIpRestrictionHeadersOutputWithContext(context.Context) StandardSiteConfigIpRestrictionHeadersOutput
+}
+
+type StandardSiteConfigIpRestrictionHeadersArgs struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe pulumi.StringPtrInput `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (StandardSiteConfigIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i StandardSiteConfigIpRestrictionHeadersArgs) ToStandardSiteConfigIpRestrictionHeadersOutput() StandardSiteConfigIpRestrictionHeadersOutput {
+	return i.ToStandardSiteConfigIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i StandardSiteConfigIpRestrictionHeadersArgs) ToStandardSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) StandardSiteConfigIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigIpRestrictionHeadersOutput)
+}
+
+func (i StandardSiteConfigIpRestrictionHeadersArgs) ToStandardSiteConfigIpRestrictionHeadersPtrOutput() StandardSiteConfigIpRestrictionHeadersPtrOutput {
+	return i.ToStandardSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i StandardSiteConfigIpRestrictionHeadersArgs) ToStandardSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) StandardSiteConfigIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigIpRestrictionHeadersOutput).ToStandardSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx)
+}
+
+// StandardSiteConfigIpRestrictionHeadersPtrInput is an input type that accepts StandardSiteConfigIpRestrictionHeadersArgs, StandardSiteConfigIpRestrictionHeadersPtr and StandardSiteConfigIpRestrictionHeadersPtrOutput values.
+// You can construct a concrete instance of `StandardSiteConfigIpRestrictionHeadersPtrInput` via:
+//
+//          StandardSiteConfigIpRestrictionHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type StandardSiteConfigIpRestrictionHeadersPtrInput interface {
+	pulumi.Input
+
+	ToStandardSiteConfigIpRestrictionHeadersPtrOutput() StandardSiteConfigIpRestrictionHeadersPtrOutput
+	ToStandardSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Context) StandardSiteConfigIpRestrictionHeadersPtrOutput
+}
+
+type standardSiteConfigIpRestrictionHeadersPtrType StandardSiteConfigIpRestrictionHeadersArgs
+
+func StandardSiteConfigIpRestrictionHeadersPtr(v *StandardSiteConfigIpRestrictionHeadersArgs) StandardSiteConfigIpRestrictionHeadersPtrInput {
+	return (*standardSiteConfigIpRestrictionHeadersPtrType)(v)
+}
+
+func (*standardSiteConfigIpRestrictionHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i *standardSiteConfigIpRestrictionHeadersPtrType) ToStandardSiteConfigIpRestrictionHeadersPtrOutput() StandardSiteConfigIpRestrictionHeadersPtrOutput {
+	return i.ToStandardSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *standardSiteConfigIpRestrictionHeadersPtrType) ToStandardSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) StandardSiteConfigIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
+type StandardSiteConfigIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteConfigIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o StandardSiteConfigIpRestrictionHeadersOutput) ToStandardSiteConfigIpRestrictionHeadersOutput() StandardSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o StandardSiteConfigIpRestrictionHeadersOutput) ToStandardSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) StandardSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o StandardSiteConfigIpRestrictionHeadersOutput) ToStandardSiteConfigIpRestrictionHeadersPtrOutput() StandardSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ToStandardSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o StandardSiteConfigIpRestrictionHeadersOutput) ToStandardSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) StandardSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardSiteConfigIpRestrictionHeaders) *StandardSiteConfigIpRestrictionHeaders {
+		return &v
+	}).(StandardSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o StandardSiteConfigIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StandardSiteConfigIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o StandardSiteConfigIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o StandardSiteConfigIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StandardSiteConfigIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o StandardSiteConfigIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StandardSiteConfigIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type StandardSiteConfigIpRestrictionHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteConfigIpRestrictionHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) ToStandardSiteConfigIpRestrictionHeadersPtrOutput() StandardSiteConfigIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) ToStandardSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) StandardSiteConfigIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) Elem() StandardSiteConfigIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v *StandardSiteConfigIpRestrictionHeaders) StandardSiteConfigIpRestrictionHeaders {
+		if v != nil {
+			return *v
+		}
+		var ret StandardSiteConfigIpRestrictionHeaders
+		return ret
+	}).(StandardSiteConfigIpRestrictionHeadersOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StandardSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XAzureFdids
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfigIpRestrictionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.XFdHealthProbe
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StandardSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedFors
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StandardSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedHosts
+	}).(pulumi.StringArrayOutput)
+}
+
+type StandardSiteCredential struct {
+	// The password associated with the username, which can be used to publish to this App Service.
+	Password *string `pulumi:"password"`
+	// The username which can be used to publish to this App Service
+	Username *string `pulumi:"username"`
+}
+
+// StandardSiteCredentialInput is an input type that accepts StandardSiteCredentialArgs and StandardSiteCredentialOutput values.
+// You can construct a concrete instance of `StandardSiteCredentialInput` via:
+//
+//          StandardSiteCredentialArgs{...}
+type StandardSiteCredentialInput interface {
+	pulumi.Input
+
+	ToStandardSiteCredentialOutput() StandardSiteCredentialOutput
+	ToStandardSiteCredentialOutputWithContext(context.Context) StandardSiteCredentialOutput
+}
+
+type StandardSiteCredentialArgs struct {
+	// The password associated with the username, which can be used to publish to this App Service.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The username which can be used to publish to this App Service
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (StandardSiteCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteCredential)(nil)).Elem()
+}
+
+func (i StandardSiteCredentialArgs) ToStandardSiteCredentialOutput() StandardSiteCredentialOutput {
+	return i.ToStandardSiteCredentialOutputWithContext(context.Background())
+}
+
+func (i StandardSiteCredentialArgs) ToStandardSiteCredentialOutputWithContext(ctx context.Context) StandardSiteCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteCredentialOutput)
+}
+
+// StandardSiteCredentialArrayInput is an input type that accepts StandardSiteCredentialArray and StandardSiteCredentialArrayOutput values.
+// You can construct a concrete instance of `StandardSiteCredentialArrayInput` via:
+//
+//          StandardSiteCredentialArray{ StandardSiteCredentialArgs{...} }
+type StandardSiteCredentialArrayInput interface {
+	pulumi.Input
+
+	ToStandardSiteCredentialArrayOutput() StandardSiteCredentialArrayOutput
+	ToStandardSiteCredentialArrayOutputWithContext(context.Context) StandardSiteCredentialArrayOutput
+}
+
+type StandardSiteCredentialArray []StandardSiteCredentialInput
+
+func (StandardSiteCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StandardSiteCredential)(nil)).Elem()
+}
+
+func (i StandardSiteCredentialArray) ToStandardSiteCredentialArrayOutput() StandardSiteCredentialArrayOutput {
+	return i.ToStandardSiteCredentialArrayOutputWithContext(context.Background())
+}
+
+func (i StandardSiteCredentialArray) ToStandardSiteCredentialArrayOutputWithContext(ctx context.Context) StandardSiteCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteCredentialArrayOutput)
+}
+
+type StandardSiteCredentialOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteCredential)(nil)).Elem()
+}
+
+func (o StandardSiteCredentialOutput) ToStandardSiteCredentialOutput() StandardSiteCredentialOutput {
+	return o
+}
+
+func (o StandardSiteCredentialOutput) ToStandardSiteCredentialOutputWithContext(ctx context.Context) StandardSiteCredentialOutput {
+	return o
+}
+
+// The password associated with the username, which can be used to publish to this App Service.
+func (o StandardSiteCredentialOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteCredential) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The username which can be used to publish to this App Service
+func (o StandardSiteCredentialOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteCredential) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type StandardSiteCredentialArrayOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StandardSiteCredential)(nil)).Elem()
+}
+
+func (o StandardSiteCredentialArrayOutput) ToStandardSiteCredentialArrayOutput() StandardSiteCredentialArrayOutput {
+	return o
+}
+
+func (o StandardSiteCredentialArrayOutput) ToStandardSiteCredentialArrayOutputWithContext(ctx context.Context) StandardSiteCredentialArrayOutput {
+	return o
+}
+
+func (o StandardSiteCredentialArrayOutput) Index(i pulumi.IntInput) StandardSiteCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StandardSiteCredential {
+		return vs[0].([]StandardSiteCredential)[vs[1].(int)]
+	}).(StandardSiteCredentialOutput)
+}
+
 type TriggerRecurrenceSchedule struct {
 	// Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
 	AtTheseHours []int `pulumi:"atTheseHours"`
@@ -2385,6 +3704,20 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationAccountCertificateKeyVaultKeyPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountPartnerBusinessIdentityOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountPartnerBusinessIdentityArrayOutput{})
+	pulumi.RegisterOutputType(StandardConnectionStringOutput{})
+	pulumi.RegisterOutputType(StandardConnectionStringArrayOutput{})
+	pulumi.RegisterOutputType(StandardIdentityOutput{})
+	pulumi.RegisterOutputType(StandardIdentityPtrOutput{})
+	pulumi.RegisterOutputType(StandardSiteConfigOutput{})
+	pulumi.RegisterOutputType(StandardSiteConfigPtrOutput{})
+	pulumi.RegisterOutputType(StandardSiteConfigCorsOutput{})
+	pulumi.RegisterOutputType(StandardSiteConfigCorsPtrOutput{})
+	pulumi.RegisterOutputType(StandardSiteConfigIpRestrictionOutput{})
+	pulumi.RegisterOutputType(StandardSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(StandardSiteConfigIpRestrictionHeadersOutput{})
+	pulumi.RegisterOutputType(StandardSiteConfigIpRestrictionHeadersPtrOutput{})
+	pulumi.RegisterOutputType(StandardSiteCredentialOutput{})
+	pulumi.RegisterOutputType(StandardSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(TriggerRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(TriggerRecurrenceSchedulePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowAccessControlOutput{})

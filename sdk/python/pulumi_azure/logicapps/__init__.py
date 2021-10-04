@@ -19,6 +19,7 @@ from .integration_account_partner import *
 from .integration_account_schema import *
 from .integration_account_session import *
 from .interation_service_environment import *
+from .standard import *
 from .trigger_custom import *
 from .trigger_http_request import *
 from .trigger_recurrence import *

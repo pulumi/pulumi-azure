@@ -1566,7 +1566,9 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
         ## Disclaimers
 
-        > **Note** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` configuration within the Provider configuration block.
+        > **Note**: All arguments including the administrator login and password will be stored in the raw state as plain-text.
+
+        > **Note** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
 
         > **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
 
@@ -1683,7 +1685,9 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
         ## Disclaimers
 
-        > **Note** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` configuration within the Provider configuration block.
+        > **Note**: All arguments including the administrator login and password will be stored in the raw state as plain-text.
+
+        > **Note** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
 
         > **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
 

@@ -78,6 +78,8 @@ type GetCertificateDataResult struct {
 	Key        string `pulumi:"key"`
 	KeyVaultId string `pulumi:"keyVaultId"`
 	Name       string `pulumi:"name"`
+	// Not Before date of certificate in RFC3339 format.
+	NotBefore string `pulumi:"notBefore"`
 	// The Key Vault Certificate in PEM format.
 	Pem string `pulumi:"pem"`
 	// A mapping of tags to assign to the resource.
@@ -154,6 +156,11 @@ func (o GetCertificateDataResultOutput) KeyVaultId() pulumi.StringOutput {
 
 func (o GetCertificateDataResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateDataResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Not Before date of certificate in RFC3339 format.
+func (o GetCertificateDataResultOutput) NotBefore() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateDataResult) string { return v.NotBefore }).(pulumi.StringOutput)
 }
 
 // The Key Vault Certificate in PEM format.

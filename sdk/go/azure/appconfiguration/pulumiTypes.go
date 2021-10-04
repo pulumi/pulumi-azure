@@ -10,6 +10,335 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ConfigurationFeatureTargetingFilter struct {
+	// A number representing the percentage of the entire user base.
+	DefaultRolloutPercentage int `pulumi:"defaultRolloutPercentage"`
+	// One or more blocks of type `groups` as defined below.
+	Groups []ConfigurationFeatureTargetingFilterGroup `pulumi:"groups"`
+	// A list of users to target for this feature.
+	Users []string `pulumi:"users"`
+}
+
+// ConfigurationFeatureTargetingFilterInput is an input type that accepts ConfigurationFeatureTargetingFilterArgs and ConfigurationFeatureTargetingFilterOutput values.
+// You can construct a concrete instance of `ConfigurationFeatureTargetingFilterInput` via:
+//
+//          ConfigurationFeatureTargetingFilterArgs{...}
+type ConfigurationFeatureTargetingFilterInput interface {
+	pulumi.Input
+
+	ToConfigurationFeatureTargetingFilterOutput() ConfigurationFeatureTargetingFilterOutput
+	ToConfigurationFeatureTargetingFilterOutputWithContext(context.Context) ConfigurationFeatureTargetingFilterOutput
+}
+
+type ConfigurationFeatureTargetingFilterArgs struct {
+	// A number representing the percentage of the entire user base.
+	DefaultRolloutPercentage pulumi.IntInput `pulumi:"defaultRolloutPercentage"`
+	// One or more blocks of type `groups` as defined below.
+	Groups ConfigurationFeatureTargetingFilterGroupArrayInput `pulumi:"groups"`
+	// A list of users to target for this feature.
+	Users pulumi.StringArrayInput `pulumi:"users"`
+}
+
+func (ConfigurationFeatureTargetingFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationFeatureTargetingFilter)(nil)).Elem()
+}
+
+func (i ConfigurationFeatureTargetingFilterArgs) ToConfigurationFeatureTargetingFilterOutput() ConfigurationFeatureTargetingFilterOutput {
+	return i.ToConfigurationFeatureTargetingFilterOutputWithContext(context.Background())
+}
+
+func (i ConfigurationFeatureTargetingFilterArgs) ToConfigurationFeatureTargetingFilterOutputWithContext(ctx context.Context) ConfigurationFeatureTargetingFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureTargetingFilterOutput)
+}
+
+// ConfigurationFeatureTargetingFilterArrayInput is an input type that accepts ConfigurationFeatureTargetingFilterArray and ConfigurationFeatureTargetingFilterArrayOutput values.
+// You can construct a concrete instance of `ConfigurationFeatureTargetingFilterArrayInput` via:
+//
+//          ConfigurationFeatureTargetingFilterArray{ ConfigurationFeatureTargetingFilterArgs{...} }
+type ConfigurationFeatureTargetingFilterArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationFeatureTargetingFilterArrayOutput() ConfigurationFeatureTargetingFilterArrayOutput
+	ToConfigurationFeatureTargetingFilterArrayOutputWithContext(context.Context) ConfigurationFeatureTargetingFilterArrayOutput
+}
+
+type ConfigurationFeatureTargetingFilterArray []ConfigurationFeatureTargetingFilterInput
+
+func (ConfigurationFeatureTargetingFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationFeatureTargetingFilter)(nil)).Elem()
+}
+
+func (i ConfigurationFeatureTargetingFilterArray) ToConfigurationFeatureTargetingFilterArrayOutput() ConfigurationFeatureTargetingFilterArrayOutput {
+	return i.ToConfigurationFeatureTargetingFilterArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationFeatureTargetingFilterArray) ToConfigurationFeatureTargetingFilterArrayOutputWithContext(ctx context.Context) ConfigurationFeatureTargetingFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureTargetingFilterArrayOutput)
+}
+
+type ConfigurationFeatureTargetingFilterOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationFeatureTargetingFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationFeatureTargetingFilter)(nil)).Elem()
+}
+
+func (o ConfigurationFeatureTargetingFilterOutput) ToConfigurationFeatureTargetingFilterOutput() ConfigurationFeatureTargetingFilterOutput {
+	return o
+}
+
+func (o ConfigurationFeatureTargetingFilterOutput) ToConfigurationFeatureTargetingFilterOutputWithContext(ctx context.Context) ConfigurationFeatureTargetingFilterOutput {
+	return o
+}
+
+// A number representing the percentage of the entire user base.
+func (o ConfigurationFeatureTargetingFilterOutput) DefaultRolloutPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v ConfigurationFeatureTargetingFilter) int { return v.DefaultRolloutPercentage }).(pulumi.IntOutput)
+}
+
+// One or more blocks of type `groups` as defined below.
+func (o ConfigurationFeatureTargetingFilterOutput) Groups() ConfigurationFeatureTargetingFilterGroupArrayOutput {
+	return o.ApplyT(func(v ConfigurationFeatureTargetingFilter) []ConfigurationFeatureTargetingFilterGroup {
+		return v.Groups
+	}).(ConfigurationFeatureTargetingFilterGroupArrayOutput)
+}
+
+// A list of users to target for this feature.
+func (o ConfigurationFeatureTargetingFilterOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationFeatureTargetingFilter) []string { return v.Users }).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationFeatureTargetingFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationFeatureTargetingFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationFeatureTargetingFilter)(nil)).Elem()
+}
+
+func (o ConfigurationFeatureTargetingFilterArrayOutput) ToConfigurationFeatureTargetingFilterArrayOutput() ConfigurationFeatureTargetingFilterArrayOutput {
+	return o
+}
+
+func (o ConfigurationFeatureTargetingFilterArrayOutput) ToConfigurationFeatureTargetingFilterArrayOutputWithContext(ctx context.Context) ConfigurationFeatureTargetingFilterArrayOutput {
+	return o
+}
+
+func (o ConfigurationFeatureTargetingFilterArrayOutput) Index(i pulumi.IntInput) ConfigurationFeatureTargetingFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationFeatureTargetingFilter {
+		return vs[0].([]ConfigurationFeatureTargetingFilter)[vs[1].(int)]
+	}).(ConfigurationFeatureTargetingFilterOutput)
+}
+
+type ConfigurationFeatureTargetingFilterGroup struct {
+	// The name of the group.
+	Name string `pulumi:"name"`
+	// Rollout percentage of the group.
+	RolloutPercentage int `pulumi:"rolloutPercentage"`
+}
+
+// ConfigurationFeatureTargetingFilterGroupInput is an input type that accepts ConfigurationFeatureTargetingFilterGroupArgs and ConfigurationFeatureTargetingFilterGroupOutput values.
+// You can construct a concrete instance of `ConfigurationFeatureTargetingFilterGroupInput` via:
+//
+//          ConfigurationFeatureTargetingFilterGroupArgs{...}
+type ConfigurationFeatureTargetingFilterGroupInput interface {
+	pulumi.Input
+
+	ToConfigurationFeatureTargetingFilterGroupOutput() ConfigurationFeatureTargetingFilterGroupOutput
+	ToConfigurationFeatureTargetingFilterGroupOutputWithContext(context.Context) ConfigurationFeatureTargetingFilterGroupOutput
+}
+
+type ConfigurationFeatureTargetingFilterGroupArgs struct {
+	// The name of the group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Rollout percentage of the group.
+	RolloutPercentage pulumi.IntInput `pulumi:"rolloutPercentage"`
+}
+
+func (ConfigurationFeatureTargetingFilterGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationFeatureTargetingFilterGroup)(nil)).Elem()
+}
+
+func (i ConfigurationFeatureTargetingFilterGroupArgs) ToConfigurationFeatureTargetingFilterGroupOutput() ConfigurationFeatureTargetingFilterGroupOutput {
+	return i.ToConfigurationFeatureTargetingFilterGroupOutputWithContext(context.Background())
+}
+
+func (i ConfigurationFeatureTargetingFilterGroupArgs) ToConfigurationFeatureTargetingFilterGroupOutputWithContext(ctx context.Context) ConfigurationFeatureTargetingFilterGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureTargetingFilterGroupOutput)
+}
+
+// ConfigurationFeatureTargetingFilterGroupArrayInput is an input type that accepts ConfigurationFeatureTargetingFilterGroupArray and ConfigurationFeatureTargetingFilterGroupArrayOutput values.
+// You can construct a concrete instance of `ConfigurationFeatureTargetingFilterGroupArrayInput` via:
+//
+//          ConfigurationFeatureTargetingFilterGroupArray{ ConfigurationFeatureTargetingFilterGroupArgs{...} }
+type ConfigurationFeatureTargetingFilterGroupArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationFeatureTargetingFilterGroupArrayOutput() ConfigurationFeatureTargetingFilterGroupArrayOutput
+	ToConfigurationFeatureTargetingFilterGroupArrayOutputWithContext(context.Context) ConfigurationFeatureTargetingFilterGroupArrayOutput
+}
+
+type ConfigurationFeatureTargetingFilterGroupArray []ConfigurationFeatureTargetingFilterGroupInput
+
+func (ConfigurationFeatureTargetingFilterGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationFeatureTargetingFilterGroup)(nil)).Elem()
+}
+
+func (i ConfigurationFeatureTargetingFilterGroupArray) ToConfigurationFeatureTargetingFilterGroupArrayOutput() ConfigurationFeatureTargetingFilterGroupArrayOutput {
+	return i.ToConfigurationFeatureTargetingFilterGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationFeatureTargetingFilterGroupArray) ToConfigurationFeatureTargetingFilterGroupArrayOutputWithContext(ctx context.Context) ConfigurationFeatureTargetingFilterGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureTargetingFilterGroupArrayOutput)
+}
+
+type ConfigurationFeatureTargetingFilterGroupOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationFeatureTargetingFilterGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationFeatureTargetingFilterGroup)(nil)).Elem()
+}
+
+func (o ConfigurationFeatureTargetingFilterGroupOutput) ToConfigurationFeatureTargetingFilterGroupOutput() ConfigurationFeatureTargetingFilterGroupOutput {
+	return o
+}
+
+func (o ConfigurationFeatureTargetingFilterGroupOutput) ToConfigurationFeatureTargetingFilterGroupOutputWithContext(ctx context.Context) ConfigurationFeatureTargetingFilterGroupOutput {
+	return o
+}
+
+// The name of the group.
+func (o ConfigurationFeatureTargetingFilterGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationFeatureTargetingFilterGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Rollout percentage of the group.
+func (o ConfigurationFeatureTargetingFilterGroupOutput) RolloutPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v ConfigurationFeatureTargetingFilterGroup) int { return v.RolloutPercentage }).(pulumi.IntOutput)
+}
+
+type ConfigurationFeatureTargetingFilterGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationFeatureTargetingFilterGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationFeatureTargetingFilterGroup)(nil)).Elem()
+}
+
+func (o ConfigurationFeatureTargetingFilterGroupArrayOutput) ToConfigurationFeatureTargetingFilterGroupArrayOutput() ConfigurationFeatureTargetingFilterGroupArrayOutput {
+	return o
+}
+
+func (o ConfigurationFeatureTargetingFilterGroupArrayOutput) ToConfigurationFeatureTargetingFilterGroupArrayOutputWithContext(ctx context.Context) ConfigurationFeatureTargetingFilterGroupArrayOutput {
+	return o
+}
+
+func (o ConfigurationFeatureTargetingFilterGroupArrayOutput) Index(i pulumi.IntInput) ConfigurationFeatureTargetingFilterGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationFeatureTargetingFilterGroup {
+		return vs[0].([]ConfigurationFeatureTargetingFilterGroup)[vs[1].(int)]
+	}).(ConfigurationFeatureTargetingFilterGroupOutput)
+}
+
+type ConfigurationFeatureTimewindowFilter struct {
+	// The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+	End *string `pulumi:"end"`
+	// The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
+	Start *string `pulumi:"start"`
+}
+
+// ConfigurationFeatureTimewindowFilterInput is an input type that accepts ConfigurationFeatureTimewindowFilterArgs and ConfigurationFeatureTimewindowFilterOutput values.
+// You can construct a concrete instance of `ConfigurationFeatureTimewindowFilterInput` via:
+//
+//          ConfigurationFeatureTimewindowFilterArgs{...}
+type ConfigurationFeatureTimewindowFilterInput interface {
+	pulumi.Input
+
+	ToConfigurationFeatureTimewindowFilterOutput() ConfigurationFeatureTimewindowFilterOutput
+	ToConfigurationFeatureTimewindowFilterOutputWithContext(context.Context) ConfigurationFeatureTimewindowFilterOutput
+}
+
+type ConfigurationFeatureTimewindowFilterArgs struct {
+	// The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (ConfigurationFeatureTimewindowFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationFeatureTimewindowFilter)(nil)).Elem()
+}
+
+func (i ConfigurationFeatureTimewindowFilterArgs) ToConfigurationFeatureTimewindowFilterOutput() ConfigurationFeatureTimewindowFilterOutput {
+	return i.ToConfigurationFeatureTimewindowFilterOutputWithContext(context.Background())
+}
+
+func (i ConfigurationFeatureTimewindowFilterArgs) ToConfigurationFeatureTimewindowFilterOutputWithContext(ctx context.Context) ConfigurationFeatureTimewindowFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureTimewindowFilterOutput)
+}
+
+// ConfigurationFeatureTimewindowFilterArrayInput is an input type that accepts ConfigurationFeatureTimewindowFilterArray and ConfigurationFeatureTimewindowFilterArrayOutput values.
+// You can construct a concrete instance of `ConfigurationFeatureTimewindowFilterArrayInput` via:
+//
+//          ConfigurationFeatureTimewindowFilterArray{ ConfigurationFeatureTimewindowFilterArgs{...} }
+type ConfigurationFeatureTimewindowFilterArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationFeatureTimewindowFilterArrayOutput() ConfigurationFeatureTimewindowFilterArrayOutput
+	ToConfigurationFeatureTimewindowFilterArrayOutputWithContext(context.Context) ConfigurationFeatureTimewindowFilterArrayOutput
+}
+
+type ConfigurationFeatureTimewindowFilterArray []ConfigurationFeatureTimewindowFilterInput
+
+func (ConfigurationFeatureTimewindowFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationFeatureTimewindowFilter)(nil)).Elem()
+}
+
+func (i ConfigurationFeatureTimewindowFilterArray) ToConfigurationFeatureTimewindowFilterArrayOutput() ConfigurationFeatureTimewindowFilterArrayOutput {
+	return i.ToConfigurationFeatureTimewindowFilterArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationFeatureTimewindowFilterArray) ToConfigurationFeatureTimewindowFilterArrayOutputWithContext(ctx context.Context) ConfigurationFeatureTimewindowFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureTimewindowFilterArrayOutput)
+}
+
+type ConfigurationFeatureTimewindowFilterOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationFeatureTimewindowFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationFeatureTimewindowFilter)(nil)).Elem()
+}
+
+func (o ConfigurationFeatureTimewindowFilterOutput) ToConfigurationFeatureTimewindowFilterOutput() ConfigurationFeatureTimewindowFilterOutput {
+	return o
+}
+
+func (o ConfigurationFeatureTimewindowFilterOutput) ToConfigurationFeatureTimewindowFilterOutputWithContext(ctx context.Context) ConfigurationFeatureTimewindowFilterOutput {
+	return o
+}
+
+// The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+func (o ConfigurationFeatureTimewindowFilterOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationFeatureTimewindowFilter) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
+func (o ConfigurationFeatureTimewindowFilterOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationFeatureTimewindowFilter) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationFeatureTimewindowFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationFeatureTimewindowFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationFeatureTimewindowFilter)(nil)).Elem()
+}
+
+func (o ConfigurationFeatureTimewindowFilterArrayOutput) ToConfigurationFeatureTimewindowFilterArrayOutput() ConfigurationFeatureTimewindowFilterArrayOutput {
+	return o
+}
+
+func (o ConfigurationFeatureTimewindowFilterArrayOutput) ToConfigurationFeatureTimewindowFilterArrayOutputWithContext(ctx context.Context) ConfigurationFeatureTimewindowFilterArrayOutput {
+	return o
+}
+
+func (o ConfigurationFeatureTimewindowFilterArrayOutput) Index(i pulumi.IntInput) ConfigurationFeatureTimewindowFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationFeatureTimewindowFilter {
+		return vs[0].([]ConfigurationFeatureTimewindowFilter)[vs[1].(int)]
+	}).(ConfigurationFeatureTimewindowFilterOutput)
+}
+
 type ConfigurationStoreIdentity struct {
 	// A list of IDs for User Assigned Managed Identity resources to be assigned.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -1125,6 +1454,12 @@ func (o GetConfigurationStoreSecondaryWriteKeyArrayOutput) Index(i pulumi.IntInp
 }
 
 func init() {
+	pulumi.RegisterOutputType(ConfigurationFeatureTargetingFilterOutput{})
+	pulumi.RegisterOutputType(ConfigurationFeatureTargetingFilterArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationFeatureTargetingFilterGroupOutput{})
+	pulumi.RegisterOutputType(ConfigurationFeatureTargetingFilterGroupArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationFeatureTimewindowFilterOutput{})
+	pulumi.RegisterOutputType(ConfigurationFeatureTimewindowFilterArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationStoreIdentityOutput{})
 	pulumi.RegisterOutputType(ConfigurationStoreIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePrimaryReadKeyOutput{})

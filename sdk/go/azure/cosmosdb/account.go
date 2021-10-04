@@ -129,7 +129,7 @@ type Account struct {
 	LocalAuthenticationDisabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringOutput `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -248,7 +248,7 @@ type accountState struct {
 	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion *string `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -327,7 +327,7 @@ type AccountState struct {
 	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringPtrInput
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -406,7 +406,7 @@ type accountArgs struct {
 	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion *string `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -462,7 +462,7 @@ type AccountArgs struct {
 	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringPtrInput
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

@@ -153,6 +153,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+        /// </summary>
+        [Output("maxShares")]
+        public Output<int> MaxShares { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -319,6 +325,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+        /// </summary>
+        [Input("maxShares")]
+        public Input<int>? MaxShares { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -450,6 +462,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+        /// </summary>
+        [Input("maxShares")]
+        public Input<int>? MaxShares { get; set; }
 
         /// <summary>
         /// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.

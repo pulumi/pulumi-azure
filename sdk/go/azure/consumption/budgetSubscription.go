@@ -88,9 +88,10 @@ import (
 // 					},
 // 				},
 // 				&consumption.BudgetSubscriptionNotificationArgs{
-// 					Enabled:   pulumi.Bool(false),
-// 					Threshold: pulumi.Int(100),
-// 					Operator:  pulumi.String("GreaterThan"),
+// 					Enabled:       pulumi.Bool(false),
+// 					Threshold:     pulumi.Int(100),
+// 					Operator:      pulumi.String("GreaterThan"),
+// 					ThresholdType: pulumi.String("Forecasted"),
 // 					ContactEmails: pulumi.StringArray{
 // 						pulumi.String("foo@example.com"),
 // 						pulumi.String("bar@example.com"),
@@ -118,6 +119,8 @@ type BudgetSubscription struct {
 
 	// The total amount of cost to track with the budget.
 	Amount pulumi.Float64Output `pulumi:"amount"`
+	// The ETag of the Subscription Consumption Budget.
+	Etag pulumi.StringOutput `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter BudgetSubscriptionFilterPtrOutput `pulumi:"filter"`
 	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
@@ -175,6 +178,8 @@ func GetBudgetSubscription(ctx *pulumi.Context,
 type budgetSubscriptionState struct {
 	// The total amount of cost to track with the budget.
 	Amount *float64 `pulumi:"amount"`
+	// The ETag of the Subscription Consumption Budget.
+	Etag *string `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter *BudgetSubscriptionFilter `pulumi:"filter"`
 	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
@@ -192,6 +197,8 @@ type budgetSubscriptionState struct {
 type BudgetSubscriptionState struct {
 	// The total amount of cost to track with the budget.
 	Amount pulumi.Float64PtrInput
+	// The ETag of the Subscription Consumption Budget.
+	Etag pulumi.StringPtrInput
 	// A `filter` block as defined below.
 	Filter BudgetSubscriptionFilterPtrInput
 	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
@@ -213,6 +220,8 @@ func (BudgetSubscriptionState) ElementType() reflect.Type {
 type budgetSubscriptionArgs struct {
 	// The total amount of cost to track with the budget.
 	Amount float64 `pulumi:"amount"`
+	// The ETag of the Subscription Consumption Budget.
+	Etag *string `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter *BudgetSubscriptionFilter `pulumi:"filter"`
 	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
@@ -231,6 +240,8 @@ type budgetSubscriptionArgs struct {
 type BudgetSubscriptionArgs struct {
 	// The total amount of cost to track with the budget.
 	Amount pulumi.Float64Input
+	// The ETag of the Subscription Consumption Budget.
+	Etag pulumi.StringPtrInput
 	// A `filter` block as defined below.
 	Filter BudgetSubscriptionFilterPtrInput
 	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.

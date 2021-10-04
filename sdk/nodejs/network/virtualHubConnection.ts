@@ -20,14 +20,14 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const test = new azure.network.VirtualWan("test", {
+ * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  * });
  * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     virtualWanId: azurerm_virtual_wan.example.id,
+ *     virtualWanId: exampleVirtualWan.id,
  *     addressPrefix: "10.0.1.0/24",
  * });
  * const exampleVirtualHubConnection = new azure.network.VirtualHubConnection("exampleVirtualHubConnection", {

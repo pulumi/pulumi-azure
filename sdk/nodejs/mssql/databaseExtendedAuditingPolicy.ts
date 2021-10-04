@@ -79,6 +79,9 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
      * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     public readonly databaseId!: pulumi.Output<string>;
+    /**
+     * Enable audit events to Azure Monitor?
+     */
     public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The number of days to retain logs for in the storage account.
@@ -143,6 +146,9 @@ export interface DatabaseExtendedAuditingPolicyState {
      * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     databaseId?: pulumi.Input<string>;
+    /**
+     * Enable audit events to Azure Monitor?
+     */
     logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account.
@@ -170,6 +176,9 @@ export interface DatabaseExtendedAuditingPolicyArgs {
      * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     databaseId: pulumi.Input<string>;
+    /**
+     * Enable audit events to Azure Monitor?
+     */
     logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account.

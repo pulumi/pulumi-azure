@@ -363,6 +363,8 @@ class ConfigurationKey(pulumi.CustomResource):
         """
         Manages an Azure App Configuration Key.
 
+        > **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
+
         ## Example Usage
         ### `Kv` Type
 
@@ -374,11 +376,17 @@ class ConfigurationKey(pulumi.CustomResource):
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
             resource_group_name=rg.name,
             location=rg.location)
+        current = azure.core.get_client_config()
+        appconf_dataowner = azure.authorization.Assignment("appconfDataowner",
+            scope=appconf.id,
+            role_definition_name="App Configuration Data Owner",
+            principal_id=current.object_id)
         test = azure.appconfiguration.ConfigurationKey("test",
             configuration_store_id=appconf.id,
             key="appConfKey1",
             label="somelabel",
-            value="a test")
+            value="a test",
+            opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
         ### `Vault` Type
         ```python
@@ -414,12 +422,17 @@ class ConfigurationKey(pulumi.CustomResource):
         kvs = azure.keyvault.Secret("kvs",
             value="szechuan",
             key_vault_id=kv.id)
+        appconf_dataowner = azure.authorization.Assignment("appconfDataowner",
+            scope=appconf.id,
+            role_definition_name="App Configuration Data Owner",
+            principal_id=current.object_id)
         test = azure.appconfiguration.ConfigurationKey("test",
             configuration_store_id=azurerm_app_configuration["test"]["id"],
             key="key1",
             type="vault",
             label="label1",
-            vault_key_reference=kvs.id)
+            vault_key_reference=kvs.id,
+            opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
 
         ## Import
@@ -458,6 +471,8 @@ class ConfigurationKey(pulumi.CustomResource):
         """
         Manages an Azure App Configuration Key.
 
+        > **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
+
         ## Example Usage
         ### `Kv` Type
 
@@ -469,11 +484,17 @@ class ConfigurationKey(pulumi.CustomResource):
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
             resource_group_name=rg.name,
             location=rg.location)
+        current = azure.core.get_client_config()
+        appconf_dataowner = azure.authorization.Assignment("appconfDataowner",
+            scope=appconf.id,
+            role_definition_name="App Configuration Data Owner",
+            principal_id=current.object_id)
         test = azure.appconfiguration.ConfigurationKey("test",
             configuration_store_id=appconf.id,
             key="appConfKey1",
             label="somelabel",
-            value="a test")
+            value="a test",
+            opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
         ### `Vault` Type
         ```python
@@ -509,12 +530,17 @@ class ConfigurationKey(pulumi.CustomResource):
         kvs = azure.keyvault.Secret("kvs",
             value="szechuan",
             key_vault_id=kv.id)
+        appconf_dataowner = azure.authorization.Assignment("appconfDataowner",
+            scope=appconf.id,
+            role_definition_name="App Configuration Data Owner",
+            principal_id=current.object_id)
         test = azure.appconfiguration.ConfigurationKey("test",
             configuration_store_id=azurerm_app_configuration["test"]["id"],
             key="key1",
             type="vault",
             label="label1",
-            vault_key_reference=kvs.id)
+            vault_key_reference=kvs.id,
+            opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
 
         ## Import

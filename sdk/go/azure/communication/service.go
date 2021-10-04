@@ -58,8 +58,16 @@ type Service struct {
 	DataLocation pulumi.StringPtrOutput `pulumi:"dataLocation"`
 	// The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The primary connection string of the Communication Service.
+	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
+	// The primary key of the Communication Service.
+	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
 	// The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The secondary connection string of the Communication Service.
+	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
+	// The secondary key of the Communication Service.
+	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
 	// A mapping of tags which should be assigned to the Communication Service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -100,8 +108,16 @@ type serviceState struct {
 	DataLocation *string `pulumi:"dataLocation"`
 	// The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
 	Name *string `pulumi:"name"`
+	// The primary connection string of the Communication Service.
+	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
+	// The primary key of the Communication Service.
+	PrimaryKey *string `pulumi:"primaryKey"`
 	// The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The secondary connection string of the Communication Service.
+	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
+	// The secondary key of the Communication Service.
+	SecondaryKey *string `pulumi:"secondaryKey"`
 	// A mapping of tags which should be assigned to the Communication Service.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -111,8 +127,16 @@ type ServiceState struct {
 	DataLocation pulumi.StringPtrInput
 	// The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
 	Name pulumi.StringPtrInput
+	// The primary connection string of the Communication Service.
+	PrimaryConnectionString pulumi.StringPtrInput
+	// The primary key of the Communication Service.
+	PrimaryKey pulumi.StringPtrInput
 	// The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The secondary connection string of the Communication Service.
+	SecondaryConnectionString pulumi.StringPtrInput
+	// The secondary key of the Communication Service.
+	SecondaryKey pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Communication Service.
 	Tags pulumi.StringMapInput
 }
