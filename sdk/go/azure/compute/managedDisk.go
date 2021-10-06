@@ -129,6 +129,8 @@ type ManagedDisk struct {
 	ImageReferenceId pulumi.StringPtrOutput `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+	MaxShares pulumi.IntOutput `pulumi:"maxShares"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
@@ -209,6 +211,8 @@ type managedDiskState struct {
 	ImageReferenceId *string `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+	MaxShares *int `pulumi:"maxShares"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
@@ -252,6 +256,8 @@ type ManagedDiskState struct {
 	ImageReferenceId pulumi.StringPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+	MaxShares pulumi.IntPtrInput
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
@@ -299,6 +305,8 @@ type managedDiskArgs struct {
 	ImageReferenceId *string `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+	MaxShares *int `pulumi:"maxShares"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
@@ -343,6 +351,8 @@ type ManagedDiskArgs struct {
 	ImageReferenceId pulumi.StringPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+	MaxShares pulumi.IntPtrInput
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.

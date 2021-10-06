@@ -62,7 +62,7 @@ class AccountArgs:
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
@@ -351,7 +351,7 @@ class AccountArgs:
     @pulumi.getter(name="mongoServerVersion")
     def mongo_server_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         """
         return pulumi.get(self, "mongo_server_version")
 
@@ -494,7 +494,7 @@ class _AccountState:
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
@@ -831,7 +831,7 @@ class _AccountState:
     @pulumi.getter(name="mongoServerVersion")
     def mongo_server_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         """
         return pulumi.get(self, "mongo_server_version")
 
@@ -1151,7 +1151,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
@@ -1396,7 +1396,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
@@ -1612,7 +1612,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="mongoServerVersion")
     def mongo_server_version(self) -> pulumi.Output[str]:
         """
-        The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         """
         return pulumi.get(self, "mongo_server_version")
 

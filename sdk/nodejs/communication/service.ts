@@ -65,9 +65,25 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The primary connection string of the Communication Service.
+     */
+    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    /**
+     * The primary key of the Communication Service.
+     */
+    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    /**
      * The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The secondary connection string of the Communication Service.
+     */
+    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    /**
+     * The secondary key of the Communication Service.
+     */
+    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Communication Service.
      */
@@ -88,7 +104,11 @@ export class Service extends pulumi.CustomResource {
             const state = argsOrState as ServiceState | undefined;
             inputs["dataLocation"] = state ? state.dataLocation : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
+            inputs["primaryKey"] = state ? state.primaryKey : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
+            inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
@@ -99,6 +119,10 @@ export class Service extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["primaryConnectionString"] = undefined /*out*/;
+            inputs["primaryKey"] = undefined /*out*/;
+            inputs["secondaryConnectionString"] = undefined /*out*/;
+            inputs["secondaryKey"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -120,9 +144,25 @@ export interface ServiceState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The primary connection string of the Communication Service.
+     */
+    primaryConnectionString?: pulumi.Input<string>;
+    /**
+     * The primary key of the Communication Service.
+     */
+    primaryKey?: pulumi.Input<string>;
+    /**
      * The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The secondary connection string of the Communication Service.
+     */
+    secondaryConnectionString?: pulumi.Input<string>;
+    /**
+     * The secondary key of the Communication Service.
+     */
+    secondaryKey?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Communication Service.
      */

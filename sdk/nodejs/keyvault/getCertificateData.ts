@@ -86,6 +86,10 @@ export interface GetCertificateDataResult {
     readonly keyVaultId: string;
     readonly name: string;
     /**
+     * Not Before date of certificate in RFC3339 format.
+     */
+    readonly notBefore: string;
+    /**
      * The Key Vault Certificate in PEM format.
      */
     readonly pem: string;

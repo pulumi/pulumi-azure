@@ -130,6 +130,10 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+     */
+    public readonly maxShares!: pulumi.Output<number>;
+    /**
      * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -196,6 +200,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
             inputs["imageReferenceId"] = state ? state.imageReferenceId : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["maxShares"] = state ? state.maxShares : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkAccessPolicy"] = state ? state.networkAccessPolicy : undefined;
             inputs["osType"] = state ? state.osType : undefined;
@@ -227,6 +232,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
             inputs["imageReferenceId"] = args ? args.imageReferenceId : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maxShares"] = args ? args.maxShares : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
             inputs["osType"] = args ? args.osType : undefined;
@@ -286,6 +292,10 @@ export interface ManagedDiskState {
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+     */
+    maxShares?: pulumi.Input<number>;
     /**
      * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      */
@@ -372,6 +382,10 @@ export interface ManagedDiskArgs {
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+     */
+    maxShares?: pulumi.Input<number>;
     /**
      * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      */

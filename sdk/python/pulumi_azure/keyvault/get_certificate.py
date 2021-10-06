@@ -21,7 +21,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, certificate_data=None, certificate_data_base64=None, certificate_policies=None, id=None, key_vault_id=None, name=None, secret_id=None, tags=None, thumbprint=None, version=None):
+    def __init__(__self__, certificate_data=None, certificate_data_base64=None, certificate_policies=None, expires=None, id=None, key_vault_id=None, name=None, not_before=None, secret_id=None, tags=None, thumbprint=None, version=None):
         if certificate_data and not isinstance(certificate_data, str):
             raise TypeError("Expected argument 'certificate_data' to be a str")
         pulumi.set(__self__, "certificate_data", certificate_data)
@@ -31,6 +31,9 @@ class GetCertificateResult:
         if certificate_policies and not isinstance(certificate_policies, list):
             raise TypeError("Expected argument 'certificate_policies' to be a list")
         pulumi.set(__self__, "certificate_policies", certificate_policies)
+        if expires and not isinstance(expires, str):
+            raise TypeError("Expected argument 'expires' to be a str")
+        pulumi.set(__self__, "expires", expires)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +43,9 @@ class GetCertificateResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if not_before and not isinstance(not_before, str):
+            raise TypeError("Expected argument 'not_before' to be a str")
+        pulumi.set(__self__, "not_before", not_before)
         if secret_id and not isinstance(secret_id, str):
             raise TypeError("Expected argument 'secret_id' to be a str")
         pulumi.set(__self__, "secret_id", secret_id)
@@ -79,6 +85,14 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
+    def expires(self) -> str:
+        """
+        Expiry date of certificate in RFC3339 format.
+        """
+        return pulumi.get(self, "expires")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
@@ -97,6 +111,14 @@ class GetCertificateResult:
         The name of the Certificate Issuer.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> str:
+        """
+        Not Before date of certificate in RFC3339 format.
+        """
+        return pulumi.get(self, "not_before")
 
     @property
     @pulumi.getter(name="secretId")
@@ -140,9 +162,11 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             certificate_data=self.certificate_data,
             certificate_data_base64=self.certificate_data_base64,
             certificate_policies=self.certificate_policies,
+            expires=self.expires,
             id=self.id,
             key_vault_id=self.key_vault_id,
             name=self.name,
+            not_before=self.not_before,
             secret_id=self.secret_id,
             tags=self.tags,
             thumbprint=self.thumbprint,
@@ -188,9 +212,11 @@ def get_certificate(key_vault_id: Optional[str] = None,
         certificate_data=__ret__.certificate_data,
         certificate_data_base64=__ret__.certificate_data_base64,
         certificate_policies=__ret__.certificate_policies,
+        expires=__ret__.expires,
         id=__ret__.id,
         key_vault_id=__ret__.key_vault_id,
         name=__ret__.name,
+        not_before=__ret__.not_before,
         secret_id=__ret__.secret_id,
         tags=__ret__.tags,
         thumbprint=__ret__.thumbprint,

@@ -34,14 +34,14 @@ class SubscriptionArgs:
         :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
-        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
@@ -125,7 +125,7 @@ class SubscriptionArgs:
     @pulumi.getter(name="autoDeleteOnIdle")
     def auto_delete_on_idle(self) -> Optional[pulumi.Input[str]]:
         """
-        The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
@@ -209,7 +209,7 @@ class SubscriptionArgs:
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
         """
         return pulumi.get(self, "lock_duration")
 
@@ -274,14 +274,14 @@ class _SubscriptionState:
                  topic_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Subscription resources.
-        :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
-        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
         :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
@@ -325,7 +325,7 @@ class _SubscriptionState:
     @pulumi.getter(name="autoDeleteOnIdle")
     def auto_delete_on_idle(self) -> Optional[pulumi.Input[str]]:
         """
-        The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
@@ -409,7 +409,7 @@ class _SubscriptionState:
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
         """
         return pulumi.get(self, "lock_duration")
 
@@ -566,14 +566,14 @@ class Subscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
-        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
         :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
@@ -722,14 +722,14 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
-        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
         :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
@@ -763,7 +763,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter(name="autoDeleteOnIdle")
     def auto_delete_on_idle(self) -> pulumi.Output[str]:
         """
-        The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
@@ -819,7 +819,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> pulumi.Output[str]:
         """
-        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
         """
         return pulumi.get(self, "lock_duration")
 

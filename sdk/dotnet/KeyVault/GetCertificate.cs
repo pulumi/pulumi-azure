@@ -93,6 +93,10 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateCertificatePolicyResult> CertificatePolicies;
         /// <summary>
+        /// Expiry date of certificate in RFC3339 format.
+        /// </summary>
+        public readonly string Expires;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -101,6 +105,10 @@ namespace Pulumi.Azure.KeyVault
         /// The name of the Certificate Issuer.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Not Before date of certificate in RFC3339 format.
+        /// </summary>
+        public readonly string NotBefore;
         /// <summary>
         /// The ID of the associated Key Vault Secret.
         /// </summary>
@@ -126,11 +134,15 @@ namespace Pulumi.Azure.KeyVault
 
             ImmutableArray<Outputs.GetCertificateCertificatePolicyResult> certificatePolicies,
 
+            string expires,
+
             string id,
 
             string keyVaultId,
 
             string name,
+
+            string notBefore,
 
             string secretId,
 
@@ -143,9 +155,11 @@ namespace Pulumi.Azure.KeyVault
             CertificateData = certificateData;
             CertificateDataBase64 = certificateDataBase64;
             CertificatePolicies = certificatePolicies;
+            Expires = expires;
             Id = id;
             KeyVaultId = keyVaultId;
             Name = name;
+            NotBefore = notBefore;
             SecretId = secretId;
             Tags = tags;
             Thumbprint = thumbprint;

@@ -75,6 +75,10 @@ export interface GetCertificateResult {
      */
     readonly certificatePolicies: outputs.keyvault.GetCertificateCertificatePolicy[];
     /**
+     * Expiry date of certificate in RFC3339 format.
+     */
+    readonly expires: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -83,6 +87,10 @@ export interface GetCertificateResult {
      * The name of the Certificate Issuer.
      */
     readonly name: string;
+    /**
+     * Not Before date of certificate in RFC3339 format.
+     */
+    readonly notBefore: string;
     /**
      * The ID of the associated Key Vault Secret.
      */

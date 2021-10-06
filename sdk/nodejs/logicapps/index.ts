@@ -19,6 +19,7 @@ export * from "./integrationAccountPartner";
 export * from "./integrationAccountSchema";
 export * from "./integrationAccountSession";
 export * from "./interationServiceEnvironment";
+export * from "./standard";
 export * from "./triggerCustom";
 export * from "./triggerHttpRequest";
 export * from "./triggerRecurrence";
@@ -37,6 +38,7 @@ import { IntegrationAccountPartner } from "./integrationAccountPartner";
 import { IntegrationAccountSchema } from "./integrationAccountSchema";
 import { IntegrationAccountSession } from "./integrationAccountSession";
 import { InterationServiceEnvironment } from "./interationServiceEnvironment";
+import { Standard } from "./standard";
 import { TriggerCustom } from "./triggerCustom";
 import { TriggerHttpRequest } from "./triggerHttpRequest";
 import { TriggerRecurrence } from "./triggerRecurrence";
@@ -70,6 +72,8 @@ const _module = {
                 return new IntegrationAccountSession(name, <any>undefined, { urn })
             case "azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment":
                 return new InterationServiceEnvironment(name, <any>undefined, { urn })
+            case "azure:logicapps/standard:Standard":
+                return new Standard(name, <any>undefined, { urn })
             case "azure:logicapps/triggerCustom:TriggerCustom":
                 return new TriggerCustom(name, <any>undefined, { urn })
             case "azure:logicapps/triggerHttpRequest:TriggerHttpRequest":
@@ -95,6 +99,7 @@ pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountPart
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountSchema", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountSession", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/interationServiceEnvironment", _module)
+pulumi.runtime.registerResourceModule("azure", "logicapps/standard", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/triggerCustom", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/triggerHttpRequest", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/triggerRecurrence", _module)

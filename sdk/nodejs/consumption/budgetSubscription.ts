@@ -57,6 +57,7 @@ import * as utilities from "../utilities";
  *             enabled: false,
  *             threshold: 100,
  *             operator: "GreaterThan",
+ *             thresholdType: "Forecasted",
  *             contactEmails: [
  *                 "foo@example.com",
  *                 "bar@example.com",
@@ -107,6 +108,10 @@ export class BudgetSubscription extends pulumi.CustomResource {
      */
     public readonly amount!: pulumi.Output<number>;
     /**
+     * The ETag of the Subscription Consumption Budget.
+     */
+    public readonly etag!: pulumi.Output<string>;
+    /**
      * A `filter` block as defined below.
      */
     public readonly filter!: pulumi.Output<outputs.consumption.BudgetSubscriptionFilter | undefined>;
@@ -145,6 +150,7 @@ export class BudgetSubscription extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BudgetSubscriptionState | undefined;
             inputs["amount"] = state ? state.amount : undefined;
+            inputs["etag"] = state ? state.etag : undefined;
             inputs["filter"] = state ? state.filter : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notifications"] = state ? state.notifications : undefined;
@@ -166,6 +172,7 @@ export class BudgetSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'timePeriod'");
             }
             inputs["amount"] = args ? args.amount : undefined;
+            inputs["etag"] = args ? args.etag : undefined;
             inputs["filter"] = args ? args.filter : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notifications"] = args ? args.notifications : undefined;
@@ -188,6 +195,10 @@ export interface BudgetSubscriptionState {
      * The total amount of cost to track with the budget.
      */
     amount?: pulumi.Input<number>;
+    /**
+     * The ETag of the Subscription Consumption Budget.
+     */
+    etag?: pulumi.Input<string>;
     /**
      * A `filter` block as defined below.
      */
@@ -222,6 +233,10 @@ export interface BudgetSubscriptionArgs {
      * The total amount of cost to track with the budget.
      */
     amount: pulumi.Input<number>;
+    /**
+     * The ETag of the Subscription Consumption Budget.
+     */
+    etag?: pulumi.Input<string>;
     /**
      * A `filter` block as defined below.
      */

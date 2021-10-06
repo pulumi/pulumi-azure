@@ -19,6 +19,7 @@ class BudgetSubscriptionArgs:
                  notifications: pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionNotificationArgs']]],
                  subscription_id: pulumi.Input[str],
                  time_period: pulumi.Input['BudgetSubscriptionTimePeriodArgs'],
+                 etag: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input['BudgetSubscriptionFilterArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  time_grain: Optional[pulumi.Input[str]] = None):
@@ -28,6 +29,7 @@ class BudgetSubscriptionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] subscription_id: The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
         :param pulumi.Input['BudgetSubscriptionTimePeriodArgs'] time_period: A `time_period` block as defined below.
+        :param pulumi.Input[str] etag: The ETag of the Subscription Consumption Budget.
         :param pulumi.Input['BudgetSubscriptionFilterArgs'] filter: A `filter` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
@@ -36,6 +38,8 @@ class BudgetSubscriptionArgs:
         pulumi.set(__self__, "notifications", notifications)
         pulumi.set(__self__, "subscription_id", subscription_id)
         pulumi.set(__self__, "time_period", time_period)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
         if name is not None:
@@ -93,6 +97,18 @@ class BudgetSubscriptionArgs:
 
     @property
     @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ETag of the Subscription Consumption Budget.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['BudgetSubscriptionFilterArgs']]:
         """
         A `filter` block as defined below.
@@ -132,6 +148,7 @@ class BudgetSubscriptionArgs:
 class _BudgetSubscriptionState:
     def __init__(__self__, *,
                  amount: Optional[pulumi.Input[float]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input['BudgetSubscriptionFilterArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionNotificationArgs']]]] = None,
@@ -141,6 +158,7 @@ class _BudgetSubscriptionState:
         """
         Input properties used for looking up and filtering BudgetSubscription resources.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
+        :param pulumi.Input[str] etag: The ETag of the Subscription Consumption Budget.
         :param pulumi.Input['BudgetSubscriptionFilterArgs'] filter: A `filter` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
@@ -150,6 +168,8 @@ class _BudgetSubscriptionState:
         """
         if amount is not None:
             pulumi.set(__self__, "amount", amount)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
         if name is not None:
@@ -174,6 +194,18 @@ class _BudgetSubscriptionState:
     @amount.setter
     def amount(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "amount", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ETag of the Subscription Consumption Budget.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -254,6 +286,7 @@ class BudgetSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amount: Optional[pulumi.Input[float]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input[pulumi.InputType['BudgetSubscriptionFilterArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]]] = None,
@@ -312,6 +345,7 @@ class BudgetSubscription(pulumi.CustomResource):
                     enabled=False,
                     threshold=100,
                     operator="GreaterThan",
+                    threshold_type="Forecasted",
                     contact_emails=[
                         "foo@example.com",
                         "bar@example.com",
@@ -331,6 +365,7 @@ class BudgetSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
+        :param pulumi.Input[str] etag: The ETag of the Subscription Consumption Budget.
         :param pulumi.Input[pulumi.InputType['BudgetSubscriptionFilterArgs']] filter: A `filter` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
@@ -395,6 +430,7 @@ class BudgetSubscription(pulumi.CustomResource):
                     enabled=False,
                     threshold=100,
                     operator="GreaterThan",
+                    threshold_type="Forecasted",
                     contact_emails=[
                         "foo@example.com",
                         "bar@example.com",
@@ -427,6 +463,7 @@ class BudgetSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amount: Optional[pulumi.Input[float]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input[pulumi.InputType['BudgetSubscriptionFilterArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]]] = None,
@@ -448,6 +485,7 @@ class BudgetSubscription(pulumi.CustomResource):
             if amount is None and not opts.urn:
                 raise TypeError("Missing required property 'amount'")
             __props__.__dict__["amount"] = amount
+            __props__.__dict__["etag"] = etag
             __props__.__dict__["filter"] = filter
             __props__.__dict__["name"] = name
             if notifications is None and not opts.urn:
@@ -471,6 +509,7 @@ class BudgetSubscription(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             amount: Optional[pulumi.Input[float]] = None,
+            etag: Optional[pulumi.Input[str]] = None,
             filter: Optional[pulumi.Input[pulumi.InputType['BudgetSubscriptionFilterArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]]] = None,
@@ -485,6 +524,7 @@ class BudgetSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
+        :param pulumi.Input[str] etag: The ETag of the Subscription Consumption Budget.
         :param pulumi.Input[pulumi.InputType['BudgetSubscriptionFilterArgs']] filter: A `filter` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
@@ -497,6 +537,7 @@ class BudgetSubscription(pulumi.CustomResource):
         __props__ = _BudgetSubscriptionState.__new__(_BudgetSubscriptionState)
 
         __props__.__dict__["amount"] = amount
+        __props__.__dict__["etag"] = etag
         __props__.__dict__["filter"] = filter
         __props__.__dict__["name"] = name
         __props__.__dict__["notifications"] = notifications
@@ -512,6 +553,14 @@ class BudgetSubscription(pulumi.CustomResource):
         The total amount of cost to track with the budget.
         """
         return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        The ETag of the Subscription Consumption Budget.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter

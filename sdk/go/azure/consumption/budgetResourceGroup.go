@@ -69,9 +69,10 @@ import (
 // 			},
 // 			Notifications: consumption.BudgetResourceGroupNotificationArray{
 // 				&consumption.BudgetResourceGroupNotificationArgs{
-// 					Enabled:   pulumi.Bool(true),
-// 					Threshold: pulumi.Int(90),
-// 					Operator:  pulumi.String("EqualTo"),
+// 					Enabled:       pulumi.Bool(true),
+// 					Threshold:     pulumi.Int(90),
+// 					Operator:      pulumi.String("EqualTo"),
+// 					ThresholdType: pulumi.String("Forecasted"),
 // 					ContactEmails: pulumi.StringArray{
 // 						pulumi.String("foo@example.com"),
 // 						pulumi.String("bar@example.com"),
@@ -114,6 +115,8 @@ type BudgetResourceGroup struct {
 
 	// The total amount of cost to track with the budget.
 	Amount pulumi.Float64Output `pulumi:"amount"`
+	// The ETag of the Resource Group Consumption Budget
+	Etag pulumi.StringOutput `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter BudgetResourceGroupFilterPtrOutput `pulumi:"filter"`
 	// The name which should be used for this Resource Group Consumption Budget. Changing this forces a new Resource Group Consumption Budget to be created.
@@ -171,6 +174,8 @@ func GetBudgetResourceGroup(ctx *pulumi.Context,
 type budgetResourceGroupState struct {
 	// The total amount of cost to track with the budget.
 	Amount *float64 `pulumi:"amount"`
+	// The ETag of the Resource Group Consumption Budget
+	Etag *string `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter *BudgetResourceGroupFilter `pulumi:"filter"`
 	// The name which should be used for this Resource Group Consumption Budget. Changing this forces a new Resource Group Consumption Budget to be created.
@@ -188,6 +193,8 @@ type budgetResourceGroupState struct {
 type BudgetResourceGroupState struct {
 	// The total amount of cost to track with the budget.
 	Amount pulumi.Float64PtrInput
+	// The ETag of the Resource Group Consumption Budget
+	Etag pulumi.StringPtrInput
 	// A `filter` block as defined below.
 	Filter BudgetResourceGroupFilterPtrInput
 	// The name which should be used for this Resource Group Consumption Budget. Changing this forces a new Resource Group Consumption Budget to be created.
@@ -209,6 +216,8 @@ func (BudgetResourceGroupState) ElementType() reflect.Type {
 type budgetResourceGroupArgs struct {
 	// The total amount of cost to track with the budget.
 	Amount float64 `pulumi:"amount"`
+	// The ETag of the Resource Group Consumption Budget
+	Etag *string `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter *BudgetResourceGroupFilter `pulumi:"filter"`
 	// The name which should be used for this Resource Group Consumption Budget. Changing this forces a new Resource Group Consumption Budget to be created.
@@ -227,6 +236,8 @@ type budgetResourceGroupArgs struct {
 type BudgetResourceGroupArgs struct {
 	// The total amount of cost to track with the budget.
 	Amount pulumi.Float64Input
+	// The ETag of the Resource Group Consumption Budget
+	Etag pulumi.StringPtrInput
 	// A `filter` block as defined below.
 	Filter BudgetResourceGroupFilterPtrInput
 	// The name which should be used for this Resource Group Consumption Budget. Changing this forces a new Resource Group Consumption Budget to be created.

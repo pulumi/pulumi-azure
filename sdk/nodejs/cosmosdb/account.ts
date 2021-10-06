@@ -168,7 +168,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+     * The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
      */
     public readonly mongoServerVersion!: pulumi.Output<string>;
     /**
@@ -436,7 +436,7 @@ export interface AccountState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+     * The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
      */
     mongoServerVersion?: pulumi.Input<string>;
     /**
@@ -586,7 +586,7 @@ export interface AccountArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+     * The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
      */
     mongoServerVersion?: pulumi.Input<string>;
     /**

@@ -86,7 +86,8 @@ type DatabaseExtendedAuditingPolicy struct {
 	pulumi.CustomResourceState
 
 	// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
-	DatabaseId           pulumi.StringOutput  `pulumi:"databaseId"`
+	DatabaseId pulumi.StringOutput `pulumi:"databaseId"`
+	// Enable audit events to Azure Monitor?
 	LogMonitoringEnabled pulumi.BoolPtrOutput `pulumi:"logMonitoringEnabled"`
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
@@ -131,8 +132,9 @@ func GetDatabaseExtendedAuditingPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DatabaseExtendedAuditingPolicy resources.
 type databaseExtendedAuditingPolicyState struct {
 	// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
-	DatabaseId           *string `pulumi:"databaseId"`
-	LogMonitoringEnabled *bool   `pulumi:"logMonitoringEnabled"`
+	DatabaseId *string `pulumi:"databaseId"`
+	// Enable audit events to Azure Monitor?
+	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The access key to use for the auditing storage account.
@@ -145,7 +147,8 @@ type databaseExtendedAuditingPolicyState struct {
 
 type DatabaseExtendedAuditingPolicyState struct {
 	// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
-	DatabaseId           pulumi.StringPtrInput
+	DatabaseId pulumi.StringPtrInput
+	// Enable audit events to Azure Monitor?
 	LogMonitoringEnabled pulumi.BoolPtrInput
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput
@@ -163,8 +166,9 @@ func (DatabaseExtendedAuditingPolicyState) ElementType() reflect.Type {
 
 type databaseExtendedAuditingPolicyArgs struct {
 	// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
-	DatabaseId           string `pulumi:"databaseId"`
-	LogMonitoringEnabled *bool  `pulumi:"logMonitoringEnabled"`
+	DatabaseId string `pulumi:"databaseId"`
+	// Enable audit events to Azure Monitor?
+	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The access key to use for the auditing storage account.
@@ -178,7 +182,8 @@ type databaseExtendedAuditingPolicyArgs struct {
 // The set of arguments for constructing a DatabaseExtendedAuditingPolicy resource.
 type DatabaseExtendedAuditingPolicyArgs struct {
 	// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
-	DatabaseId           pulumi.StringInput
+	DatabaseId pulumi.StringInput
+	// Enable audit events to Azure Monitor?
 	LogMonitoringEnabled pulumi.BoolPtrInput
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput

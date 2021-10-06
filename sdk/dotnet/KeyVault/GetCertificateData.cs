@@ -105,6 +105,10 @@ namespace Pulumi.Azure.KeyVault
         public readonly string KeyVaultId;
         public readonly string Name;
         /// <summary>
+        /// Not Before date of certificate in RFC3339 format.
+        /// </summary>
+        public readonly string NotBefore;
+        /// <summary>
         /// The Key Vault Certificate in PEM format.
         /// </summary>
         public readonly string Pem;
@@ -130,6 +134,8 @@ namespace Pulumi.Azure.KeyVault
 
             string name,
 
+            string notBefore,
+
             string pem,
 
             ImmutableDictionary<string, string> tags,
@@ -143,6 +149,7 @@ namespace Pulumi.Azure.KeyVault
             Key = key;
             KeyVaultId = keyVaultId;
             Name = name;
+            NotBefore = notBefore;
             Pem = pem;
             Tags = tags;
             Version = version;

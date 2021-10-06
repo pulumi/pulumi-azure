@@ -60,10 +60,34 @@ namespace Pulumi.Azure.Communication
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The primary connection string of the Communication Service.
+        /// </summary>
+        [Output("primaryConnectionString")]
+        public Output<string> PrimaryConnectionString { get; private set; } = null!;
+
+        /// <summary>
+        /// The primary key of the Communication Service.
+        /// </summary>
+        [Output("primaryKey")]
+        public Output<string> PrimaryKey { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The secondary connection string of the Communication Service.
+        /// </summary>
+        [Output("secondaryConnectionString")]
+        public Output<string> SecondaryConnectionString { get; private set; } = null!;
+
+        /// <summary>
+        /// The secondary key of the Communication Service.
+        /// </summary>
+        [Output("secondaryKey")]
+        public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Communication Service.
@@ -167,10 +191,34 @@ namespace Pulumi.Azure.Communication
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The primary connection string of the Communication Service.
+        /// </summary>
+        [Input("primaryConnectionString")]
+        public Input<string>? PrimaryConnectionString { get; set; }
+
+        /// <summary>
+        /// The primary key of the Communication Service.
+        /// </summary>
+        [Input("primaryKey")]
+        public Input<string>? PrimaryKey { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The secondary connection string of the Communication Service.
+        /// </summary>
+        [Input("secondaryConnectionString")]
+        public Input<string>? SecondaryConnectionString { get; set; }
+
+        /// <summary>
+        /// The secondary key of the Communication Service.
+        /// </summary>
+        [Input("secondaryKey")]
+        public Input<string>? SecondaryKey { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -1417,6 +1417,43 @@ export namespace apimanagement {
 }
 
 export namespace appconfiguration {
+    export interface ConfigurationFeatureTargetingFilter {
+        /**
+         * A number representing the percentage of the entire user base.
+         */
+        defaultRolloutPercentage: pulumi.Input<number>;
+        /**
+         * One or more blocks of type `groups` as defined below.
+         */
+        groups?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTargetingFilterGroup>[]>;
+        /**
+         * A list of users to target for this feature.
+         */
+        users?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ConfigurationFeatureTargetingFilterGroup {
+        /**
+         * The name of the group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Rollout percentage of the group.
+         */
+        rolloutPercentage: pulumi.Input<number>;
+    }
+
+    export interface ConfigurationFeatureTimewindowFilter {
+        /**
+         * The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
+         */
+        start?: pulumi.Input<string>;
+    }
+
     export interface ConfigurationStoreIdentity {
         /**
          * A list of IDs for User Assigned Managed Identity resources to be assigned.
@@ -6831,6 +6868,10 @@ export namespace consumption {
          * Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
          */
         threshold: pulumi.Input<number>;
+        /**
+         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+         */
+        thresholdType?: pulumi.Input<string>;
     }
 
     export interface BudgetResourceGroupTimePeriod {
@@ -6955,6 +6996,10 @@ export namespace consumption {
          * Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
          */
         threshold: pulumi.Input<number>;
+        /**
+         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+         */
+        thresholdType?: pulumi.Input<string>;
     }
 
     export interface BudgetSubscriptionTimePeriod {
@@ -16419,6 +16464,175 @@ export namespace logicapps {
         value: pulumi.Input<string>;
     }
 
+    export interface StandardConnectionString {
+        /**
+         * The name of the Connection String.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The value for the Connection String.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface StandardIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Logic App Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface StandardSiteConfig {
+        /**
+         * Should the Logic App be loaded at all times? Defaults to `false`.
+         */
+        alwaysOn?: pulumi.Input<boolean>;
+        /**
+         * The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit?: pulumi.Input<number>;
+        /**
+         * A `cors` block as defined below.
+         */
+        cors?: pulumi.Input<inputs.logicapps.StandardSiteConfigCors>;
+        /**
+         * The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         */
+        dotnetFrameworkVersion?: pulumi.Input<string>;
+        /**
+         * The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+         */
+        elasticInstanceMinimum?: pulumi.Input<number>;
+        /**
+         * State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
+         * Path which will be checked for this Logic App health.
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
+         * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: pulumi.Input<boolean>;
+        /**
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         */
+        ipRestrictions?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardSiteConfigIpRestriction>[]>;
+        /**
+         * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+         */
+        linuxFxVersion?: pulumi.Input<string>;
+        /**
+         * The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+         */
+        minTlsVersion?: pulumi.Input<string>;
+        /**
+         * The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+         */
+        preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
+         * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+         */
+        runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
+         * Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+         */
+        use32BitWorkerProcess?: pulumi.Input<boolean>;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+         */
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
+        /**
+         * Should WebSockets be enabled?
+         */
+        websocketsEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface StandardSiteConfigCors {
+        /**
+         * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Are credentials supported?
+         */
+        supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface StandardSiteConfigIpRestriction {
+        /**
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The headers for this specific `ipRestriction` as defined below.
+         */
+        headers?: pulumi.Input<inputs.logicapps.StandardSiteConfigIpRestrictionHeaders>;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name for this IP Restriction.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface StandardSiteConfigIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface StandardSiteCredential {
+        /**
+         * The password associated with the username, which can be used to publish to this App Service.
+         */
+        password?: pulumi.Input<string>;
+        /**
+         * The username which can be used to publish to this App Service
+         */
+        username?: pulumi.Input<string>;
+    }
+
     export interface TriggerRecurrenceSchedule {
         /**
          * Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
@@ -16480,6 +16694,7 @@ export namespace logicapps {
          */
         allowedCallerIpAddressRanges: pulumi.Input<pulumi.Input<string>[]>;
     }
+
 }
 
 export namespace machinelearning {

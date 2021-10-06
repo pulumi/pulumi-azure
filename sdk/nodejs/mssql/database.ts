@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a MS SQL Database.
  *
- * > **NOTE:** The Database Extended Auditing Policy Can be set inline here as well as with the mssqlDatabaseExtendedAuditingPolicy resource resource. You can only use one or the other and using both will cause a conflict.
+ * > **Note:** The Database Extended Auditing Policy can be set inline here, as well as with the mssqlDatabaseExtendedAuditingPolicy resource resource. You can only use one or the other and using both will cause a conflict.
  *
  * ## Example Usage
  *
@@ -99,7 +99,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
-     * The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
+     * The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
      */
     public readonly creationSourceDatabaseId!: pulumi.Output<string>;
     /**
@@ -169,7 +169,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly shortTermRetentionPolicy!: pulumi.Output<outputs.mssql.DatabaseShortTermRetentionPolicy>;
     /**
-     * Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+     * Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -282,7 +282,7 @@ export interface DatabaseState {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
+     * The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
      */
     creationSourceDatabaseId?: pulumi.Input<string>;
     /**
@@ -352,7 +352,7 @@ export interface DatabaseState {
      */
     shortTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseShortTermRetentionPolicy>;
     /**
-     * Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+     * Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -390,7 +390,7 @@ export interface DatabaseArgs {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
+     * The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
      */
     creationSourceDatabaseId?: pulumi.Input<string>;
     /**
@@ -460,7 +460,7 @@ export interface DatabaseArgs {
      */
     shortTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseShortTermRetentionPolicy>;
     /**
-     * Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+     * Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**

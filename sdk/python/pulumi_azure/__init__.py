@@ -648,6 +648,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appconfiguration/configurationFeature",
+  "fqn": "pulumi_azure.appconfiguration",
+  "classes": {
+   "azure:appconfiguration/configurationFeature:ConfigurationFeature": "ConfigurationFeature"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appconfiguration/configurationKey",
   "fqn": "pulumi_azure.appconfiguration",
   "classes": {
@@ -3588,6 +3596,14 @@ _utilities.register(
   "fqn": "pulumi_azure.logicapps",
   "classes": {
    "azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment": "InterationServiceEnvironment"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "logicapps/standard",
+  "fqn": "pulumi_azure.logicapps",
+  "classes": {
+   "azure:logicapps/standard:Standard": "Standard"
   }
  },
  {

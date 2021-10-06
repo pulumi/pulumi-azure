@@ -12,6 +12,8 @@ namespace Pulumi.Azure.AppConfiguration
     /// <summary>
     /// Manages an Azure App Configuration Key.
     /// 
+    /// &gt; **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
+    /// 
     /// ## Example Usage
     /// ### `Kv` Type
     /// 
@@ -32,12 +34,25 @@ namespace Pulumi.Azure.AppConfiguration
     ///             ResourceGroupName = rg.Name,
     ///             Location = rg.Location,
     ///         });
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new Azure.Authorization.AssignmentArgs
+    ///         {
+    ///             Scope = appconf.Id,
+    ///             RoleDefinitionName = "App Configuration Data Owner",
+    ///             PrincipalId = current.Apply(current =&gt; current.ObjectId),
+    ///         });
     ///         var test = new Azure.AppConfiguration.ConfigurationKey("test", new Azure.AppConfiguration.ConfigurationKeyArgs
     ///         {
     ///             ConfigurationStoreId = appconf.Id,
     ///             Key = "appConfKey1",
     ///             Label = "somelabel",
     ///             Value = "a test",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 appconfDataowner,
+    ///             },
     ///         });
     ///     }
     /// 
@@ -96,6 +111,12 @@ namespace Pulumi.Azure.AppConfiguration
     ///             Value = "szechuan",
     ///             KeyVaultId = kv.Id,
     ///         });
+    ///         var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new Azure.Authorization.AssignmentArgs
+    ///         {
+    ///             Scope = appconf.Id,
+    ///             RoleDefinitionName = "App Configuration Data Owner",
+    ///             PrincipalId = current.Apply(current =&gt; current.ObjectId),
+    ///         });
     ///         var test = new Azure.AppConfiguration.ConfigurationKey("test", new Azure.AppConfiguration.ConfigurationKeyArgs
     ///         {
     ///             ConfigurationStoreId = azurerm_app_configuration.Test.Id,
@@ -103,6 +124,12 @@ namespace Pulumi.Azure.AppConfiguration
     ///             Type = "vault",
     ///             Label = "label1",
     ///             VaultKeyReference = kvs.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 appconfDataowner,
+    ///             },
     ///         });
     ///     }
     /// 

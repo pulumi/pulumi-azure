@@ -26,6 +26,7 @@ class ManagedDiskArgs:
                  encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
                  image_reference_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_shares: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
@@ -48,6 +49,7 @@ class ManagedDiskArgs:
         :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
@@ -77,6 +79,8 @@ class ManagedDiskArgs:
             pulumi.set(__self__, "image_reference_id", image_reference_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if max_shares is not None:
+            pulumi.set(__self__, "max_shares", max_shares)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_access_policy is not None:
@@ -229,6 +233,18 @@ class ManagedDiskArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="maxShares")
+    def max_shares(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+        """
+        return pulumi.get(self, "max_shares")
+
+    @max_shares.setter
+    def max_shares(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_shares", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -349,6 +365,7 @@ class _ManagedDiskState:
                  encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
                  image_reference_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_shares: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
@@ -371,6 +388,7 @@ class _ManagedDiskState:
         :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
@@ -401,6 +419,8 @@ class _ManagedDiskState:
             pulumi.set(__self__, "image_reference_id", image_reference_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if max_shares is not None:
+            pulumi.set(__self__, "max_shares", max_shares)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_access_policy is not None:
@@ -531,6 +551,18 @@ class _ManagedDiskState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxShares")
+    def max_shares(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+        """
+        return pulumi.get(self, "max_shares")
+
+    @max_shares.setter
+    def max_shares(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_shares", value)
 
     @property
     @pulumi.getter
@@ -679,6 +711,7 @@ class ManagedDisk(pulumi.CustomResource):
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
                  image_reference_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_shares: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
@@ -759,6 +792,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
@@ -858,6 +892,7 @@ class ManagedDisk(pulumi.CustomResource):
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
                  image_reference_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_shares: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
@@ -892,6 +927,7 @@ class ManagedDisk(pulumi.CustomResource):
             __props__.__dict__["encryption_settings"] = encryption_settings
             __props__.__dict__["image_reference_id"] = image_reference_id
             __props__.__dict__["location"] = location
+            __props__.__dict__["max_shares"] = max_shares
             __props__.__dict__["name"] = name
             __props__.__dict__["network_access_policy"] = network_access_policy
             __props__.__dict__["os_type"] = os_type
@@ -926,6 +962,7 @@ class ManagedDisk(pulumi.CustomResource):
             encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
             image_reference_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            max_shares: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_access_policy: Optional[pulumi.Input[str]] = None,
             os_type: Optional[pulumi.Input[str]] = None,
@@ -953,6 +990,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
@@ -978,6 +1016,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__.__dict__["encryption_settings"] = encryption_settings
         __props__.__dict__["image_reference_id"] = image_reference_id
         __props__.__dict__["location"] = location
+        __props__.__dict__["max_shares"] = max_shares
         __props__.__dict__["name"] = name
         __props__.__dict__["network_access_policy"] = network_access_policy
         __props__.__dict__["os_type"] = os_type
@@ -1062,6 +1101,14 @@ class ManagedDisk(pulumi.CustomResource):
         Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxShares")
+    def max_shares(self) -> pulumi.Output[int]:
+        """
+        The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+        """
+        return pulumi.get(self, "max_shares")
 
     @property
     @pulumi.getter

@@ -175,6 +175,7 @@ func TestAccNetwork(t *testing.T) {
 }
 
 func TestAccWebserver(t *testing.T) {
+	t.Skip("Skipping until v2.80.0 release comes out upstream")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:                  filepath.Join(getCwd(t), "webserver"),

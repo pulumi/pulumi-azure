@@ -20,7 +20,7 @@ class GetCertificateDataResult:
     """
     A collection of values returned by getCertificateData.
     """
-    def __init__(__self__, certificates_count=None, expires=None, hex=None, id=None, key=None, key_vault_id=None, name=None, pem=None, tags=None, version=None):
+    def __init__(__self__, certificates_count=None, expires=None, hex=None, id=None, key=None, key_vault_id=None, name=None, not_before=None, pem=None, tags=None, version=None):
         if certificates_count and not isinstance(certificates_count, int):
             raise TypeError("Expected argument 'certificates_count' to be a int")
         pulumi.set(__self__, "certificates_count", certificates_count)
@@ -42,6 +42,9 @@ class GetCertificateDataResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if not_before and not isinstance(not_before, str):
+            raise TypeError("Expected argument 'not_before' to be a str")
+        pulumi.set(__self__, "not_before", not_before)
         if pem and not isinstance(pem, str):
             raise TypeError("Expected argument 'pem' to be a str")
         pulumi.set(__self__, "pem", pem)
@@ -103,6 +106,14 @@ class GetCertificateDataResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> str:
+        """
+        Not Before date of certificate in RFC3339 format.
+        """
+        return pulumi.get(self, "not_before")
+
+    @property
     @pulumi.getter
     def pem(self) -> str:
         """
@@ -137,6 +148,7 @@ class AwaitableGetCertificateDataResult(GetCertificateDataResult):
             key=self.key,
             key_vault_id=self.key_vault_id,
             name=self.name,
+            not_before=self.not_before,
             pem=self.pem,
             tags=self.tags,
             version=self.version)
@@ -187,6 +199,7 @@ def get_certificate_data(key_vault_id: Optional[str] = None,
         key=__ret__.key,
         key_vault_id=__ret__.key_vault_id,
         name=__ret__.name,
+        not_before=__ret__.not_before,
         pem=__ret__.pem,
         tags=__ret__.tags,
         version=__ret__.version)

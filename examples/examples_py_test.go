@@ -54,6 +54,7 @@ func TestAccMinimalPy(t *testing.T) {
 }
 
 func TestAccWebserverPy(t *testing.T) {
+	t.Skip("Skipping until v2.80.0 release comes out upstream")
 	for _, dir := range []string{"webserver-py", "webserver-py-old"} {
 		t.Run(dir, func(t *testing.T) {
 			test := getPythonBaseOptions(t).

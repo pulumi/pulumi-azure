@@ -75,7 +75,7 @@ import (
 type Subscription struct {
 	pulumi.CustomResourceState
 
-	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
 	AutoDeleteOnIdle pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrOutput `pulumi:"deadLetteringOnFilterEvaluationError"`
@@ -89,7 +89,7 @@ type Subscription struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrOutput `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrOutput `pulumi:"forwardTo"`
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
 	LockDuration pulumi.StringOutput `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
 	MaxDeliveryCount pulumi.IntOutput `pulumi:"maxDeliveryCount"`
@@ -154,7 +154,7 @@ func GetSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Subscription resources.
 type subscriptionState struct {
-	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError *bool `pulumi:"deadLetteringOnFilterEvaluationError"`
@@ -168,7 +168,7 @@ type subscriptionState struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo *string `pulumi:"forwardTo"`
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
@@ -187,7 +187,7 @@ type subscriptionState struct {
 }
 
 type SubscriptionState struct {
-	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
 	AutoDeleteOnIdle pulumi.StringPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrInput
@@ -201,7 +201,7 @@ type SubscriptionState struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrInput
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
 	LockDuration pulumi.StringPtrInput
 	// The maximum number of deliveries.
 	MaxDeliveryCount pulumi.IntPtrInput
@@ -224,7 +224,7 @@ func (SubscriptionState) ElementType() reflect.Type {
 }
 
 type subscriptionArgs struct {
-	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError *bool `pulumi:"deadLetteringOnFilterEvaluationError"`
@@ -238,7 +238,7 @@ type subscriptionArgs struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo *string `pulumi:"forwardTo"`
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
 	MaxDeliveryCount int `pulumi:"maxDeliveryCount"`
@@ -258,7 +258,7 @@ type subscriptionArgs struct {
 
 // The set of arguments for constructing a Subscription resource.
 type SubscriptionArgs struct {
-	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
 	AutoDeleteOnIdle pulumi.StringPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrInput
@@ -272,7 +272,7 @@ type SubscriptionArgs struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrInput
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
 	LockDuration pulumi.StringPtrInput
 	// The maximum number of deliveries.
 	MaxDeliveryCount pulumi.IntInput

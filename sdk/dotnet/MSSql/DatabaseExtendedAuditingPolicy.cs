@@ -77,6 +77,9 @@ namespace Pulumi.Azure.MSSql
         [Output("databaseId")]
         public Output<string> DatabaseId { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable audit events to Azure Monitor?
+        /// </summary>
         [Output("logMonitoringEnabled")]
         public Output<bool?> LogMonitoringEnabled { get; private set; } = null!;
 
@@ -156,6 +159,9 @@ namespace Pulumi.Azure.MSSql
         [Input("databaseId", required: true)]
         public Input<string> DatabaseId { get; set; } = null!;
 
+        /// <summary>
+        /// Enable audit events to Azure Monitor?
+        /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
 
@@ -196,6 +202,9 @@ namespace Pulumi.Azure.MSSql
         [Input("databaseId")]
         public Input<string>? DatabaseId { get; set; }
 
+        /// <summary>
+        /// Enable audit events to Azure Monitor?
+        /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
 

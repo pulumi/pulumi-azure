@@ -66,7 +66,7 @@ namespace Pulumi.Azure.ServiceBus
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>
-        /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         /// </summary>
         [Output("autoDeleteOnIdle")]
         public Output<string> AutoDeleteOnIdle { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<string?> ForwardTo { get; private set; } = null!;
 
         /// <summary>
-        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
         /// </summary>
         [Output("lockDuration")]
         public Output<string> LockDuration { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class SubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? ForwardTo { get; set; }
 
         /// <summary>
-        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
         /// </summary>
         [Input("lockDuration")]
         public Input<string>? LockDuration { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class SubscriptionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
@@ -345,7 +345,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? ForwardTo { get; set; }
 
         /// <summary>
-        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
         /// </summary>
         [Input("lockDuration")]
         public Input<string>? LockDuration { get; set; }
