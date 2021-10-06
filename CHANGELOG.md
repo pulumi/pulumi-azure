@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.79.1 of the AzureRM Terraform Provider
+_(none)_
 
 ---
+
+## 4.21.0 (2021-10-06)
+* Upgrade to v2.79.1 of the AzureRM Terraform Provider
 
 ## 4.20.1 (2021-09-28)
 * Upgrade to pulumi sdk + codegen v3.13.0
