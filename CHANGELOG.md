@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.80.0 of the AzureRM Terraform Provider
-* Upgrade to v3.9.0 of the pulumi-terraform-bridge. This includes a change to emit input type registrations.
+_(none)_
 
 ---
+
+## 4.22.0 (2021-10-08)
+* Upgrade to v2.80.0 of the AzureRM Terraform Provider
+* Upgrade to v3.9.0 of the pulumi-terraform-bridge. This includes a change to emit input type registrations.
 
 ## 4.21.0 (2021-10-06)
 * Upgrade to v2.79.1 of the AzureRM Terraform Provider
