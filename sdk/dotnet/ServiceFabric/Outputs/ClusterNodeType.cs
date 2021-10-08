@@ -46,6 +46,14 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// </summary>
         public readonly bool IsPrimary;
         /// <summary>
+        /// Should this node type run only stateless services?
+        /// </summary>
+        public readonly bool? IsStateless;
+        /// <summary>
+        /// Does this node type span availability zones?
+        /// </summary>
+        public readonly bool? MultipleAvailabilityZones;
+        /// <summary>
         /// The name of the Node Type. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
@@ -76,6 +84,10 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
 
             bool isPrimary,
 
+            bool? isStateless,
+
+            bool? multipleAvailabilityZones,
+
             string name,
 
             ImmutableDictionary<string, string>? placementProperties,
@@ -90,6 +102,8 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
             HttpEndpointPort = httpEndpointPort;
             InstanceCount = instanceCount;
             IsPrimary = isPrimary;
+            IsStateless = isStateless;
+            MultipleAvailabilityZones = multipleAvailabilityZones;
             Name = name;
             PlacementProperties = placementProperties;
             ReverseProxyEndpointPort = reverseProxyEndpointPort;

@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> EnforcePrivateLinkEndpointNetworkPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
+        /// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
         /// </summary>
         [Output("enforcePrivateLinkServiceNetworkPolicies")]
         public Output<bool?> EnforcePrivateLinkServiceNetworkPolicies { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnforcePrivateLinkEndpointNetworkPolicies { get; set; }
 
         /// <summary>
-        /// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
+        /// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
         /// </summary>
         [Input("enforcePrivateLinkServiceNetworkPolicies")]
         public Input<bool>? EnforcePrivateLinkServiceNetworkPolicies { get; set; }
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnforcePrivateLinkEndpointNetworkPolicies { get; set; }
 
         /// <summary>
-        /// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
+        /// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
         /// </summary>
         [Input("enforcePrivateLinkServiceNetworkPolicies")]
         public Input<bool>? EnforcePrivateLinkServiceNetworkPolicies { get; set; }

@@ -115,7 +115,7 @@ type ManagedStorageAccountSasTokenDefinition struct {
 	ManagedStorageAccountId pulumi.StringOutput `pulumi:"managedStorageAccountId"`
 	// The name which should be used for this SAS Definition.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validaty period.
+	// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
 	SasTemplateUri pulumi.StringOutput `pulumi:"sasTemplateUri"`
 	// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
 	SasType pulumi.StringOutput `pulumi:"sasType"`
@@ -172,7 +172,7 @@ type managedStorageAccountSasTokenDefinitionState struct {
 	ManagedStorageAccountId *string `pulumi:"managedStorageAccountId"`
 	// The name which should be used for this SAS Definition.
 	Name *string `pulumi:"name"`
-	// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validaty period.
+	// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
 	SasTemplateUri *string `pulumi:"sasTemplateUri"`
 	// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
 	SasType *string `pulumi:"sasType"`
@@ -189,7 +189,7 @@ type ManagedStorageAccountSasTokenDefinitionState struct {
 	ManagedStorageAccountId pulumi.StringPtrInput
 	// The name which should be used for this SAS Definition.
 	Name pulumi.StringPtrInput
-	// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validaty period.
+	// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
 	SasTemplateUri pulumi.StringPtrInput
 	// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
 	SasType pulumi.StringPtrInput
@@ -210,7 +210,7 @@ type managedStorageAccountSasTokenDefinitionArgs struct {
 	ManagedStorageAccountId string `pulumi:"managedStorageAccountId"`
 	// The name which should be used for this SAS Definition.
 	Name *string `pulumi:"name"`
-	// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validaty period.
+	// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
 	SasTemplateUri string `pulumi:"sasTemplateUri"`
 	// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
 	SasType string `pulumi:"sasType"`
@@ -226,7 +226,7 @@ type ManagedStorageAccountSasTokenDefinitionArgs struct {
 	ManagedStorageAccountId pulumi.StringInput
 	// The name which should be used for this SAS Definition.
 	Name pulumi.StringPtrInput
-	// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validaty period.
+	// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
 	SasTemplateUri pulumi.StringInput
 	// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
 	SasType pulumi.StringInput

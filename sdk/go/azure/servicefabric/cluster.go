@@ -104,6 +104,8 @@ type Cluster struct {
 	ReverseProxyCertificate ClusterReverseProxyCertificatePtrOutput `pulumi:"reverseProxyCertificate"`
 	// A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
 	ReverseProxyCertificateCommonNames ClusterReverseProxyCertificateCommonNamesPtrOutput `pulumi:"reverseProxyCertificateCommonNames"`
+	// Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+	ServiceFabricZonalUpgradeMode pulumi.StringPtrOutput `pulumi:"serviceFabricZonalUpgradeMode"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
@@ -112,6 +114,8 @@ type Cluster struct {
 	UpgradePolicy ClusterUpgradePolicyPtrOutput `pulumi:"upgradePolicy"`
 	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
 	VmImage pulumi.StringOutput `pulumi:"vmImage"`
+	// Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+	VmssZonalUpgradeMode pulumi.StringPtrOutput `pulumi:"vmssZonalUpgradeMode"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -197,6 +201,8 @@ type clusterState struct {
 	ReverseProxyCertificate *ClusterReverseProxyCertificate `pulumi:"reverseProxyCertificate"`
 	// A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
 	ReverseProxyCertificateCommonNames *ClusterReverseProxyCertificateCommonNames `pulumi:"reverseProxyCertificateCommonNames"`
+	// Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+	ServiceFabricZonalUpgradeMode *string `pulumi:"serviceFabricZonalUpgradeMode"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
@@ -205,6 +211,8 @@ type clusterState struct {
 	UpgradePolicy *ClusterUpgradePolicy `pulumi:"upgradePolicy"`
 	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
 	VmImage *string `pulumi:"vmImage"`
+	// Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+	VmssZonalUpgradeMode *string `pulumi:"vmssZonalUpgradeMode"`
 }
 
 type ClusterState struct {
@@ -244,6 +252,8 @@ type ClusterState struct {
 	ReverseProxyCertificate ClusterReverseProxyCertificatePtrInput
 	// A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
 	ReverseProxyCertificateCommonNames ClusterReverseProxyCertificateCommonNamesPtrInput
+	// Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+	ServiceFabricZonalUpgradeMode pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
@@ -252,6 +262,8 @@ type ClusterState struct {
 	UpgradePolicy ClusterUpgradePolicyPtrInput
 	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
 	VmImage pulumi.StringPtrInput
+	// Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+	VmssZonalUpgradeMode pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -293,6 +305,8 @@ type clusterArgs struct {
 	ReverseProxyCertificate *ClusterReverseProxyCertificate `pulumi:"reverseProxyCertificate"`
 	// A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
 	ReverseProxyCertificateCommonNames *ClusterReverseProxyCertificateCommonNames `pulumi:"reverseProxyCertificateCommonNames"`
+	// Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+	ServiceFabricZonalUpgradeMode *string `pulumi:"serviceFabricZonalUpgradeMode"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
@@ -301,6 +315,8 @@ type clusterArgs struct {
 	UpgradePolicy *ClusterUpgradePolicy `pulumi:"upgradePolicy"`
 	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
 	VmImage string `pulumi:"vmImage"`
+	// Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+	VmssZonalUpgradeMode *string `pulumi:"vmssZonalUpgradeMode"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -339,6 +355,8 @@ type ClusterArgs struct {
 	ReverseProxyCertificate ClusterReverseProxyCertificatePtrInput
 	// A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
 	ReverseProxyCertificateCommonNames ClusterReverseProxyCertificateCommonNamesPtrInput
+	// Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+	ServiceFabricZonalUpgradeMode pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
@@ -347,6 +365,8 @@ type ClusterArgs struct {
 	UpgradePolicy ClusterUpgradePolicyPtrInput
 	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
 	VmImage pulumi.StringInput
+	// Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+	VmssZonalUpgradeMode pulumi.StringPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

@@ -47,6 +47,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleApiDiagnostic = new azure.apimanagement.ApiDiagnostic("exampleApiDiagnostic", {
+ *     identifier: "applicationinsights",
  *     resourceGroupName: exampleResourceGroup.name,
  *     apiManagementName: exampleService.name,
  *     apiName: exampleApi.name,
@@ -54,7 +55,7 @@ import * as utilities from "../utilities";
  *     samplingPercentage: 5,
  *     alwaysLogErrors: true,
  *     logClientIp: true,
- *     verbosity: "Verbose",
+ *     verbosity: "verbose",
  *     httpCorrelationProtocol: "W3C",
  *     frontendRequest: {
  *         bodyBytes: 32,

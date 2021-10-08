@@ -6,27 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Virtual Wan.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getVirtualWan({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * export const allowBranchToBranchTraffic = example.then(example => example.allowBranchToBranchTraffic);
- * export const disableVpnEncryption = data.azurerm_virtual_wan.exemple.disable_vpn_encryption;
- * export const location = data.azurerm_virtual_wan.exemple.location;
- * export const office365LocalBreakoutCategory = data.azurerm_virtual_wan.exemple.office365_local_breakout_category;
- * export const sku = data.azurerm_virtual_wan.exemple.sku;
- * export const tags = data.azurerm_virtual_wan.exemple.tags;
- * export const virtualHubs = data.azurerm_virtual_wan.exemple.virtual_hubs;
- * export const vpnSites = data.azurerm_virtual_wan.exemple.vpn_sites;
- * ```
  */
 export function getVirtualWan(args: GetVirtualWanArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualWanResult> {
     if (!opts) {

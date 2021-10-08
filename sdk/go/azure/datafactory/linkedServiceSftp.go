@@ -89,7 +89,7 @@ type LinkedServiceSftp struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// Password to logon to the SFTP Server for Basic Authentication.
 	Password pulumi.StringOutput `pulumi:"password"`
-	// The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
+	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port pulumi.IntOutput `pulumi:"port"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -172,7 +172,7 @@ type linkedServiceSftpState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// Password to logon to the SFTP Server for Basic Authentication.
 	Password *string `pulumi:"password"`
-	// The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
+	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port *int `pulumi:"port"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -206,7 +206,7 @@ type LinkedServiceSftpState struct {
 	Parameters pulumi.StringMapInput
 	// Password to logon to the SFTP Server for Basic Authentication.
 	Password pulumi.StringPtrInput
-	// The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
+	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port pulumi.IntPtrInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringPtrInput
@@ -244,7 +244,7 @@ type linkedServiceSftpArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// Password to logon to the SFTP Server for Basic Authentication.
 	Password string `pulumi:"password"`
-	// The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
+	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port int `pulumi:"port"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -279,7 +279,7 @@ type LinkedServiceSftpArgs struct {
 	Parameters pulumi.StringMapInput
 	// Password to logon to the SFTP Server for Basic Authentication.
 	Password pulumi.StringInput
-	// The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
+	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port pulumi.IntInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringInput

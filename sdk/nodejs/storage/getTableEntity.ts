@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = pulumi.output(azure.storage.getTableEntity({
- *     partitionKey: "example-parition-key",
+ *     partitionKey: "example-partition-key",
  *     rowKey: "example-row-key",
  *     storageAccountName: "example-storage-account-name",
  *     tableName: "example-table-name",

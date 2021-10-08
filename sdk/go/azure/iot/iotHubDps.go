@@ -67,7 +67,7 @@ type IotHubDps struct {
 	IdScope pulumi.StringOutput `pulumi:"idScope"`
 	// A `linkedHub` block as defined below.
 	LinkedHubs IotHubDpsLinkedHubArrayOutput `pulumi:"linkedHubs"`
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -124,7 +124,7 @@ type iotHubDpsState struct {
 	IdScope *string `pulumi:"idScope"`
 	// A `linkedHub` block as defined below.
 	LinkedHubs []IotHubDpsLinkedHub `pulumi:"linkedHubs"`
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -147,7 +147,7 @@ type IotHubDpsState struct {
 	IdScope pulumi.StringPtrInput
 	// A `linkedHub` block as defined below.
 	LinkedHubs IotHubDpsLinkedHubArrayInput
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -170,7 +170,7 @@ type iotHubDpsArgs struct {
 	AllocationPolicy *string `pulumi:"allocationPolicy"`
 	// A `linkedHub` block as defined below.
 	LinkedHubs []IotHubDpsLinkedHub `pulumi:"linkedHubs"`
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -188,7 +188,7 @@ type IotHubDpsArgs struct {
 	AllocationPolicy pulumi.StringPtrInput
 	// A `linkedHub` block as defined below.
 	LinkedHubs IotHubDpsLinkedHubArrayInput
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

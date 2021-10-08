@@ -153,6 +153,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("logicalSectorSize")]
+        public Output<int> LogicalSectorSize { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         /// </summary>
         [Output("maxShares")]
@@ -325,6 +331,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("logicalSectorSize")]
+        public Input<int>? LogicalSectorSize { get; set; }
+
+        /// <summary>
         /// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         /// </summary>
         [Input("maxShares")]
@@ -462,6 +474,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("logicalSectorSize")]
+        public Input<int>? LogicalSectorSize { get; set; }
 
         /// <summary>
         /// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.

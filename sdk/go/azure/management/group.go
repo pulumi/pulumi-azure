@@ -65,7 +65,7 @@ import (
 type Group struct {
 	pulumi.CustomResourceState
 
-	// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+	// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	//
@@ -114,7 +114,7 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
-	// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+	// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
 	DisplayName *string `pulumi:"displayName"`
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	//
@@ -129,7 +129,7 @@ type groupState struct {
 }
 
 type GroupState struct {
-	// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+	// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
 	DisplayName pulumi.StringPtrInput
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	//
@@ -148,7 +148,7 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+	// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
 	DisplayName *string `pulumi:"displayName"`
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	//
@@ -164,7 +164,7 @@ type groupArgs struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+	// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
 	DisplayName pulumi.StringPtrInput
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	//

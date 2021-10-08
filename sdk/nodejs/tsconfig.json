@@ -159,6 +159,7 @@
         "avs/index.ts",
         "avs/privateCloud.ts",
         "backup/containerStorageAccount.ts",
+        "backup/getPolicyFileshare.ts",
         "backup/getPolicyVM.ts",
         "backup/index.ts",
         "backup/policyFileShare.ts",

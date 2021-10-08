@@ -180,7 +180,7 @@ class _LinkedServiceAzureSearchState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
-        :param pulumi.Input[str] encrypted_credential: The encrypted credential to connnect to Azure Search Service.
+        :param pulumi.Input[str] encrypted_credential: The encrypted credential to connect to Azure Search Service.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -261,7 +261,7 @@ class _LinkedServiceAzureSearchState:
     @pulumi.getter(name="encryptedCredential")
     def encrypted_credential(self) -> Optional[pulumi.Input[str]]:
         """
-        The encrypted credential to connnect to Azure Search Service.
+        The encrypted credential to connect to Azure Search Service.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -470,7 +470,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
-        :param pulumi.Input[str] encrypted_credential: The encrypted credential to connnect to Azure Search Service.
+        :param pulumi.Input[str] encrypted_credential: The encrypted credential to connect to Azure Search Service.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -530,7 +530,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
     @pulumi.getter(name="encryptedCredential")
     def encrypted_credential(self) -> pulumi.Output[str]:
         """
-        The encrypted credential to connnect to Azure Search Service.
+        The encrypted credential to connect to Azure Search Service.
         """
         return pulumi.get(self, "encrypted_credential")
 

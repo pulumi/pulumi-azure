@@ -87,6 +87,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The column that is used for the Event Hub partition key.
+        /// </summary>
+        [Output("partitionKey")]
+        public Output<string?> PartitionKey { get; private set; } = null!;
+
+        /// <summary>
         /// A list of property columns to add to the Event Hub output.
         /// </summary>
         [Output("propertyColumns")]
@@ -186,6 +192,12 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The column that is used for the Event Hub partition key.
+        /// </summary>
+        [Input("partitionKey")]
+        public Input<string>? PartitionKey { get; set; }
+
         [Input("propertyColumns")]
         private InputList<string>? _propertyColumns;
 
@@ -252,6 +264,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The column that is used for the Event Hub partition key.
+        /// </summary>
+        [Input("partitionKey")]
+        public Input<string>? PartitionKey { get; set; }
 
         [Input("propertyColumns")]
         private InputList<string>? _propertyColumns;

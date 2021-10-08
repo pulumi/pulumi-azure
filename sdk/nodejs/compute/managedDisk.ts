@@ -130,6 +130,10 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+     */
+    public readonly logicalSectorSize!: pulumi.Output<number>;
+    /**
      * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
      */
     public readonly maxShares!: pulumi.Output<number>;
@@ -200,6 +204,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
             inputs["imageReferenceId"] = state ? state.imageReferenceId : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["logicalSectorSize"] = state ? state.logicalSectorSize : undefined;
             inputs["maxShares"] = state ? state.maxShares : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkAccessPolicy"] = state ? state.networkAccessPolicy : undefined;
@@ -232,6 +237,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
             inputs["imageReferenceId"] = args ? args.imageReferenceId : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["logicalSectorSize"] = args ? args.logicalSectorSize : undefined;
             inputs["maxShares"] = args ? args.maxShares : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
@@ -292,6 +298,10 @@ export interface ManagedDiskState {
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+     */
+    logicalSectorSize?: pulumi.Input<number>;
     /**
      * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
      */
@@ -382,6 +392,10 @@ export interface ManagedDiskArgs {
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+     */
+    logicalSectorSize?: pulumi.Input<number>;
     /**
      * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
      */

@@ -108,7 +108,7 @@ export namespace apimanagement {
          */
         mode: pulumi.Input<string>;
         /**
-         * The name of the header or the uery parameter to mask.
+         * The name of the header or the query parameter to mask.
          */
         value: pulumi.Input<string>;
     }
@@ -119,7 +119,7 @@ export namespace apimanagement {
          */
         mode: pulumi.Input<string>;
         /**
-         * The name of the header or the uery parameter to mask.
+         * The name of the header or the query parameter to mask.
          */
         value: pulumi.Input<string>;
     }
@@ -156,7 +156,7 @@ export namespace apimanagement {
          */
         mode: pulumi.Input<string>;
         /**
-         * The name of the header or the uery parameter to mask.
+         * The name of the header or the query parameter to mask.
          */
         value: pulumi.Input<string>;
     }
@@ -167,7 +167,7 @@ export namespace apimanagement {
          */
         mode: pulumi.Input<string>;
         /**
-         * The name of the header or the uery parameter to mask.
+         * The name of the header or the query parameter to mask.
          */
         value: pulumi.Input<string>;
     }
@@ -204,7 +204,7 @@ export namespace apimanagement {
          */
         mode: pulumi.Input<string>;
         /**
-         * The name of the header or the uery parameter to mask.
+         * The name of the header or the query parameter to mask.
          */
         value: pulumi.Input<string>;
     }
@@ -215,7 +215,7 @@ export namespace apimanagement {
          */
         mode: pulumi.Input<string>;
         /**
-         * The name of the header or the uery parameter to mask.
+         * The name of the header or the query parameter to mask.
          */
         value: pulumi.Input<string>;
     }
@@ -252,7 +252,7 @@ export namespace apimanagement {
          */
         mode: pulumi.Input<string>;
         /**
-         * The name of the header or the uery parameter to mask.
+         * The name of the header or the query parameter to mask.
          */
         value: pulumi.Input<string>;
     }
@@ -263,7 +263,7 @@ export namespace apimanagement {
          */
         mode: pulumi.Input<string>;
         /**
-         * The name of the header or the uery parameter to mask.
+         * The name of the header or the query parameter to mask.
          */
         value: pulumi.Input<string>;
     }
@@ -680,7 +680,7 @@ export namespace apimanagement {
 
     export interface CustomDomainDeveloperPortal {
         /**
-         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         * The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
          */
         certificate?: pulumi.Input<string>;
         /**
@@ -707,7 +707,7 @@ export namespace apimanagement {
 
     export interface CustomDomainManagement {
         /**
-         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         * The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
          */
         certificate?: pulumi.Input<string>;
         /**
@@ -734,7 +734,7 @@ export namespace apimanagement {
 
     export interface CustomDomainPortal {
         /**
-         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         * The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
          */
         certificate?: pulumi.Input<string>;
         /**
@@ -761,7 +761,7 @@ export namespace apimanagement {
 
     export interface CustomDomainProxy {
         /**
-         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         * The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
          */
         certificate?: pulumi.Input<string>;
         /**
@@ -792,7 +792,7 @@ export namespace apimanagement {
 
     export interface CustomDomainScm {
         /**
-         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         * The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
          */
         certificate?: pulumi.Input<string>;
         /**
@@ -9198,7 +9198,7 @@ export namespace databricks {
          */
         storageAccountName?: pulumi.Input<string>;
         /**
-         * Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+         * Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
          */
         storageAccountSkuName?: pulumi.Input<string>;
         /**
@@ -17756,7 +17756,7 @@ export namespace media {
          */
         audioAnalysisMode?: pulumi.Input<string>;
         /**
-         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463.
+         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463.
          */
         audioLanguage?: pulumi.Input<string>;
     }
@@ -17781,7 +17781,7 @@ export namespace media {
          */
         audioAnalysisMode?: pulumi.Input<string>;
         /**
-         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463.
+         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463.
          */
         audioLanguage?: pulumi.Input<string>;
         /**
@@ -19377,20 +19377,14 @@ export namespace netapp {
          */
         allowedClients: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Is the CIFS protocol allowed?
-         *
          * @deprecated Deprecated in favour of `protocols_enabled`
          */
         cifsEnabled?: pulumi.Input<boolean>;
         /**
-         * Is the NFSv3 protocol allowed?
-         *
          * @deprecated Deprecated in favour of `protocols_enabled`
          */
         nfsv3Enabled?: pulumi.Input<boolean>;
         /**
-         * Is the NFSv4 protocol allowed?
-         *
          * @deprecated Deprecated in favour of `protocols_enabled`
          */
         nfsv4Enabled?: pulumi.Input<boolean>;
@@ -23191,6 +23185,14 @@ export namespace servicefabric {
          * Is this the Primary Node Type? Changing this forces a new resource to be created.
          */
         isPrimary: pulumi.Input<boolean>;
+        /**
+         * Should this node type run only stateless services?
+         */
+        isStateless?: pulumi.Input<boolean>;
+        /**
+         * Does this node type span availability zones?
+         */
+        multipleAvailabilityZones?: pulumi.Input<boolean>;
         /**
          * The name of the Node Type. Changing this forces a new resource to be created.
          */

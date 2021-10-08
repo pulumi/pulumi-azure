@@ -65,7 +65,7 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
-     * A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+     * A friendly name for this Management Group. If not specified, this will be the same as the `name`.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -127,7 +127,7 @@ export class Group extends pulumi.CustomResource {
  */
 export interface GroupState {
     /**
-     * A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+     * A friendly name for this Management Group. If not specified, this will be the same as the `name`.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -155,7 +155,7 @@ export interface GroupState {
  */
 export interface GroupArgs {
     /**
-     * A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+     * A friendly name for this Management Group. If not specified, this will be the same as the `name`.
      */
     displayName?: pulumi.Input<string>;
     /**

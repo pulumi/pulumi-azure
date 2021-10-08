@@ -48,7 +48,7 @@ import (
 // 			ApiName:           pulumi.String(exampleApi.Name),
 // 			ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
 // 			ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
-// 			SchemaId:          pulumi.String("example-sche,a"),
+// 			SchemaId:          pulumi.String("example-schema"),
 // 			ContentType:       pulumi.String("application/vnd.ms-azure-apim.xsd+xml"),
 // 			Value:             readFileOrPanic("api_management_api_schema.xml"),
 // 		})

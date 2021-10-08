@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string Mode;
         /// <summary>
-        /// The name of the header or the uery parameter to mask.
+        /// The name of the header or the query parameter to mask.
         /// </summary>
         public readonly string Value;
 

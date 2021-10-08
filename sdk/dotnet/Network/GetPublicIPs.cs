@@ -51,11 +51,14 @@ namespace Pulumi.Azure.Network
         [Input("allocationType")]
         public string? AllocationType { get; set; }
 
-        /// <summary>
-        /// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`true`) or unattached (`false`).
-        /// </summary>
         [Input("attached")]
         public bool? Attached { get; set; }
+
+        /// <summary>
+        /// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+        /// </summary>
+        [Input("attachmentStatus")]
+        public string? AttachmentStatus { get; set; }
 
         /// <summary>
         /// A prefix match used for the IP Addresses `name` field, case sensitive.
@@ -80,6 +83,7 @@ namespace Pulumi.Azure.Network
     {
         public readonly string? AllocationType;
         public readonly bool? Attached;
+        public readonly string? AttachmentStatus;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -97,6 +101,8 @@ namespace Pulumi.Azure.Network
 
             bool? attached,
 
+            string? attachmentStatus,
+
             string id,
 
             string? namePrefix,
@@ -107,6 +113,7 @@ namespace Pulumi.Azure.Network
         {
             AllocationType = allocationType;
             Attached = attached;
+            AttachmentStatus = attachmentStatus;
             Id = id;
             NamePrefix = namePrefix;
             PublicIps = publicIps;

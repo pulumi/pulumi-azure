@@ -64,7 +64,7 @@ namespace Pulumi.Azure.DataBricks.Inputs
         public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
-        /// Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+        /// Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountSkuName")]
         public Input<string>? StorageAccountSkuName { get; set; }

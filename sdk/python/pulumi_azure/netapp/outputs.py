@@ -233,9 +233,6 @@ class VolumeExportPolicyRule(dict):
         """
         :param Sequence[str] allowed_clients: A list of allowed clients IPv4 addresses.
         :param int rule_index: The index number of the rule.
-        :param bool cifs_enabled: Is the CIFS protocol allowed?
-        :param bool nfsv3_enabled: Is the NFSv3 protocol allowed?
-        :param bool nfsv4_enabled: Is the NFSv4 protocol allowed?
         :param str protocols_enabled: A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         :param bool root_access_enabled: Is root access permitted to this volume?
         :param bool unix_read_only: Is the file system on unix read only?
@@ -277,25 +274,16 @@ class VolumeExportPolicyRule(dict):
     @property
     @pulumi.getter(name="cifsEnabled")
     def cifs_enabled(self) -> Optional[bool]:
-        """
-        Is the CIFS protocol allowed?
-        """
         return pulumi.get(self, "cifs_enabled")
 
     @property
     @pulumi.getter(name="nfsv3Enabled")
     def nfsv3_enabled(self) -> Optional[bool]:
-        """
-        Is the NFSv3 protocol allowed?
-        """
         return pulumi.get(self, "nfsv3_enabled")
 
     @property
     @pulumi.getter(name="nfsv4Enabled")
     def nfsv4_enabled(self) -> Optional[bool]:
-        """
-        Is the NFSv4 protocol allowed?
-        """
         return pulumi.get(self, "nfsv4_enabled")
 
     @property

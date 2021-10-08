@@ -79,7 +79,7 @@ export class IotHubDps extends pulumi.CustomResource {
      */
     public readonly linkedHubs!: pulumi.Output<outputs.iot.IotHubDpsLinkedHub[] | undefined>;
     /**
-     * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -173,7 +173,7 @@ export interface IotHubDpsState {
      */
     linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsLinkedHub>[]>;
     /**
-     * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -211,7 +211,7 @@ export interface IotHubDpsArgs {
      */
     linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsLinkedHub>[]>;
     /**
-     * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**

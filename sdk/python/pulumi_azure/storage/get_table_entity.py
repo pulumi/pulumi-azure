@@ -105,7 +105,7 @@ def get_table_entity(partition_key: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.storage.get_table_entity(partition_key="example-parition-key",
+    example = azure.storage.get_table_entity(partition_key="example-partition-key",
         row_key="example-row-key",
         storage_account_name="example-storage-account-name",
         table_name="example-table-name")
@@ -152,7 +152,7 @@ def get_table_entity_output(partition_key: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.storage.get_table_entity(partition_key="example-parition-key",
+    example = azure.storage.get_table_entity(partition_key="example-partition-key",
         row_key="example-row-key",
         storage_account_name="example-storage-account-name",
         table_name="example-table-name")

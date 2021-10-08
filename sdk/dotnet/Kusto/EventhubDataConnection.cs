@@ -135,6 +135,12 @@ namespace Pulumi.Azure.Kusto
         public Output<string> EventhubId { get; private set; } = null!;
 
         /// <summary>
+        /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        /// </summary>
+        [Output("identityId")]
+        public Output<string?> IdentityId { get; private set; } = null!;
+
+        /// <summary>
         /// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -259,6 +265,12 @@ namespace Pulumi.Azure.Kusto
         public Input<string> EventhubId { get; set; } = null!;
 
         /// <summary>
+        /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        /// </summary>
+        [Input("identityId")]
+        public Input<string>? IdentityId { get; set; }
+
+        /// <summary>
         /// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -342,6 +354,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("eventhubId")]
         public Input<string>? EventhubId { get; set; }
+
+        /// <summary>
+        /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        /// </summary>
+        [Input("identityId")]
+        public Input<string>? IdentityId { get; set; }
 
         /// <summary>
         /// The location where the Kusto Database should be created. Changing this forces a new resource to be created.

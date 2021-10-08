@@ -68,6 +68,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         });
     ///         var exampleApiDiagnostic = new Azure.ApiManagement.ApiDiagnostic("exampleApiDiagnostic", new Azure.ApiManagement.ApiDiagnosticArgs
     ///         {
+    ///             Identifier = "applicationinsights",
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ApiManagementName = exampleService.Name,
     ///             ApiName = exampleApi.Name,
@@ -75,7 +76,7 @@ namespace Pulumi.Azure.ApiManagement
     ///             SamplingPercentage = 5,
     ///             AlwaysLogErrors = true,
     ///             LogClientIp = true,
-    ///             Verbosity = "Verbose",
+    ///             Verbosity = "verbose",
     ///             HttpCorrelationProtocol = "W3C",
     ///             FrontendRequest = new Azure.ApiManagement.Inputs.ApiDiagnosticFrontendRequestArgs
     ///             {

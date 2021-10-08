@@ -67,6 +67,18 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public Input<bool> IsPrimary { get; set; } = null!;
 
         /// <summary>
+        /// Should this node type run only stateless services?
+        /// </summary>
+        [Input("isStateless")]
+        public Input<bool>? IsStateless { get; set; }
+
+        /// <summary>
+        /// Does this node type span availability zones?
+        /// </summary>
+        [Input("multipleAvailabilityZones")]
+        public Input<bool>? MultipleAvailabilityZones { get; set; }
+
+        /// <summary>
         /// The name of the Node Type. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]

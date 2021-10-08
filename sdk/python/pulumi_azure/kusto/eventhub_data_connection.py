@@ -21,6 +21,7 @@ class EventhubDataConnectionArgs:
                  compression: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[str]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,7 @@ class EventhubDataConnectionArgs:
         :param pulumi.Input[str] compression: Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
+        :param pulumi.Input[str] identity_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
@@ -51,6 +53,8 @@ class EventhubDataConnectionArgs:
             pulumi.set(__self__, "data_format", data_format)
         if event_system_properties is not None:
             pulumi.set(__self__, "event_system_properties", event_system_properties)
+        if identity_id is not None:
+            pulumi.set(__self__, "identity_id", identity_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mapping_rule_name is not None:
@@ -157,6 +161,18 @@ class EventhubDataConnectionArgs:
         pulumi.set(self, "event_system_properties", value)
 
     @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @identity_id.setter
+    def identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_id", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -215,6 +231,7 @@ class _EventhubDataConnectionState:
                  database_name: Optional[pulumi.Input[str]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  eventhub_id: Optional[pulumi.Input[str]] = None,
+                 identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -229,6 +246,7 @@ class _EventhubDataConnectionState:
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] identity_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
@@ -249,6 +267,8 @@ class _EventhubDataConnectionState:
             pulumi.set(__self__, "event_system_properties", event_system_properties)
         if eventhub_id is not None:
             pulumi.set(__self__, "eventhub_id", eventhub_id)
+        if identity_id is not None:
+            pulumi.set(__self__, "identity_id", identity_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mapping_rule_name is not None:
@@ -345,6 +365,18 @@ class _EventhubDataConnectionState:
         pulumi.set(self, "eventhub_id", value)
 
     @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @identity_id.setter
+    def identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_id", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -417,6 +449,7 @@ class EventhubDataConnection(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  eventhub_id: Optional[pulumi.Input[str]] = None,
+                 identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -489,6 +522,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] identity_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
@@ -580,6 +614,7 @@ class EventhubDataConnection(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  eventhub_id: Optional[pulumi.Input[str]] = None,
+                 identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -612,6 +647,7 @@ class EventhubDataConnection(pulumi.CustomResource):
             if eventhub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_id'")
             __props__.__dict__["eventhub_id"] = eventhub_id
+            __props__.__dict__["identity_id"] = identity_id
             __props__.__dict__["location"] = location
             __props__.__dict__["mapping_rule_name"] = mapping_rule_name
             __props__.__dict__["name"] = name
@@ -636,6 +672,7 @@ class EventhubDataConnection(pulumi.CustomResource):
             database_name: Optional[pulumi.Input[str]] = None,
             event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             eventhub_id: Optional[pulumi.Input[str]] = None,
+            identity_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mapping_rule_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -655,6 +692,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] identity_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
@@ -672,6 +710,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["event_system_properties"] = event_system_properties
         __props__.__dict__["eventhub_id"] = eventhub_id
+        __props__.__dict__["identity_id"] = identity_id
         __props__.__dict__["location"] = location
         __props__.__dict__["mapping_rule_name"] = mapping_rule_name
         __props__.__dict__["name"] = name
@@ -734,6 +773,14 @@ class EventhubDataConnection(pulumi.CustomResource):
         Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_id")
+
+    @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        """
+        return pulumi.get(self, "identity_id")
 
     @property
     @pulumi.getter

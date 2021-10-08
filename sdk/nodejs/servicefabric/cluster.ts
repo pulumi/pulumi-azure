@@ -142,6 +142,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly reverseProxyCertificateCommonNames!: pulumi.Output<outputs.servicefabric.ClusterReverseProxyCertificateCommonNames | undefined>;
     /**
+     * Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+     */
+    public readonly serviceFabricZonalUpgradeMode!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -157,6 +161,10 @@ export class Cluster extends pulumi.CustomResource {
      * Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
      */
     public readonly vmImage!: pulumi.Output<string>;
+    /**
+     * Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+     */
+    public readonly vmssZonalUpgradeMode!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -189,10 +197,12 @@ export class Cluster extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["reverseProxyCertificate"] = state ? state.reverseProxyCertificate : undefined;
             inputs["reverseProxyCertificateCommonNames"] = state ? state.reverseProxyCertificateCommonNames : undefined;
+            inputs["serviceFabricZonalUpgradeMode"] = state ? state.serviceFabricZonalUpgradeMode : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["upgradeMode"] = state ? state.upgradeMode : undefined;
             inputs["upgradePolicy"] = state ? state.upgradePolicy : undefined;
             inputs["vmImage"] = state ? state.vmImage : undefined;
+            inputs["vmssZonalUpgradeMode"] = state ? state.vmssZonalUpgradeMode : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if ((!args || args.managementEndpoint === undefined) && !opts.urn) {
@@ -230,10 +240,12 @@ export class Cluster extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["reverseProxyCertificate"] = args ? args.reverseProxyCertificate : undefined;
             inputs["reverseProxyCertificateCommonNames"] = args ? args.reverseProxyCertificateCommonNames : undefined;
+            inputs["serviceFabricZonalUpgradeMode"] = args ? args.serviceFabricZonalUpgradeMode : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
             inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             inputs["vmImage"] = args ? args.vmImage : undefined;
+            inputs["vmssZonalUpgradeMode"] = args ? args.vmssZonalUpgradeMode : undefined;
             inputs["clusterEndpoint"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -320,6 +332,10 @@ export interface ClusterState {
      */
     reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNames>;
     /**
+     * Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+     */
+    serviceFabricZonalUpgradeMode?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -335,6 +351,10 @@ export interface ClusterState {
      * Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
      */
     vmImage?: pulumi.Input<string>;
+    /**
+     * Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+     */
+    vmssZonalUpgradeMode?: pulumi.Input<string>;
 }
 
 /**
@@ -410,6 +430,10 @@ export interface ClusterArgs {
      */
     reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNames>;
     /**
+     * Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+     */
+    serviceFabricZonalUpgradeMode?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -425,4 +449,8 @@ export interface ClusterArgs {
      * Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
      */
     vmImage: pulumi.Input<string>;
+    /**
+     * Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+     */
+    vmssZonalUpgradeMode?: pulumi.Input<string>;
 }

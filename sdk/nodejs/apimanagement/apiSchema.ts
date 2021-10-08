@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     apiName: exampleApi.then(exampleApi => exampleApi.name),
  *     apiManagementName: exampleApi.then(exampleApi => exampleApi.apiManagementName),
  *     resourceGroupName: exampleApi.then(exampleApi => exampleApi.resourceGroupName),
- *     schemaId: "example-sche,a",
+ *     schemaId: "example-schema",
  *     contentType: "application/vnd.ms-azure-apim.xsd+xml",
  *     value: fs.readFileSync("api_management_api_schema.xml"),
  * });

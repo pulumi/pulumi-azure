@@ -431,6 +431,8 @@ class ClusterNodeTypeArgs:
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  durability_level: Optional[pulumi.Input[str]] = None,
                  ephemeral_ports: Optional[pulumi.Input['ClusterNodeTypeEphemeralPortsArgs']] = None,
+                 is_stateless: Optional[pulumi.Input[bool]] = None,
+                 multiple_availability_zones: Optional[pulumi.Input[bool]] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  reverse_proxy_endpoint_port: Optional[pulumi.Input[int]] = None):
         """
@@ -443,6 +445,8 @@ class ClusterNodeTypeArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param pulumi.Input[str] durability_level: The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterNodeTypeEphemeralPortsArgs'] ephemeral_ports: A `ephemeral_ports` block as defined below.
+        :param pulumi.Input[bool] is_stateless: Should this node type run only stateless services?
+        :param pulumi.Input[bool] multiple_availability_zones: Does this node type span availability zones?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         :param pulumi.Input[int] reverse_proxy_endpoint_port: The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
         """
@@ -459,6 +463,10 @@ class ClusterNodeTypeArgs:
             pulumi.set(__self__, "durability_level", durability_level)
         if ephemeral_ports is not None:
             pulumi.set(__self__, "ephemeral_ports", ephemeral_ports)
+        if is_stateless is not None:
+            pulumi.set(__self__, "is_stateless", is_stateless)
+        if multiple_availability_zones is not None:
+            pulumi.set(__self__, "multiple_availability_zones", multiple_availability_zones)
         if placement_properties is not None:
             pulumi.set(__self__, "placement_properties", placement_properties)
         if reverse_proxy_endpoint_port is not None:
@@ -571,6 +579,30 @@ class ClusterNodeTypeArgs:
     @ephemeral_ports.setter
     def ephemeral_ports(self, value: Optional[pulumi.Input['ClusterNodeTypeEphemeralPortsArgs']]):
         pulumi.set(self, "ephemeral_ports", value)
+
+    @property
+    @pulumi.getter(name="isStateless")
+    def is_stateless(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this node type run only stateless services?
+        """
+        return pulumi.get(self, "is_stateless")
+
+    @is_stateless.setter
+    def is_stateless(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_stateless", value)
+
+    @property
+    @pulumi.getter(name="multipleAvailabilityZones")
+    def multiple_availability_zones(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Does this node type span availability zones?
+        """
+        return pulumi.get(self, "multiple_availability_zones")
+
+    @multiple_availability_zones.setter
+    def multiple_availability_zones(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multiple_availability_zones", value)
 
     @property
     @pulumi.getter(name="placementProperties")

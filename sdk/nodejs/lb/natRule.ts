@@ -83,7 +83,7 @@ export class NatRule extends pulumi.CustomResource {
      */
     public readonly backendPort!: pulumi.Output<number>;
     /**
-     * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     public readonly enableFloatingIp!: pulumi.Output<boolean>;
     /**
@@ -195,7 +195,7 @@ export interface NatRuleState {
      */
     backendPort?: pulumi.Input<number>;
     /**
-     * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     enableFloatingIp?: pulumi.Input<boolean>;
     /**
@@ -242,7 +242,7 @@ export interface NatRuleArgs {
      */
     backendPort: pulumi.Input<number>;
     /**
-     * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     enableFloatingIp?: pulumi.Input<boolean>;
     /**

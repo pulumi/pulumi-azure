@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Lb
         public Output<int> BackendPort { get; private set; } = null!;
 
         /// <summary>
-        /// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
         [Output("enableFloatingIp")]
         public Output<bool> EnableFloatingIp { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.Lb
         public Input<int> BackendPort { get; set; } = null!;
 
         /// <summary>
-        /// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
         [Input("enableFloatingIp")]
         public Input<bool>? EnableFloatingIp { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Azure.Lb
         public Input<int>? BackendPort { get; set; }
 
         /// <summary>
-        /// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
         [Input("enableFloatingIp")]
         public Input<bool>? EnableFloatingIp { get; set; }

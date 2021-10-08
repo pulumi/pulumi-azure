@@ -60,7 +60,7 @@ export class LinkedServiceAzureSearch extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The encrypted credential to connnect to Azure Search Service.
+     * The encrypted credential to connect to Azure Search Service.
      */
     public /*out*/ readonly encryptedCredential!: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export interface LinkedServiceAzureSearchState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The encrypted credential to connnect to Azure Search Service.
+     * The encrypted credential to connect to Azure Search Service.
      */
     encryptedCredential?: pulumi.Input<string>;
     /**

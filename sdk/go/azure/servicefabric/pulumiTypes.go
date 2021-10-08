@@ -1176,6 +1176,10 @@ type ClusterNodeType struct {
 	InstanceCount int `pulumi:"instanceCount"`
 	// Is this the Primary Node Type? Changing this forces a new resource to be created.
 	IsPrimary bool `pulumi:"isPrimary"`
+	// Should this node type run only stateless services?
+	IsStateless *bool `pulumi:"isStateless"`
+	// Does this node type span availability zones?
+	MultipleAvailabilityZones *bool `pulumi:"multipleAvailabilityZones"`
 	// The name of the Node Type. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
@@ -1212,6 +1216,10 @@ type ClusterNodeTypeArgs struct {
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
 	// Is this the Primary Node Type? Changing this forces a new resource to be created.
 	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
+	// Should this node type run only stateless services?
+	IsStateless pulumi.BoolPtrInput `pulumi:"isStateless"`
+	// Does this node type span availability zones?
+	MultipleAvailabilityZones pulumi.BoolPtrInput `pulumi:"multipleAvailabilityZones"`
 	// The name of the Node Type. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
@@ -1309,6 +1317,16 @@ func (o ClusterNodeTypeOutput) InstanceCount() pulumi.IntOutput {
 // Is this the Primary Node Type? Changing this forces a new resource to be created.
 func (o ClusterNodeTypeOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterNodeType) bool { return v.IsPrimary }).(pulumi.BoolOutput)
+}
+
+// Should this node type run only stateless services?
+func (o ClusterNodeTypeOutput) IsStateless() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterNodeType) *bool { return v.IsStateless }).(pulumi.BoolPtrOutput)
+}
+
+// Does this node type span availability zones?
+func (o ClusterNodeTypeOutput) MultipleAvailabilityZones() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterNodeType) *bool { return v.MultipleAvailabilityZones }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Node Type. Changing this forces a new resource to be created.
