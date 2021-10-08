@@ -455,6 +455,8 @@ github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4 h1:gQz4mCb
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
 github.com/pulumi/terraform-provider-azurerm v0.0.0-20211004125232-39d99bd173c2 h1:fbtAXpxTDi5YveXrnPqY4gx+ET2jNqBzAEm5UfclBoU=
 github.com/pulumi/terraform-provider-azurerm v0.0.0-20211004125232-39d99bd173c2/go.mod h1:YQzgrkRFiIwDVG2pN0j+AgqvrKnI6+e429KyoZcgcA8=
+github.com/pulumi/terraform-provider-azurerm v0.0.0-20211008165157-0eab2d5223a9 h1:2NkCaX/gAxKQ8vdXioxYqpUudxmsAOztJSh4HnAxzV8=
+github.com/pulumi/terraform-provider-azurerm v0.0.0-20211008165157-0eab2d5223a9/go.mod h1:YQzgrkRFiIwDVG2pN0j+AgqvrKnI6+e429KyoZcgcA8=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210816152520-1595a32ecf34 h1:6r5RCm+Dg5ddrLaXa2sZurnW7mWBBWDIEGJ3ApWKp84=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210816152520-1595a32ecf34/go.mod h1:V0YssdU8lgMT2MNub/a6UFGimP+ro6q4ZEtftrivgMM=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210820105724-d036083985ec h1:pnqnwpw68d7RWx14Un5pvuoulWRQEGznTOHLeh/IbqQ=

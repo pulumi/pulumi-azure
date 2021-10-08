@@ -31,7 +31,7 @@ type LinkedServiceAzureSearch struct {
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The encrypted credential to connnect to Azure Search Service.
+	// The encrypted credential to connect to Azure Search Service.
 	EncryptedCredential pulumi.StringOutput `pulumi:"encryptedCredential"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
@@ -92,7 +92,7 @@ type linkedServiceAzureSearchState struct {
 	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
-	// The encrypted credential to connnect to Azure Search Service.
+	// The encrypted credential to connect to Azure Search Service.
 	EncryptedCredential *string `pulumi:"encryptedCredential"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
@@ -116,7 +116,7 @@ type LinkedServiceAzureSearchState struct {
 	DataFactoryId pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
-	// The encrypted credential to connnect to Azure Search Service.
+	// The encrypted credential to connect to Azure Search Service.
 	EncryptedCredential pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput

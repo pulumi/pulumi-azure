@@ -172,6 +172,12 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<Outputs.ClusterReverseProxyCertificateCommonNames?> ReverseProxyCertificateCommonNames { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+        /// </summary>
+        [Output("serviceFabricZonalUpgradeMode")]
+        public Output<string?> ServiceFabricZonalUpgradeMode { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -194,6 +200,12 @@ namespace Pulumi.Azure.ServiceFabric
         /// </summary>
         [Output("vmImage")]
         public Output<string> VmImage { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+        /// </summary>
+        [Output("vmssZonalUpgradeMode")]
+        public Output<string?> VmssZonalUpgradeMode { get; private set; } = null!;
 
 
         /// <summary>
@@ -373,6 +385,12 @@ namespace Pulumi.Azure.ServiceFabric
         [Input("reverseProxyCertificateCommonNames")]
         public Input<Inputs.ClusterReverseProxyCertificateCommonNamesArgs>? ReverseProxyCertificateCommonNames { get; set; }
 
+        /// <summary>
+        /// Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+        /// </summary>
+        [Input("serviceFabricZonalUpgradeMode")]
+        public Input<string>? ServiceFabricZonalUpgradeMode { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -402,6 +420,12 @@ namespace Pulumi.Azure.ServiceFabric
         /// </summary>
         [Input("vmImage", required: true)]
         public Input<string> VmImage { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+        /// </summary>
+        [Input("vmssZonalUpgradeMode")]
+        public Input<string>? VmssZonalUpgradeMode { get; set; }
 
         public ClusterArgs()
         {
@@ -548,6 +572,12 @@ namespace Pulumi.Azure.ServiceFabric
         [Input("reverseProxyCertificateCommonNames")]
         public Input<Inputs.ClusterReverseProxyCertificateCommonNamesGetArgs>? ReverseProxyCertificateCommonNames { get; set; }
 
+        /// <summary>
+        /// Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+        /// </summary>
+        [Input("serviceFabricZonalUpgradeMode")]
+        public Input<string>? ServiceFabricZonalUpgradeMode { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -577,6 +607,12 @@ namespace Pulumi.Azure.ServiceFabric
         /// </summary>
         [Input("vmImage")]
         public Input<string>? VmImage { get; set; }
+
+        /// <summary>
+        /// Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+        /// </summary>
+        [Input("vmssZonalUpgradeMode")]
+        public Input<string>? VmssZonalUpgradeMode { get; set; }
 
         public ClusterState()
         {

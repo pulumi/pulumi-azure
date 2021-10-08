@@ -13,57 +13,6 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Use this data source to access information about an existing Virtual Wan.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Azure.Network.GetVirtualWan.InvokeAsync(new Azure.Network.GetVirtualWanArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///         this.AllowBranchToBranchTraffic = example.Apply(example =&gt; example.AllowBranchToBranchTraffic);
-        ///         this.DisableVpnEncryption = data.Azurerm_virtual_wan.Exemple.Disable_vpn_encryption;
-        ///         this.Location = data.Azurerm_virtual_wan.Exemple.Location;
-        ///         this.Office365LocalBreakoutCategory = data.Azurerm_virtual_wan.Exemple.Office365_local_breakout_category;
-        ///         this.Sku = data.Azurerm_virtual_wan.Exemple.Sku;
-        ///         this.Tags = data.Azurerm_virtual_wan.Exemple.Tags;
-        ///         this.VirtualHubs = data.Azurerm_virtual_wan.Exemple.Virtual_hubs;
-        ///         this.VpnSites = data.Azurerm_virtual_wan.Exemple.Vpn_sites;
-        ///     }
-        /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        ///     [Output("allowBranchToBranchTraffic")]
-        ///     public Output&lt;string&gt; AllowBranchToBranchTraffic { get; set; }
-        ///     [Output("disableVpnEncryption")]
-        ///     public Output&lt;string&gt; DisableVpnEncryption { get; set; }
-        ///     [Output("location")]
-        ///     public Output&lt;string&gt; Location { get; set; }
-        ///     [Output("office365LocalBreakoutCategory")]
-        ///     public Output&lt;string&gt; Office365LocalBreakoutCategory { get; set; }
-        ///     [Output("sku")]
-        ///     public Output&lt;string&gt; Sku { get; set; }
-        ///     [Output("tags")]
-        ///     public Output&lt;string&gt; Tags { get; set; }
-        ///     [Output("virtualHubs")]
-        ///     public Output&lt;string&gt; VirtualHubs { get; set; }
-        ///     [Output("vpnSites")]
-        ///     public Output&lt;string&gt; VpnSites { get; set; }
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualWanResult> InvokeAsync(GetVirtualWanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWanResult>("azure:network/getVirtualWan:getVirtualWan", args ?? new GetVirtualWanArgs(), options.WithVersion());

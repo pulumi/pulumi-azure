@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleBackupInstanceBlogStorage = new azure.dataprotection.BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage", {
  *     vaultId: exampleBackupVault.id,
- *     storageAccountLocation: rg.location,
+ *     location: rg.location,
  *     storageAccountId: exampleAccount.id,
  *     backupPolicyId: exampleBackupPolicyBlobStorage.id,
  * }, {

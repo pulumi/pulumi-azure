@@ -79,6 +79,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = apimanagement.NewApiDiagnostic(ctx, "exampleApiDiagnostic", &apimanagement.ApiDiagnosticArgs{
+// 			Identifier:              pulumi.String("applicationinsights"),
 // 			ResourceGroupName:       exampleResourceGroup.Name,
 // 			ApiManagementName:       exampleService.Name,
 // 			ApiName:                 exampleApi.Name,
@@ -86,7 +87,7 @@ import (
 // 			SamplingPercentage:      pulumi.Float64(5),
 // 			AlwaysLogErrors:         pulumi.Bool(true),
 // 			LogClientIp:             pulumi.Bool(true),
-// 			Verbosity:               pulumi.String("Verbose"),
+// 			Verbosity:               pulumi.String("verbose"),
 // 			HttpCorrelationProtocol: pulumi.String("W3C"),
 // 			FrontendRequest: &apimanagement.ApiDiagnosticFrontendRequestArgs{
 // 				BodyBytes: pulumi.Int(32),

@@ -562,6 +562,7 @@ class ApiDiagnostic(pulumi.CustomResource):
                 instrumentation_key=example_insights.instrumentation_key,
             ))
         example_api_diagnostic = azure.apimanagement.ApiDiagnostic("exampleApiDiagnostic",
+            identifier="applicationinsights",
             resource_group_name=example_resource_group.name,
             api_management_name=example_service.name,
             api_name=example_api.name,
@@ -569,7 +570,7 @@ class ApiDiagnostic(pulumi.CustomResource):
             sampling_percentage=5,
             always_log_errors=True,
             log_client_ip=True,
-            verbosity="Verbose",
+            verbosity="verbose",
             http_correlation_protocol="W3C",
             frontend_request=azure.apimanagement.ApiDiagnosticFrontendRequestArgs(
                 body_bytes=32,
@@ -675,6 +676,7 @@ class ApiDiagnostic(pulumi.CustomResource):
                 instrumentation_key=example_insights.instrumentation_key,
             ))
         example_api_diagnostic = azure.apimanagement.ApiDiagnostic("exampleApiDiagnostic",
+            identifier="applicationinsights",
             resource_group_name=example_resource_group.name,
             api_management_name=example_service.name,
             api_name=example_api.name,
@@ -682,7 +684,7 @@ class ApiDiagnostic(pulumi.CustomResource):
             sampling_percentage=5,
             always_log_errors=True,
             log_client_ip=True,
-            verbosity="Verbose",
+            verbosity="verbose",
             http_correlation_protocol="W3C",
             frontend_request=azure.apimanagement.ApiDiagnosticFrontendRequestArgs(
                 body_bytes=32,

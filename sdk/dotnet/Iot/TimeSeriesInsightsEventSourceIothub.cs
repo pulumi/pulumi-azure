@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Iot
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West Eurpoe",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new Azure.Iot.IoTHubArgs
     ///         {

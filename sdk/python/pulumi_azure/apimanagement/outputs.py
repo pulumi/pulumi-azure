@@ -222,7 +222,7 @@ class ApiDiagnosticBackendRequestDataMaskingHeader(dict):
                  value: str):
         """
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
-        :param str value: The name of the header or the uery parameter to mask.
+        :param str value: The name of the header or the query parameter to mask.
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "value", value)
@@ -239,7 +239,7 @@ class ApiDiagnosticBackendRequestDataMaskingHeader(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The name of the header or the uery parameter to mask.
+        The name of the header or the query parameter to mask.
         """
         return pulumi.get(self, "value")
 
@@ -251,7 +251,7 @@ class ApiDiagnosticBackendRequestDataMaskingQueryParam(dict):
                  value: str):
         """
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
-        :param str value: The name of the header or the uery parameter to mask.
+        :param str value: The name of the header or the query parameter to mask.
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "value", value)
@@ -268,7 +268,7 @@ class ApiDiagnosticBackendRequestDataMaskingQueryParam(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The name of the header or the uery parameter to mask.
+        The name of the header or the query parameter to mask.
         """
         return pulumi.get(self, "value")
 
@@ -392,7 +392,7 @@ class ApiDiagnosticBackendResponseDataMaskingHeader(dict):
                  value: str):
         """
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
-        :param str value: The name of the header or the uery parameter to mask.
+        :param str value: The name of the header or the query parameter to mask.
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "value", value)
@@ -409,7 +409,7 @@ class ApiDiagnosticBackendResponseDataMaskingHeader(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The name of the header or the uery parameter to mask.
+        The name of the header or the query parameter to mask.
         """
         return pulumi.get(self, "value")
 
@@ -421,7 +421,7 @@ class ApiDiagnosticBackendResponseDataMaskingQueryParam(dict):
                  value: str):
         """
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
-        :param str value: The name of the header or the uery parameter to mask.
+        :param str value: The name of the header or the query parameter to mask.
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "value", value)
@@ -438,7 +438,7 @@ class ApiDiagnosticBackendResponseDataMaskingQueryParam(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The name of the header or the uery parameter to mask.
+        The name of the header or the query parameter to mask.
         """
         return pulumi.get(self, "value")
 
@@ -562,7 +562,7 @@ class ApiDiagnosticFrontendRequestDataMaskingHeader(dict):
                  value: str):
         """
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
-        :param str value: The name of the header or the uery parameter to mask.
+        :param str value: The name of the header or the query parameter to mask.
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "value", value)
@@ -579,7 +579,7 @@ class ApiDiagnosticFrontendRequestDataMaskingHeader(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The name of the header or the uery parameter to mask.
+        The name of the header or the query parameter to mask.
         """
         return pulumi.get(self, "value")
 
@@ -591,7 +591,7 @@ class ApiDiagnosticFrontendRequestDataMaskingQueryParam(dict):
                  value: str):
         """
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
-        :param str value: The name of the header or the uery parameter to mask.
+        :param str value: The name of the header or the query parameter to mask.
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "value", value)
@@ -608,7 +608,7 @@ class ApiDiagnosticFrontendRequestDataMaskingQueryParam(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The name of the header or the uery parameter to mask.
+        The name of the header or the query parameter to mask.
         """
         return pulumi.get(self, "value")
 
@@ -732,7 +732,7 @@ class ApiDiagnosticFrontendResponseDataMaskingHeader(dict):
                  value: str):
         """
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
-        :param str value: The name of the header or the uery parameter to mask.
+        :param str value: The name of the header or the query parameter to mask.
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "value", value)
@@ -749,7 +749,7 @@ class ApiDiagnosticFrontendResponseDataMaskingHeader(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The name of the header or the uery parameter to mask.
+        The name of the header or the query parameter to mask.
         """
         return pulumi.get(self, "value")
 
@@ -761,7 +761,7 @@ class ApiDiagnosticFrontendResponseDataMaskingQueryParam(dict):
                  value: str):
         """
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
-        :param str value: The name of the header or the uery parameter to mask.
+        :param str value: The name of the header or the query parameter to mask.
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "value", value)
@@ -778,7 +778,7 @@ class ApiDiagnosticFrontendResponseDataMaskingQueryParam(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The name of the header or the uery parameter to mask.
+        The name of the header or the query parameter to mask.
         """
         return pulumi.get(self, "value")
 
@@ -2292,7 +2292,7 @@ class CustomDomainDeveloperPortal(dict):
                  thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the corresponding endpoint.
-        :param str certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        :param str certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param str certificate_password: The password associated with the certificate provided above.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
@@ -2327,7 +2327,7 @@ class CustomDomainDeveloperPortal(dict):
     @pulumi.getter
     def certificate(self) -> Optional[str]:
         """
-        The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         """
         return pulumi.get(self, "certificate")
 
@@ -2415,7 +2415,7 @@ class CustomDomainManagement(dict):
                  thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the corresponding endpoint.
-        :param str certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        :param str certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param str certificate_password: The password associated with the certificate provided above.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
@@ -2450,7 +2450,7 @@ class CustomDomainManagement(dict):
     @pulumi.getter
     def certificate(self) -> Optional[str]:
         """
-        The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         """
         return pulumi.get(self, "certificate")
 
@@ -2538,7 +2538,7 @@ class CustomDomainPortal(dict):
                  thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the corresponding endpoint.
-        :param str certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        :param str certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param str certificate_password: The password associated with the certificate provided above.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
@@ -2573,7 +2573,7 @@ class CustomDomainPortal(dict):
     @pulumi.getter
     def certificate(self) -> Optional[str]:
         """
-        The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         """
         return pulumi.get(self, "certificate")
 
@@ -2664,7 +2664,7 @@ class CustomDomainProxy(dict):
                  thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the API Proxy Endpoint.
-        :param str certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        :param str certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param str certificate_password: The password associated with the certificate provided above.
         :param bool default_ssl_binding: Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
@@ -2702,7 +2702,7 @@ class CustomDomainProxy(dict):
     @pulumi.getter
     def certificate(self) -> Optional[str]:
         """
-        The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         """
         return pulumi.get(self, "certificate")
 
@@ -2798,7 +2798,7 @@ class CustomDomainScm(dict):
                  thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the corresponding endpoint.
-        :param str certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        :param str certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param str certificate_password: The password associated with the certificate provided above.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
@@ -2833,7 +2833,7 @@ class CustomDomainScm(dict):
     @pulumi.getter
     def certificate(self) -> Optional[str]:
         """
-        The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         """
         return pulumi.get(self, "certificate")
 

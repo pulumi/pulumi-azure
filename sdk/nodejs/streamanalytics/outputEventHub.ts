@@ -91,6 +91,10 @@ export class OutputEventHub extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The column that is used for the Event Hub partition key.
+     */
+    public readonly partitionKey!: pulumi.Output<string | undefined>;
+    /**
      * A list of property columns to add to the Event Hub output.
      */
     public readonly propertyColumns!: pulumi.Output<string[] | undefined>;
@@ -134,6 +138,7 @@ export class OutputEventHub extends pulumi.CustomResource {
             const state = argsOrState as OutputEventHubState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["partitionKey"] = state ? state.partitionKey : undefined;
             inputs["propertyColumns"] = state ? state.propertyColumns : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serialization"] = state ? state.serialization : undefined;
@@ -166,6 +171,7 @@ export class OutputEventHub extends pulumi.CustomResource {
             }
             inputs["eventhubName"] = args ? args.eventhubName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["partitionKey"] = args ? args.partitionKey : undefined;
             inputs["propertyColumns"] = args ? args.propertyColumns : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serialization"] = args ? args.serialization : undefined;
@@ -193,6 +199,10 @@ export interface OutputEventHubState {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The column that is used for the Event Hub partition key.
+     */
+    partitionKey?: pulumi.Input<string>;
     /**
      * A list of property columns to add to the Event Hub output.
      */
@@ -235,6 +245,10 @@ export interface OutputEventHubArgs {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The column that is used for the Event Hub partition key.
+     */
+    partitionKey?: pulumi.Input<string>;
     /**
      * A list of property columns to add to the Event Hub output.
      */

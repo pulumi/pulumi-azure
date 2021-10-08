@@ -122,6 +122,8 @@ type EventhubDataConnection struct {
 	EventSystemProperties pulumi.StringArrayOutput `pulumi:"eventSystemProperties"`
 	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId pulumi.StringOutput `pulumi:"eventhubId"`
+	// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -192,6 +194,8 @@ type eventhubDataConnectionState struct {
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
 	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId *string `pulumi:"eventhubId"`
+	// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+	IdentityId *string `pulumi:"identityId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -219,6 +223,8 @@ type EventhubDataConnectionState struct {
 	EventSystemProperties pulumi.StringArrayInput
 	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId pulumi.StringPtrInput
+	// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+	IdentityId pulumi.StringPtrInput
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -250,6 +256,8 @@ type eventhubDataConnectionArgs struct {
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
 	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId string `pulumi:"eventhubId"`
+	// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+	IdentityId *string `pulumi:"identityId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -278,6 +286,8 @@ type EventhubDataConnectionArgs struct {
 	EventSystemProperties pulumi.StringArrayInput
 	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId pulumi.StringInput
+	// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+	IdentityId pulumi.StringPtrInput
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.

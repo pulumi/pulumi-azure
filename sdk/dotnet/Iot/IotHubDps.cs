@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Iot
         public Output<ImmutableArray<Outputs.IotHubDpsLinkedHub>> LinkedHubs { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

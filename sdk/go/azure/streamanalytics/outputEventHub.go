@@ -91,6 +91,8 @@ type OutputEventHub struct {
 	EventhubName pulumi.StringOutput `pulumi:"eventhubName"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The column that is used for the Event Hub partition key.
+	PartitionKey pulumi.StringPtrOutput `pulumi:"partitionKey"`
 	// A list of property columns to add to the Event Hub output.
 	PropertyColumns pulumi.StringArrayOutput `pulumi:"propertyColumns"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -161,6 +163,8 @@ type outputEventHubState struct {
 	EventhubName *string `pulumi:"eventhubName"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The column that is used for the Event Hub partition key.
+	PartitionKey *string `pulumi:"partitionKey"`
 	// A list of property columns to add to the Event Hub output.
 	PropertyColumns []string `pulumi:"propertyColumns"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -182,6 +186,8 @@ type OutputEventHubState struct {
 	EventhubName pulumi.StringPtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The column that is used for the Event Hub partition key.
+	PartitionKey pulumi.StringPtrInput
 	// A list of property columns to add to the Event Hub output.
 	PropertyColumns pulumi.StringArrayInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -207,6 +213,8 @@ type outputEventHubArgs struct {
 	EventhubName string `pulumi:"eventhubName"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The column that is used for the Event Hub partition key.
+	PartitionKey *string `pulumi:"partitionKey"`
 	// A list of property columns to add to the Event Hub output.
 	PropertyColumns []string `pulumi:"propertyColumns"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -229,6 +237,8 @@ type OutputEventHubArgs struct {
 	EventhubName pulumi.StringInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The column that is used for the Event Hub partition key.
+	PartitionKey pulumi.StringPtrInput
 	// A list of property columns to add to the Event Hub output.
 	PropertyColumns pulumi.StringArrayInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.

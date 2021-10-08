@@ -24,21 +24,12 @@ namespace Pulumi.Azure.NetApp.Inputs
             set => _allowedClients = value;
         }
 
-        /// <summary>
-        /// Is the CIFS protocol allowed?
-        /// </summary>
         [Input("cifsEnabled")]
         public Input<bool>? CifsEnabled { get; set; }
 
-        /// <summary>
-        /// Is the NFSv3 protocol allowed?
-        /// </summary>
         [Input("nfsv3Enabled")]
         public Input<bool>? Nfsv3Enabled { get; set; }
 
-        /// <summary>
-        /// Is the NFSv4 protocol allowed?
-        /// </summary>
         [Input("nfsv4Enabled")]
         public Input<bool>? Nfsv4Enabled { get; set; }
 

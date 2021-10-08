@@ -492,6 +492,10 @@ class ClusterNodeType(dict):
             suggest = "durability_level"
         elif key == "ephemeralPorts":
             suggest = "ephemeral_ports"
+        elif key == "isStateless":
+            suggest = "is_stateless"
+        elif key == "multipleAvailabilityZones":
+            suggest = "multiple_availability_zones"
         elif key == "placementProperties":
             suggest = "placement_properties"
         elif key == "reverseProxyEndpointPort":
@@ -518,6 +522,8 @@ class ClusterNodeType(dict):
                  capacities: Optional[Mapping[str, str]] = None,
                  durability_level: Optional[str] = None,
                  ephemeral_ports: Optional['outputs.ClusterNodeTypeEphemeralPorts'] = None,
+                 is_stateless: Optional[bool] = None,
+                 multiple_availability_zones: Optional[bool] = None,
                  placement_properties: Optional[Mapping[str, str]] = None,
                  reverse_proxy_endpoint_port: Optional[int] = None):
         """
@@ -530,6 +536,8 @@ class ClusterNodeType(dict):
         :param Mapping[str, str] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param str durability_level: The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
         :param 'ClusterNodeTypeEphemeralPortsArgs' ephemeral_ports: A `ephemeral_ports` block as defined below.
+        :param bool is_stateless: Should this node type run only stateless services?
+        :param bool multiple_availability_zones: Does this node type span availability zones?
         :param Mapping[str, str] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         :param int reverse_proxy_endpoint_port: The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
         """
@@ -546,6 +554,10 @@ class ClusterNodeType(dict):
             pulumi.set(__self__, "durability_level", durability_level)
         if ephemeral_ports is not None:
             pulumi.set(__self__, "ephemeral_ports", ephemeral_ports)
+        if is_stateless is not None:
+            pulumi.set(__self__, "is_stateless", is_stateless)
+        if multiple_availability_zones is not None:
+            pulumi.set(__self__, "multiple_availability_zones", multiple_availability_zones)
         if placement_properties is not None:
             pulumi.set(__self__, "placement_properties", placement_properties)
         if reverse_proxy_endpoint_port is not None:
@@ -622,6 +634,22 @@ class ClusterNodeType(dict):
         A `ephemeral_ports` block as defined below.
         """
         return pulumi.get(self, "ephemeral_ports")
+
+    @property
+    @pulumi.getter(name="isStateless")
+    def is_stateless(self) -> Optional[bool]:
+        """
+        Should this node type run only stateless services?
+        """
+        return pulumi.get(self, "is_stateless")
+
+    @property
+    @pulumi.getter(name="multipleAvailabilityZones")
+    def multiple_availability_zones(self) -> Optional[bool]:
+        """
+        Does this node type span availability zones?
+        """
+        return pulumi.get(self, "multiple_availability_zones")
 
     @property
     @pulumi.getter(name="placementProperties")

@@ -140,7 +140,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validaty period.
+        /// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
         /// </summary>
         [Output("sasTemplateUri")]
         public Output<string> SasTemplateUri { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validaty period.
+        /// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
         /// </summary>
         [Input("sasTemplateUri", required: true)]
         public Input<string> SasTemplateUri { get; set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validaty period.
+        /// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
         /// </summary>
         [Input("sasTemplateUri")]
         public Input<string>? SasTemplateUri { get; set; }

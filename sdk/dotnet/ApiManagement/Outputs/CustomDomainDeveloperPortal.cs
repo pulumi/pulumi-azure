@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class CustomDomainDeveloperPortal
     {
         /// <summary>
-        /// The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        /// The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         /// </summary>
         public readonly string? Certificate;
         /// <summary>

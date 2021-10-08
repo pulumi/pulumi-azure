@@ -111,7 +111,7 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string>;
     /**
-     * The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
+     * The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
      */
     public readonly port!: pulumi.Output<number>;
     /**
@@ -251,7 +251,7 @@ export interface LinkedServiceSftpState {
      */
     password?: pulumi.Input<string>;
     /**
-     * The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
+     * The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
      */
     port?: pulumi.Input<number>;
     /**
@@ -318,7 +318,7 @@ export interface LinkedServiceSftpArgs {
      */
     password: pulumi.Input<string>;
     /**
-     * The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
+     * The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
      */
     port: pulumi.Input<number>;
     /**

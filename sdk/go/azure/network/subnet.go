@@ -93,7 +93,7 @@ type Subnet struct {
 	Delegations SubnetDelegationArrayOutput `pulumi:"delegations"`
 	// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
 	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrOutput `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
+	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
 	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrOutput `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -152,7 +152,7 @@ type subnetState struct {
 	Delegations []SubnetDelegation `pulumi:"delegations"`
 	// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
 	EnforcePrivateLinkEndpointNetworkPolicies *bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
+	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
 	EnforcePrivateLinkServiceNetworkPolicies *bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -177,7 +177,7 @@ type SubnetState struct {
 	Delegations SubnetDelegationArrayInput
 	// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
 	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrInput
-	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
+	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
 	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrInput
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -206,7 +206,7 @@ type subnetArgs struct {
 	Delegations []SubnetDelegation `pulumi:"delegations"`
 	// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
 	EnforcePrivateLinkEndpointNetworkPolicies *bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
+	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
 	EnforcePrivateLinkServiceNetworkPolicies *bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -232,7 +232,7 @@ type SubnetArgs struct {
 	Delegations SubnetDelegationArrayInput
 	// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
 	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrInput
-	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
+	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
 	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrInput
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

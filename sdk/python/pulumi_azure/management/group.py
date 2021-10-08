@@ -20,7 +20,7 @@ class GroupArgs:
                  subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Group resource.
-        :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         :param pulumi.Input[str] group_id: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group. Changing this forces a new resource to be created.
@@ -44,7 +44,7 @@ class GroupArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         """
         return pulumi.get(self, "display_name")
 
@@ -111,7 +111,7 @@ class _GroupState:
                  subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Group resources.
-        :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         :param pulumi.Input[str] group_id: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group. Changing this forces a new resource to be created.
@@ -135,7 +135,7 @@ class _GroupState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         """
         return pulumi.get(self, "display_name")
 
@@ -235,7 +235,7 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         :param pulumi.Input[str] group_id: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group. Changing this forces a new resource to be created.
@@ -341,7 +341,7 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         :param pulumi.Input[str] group_id: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group. Changing this forces a new resource to be created.
@@ -362,7 +362,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
-        A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         """
         return pulumi.get(self, "display_name")
 

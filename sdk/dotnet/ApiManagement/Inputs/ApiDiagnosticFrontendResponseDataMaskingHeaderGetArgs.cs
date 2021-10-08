@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string> Mode { get; set; } = null!;
 
         /// <summary>
-        /// The name of the header or the uery parameter to mask.
+        /// The name of the header or the query parameter to mask.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

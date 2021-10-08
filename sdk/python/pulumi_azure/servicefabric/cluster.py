@@ -34,8 +34,10 @@ class ClusterArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  reverse_proxy_certificate: Optional[pulumi.Input['ClusterReverseProxyCertificateArgs']] = None,
                  reverse_proxy_certificate_common_names: Optional[pulumi.Input['ClusterReverseProxyCertificateCommonNamesArgs']] = None,
+                 service_fabric_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None):
+                 upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
+                 vmss_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] management_endpoint: Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
@@ -57,8 +59,10 @@ class ClusterArgs:
         :param pulumi.Input[str] name: The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterReverseProxyCertificateArgs'] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         :param pulumi.Input['ClusterReverseProxyCertificateCommonNamesArgs'] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+        :param pulumi.Input[str] service_fabric_zonal_upgrade_mode: Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_policy: A `upgrade_policy` block as defined below.
+        :param pulumi.Input[str] vmss_zonal_upgrade_mode: Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
         """
         pulumi.set(__self__, "management_endpoint", management_endpoint)
         pulumi.set(__self__, "node_types", node_types)
@@ -92,10 +96,14 @@ class ClusterArgs:
             pulumi.set(__self__, "reverse_proxy_certificate", reverse_proxy_certificate)
         if reverse_proxy_certificate_common_names is not None:
             pulumi.set(__self__, "reverse_proxy_certificate_common_names", reverse_proxy_certificate_common_names)
+        if service_fabric_zonal_upgrade_mode is not None:
+            pulumi.set(__self__, "service_fabric_zonal_upgrade_mode", service_fabric_zonal_upgrade_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if upgrade_policy is not None:
             pulumi.set(__self__, "upgrade_policy", upgrade_policy)
+        if vmss_zonal_upgrade_mode is not None:
+            pulumi.set(__self__, "vmss_zonal_upgrade_mode", vmss_zonal_upgrade_mode)
 
     @property
     @pulumi.getter(name="managementEndpoint")
@@ -326,6 +334,18 @@ class ClusterArgs:
         pulumi.set(self, "reverse_proxy_certificate_common_names", value)
 
     @property
+    @pulumi.getter(name="serviceFabricZonalUpgradeMode")
+    def service_fabric_zonal_upgrade_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+        """
+        return pulumi.get(self, "service_fabric_zonal_upgrade_mode")
+
+    @service_fabric_zonal_upgrade_mode.setter
+    def service_fabric_zonal_upgrade_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_fabric_zonal_upgrade_mode", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -349,6 +369,18 @@ class ClusterArgs:
     def upgrade_policy(self, value: Optional[pulumi.Input['ClusterUpgradePolicyArgs']]):
         pulumi.set(self, "upgrade_policy", value)
 
+    @property
+    @pulumi.getter(name="vmssZonalUpgradeMode")
+    def vmss_zonal_upgrade_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+        """
+        return pulumi.get(self, "vmss_zonal_upgrade_mode")
+
+    @vmss_zonal_upgrade_mode.setter
+    def vmss_zonal_upgrade_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vmss_zonal_upgrade_mode", value)
+
 
 @pulumi.input_type
 class _ClusterState:
@@ -371,10 +403,12 @@ class _ClusterState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  reverse_proxy_certificate: Optional[pulumi.Input['ClusterReverseProxyCertificateArgs']] = None,
                  reverse_proxy_certificate_common_names: Optional[pulumi.Input['ClusterReverseProxyCertificateCommonNamesArgs']] = None,
+                 service_fabric_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
-                 vm_image: Optional[pulumi.Input[str]] = None):
+                 vm_image: Optional[pulumi.Input[str]] = None,
+                 vmss_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] add_on_features: A List of one or more features which should be enabled, such as `DnsService`.
@@ -395,10 +429,12 @@ class _ClusterState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterReverseProxyCertificateArgs'] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         :param pulumi.Input['ClusterReverseProxyCertificateCommonNamesArgs'] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+        :param pulumi.Input[str] service_fabric_zonal_upgrade_mode: Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_policy: A `upgrade_policy` block as defined below.
         :param pulumi.Input[str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vmss_zonal_upgrade_mode: Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
         """
         if add_on_features is not None:
             pulumi.set(__self__, "add_on_features", add_on_features)
@@ -436,6 +472,8 @@ class _ClusterState:
             pulumi.set(__self__, "reverse_proxy_certificate", reverse_proxy_certificate)
         if reverse_proxy_certificate_common_names is not None:
             pulumi.set(__self__, "reverse_proxy_certificate_common_names", reverse_proxy_certificate_common_names)
+        if service_fabric_zonal_upgrade_mode is not None:
+            pulumi.set(__self__, "service_fabric_zonal_upgrade_mode", service_fabric_zonal_upgrade_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if upgrade_mode is not None:
@@ -444,6 +482,8 @@ class _ClusterState:
             pulumi.set(__self__, "upgrade_policy", upgrade_policy)
         if vm_image is not None:
             pulumi.set(__self__, "vm_image", vm_image)
+        if vmss_zonal_upgrade_mode is not None:
+            pulumi.set(__self__, "vmss_zonal_upgrade_mode", vmss_zonal_upgrade_mode)
 
     @property
     @pulumi.getter(name="addOnFeatures")
@@ -662,6 +702,18 @@ class _ClusterState:
         pulumi.set(self, "reverse_proxy_certificate_common_names", value)
 
     @property
+    @pulumi.getter(name="serviceFabricZonalUpgradeMode")
+    def service_fabric_zonal_upgrade_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+        """
+        return pulumi.get(self, "service_fabric_zonal_upgrade_mode")
+
+    @service_fabric_zonal_upgrade_mode.setter
+    def service_fabric_zonal_upgrade_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_fabric_zonal_upgrade_mode", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -709,6 +761,18 @@ class _ClusterState:
     def vm_image(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vm_image", value)
 
+    @property
+    @pulumi.getter(name="vmssZonalUpgradeMode")
+    def vmss_zonal_upgrade_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+        """
+        return pulumi.get(self, "vmss_zonal_upgrade_mode")
+
+    @vmss_zonal_upgrade_mode.setter
+    def vmss_zonal_upgrade_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vmss_zonal_upgrade_mode", value)
+
 
 class Cluster(pulumi.CustomResource):
     @overload
@@ -732,10 +796,12 @@ class Cluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  reverse_proxy_certificate: Optional[pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateArgs']]] = None,
                  reverse_proxy_certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']]] = None,
+                 service_fabric_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
+                 vmss_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Service Fabric Cluster.
@@ -791,10 +857,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateArgs']] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         :param pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+        :param pulumi.Input[str] service_fabric_zonal_upgrade_mode: Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']] upgrade_policy: A `upgrade_policy` block as defined below.
         :param pulumi.Input[str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vmss_zonal_upgrade_mode: Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
         """
         ...
     @overload
@@ -869,10 +937,12 @@ class Cluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  reverse_proxy_certificate: Optional[pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateArgs']]] = None,
                  reverse_proxy_certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']]] = None,
+                 service_fabric_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
+                 vmss_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -910,6 +980,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["reverse_proxy_certificate"] = reverse_proxy_certificate
             __props__.__dict__["reverse_proxy_certificate_common_names"] = reverse_proxy_certificate_common_names
+            __props__.__dict__["service_fabric_zonal_upgrade_mode"] = service_fabric_zonal_upgrade_mode
             __props__.__dict__["tags"] = tags
             if upgrade_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'upgrade_mode'")
@@ -918,6 +989,7 @@ class Cluster(pulumi.CustomResource):
             if vm_image is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_image'")
             __props__.__dict__["vm_image"] = vm_image
+            __props__.__dict__["vmss_zonal_upgrade_mode"] = vmss_zonal_upgrade_mode
             __props__.__dict__["cluster_endpoint"] = None
         super(Cluster, __self__).__init__(
             'azure:servicefabric/cluster:Cluster',
@@ -947,10 +1019,12 @@ class Cluster(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             reverse_proxy_certificate: Optional[pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateArgs']]] = None,
             reverse_proxy_certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']]] = None,
+            service_fabric_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             upgrade_mode: Optional[pulumi.Input[str]] = None,
             upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
-            vm_image: Optional[pulumi.Input[str]] = None) -> 'Cluster':
+            vm_image: Optional[pulumi.Input[str]] = None,
+            vmss_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -976,10 +1050,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateArgs']] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         :param pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+        :param pulumi.Input[str] service_fabric_zonal_upgrade_mode: Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']] upgrade_policy: A `upgrade_policy` block as defined below.
         :param pulumi.Input[str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vmss_zonal_upgrade_mode: Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1003,10 +1079,12 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["reverse_proxy_certificate"] = reverse_proxy_certificate
         __props__.__dict__["reverse_proxy_certificate_common_names"] = reverse_proxy_certificate_common_names
+        __props__.__dict__["service_fabric_zonal_upgrade_mode"] = service_fabric_zonal_upgrade_mode
         __props__.__dict__["tags"] = tags
         __props__.__dict__["upgrade_mode"] = upgrade_mode
         __props__.__dict__["upgrade_policy"] = upgrade_policy
         __props__.__dict__["vm_image"] = vm_image
+        __props__.__dict__["vmss_zonal_upgrade_mode"] = vmss_zonal_upgrade_mode
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1154,6 +1232,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "reverse_proxy_certificate_common_names")
 
     @property
+    @pulumi.getter(name="serviceFabricZonalUpgradeMode")
+    def service_fabric_zonal_upgrade_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
+        """
+        return pulumi.get(self, "service_fabric_zonal_upgrade_mode")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -1184,4 +1270,12 @@ class Cluster(pulumi.CustomResource):
         Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vm_image")
+
+    @property
+    @pulumi.getter(name="vmssZonalUpgradeMode")
+    def vmss_zonal_upgrade_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
+        """
+        return pulumi.get(self, "vmss_zonal_upgrade_mode")
 

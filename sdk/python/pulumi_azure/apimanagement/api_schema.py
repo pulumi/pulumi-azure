@@ -241,7 +241,7 @@ class ApiSchema(pulumi.CustomResource):
             api_name=example_api.name,
             api_management_name=example_api.api_management_name,
             resource_group_name=example_api.resource_group_name,
-            schema_id="example-sche,a",
+            schema_id="example-schema",
             content_type="application/vnd.ms-azure-apim.xsd+xml",
             value=(lambda path: open(path).read())("api_management_api_schema.xml"))
         ```
@@ -286,7 +286,7 @@ class ApiSchema(pulumi.CustomResource):
             api_name=example_api.name,
             api_management_name=example_api.api_management_name,
             resource_group_name=example_api.resource_group_name,
-            schema_id="example-sche,a",
+            schema_id="example-schema",
             content_type="application/vnd.ms-azure-apim.xsd+xml",
             value=(lambda path: open(path).read())("api_management_api_schema.xml"))
         ```

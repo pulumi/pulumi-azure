@@ -124,6 +124,10 @@ export class EventhubDataConnection extends pulumi.CustomResource {
      */
     public readonly eventhubId!: pulumi.Output<string>;
     /**
+     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+     */
+    public readonly identityId!: pulumi.Output<string | undefined>;
+    /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -164,6 +168,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["eventSystemProperties"] = state ? state.eventSystemProperties : undefined;
             inputs["eventhubId"] = state ? state.eventhubId : undefined;
+            inputs["identityId"] = state ? state.identityId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -193,6 +198,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
             inputs["eventhubId"] = args ? args.eventhubId : undefined;
+            inputs["identityId"] = args ? args.identityId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -238,6 +244,10 @@ export interface EventhubDataConnectionState {
      * Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     eventhubId?: pulumi.Input<string>;
+    /**
+     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+     */
+    identityId?: pulumi.Input<string>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
@@ -292,6 +302,10 @@ export interface EventhubDataConnectionArgs {
      * Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     eventhubId: pulumi.Input<string>;
+    /**
+     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+     */
+    identityId?: pulumi.Input<string>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */

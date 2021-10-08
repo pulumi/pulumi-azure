@@ -87,7 +87,7 @@ type NatRule struct {
 	BackendIpConfigurationId pulumi.StringOutput `pulumi:"backendIpConfigurationId"`
 	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort pulumi.IntOutput `pulumi:"backendPort"`
-	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolOutput `pulumi:"enableFloatingIp"`
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
 	EnableTcpReset            pulumi.BoolPtrOutput `pulumi:"enableTcpReset"`
@@ -158,7 +158,7 @@ type natRuleState struct {
 	BackendIpConfigurationId *string `pulumi:"backendIpConfigurationId"`
 	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort *int `pulumi:"backendPort"`
-	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp *bool `pulumi:"enableFloatingIp"`
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
 	EnableTcpReset            *bool   `pulumi:"enableTcpReset"`
@@ -183,7 +183,7 @@ type NatRuleState struct {
 	BackendIpConfigurationId pulumi.StringPtrInput
 	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort pulumi.IntPtrInput
-	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolPtrInput
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
 	EnableTcpReset            pulumi.BoolPtrInput
@@ -211,7 +211,7 @@ func (NatRuleState) ElementType() reflect.Type {
 type natRuleArgs struct {
 	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort int `pulumi:"backendPort"`
-	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp *bool `pulumi:"enableFloatingIp"`
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
 	EnableTcpReset *bool `pulumi:"enableTcpReset"`
@@ -235,7 +235,7 @@ type natRuleArgs struct {
 type NatRuleArgs struct {
 	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort pulumi.IntInput
-	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolPtrInput
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
 	EnableTcpReset pulumi.BoolPtrInput

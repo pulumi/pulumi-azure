@@ -61,7 +61,7 @@ namespace Pulumi.Azure.ManagementGroups
     public partial class ManagementGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        /// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.ManagementGroups
     public sealed class ManagementGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        /// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.ManagementGroups
     public sealed class ManagementGroupState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        /// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

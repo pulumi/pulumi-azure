@@ -125,7 +125,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
-        /// The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
+        /// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
         /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> Password { get; set; } = null!;
 
         /// <summary>
-        /// The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
+        /// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
@@ -396,7 +396,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
+        /// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

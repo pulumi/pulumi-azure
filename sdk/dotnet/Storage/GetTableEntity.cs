@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Storage
         ///     {
         ///         var example = Output.Create(Azure.Storage.GetTableEntity.InvokeAsync(new Azure.Storage.GetTableEntityArgs
         ///         {
-        ///             PartitionKey = "example-parition-key",
+        ///             PartitionKey = "example-partition-key",
         ///             RowKey = "example-row-key",
         ///             StorageAccountName = "example-storage-account-name",
         ///             TableName = "example-table-name",

@@ -21,13 +21,20 @@ class GetPublicIPsResult:
     """
     A collection of values returned by getPublicIPs.
     """
-    def __init__(__self__, allocation_type=None, attached=None, id=None, name_prefix=None, public_ips=None, resource_group_name=None):
+    def __init__(__self__, allocation_type=None, attached=None, attachment_status=None, id=None, name_prefix=None, public_ips=None, resource_group_name=None):
         if allocation_type and not isinstance(allocation_type, str):
             raise TypeError("Expected argument 'allocation_type' to be a str")
         pulumi.set(__self__, "allocation_type", allocation_type)
         if attached and not isinstance(attached, bool):
             raise TypeError("Expected argument 'attached' to be a bool")
+        if attached is not None:
+            warnings.warn("""This property has been deprecated in favour of `attachment_status` to improve filtering""", DeprecationWarning)
+            pulumi.log.warn("""attached is deprecated: This property has been deprecated in favour of `attachment_status` to improve filtering""")
+
         pulumi.set(__self__, "attached", attached)
+        if attachment_status and not isinstance(attachment_status, str):
+            raise TypeError("Expected argument 'attachment_status' to be a str")
+        pulumi.set(__self__, "attachment_status", attachment_status)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -50,6 +57,11 @@ class GetPublicIPsResult:
     @pulumi.getter
     def attached(self) -> Optional[bool]:
         return pulumi.get(self, "attached")
+
+    @property
+    @pulumi.getter(name="attachmentStatus")
+    def attachment_status(self) -> Optional[str]:
+        return pulumi.get(self, "attachment_status")
 
     @property
     @pulumi.getter
@@ -86,6 +98,7 @@ class AwaitableGetPublicIPsResult(GetPublicIPsResult):
         return GetPublicIPsResult(
             allocation_type=self.allocation_type,
             attached=self.attached,
+            attachment_status=self.attachment_status,
             id=self.id,
             name_prefix=self.name_prefix,
             public_ips=self.public_ips,
@@ -94,6 +107,7 @@ class AwaitableGetPublicIPsResult(GetPublicIPsResult):
 
 def get_public_i_ps(allocation_type: Optional[str] = None,
                     attached: Optional[bool] = None,
+                    attachment_status: Optional[str] = None,
                     name_prefix: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPsResult:
@@ -112,13 +126,14 @@ def get_public_i_ps(allocation_type: Optional[str] = None,
 
 
     :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
-    :param bool attached: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`true`) or unattached (`false`).
+    :param str attachment_status: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
     :param str name_prefix: A prefix match used for the IP Addresses `name` field, case sensitive.
     :param str resource_group_name: Specifies the name of the resource group.
     """
     __args__ = dict()
     __args__['allocationType'] = allocation_type
     __args__['attached'] = attached
+    __args__['attachmentStatus'] = attachment_status
     __args__['namePrefix'] = name_prefix
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -130,6 +145,7 @@ def get_public_i_ps(allocation_type: Optional[str] = None,
     return AwaitableGetPublicIPsResult(
         allocation_type=__ret__.allocation_type,
         attached=__ret__.attached,
+        attachment_status=__ret__.attachment_status,
         id=__ret__.id,
         name_prefix=__ret__.name_prefix,
         public_ips=__ret__.public_ips,
@@ -139,6 +155,7 @@ def get_public_i_ps(allocation_type: Optional[str] = None,
 @_utilities.lift_output_func(get_public_i_ps)
 def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[str]]] = None,
                            attached: Optional[pulumi.Input[Optional[bool]]] = None,
+                           attachment_status: Optional[pulumi.Input[Optional[str]]] = None,
                            name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIPsResult]:
@@ -157,7 +174,7 @@ def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[str]]
 
 
     :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
-    :param bool attached: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`true`) or unattached (`false`).
+    :param str attachment_status: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
     :param str name_prefix: A prefix match used for the IP Addresses `name` field, case sensitive.
     :param str resource_group_name: Specifies the name of the resource group.
     """

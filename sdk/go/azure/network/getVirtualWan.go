@@ -11,39 +11,6 @@ import (
 )
 
 // Use this data source to access information about an existing Virtual Wan.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := network.LookupVirtualWan(ctx, &network.LookupVirtualWanArgs{
-// 			Name:              "existing",
-// 			ResourceGroupName: "existing",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", example.Id)
-// 		ctx.Export("allowBranchToBranchTraffic", example.AllowBranchToBranchTraffic)
-// 		ctx.Export("disableVpnEncryption", data.Azurerm_virtual_wan.Exemple.Disable_vpn_encryption)
-// 		ctx.Export("location", data.Azurerm_virtual_wan.Exemple.Location)
-// 		ctx.Export("office365LocalBreakoutCategory", data.Azurerm_virtual_wan.Exemple.Office365_local_breakout_category)
-// 		ctx.Export("sku", data.Azurerm_virtual_wan.Exemple.Sku)
-// 		ctx.Export("tags", data.Azurerm_virtual_wan.Exemple.Tags)
-// 		ctx.Export("virtualHubs", data.Azurerm_virtual_wan.Exemple.Virtual_hubs)
-// 		ctx.Export("vpnSites", data.Azurerm_virtual_wan.Exemple.Vpn_sites)
-// 		return nil
-// 	})
-// }
-// ```
 func LookupVirtualWan(ctx *pulumi.Context, args *LookupVirtualWanArgs, opts ...pulumi.InvokeOption) (*LookupVirtualWanResult, error) {
 	var rv LookupVirtualWanResult
 	err := ctx.Invoke("azure:network/getVirtualWan:getVirtualWan", args, &rv, opts...)

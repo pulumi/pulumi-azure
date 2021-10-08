@@ -54,7 +54,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///                 primaryFabric,
     ///             },
     ///         });
-    ///         // Avoids issues with crearing fabrics simultainusly
+    ///         // Avoids issues with creating fabrics simultaneously
     ///         var primaryVirtualNetwork = new Azure.Network.VirtualNetwork("primaryVirtualNetwork", new Azure.Network.VirtualNetworkArgs
     ///         {
     ///             ResourceGroupName = primaryResourceGroup.Name,

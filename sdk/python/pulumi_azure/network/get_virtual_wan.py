@@ -163,25 +163,6 @@ def get_virtual_wan(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Virtual Wan.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_virtual_wan(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    pulumi.export("allowBranchToBranchTraffic", example.allow_branch_to_branch_traffic)
-    pulumi.export("disableVpnEncryption", data["azurerm_virtual_wan"]["exemple"]["disable_vpn_encryption"])
-    pulumi.export("location", data["azurerm_virtual_wan"]["exemple"]["location"])
-    pulumi.export("office365LocalBreakoutCategory", data["azurerm_virtual_wan"]["exemple"]["office365_local_breakout_category"])
-    pulumi.export("sku", data["azurerm_virtual_wan"]["exemple"]["sku"])
-    pulumi.export("tags", data["azurerm_virtual_wan"]["exemple"]["tags"])
-    pulumi.export("virtualHubs", data["azurerm_virtual_wan"]["exemple"]["virtual_hubs"])
-    pulumi.export("vpnSites", data["azurerm_virtual_wan"]["exemple"]["vpn_sites"])
-    ```
-
 
     :param str name: The name of this Virtual Wan.
     :param str resource_group_name: The name of the Resource Group where the Virtual Wan exists.
@@ -215,25 +196,6 @@ def get_virtual_wan_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualWanResult]:
     """
     Use this data source to access information about an existing Virtual Wan.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_virtual_wan(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    pulumi.export("allowBranchToBranchTraffic", example.allow_branch_to_branch_traffic)
-    pulumi.export("disableVpnEncryption", data["azurerm_virtual_wan"]["exemple"]["disable_vpn_encryption"])
-    pulumi.export("location", data["azurerm_virtual_wan"]["exemple"]["location"])
-    pulumi.export("office365LocalBreakoutCategory", data["azurerm_virtual_wan"]["exemple"]["office365_local_breakout_category"])
-    pulumi.export("sku", data["azurerm_virtual_wan"]["exemple"]["sku"])
-    pulumi.export("tags", data["azurerm_virtual_wan"]["exemple"]["tags"])
-    pulumi.export("virtualHubs", data["azurerm_virtual_wan"]["exemple"]["virtual_hubs"])
-    pulumi.export("vpnSites", data["azurerm_virtual_wan"]["exemple"]["vpn_sites"])
-    ```
 
 
     :param str name: The name of this Virtual Wan.

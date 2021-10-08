@@ -132,7 +132,7 @@ export class ManagedStorageAccountSasTokenDefinition extends pulumi.CustomResour
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validaty period.
+     * The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
      */
     public readonly sasTemplateUri!: pulumi.Output<string>;
     /**
@@ -214,7 +214,7 @@ export interface ManagedStorageAccountSasTokenDefinitionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validaty period.
+     * The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
      */
     sasTemplateUri?: pulumi.Input<string>;
     /**
@@ -248,7 +248,7 @@ export interface ManagedStorageAccountSasTokenDefinitionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validaty period.
+     * The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
      */
     sasTemplateUri: pulumi.Input<string>;
     /**

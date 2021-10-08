@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./containerStorageAccount";
+export * from "./getPolicyFileshare";
 export * from "./getPolicyVM";
 export * from "./policyFileShare";
 export * from "./policyVM";

@@ -348,7 +348,7 @@ func (o ApiDiagnosticBackendRequestDataMaskingPtrOutput) QueryParams() ApiDiagno
 type ApiDiagnosticBackendRequestDataMaskingHeader struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode string `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value string `pulumi:"value"`
 }
 
@@ -366,7 +366,7 @@ type ApiDiagnosticBackendRequestDataMaskingHeaderInput interface {
 type ApiDiagnosticBackendRequestDataMaskingHeaderArgs struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -426,7 +426,7 @@ func (o ApiDiagnosticBackendRequestDataMaskingHeaderOutput) Mode() pulumi.String
 	return o.ApplyT(func(v ApiDiagnosticBackendRequestDataMaskingHeader) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// The name of the header or the uery parameter to mask.
+// The name of the header or the query parameter to mask.
 func (o ApiDiagnosticBackendRequestDataMaskingHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiDiagnosticBackendRequestDataMaskingHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -454,7 +454,7 @@ func (o ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput) Index(i pulumi.
 type ApiDiagnosticBackendRequestDataMaskingQueryParam struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode string `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value string `pulumi:"value"`
 }
 
@@ -472,7 +472,7 @@ type ApiDiagnosticBackendRequestDataMaskingQueryParamInput interface {
 type ApiDiagnosticBackendRequestDataMaskingQueryParamArgs struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -532,7 +532,7 @@ func (o ApiDiagnosticBackendRequestDataMaskingQueryParamOutput) Mode() pulumi.St
 	return o.ApplyT(func(v ApiDiagnosticBackendRequestDataMaskingQueryParam) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// The name of the header or the uery parameter to mask.
+// The name of the header or the query parameter to mask.
 func (o ApiDiagnosticBackendRequestDataMaskingQueryParamOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiDiagnosticBackendRequestDataMaskingQueryParam) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -895,7 +895,7 @@ func (o ApiDiagnosticBackendResponseDataMaskingPtrOutput) QueryParams() ApiDiagn
 type ApiDiagnosticBackendResponseDataMaskingHeader struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode string `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value string `pulumi:"value"`
 }
 
@@ -913,7 +913,7 @@ type ApiDiagnosticBackendResponseDataMaskingHeaderInput interface {
 type ApiDiagnosticBackendResponseDataMaskingHeaderArgs struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -973,7 +973,7 @@ func (o ApiDiagnosticBackendResponseDataMaskingHeaderOutput) Mode() pulumi.Strin
 	return o.ApplyT(func(v ApiDiagnosticBackendResponseDataMaskingHeader) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// The name of the header or the uery parameter to mask.
+// The name of the header or the query parameter to mask.
 func (o ApiDiagnosticBackendResponseDataMaskingHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiDiagnosticBackendResponseDataMaskingHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1001,7 +1001,7 @@ func (o ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput) Index(i pulumi
 type ApiDiagnosticBackendResponseDataMaskingQueryParam struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode string `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value string `pulumi:"value"`
 }
 
@@ -1019,7 +1019,7 @@ type ApiDiagnosticBackendResponseDataMaskingQueryParamInput interface {
 type ApiDiagnosticBackendResponseDataMaskingQueryParamArgs struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1079,7 +1079,7 @@ func (o ApiDiagnosticBackendResponseDataMaskingQueryParamOutput) Mode() pulumi.S
 	return o.ApplyT(func(v ApiDiagnosticBackendResponseDataMaskingQueryParam) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// The name of the header or the uery parameter to mask.
+// The name of the header or the query parameter to mask.
 func (o ApiDiagnosticBackendResponseDataMaskingQueryParamOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiDiagnosticBackendResponseDataMaskingQueryParam) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1442,7 +1442,7 @@ func (o ApiDiagnosticFrontendRequestDataMaskingPtrOutput) QueryParams() ApiDiagn
 type ApiDiagnosticFrontendRequestDataMaskingHeader struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode string `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value string `pulumi:"value"`
 }
 
@@ -1460,7 +1460,7 @@ type ApiDiagnosticFrontendRequestDataMaskingHeaderInput interface {
 type ApiDiagnosticFrontendRequestDataMaskingHeaderArgs struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1520,7 +1520,7 @@ func (o ApiDiagnosticFrontendRequestDataMaskingHeaderOutput) Mode() pulumi.Strin
 	return o.ApplyT(func(v ApiDiagnosticFrontendRequestDataMaskingHeader) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// The name of the header or the uery parameter to mask.
+// The name of the header or the query parameter to mask.
 func (o ApiDiagnosticFrontendRequestDataMaskingHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiDiagnosticFrontendRequestDataMaskingHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1548,7 +1548,7 @@ func (o ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput) Index(i pulumi
 type ApiDiagnosticFrontendRequestDataMaskingQueryParam struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode string `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value string `pulumi:"value"`
 }
 
@@ -1566,7 +1566,7 @@ type ApiDiagnosticFrontendRequestDataMaskingQueryParamInput interface {
 type ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1626,7 +1626,7 @@ func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput) Mode() pulumi.S
 	return o.ApplyT(func(v ApiDiagnosticFrontendRequestDataMaskingQueryParam) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// The name of the header or the uery parameter to mask.
+// The name of the header or the query parameter to mask.
 func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiDiagnosticFrontendRequestDataMaskingQueryParam) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1989,7 +1989,7 @@ func (o ApiDiagnosticFrontendResponseDataMaskingPtrOutput) QueryParams() ApiDiag
 type ApiDiagnosticFrontendResponseDataMaskingHeader struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode string `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value string `pulumi:"value"`
 }
 
@@ -2007,7 +2007,7 @@ type ApiDiagnosticFrontendResponseDataMaskingHeaderInput interface {
 type ApiDiagnosticFrontendResponseDataMaskingHeaderArgs struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2067,7 +2067,7 @@ func (o ApiDiagnosticFrontendResponseDataMaskingHeaderOutput) Mode() pulumi.Stri
 	return o.ApplyT(func(v ApiDiagnosticFrontendResponseDataMaskingHeader) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// The name of the header or the uery parameter to mask.
+// The name of the header or the query parameter to mask.
 func (o ApiDiagnosticFrontendResponseDataMaskingHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiDiagnosticFrontendResponseDataMaskingHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2095,7 +2095,7 @@ func (o ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput) Index(i pulum
 type ApiDiagnosticFrontendResponseDataMaskingQueryParam struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode string `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value string `pulumi:"value"`
 }
 
@@ -2113,7 +2113,7 @@ type ApiDiagnosticFrontendResponseDataMaskingQueryParamInput interface {
 type ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs struct {
 	// The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// The name of the header or the uery parameter to mask.
+	// The name of the header or the query parameter to mask.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2173,7 +2173,7 @@ func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput) Mode() pulumi.
 	return o.ApplyT(func(v ApiDiagnosticFrontendResponseDataMaskingQueryParam) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// The name of the header or the uery parameter to mask.
+// The name of the header or the query parameter to mask.
 func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiDiagnosticFrontendResponseDataMaskingQueryParam) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5565,7 +5565,7 @@ func (o BackendTlsPtrOutput) ValidateCertificateName() pulumi.BoolPtrOutput {
 }
 
 type CustomDomainDeveloperPortal struct {
-	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -5593,7 +5593,7 @@ type CustomDomainDeveloperPortalInput interface {
 }
 
 type CustomDomainDeveloperPortalArgs struct {
-	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -5660,7 +5660,7 @@ func (o CustomDomainDeveloperPortalOutput) ToCustomDomainDeveloperPortalOutputWi
 	return o
 }
 
-// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 func (o CustomDomainDeveloperPortalOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -5722,7 +5722,7 @@ func (o CustomDomainDeveloperPortalArrayOutput) Index(i pulumi.IntInput) CustomD
 }
 
 type CustomDomainManagement struct {
-	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -5750,7 +5750,7 @@ type CustomDomainManagementInput interface {
 }
 
 type CustomDomainManagementArgs struct {
-	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -5817,7 +5817,7 @@ func (o CustomDomainManagementOutput) ToCustomDomainManagementOutputWithContext(
 	return o
 }
 
-// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 func (o CustomDomainManagementOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainManagement) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -5879,7 +5879,7 @@ func (o CustomDomainManagementArrayOutput) Index(i pulumi.IntInput) CustomDomain
 }
 
 type CustomDomainPortal struct {
-	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -5907,7 +5907,7 @@ type CustomDomainPortalInput interface {
 }
 
 type CustomDomainPortalArgs struct {
-	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -5974,7 +5974,7 @@ func (o CustomDomainPortalOutput) ToCustomDomainPortalOutputWithContext(ctx cont
 	return o
 }
 
-// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 func (o CustomDomainPortalOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -6036,7 +6036,7 @@ func (o CustomDomainPortalArrayOutput) Index(i pulumi.IntInput) CustomDomainPort
 }
 
 type CustomDomainProxy struct {
-	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -6066,7 +6066,7 @@ type CustomDomainProxyInput interface {
 }
 
 type CustomDomainProxyArgs struct {
-	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -6135,7 +6135,7 @@ func (o CustomDomainProxyOutput) ToCustomDomainProxyOutputWithContext(ctx contex
 	return o
 }
 
-// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 func (o CustomDomainProxyOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainProxy) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -6202,7 +6202,7 @@ func (o CustomDomainProxyArrayOutput) Index(i pulumi.IntInput) CustomDomainProxy
 }
 
 type CustomDomainScm struct {
-	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -6230,7 +6230,7 @@ type CustomDomainScmInput interface {
 }
 
 type CustomDomainScmArgs struct {
-	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -6297,7 +6297,7 @@ func (o CustomDomainScmOutput) ToCustomDomainScmOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 func (o CustomDomainScmOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }

@@ -28,7 +28,7 @@ type WorkspaceCustomParameters struct {
 	PublicSubnetNetworkSecurityGroupAssociationId *string `pulumi:"publicSubnetNetworkSecurityGroupAssociationId"`
 	// Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+	// Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
 	StorageAccountSkuName *string `pulumi:"storageAccountSkuName"`
 	// The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
@@ -65,7 +65,7 @@ type WorkspaceCustomParametersArgs struct {
 	PublicSubnetNetworkSecurityGroupAssociationId pulumi.StringPtrInput `pulumi:"publicSubnetNetworkSecurityGroupAssociationId"`
 	// Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
-	// Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+	// Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
 	StorageAccountSkuName pulumi.StringPtrInput `pulumi:"storageAccountSkuName"`
 	// The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
@@ -194,7 +194,7 @@ func (o WorkspaceCustomParametersOutput) StorageAccountName() pulumi.StringPtrOu
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
 }
 
-// Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+// Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersOutput) StorageAccountSkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.StorageAccountSkuName }).(pulumi.StringPtrOutput)
 }
@@ -322,7 +322,7 @@ func (o WorkspaceCustomParametersPtrOutput) StorageAccountName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage account SKU name. Possible values inclued`Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+// Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersPtrOutput) StorageAccountSkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
 		if v == nil {

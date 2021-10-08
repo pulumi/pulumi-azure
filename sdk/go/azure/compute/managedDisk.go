@@ -129,6 +129,8 @@ type ManagedDisk struct {
 	ImageReferenceId pulumi.StringPtrOutput `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+	LogicalSectorSize pulumi.IntOutput `pulumi:"logicalSectorSize"`
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
 	MaxShares pulumi.IntOutput `pulumi:"maxShares"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
@@ -211,6 +213,8 @@ type managedDiskState struct {
 	ImageReferenceId *string `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+	LogicalSectorSize *int `pulumi:"logicalSectorSize"`
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
 	MaxShares *int `pulumi:"maxShares"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
@@ -256,6 +260,8 @@ type ManagedDiskState struct {
 	ImageReferenceId pulumi.StringPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+	LogicalSectorSize pulumi.IntPtrInput
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
 	MaxShares pulumi.IntPtrInput
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
@@ -305,6 +311,8 @@ type managedDiskArgs struct {
 	ImageReferenceId *string `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+	LogicalSectorSize *int `pulumi:"logicalSectorSize"`
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
 	MaxShares *int `pulumi:"maxShares"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
@@ -351,6 +359,8 @@ type ManagedDiskArgs struct {
 	ImageReferenceId pulumi.StringPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+	LogicalSectorSize pulumi.IntPtrInput
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
 	MaxShares pulumi.IntPtrInput
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.

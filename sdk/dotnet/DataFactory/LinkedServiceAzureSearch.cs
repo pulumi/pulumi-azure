@@ -48,7 +48,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The encrypted credential to connnect to Azure Search Service.
+        /// The encrypted credential to connect to Azure Search Service.
         /// </summary>
         [Output("encryptedCredential")]
         public Output<string> EncryptedCredential { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The encrypted credential to connnect to Azure Search Service.
+        /// The encrypted credential to connect to Azure Search Service.
         /// </summary>
         [Input("encryptedCredential")]
         public Input<string>? EncryptedCredential { get; set; }

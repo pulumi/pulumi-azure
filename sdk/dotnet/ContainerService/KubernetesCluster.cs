@@ -89,7 +89,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterAutoScalerProfile> AutoScalerProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
+        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         /// </summary>
         [Output("automaticChannelUpgrade")]
         public Output<string?> AutomaticChannelUpgrade { get; private set; } = null!;
@@ -345,7 +345,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterAutoScalerProfileArgs>? AutoScalerProfile { get; set; }
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
+        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         /// </summary>
         [Input("automaticChannelUpgrade")]
         public Input<string>? AutomaticChannelUpgrade { get; set; }
@@ -538,7 +538,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterAutoScalerProfileGetArgs>? AutoScalerProfile { get; set; }
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`.
+        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         /// </summary>
         [Input("automaticChannelUpgrade")]
         public Input<string>? AutomaticChannelUpgrade { get; set; }

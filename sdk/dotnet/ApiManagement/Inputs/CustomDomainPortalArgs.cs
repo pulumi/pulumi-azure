@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
     public sealed class CustomDomainPortalArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        /// The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }

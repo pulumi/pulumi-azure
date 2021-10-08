@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * }, {
  *     dependsOn: [primaryFabric],
  * });
- * // Avoids issues with crearing fabrics simultainusly
+ * // Avoids issues with creating fabrics simultaneously
  * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primaryVirtualNetwork", {
  *     resourceGroupName: primaryResourceGroup.name,
  *     addressSpaces: ["192.168.1.0/24"],
