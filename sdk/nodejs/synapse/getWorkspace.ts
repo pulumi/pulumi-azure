@@ -76,3 +76,21 @@ export interface GetWorkspaceResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+    return pulumi.output(args).apply(a => getWorkspace(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getWorkspace.
+ */
+export interface GetWorkspaceOutputArgs {
+    /**
+     * The name of this Synapse Workspace.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Synapse Workspace exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

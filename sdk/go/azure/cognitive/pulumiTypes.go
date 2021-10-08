@@ -603,6 +603,14 @@ func (o AccountStorageArrayOutput) Index(i pulumi.IntInput) AccountStorageOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsInput)(nil)).Elem(), AccountNetworkAclsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsPtrInput)(nil)).Elem(), AccountNetworkAclsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsVirtualNetworkRuleInput)(nil)).Elem(), AccountNetworkAclsVirtualNetworkRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsVirtualNetworkRuleArrayInput)(nil)).Elem(), AccountNetworkAclsVirtualNetworkRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageInput)(nil)).Elem(), AccountStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageArrayInput)(nil)).Elem(), AccountStorageArray{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountNetworkAclsOutput{})

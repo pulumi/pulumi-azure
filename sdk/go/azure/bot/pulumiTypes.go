@@ -392,6 +392,12 @@ func (o ChannelLineLineChannelArrayOutput) Index(i pulumi.IntInput) ChannelLineL
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDirectLineSiteInput)(nil)).Elem(), ChannelDirectLineSiteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDirectLineSiteArrayInput)(nil)).Elem(), ChannelDirectLineSiteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelFacebookPageInput)(nil)).Elem(), ChannelFacebookPageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelFacebookPageArrayInput)(nil)).Elem(), ChannelFacebookPageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLineLineChannelInput)(nil)).Elem(), ChannelLineLineChannelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLineLineChannelArrayInput)(nil)).Elem(), ChannelLineLineChannelArray{})
 	pulumi.RegisterOutputType(ChannelDirectLineSiteOutput{})
 	pulumi.RegisterOutputType(ChannelDirectLineSiteArrayOutput{})
 	pulumi.RegisterOutputType(ChannelFacebookPageOutput{})

@@ -126,6 +126,8 @@ func (o AccountIdentityArrayOutput) Index(i pulumi.IntInput) AccountIdentityOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityArrayInput)(nil)).Elem(), AccountIdentityArray{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityArrayOutput{})
 }

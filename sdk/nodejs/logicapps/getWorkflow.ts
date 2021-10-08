@@ -103,3 +103,21 @@ export interface GetWorkflowResult {
      */
     readonly workflowVersion: string;
 }
+
+export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
+    return pulumi.output(args).apply(a => getWorkflow(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getWorkflow.
+ */
+export interface GetWorkflowOutputArgs {
+    /**
+     * The name of the Logic App Workflow.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group in which the Logic App Workflow exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

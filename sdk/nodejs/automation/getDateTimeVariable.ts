@@ -78,3 +78,25 @@ export interface GetDateTimeVariableResult {
      */
     readonly value: string;
 }
+
+export function getDateTimeVariableOutput(args: GetDateTimeVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDateTimeVariableResult> {
+    return pulumi.output(args).apply(a => getDateTimeVariable(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDateTimeVariable.
+ */
+export interface GetDateTimeVariableOutputArgs {
+    /**
+     * The name of the automation account in which the Automation Variable exists.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * The name of the Automation Variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group where the automation account exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -126,3 +126,25 @@ export interface GetQueueResult {
      */
     readonly status: string;
 }
+
+export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
+    return pulumi.output(args).apply(a => getQueue(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getQueue.
+ */
+export interface GetQueueOutputArgs {
+    /**
+     * The name of this Service Bus Queue.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the ServiceBus Namespace.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Service Bus Queue exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -99,3 +99,21 @@ export interface GetDatabaseResult {
      */
     readonly zoneRedundant: boolean;
 }
+
+export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
+    return pulumi.output(args).apply(a => getDatabase(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDatabase.
+ */
+export interface GetDatabaseOutputArgs {
+    /**
+     * The name of the Ms SQL Database.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The id of the Ms SQL Server on which to create the database.
+     */
+    serverId: pulumi.Input<string>;
+}

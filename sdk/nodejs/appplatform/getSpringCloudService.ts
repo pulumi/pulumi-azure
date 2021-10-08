@@ -83,3 +83,21 @@ export interface GetSpringCloudServiceResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getSpringCloudServiceOutput(args: GetSpringCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringCloudServiceResult> {
+    return pulumi.output(args).apply(a => getSpringCloudService(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSpringCloudService.
+ */
+export interface GetSpringCloudServiceOutputArgs {
+    /**
+     * Specifies The name of the Spring Cloud Service resource.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Resource Group where the Spring Cloud Service exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

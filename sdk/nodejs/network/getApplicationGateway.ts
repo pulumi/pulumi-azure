@@ -72,3 +72,21 @@ export interface GetApplicationGatewayResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
+    return pulumi.output(args).apply(a => getApplicationGateway(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getApplicationGateway.
+ */
+export interface GetApplicationGatewayOutputArgs {
+    /**
+     * The name of this Application Gateway.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Application Gateway exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -75,3 +75,29 @@ export interface GetPublicIPsResult {
     readonly publicIps: outputs.network.GetPublicIPsPublicIp[];
     readonly resourceGroupName: string;
 }
+
+export function getPublicIPsOutput(args: GetPublicIPsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPsResult> {
+    return pulumi.output(args).apply(a => getPublicIPs(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPublicIPs.
+ */
+export interface GetPublicIPsOutputArgs {
+    /**
+     * The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
+     */
+    allocationType?: pulumi.Input<string>;
+    /**
+     * Filter to include IP Addresses which are attached to a device, such as a VM/LB (`true`) or unattached (`false`).
+     */
+    attached?: pulumi.Input<boolean>;
+    /**
+     * A prefix match used for the IP Addresses `name` field, case sensitive.
+     */
+    namePrefix?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

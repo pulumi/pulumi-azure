@@ -84,3 +84,21 @@ export interface GetBackendAddressPoolResult {
      */
     readonly outboundRules: string[];
 }
+
+export function getBackendAddressPoolOutput(args: GetBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendAddressPoolResult> {
+    return pulumi.output(args).apply(a => getBackendAddressPool(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getBackendAddressPool.
+ */
+export interface GetBackendAddressPoolOutputArgs {
+    /**
+     * The ID of the Load Balancer in which the Backend Address Pool exists.
+     */
+    loadbalancerId: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Backend Address Pool.
+     */
+    name: pulumi.Input<string>;
+}

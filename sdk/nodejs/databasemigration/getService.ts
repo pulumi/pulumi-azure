@@ -76,3 +76,21 @@ export interface GetServiceResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+    return pulumi.output(args).apply(a => getService(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getService.
+ */
+export interface GetServiceOutputArgs {
+    /**
+     * Specify the name of the database migration service.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the Name of the Resource Group within which the database migration service exists
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

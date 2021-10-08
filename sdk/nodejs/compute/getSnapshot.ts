@@ -79,3 +79,21 @@ export interface GetSnapshotResult {
     readonly storageAccountId: string;
     readonly timeCreated: string;
 }
+
+export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
+    return pulumi.output(args).apply(a => getSnapshot(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSnapshot.
+ */
+export interface GetSnapshotOutputArgs {
+    /**
+     * Specifies the name of the Snapshot.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the resource group the Snapshot is located in.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

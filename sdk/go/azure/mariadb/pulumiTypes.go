@@ -345,6 +345,10 @@ func (o GetMariaDbServerStorageProfileArrayOutput) Index(i pulumi.IntInput) GetM
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerStorageProfileInput)(nil)).Elem(), ServerStorageProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerStorageProfilePtrInput)(nil)).Elem(), ServerStorageProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMariaDbServerStorageProfileInput)(nil)).Elem(), GetMariaDbServerStorageProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMariaDbServerStorageProfileArrayInput)(nil)).Elem(), GetMariaDbServerStorageProfileArray{})
 	pulumi.RegisterOutputType(ServerStorageProfileOutput{})
 	pulumi.RegisterOutputType(ServerStorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(GetMariaDbServerStorageProfileOutput{})

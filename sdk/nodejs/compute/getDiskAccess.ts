@@ -65,3 +65,25 @@ export interface GetDiskAccessResult {
     readonly resourceGroupName: string;
     readonly tags?: {[key: string]: string};
 }
+
+export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessResult> {
+    return pulumi.output(args).apply(a => getDiskAccess(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDiskAccess.
+ */
+export interface GetDiskAccessOutputArgs {
+    /**
+     * The name of this Disk Access.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Disk Access exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags which should be assigned to the Disk Access.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

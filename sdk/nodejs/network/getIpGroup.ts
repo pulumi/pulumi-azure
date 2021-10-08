@@ -71,3 +71,21 @@ export interface GetIpGroupResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupResult> {
+    return pulumi.output(args).apply(a => getIpGroup(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getIpGroup.
+ */
+export interface GetIpGroupOutputArgs {
+    /**
+     * Specifies the Name of the IP Group.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the Name of the Resource Group within which the IP Group exists
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

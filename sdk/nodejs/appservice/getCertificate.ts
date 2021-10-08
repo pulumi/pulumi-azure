@@ -91,3 +91,22 @@ export interface GetCertificateResult {
      */
     readonly thumbprint: string;
 }
+
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+    return pulumi.output(args).apply(a => getCertificate(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCertificate.
+ */
+export interface GetCertificateOutputArgs {
+    /**
+     * Specifies the name of the certificate.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which to create the certificate.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

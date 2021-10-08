@@ -105,3 +105,21 @@ export interface GetFlexibleServerResult {
      */
     readonly version: string;
 }
+
+export function getFlexibleServerOutput(args: GetFlexibleServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlexibleServerResult> {
+    return pulumi.output(args).apply(a => getFlexibleServer(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFlexibleServer.
+ */
+export interface GetFlexibleServerOutputArgs {
+    /**
+     * The name of this PostgreSQL Flexible Server.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the PostgreSQL Flexible Server exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

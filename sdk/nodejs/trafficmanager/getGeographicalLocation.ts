@@ -55,3 +55,17 @@ export interface GetGeographicalLocationResult {
     readonly id: string;
     readonly name: string;
 }
+
+export function getGeographicalLocationOutput(args: GetGeographicalLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeographicalLocationResult> {
+    return pulumi.output(args).apply(a => getGeographicalLocation(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getGeographicalLocation.
+ */
+export interface GetGeographicalLocationOutputArgs {
+    /**
+     * Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
+     */
+    name: pulumi.Input<string>;
+}

@@ -916,6 +916,16 @@ func (o GetServerThreatDetectionPolicyArrayOutput) Index(i pulumi.IntInput) GetS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityInput)(nil)).Elem(), ServerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityPtrInput)(nil)).Elem(), ServerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerStorageProfileInput)(nil)).Elem(), ServerStorageProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerStorageProfilePtrInput)(nil)).Elem(), ServerStorageProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerThreatDetectionPolicyInput)(nil)).Elem(), ServerThreatDetectionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerThreatDetectionPolicyPtrInput)(nil)).Elem(), ServerThreatDetectionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityInput)(nil)).Elem(), GetServerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerThreatDetectionPolicyInput)(nil)).Elem(), GetServerThreatDetectionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerThreatDetectionPolicyArrayInput)(nil)).Elem(), GetServerThreatDetectionPolicyArray{})
 	pulumi.RegisterOutputType(ServerIdentityOutput{})
 	pulumi.RegisterOutputType(ServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServerStorageProfileOutput{})

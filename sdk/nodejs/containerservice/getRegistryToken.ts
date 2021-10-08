@@ -74,3 +74,25 @@ export interface GetRegistryTokenResult {
      */
     readonly scopeMapId: string;
 }
+
+export function getRegistryTokenOutput(args: GetRegistryTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryTokenResult> {
+    return pulumi.output(args).apply(a => getRegistryToken(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRegistryToken.
+ */
+export interface GetRegistryTokenOutputArgs {
+    /**
+     * The Name of the Container Registry where the token exists.
+     */
+    containerRegistryName: pulumi.Input<string>;
+    /**
+     * The name of the Container Registry token.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group where this Container Registry token exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

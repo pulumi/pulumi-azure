@@ -63,3 +63,17 @@ export interface GetDiagnosticCategoriesResult {
     readonly metrics: string[];
     readonly resourceId: string;
 }
+
+export function getDiagnosticCategoriesOutput(args: GetDiagnosticCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticCategoriesResult> {
+    return pulumi.output(args).apply(a => getDiagnosticCategories(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDiagnosticCategories.
+ */
+export interface GetDiagnosticCategoriesOutputArgs {
+    /**
+     * The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
+     */
+    resourceId: pulumi.Input<string>;
+}

@@ -92,3 +92,21 @@ export interface GetConfigurationStoreResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationStoreResult> {
+    return pulumi.output(args).apply(a => getConfigurationStore(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getConfigurationStore.
+ */
+export interface GetConfigurationStoreOutputArgs {
+    /**
+     * The Name of this App Configuration.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the App Configuration exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

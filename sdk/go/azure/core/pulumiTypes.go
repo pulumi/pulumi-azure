@@ -1156,6 +1156,22 @@ func (o GetSubscriptionsSubscriptionArrayOutput) Index(i pulumi.IntInput) GetSub
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderActionInput)(nil)).Elem(), CustomProviderActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderActionArrayInput)(nil)).Elem(), CustomProviderActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderResourceTypeInput)(nil)).Elem(), CustomProviderResourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderResourceTypeArrayInput)(nil)).Elem(), CustomProviderResourceTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderValidationInput)(nil)).Elem(), CustomProviderValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderValidationArrayInput)(nil)).Elem(), CustomProviderValidationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupPolicyAssignmentIdentityInput)(nil)).Elem(), ResourceGroupPolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupPolicyAssignmentIdentityPtrInput)(nil)).Elem(), ResourceGroupPolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyAssignmentIdentityInput)(nil)).Elem(), ResourcePolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyAssignmentIdentityPtrInput)(nil)).Elem(), ResourcePolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentIdentityInput)(nil)).Elem(), SubscriptionPolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentIdentityPtrInput)(nil)).Elem(), SubscriptionPolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceInput)(nil)).Elem(), GetResourcesResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceArrayInput)(nil)).Elem(), GetResourcesResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubscriptionsSubscriptionInput)(nil)).Elem(), GetSubscriptionsSubscriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubscriptionsSubscriptionArrayInput)(nil)).Elem(), GetSubscriptionsSubscriptionArray{})
 	pulumi.RegisterOutputType(CustomProviderActionOutput{})
 	pulumi.RegisterOutputType(CustomProviderActionArrayOutput{})
 	pulumi.RegisterOutputType(CustomProviderResourceTypeOutput{})

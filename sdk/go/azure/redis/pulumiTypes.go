@@ -927,6 +927,16 @@ func (o GetCacheRedisConfigurationArrayOutput) Index(i pulumi.IntInput) GetCache
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CachePatchScheduleInput)(nil)).Elem(), CachePatchScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CachePatchScheduleArrayInput)(nil)).Elem(), CachePatchScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheRedisConfigurationInput)(nil)).Elem(), CacheRedisConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheRedisConfigurationPtrInput)(nil)).Elem(), CacheRedisConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseDatabaseModuleInput)(nil)).Elem(), EnterpriseDatabaseModuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseDatabaseModuleArrayInput)(nil)).Elem(), EnterpriseDatabaseModuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePatchScheduleInput)(nil)).Elem(), GetCachePatchScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePatchScheduleArrayInput)(nil)).Elem(), GetCachePatchScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCacheRedisConfigurationInput)(nil)).Elem(), GetCacheRedisConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCacheRedisConfigurationArrayInput)(nil)).Elem(), GetCacheRedisConfigurationArray{})
 	pulumi.RegisterOutputType(CachePatchScheduleOutput{})
 	pulumi.RegisterOutputType(CachePatchScheduleArrayOutput{})
 	pulumi.RegisterOutputType(CacheRedisConfigurationOutput{})

@@ -193,6 +193,8 @@ func (o AssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentIdentityInput)(nil)).Elem(), AssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentIdentityPtrInput)(nil)).Elem(), AssignmentIdentityArgs{})
 	pulumi.RegisterOutputType(AssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(AssignmentIdentityPtrOutput{})
 }

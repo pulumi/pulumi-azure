@@ -253,6 +253,10 @@ func (o GetRoleDefinitionPermissionArrayOutput) Index(i pulumi.IntInput) GetRole
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleDefinitionPermissionInput)(nil)).Elem(), RoleDefinitionPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleDefinitionPermissionArrayInput)(nil)).Elem(), RoleDefinitionPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleDefinitionPermissionInput)(nil)).Elem(), GetRoleDefinitionPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleDefinitionPermissionArrayInput)(nil)).Elem(), GetRoleDefinitionPermissionArray{})
 	pulumi.RegisterOutputType(RoleDefinitionPermissionOutput{})
 	pulumi.RegisterOutputType(RoleDefinitionPermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetRoleDefinitionPermissionOutput{})

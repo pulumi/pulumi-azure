@@ -201,6 +201,8 @@ func (o AnalyticsSolutionPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsSolutionPlanInput)(nil)).Elem(), AnalyticsSolutionPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsSolutionPlanPtrInput)(nil)).Elem(), AnalyticsSolutionPlanArgs{})
 	pulumi.RegisterOutputType(AnalyticsSolutionPlanOutput{})
 	pulumi.RegisterOutputType(AnalyticsSolutionPlanPtrOutput{})
 }

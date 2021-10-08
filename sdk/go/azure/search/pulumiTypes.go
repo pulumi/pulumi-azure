@@ -513,6 +513,14 @@ func (o GetServiceQueryKeyArrayOutput) Index(i pulumi.IntInput) GetServiceQueryK
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIdentityInput)(nil)).Elem(), ServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIdentityPtrInput)(nil)).Elem(), ServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceQueryKeyInput)(nil)).Elem(), ServiceQueryKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceQueryKeyArrayInput)(nil)).Elem(), ServiceQueryKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceIdentityInput)(nil)).Elem(), GetServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceIdentityArrayInput)(nil)).Elem(), GetServiceIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceQueryKeyInput)(nil)).Elem(), GetServiceQueryKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceQueryKeyArrayInput)(nil)).Elem(), GetServiceQueryKeyArray{})
 	pulumi.RegisterOutputType(ServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceQueryKeyOutput{})

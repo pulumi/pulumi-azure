@@ -330,6 +330,10 @@ func (o DefinitionAuthorizationArrayOutput) Index(i pulumi.IntInput) DefinitionA
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPlanInput)(nil)).Elem(), ApplicationPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPlanPtrInput)(nil)).Elem(), ApplicationPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionAuthorizationInput)(nil)).Elem(), DefinitionAuthorizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionAuthorizationArrayInput)(nil)).Elem(), DefinitionAuthorizationArray{})
 	pulumi.RegisterOutputType(ApplicationPlanOutput{})
 	pulumi.RegisterOutputType(ApplicationPlanPtrOutput{})
 	pulumi.RegisterOutputType(DefinitionAuthorizationOutput{})

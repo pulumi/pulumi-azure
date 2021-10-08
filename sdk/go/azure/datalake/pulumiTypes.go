@@ -178,6 +178,8 @@ func (o StoreIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StoreIdentityInput)(nil)).Elem(), StoreIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StoreIdentityPtrInput)(nil)).Elem(), StoreIdentityArgs{})
 	pulumi.RegisterOutputType(StoreIdentityOutput{})
 	pulumi.RegisterOutputType(StoreIdentityPtrOutput{})
 }

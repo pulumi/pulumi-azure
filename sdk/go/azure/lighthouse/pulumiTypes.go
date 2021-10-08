@@ -329,6 +329,10 @@ func (o DefinitionPlanPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionAuthorizationInput)(nil)).Elem(), DefinitionAuthorizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionAuthorizationArrayInput)(nil)).Elem(), DefinitionAuthorizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionPlanInput)(nil)).Elem(), DefinitionPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionPlanPtrInput)(nil)).Elem(), DefinitionPlanArgs{})
 	pulumi.RegisterOutputType(DefinitionAuthorizationOutput{})
 	pulumi.RegisterOutputType(DefinitionAuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(DefinitionPlanOutput{})

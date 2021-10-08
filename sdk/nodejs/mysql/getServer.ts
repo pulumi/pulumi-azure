@@ -126,3 +126,21 @@ export interface GetServerResult {
      */
     readonly version: string;
 }
+
+export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
+    return pulumi.output(args).apply(a => getServer(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getServer.
+ */
+export interface GetServerOutputArgs {
+    /**
+     * Specifies the name of the MySQL Server.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group for the MySQL Server.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

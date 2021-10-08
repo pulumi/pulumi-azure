@@ -94,3 +94,25 @@ export interface GetSubnetResult {
     readonly serviceEndpoints: string[];
     readonly virtualNetworkName: string;
 }
+
+export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
+    return pulumi.output(args).apply(a => getSubnet(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSubnet.
+ */
+export interface GetSubnetOutputArgs {
+    /**
+     * Specifies the name of the Subnet.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the resource group the Virtual Network is located in.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Virtual Network this Subnet is located within.
+     */
+    virtualNetworkName: pulumi.Input<string>;
+}

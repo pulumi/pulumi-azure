@@ -83,3 +83,29 @@ export interface GetShareResult {
     readonly resourceManagerId: string;
     readonly storageAccountName: string;
 }
+
+export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
+    return pulumi.output(args).apply(a => getShare(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getShare.
+ */
+export interface GetShareOutputArgs {
+    /**
+     * One or more acl blocks as defined below.
+     */
+    acls?: pulumi.Input<pulumi.Input<inputs.storage.GetShareAclArgs>[]>;
+    /**
+     * A map of custom file share metadata.
+     */
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the share.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the storage account.
+     */
+    storageAccountName: pulumi.Input<string>;
+}

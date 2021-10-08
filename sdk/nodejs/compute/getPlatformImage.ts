@@ -79,3 +79,33 @@ export interface GetPlatformImageResult {
     readonly sku: string;
     readonly version: string;
 }
+
+export function getPlatformImageOutput(args: GetPlatformImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlatformImageResult> {
+    return pulumi.output(args).apply(a => getPlatformImage(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPlatformImage.
+ */
+export interface GetPlatformImageOutputArgs {
+    /**
+     * Specifies the Location to pull information about this Platform Image from.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * Specifies the Offer associated with the Platform Image.
+     */
+    offer: pulumi.Input<string>;
+    /**
+     * Specifies the Publisher associated with the Platform Image.
+     */
+    publisher: pulumi.Input<string>;
+    /**
+     * Specifies the SKU of the Platform Image.
+     */
+    sku: pulumi.Input<string>;
+    /**
+     * The version of the Platform Image.
+     */
+    version?: pulumi.Input<string>;
+}

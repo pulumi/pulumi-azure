@@ -323,6 +323,10 @@ func (o AnalyzerStorageAccountPtrOutput) UserAssignedIdentityId() pulumi.StringP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerIdentityInput)(nil)).Elem(), AnalyzerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerIdentityPtrInput)(nil)).Elem(), AnalyzerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerStorageAccountInput)(nil)).Elem(), AnalyzerStorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerStorageAccountPtrInput)(nil)).Elem(), AnalyzerStorageAccountArgs{})
 	pulumi.RegisterOutputType(AnalyzerIdentityOutput{})
 	pulumi.RegisterOutputType(AnalyzerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AnalyzerStorageAccountOutput{})

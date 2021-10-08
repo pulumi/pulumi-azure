@@ -71,3 +71,21 @@ export interface GetInstanceResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+    return pulumi.output(args).apply(a => getInstance(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getInstance.
+ */
+export interface GetInstanceOutputArgs {
+    /**
+     * The name of this Digital Twins instance.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Digital Twins instance exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -95,3 +95,21 @@ export interface GetAccountResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+    return pulumi.output(args).apply(a => getAccount(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAccount.
+ */
+export interface GetAccountOutputArgs {
+    /**
+     * The name of the Batch account.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group where this Batch account exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

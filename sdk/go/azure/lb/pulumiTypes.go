@@ -806,6 +806,18 @@ func (o GetLBFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetLBF
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolBackendAddressInput)(nil)).Elem(), BackendAddressPoolBackendAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolBackendAddressArrayInput)(nil)).Elem(), BackendAddressPoolBackendAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerFrontendIpConfigurationInput)(nil)).Elem(), LoadBalancerFrontendIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerFrontendIpConfigurationArrayInput)(nil)).Elem(), LoadBalancerFrontendIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundRuleFrontendIpConfigurationInput)(nil)).Elem(), OutboundRuleFrontendIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundRuleFrontendIpConfigurationArrayInput)(nil)).Elem(), OutboundRuleFrontendIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBackendAddressPoolBackendAddressInput)(nil)).Elem(), GetBackendAddressPoolBackendAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBackendAddressPoolBackendAddressArrayInput)(nil)).Elem(), GetBackendAddressPoolBackendAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBackendAddressPoolBackendIpConfigurationInput)(nil)).Elem(), GetBackendAddressPoolBackendIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBackendAddressPoolBackendIpConfigurationArrayInput)(nil)).Elem(), GetBackendAddressPoolBackendIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLBFrontendIpConfigurationInput)(nil)).Elem(), GetLBFrontendIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLBFrontendIpConfigurationArrayInput)(nil)).Elem(), GetLBFrontendIpConfigurationArray{})
 	pulumi.RegisterOutputType(BackendAddressPoolBackendAddressOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolBackendAddressArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIpConfigurationOutput{})

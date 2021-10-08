@@ -637,6 +637,16 @@ func (o AutomationSourceRuleSetRuleArrayOutput) Index(i pulumi.IntInput) Automat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentStatusInput)(nil)).Elem(), AssessmentStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentStatusPtrInput)(nil)).Elem(), AssessmentStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationActionInput)(nil)).Elem(), AutomationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationActionArrayInput)(nil)).Elem(), AutomationActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationSourceInput)(nil)).Elem(), AutomationSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationSourceArrayInput)(nil)).Elem(), AutomationSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationSourceRuleSetInput)(nil)).Elem(), AutomationSourceRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationSourceRuleSetArrayInput)(nil)).Elem(), AutomationSourceRuleSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationSourceRuleSetRuleInput)(nil)).Elem(), AutomationSourceRuleSetRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationSourceRuleSetRuleArrayInput)(nil)).Elem(), AutomationSourceRuleSetRuleArray{})
 	pulumi.RegisterOutputType(AssessmentStatusOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(AutomationActionOutput{})

@@ -83,3 +83,21 @@ export interface GetDatasetBlobStorageResult {
      */
     readonly storageAccounts: outputs.datashare.GetDatasetBlobStorageStorageAccount[];
 }
+
+export function getDatasetBlobStorageOutput(args: GetDatasetBlobStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetBlobStorageResult> {
+    return pulumi.output(args).apply(a => getDatasetBlobStorage(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDatasetBlobStorage.
+ */
+export interface GetDatasetBlobStorageOutputArgs {
+    /**
+     * The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.
+     */
+    dataShareId: pulumi.Input<string>;
+    /**
+     * The name of this Data Share Blob Storage Dataset.
+     */
+    name: pulumi.Input<string>;
+}

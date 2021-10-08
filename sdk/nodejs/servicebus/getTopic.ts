@@ -106,3 +106,25 @@ export interface GetTopicResult {
      */
     readonly supportOrdering: boolean;
 }
+
+export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
+    return pulumi.output(args).apply(a => getTopic(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getTopic.
+ */
+export interface GetTopicOutputArgs {
+    /**
+     * The name of this Service Bus Topic.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Service Bus Namespace.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Service Bus Topic exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

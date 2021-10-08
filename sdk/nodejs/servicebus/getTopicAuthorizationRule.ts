@@ -101,3 +101,29 @@ export interface GetTopicAuthorizationRuleResult {
     readonly send: boolean;
     readonly topicName: string;
 }
+
+export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
+    return pulumi.output(args).apply(a => getTopicAuthorizationRule(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getTopicAuthorizationRule.
+ */
+export interface GetTopicAuthorizationRuleOutputArgs {
+    /**
+     * The name of the ServiceBus Topic Authorization Rule resource.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the ServiceBus Namespace.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which the ServiceBus Namespace exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the ServiceBus Topic.
+     */
+    topicName: pulumi.Input<string>;
+}

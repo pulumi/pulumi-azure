@@ -81,3 +81,22 @@ export interface GetDpsResult {
     readonly serviceOperationsHostName: string;
     readonly tags?: {[key: string]: string};
 }
+
+export function getDpsOutput(args: GetDpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsResult> {
+    return pulumi.output(args).apply(a => getDps(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDps.
+ */
+export interface GetDpsOutputArgs {
+    /**
+     * Specifies the name of the Iot Device Provisioning Service resource.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group under which the Iot Device Provisioning Service is located in.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

@@ -84,3 +84,21 @@ export interface GetLocalNetworkGatewayResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
+    return pulumi.output(args).apply(a => getLocalNetworkGateway(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLocalNetworkGateway.
+ */
+export interface GetLocalNetworkGatewayOutputArgs {
+    /**
+     * The name of the Local Network Gateway.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Local Network Gateway exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

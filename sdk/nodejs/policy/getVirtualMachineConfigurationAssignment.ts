@@ -90,3 +90,25 @@ export interface GetVirtualMachineConfigurationAssignmentResult {
     readonly resourceGroupName: string;
     readonly virtualMachineName: string;
 }
+
+export function getVirtualMachineConfigurationAssignmentOutput(args: GetVirtualMachineConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineConfigurationAssignmentResult> {
+    return pulumi.output(args).apply(a => getVirtualMachineConfigurationAssignment(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVirtualMachineConfigurationAssignment.
+ */
+export interface GetVirtualMachineConfigurationAssignmentOutputArgs {
+    /**
+     * Specifies the name of the Guest Configuration Assignment.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the Name of the Resource Group where the Guest Configuration Assignment exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Only retrieve Policy Set Definitions from this Management Group.
+     */
+    virtualMachineName: pulumi.Input<string>;
+}

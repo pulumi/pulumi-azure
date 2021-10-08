@@ -1384,6 +1384,22 @@ func (o GetServiceSecurityArrayOutput) Index(i pulumi.IntInput) GetServiceSecuri
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInitialReplicaSetInput)(nil)).Elem(), ServiceInitialReplicaSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInitialReplicaSetPtrInput)(nil)).Elem(), ServiceInitialReplicaSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNotificationsInput)(nil)).Elem(), ServiceNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNotificationsPtrInput)(nil)).Elem(), ServiceNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSecureLdapInput)(nil)).Elem(), ServiceSecureLdapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSecureLdapPtrInput)(nil)).Elem(), ServiceSecureLdapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSecurityInput)(nil)).Elem(), ServiceSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSecurityPtrInput)(nil)).Elem(), ServiceSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceNotificationInput)(nil)).Elem(), GetServiceNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceNotificationArrayInput)(nil)).Elem(), GetServiceNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceReplicaSetInput)(nil)).Elem(), GetServiceReplicaSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceReplicaSetArrayInput)(nil)).Elem(), GetServiceReplicaSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceSecureLdapInput)(nil)).Elem(), GetServiceSecureLdapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceSecureLdapArrayInput)(nil)).Elem(), GetServiceSecureLdapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceSecurityInput)(nil)).Elem(), GetServiceSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceSecurityArrayInput)(nil)).Elem(), GetServiceSecurityArray{})
 	pulumi.RegisterOutputType(ServiceInitialReplicaSetOutput{})
 	pulumi.RegisterOutputType(ServiceInitialReplicaSetPtrOutput{})
 	pulumi.RegisterOutputType(ServiceNotificationsOutput{})

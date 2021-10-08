@@ -73,3 +73,21 @@ export interface GetFunctionAppHostKeysResult {
     readonly primaryKey: string;
     readonly resourceGroupName: string;
 }
+
+export function getFunctionAppHostKeysOutput(args: GetFunctionAppHostKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionAppHostKeysResult> {
+    return pulumi.output(args).apply(a => getFunctionAppHostKeys(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFunctionAppHostKeys.
+ */
+export interface GetFunctionAppHostKeysOutputArgs {
+    /**
+     * The name of the Function App.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Function App exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

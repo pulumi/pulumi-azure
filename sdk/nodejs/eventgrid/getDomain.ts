@@ -109,3 +109,33 @@ export interface GetDomainResult {
      */
     readonly tags?: {[key: string]: string};
 }
+
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+    return pulumi.output(args).apply(a => getDomain(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDomain.
+ */
+export interface GetDomainOutputArgs {
+    /**
+     * One or more `inboundIpRule` blocks as defined below.
+     */
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.GetDomainInboundIpRuleArgs>[]>;
+    /**
+     * The name of the EventGrid Domain resource.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Whether or not public network access is allowed for this server.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the resource group in which the EventGrid Domain exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags assigned to the EventGrid Domain.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

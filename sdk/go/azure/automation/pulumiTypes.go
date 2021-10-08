@@ -844,6 +844,18 @@ func (o ScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) ScheduleM
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkInput)(nil)).Elem(), ModuleModuleLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkPtrInput)(nil)).Elem(), ModuleModuleLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkHashInput)(nil)).Elem(), ModuleModuleLinkHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkHashPtrInput)(nil)).Elem(), ModuleModuleLinkHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookJobScheduleInput)(nil)).Elem(), RunBookJobScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookJobScheduleArrayInput)(nil)).Elem(), RunBookJobScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookPublishContentLinkInput)(nil)).Elem(), RunBookPublishContentLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookPublishContentLinkPtrInput)(nil)).Elem(), RunBookPublishContentLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookPublishContentLinkHashInput)(nil)).Elem(), RunBookPublishContentLinkHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookPublishContentLinkHashPtrInput)(nil)).Elem(), RunBookPublishContentLinkHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMonthlyOccurrenceInput)(nil)).Elem(), ScheduleMonthlyOccurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMonthlyOccurrenceArrayInput)(nil)).Elem(), ScheduleMonthlyOccurrenceArray{})
 	pulumi.RegisterOutputType(ModuleModuleLinkOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkPtrOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkHashOutput{})

@@ -80,3 +80,25 @@ export interface GetWorkspaceResult {
      */
     readonly workspaceUrl: string;
 }
+
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+    return pulumi.output(args).apply(a => getWorkspace(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getWorkspace.
+ */
+export interface GetWorkspaceOutputArgs {
+    /**
+     * The name of the Databricks Workspace.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group where the Databricks Workspace exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the Databricks Workspace.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

@@ -180,6 +180,8 @@ func (o GetRecommendationsRecommendationArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecommendationsRecommendationInput)(nil)).Elem(), GetRecommendationsRecommendationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecommendationsRecommendationArrayInput)(nil)).Elem(), GetRecommendationsRecommendationArray{})
 	pulumi.RegisterOutputType(GetRecommendationsRecommendationOutput{})
 	pulumi.RegisterOutputType(GetRecommendationsRecommendationArrayOutput{})
 }

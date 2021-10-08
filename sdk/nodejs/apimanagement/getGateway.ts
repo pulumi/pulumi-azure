@@ -74,3 +74,21 @@ export interface GetGatewayResult {
      */
     readonly name: string;
 }
+
+export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
+    return pulumi.output(args).apply(a => getGateway(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getGateway.
+ */
+export interface GetGatewayOutputArgs {
+    /**
+     * The ID of the API Management Service in which the Gateway exists.
+     */
+    apiManagementId: pulumi.Input<string>;
+    /**
+     * The name of the API Management Gateway.
+     */
+    name: pulumi.Input<string>;
+}

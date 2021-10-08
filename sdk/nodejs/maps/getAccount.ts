@@ -78,3 +78,22 @@ export interface GetAccountResult {
      */
     readonly xMsClientId: string;
 }
+
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+    return pulumi.output(args).apply(a => getAccount(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAccount.
+ */
+export interface GetAccountOutputArgs {
+    /**
+     * Specifies the name of the Maps Account.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Resource Group in which the Maps Account is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

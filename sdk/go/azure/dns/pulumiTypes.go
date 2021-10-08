@@ -757,6 +757,16 @@ func (o ZoneSoaRecordPtrOutput) Ttl() pulumi.IntPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CaaRecordRecordInput)(nil)).Elem(), CaaRecordRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CaaRecordRecordArrayInput)(nil)).Elem(), CaaRecordRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MxRecordRecordInput)(nil)).Elem(), MxRecordRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MxRecordRecordArrayInput)(nil)).Elem(), MxRecordRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SrvRecordRecordInput)(nil)).Elem(), SrvRecordRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SrvRecordRecordArrayInput)(nil)).Elem(), SrvRecordRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TxtRecordRecordInput)(nil)).Elem(), TxtRecordRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TxtRecordRecordArrayInput)(nil)).Elem(), TxtRecordRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSoaRecordInput)(nil)).Elem(), ZoneSoaRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSoaRecordPtrInput)(nil)).Elem(), ZoneSoaRecordArgs{})
 	pulumi.RegisterOutputType(CaaRecordRecordOutput{})
 	pulumi.RegisterOutputType(CaaRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordRecordOutput{})

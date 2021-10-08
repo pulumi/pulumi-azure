@@ -69,3 +69,21 @@ export interface GetEndpointConnectionResult {
     readonly privateServiceConnections: outputs.privatelink.GetEndpointConnectionPrivateServiceConnection[];
     readonly resourceGroupName: string;
 }
+
+export function getEndpointConnectionOutput(args: GetEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getEndpointConnection(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getEndpointConnection.
+ */
+export interface GetEndpointConnectionOutputArgs {
+    /**
+     * Specifies the Name of the private endpoint.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the Name of the Resource Group within which the private endpoint exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

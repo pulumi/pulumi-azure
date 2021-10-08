@@ -354,6 +354,10 @@ func (o GetConfigurationWindowArrayOutput) Index(i pulumi.IntInput) GetConfigura
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationWindowInput)(nil)).Elem(), ConfigurationWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationWindowPtrInput)(nil)).Elem(), ConfigurationWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationWindowInput)(nil)).Elem(), GetConfigurationWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationWindowArrayInput)(nil)).Elem(), GetConfigurationWindowArray{})
 	pulumi.RegisterOutputType(ConfigurationWindowOutput{})
 	pulumi.RegisterOutputType(ConfigurationWindowPtrOutput{})
 	pulumi.RegisterOutputType(GetConfigurationWindowOutput{})

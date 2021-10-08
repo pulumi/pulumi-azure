@@ -71,3 +71,21 @@ export interface GetSyncResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getSyncOutput(args: GetSyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncResult> {
+    return pulumi.output(args).apply(a => getSync(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSync.
+ */
+export interface GetSyncOutputArgs {
+    /**
+     * The name of this Storage Sync.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Storage Sync exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

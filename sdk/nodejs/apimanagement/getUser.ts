@@ -72,3 +72,25 @@ export interface GetUserResult {
     readonly state: string;
     readonly userId: string;
 }
+
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+    return pulumi.output(args).apply(a => getUser(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUser.
+ */
+export interface GetUserOutputArgs {
+    /**
+     * The Name of the API Management Service in which this User exists.
+     */
+    apiManagementName: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group in which the API Management Service exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Identifier for the User.
+     */
+    userId: pulumi.Input<string>;
+}

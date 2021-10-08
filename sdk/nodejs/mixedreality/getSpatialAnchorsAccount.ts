@@ -68,3 +68,21 @@ export interface GetSpatialAnchorsAccountResult {
     readonly name: string;
     readonly resourceGroupName: string;
 }
+
+export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
+    return pulumi.output(args).apply(a => getSpatialAnchorsAccount(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSpatialAnchorsAccount.
+ */
+export interface GetSpatialAnchorsAccountOutputArgs {
+    /**
+     * Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which to create the Spatial Anchors Account.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

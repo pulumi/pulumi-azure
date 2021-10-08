@@ -601,6 +601,12 @@ func (o GetWorkspacePrivateEndpointConnectionConnectionArrayOutput) Index(i pulu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomParametersInput)(nil)).Elem(), WorkspaceCustomParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomParametersPtrInput)(nil)).Elem(), WorkspaceCustomParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceStorageAccountIdentityInput)(nil)).Elem(), WorkspaceStorageAccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceStorageAccountIdentityArrayInput)(nil)).Elem(), WorkspaceStorageAccountIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionConnectionInput)(nil)).Elem(), GetWorkspacePrivateEndpointConnectionConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionConnectionArrayInput)(nil)).Elem(), GetWorkspacePrivateEndpointConnectionConnectionArray{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityOutput{})

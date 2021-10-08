@@ -78,3 +78,25 @@ export interface GetBoolVariableResult {
      */
     readonly value: boolean;
 }
+
+export function getBoolVariableOutput(args: GetBoolVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBoolVariableResult> {
+    return pulumi.output(args).apply(a => getBoolVariable(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getBoolVariable.
+ */
+export interface GetBoolVariableOutputArgs {
+    /**
+     * The name of the automation account in which the Automation Variable exists.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * The name of the Automation Variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group where the automation account exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

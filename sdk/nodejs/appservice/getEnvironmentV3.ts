@@ -124,3 +124,21 @@ export interface GetEnvironmentV3Result {
     readonly windowsOutboundIpAddresses: string[];
     readonly zoneRedundant: boolean;
 }
+
+export function getEnvironmentV3Output(args: GetEnvironmentV3OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentV3Result> {
+    return pulumi.output(args).apply(a => getEnvironmentV3(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getEnvironmentV3.
+ */
+export interface GetEnvironmentV3OutputArgs {
+    /**
+     * The name of this v3 App Service Environment.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the v3 App Service Environment exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -7,8 +7,8 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.7.0
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20210812080924-c853ec4222d8
 	github.com/hashicorp/terraform-provider-azurerm/shim v0.0.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.8.2-0.20210930033847-5bba386a0e79
-	github.com/pulumi/pulumi/sdk/v3 v3.13.2
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.9.0
+	github.com/pulumi/pulumi/sdk/v3 v3.14.1-0.20211007222624-789e39219452
 )
 
 replace (

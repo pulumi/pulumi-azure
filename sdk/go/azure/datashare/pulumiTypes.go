@@ -881,6 +881,18 @@ func (o GetShareSnapshotScheduleArrayOutput) Index(i pulumi.IntInput) GetShareSn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBlobStorageStorageAccountInput)(nil)).Elem(), DatasetBlobStorageStorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBlobStorageStorageAccountPtrInput)(nil)).Elem(), DatasetBlobStorageStorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareSnapshotScheduleInput)(nil)).Elem(), ShareSnapshotScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareSnapshotSchedulePtrInput)(nil)).Elem(), ShareSnapshotScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityInput)(nil)).Elem(), GetAccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityArrayInput)(nil)).Elem(), GetAccountIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatasetBlobStorageStorageAccountInput)(nil)).Elem(), GetDatasetBlobStorageStorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatasetBlobStorageStorageAccountArrayInput)(nil)).Elem(), GetDatasetBlobStorageStorageAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetShareSnapshotScheduleInput)(nil)).Elem(), GetShareSnapshotScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetShareSnapshotScheduleArrayInput)(nil)).Elem(), GetShareSnapshotScheduleArray{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(DatasetBlobStorageStorageAccountOutput{})

@@ -692,6 +692,14 @@ func (o ClusterVirtualNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityInput)(nil)).Elem(), ClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityPtrInput)(nil)).Elem(), ClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOptimizedAutoScaleInput)(nil)).Elem(), ClusterOptimizedAutoScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOptimizedAutoScalePtrInput)(nil)).Elem(), ClusterOptimizedAutoScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuInput)(nil)).Elem(), ClusterSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuPtrInput)(nil)).Elem(), ClusterSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVirtualNetworkConfigurationInput)(nil)).Elem(), ClusterVirtualNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVirtualNetworkConfigurationPtrInput)(nil)).Elem(), ClusterVirtualNetworkConfigurationArgs{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOptimizedAutoScaleOutput{})

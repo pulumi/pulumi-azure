@@ -128,3 +128,22 @@ export interface GetCacheResult {
     readonly tags: {[key: string]: string};
     readonly zones: string[];
 }
+
+export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
+    return pulumi.output(args).apply(a => getCache(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCache.
+ */
+export interface GetCacheOutputArgs {
+    /**
+     * The name of the Redis cache
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group the Redis cache instance is located in.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
+}

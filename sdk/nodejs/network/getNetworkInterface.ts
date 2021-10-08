@@ -115,3 +115,21 @@ export interface GetNetworkInterfaceResult {
      */
     readonly virtualMachineId: string;
 }
+
+export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
+    return pulumi.output(args).apply(a => getNetworkInterface(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getNetworkInterface.
+ */
+export interface GetNetworkInterfaceOutputArgs {
+    /**
+     * Specifies the name of the Network Interface.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the resource group the Network Interface is located in.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

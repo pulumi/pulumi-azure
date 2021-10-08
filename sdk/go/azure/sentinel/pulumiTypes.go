@@ -785,6 +785,16 @@ func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) Index(i pulumi.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEventGroupingInput)(nil)).Elem(), AlertRuleScheduledEventGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEventGroupingPtrInput)(nil)).Elem(), AlertRuleScheduledEventGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationPtrInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationGroupingInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationGroupingPtrInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateScheduledTemplateInput)(nil)).Elem(), GetAlertRuleTemplateScheduledTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateScheduledTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateScheduledTemplateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplateInput)(nil)).Elem(), GetAlertRuleTemplateSecurityIncidentTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateSecurityIncidentTemplateArray{})
 	pulumi.RegisterOutputType(AlertRuleScheduledEventGroupingOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledEventGroupingPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationOutput{})

@@ -95,3 +95,25 @@ export interface GetSpringCloudAppResult {
      */
     readonly url: string;
 }
+
+export function getSpringCloudAppOutput(args: GetSpringCloudAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringCloudAppResult> {
+    return pulumi.output(args).apply(a => getSpringCloudApp(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSpringCloudApp.
+ */
+export interface GetSpringCloudAppOutputArgs {
+    /**
+     * The name of the Spring Cloud Application.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Spring Cloud Application exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Spring Cloud Service.
+     */
+    serviceName: pulumi.Input<string>;
+}

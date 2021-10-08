@@ -78,3 +78,25 @@ export interface GetIntVariableResult {
      */
     readonly value: number;
 }
+
+export function getIntVariableOutput(args: GetIntVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntVariableResult> {
+    return pulumi.output(args).apply(a => getIntVariable(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getIntVariable.
+ */
+export interface GetIntVariableOutputArgs {
+    /**
+     * The name of the automation account in which the Automation Variable exists.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * The name of the Automation Variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group where the automation account exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

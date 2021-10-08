@@ -764,6 +764,16 @@ func (o ProfileMonitorConfigCustomHeaderArrayOutput) Index(i pulumi.IntInput) Pr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomHeaderInput)(nil)).Elem(), EndpointCustomHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomHeaderArrayInput)(nil)).Elem(), EndpointCustomHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointSubnetInput)(nil)).Elem(), EndpointSubnetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointSubnetArrayInput)(nil)).Elem(), EndpointSubnetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileDnsConfigInput)(nil)).Elem(), ProfileDnsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileDnsConfigPtrInput)(nil)).Elem(), ProfileDnsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileMonitorConfigInput)(nil)).Elem(), ProfileMonitorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileMonitorConfigPtrInput)(nil)).Elem(), ProfileMonitorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileMonitorConfigCustomHeaderInput)(nil)).Elem(), ProfileMonitorConfigCustomHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileMonitorConfigCustomHeaderArrayInput)(nil)).Elem(), ProfileMonitorConfigCustomHeaderArray{})
 	pulumi.RegisterOutputType(EndpointCustomHeaderOutput{})
 	pulumi.RegisterOutputType(EndpointCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(EndpointSubnetOutput{})

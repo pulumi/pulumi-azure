@@ -109,3 +109,25 @@ export interface GetFirewallResult {
      */
     readonly zones: string[];
 }
+
+export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
+    return pulumi.output(args).apply(a => getFirewall(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFirewall.
+ */
+export interface GetFirewallOutputArgs {
+    /**
+     * The name of the Azure Firewall.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group in which the Azure Firewall exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The availability zones in which the Azure Firewall is created.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
+}

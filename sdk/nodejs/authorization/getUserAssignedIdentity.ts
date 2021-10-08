@@ -82,3 +82,21 @@ export interface GetUserAssignedIdentityResult {
      */
     readonly tenantId: string;
 }
+
+export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
+    return pulumi.output(args).apply(a => getUserAssignedIdentity(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUserAssignedIdentity.
+ */
+export interface GetUserAssignedIdentityOutputArgs {
+    /**
+     * The name of the User Assigned Identity.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group in which the User Assigned Identity exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

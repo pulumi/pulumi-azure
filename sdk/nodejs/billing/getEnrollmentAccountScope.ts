@@ -59,3 +59,21 @@ export interface GetEnrollmentAccountScopeResult {
      */
     readonly id: string;
 }
+
+export function getEnrollmentAccountScopeOutput(args: GetEnrollmentAccountScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnrollmentAccountScopeResult> {
+    return pulumi.output(args).apply(a => getEnrollmentAccountScope(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getEnrollmentAccountScope.
+ */
+export interface GetEnrollmentAccountScopeOutputArgs {
+    /**
+     * The Billing Account Name of the Enterprise Account.
+     */
+    billingAccountName: pulumi.Input<string>;
+    /**
+     * The Enrollment Account Name in the above Enterprise Account.
+     */
+    enrollmentAccountName: pulumi.Input<string>;
+}

@@ -62,3 +62,21 @@ export interface GetImagesResult {
     readonly resourceGroupName: string;
     readonly tagsFilter?: {[key: string]: string};
 }
+
+export function getImagesOutput(args: GetImagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagesResult> {
+    return pulumi.output(args).apply(a => getImages(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getImages.
+ */
+export interface GetImagesOutputArgs {
+    /**
+     * The name of the Resource Group in which the Image exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to filter the list of images against.
+     */
+    tagsFilter?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

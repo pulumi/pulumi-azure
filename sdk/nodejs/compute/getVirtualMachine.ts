@@ -65,3 +65,21 @@ export interface GetVirtualMachineResult {
     readonly name: string;
     readonly resourceGroupName: string;
 }
+
+export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
+    return pulumi.output(args).apply(a => getVirtualMachine(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVirtualMachine.
+ */
+export interface GetVirtualMachineOutputArgs {
+    /**
+     * Specifies the name of the Virtual Machine.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the resource group the Virtual Machine is located in.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -114,3 +114,25 @@ export interface GetLBRuleResult {
     readonly protocol: string;
     readonly resourceGroupName: string;
 }
+
+export function getLBRuleOutput(args: GetLBRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLBRuleResult> {
+    return pulumi.output(args).apply(a => getLBRule(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLBRule.
+ */
+export interface GetLBRuleOutputArgs {
+    /**
+     * The ID of the Load Balancer Rule.
+     */
+    loadbalancerId: pulumi.Input<string>;
+    /**
+     * The name of this Load Balancer Rule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Load Balancer Rule exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}
