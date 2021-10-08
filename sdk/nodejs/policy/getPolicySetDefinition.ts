@@ -100,3 +100,25 @@ export interface GetPolicySetDefinitionResult {
      */
     readonly policyType: string;
 }
+
+export function getPolicySetDefinitionOutput(args?: GetPolicySetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionResult> {
+    return pulumi.output(args).apply(a => getPolicySetDefinition(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPolicySetDefinition.
+ */
+export interface GetPolicySetDefinitionOutputArgs {
+    /**
+     * Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
+     * Only retrieve Policy Set Definitions from this Management Group.
+     */
+    managementGroupName?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Policy Set Definition. Conflicts with `displayName`.
+     */
+    name?: pulumi.Input<string>;
+}

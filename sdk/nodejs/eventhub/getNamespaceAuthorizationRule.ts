@@ -102,3 +102,25 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly send: boolean;
 }
+
+export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
+    return pulumi.output(args).apply(a => getNamespaceAuthorizationRule(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getNamespaceAuthorizationRule.
+ */
+export interface GetNamespaceAuthorizationRuleOutputArgs {
+    /**
+     * The name of the EventHub Authorization Rule resource.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the EventHub Namespace.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which the EventHub Namespace exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

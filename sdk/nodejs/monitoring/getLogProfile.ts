@@ -70,3 +70,17 @@ export interface GetLogProfileResult {
      */
     readonly storageAccountId: string;
 }
+
+export function getLogProfileOutput(args: GetLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogProfileResult> {
+    return pulumi.output(args).apply(a => getLogProfile(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLogProfile.
+ */
+export interface GetLogProfileOutputArgs {
+    /**
+     * Specifies the Name of the Log Profile.
+     */
+    name: pulumi.Input<string>;
+}

@@ -178,6 +178,8 @@ func (o VaultIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultIdentityInput)(nil)).Elem(), VaultIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultIdentityPtrInput)(nil)).Elem(), VaultIdentityArgs{})
 	pulumi.RegisterOutputType(VaultIdentityOutput{})
 	pulumi.RegisterOutputType(VaultIdentityPtrOutput{})
 }

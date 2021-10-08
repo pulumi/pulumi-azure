@@ -126,6 +126,8 @@ func (o ServerIpv4FirewallRuleArrayOutput) Index(i pulumi.IntInput) ServerIpv4Fi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerIpv4FirewallRuleInput)(nil)).Elem(), ServerIpv4FirewallRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerIpv4FirewallRuleArrayInput)(nil)).Elem(), ServerIpv4FirewallRuleArray{})
 	pulumi.RegisterOutputType(ServerIpv4FirewallRuleOutput{})
 	pulumi.RegisterOutputType(ServerIpv4FirewallRuleArrayOutput{})
 }

@@ -71,3 +71,21 @@ export interface GetEncryptionScopeResult {
     readonly source: string;
     readonly storageAccountId: string;
 }
+
+export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
+    return pulumi.output(args).apply(a => getEncryptionScope(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getEncryptionScope.
+ */
+export interface GetEncryptionScopeOutputArgs {
+    /**
+     * The name of this Storage Encryption Scope.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The ID of the Storage Account where this Storage Encryption Scope exists.
+     */
+    storageAccountId: pulumi.Input<string>;
+}

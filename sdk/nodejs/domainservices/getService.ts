@@ -106,3 +106,21 @@ export interface GetServiceResult {
     readonly tenantId: string;
     readonly version: number;
 }
+
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+    return pulumi.output(args).apply(a => getService(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getService.
+ */
+export interface GetServiceOutputArgs {
+    /**
+     * The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

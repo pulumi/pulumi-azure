@@ -95,3 +95,21 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
+    return pulumi.output(args).apply(a => getAppServiceEnvironment(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAppServiceEnvironment.
+ */
+export interface GetAppServiceEnvironmentOutputArgs {
+    /**
+     * The name of this App Service Environment.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the App Service Environment exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -74,3 +74,25 @@ export interface GetAlertRuleTemplateResult {
      */
     readonly securityIncidentTemplates: outputs.sentinel.GetAlertRuleTemplateSecurityIncidentTemplate[];
 }
+
+export function getAlertRuleTemplateOutput(args: GetAlertRuleTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleTemplateResult> {
+    return pulumi.output(args).apply(a => getAlertRuleTemplate(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAlertRuleTemplate.
+ */
+export interface GetAlertRuleTemplateOutputArgs {
+    /**
+     * The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
+     * The ID of the Log Analytics Workspace.
+     */
+    logAnalyticsWorkspaceId: pulumi.Input<string>;
+    /**
+     * The name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+     */
+    name?: pulumi.Input<string>;
+}

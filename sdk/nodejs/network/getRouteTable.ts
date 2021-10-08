@@ -78,3 +78,21 @@ export interface GetRouteTableResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
+    return pulumi.output(args).apply(a => getRouteTable(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRouteTable.
+ */
+export interface GetRouteTableOutputArgs {
+    /**
+     * The name of the Route Table.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group in which the Route Table exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

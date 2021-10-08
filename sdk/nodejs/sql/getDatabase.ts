@@ -112,3 +112,29 @@ export interface GetDatabaseResult {
      */
     readonly tags?: {[key: string]: string};
 }
+
+export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
+    return pulumi.output(args).apply(a => getDatabase(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDatabase.
+ */
+export interface GetDatabaseOutputArgs {
+    /**
+     * The name of the SQL Database.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Resource Group where the Azure SQL Database exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the SQL Server.
+     */
+    serverName: pulumi.Input<string>;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

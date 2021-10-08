@@ -167,6 +167,8 @@ func (o ModuleNetworkProfilePtrOutput) SubnetId() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleNetworkProfileInput)(nil)).Elem(), ModuleNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleNetworkProfilePtrInput)(nil)).Elem(), ModuleNetworkProfileArgs{})
 	pulumi.RegisterOutputType(ModuleNetworkProfileOutput{})
 	pulumi.RegisterOutputType(ModuleNetworkProfilePtrOutput{})
 }

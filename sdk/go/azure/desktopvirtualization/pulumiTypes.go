@@ -182,6 +182,8 @@ func (o HostPoolRegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolRegistrationInfoInput)(nil)).Elem(), HostPoolRegistrationInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolRegistrationInfoPtrInput)(nil)).Elem(), HostPoolRegistrationInfoArgs{})
 	pulumi.RegisterOutputType(HostPoolRegistrationInfoOutput{})
 	pulumi.RegisterOutputType(HostPoolRegistrationInfoPtrOutput{})
 }

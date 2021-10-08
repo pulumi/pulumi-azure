@@ -63,3 +63,21 @@ export interface GetAlertRuleResult {
     readonly logAnalyticsWorkspaceId: string;
     readonly name: string;
 }
+
+export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {
+    return pulumi.output(args).apply(a => getAlertRule(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAlertRule.
+ */
+export interface GetAlertRuleOutputArgs {
+    /**
+     * The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.
+     */
+    logAnalyticsWorkspaceId: pulumi.Input<string>;
+    /**
+     * The name which should be used for this Sentinel Alert Rule.
+     */
+    name: pulumi.Input<string>;
+}

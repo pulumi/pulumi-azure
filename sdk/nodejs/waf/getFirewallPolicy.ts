@@ -63,3 +63,22 @@ export interface GetFirewallPolicyResult {
     readonly resourceGroupName: string;
     readonly tags?: {[key: string]: string};
 }
+
+export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
+    return pulumi.output(args).apply(a => getFirewallPolicy(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFirewallPolicy.
+ */
+export interface GetFirewallPolicyOutputArgs {
+    /**
+     * The name of the Web Application Firewall Policy
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Web Application Firewall Policy exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

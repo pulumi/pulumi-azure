@@ -48,3 +48,16 @@ export interface GetRoleDefinitionResult {
     readonly scope?: string;
     readonly type: string;
 }
+
+export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
+    return pulumi.output(args).apply(a => getRoleDefinition(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRoleDefinition.
+ */
+export interface GetRoleDefinitionOutputArgs {
+    name?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
+}

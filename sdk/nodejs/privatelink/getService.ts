@@ -95,3 +95,21 @@ export interface GetServiceResult {
      */
     readonly visibilitySubscriptionIds: string[];
 }
+
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+    return pulumi.output(args).apply(a => getService(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getService.
+ */
+export interface GetServiceOutputArgs {
+    /**
+     * The name of the private link service.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which the private link service resides.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

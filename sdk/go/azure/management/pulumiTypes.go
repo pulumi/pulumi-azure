@@ -186,6 +186,8 @@ func (o GroupPolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentIdentityInput)(nil)).Elem(), GroupPolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentIdentityPtrInput)(nil)).Elem(), GroupPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentIdentityPtrOutput{})
 }

@@ -119,3 +119,22 @@ export interface GetFunctionAppResult {
     readonly sourceControls: outputs.appservice.GetFunctionAppSourceControl[];
     readonly tags?: {[key: string]: string};
 }
+
+export function getFunctionAppOutput(args: GetFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionAppResult> {
+    return pulumi.output(args).apply(a => getFunctionApp(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFunctionApp.
+ */
+export interface GetFunctionAppOutputArgs {
+    /**
+     * The name of the Function App resource.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Function App exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

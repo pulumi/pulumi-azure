@@ -83,3 +83,21 @@ export interface GetShareResult {
      */
     readonly terms: string;
 }
+
+export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
+    return pulumi.output(args).apply(a => getShare(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getShare.
+ */
+export interface GetShareOutputArgs {
+    /**
+     * The ID of the Data Share account in which the Data Share is created.
+     */
+    accountId: pulumi.Input<string>;
+    /**
+     * The name of this Data Share.
+     */
+    name: pulumi.Input<string>;
+}

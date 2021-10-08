@@ -70,3 +70,25 @@ export interface GetMongoDatabaseResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getMongoDatabaseOutput(args: GetMongoDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDatabaseResult> {
+    return pulumi.output(args).apply(a => getMongoDatabase(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getMongoDatabase.
+ */
+export interface GetMongoDatabaseOutputArgs {
+    /**
+     * The name of the Cosmos DB Account where the Mongo Database exists.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of this Cosmos DB Mongo Database.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Cosmos DB Mongo Database exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

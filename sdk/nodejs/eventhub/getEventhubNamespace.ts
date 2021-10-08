@@ -122,3 +122,21 @@ export interface GetEventhubNamespaceResult {
      */
     readonly zoneRedundant: boolean;
 }
+
+export function getEventhubNamespaceOutput(args: GetEventhubNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventhubNamespaceResult> {
+    return pulumi.output(args).apply(a => getEventhubNamespace(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getEventhubNamespace.
+ */
+export interface GetEventhubNamespaceOutputArgs {
+    /**
+     * The name of the EventHub Namespace.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group where the EventHub Namespace exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

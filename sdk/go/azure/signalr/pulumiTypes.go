@@ -765,6 +765,18 @@ func (o ServiceUpstreamEndpointArrayOutput) Index(i pulumi.IntInput) ServiceUpst
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorInput)(nil)).Elem(), ServiceCorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorArrayInput)(nil)).Elem(), ServiceCorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFeatureInput)(nil)).Elem(), ServiceFeatureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFeatureArrayInput)(nil)).Elem(), ServiceFeatureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPrivateEndpointInput)(nil)).Elem(), ServiceNetworkAclPrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPrivateEndpointArrayInput)(nil)).Elem(), ServiceNetworkAclPrivateEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPublicNetworkInput)(nil)).Elem(), ServiceNetworkAclPublicNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPublicNetworkPtrInput)(nil)).Elem(), ServiceNetworkAclPublicNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSkuInput)(nil)).Elem(), ServiceSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSkuPtrInput)(nil)).Elem(), ServiceSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUpstreamEndpointInput)(nil)).Elem(), ServiceUpstreamEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUpstreamEndpointArrayInput)(nil)).Elem(), ServiceUpstreamEndpointArray{})
 	pulumi.RegisterOutputType(ServiceCorOutput{})
 	pulumi.RegisterOutputType(ServiceCorArrayOutput{})
 	pulumi.RegisterOutputType(ServiceFeatureOutput{})

@@ -84,3 +84,21 @@ export interface GetConfigurationResult {
      */
     readonly windows: outputs.maintenance.GetConfigurationWindow[];
 }
+
+export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
+    return pulumi.output(args).apply(a => getConfiguration(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getConfiguration.
+ */
+export interface GetConfigurationOutputArgs {
+    /**
+     * Specifies the name of the Maintenance Configuration.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Resource Group where this Maintenance Configuration exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

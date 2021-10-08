@@ -88,3 +88,29 @@ export interface GetNatGatewayResult {
      */
     readonly zones: string[];
 }
+
+export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
+    return pulumi.output(args).apply(a => getNatGateway(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getNatGateway.
+ */
+export interface GetNatGatewayOutputArgs {
+    /**
+     * Specifies the Name of the NAT Gateway.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * A list of existing Public IP Address resource IDs which the NAT Gateway is using.
+     */
+    publicIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
+     */
+    publicIpPrefixIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the name of the Resource Group where the NAT Gateway exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

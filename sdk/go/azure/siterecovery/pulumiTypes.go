@@ -277,6 +277,10 @@ func (o ReplicatedVMNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Replic
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskInput)(nil)).Elem(), ReplicatedVMManagedDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskArrayInput)(nil)).Elem(), ReplicatedVMManagedDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceArrayInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceArray{})
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceOutput{})

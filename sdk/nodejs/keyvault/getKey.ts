@@ -91,3 +91,21 @@ export interface GetKeyResult {
      */
     readonly versionlessId: string;
 }
+
+export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
+    return pulumi.output(args).apply(a => getKey(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getKey.
+ */
+export interface GetKeyOutputArgs {
+    /**
+     * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     */
+    keyVaultId: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Key Vault Key.
+     */
+    name: pulumi.Input<string>;
+}

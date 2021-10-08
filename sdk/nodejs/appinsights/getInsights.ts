@@ -91,3 +91,21 @@ export interface GetInsightsResult {
      */
     readonly workspaceId: string;
 }
+
+export function getInsightsOutput(args: GetInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInsightsResult> {
+    return pulumi.output(args).apply(a => getInsights(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getInsights.
+ */
+export interface GetInsightsOutputArgs {
+    /**
+     * Specifies the name of the Application Insights component.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the resource group the Application Insights component is located in.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

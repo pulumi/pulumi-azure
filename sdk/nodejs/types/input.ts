@@ -3852,6 +3852,25 @@ export namespace batch {
         visibilities?: string[];
     }
 
+    export interface GetPoolCertificateArgs {
+        /**
+         * The fully qualified ID of the certificate installed on the pool.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
+         */
+        storeLocation: pulumi.Input<string>;
+        /**
+         * The name of the certificate store on the compute node into which the certificate is installed.
+         */
+        storeName?: pulumi.Input<string>;
+        /**
+         * Which user accounts on the compute node have access to the private data of the certificate.
+         */
+        visibilities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface GetPoolStartTask {
         /**
          * The command line executed by the start task.
@@ -3877,6 +3896,60 @@ export namespace batch {
          * A flag that indicates if the Batch pool should wait for the start task to be completed.
          */
         waitForSuccess?: boolean;
+    }
+
+    export interface GetPoolStartTaskArgs {
+        /**
+         * The command line executed by the start task.
+         */
+        commandLine: pulumi.Input<string>;
+        /**
+         * A map of strings (key,value) that represents the environment variables to set in the start task.
+         */
+        environment?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The number of retry count.
+         */
+        maxTaskRetryCount?: pulumi.Input<number>;
+        /**
+         * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+         */
+        resourceFiles?: pulumi.Input<pulumi.Input<inputs.batch.GetPoolStartTaskResourceFileArgs>[]>;
+        /**
+         * A `userIdentity` block that describes the user identity under which the start task runs.
+         */
+        userIdentities?: pulumi.Input<pulumi.Input<inputs.batch.GetPoolStartTaskUserIdentityArgs>[]>;
+        /**
+         * A flag that indicates if the Batch pool should wait for the start task to be completed.
+         */
+        waitForSuccess?: pulumi.Input<boolean>;
+    }
+
+    export interface GetPoolStartTaskResourceFileArgs {
+        /**
+         * The storage container name in the auto storage account.
+         */
+        autoStorageContainerName?: pulumi.Input<string>;
+        /**
+         * The blob prefix used when downloading blobs from an Azure Storage container.
+         */
+        blobPrefix?: pulumi.Input<string>;
+        /**
+         * The file permission mode attribute represented as a string in octal format (e.g. `"0644"`).
+         */
+        fileMode?: pulumi.Input<string>;
+        /**
+         * The location on the compute node to which to download the file, relative to the task's working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified.
+         */
+        filePath?: pulumi.Input<string>;
+        /**
+         * The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access.
+         */
+        httpUrl?: pulumi.Input<string>;
+        /**
+         * The URL of the blob container within Azure Blob Storage.
+         */
+        storageContainerUrl?: pulumi.Input<string>;
     }
 
     export interface GetPoolStartTaskResourceFile {
@@ -3906,6 +3979,17 @@ export namespace batch {
         storageContainerUrl?: string;
     }
 
+    export interface GetPoolStartTaskUserIdentityArgs {
+        /**
+         * A `autoUser` block that describes the user identity under which the start task runs.
+         */
+        autoUsers?: pulumi.Input<pulumi.Input<inputs.batch.GetPoolStartTaskUserIdentityAutoUserArgs>[]>;
+        /**
+         * The user name to log into the registry server.
+         */
+        userName?: pulumi.Input<string>;
+    }
+
     export interface GetPoolStartTaskUserIdentity {
         /**
          * A `autoUser` block that describes the user identity under which the start task runs.
@@ -3915,6 +3999,17 @@ export namespace batch {
          * The user name to log into the registry server.
          */
         userName?: string;
+    }
+
+    export interface GetPoolStartTaskUserIdentityAutoUserArgs {
+        /**
+         * The elevation level of the user identity under which the start task runs.
+         */
+        elevationLevel?: pulumi.Input<string>;
+        /**
+         * The scope of the user identity under which the start task runs.
+         */
+        scope?: pulumi.Input<string>;
     }
 
     export interface GetPoolStartTaskUserIdentityAutoUser {
@@ -11186,6 +11281,17 @@ export namespace eventgrid {
          * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: pulumi.Input<string>;
+    }
+
+    export interface GetDomainInboundIpRuleArgs {
+        /**
+         * The action to take when the rule is matched. Possible values are `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The ip mask (CIDR) to match on.
+         */
+        ipMask: pulumi.Input<string>;
     }
 
     export interface GetDomainInboundIpRule {
@@ -24058,6 +24164,68 @@ export namespace storage {
         write: boolean;
     }
 
+    export interface GetAccountBlobContainerSASPermissionsArgs {
+        /**
+         * Should Add permissions be enabled for this SAS?
+         */
+        add: pulumi.Input<boolean>;
+        /**
+         * Should Create permissions be enabled for this SAS?
+         */
+        create: pulumi.Input<boolean>;
+        /**
+         * Should Delete permissions be enabled for this SAS?
+         */
+        delete: pulumi.Input<boolean>;
+        /**
+         * Should List permissions be enabled for this SAS?
+         */
+        list: pulumi.Input<boolean>;
+        /**
+         * Should Read permissions be enabled for this SAS?
+         */
+        read: pulumi.Input<boolean>;
+        /**
+         * Should Write permissions be enabled for this SAS?
+         */
+        write: pulumi.Input<boolean>;
+    }
+
+    export interface GetAccountSASPermissionsArgs {
+        /**
+         * Should Add permissions be enabled for this SAS?
+         */
+        add: pulumi.Input<boolean>;
+        /**
+         * Should Create permissions be enabled for this SAS?
+         */
+        create: pulumi.Input<boolean>;
+        /**
+         * Should Delete permissions be enabled for this SAS?
+         */
+        delete: pulumi.Input<boolean>;
+        /**
+         * Should List permissions be enabled for this SAS?
+         */
+        list: pulumi.Input<boolean>;
+        /**
+         * Should Process permissions be enabled for this SAS?
+         */
+        process: pulumi.Input<boolean>;
+        /**
+         * Should Read permissions be enabled for this SAS?
+         */
+        read: pulumi.Input<boolean>;
+        /**
+         * Should Update permissions be enabled for this SAS?
+         */
+        update: pulumi.Input<boolean>;
+        /**
+         * Should Write permissions be enabled for this SAS?
+         */
+        write: pulumi.Input<boolean>;
+    }
+
     export interface GetAccountSASPermissions {
         /**
          * Should Add permissions be enabled for this SAS?
@@ -24108,6 +24276,40 @@ export namespace storage {
         service: boolean;
     }
 
+    export interface GetAccountSASResourceTypesArgs {
+        /**
+         * Should permission be granted to the container?
+         */
+        container: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted only to a specific object?
+         */
+        object: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted to the entire service?
+         */
+        service: pulumi.Input<boolean>;
+    }
+
+    export interface GetAccountSASServicesArgs {
+        /**
+         * Should permission be granted to `blob` services within this storage account?
+         */
+        blob: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted to `file` services within this storage account?
+         */
+        file: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted to `queue` services within this storage account?
+         */
+        queue: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted to `table` services within this storage account?
+         */
+        table: pulumi.Input<boolean>;
+    }
+
     export interface GetAccountSASServices {
         /**
          * Should permission be granted to `blob` services within this storage account?
@@ -24136,6 +24338,32 @@ export namespace storage {
          * The ID which should be used for this Shared Identifier.
          */
         id?: string;
+    }
+
+    export interface GetShareAclArgs {
+        /**
+         * An `accessPolicy` block as defined below.
+         */
+        accessPolicies?: pulumi.Input<pulumi.Input<inputs.storage.GetShareAclAccessPolicyArgs>[]>;
+        /**
+         * The ID which should be used for this Shared Identifier.
+         */
+        id?: pulumi.Input<string>;
+    }
+
+    export interface GetShareAclAccessPolicyArgs {
+        /**
+         * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         */
+        expiry?: pulumi.Input<string>;
+        /**
+         * The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+         */
+        permissions?: pulumi.Input<string>;
+        /**
+         * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         */
+        start?: pulumi.Input<string>;
     }
 
     export interface GetShareAclAccessPolicy {

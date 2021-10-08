@@ -83,3 +83,25 @@ export interface GetHubResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
+    return pulumi.output(args).apply(a => getHub(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getHub.
+ */
+export interface GetHubOutputArgs {
+    /**
+     * Specifies the Name of the Notification Hub.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the Name of the Notification Hub Namespace which contains the Notification Hub.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Specifies the Name of the Resource Group within which the Notification Hub exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

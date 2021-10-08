@@ -342,6 +342,10 @@ func (o ResourceGroupExportQueryPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupExportDeliveryInfoInput)(nil)).Elem(), ResourceGroupExportDeliveryInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupExportDeliveryInfoPtrInput)(nil)).Elem(), ResourceGroupExportDeliveryInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupExportQueryInput)(nil)).Elem(), ResourceGroupExportQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupExportQueryPtrInput)(nil)).Elem(), ResourceGroupExportQueryArgs{})
 	pulumi.RegisterOutputType(ResourceGroupExportDeliveryInfoOutput{})
 	pulumi.RegisterOutputType(ResourceGroupExportDeliveryInfoPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupExportQueryOutput{})

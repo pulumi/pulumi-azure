@@ -1072,6 +1072,20 @@ func (o GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) Index(i pulu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentIdentityInput)(nil)).Elem(), AssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentIdentityPtrInput)(nil)).Elem(), AssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionPolicyDefinitionGroupInput)(nil)).Elem(), PolicySetDefinitionPolicyDefinitionGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionPolicyDefinitionGroupArrayInput)(nil)).Elem(), PolicySetDefinitionPolicyDefinitionGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionPolicyDefinitionReferenceInput)(nil)).Elem(), PolicySetDefinitionPolicyDefinitionReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionPolicyDefinitionReferenceArrayInput)(nil)).Elem(), PolicySetDefinitionPolicyDefinitionReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentConfigurationInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentConfigurationPtrInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentConfigurationParameterInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentConfigurationParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentConfigurationParameterArrayInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentConfigurationParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionGroupInput)(nil)).Elem(), GetPolicySetDefinitionPolicyDefinitionGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionGroupArrayInput)(nil)).Elem(), GetPolicySetDefinitionPolicyDefinitionGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionReferenceInput)(nil)).Elem(), GetPolicySetDefinitionPolicyDefinitionReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionReferenceArrayInput)(nil)).Elem(), GetPolicySetDefinitionPolicyDefinitionReferenceArray{})
 	pulumi.RegisterOutputType(AssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(AssignmentIdentityPtrOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPolicyDefinitionGroupOutput{})

@@ -75,3 +75,21 @@ export interface GetDatasetDataLakeGen1Result {
     readonly id: string;
     readonly name: string;
 }
+
+export function getDatasetDataLakeGen1Output(args: GetDatasetDataLakeGen1OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetDataLakeGen1Result> {
+    return pulumi.output(args).apply(a => getDatasetDataLakeGen1(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDatasetDataLakeGen1.
+ */
+export interface GetDatasetDataLakeGen1OutputArgs {
+    /**
+     * The resource ID of the Data Share where this Data Share Data Lake Gen1 Dataset should be created.
+     */
+    dataShareId: pulumi.Input<string>;
+    /**
+     * The name of the Data Share Data Lake Gen1 Dataset.
+     */
+    name: pulumi.Input<string>;
+}

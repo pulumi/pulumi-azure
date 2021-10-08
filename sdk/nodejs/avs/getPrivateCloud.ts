@@ -104,3 +104,21 @@ export interface GetPrivateCloudResult {
      */
     readonly vmotionSubnetCidr: string;
 }
+
+export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateCloudResult> {
+    return pulumi.output(args).apply(a => getPrivateCloud(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPrivateCloud.
+ */
+export interface GetPrivateCloudOutputArgs {
+    /**
+     * The name of this Vmware Private Cloud.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Vmware Private Cloud exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

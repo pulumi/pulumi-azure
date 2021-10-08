@@ -77,3 +77,23 @@ export interface GetZoneResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
+    return pulumi.output(args).apply(a => getZone(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getZone.
+ */
+export interface GetZoneOutputArgs {
+    /**
+     * The name of the DNS Zone.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group where the DNS Zone exists.
+     * If the Name of the Resource Group is not provided, the first DNS Zone from the list of DNS Zones
+     * in your subscription that matches `name` will be returned.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+}

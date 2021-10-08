@@ -95,3 +95,21 @@ export interface GetLabResult {
      */
     readonly uniqueIdentifier: string;
 }
+
+export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
+    return pulumi.output(args).apply(a => getLab(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLab.
+ */
+export interface GetLabOutputArgs {
+    /**
+     * The name of the Dev Test Lab.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group where the Dev Test Lab exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

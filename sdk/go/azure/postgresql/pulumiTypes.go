@@ -1093,6 +1093,18 @@ func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentity
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerHighAvailabilityInput)(nil)).Elem(), FlexibleServerHighAvailabilityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerHighAvailabilityPtrInput)(nil)).Elem(), FlexibleServerHighAvailabilityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerMaintenanceWindowInput)(nil)).Elem(), FlexibleServerMaintenanceWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerMaintenanceWindowPtrInput)(nil)).Elem(), FlexibleServerMaintenanceWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityInput)(nil)).Elem(), ServerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityPtrInput)(nil)).Elem(), ServerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerStorageProfileInput)(nil)).Elem(), ServerStorageProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerStorageProfilePtrInput)(nil)).Elem(), ServerStorageProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerThreatDetectionPolicyInput)(nil)).Elem(), ServerThreatDetectionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerThreatDetectionPolicyPtrInput)(nil)).Elem(), ServerThreatDetectionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityInput)(nil)).Elem(), GetServerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
 	pulumi.RegisterOutputType(FlexibleServerHighAvailabilityOutput{})
 	pulumi.RegisterOutputType(FlexibleServerHighAvailabilityPtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerMaintenanceWindowOutput{})

@@ -90,3 +90,25 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly secondaryKey: string;
 }
+
+export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
+    return pulumi.output(args).apply(a => getNamespaceAuthorizationRule(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getNamespaceAuthorizationRule.
+ */
+export interface GetNamespaceAuthorizationRuleOutputArgs {
+    /**
+     * Specifies the name of the ServiceBus Namespace Authorization Rule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the ServiceBus Namespace.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

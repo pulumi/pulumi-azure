@@ -66,3 +66,25 @@ export interface GetMcaAccountScopeResult {
     readonly id: string;
     readonly invoiceSectionName: string;
 }
+
+export function getMcaAccountScopeOutput(args: GetMcaAccountScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMcaAccountScopeResult> {
+    return pulumi.output(args).apply(a => getMcaAccountScope(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getMcaAccountScope.
+ */
+export interface GetMcaAccountScopeOutputArgs {
+    /**
+     * The Billing Account Name of the MCA account.
+     */
+    billingAccountName: pulumi.Input<string>;
+    /**
+     * The Billing Profile Name in the above Billing Account.
+     */
+    billingProfileName: pulumi.Input<string>;
+    /**
+     * The Invoice Section Name in the above Billing Profile.
+     */
+    invoiceSectionName: pulumi.Input<string>;
+}

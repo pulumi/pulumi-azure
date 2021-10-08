@@ -95,3 +95,25 @@ export interface GetServiceResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+    return pulumi.output(args).apply(a => getService(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getService.
+ */
+export interface GetServiceOutputArgs {
+    /**
+     * The Azure Region where the Service is located.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Healthcare Service.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group in which the Healthcare Service exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -122,3 +122,29 @@ export interface GetApiResult {
      */
     readonly versionSetId: string;
 }
+
+export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
+    return pulumi.output(args).apply(a => getApi(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getApi.
+ */
+export interface GetApiOutputArgs {
+    /**
+     * The name of the API Management Service in which the API Management API exists.
+     */
+    apiManagementName: pulumi.Input<string>;
+    /**
+     * The name of the API Management API.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group in which the API Management Service exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Revision of the API Management API.
+     */
+    revision: pulumi.Input<string>;
+}

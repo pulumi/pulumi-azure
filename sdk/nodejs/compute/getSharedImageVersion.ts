@@ -104,3 +104,29 @@ export interface GetSharedImageVersionResult {
      */
     readonly targetRegions: outputs.compute.GetSharedImageVersionTargetRegion[];
 }
+
+export function getSharedImageVersionOutput(args: GetSharedImageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedImageVersionResult> {
+    return pulumi.output(args).apply(a => getSharedImageVersion(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSharedImageVersion.
+ */
+export interface GetSharedImageVersionOutputArgs {
+    /**
+     * The name of the Shared Image Gallery in which the Shared Image exists.
+     */
+    galleryName: pulumi.Input<string>;
+    /**
+     * The name of the Shared Image in which this Version exists.
+     */
+    imageName: pulumi.Input<string>;
+    /**
+     * The name of the Image Version.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group in which the Shared Image Gallery exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

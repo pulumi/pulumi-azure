@@ -92,3 +92,21 @@ export interface GetAnalyticsWorkspaceResult {
      */
     readonly workspaceId: string;
 }
+
+export function getAnalyticsWorkspaceOutput(args: GetAnalyticsWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsWorkspaceResult> {
+    return pulumi.output(args).apply(a => getAnalyticsWorkspace(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAnalyticsWorkspace.
+ */
+export interface GetAnalyticsWorkspaceOutputArgs {
+    /**
+     * Specifies the name of the Log Analytics Workspace.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which the Log Analytics workspace is located in.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

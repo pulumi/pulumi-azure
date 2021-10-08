@@ -549,6 +549,14 @@ func (o GetPrivateCloudManagementClusterArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudCircuitInput)(nil)).Elem(), PrivateCloudCircuitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudCircuitArrayInput)(nil)).Elem(), PrivateCloudCircuitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudManagementClusterInput)(nil)).Elem(), PrivateCloudManagementClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudManagementClusterPtrInput)(nil)).Elem(), PrivateCloudManagementClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateCloudCircuitInput)(nil)).Elem(), GetPrivateCloudCircuitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateCloudCircuitArrayInput)(nil)).Elem(), GetPrivateCloudCircuitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateCloudManagementClusterInput)(nil)).Elem(), GetPrivateCloudManagementClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateCloudManagementClusterArrayInput)(nil)).Elem(), GetPrivateCloudManagementClusterArray{})
 	pulumi.RegisterOutputType(PrivateCloudCircuitOutput{})
 	pulumi.RegisterOutputType(PrivateCloudCircuitArrayOutput{})
 	pulumi.RegisterOutputType(PrivateCloudManagementClusterOutput{})

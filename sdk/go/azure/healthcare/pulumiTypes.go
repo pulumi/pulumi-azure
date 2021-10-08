@@ -651,6 +651,14 @@ func (o GetServiceCorsConfigurationArrayOutput) Index(i pulumi.IntInput) GetServ
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationPtrInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorsConfigurationInput)(nil)).Elem(), ServiceCorsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorsConfigurationPtrInput)(nil)).Elem(), ServiceCorsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceAuthenticationConfigurationInput)(nil)).Elem(), GetServiceAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceAuthenticationConfigurationArrayInput)(nil)).Elem(), GetServiceAuthenticationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCorsConfigurationInput)(nil)).Elem(), GetServiceCorsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCorsConfigurationArrayInput)(nil)).Elem(), GetServiceCorsConfigurationArray{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationOutput{})

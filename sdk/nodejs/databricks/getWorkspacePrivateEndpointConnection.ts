@@ -70,3 +70,21 @@ export interface GetWorkspacePrivateEndpointConnectionResult {
      */
     readonly workspaceId: string;
 }
+
+export function getWorkspacePrivateEndpointConnectionOutput(args: GetWorkspacePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspacePrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getWorkspacePrivateEndpointConnection(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getWorkspacePrivateEndpointConnection.
+ */
+export interface GetWorkspacePrivateEndpointConnectionOutputArgs {
+    /**
+     * The resource ID of the Private Endpoint.
+     */
+    privateEndpointId: pulumi.Input<string>;
+    /**
+     * The resource ID of the Databricks Workspace.
+     */
+    workspaceId: pulumi.Input<string>;
+}

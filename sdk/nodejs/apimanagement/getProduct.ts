@@ -94,3 +94,25 @@ export interface GetProductResult {
      */
     readonly terms: string;
 }
+
+export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
+    return pulumi.output(args).apply(a => getProduct(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getProduct.
+ */
+export interface GetProductOutputArgs {
+    /**
+     * The Name of the API Management Service in which this Product exists.
+     */
+    apiManagementName: pulumi.Input<string>;
+    /**
+     * The Identifier for the API Management Product.
+     */
+    productId: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group in which the API Management Service exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

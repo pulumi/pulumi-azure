@@ -691,6 +691,16 @@ func (o GetBackupVaultIdentityArrayOutput) Index(i pulumi.IntInput) GetBackupVau
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlRetentionRuleInput)(nil)).Elem(), BackupPolicyPostgresqlRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyPostgresqlRetentionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyPostgresqlRetentionRuleCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupVaultIdentityInput)(nil)).Elem(), BackupVaultIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupVaultIdentityPtrInput)(nil)).Elem(), BackupVaultIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBackupVaultIdentityInput)(nil)).Elem(), GetBackupVaultIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBackupVaultIdentityArrayInput)(nil)).Elem(), GetBackupVaultIdentityArray{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleCriteriaOutput{})

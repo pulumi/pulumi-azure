@@ -79,3 +79,25 @@ export interface GetServiceTagsResult {
     readonly locationFilter?: string;
     readonly service: string;
 }
+
+export function getServiceTagsOutput(args: GetServiceTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTagsResult> {
+    return pulumi.output(args).apply(a => getServiceTags(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getServiceTags.
+ */
+export interface GetServiceTagsOutputArgs {
+    /**
+     * The Azure Region where the Service Tags exists. This value is not used to filter the results but for specifying the region to request. For filtering by region use `locationFilter` instead.  More information can be found here: [Service Tags URL parameters](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/servicetags/list#uri-parameters).
+     */
+    location: pulumi.Input<string>;
+    /**
+     * Changes the scope of the service tags. Can be any value that is also valid for `location`. If this field is empty then all address prefixes are considered instead of only location specific ones.
+     */
+    locationFilter?: pulumi.Input<string>;
+    /**
+     * The type of the service for which address prefixes will be fetched. Available service tags can be found here: [Available service tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
+     */
+    service: pulumi.Input<string>;
+}

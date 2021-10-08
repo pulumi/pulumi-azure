@@ -118,3 +118,30 @@ export interface GetPoolResult {
      */
     readonly vmSize: string;
 }
+
+export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
+    return pulumi.output(args).apply(a => getPool(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPool.
+ */
+export interface GetPoolOutputArgs {
+    /**
+     * The name of the Batch account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+     */
+    certificates?: pulumi.Input<pulumi.Input<inputs.batch.GetPoolCertificateArgs>[]>;
+    /**
+     * The name of the endpoint.
+     */
+    name: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `startTask` block that describes the start task settings for the Batch pool.
+     */
+    startTask?: pulumi.Input<inputs.batch.GetPoolStartTaskArgs>;
+}

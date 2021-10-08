@@ -83,3 +83,21 @@ export interface GetVirtualNetworkResult {
      */
     readonly vnetPeerings: {[key: string]: string};
 }
+
+export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
+    return pulumi.output(args).apply(a => getVirtualNetwork(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVirtualNetwork.
+ */
+export interface GetVirtualNetworkOutputArgs {
+    /**
+     * Specifies the name of the Virtual Network.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the resource group the Virtual Network is located in.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -71,3 +71,21 @@ export interface GetDatasetKustoClusterResult {
     readonly name: string;
     readonly shareId: string;
 }
+
+export function getDatasetKustoClusterOutput(args: GetDatasetKustoClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetKustoClusterResult> {
+    return pulumi.output(args).apply(a => getDatasetKustoCluster(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDatasetKustoCluster.
+ */
+export interface GetDatasetKustoClusterOutputArgs {
+    /**
+     * The name of this Data Share Kusto Cluster Dataset.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource ID of the Data Share where this Data Share Kusto Cluster Dataset should be created.
+     */
+    shareId: pulumi.Input<string>;
+}

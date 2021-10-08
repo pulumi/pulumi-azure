@@ -406,6 +406,10 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) To() pulumi.StringPtrOutput 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetNetworkRuleInput)(nil)).Elem(), NamespaceNetworkRuleSetNetworkRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetNetworkRuleArrayInput)(nil)).Elem(), NamespaceNetworkRuleSetNetworkRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleCorrelationFilterInput)(nil)).Elem(), SubscriptionRuleCorrelationFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleCorrelationFilterPtrInput)(nil)).Elem(), SubscriptionRuleCorrelationFilterArgs{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetNetworkRuleOutput{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionRuleCorrelationFilterOutput{})

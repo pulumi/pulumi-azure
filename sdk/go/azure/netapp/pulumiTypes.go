@@ -757,6 +757,14 @@ func (o GetVolumeDataProtectionReplicationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryInput)(nil)).Elem(), AccountActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryPtrInput)(nil)).Elem(), AccountActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionReplicationInput)(nil)).Elem(), VolumeDataProtectionReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionReplicationPtrInput)(nil)).Elem(), VolumeDataProtectionReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeExportPolicyRuleInput)(nil)).Elem(), VolumeExportPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeExportPolicyRuleArrayInput)(nil)).Elem(), VolumeExportPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionReplicationInput)(nil)).Elem(), GetVolumeDataProtectionReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionReplicationArrayInput)(nil)).Elem(), GetVolumeDataProtectionReplicationArray{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionReplicationOutput{})

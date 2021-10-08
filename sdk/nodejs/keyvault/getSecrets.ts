@@ -47,3 +47,17 @@ export interface GetSecretsResult {
      */
     readonly names: string[];
 }
+
+export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretsResult> {
+    return pulumi.output(args).apply(a => getSecrets(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSecrets.
+ */
+export interface GetSecretsOutputArgs {
+    /**
+     * Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     */
+    keyVaultId: pulumi.Input<string>;
+}

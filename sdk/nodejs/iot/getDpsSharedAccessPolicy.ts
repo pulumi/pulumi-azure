@@ -81,3 +81,25 @@ export interface GetDpsSharedAccessPolicyResult {
      */
     readonly secondaryKey: string;
 }
+
+export function getDpsSharedAccessPolicyOutput(args: GetDpsSharedAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsSharedAccessPolicyResult> {
+    return pulumi.output(args).apply(a => getDpsSharedAccessPolicy(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDpsSharedAccessPolicy.
+ */
+export interface GetDpsSharedAccessPolicyOutputArgs {
+    /**
+     * Specifies the name of the IoT Hub Device Provisioning service to which the Shared Access Policy belongs.
+     */
+    iothubDpsName: pulumi.Input<string>;
+    /**
+     * Specifies the name of the IotHub Shared Access Policy.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the resource group under which the IotHub Shared Access Policy resource exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -60,3 +60,17 @@ export interface GetResourceGroupResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
+    return pulumi.output(args).apply(a => getResourceGroup(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getResourceGroup.
+ */
+export interface GetResourceGroupOutputArgs {
+    /**
+     * The Name of this Resource Group.
+     */
+    name: pulumi.Input<string>;
+}

@@ -95,3 +95,29 @@ export interface GetImageResult {
      */
     readonly zoneResilient: boolean;
 }
+
+export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
+    return pulumi.output(args).apply(a => getImage(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getImage.
+ */
+export interface GetImageOutputArgs {
+    /**
+     * The name of the Image.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Regex pattern of the image to match.
+     */
+    nameRegex?: pulumi.Input<string>;
+    /**
+     * The Name of the Resource Group where this Image exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * By default when matching by regex, images are sorted by name in ascending order and the first match is chosen, to sort descending, set this flag.
+     */
+    sortDescending?: pulumi.Input<boolean>;
+}

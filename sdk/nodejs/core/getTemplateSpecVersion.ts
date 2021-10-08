@@ -74,3 +74,25 @@ export interface GetTemplateSpecVersionResult {
     readonly templateBody: string;
     readonly version: string;
 }
+
+export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecVersionResult> {
+    return pulumi.output(args).apply(a => getTemplateSpecVersion(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getTemplateSpecVersion.
+ */
+export interface GetTemplateSpecVersionOutputArgs {
+    /**
+     * The name of this Template Spec.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Template Spec exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Version Name of the Template Spec.
+     */
+    version: pulumi.Input<string>;
+}

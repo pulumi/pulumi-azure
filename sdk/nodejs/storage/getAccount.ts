@@ -241,3 +241,25 @@ export interface GetAccountResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+    return pulumi.output(args).apply(a => getAccount(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAccount.
+ */
+export interface GetAccountOutputArgs {
+    /**
+     * The minimum supported TLS version for this storage account.
+     */
+    minTlsVersion?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Storage Account
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the resource group the Storage Account is located in.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+}

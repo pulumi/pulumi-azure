@@ -83,3 +83,25 @@ export interface GetApiVersionSetResult {
     readonly versionQueryName: string;
     readonly versioningScheme: string;
 }
+
+export function getApiVersionSetOutput(args: GetApiVersionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiVersionSetResult> {
+    return pulumi.output(args).apply(a => getApiVersionSet(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getApiVersionSet.
+ */
+export interface GetApiVersionSetOutputArgs {
+    /**
+     * The name of the API Management Service where the API Version Set exists.
+     */
+    apiManagementName: pulumi.Input<string>;
+    /**
+     * The name of the API Version Set.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group in which the parent API Management Service exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

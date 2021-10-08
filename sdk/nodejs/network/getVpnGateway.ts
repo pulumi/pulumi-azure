@@ -80,3 +80,21 @@ export interface GetVpnGatewayResult {
      */
     readonly virtualHubId: string;
 }
+
+export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
+    return pulumi.output(args).apply(a => getVpnGateway(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVpnGateway.
+ */
+export interface GetVpnGatewayOutputArgs {
+    /**
+     * The Name of the VPN Gateway.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the VPN Gateway exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

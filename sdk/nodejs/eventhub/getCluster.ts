@@ -67,3 +67,21 @@ export interface GetClusterResult {
      */
     readonly skuName: string;
 }
+
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+    return pulumi.output(args).apply(a => getCluster(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCluster.
+ */
+export interface GetClusterOutputArgs {
+    /**
+     * The name of this EventHub Cluster.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the EventHub Cluster exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

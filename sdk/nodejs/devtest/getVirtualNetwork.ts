@@ -79,3 +79,25 @@ export interface GetVirtualNetworkResult {
      */
     readonly uniqueIdentifier: string;
 }
+
+export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
+    return pulumi.output(args).apply(a => getVirtualNetwork(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVirtualNetwork.
+ */
+export interface GetVirtualNetworkOutputArgs {
+    /**
+     * Specifies the name of the Dev Test Lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Virtual Network.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the resource group that contains the Virtual Network.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -779,6 +779,16 @@ func (o ZoneSoaRecordPtrOutput) Ttl() pulumi.IntPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkServiceNatIpConfigurationInput)(nil)).Elem(), LinkServiceNatIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkServiceNatIpConfigurationArrayInput)(nil)).Elem(), LinkServiceNatIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MxRecordRecordInput)(nil)).Elem(), MxRecordRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MxRecordRecordArrayInput)(nil)).Elem(), MxRecordRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SRVRecordRecordInput)(nil)).Elem(), SRVRecordRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SRVRecordRecordArrayInput)(nil)).Elem(), SRVRecordRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TxtRecordRecordInput)(nil)).Elem(), TxtRecordRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TxtRecordRecordArrayInput)(nil)).Elem(), TxtRecordRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSoaRecordInput)(nil)).Elem(), ZoneSoaRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSoaRecordPtrInput)(nil)).Elem(), ZoneSoaRecordArgs{})
 	pulumi.RegisterOutputType(LinkServiceNatIpConfigurationOutput{})
 	pulumi.RegisterOutputType(LinkServiceNatIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordRecordOutput{})

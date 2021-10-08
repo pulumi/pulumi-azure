@@ -1092,6 +1092,22 @@ func (o PolicyPolicySettingsPtrOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCustomRuleInput)(nil)).Elem(), PolicyCustomRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCustomRuleArrayInput)(nil)).Elem(), PolicyCustomRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCustomRuleMatchConditionInput)(nil)).Elem(), PolicyCustomRuleMatchConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCustomRuleMatchConditionArrayInput)(nil)).Elem(), PolicyCustomRuleMatchConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCustomRuleMatchConditionMatchVariableInput)(nil)).Elem(), PolicyCustomRuleMatchConditionMatchVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCustomRuleMatchConditionMatchVariableArrayInput)(nil)).Elem(), PolicyCustomRuleMatchConditionMatchVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesInput)(nil)).Elem(), PolicyManagedRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesPtrInput)(nil)).Elem(), PolicyManagedRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionInput)(nil)).Elem(), PolicyManagedRulesExclusionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionArrayInput)(nil)).Elem(), PolicyManagedRulesExclusionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetArrayInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicySettingsInput)(nil)).Elem(), PolicyPolicySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicySettingsPtrInput)(nil)).Elem(), PolicyPolicySettingsArgs{})
 	pulumi.RegisterOutputType(PolicyCustomRuleOutput{})
 	pulumi.RegisterOutputType(PolicyCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(PolicyCustomRuleMatchConditionOutput{})

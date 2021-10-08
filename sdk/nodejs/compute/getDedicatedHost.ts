@@ -74,3 +74,25 @@ export interface GetDedicatedHostResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
+    return pulumi.output(args).apply(a => getDedicatedHost(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDedicatedHost.
+ */
+export interface GetDedicatedHostOutputArgs {
+    /**
+     * Specifies the name of the Dedicated Host Group the Dedicated Host is located in.
+     */
+    dedicatedHostGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Dedicated Host.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the resource group the Dedicated Host is located in.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -75,3 +75,21 @@ export interface GetRouteFilterResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterResult> {
+    return pulumi.output(args).apply(a => getRouteFilter(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRouteFilter.
+ */
+export interface GetRouteFilterOutputArgs {
+    /**
+     * The Name of this Route Filter.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Route Filter exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

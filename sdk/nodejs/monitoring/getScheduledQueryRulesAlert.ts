@@ -108,3 +108,21 @@ export interface GetScheduledQueryRulesAlertResult {
      */
     readonly triggers: outputs.monitoring.GetScheduledQueryRulesAlertTrigger[];
 }
+
+export function getScheduledQueryRulesAlertOutput(args: GetScheduledQueryRulesAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRulesAlertResult> {
+    return pulumi.output(args).apply(a => getScheduledQueryRulesAlert(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getScheduledQueryRulesAlert.
+ */
+export interface GetScheduledQueryRulesAlertOutputArgs {
+    /**
+     * Specifies the name of the scheduled query rule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the name of the resource group where the scheduled query rule is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

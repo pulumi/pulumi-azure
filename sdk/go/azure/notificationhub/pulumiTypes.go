@@ -643,6 +643,15 @@ func (o GetNamespaceSkuOutput) Name() pulumi.StringOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HubApnsCredentialInput)(nil)).Elem(), HubApnsCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubApnsCredentialPtrInput)(nil)).Elem(), HubApnsCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubGcmCredentialInput)(nil)).Elem(), HubGcmCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubGcmCredentialPtrInput)(nil)).Elem(), HubGcmCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHubApnsCredentialInput)(nil)).Elem(), GetHubApnsCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHubApnsCredentialArrayInput)(nil)).Elem(), GetHubApnsCredentialArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHubGcmCredentialInput)(nil)).Elem(), GetHubGcmCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHubGcmCredentialArrayInput)(nil)).Elem(), GetHubGcmCredentialArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNamespaceSkuInput)(nil)).Elem(), GetNamespaceSkuArgs{})
 	pulumi.RegisterOutputType(HubApnsCredentialOutput{})
 	pulumi.RegisterOutputType(HubApnsCredentialPtrOutput{})
 	pulumi.RegisterOutputType(HubGcmCredentialOutput{})

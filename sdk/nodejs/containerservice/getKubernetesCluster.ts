@@ -155,3 +155,21 @@ export interface GetKubernetesClusterResult {
      */
     readonly windowsProfiles: outputs.containerservice.GetKubernetesClusterWindowsProfile[];
 }
+
+export function getKubernetesClusterOutput(args: GetKubernetesClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesClusterResult> {
+    return pulumi.output(args).apply(a => getKubernetesCluster(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getKubernetesCluster.
+ */
+export interface GetKubernetesClusterOutputArgs {
+    /**
+     * The name of the managed Kubernetes Cluster.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group in which the managed Kubernetes Cluster exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

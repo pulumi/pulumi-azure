@@ -1092,6 +1092,20 @@ func (o OrderStatusArrayOutput) Index(i pulumi.IntInput) OrderStatusOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceDevicePropertyInput)(nil)).Elem(), DeviceDevicePropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceDevicePropertyArrayInput)(nil)).Elem(), DeviceDevicePropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderContactInput)(nil)).Elem(), OrderContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderContactPtrInput)(nil)).Elem(), OrderContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderReturnTrackingInput)(nil)).Elem(), OrderReturnTrackingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderReturnTrackingArrayInput)(nil)).Elem(), OrderReturnTrackingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderShipmentAddressInput)(nil)).Elem(), OrderShipmentAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderShipmentAddressPtrInput)(nil)).Elem(), OrderShipmentAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderShipmentHistoryInput)(nil)).Elem(), OrderShipmentHistoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderShipmentHistoryArrayInput)(nil)).Elem(), OrderShipmentHistoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderShipmentTrackingInput)(nil)).Elem(), OrderShipmentTrackingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderShipmentTrackingArrayInput)(nil)).Elem(), OrderShipmentTrackingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderStatusInput)(nil)).Elem(), OrderStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderStatusArrayInput)(nil)).Elem(), OrderStatusArray{})
 	pulumi.RegisterOutputType(DeviceDevicePropertyOutput{})
 	pulumi.RegisterOutputType(DeviceDevicePropertyArrayOutput{})
 	pulumi.RegisterOutputType(OrderContactOutput{})

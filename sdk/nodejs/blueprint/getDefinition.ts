@@ -88,3 +88,21 @@ export interface GetDefinitionResult {
      */
     readonly versions: string[];
 }
+
+export function getDefinitionOutput(args: GetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefinitionResult> {
+    return pulumi.output(args).apply(a => getDefinition(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDefinition.
+ */
+export interface GetDefinitionOutputArgs {
+    /**
+     * The name of the Blueprint.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The ID of the Subscription or Management Group, as the scope at which the blueprint definition is stored.
+     */
+    scopeId: pulumi.Input<string>;
+}

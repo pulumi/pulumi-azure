@@ -68,3 +68,21 @@ export interface GetRecommendationsResult {
      */
     readonly recommendations: outputs.advisor.GetRecommendationsRecommendation[];
 }
+
+export function getRecommendationsOutput(args?: GetRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecommendationsResult> {
+    return pulumi.output(args).apply(a => getRecommendations(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRecommendations.
+ */
+export interface GetRecommendationsOutputArgs {
+    /**
+     * Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
+     */
+    filterByCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies a list of resource groups about which the Advisor Recommendations will be listed.
+     */
+    filterByResourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+}
