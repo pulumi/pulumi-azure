@@ -74,13 +74,15 @@ type LookupDomainResult struct {
 	// The schema in which incoming events will be published to this domain. Possible values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`.
 	InputSchema string `pulumi:"inputSchema"`
 	// The Azure Region in which this EventGrid Domain exists.
-	Location         string `pulumi:"location"`
-	Name             string `pulumi:"name"`
+	Location string `pulumi:"location"`
+	Name     string `pulumi:"name"`
+	// The primary access key associated with the EventGrid Domain.
 	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
 	// Whether or not public network access is allowed for this server.
 	PublicNetworkAccessEnabled *bool  `pulumi:"publicNetworkAccessEnabled"`
 	ResourceGroupName          string `pulumi:"resourceGroupName"`
-	SecondaryAccessKey         string `pulumi:"secondaryAccessKey"`
+	// The secondary access key associated with the EventGrid Domain.
+	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
 	// A mapping of tags assigned to the EventGrid Domain.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -166,6 +168,7 @@ func (o LookupDomainResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The primary access key associated with the EventGrid Domain.
 func (o LookupDomainResultOutput) PrimaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.PrimaryAccessKey }).(pulumi.StringOutput)
 }
@@ -179,6 +182,7 @@ func (o LookupDomainResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The secondary access key associated with the EventGrid Domain.
 func (o LookupDomainResultOutput) SecondaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.SecondaryAccessKey }).(pulumi.StringOutput)
 }

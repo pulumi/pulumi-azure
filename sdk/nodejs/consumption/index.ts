@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./budgetResourceGroup";
 export * from "./budgetSubscription";
+export * from "./getBudgetResourceGroup";
+export * from "./getBudgetSubscription";
 
 // Import resources to register:
 import { BudgetResourceGroup } from "./budgetResourceGroup";

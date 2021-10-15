@@ -135,6 +135,12 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
+        /// </summary>
+        [Output("primaryUserAssignedIdentityId")]
+        public Output<string> PrimaryUserAssignedIdentityId { get; private set; } = null!;
+
+        /// <summary>
         /// Whether public network access is allowed for this server. Defaults to `true`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
@@ -265,6 +271,12 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
+        /// </summary>
+        [Input("primaryUserAssignedIdentityId")]
+        public Input<string>? PrimaryUserAssignedIdentityId { get; set; }
+
+        /// <summary>
         /// Whether public network access is allowed for this server. Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
@@ -360,6 +372,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
+        /// </summary>
+        [Input("primaryUserAssignedIdentityId")]
+        public Input<string>? PrimaryUserAssignedIdentityId { get; set; }
 
         /// <summary>
         /// Whether public network access is allowed for this server. Defaults to `true`.

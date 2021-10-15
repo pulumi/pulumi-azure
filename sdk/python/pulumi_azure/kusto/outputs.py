@@ -9,11 +9,118 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AttachedDatabaseConfigurationSharing',
     'ClusterIdentity',
     'ClusterOptimizedAutoScale',
     'ClusterSku',
     'ClusterVirtualNetworkConfiguration',
 ]
+
+@pulumi.output_type
+class AttachedDatabaseConfigurationSharing(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalTablesToExcludes":
+            suggest = "external_tables_to_excludes"
+        elif key == "externalTablesToIncludes":
+            suggest = "external_tables_to_includes"
+        elif key == "materializedViewsToExcludes":
+            suggest = "materialized_views_to_excludes"
+        elif key == "materializedViewsToIncludes":
+            suggest = "materialized_views_to_includes"
+        elif key == "tablesToExcludes":
+            suggest = "tables_to_excludes"
+        elif key == "tablesToIncludes":
+            suggest = "tables_to_includes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AttachedDatabaseConfigurationSharing. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AttachedDatabaseConfigurationSharing.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AttachedDatabaseConfigurationSharing.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_tables_to_excludes: Optional[Sequence[str]] = None,
+                 external_tables_to_includes: Optional[Sequence[str]] = None,
+                 materialized_views_to_excludes: Optional[Sequence[str]] = None,
+                 materialized_views_to_includes: Optional[Sequence[str]] = None,
+                 tables_to_excludes: Optional[Sequence[str]] = None,
+                 tables_to_includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] external_tables_to_excludes: List of external tables exclude from the follower database.
+        :param Sequence[str] external_tables_to_includes: List of external tables to include in the follower database.
+        :param Sequence[str] materialized_views_to_excludes: List of materialized views exclude from the follower database.
+        :param Sequence[str] materialized_views_to_includes: List of materialized views to include in the follower database.
+        :param Sequence[str] tables_to_excludes: List of tables to exclude from the follower database.
+        :param Sequence[str] tables_to_includes: List of tables to include in the follower database.
+        """
+        if external_tables_to_excludes is not None:
+            pulumi.set(__self__, "external_tables_to_excludes", external_tables_to_excludes)
+        if external_tables_to_includes is not None:
+            pulumi.set(__self__, "external_tables_to_includes", external_tables_to_includes)
+        if materialized_views_to_excludes is not None:
+            pulumi.set(__self__, "materialized_views_to_excludes", materialized_views_to_excludes)
+        if materialized_views_to_includes is not None:
+            pulumi.set(__self__, "materialized_views_to_includes", materialized_views_to_includes)
+        if tables_to_excludes is not None:
+            pulumi.set(__self__, "tables_to_excludes", tables_to_excludes)
+        if tables_to_includes is not None:
+            pulumi.set(__self__, "tables_to_includes", tables_to_includes)
+
+    @property
+    @pulumi.getter(name="externalTablesToExcludes")
+    def external_tables_to_excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of external tables exclude from the follower database.
+        """
+        return pulumi.get(self, "external_tables_to_excludes")
+
+    @property
+    @pulumi.getter(name="externalTablesToIncludes")
+    def external_tables_to_includes(self) -> Optional[Sequence[str]]:
+        """
+        List of external tables to include in the follower database.
+        """
+        return pulumi.get(self, "external_tables_to_includes")
+
+    @property
+    @pulumi.getter(name="materializedViewsToExcludes")
+    def materialized_views_to_excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of materialized views exclude from the follower database.
+        """
+        return pulumi.get(self, "materialized_views_to_excludes")
+
+    @property
+    @pulumi.getter(name="materializedViewsToIncludes")
+    def materialized_views_to_includes(self) -> Optional[Sequence[str]]:
+        """
+        List of materialized views to include in the follower database.
+        """
+        return pulumi.get(self, "materialized_views_to_includes")
+
+    @property
+    @pulumi.getter(name="tablesToExcludes")
+    def tables_to_excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of tables to exclude from the follower database.
+        """
+        return pulumi.get(self, "tables_to_excludes")
+
+    @property
+    @pulumi.getter(name="tablesToIncludes")
+    def tables_to_includes(self) -> Optional[Sequence[str]]:
+        """
+        List of tables to include in the follower database.
+        """
+        return pulumi.get(self, "tables_to_includes")
+
 
 @pulumi.output_type
 class ClusterIdentity(dict):

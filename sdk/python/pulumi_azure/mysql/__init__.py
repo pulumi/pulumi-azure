@@ -9,6 +9,7 @@ from .active_directory_administrator import *
 from .configuration import *
 from .database import *
 from .firewall_rule import *
+from .flexible_server import *
 from .get_server import *
 from .server import *
 from .server_key import *

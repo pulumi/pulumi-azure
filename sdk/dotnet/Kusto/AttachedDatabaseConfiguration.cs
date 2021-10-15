@@ -71,6 +71,12 @@ namespace Pulumi.Azure.Kusto
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A `sharing` block as defined below.
+        /// </summary>
+        [Output("sharing")]
+        public Output<Outputs.AttachedDatabaseConfigurationSharing?> Sharing { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a AttachedDatabaseConfiguration resource with the given unique name, arguments, and options.
@@ -159,6 +165,12 @@ namespace Pulumi.Azure.Kusto
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// A `sharing` block as defined below.
+        /// </summary>
+        [Input("sharing")]
+        public Input<Inputs.AttachedDatabaseConfigurationSharingArgs>? Sharing { get; set; }
+
         public AttachedDatabaseConfigurationArgs()
         {
         }
@@ -219,6 +231,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// A `sharing` block as defined below.
+        /// </summary>
+        [Input("sharing")]
+        public Input<Inputs.AttachedDatabaseConfigurationSharingGetArgs>? Sharing { get; set; }
 
         public AttachedDatabaseConfigurationState()
         {

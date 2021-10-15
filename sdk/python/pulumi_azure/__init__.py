@@ -2120,6 +2120,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/linkedServiceCosmosDbMongoApi",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi": "LinkedServiceCosmosDbMongoApi"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/linkedServiceDataLakeStorageGen2",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -4196,6 +4204,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mysql",
   "classes": {
    "azure:mysql/firewallRule:FirewallRule": "FirewallRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mysql/flexibleServer",
+  "fqn": "pulumi_azure.mysql",
+  "classes": {
+   "azure:mysql/flexibleServer:FlexibleServer": "FlexibleServer"
   }
  },
  {

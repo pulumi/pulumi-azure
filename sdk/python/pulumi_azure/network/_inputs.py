@@ -6496,12 +6496,16 @@ class NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs:
 class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
+                 destination_port_behavior: Optional[pulumi.Input[str]] = None,
                  trace_route_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] port: The port for the Tcp connection.
+        :param pulumi.Input[str] destination_port_behavior: The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
         :param pulumi.Input[bool] trace_route_enabled: Should path evaluation with trace route be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "port", port)
+        if destination_port_behavior is not None:
+            pulumi.set(__self__, "destination_port_behavior", destination_port_behavior)
         if trace_route_enabled is not None:
             pulumi.set(__self__, "trace_route_enabled", trace_route_enabled)
 
@@ -6516,6 +6520,18 @@ class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs:
     @port.setter
     def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="destinationPortBehavior")
+    def destination_port_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+        """
+        return pulumi.get(self, "destination_port_behavior")
+
+    @destination_port_behavior.setter
+    def destination_port_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_port_behavior", value)
 
     @property
     @pulumi.getter(name="traceRouteEnabled")

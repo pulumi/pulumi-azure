@@ -7107,6 +7107,7 @@ export namespace consumption {
          */
         startDate: pulumi.Input<string>;
     }
+
 }
 
 export namespace containerservice {
@@ -11194,6 +11195,29 @@ export namespace eventgrid {
         type: pulumi.Input<string>;
     }
 
+    export interface EventSubscriptionDeliveryProperty {
+        /**
+         * The name of the header to send on to the destination
+         */
+        headerName: pulumi.Input<string>;
+        /**
+         * True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
+         */
+        secret?: pulumi.Input<boolean>;
+        /**
+         * If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+         */
+        sourceField?: pulumi.Input<string>;
+        /**
+         * Either `Static` or `Dynamic`
+         */
+        type: pulumi.Input<string>;
+        /**
+         * If the `type` is `Static`, then provide the value to use
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface EventSubscriptionEventhubEndpoint {
         /**
          * Specifies the id of the eventhub where the Event Subscription will receive events.
@@ -11798,7 +11822,6 @@ export namespace eventgrid {
          */
         topic?: pulumi.Input<string>;
     }
-
 }
 
 export namespace eventhub {
@@ -12355,6 +12378,29 @@ export namespace eventhub {
          * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface EventSubscriptionDeliveryProperty {
+        /**
+         * The name of the header to send on to the destination
+         */
+        headerName: pulumi.Input<string>;
+        /**
+         * True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
+         */
+        secret?: pulumi.Input<boolean>;
+        /**
+         * If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+         */
+        sourceField?: pulumi.Input<string>;
+        /**
+         * Either `Static` or `Dynamic`
+         */
+        type: pulumi.Input<string>;
+        /**
+         * If the `type` is `Static`, then provide the value to use
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface EventSubscriptionEventhubEndpoint {
@@ -16242,6 +16288,33 @@ export namespace keyvault {
 }
 
 export namespace kusto {
+    export interface AttachedDatabaseConfigurationSharing {
+        /**
+         * List of external tables exclude from the follower database.
+         */
+        externalTablesToExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of external tables to include in the follower database.
+         */
+        externalTablesToIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of materialized views exclude from the follower database.
+         */
+        materializedViewsToExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of materialized views to include in the follower database.
+         */
+        materializedViewsToIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of tables to exclude from the follower database.
+         */
+        tablesToExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of tables to include in the follower database.
+         */
+        tablesToIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ClusterIdentity {
         /**
          * A list of IDs for User Assigned Managed Identity resources to be assigned.
@@ -18975,7 +19048,7 @@ export namespace mssql {
          */
         storageEndpoint?: pulumi.Input<string>;
         /**
-         * Should the default server policy be used? Defaults to `Disabled`.
+         * @deprecated This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
          */
         useServerDefault?: pulumi.Input<string>;
     }
@@ -19091,9 +19164,13 @@ export namespace mssql {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
          */
         type: pulumi.Input<string>;
+        /**
+         * Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primaryUserAssignedIdentityId`.
+         */
+        userAssignedIdentityIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ServerVulnerabilityAssessmentRecurringScans {
@@ -19254,6 +19331,47 @@ export namespace mssql {
 }
 
 export namespace mysql {
+    export interface FlexibleServerHighAvailability {
+        /**
+         * The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+         */
+        mode: pulumi.Input<string>;
+        /**
+         * The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+         */
+        standbyAvailabilityZone?: pulumi.Input<string>;
+    }
+
+    export interface FlexibleServerMaintenanceWindow {
+        /**
+         * The day of week for maintenance window. Defaults to `0`.
+         */
+        dayOfWeek?: pulumi.Input<number>;
+        /**
+         * The day of week for maintenance window. Defaults to `0`.
+         */
+        startHour?: pulumi.Input<number>;
+        /**
+         * The start minute for maintenance window. Defaults to `0`.
+         */
+        startMinute?: pulumi.Input<number>;
+    }
+
+    export interface FlexibleServerStorage {
+        /**
+         * Should Storage Auto Grow be enabled? Defaults to `true`.
+         */
+        autoGrowEnabled?: pulumi.Input<boolean>;
+        /**
+         * The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+         */
+        sizeGb?: pulumi.Input<number>;
+    }
+
     export interface ServerIdentity {
         /**
          * The Client ID of the Service Principal assigned to this MySQL Server.
@@ -21127,6 +21245,10 @@ export namespace network {
     }
 
     export interface NetworkConnectionMonitorTestConfigurationTcpConfiguration {
+        /**
+         * The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+         */
+        destinationPortBehavior?: pulumi.Input<string>;
         /**
          * The port for the Tcp connection.
          */

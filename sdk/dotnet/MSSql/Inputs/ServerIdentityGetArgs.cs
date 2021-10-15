@@ -25,10 +25,22 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+        /// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        [Input("userAssignedIdentityIds")]
+        private InputList<string>? _userAssignedIdentityIds;
+
+        /// <summary>
+        /// Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primary_user_assigned_identity_id`.
+        /// </summary>
+        public InputList<string> UserAssignedIdentityIds
+        {
+            get => _userAssignedIdentityIds ?? (_userAssignedIdentityIds = new InputList<string>());
+            set => _userAssignedIdentityIds = value;
+        }
 
         public ServerIdentityGetArgs()
         {

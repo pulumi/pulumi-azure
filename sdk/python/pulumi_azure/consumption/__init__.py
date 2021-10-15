@@ -7,5 +7,7 @@ import typing
 # Export this package's modules as members:
 from .budget_resource_group import *
 from .budget_subscription import *
+from .get_budget_resource_group import *
+from .get_budget_subscription import *
 from ._inputs import *
 from . import outputs

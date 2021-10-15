@@ -175,6 +175,7 @@ import (
 // 			StorageAccountName:      exampleAccount.Name,
 // 			StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 // 			OsType:                  pulumi.String("linux"),
+// 			Version:                 pulumi.String("~3"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -183,6 +184,7 @@ import (
 // 	})
 // }
 // ```
+// > **Note:** Version `~3` is required for Linux Function Apps.
 //
 // ## Import
 //
@@ -201,6 +203,8 @@ type FunctionApp struct {
 	// A `authSettings` block as defined below.
 	AuthSettings FunctionAppAuthSettingsOutput `pulumi:"authSettings"`
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+	//
+	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
 	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertMode pulumi.StringPtrOutput `pulumi:"clientCertMode"`
@@ -294,6 +298,8 @@ type functionAppState struct {
 	// A `authSettings` block as defined below.
 	AuthSettings *FunctionAppAuthSettings `pulumi:"authSettings"`
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+	//
+	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertMode *string `pulumi:"clientCertMode"`
@@ -353,6 +359,8 @@ type FunctionAppState struct {
 	// A `authSettings` block as defined below.
 	AuthSettings FunctionAppAuthSettingsPtrInput
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+	//
+	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertMode pulumi.StringPtrInput
@@ -416,6 +424,8 @@ type functionAppArgs struct {
 	// A `authSettings` block as defined below.
 	AuthSettings *FunctionAppAuthSettings `pulumi:"authSettings"`
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+	//
+	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertMode *string `pulumi:"clientCertMode"`
@@ -464,6 +474,8 @@ type FunctionAppArgs struct {
 	// A `authSettings` block as defined below.
 	AuthSettings FunctionAppAuthSettingsPtrInput
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+	//
+	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertMode pulumi.StringPtrInput

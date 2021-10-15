@@ -178,7 +178,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         /// </summary>
         [Output("vmPriority")]
         public Output<string> VmPriority { get; private set; } = null!;
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.MachineLearning
         }
 
         /// <summary>
-        /// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         /// </summary>
         [Input("vmPriority", required: true)]
         public Input<string> VmPriority { get; set; } = null!;
@@ -387,7 +387,7 @@ namespace Pulumi.Azure.MachineLearning
         }
 
         /// <summary>
-        /// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         /// </summary>
         [Input("vmPriority")]
         public Input<string>? VmPriority { get; set; }

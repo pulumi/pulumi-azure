@@ -157,7 +157,7 @@ type ComputeCluster struct {
 	SubnetResourceId pulumi.StringPtrOutput `pulumi:"subnetResourceId"`
 	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
 	VmPriority pulumi.StringOutput `pulumi:"vmPriority"`
 	// The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
@@ -224,7 +224,7 @@ type computeClusterState struct {
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
 	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Tags map[string]string `pulumi:"tags"`
-	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
 	VmPriority *string `pulumi:"vmPriority"`
 	// The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
 	VmSize *string `pulumi:"vmSize"`
@@ -251,7 +251,7 @@ type ComputeClusterState struct {
 	SubnetResourceId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Tags pulumi.StringMapInput
-	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
 	VmPriority pulumi.StringPtrInput
 	// The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
 	VmSize pulumi.StringPtrInput
@@ -282,7 +282,7 @@ type computeClusterArgs struct {
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
 	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Tags map[string]string `pulumi:"tags"`
-	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
 	VmPriority string `pulumi:"vmPriority"`
 	// The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
 	VmSize string `pulumi:"vmSize"`
@@ -310,7 +310,7 @@ type ComputeClusterArgs struct {
 	SubnetResourceId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Tags pulumi.StringMapInput
-	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
 	VmPriority pulumi.StringInput
 	// The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
 	VmSize pulumi.StringInput

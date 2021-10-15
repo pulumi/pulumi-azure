@@ -97,12 +97,18 @@ export interface GetDomainResult {
      */
     readonly location: string;
     readonly name: string;
+    /**
+     * The primary access key associated with the EventGrid Domain.
+     */
     readonly primaryAccessKey: string;
     /**
      * Whether or not public network access is allowed for this server.
      */
     readonly publicNetworkAccessEnabled?: boolean;
     readonly resourceGroupName: string;
+    /**
+     * The secondary access key associated with the EventGrid Domain.
+     */
     readonly secondaryAccessKey: string;
     /**
      * A mapping of tags assigned to the EventGrid Domain.

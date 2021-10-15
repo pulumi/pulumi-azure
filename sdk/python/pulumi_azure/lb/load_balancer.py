@@ -20,6 +20,7 @@ class LoadBalancerArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
@@ -28,6 +29,7 @@ class LoadBalancerArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Load Balancer should be created.
         :param pulumi.Input[str] name: Specifies the name of the Load Balancer.
         :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        :param pulumi.Input[str] sku_tier: `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -39,6 +41,8 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "name", name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if sku_tier is not None:
+            pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -103,6 +107,18 @@ class LoadBalancerArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku_tier")
+
+    @sku_tier.setter
+    def sku_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_tier", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -125,6 +141,7 @@ class _LoadBalancerState:
                  private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering LoadBalancer resources.
@@ -135,6 +152,7 @@ class _LoadBalancerState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer.
         :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        :param pulumi.Input[str] sku_tier: `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if frontend_ip_configurations is not None:
@@ -151,6 +169,8 @@ class _LoadBalancerState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if sku_tier is not None:
+            pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -239,6 +259,18 @@ class _LoadBalancerState:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku_tier")
+
+    @sku_tier.setter
+    def sku_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_tier", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -261,6 +293,7 @@ class LoadBalancer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -301,6 +334,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Load Balancer.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer.
         :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        :param pulumi.Input[str] sku_tier: `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -360,6 +394,7 @@ class LoadBalancer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -380,6 +415,7 @@ class LoadBalancer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["private_ip_address"] = None
             __props__.__dict__["private_ip_addresses"] = None
@@ -400,6 +436,7 @@ class LoadBalancer(pulumi.CustomResource):
             private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
+            sku_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LoadBalancer':
         """
         Get an existing LoadBalancer resource's state with the given name, id, and optional extra
@@ -415,6 +452,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer.
         :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        :param pulumi.Input[str] sku_tier: `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -428,6 +466,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["private_ip_addresses"] = private_ip_addresses
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
+        __props__.__dict__["sku_tier"] = sku_tier
         __props__.__dict__["tags"] = tags
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
@@ -486,6 +525,14 @@ class LoadBalancer(pulumi.CustomResource):
         The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> pulumi.Output[Optional[str]]:
+        """
+        `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku_tier")
 
     @property
     @pulumi.getter

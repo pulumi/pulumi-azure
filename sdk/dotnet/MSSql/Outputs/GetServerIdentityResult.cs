@@ -25,6 +25,10 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// The identity type of the Microsoft SQL Server.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// A list of the User Assigned Identities of this SQL Server.
+        /// </summary>
+        public readonly ImmutableArray<string> UserAssignedIdentityIds;
 
         [OutputConstructor]
         private GetServerIdentityResult(
@@ -32,11 +36,14 @@ namespace Pulumi.Azure.MSSql.Outputs
 
             string tenantId,
 
-            string type)
+            string type,
+
+            ImmutableArray<string> userAssignedIdentityIds)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentityIds = userAssignedIdentityIds;
         }
     }
 }

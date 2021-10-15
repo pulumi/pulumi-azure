@@ -31,7 +31,7 @@ class ComputeClusterArgs:
         The set of arguments for constructing a ComputeCluster resource.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input['ComputeClusterScaleSettingsArgs'] scale_settings: A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         :param pulumi.Input[str] vm_size: The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input['ComputeClusterIdentityArgs'] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -91,7 +91,7 @@ class ComputeClusterArgs:
     @pulumi.getter(name="vmPriority")
     def vm_priority(self) -> pulumi.Input[str]:
         """
-        The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+        The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         """
         return pulumi.get(self, "vm_priority")
 
@@ -235,7 +235,7 @@ class _ComputeClusterState:
         :param pulumi.Input[bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         :param pulumi.Input[str] vm_size: The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
         if description is not None:
@@ -387,7 +387,7 @@ class _ComputeClusterState:
     @pulumi.getter(name="vmPriority")
     def vm_priority(self) -> Optional[pulumi.Input[str]]:
         """
-        The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+        The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         """
         return pulumi.get(self, "vm_priority")
 
@@ -510,7 +510,7 @@ class ComputeCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         :param pulumi.Input[str] vm_size: The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
         ...
@@ -689,7 +689,7 @@ class ComputeCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         :param pulumi.Input[str] vm_size: The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -794,7 +794,7 @@ class ComputeCluster(pulumi.CustomResource):
     @pulumi.getter(name="vmPriority")
     def vm_priority(self) -> pulumi.Output[str]:
         """
-        The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+        The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         """
         return pulumi.get(self, "vm_priority")
 

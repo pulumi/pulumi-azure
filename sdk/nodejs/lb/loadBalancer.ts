@@ -95,6 +95,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
+     * `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     */
+    public readonly skuTier!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -119,6 +123,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
+            inputs["skuTier"] = state ? state.skuTier : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
@@ -130,6 +135,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["skuTier"] = args ? args.skuTier : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["privateIpAddress"] = undefined /*out*/;
             inputs["privateIpAddresses"] = undefined /*out*/;
@@ -174,6 +180,10 @@ export interface LoadBalancerState {
      */
     sku?: pulumi.Input<string>;
     /**
+     * `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     */
+    skuTier?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -203,6 +213,10 @@ export interface LoadBalancerArgs {
      * The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
      */
     sku?: pulumi.Input<string>;
+    /**
+     * `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     */
+    skuTier?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

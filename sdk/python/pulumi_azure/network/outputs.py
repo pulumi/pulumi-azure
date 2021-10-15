@@ -6380,7 +6380,9 @@ class NetworkConnectionMonitorTestConfigurationTcpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "traceRouteEnabled":
+        if key == "destinationPortBehavior":
+            suggest = "destination_port_behavior"
+        elif key == "traceRouteEnabled":
             suggest = "trace_route_enabled"
 
         if suggest:
@@ -6396,12 +6398,16 @@ class NetworkConnectionMonitorTestConfigurationTcpConfiguration(dict):
 
     def __init__(__self__, *,
                  port: int,
+                 destination_port_behavior: Optional[str] = None,
                  trace_route_enabled: Optional[bool] = None):
         """
         :param int port: The port for the Tcp connection.
+        :param str destination_port_behavior: The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
         :param bool trace_route_enabled: Should path evaluation with trace route be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "port", port)
+        if destination_port_behavior is not None:
+            pulumi.set(__self__, "destination_port_behavior", destination_port_behavior)
         if trace_route_enabled is not None:
             pulumi.set(__self__, "trace_route_enabled", trace_route_enabled)
 
@@ -6412,6 +6418,14 @@ class NetworkConnectionMonitorTestConfigurationTcpConfiguration(dict):
         The port for the Tcp connection.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="destinationPortBehavior")
+    def destination_port_behavior(self) -> Optional[str]:
+        """
+        The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+        """
+        return pulumi.get(self, "destination_port_behavior")
 
     @property
     @pulumi.getter(name="traceRouteEnabled")

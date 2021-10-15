@@ -10,6 +10,238 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AttachedDatabaseConfigurationSharing struct {
+	// List of external tables exclude from the follower database.
+	ExternalTablesToExcludes []string `pulumi:"externalTablesToExcludes"`
+	// List of external tables to include in the follower database.
+	ExternalTablesToIncludes []string `pulumi:"externalTablesToIncludes"`
+	// List of materialized views exclude from the follower database.
+	MaterializedViewsToExcludes []string `pulumi:"materializedViewsToExcludes"`
+	// List of materialized views to include in the follower database.
+	MaterializedViewsToIncludes []string `pulumi:"materializedViewsToIncludes"`
+	// List of tables to exclude from the follower database.
+	TablesToExcludes []string `pulumi:"tablesToExcludes"`
+	// List of tables to include in the follower database.
+	TablesToIncludes []string `pulumi:"tablesToIncludes"`
+}
+
+// AttachedDatabaseConfigurationSharingInput is an input type that accepts AttachedDatabaseConfigurationSharingArgs and AttachedDatabaseConfigurationSharingOutput values.
+// You can construct a concrete instance of `AttachedDatabaseConfigurationSharingInput` via:
+//
+//          AttachedDatabaseConfigurationSharingArgs{...}
+type AttachedDatabaseConfigurationSharingInput interface {
+	pulumi.Input
+
+	ToAttachedDatabaseConfigurationSharingOutput() AttachedDatabaseConfigurationSharingOutput
+	ToAttachedDatabaseConfigurationSharingOutputWithContext(context.Context) AttachedDatabaseConfigurationSharingOutput
+}
+
+type AttachedDatabaseConfigurationSharingArgs struct {
+	// List of external tables exclude from the follower database.
+	ExternalTablesToExcludes pulumi.StringArrayInput `pulumi:"externalTablesToExcludes"`
+	// List of external tables to include in the follower database.
+	ExternalTablesToIncludes pulumi.StringArrayInput `pulumi:"externalTablesToIncludes"`
+	// List of materialized views exclude from the follower database.
+	MaterializedViewsToExcludes pulumi.StringArrayInput `pulumi:"materializedViewsToExcludes"`
+	// List of materialized views to include in the follower database.
+	MaterializedViewsToIncludes pulumi.StringArrayInput `pulumi:"materializedViewsToIncludes"`
+	// List of tables to exclude from the follower database.
+	TablesToExcludes pulumi.StringArrayInput `pulumi:"tablesToExcludes"`
+	// List of tables to include in the follower database.
+	TablesToIncludes pulumi.StringArrayInput `pulumi:"tablesToIncludes"`
+}
+
+func (AttachedDatabaseConfigurationSharingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttachedDatabaseConfigurationSharing)(nil)).Elem()
+}
+
+func (i AttachedDatabaseConfigurationSharingArgs) ToAttachedDatabaseConfigurationSharingOutput() AttachedDatabaseConfigurationSharingOutput {
+	return i.ToAttachedDatabaseConfigurationSharingOutputWithContext(context.Background())
+}
+
+func (i AttachedDatabaseConfigurationSharingArgs) ToAttachedDatabaseConfigurationSharingOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationSharingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationSharingOutput)
+}
+
+func (i AttachedDatabaseConfigurationSharingArgs) ToAttachedDatabaseConfigurationSharingPtrOutput() AttachedDatabaseConfigurationSharingPtrOutput {
+	return i.ToAttachedDatabaseConfigurationSharingPtrOutputWithContext(context.Background())
+}
+
+func (i AttachedDatabaseConfigurationSharingArgs) ToAttachedDatabaseConfigurationSharingPtrOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationSharingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationSharingOutput).ToAttachedDatabaseConfigurationSharingPtrOutputWithContext(ctx)
+}
+
+// AttachedDatabaseConfigurationSharingPtrInput is an input type that accepts AttachedDatabaseConfigurationSharingArgs, AttachedDatabaseConfigurationSharingPtr and AttachedDatabaseConfigurationSharingPtrOutput values.
+// You can construct a concrete instance of `AttachedDatabaseConfigurationSharingPtrInput` via:
+//
+//          AttachedDatabaseConfigurationSharingArgs{...}
+//
+//  or:
+//
+//          nil
+type AttachedDatabaseConfigurationSharingPtrInput interface {
+	pulumi.Input
+
+	ToAttachedDatabaseConfigurationSharingPtrOutput() AttachedDatabaseConfigurationSharingPtrOutput
+	ToAttachedDatabaseConfigurationSharingPtrOutputWithContext(context.Context) AttachedDatabaseConfigurationSharingPtrOutput
+}
+
+type attachedDatabaseConfigurationSharingPtrType AttachedDatabaseConfigurationSharingArgs
+
+func AttachedDatabaseConfigurationSharingPtr(v *AttachedDatabaseConfigurationSharingArgs) AttachedDatabaseConfigurationSharingPtrInput {
+	return (*attachedDatabaseConfigurationSharingPtrType)(v)
+}
+
+func (*attachedDatabaseConfigurationSharingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AttachedDatabaseConfigurationSharing)(nil)).Elem()
+}
+
+func (i *attachedDatabaseConfigurationSharingPtrType) ToAttachedDatabaseConfigurationSharingPtrOutput() AttachedDatabaseConfigurationSharingPtrOutput {
+	return i.ToAttachedDatabaseConfigurationSharingPtrOutputWithContext(context.Background())
+}
+
+func (i *attachedDatabaseConfigurationSharingPtrType) ToAttachedDatabaseConfigurationSharingPtrOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationSharingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationSharingPtrOutput)
+}
+
+type AttachedDatabaseConfigurationSharingOutput struct{ *pulumi.OutputState }
+
+func (AttachedDatabaseConfigurationSharingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttachedDatabaseConfigurationSharing)(nil)).Elem()
+}
+
+func (o AttachedDatabaseConfigurationSharingOutput) ToAttachedDatabaseConfigurationSharingOutput() AttachedDatabaseConfigurationSharingOutput {
+	return o
+}
+
+func (o AttachedDatabaseConfigurationSharingOutput) ToAttachedDatabaseConfigurationSharingOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationSharingOutput {
+	return o
+}
+
+func (o AttachedDatabaseConfigurationSharingOutput) ToAttachedDatabaseConfigurationSharingPtrOutput() AttachedDatabaseConfigurationSharingPtrOutput {
+	return o.ToAttachedDatabaseConfigurationSharingPtrOutputWithContext(context.Background())
+}
+
+func (o AttachedDatabaseConfigurationSharingOutput) ToAttachedDatabaseConfigurationSharingPtrOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationSharingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AttachedDatabaseConfigurationSharing) *AttachedDatabaseConfigurationSharing {
+		return &v
+	}).(AttachedDatabaseConfigurationSharingPtrOutput)
+}
+
+// List of external tables exclude from the follower database.
+func (o AttachedDatabaseConfigurationSharingOutput) ExternalTablesToExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfigurationSharing) []string { return v.ExternalTablesToExcludes }).(pulumi.StringArrayOutput)
+}
+
+// List of external tables to include in the follower database.
+func (o AttachedDatabaseConfigurationSharingOutput) ExternalTablesToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfigurationSharing) []string { return v.ExternalTablesToIncludes }).(pulumi.StringArrayOutput)
+}
+
+// List of materialized views exclude from the follower database.
+func (o AttachedDatabaseConfigurationSharingOutput) MaterializedViewsToExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfigurationSharing) []string { return v.MaterializedViewsToExcludes }).(pulumi.StringArrayOutput)
+}
+
+// List of materialized views to include in the follower database.
+func (o AttachedDatabaseConfigurationSharingOutput) MaterializedViewsToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfigurationSharing) []string { return v.MaterializedViewsToIncludes }).(pulumi.StringArrayOutput)
+}
+
+// List of tables to exclude from the follower database.
+func (o AttachedDatabaseConfigurationSharingOutput) TablesToExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfigurationSharing) []string { return v.TablesToExcludes }).(pulumi.StringArrayOutput)
+}
+
+// List of tables to include in the follower database.
+func (o AttachedDatabaseConfigurationSharingOutput) TablesToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfigurationSharing) []string { return v.TablesToIncludes }).(pulumi.StringArrayOutput)
+}
+
+type AttachedDatabaseConfigurationSharingPtrOutput struct{ *pulumi.OutputState }
+
+func (AttachedDatabaseConfigurationSharingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AttachedDatabaseConfigurationSharing)(nil)).Elem()
+}
+
+func (o AttachedDatabaseConfigurationSharingPtrOutput) ToAttachedDatabaseConfigurationSharingPtrOutput() AttachedDatabaseConfigurationSharingPtrOutput {
+	return o
+}
+
+func (o AttachedDatabaseConfigurationSharingPtrOutput) ToAttachedDatabaseConfigurationSharingPtrOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationSharingPtrOutput {
+	return o
+}
+
+func (o AttachedDatabaseConfigurationSharingPtrOutput) Elem() AttachedDatabaseConfigurationSharingOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfigurationSharing) AttachedDatabaseConfigurationSharing {
+		if v != nil {
+			return *v
+		}
+		var ret AttachedDatabaseConfigurationSharing
+		return ret
+	}).(AttachedDatabaseConfigurationSharingOutput)
+}
+
+// List of external tables exclude from the follower database.
+func (o AttachedDatabaseConfigurationSharingPtrOutput) ExternalTablesToExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfigurationSharing) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalTablesToExcludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of external tables to include in the follower database.
+func (o AttachedDatabaseConfigurationSharingPtrOutput) ExternalTablesToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfigurationSharing) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalTablesToIncludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of materialized views exclude from the follower database.
+func (o AttachedDatabaseConfigurationSharingPtrOutput) MaterializedViewsToExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfigurationSharing) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MaterializedViewsToExcludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of materialized views to include in the follower database.
+func (o AttachedDatabaseConfigurationSharingPtrOutput) MaterializedViewsToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfigurationSharing) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MaterializedViewsToIncludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of tables to exclude from the follower database.
+func (o AttachedDatabaseConfigurationSharingPtrOutput) TablesToExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfigurationSharing) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TablesToExcludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of tables to include in the follower database.
+func (o AttachedDatabaseConfigurationSharingPtrOutput) TablesToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfigurationSharing) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TablesToIncludes
+	}).(pulumi.StringArrayOutput)
+}
+
 type ClusterIdentity struct {
 	// A list of IDs for User Assigned Managed Identity resources to be assigned.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -692,6 +924,8 @@ func (o ClusterVirtualNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AttachedDatabaseConfigurationSharingInput)(nil)).Elem(), AttachedDatabaseConfigurationSharingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AttachedDatabaseConfigurationSharingPtrInput)(nil)).Elem(), AttachedDatabaseConfigurationSharingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityInput)(nil)).Elem(), ClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityPtrInput)(nil)).Elem(), ClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOptimizedAutoScaleInput)(nil)).Elem(), ClusterOptimizedAutoScaleArgs{})
@@ -700,6 +934,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuPtrInput)(nil)).Elem(), ClusterSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVirtualNetworkConfigurationInput)(nil)).Elem(), ClusterVirtualNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVirtualNetworkConfigurationPtrInput)(nil)).Elem(), ClusterVirtualNetworkConfigurationArgs{})
+	pulumi.RegisterOutputType(AttachedDatabaseConfigurationSharingOutput{})
+	pulumi.RegisterOutputType(AttachedDatabaseConfigurationSharingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOptimizedAutoScaleOutput{})

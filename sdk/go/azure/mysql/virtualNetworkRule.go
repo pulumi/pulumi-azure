@@ -63,7 +63,7 @@ import (
 // 			ResourceGroupName:          exampleResourceGroup.Name,
 // 			AdministratorLogin:         pulumi.String("mysqladminun"),
 // 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-// 			SkuName:                    pulumi.String("B_Gen5_2"),
+// 			SkuName:                    pulumi.String("GP_Gen5_2"),
 // 			StorageMb:                  pulumi.Int(5120),
 // 			Version:                    pulumi.String("5.7"),
 // 			BackupRetentionDays:        pulumi.Int(7),

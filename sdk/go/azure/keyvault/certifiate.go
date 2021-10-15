@@ -301,7 +301,7 @@ type Certifiate struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the associated Key Vault Secret.
 	SecretId pulumi.StringOutput `pulumi:"secretId"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
@@ -360,7 +360,7 @@ type certifiateState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the associated Key Vault Secret.
 	SecretId *string `pulumi:"secretId"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
 	// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
 	Thumbprint *string `pulumi:"thumbprint"`
@@ -385,7 +385,7 @@ type CertifiateState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the associated Key Vault Secret.
 	SecretId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
 	// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
 	Thumbprint pulumi.StringPtrInput
@@ -406,7 +406,7 @@ type certifiateArgs struct {
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -420,7 +420,7 @@ type CertifiateArgs struct {
 	KeyVaultId pulumi.StringInput
 	// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
 }
 

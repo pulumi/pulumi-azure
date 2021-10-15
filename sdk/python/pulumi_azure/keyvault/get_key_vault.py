@@ -21,10 +21,13 @@ class GetKeyVaultResult:
     """
     A collection of values returned by getKeyVault.
     """
-    def __init__(__self__, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, id=None, location=None, name=None, network_acls=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, soft_delete_enabled=None, tags=None, tenant_id=None, vault_uri=None):
+    def __init__(__self__, access_policies=None, enable_rbac_authorization=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, id=None, location=None, name=None, network_acls=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, soft_delete_enabled=None, tags=None, tenant_id=None, vault_uri=None):
         if access_policies and not isinstance(access_policies, list):
             raise TypeError("Expected argument 'access_policies' to be a list")
         pulumi.set(__self__, "access_policies", access_policies)
+        if enable_rbac_authorization and not isinstance(enable_rbac_authorization, bool):
+            raise TypeError("Expected argument 'enable_rbac_authorization' to be a bool")
+        pulumi.set(__self__, "enable_rbac_authorization", enable_rbac_authorization)
         if enabled_for_deployment and not isinstance(enabled_for_deployment, bool):
             raise TypeError("Expected argument 'enabled_for_deployment' to be a bool")
         pulumi.set(__self__, "enabled_for_deployment", enabled_for_deployment)
@@ -79,6 +82,14 @@ class GetKeyVaultResult:
         One or more `access_policy` blocks as defined below.
         """
         return pulumi.get(self, "access_policies")
+
+    @property
+    @pulumi.getter(name="enableRbacAuthorization")
+    def enable_rbac_authorization(self) -> bool:
+        """
+        Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
+        """
+        return pulumi.get(self, "enable_rbac_authorization")
 
     @property
     @pulumi.getter(name="enabledForDeployment")
@@ -188,6 +199,7 @@ class AwaitableGetKeyVaultResult(GetKeyVaultResult):
             yield self
         return GetKeyVaultResult(
             access_policies=self.access_policies,
+            enable_rbac_authorization=self.enable_rbac_authorization,
             enabled_for_deployment=self.enabled_for_deployment,
             enabled_for_disk_encryption=self.enabled_for_disk_encryption,
             enabled_for_template_deployment=self.enabled_for_template_deployment,
@@ -236,6 +248,7 @@ def get_key_vault(name: Optional[str] = None,
 
     return AwaitableGetKeyVaultResult(
         access_policies=__ret__.access_policies,
+        enable_rbac_authorization=__ret__.enable_rbac_authorization,
         enabled_for_deployment=__ret__.enabled_for_deployment,
         enabled_for_disk_encryption=__ret__.enabled_for_disk_encryption,
         enabled_for_template_deployment=__ret__.enabled_for_template_deployment,

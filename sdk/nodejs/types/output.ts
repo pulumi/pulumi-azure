@@ -8493,6 +8493,254 @@ export namespace consumption {
         startDate: string;
     }
 
+    export interface GetBudgetResourceGroupFilter {
+        /**
+         * A `dimension` block as defined below.
+         */
+        dimensions: outputs.consumption.GetBudgetResourceGroupFilterDimension[];
+        /**
+         * A `not` block as defined below.
+         */
+        nots: outputs.consumption.GetBudgetResourceGroupFilterNot[];
+        /**
+         * A `tag` block as defined below.
+         */
+        tags: outputs.consumption.GetBudgetResourceGroupFilterTag[];
+    }
+
+    export interface GetBudgetResourceGroupFilterDimension {
+        /**
+         * The name of this Consumption Budget.
+         */
+        name: string;
+        /**
+         * The operator used for comparison.
+         */
+        operator: string;
+        /**
+         * A list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface GetBudgetResourceGroupFilterNot {
+        /**
+         * A `dimension` block as defined below.
+         */
+        dimensions: outputs.consumption.GetBudgetResourceGroupFilterNotDimension[];
+        /**
+         * A `tag` block as defined below.
+         */
+        tags: outputs.consumption.GetBudgetResourceGroupFilterNotTag[];
+    }
+
+    export interface GetBudgetResourceGroupFilterNotDimension {
+        /**
+         * The name of this Consumption Budget.
+         */
+        name: string;
+        /**
+         * The operator used for comparison.
+         */
+        operator: string;
+        /**
+         * A list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface GetBudgetResourceGroupFilterNotTag {
+        /**
+         * The name of this Consumption Budget.
+         */
+        name: string;
+        /**
+         * The operator used for comparison.
+         */
+        operator: string;
+        /**
+         * A list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface GetBudgetResourceGroupFilterTag {
+        /**
+         * The name of this Consumption Budget.
+         */
+        name: string;
+        /**
+         * The operator used for comparison.
+         */
+        operator: string;
+        /**
+         * A list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface GetBudgetResourceGroupNotification {
+        /**
+         * A list of email addresses to send the budget notification to when the threshold is exceeded.
+         */
+        contactEmails: string[];
+        /**
+         * A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+         */
+        contactGroups: string[];
+        /**
+         * A list of contact roles to send the budget notification to when the threshold is exceeded.
+         */
+        contactRoles: string[];
+        /**
+         * Whether the notification is enabled.
+         */
+        enabled: boolean;
+        /**
+         * The operator used for comparison.
+         */
+        operator: string;
+        /**
+         * Threshold value associated with the notification.
+         */
+        threshold: number;
+    }
+
+    export interface GetBudgetResourceGroupTimePeriod {
+        /**
+         * The end date for the budget.
+         */
+        endDate: string;
+        /**
+         * The start date for the budget.
+         */
+        startDate: string;
+    }
+
+    export interface GetBudgetSubscriptionFilter {
+        /**
+         * A `dimension` block as defined above.
+         */
+        dimensions: outputs.consumption.GetBudgetSubscriptionFilterDimension[];
+        /**
+         * A `not` block as defined below.
+         */
+        nots: outputs.consumption.GetBudgetSubscriptionFilterNot[];
+        /**
+         * A `tag` block as defined below.
+         */
+        tags: outputs.consumption.GetBudgetSubscriptionFilterTag[];
+    }
+
+    export interface GetBudgetSubscriptionFilterDimension {
+        /**
+         * The name of this Consumption Budget.
+         */
+        name: string;
+        /**
+         * The operator to used for comparison.
+         */
+        operator: string;
+        /**
+         * A list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface GetBudgetSubscriptionFilterNot {
+        /**
+         * A `dimension` block as defined above.
+         */
+        dimensions: outputs.consumption.GetBudgetSubscriptionFilterNotDimension[];
+        /**
+         * A `tag` block as defined below.
+         */
+        tags: outputs.consumption.GetBudgetSubscriptionFilterNotTag[];
+    }
+
+    export interface GetBudgetSubscriptionFilterNotDimension {
+        /**
+         * The name of this Consumption Budget.
+         */
+        name: string;
+        /**
+         * The operator to used for comparison.
+         */
+        operator: string;
+        /**
+         * A list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface GetBudgetSubscriptionFilterNotTag {
+        /**
+         * The name of this Consumption Budget.
+         */
+        name: string;
+        /**
+         * The operator to used for comparison.
+         */
+        operator: string;
+        /**
+         * A list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface GetBudgetSubscriptionFilterTag {
+        /**
+         * The name of this Consumption Budget.
+         */
+        name: string;
+        /**
+         * The operator to used for comparison.
+         */
+        operator: string;
+        /**
+         * A list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface GetBudgetSubscriptionNotification {
+        /**
+         * A list of email addresses to send the budget notification to when the threshold is exceeded.
+         */
+        contactEmails: string[];
+        /**
+         * A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+         */
+        contactGroups: string[];
+        /**
+         * A list of contact roles to send the budget notification to when the threshold is exceeded.
+         */
+        contactRoles: string[];
+        /**
+         * Whether the notification is enabled.
+         */
+        enabled: boolean;
+        /**
+         * The operator to used for comparison.
+         */
+        operator: string;
+        /**
+         * Threshold value associated with the notification.
+         */
+        threshold: number;
+    }
+
+    export interface GetBudgetSubscriptionTimePeriod {
+        /**
+         * The end date for the budget.
+         */
+        endDate: string;
+        /**
+         * The start date for the budget.
+         */
+        startDate: string;
+    }
+
 }
 
 export namespace containerservice {
@@ -13343,6 +13591,29 @@ export namespace eventgrid {
         type: string;
     }
 
+    export interface EventSubscriptionDeliveryProperty {
+        /**
+         * The name of the header to send on to the destination
+         */
+        headerName: string;
+        /**
+         * True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
+         */
+        secret?: boolean;
+        /**
+         * If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+         */
+        sourceField?: string;
+        /**
+         * Either `Static` or `Dynamic`
+         */
+        type: string;
+        /**
+         * If the `type` is `Static`, then provide the value to use
+         */
+        value?: string;
+    }
+
     export interface EventSubscriptionEventhubEndpoint {
         /**
          * Specifies the id of the eventhub where the Event Subscription will receive events.
@@ -13978,7 +14249,6 @@ export namespace eventgrid {
          */
         topic?: string;
     }
-
 }
 
 export namespace eventhub {
@@ -14535,6 +14805,29 @@ export namespace eventhub {
          * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
          */
         type: string;
+    }
+
+    export interface EventSubscriptionDeliveryProperty {
+        /**
+         * The name of the header to send on to the destination
+         */
+        headerName: string;
+        /**
+         * True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
+         */
+        secret?: boolean;
+        /**
+         * If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+         */
+        sourceField?: string;
+        /**
+         * Either `Static` or `Dynamic`
+         */
+        type: string;
+        /**
+         * If the `type` is `Static`, then provide the value to use
+         */
+        value?: string;
     }
 
     export interface EventSubscriptionEventhubEndpoint {
@@ -18661,6 +18954,33 @@ export namespace keyvault {
 }
 
 export namespace kusto {
+    export interface AttachedDatabaseConfigurationSharing {
+        /**
+         * List of external tables exclude from the follower database.
+         */
+        externalTablesToExcludes?: string[];
+        /**
+         * List of external tables to include in the follower database.
+         */
+        externalTablesToIncludes?: string[];
+        /**
+         * List of materialized views exclude from the follower database.
+         */
+        materializedViewsToExcludes?: string[];
+        /**
+         * List of materialized views to include in the follower database.
+         */
+        materializedViewsToIncludes?: string[];
+        /**
+         * List of tables to exclude from the follower database.
+         */
+        tablesToExcludes?: string[];
+        /**
+         * List of tables to include in the follower database.
+         */
+        tablesToIncludes?: string[];
+    }
+
     export interface ClusterIdentity {
         /**
          * A list of IDs for User Assigned Managed Identity resources to be assigned.
@@ -21771,7 +22091,7 @@ export namespace mssql {
          */
         storageEndpoint?: string;
         /**
-         * Should the default server policy be used? Defaults to `Disabled`.
+         * @deprecated This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
          */
         useServerDefault?: string;
     }
@@ -21871,6 +22191,10 @@ export namespace mssql {
          * The identity type of the Microsoft SQL Server.
          */
         type: string;
+        /**
+         * A list of the User Assigned Identities of this SQL Server.
+         */
+        userAssignedIdentityIds: string[];
     }
 
     export interface ServerAzureadAdministrator {
@@ -21921,9 +22245,13 @@ export namespace mssql {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
          */
         type: string;
+        /**
+         * Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primaryUserAssignedIdentityId`.
+         */
+        userAssignedIdentityIds?: string[];
     }
 
     export interface ServerVulnerabilityAssessmentRecurringScans {
@@ -22083,6 +22411,47 @@ export namespace mssql {
 }
 
 export namespace mysql {
+    export interface FlexibleServerHighAvailability {
+        /**
+         * The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+         */
+        mode: string;
+        /**
+         * The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+         */
+        standbyAvailabilityZone: string;
+    }
+
+    export interface FlexibleServerMaintenanceWindow {
+        /**
+         * The day of week for maintenance window. Defaults to `0`.
+         */
+        dayOfWeek?: number;
+        /**
+         * The day of week for maintenance window. Defaults to `0`.
+         */
+        startHour?: number;
+        /**
+         * The start minute for maintenance window. Defaults to `0`.
+         */
+        startMinute?: number;
+    }
+
+    export interface FlexibleServerStorage {
+        /**
+         * Should Storage Auto Grow be enabled? Defaults to `true`.
+         */
+        autoGrowEnabled?: boolean;
+        /**
+         * The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
+         */
+        iops: number;
+        /**
+         * The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+         */
+        sizeGb: number;
+    }
+
     export interface GetServerIdentity {
         /**
          * The Client ID of the Service Principal assigned to this MySQL Server.
@@ -24638,6 +25007,10 @@ export namespace network {
     }
 
     export interface NetworkConnectionMonitorTestConfigurationTcpConfiguration {
+        /**
+         * The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+         */
+        destinationPortBehavior?: string;
         /**
          * The port for the Tcp connection.
          */

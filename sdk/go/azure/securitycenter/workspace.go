@@ -15,8 +15,6 @@ import (
 //
 // > **NOTE:** Owner access permission is required.
 //
-// > **NOTE:** The subscription's pricing model can not be `Free` for this to have any affect.
-//
 // ## Example Usage
 //
 // ```go

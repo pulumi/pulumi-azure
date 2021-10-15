@@ -21,6 +21,7 @@ class EventSubscriptionArgs:
                  azure_function_endpoint: Optional[pulumi.Input['EventSubscriptionAzureFunctionEndpointArgs']] = None,
                  dead_letter_identity: Optional[pulumi.Input['EventSubscriptionDeadLetterIdentityArgs']] = None,
                  delivery_identity: Optional[pulumi.Input['EventSubscriptionDeliveryIdentityArgs']] = None,
+                 delivery_properties: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]]] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
                  eventhub_endpoint: Optional[pulumi.Input['EventSubscriptionEventhubEndpointArgs']] = None,
                  eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -46,6 +47,7 @@ class EventSubscriptionArgs:
         :param pulumi.Input['EventSubscriptionAzureFunctionEndpointArgs'] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input['EventSubscriptionDeadLetterIdentityArgs'] dead_letter_identity: A `dead_letter_identity` block as defined below.
         :param pulumi.Input['EventSubscriptionDeliveryIdentityArgs'] delivery_identity: A `delivery_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]] delivery_properties: A `delivery_property` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input['EventSubscriptionEventhubEndpointArgs'] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
@@ -75,6 +77,8 @@ class EventSubscriptionArgs:
             pulumi.set(__self__, "dead_letter_identity", dead_letter_identity)
         if delivery_identity is not None:
             pulumi.set(__self__, "delivery_identity", delivery_identity)
+        if delivery_properties is not None:
+            pulumi.set(__self__, "delivery_properties", delivery_properties)
         if event_delivery_schema is not None:
             pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
         if eventhub_endpoint is not None:
@@ -190,6 +194,18 @@ class EventSubscriptionArgs:
     @delivery_identity.setter
     def delivery_identity(self, value: Optional[pulumi.Input['EventSubscriptionDeliveryIdentityArgs']]):
         pulumi.set(self, "delivery_identity", value)
+
+    @property
+    @pulumi.getter(name="deliveryProperties")
+    def delivery_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]]]:
+        """
+        A `delivery_property` block as defined below.
+        """
+        return pulumi.get(self, "delivery_properties")
+
+    @delivery_properties.setter
+    def delivery_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]]]):
+        pulumi.set(self, "delivery_properties", value)
 
     @property
     @pulumi.getter(name="eventDeliverySchema")
@@ -404,6 +420,7 @@ class _EventSubscriptionState:
                  azure_function_endpoint: Optional[pulumi.Input['EventSubscriptionAzureFunctionEndpointArgs']] = None,
                  dead_letter_identity: Optional[pulumi.Input['EventSubscriptionDeadLetterIdentityArgs']] = None,
                  delivery_identity: Optional[pulumi.Input['EventSubscriptionDeliveryIdentityArgs']] = None,
+                 delivery_properties: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]]] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
                  eventhub_endpoint: Optional[pulumi.Input['EventSubscriptionEventhubEndpointArgs']] = None,
                  eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -429,6 +446,7 @@ class _EventSubscriptionState:
         :param pulumi.Input['EventSubscriptionAzureFunctionEndpointArgs'] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input['EventSubscriptionDeadLetterIdentityArgs'] dead_letter_identity: A `dead_letter_identity` block as defined below.
         :param pulumi.Input['EventSubscriptionDeliveryIdentityArgs'] delivery_identity: A `delivery_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]] delivery_properties: A `delivery_property` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input['EventSubscriptionEventhubEndpointArgs'] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
@@ -458,6 +476,8 @@ class _EventSubscriptionState:
             pulumi.set(__self__, "dead_letter_identity", dead_letter_identity)
         if delivery_identity is not None:
             pulumi.set(__self__, "delivery_identity", delivery_identity)
+        if delivery_properties is not None:
+            pulumi.set(__self__, "delivery_properties", delivery_properties)
         if event_delivery_schema is not None:
             pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
         if eventhub_endpoint is not None:
@@ -563,6 +583,18 @@ class _EventSubscriptionState:
     @delivery_identity.setter
     def delivery_identity(self, value: Optional[pulumi.Input['EventSubscriptionDeliveryIdentityArgs']]):
         pulumi.set(self, "delivery_identity", value)
+
+    @property
+    @pulumi.getter(name="deliveryProperties")
+    def delivery_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]]]:
+        """
+        A `delivery_property` block as defined below.
+        """
+        return pulumi.get(self, "delivery_properties")
+
+    @delivery_properties.setter
+    def delivery_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]]]):
+        pulumi.set(self, "delivery_properties", value)
 
     @property
     @pulumi.getter(name="eventDeliverySchema")
@@ -796,6 +828,7 @@ class EventSubscription(pulumi.CustomResource):
                  azure_function_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionAzureFunctionEndpointArgs']]] = None,
                  dead_letter_identity: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDeadLetterIdentityArgs']]] = None,
                  delivery_identity: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryIdentityArgs']]] = None,
+                 delivery_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryPropertyArgs']]]]] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
                  eventhub_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']]] = None,
                  eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -859,6 +892,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventSubscriptionAzureFunctionEndpointArgs']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionDeadLetterIdentityArgs']] dead_letter_identity: A `dead_letter_identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryIdentityArgs']] delivery_identity: A `delivery_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryPropertyArgs']]]] delivery_properties: A `delivery_property` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
@@ -941,6 +975,7 @@ class EventSubscription(pulumi.CustomResource):
                  azure_function_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionAzureFunctionEndpointArgs']]] = None,
                  dead_letter_identity: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDeadLetterIdentityArgs']]] = None,
                  delivery_identity: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryIdentityArgs']]] = None,
+                 delivery_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryPropertyArgs']]]]] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
                  eventhub_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']]] = None,
                  eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -977,6 +1012,7 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["azure_function_endpoint"] = azure_function_endpoint
             __props__.__dict__["dead_letter_identity"] = dead_letter_identity
             __props__.__dict__["delivery_identity"] = delivery_identity
+            __props__.__dict__["delivery_properties"] = delivery_properties
             __props__.__dict__["event_delivery_schema"] = event_delivery_schema
             if eventhub_endpoint is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `eventhub_endpoint_id`""", DeprecationWarning)
@@ -1021,6 +1057,7 @@ class EventSubscription(pulumi.CustomResource):
             azure_function_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionAzureFunctionEndpointArgs']]] = None,
             dead_letter_identity: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDeadLetterIdentityArgs']]] = None,
             delivery_identity: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryIdentityArgs']]] = None,
+            delivery_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryPropertyArgs']]]]] = None,
             event_delivery_schema: Optional[pulumi.Input[str]] = None,
             eventhub_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']]] = None,
             eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -1051,6 +1088,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventSubscriptionAzureFunctionEndpointArgs']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionDeadLetterIdentityArgs']] dead_letter_identity: A `dead_letter_identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryIdentityArgs']] delivery_identity: A `delivery_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryPropertyArgs']]]] delivery_properties: A `delivery_property` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
@@ -1079,6 +1117,7 @@ class EventSubscription(pulumi.CustomResource):
         __props__.__dict__["azure_function_endpoint"] = azure_function_endpoint
         __props__.__dict__["dead_letter_identity"] = dead_letter_identity
         __props__.__dict__["delivery_identity"] = delivery_identity
+        __props__.__dict__["delivery_properties"] = delivery_properties
         __props__.__dict__["event_delivery_schema"] = event_delivery_schema
         __props__.__dict__["eventhub_endpoint"] = eventhub_endpoint
         __props__.__dict__["eventhub_endpoint_id"] = eventhub_endpoint_id
@@ -1138,6 +1177,14 @@ class EventSubscription(pulumi.CustomResource):
         A `delivery_identity` block as defined below.
         """
         return pulumi.get(self, "delivery_identity")
+
+    @property
+    @pulumi.getter(name="deliveryProperties")
+    def delivery_properties(self) -> pulumi.Output[Optional[Sequence['outputs.EventSubscriptionDeliveryProperty']]]:
+        """
+        A `delivery_property` block as defined below.
+        """
+        return pulumi.get(self, "delivery_properties")
 
     @property
     @pulumi.getter(name="eventDeliverySchema")

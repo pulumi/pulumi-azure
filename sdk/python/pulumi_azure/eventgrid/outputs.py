@@ -37,6 +37,7 @@ __all__ = [
     'EventSubscriptionAzureFunctionEndpoint',
     'EventSubscriptionDeadLetterIdentity',
     'EventSubscriptionDeliveryIdentity',
+    'EventSubscriptionDeliveryProperty',
     'EventSubscriptionEventhubEndpoint',
     'EventSubscriptionHybridConnectionEndpoint',
     'EventSubscriptionRetryPolicy',
@@ -1281,6 +1282,90 @@ class EventSubscriptionDeliveryIdentity(dict):
         Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class EventSubscriptionDeliveryProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+        elif key == "sourceField":
+            suggest = "source_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionDeliveryProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionDeliveryProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionDeliveryProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_name: str,
+                 type: str,
+                 secret: Optional[bool] = None,
+                 source_field: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str header_name: The name of the header to send on to the destination
+        :param str type: Either `Static` or `Dynamic`
+        :param bool secret: True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
+        :param str source_field: If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+        :param str value: If the `type` is `Static`, then provide the value to use
+        """
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "type", type)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> str:
+        """
+        The name of the header to send on to the destination
+        """
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Either `Static` or `Dynamic`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[bool]:
+        """
+        True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
+        """
+        return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional[str]:
+        """
+        If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+        """
+        return pulumi.get(self, "source_field")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        If the `type` is `Static`, then provide the value to use
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

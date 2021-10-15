@@ -3675,6 +3675,139 @@ func (o EventSubscriptionDeliveryIdentityPtrOutput) Type() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type EventSubscriptionDeliveryProperty struct {
+	// The name of the header to send on to the destination
+	HeaderName string `pulumi:"headerName"`
+	// True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
+	Secret *bool `pulumi:"secret"`
+	// If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+	SourceField *string `pulumi:"sourceField"`
+	// Either `Static` or `Dynamic`
+	Type string `pulumi:"type"`
+	// If the `type` is `Static`, then provide the value to use
+	Value *string `pulumi:"value"`
+}
+
+// EventSubscriptionDeliveryPropertyInput is an input type that accepts EventSubscriptionDeliveryPropertyArgs and EventSubscriptionDeliveryPropertyOutput values.
+// You can construct a concrete instance of `EventSubscriptionDeliveryPropertyInput` via:
+//
+//          EventSubscriptionDeliveryPropertyArgs{...}
+type EventSubscriptionDeliveryPropertyInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionDeliveryPropertyOutput() EventSubscriptionDeliveryPropertyOutput
+	ToEventSubscriptionDeliveryPropertyOutputWithContext(context.Context) EventSubscriptionDeliveryPropertyOutput
+}
+
+type EventSubscriptionDeliveryPropertyArgs struct {
+	// The name of the header to send on to the destination
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
+	Secret pulumi.BoolPtrInput `pulumi:"secret"`
+	// If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+	SourceField pulumi.StringPtrInput `pulumi:"sourceField"`
+	// Either `Static` or `Dynamic`
+	Type pulumi.StringInput `pulumi:"type"`
+	// If the `type` is `Static`, then provide the value to use
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EventSubscriptionDeliveryPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionDeliveryProperty)(nil)).Elem()
+}
+
+func (i EventSubscriptionDeliveryPropertyArgs) ToEventSubscriptionDeliveryPropertyOutput() EventSubscriptionDeliveryPropertyOutput {
+	return i.ToEventSubscriptionDeliveryPropertyOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionDeliveryPropertyArgs) ToEventSubscriptionDeliveryPropertyOutputWithContext(ctx context.Context) EventSubscriptionDeliveryPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeliveryPropertyOutput)
+}
+
+// EventSubscriptionDeliveryPropertyArrayInput is an input type that accepts EventSubscriptionDeliveryPropertyArray and EventSubscriptionDeliveryPropertyArrayOutput values.
+// You can construct a concrete instance of `EventSubscriptionDeliveryPropertyArrayInput` via:
+//
+//          EventSubscriptionDeliveryPropertyArray{ EventSubscriptionDeliveryPropertyArgs{...} }
+type EventSubscriptionDeliveryPropertyArrayInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionDeliveryPropertyArrayOutput() EventSubscriptionDeliveryPropertyArrayOutput
+	ToEventSubscriptionDeliveryPropertyArrayOutputWithContext(context.Context) EventSubscriptionDeliveryPropertyArrayOutput
+}
+
+type EventSubscriptionDeliveryPropertyArray []EventSubscriptionDeliveryPropertyInput
+
+func (EventSubscriptionDeliveryPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionDeliveryProperty)(nil)).Elem()
+}
+
+func (i EventSubscriptionDeliveryPropertyArray) ToEventSubscriptionDeliveryPropertyArrayOutput() EventSubscriptionDeliveryPropertyArrayOutput {
+	return i.ToEventSubscriptionDeliveryPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionDeliveryPropertyArray) ToEventSubscriptionDeliveryPropertyArrayOutputWithContext(ctx context.Context) EventSubscriptionDeliveryPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeliveryPropertyArrayOutput)
+}
+
+type EventSubscriptionDeliveryPropertyOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionDeliveryPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionDeliveryProperty)(nil)).Elem()
+}
+
+func (o EventSubscriptionDeliveryPropertyOutput) ToEventSubscriptionDeliveryPropertyOutput() EventSubscriptionDeliveryPropertyOutput {
+	return o
+}
+
+func (o EventSubscriptionDeliveryPropertyOutput) ToEventSubscriptionDeliveryPropertyOutputWithContext(ctx context.Context) EventSubscriptionDeliveryPropertyOutput {
+	return o
+}
+
+// The name of the header to send on to the destination
+func (o EventSubscriptionDeliveryPropertyOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionDeliveryProperty) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+// True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
+func (o EventSubscriptionDeliveryPropertyOutput) Secret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionDeliveryProperty) *bool { return v.Secret }).(pulumi.BoolPtrOutput)
+}
+
+// If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+func (o EventSubscriptionDeliveryPropertyOutput) SourceField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionDeliveryProperty) *string { return v.SourceField }).(pulumi.StringPtrOutput)
+}
+
+// Either `Static` or `Dynamic`
+func (o EventSubscriptionDeliveryPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionDeliveryProperty) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// If the `type` is `Static`, then provide the value to use
+func (o EventSubscriptionDeliveryPropertyOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionDeliveryProperty) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EventSubscriptionDeliveryPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionDeliveryPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionDeliveryProperty)(nil)).Elem()
+}
+
+func (o EventSubscriptionDeliveryPropertyArrayOutput) ToEventSubscriptionDeliveryPropertyArrayOutput() EventSubscriptionDeliveryPropertyArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionDeliveryPropertyArrayOutput) ToEventSubscriptionDeliveryPropertyArrayOutputWithContext(ctx context.Context) EventSubscriptionDeliveryPropertyArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionDeliveryPropertyArrayOutput) Index(i pulumi.IntInput) EventSubscriptionDeliveryPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionDeliveryProperty {
+		return vs[0].([]EventSubscriptionDeliveryProperty)[vs[1].(int)]
+	}).(EventSubscriptionDeliveryPropertyOutput)
+}
+
 type EventSubscriptionEventhubEndpoint struct {
 	// Specifies the id of the eventhub where the Event Subscription will receive events.
 	EventhubId *string `pulumi:"eventhubId"`
@@ -10176,6 +10309,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDeadLetterIdentityPtrInput)(nil)).Elem(), EventSubscriptionDeadLetterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDeliveryIdentityInput)(nil)).Elem(), EventSubscriptionDeliveryIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDeliveryIdentityPtrInput)(nil)).Elem(), EventSubscriptionDeliveryIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDeliveryPropertyInput)(nil)).Elem(), EventSubscriptionDeliveryPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDeliveryPropertyArrayInput)(nil)).Elem(), EventSubscriptionDeliveryPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionEventhubEndpointInput)(nil)).Elem(), EventSubscriptionEventhubEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionEventhubEndpointPtrInput)(nil)).Elem(), EventSubscriptionEventhubEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionHybridConnectionEndpointInput)(nil)).Elem(), EventSubscriptionHybridConnectionEndpointArgs{})
@@ -10318,6 +10453,8 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionDeadLetterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDeliveryIdentityOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDeliveryIdentityPtrOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionDeliveryPropertyOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionDeliveryPropertyArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionEventhubEndpointOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionEventhubEndpointPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionHybridConnectionEndpointOutput{})

@@ -127,6 +127,9 @@ class GetDomainResult:
     @property
     @pulumi.getter(name="primaryAccessKey")
     def primary_access_key(self) -> str:
+        """
+        The primary access key associated with the EventGrid Domain.
+        """
         return pulumi.get(self, "primary_access_key")
 
     @property
@@ -145,6 +148,9 @@ class GetDomainResult:
     @property
     @pulumi.getter(name="secondaryAccessKey")
     def secondary_access_key(self) -> str:
+        """
+        The secondary access key associated with the EventGrid Domain.
+        """
         return pulumi.get(self, "secondary_access_key")
 
     @property

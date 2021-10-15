@@ -33,6 +33,7 @@ export * from "./linkedServiceAzureSearch";
 export * from "./linkedServiceAzureSqlDatabase";
 export * from "./linkedServiceAzureTableStorage";
 export * from "./linkedServiceCosmosDb";
+export * from "./linkedServiceCosmosDbMongoApi";
 export * from "./linkedServiceDataLakeStorageGen2";
 export * from "./linkedServiceKeyVault";
 export * from "./linkedServiceKusto";
@@ -79,6 +80,7 @@ import { LinkedServiceAzureSearch } from "./linkedServiceAzureSearch";
 import { LinkedServiceAzureSqlDatabase } from "./linkedServiceAzureSqlDatabase";
 import { LinkedServiceAzureTableStorage } from "./linkedServiceAzureTableStorage";
 import { LinkedServiceCosmosDb } from "./linkedServiceCosmosDb";
+import { LinkedServiceCosmosDbMongoApi } from "./linkedServiceCosmosDbMongoApi";
 import { LinkedServiceDataLakeStorageGen2 } from "./linkedServiceDataLakeStorageGen2";
 import { LinkedServiceKeyVault } from "./linkedServiceKeyVault";
 import { LinkedServiceKusto } from "./linkedServiceKusto";
@@ -155,6 +157,8 @@ const _module = {
                 return new LinkedServiceAzureTableStorage(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb":
                 return new LinkedServiceCosmosDb(name, <any>undefined, { urn })
+            case "azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi":
+                return new LinkedServiceCosmosDbMongoApi(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2":
                 return new LinkedServiceDataLakeStorageGen2(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault":
@@ -221,6 +225,7 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureSe
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureSqlDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureTableStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceCosmosDb", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceCosmosDbMongoApi", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceDataLakeStorageGen2", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceKeyVault", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceKusto", _module)

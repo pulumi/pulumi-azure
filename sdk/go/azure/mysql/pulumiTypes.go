@@ -10,6 +10,512 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FlexibleServerHighAvailability struct {
+	// The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+	Mode string `pulumi:"mode"`
+	// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
+}
+
+// FlexibleServerHighAvailabilityInput is an input type that accepts FlexibleServerHighAvailabilityArgs and FlexibleServerHighAvailabilityOutput values.
+// You can construct a concrete instance of `FlexibleServerHighAvailabilityInput` via:
+//
+//          FlexibleServerHighAvailabilityArgs{...}
+type FlexibleServerHighAvailabilityInput interface {
+	pulumi.Input
+
+	ToFlexibleServerHighAvailabilityOutput() FlexibleServerHighAvailabilityOutput
+	ToFlexibleServerHighAvailabilityOutputWithContext(context.Context) FlexibleServerHighAvailabilityOutput
+}
+
+type FlexibleServerHighAvailabilityArgs struct {
+	// The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
+}
+
+func (FlexibleServerHighAvailabilityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (i FlexibleServerHighAvailabilityArgs) ToFlexibleServerHighAvailabilityOutput() FlexibleServerHighAvailabilityOutput {
+	return i.ToFlexibleServerHighAvailabilityOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerHighAvailabilityArgs) ToFlexibleServerHighAvailabilityOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerHighAvailabilityOutput)
+}
+
+func (i FlexibleServerHighAvailabilityArgs) ToFlexibleServerHighAvailabilityPtrOutput() FlexibleServerHighAvailabilityPtrOutput {
+	return i.ToFlexibleServerHighAvailabilityPtrOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerHighAvailabilityArgs) ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerHighAvailabilityOutput).ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx)
+}
+
+// FlexibleServerHighAvailabilityPtrInput is an input type that accepts FlexibleServerHighAvailabilityArgs, FlexibleServerHighAvailabilityPtr and FlexibleServerHighAvailabilityPtrOutput values.
+// You can construct a concrete instance of `FlexibleServerHighAvailabilityPtrInput` via:
+//
+//          FlexibleServerHighAvailabilityArgs{...}
+//
+//  or:
+//
+//          nil
+type FlexibleServerHighAvailabilityPtrInput interface {
+	pulumi.Input
+
+	ToFlexibleServerHighAvailabilityPtrOutput() FlexibleServerHighAvailabilityPtrOutput
+	ToFlexibleServerHighAvailabilityPtrOutputWithContext(context.Context) FlexibleServerHighAvailabilityPtrOutput
+}
+
+type flexibleServerHighAvailabilityPtrType FlexibleServerHighAvailabilityArgs
+
+func FlexibleServerHighAvailabilityPtr(v *FlexibleServerHighAvailabilityArgs) FlexibleServerHighAvailabilityPtrInput {
+	return (*flexibleServerHighAvailabilityPtrType)(v)
+}
+
+func (*flexibleServerHighAvailabilityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (i *flexibleServerHighAvailabilityPtrType) ToFlexibleServerHighAvailabilityPtrOutput() FlexibleServerHighAvailabilityPtrOutput {
+	return i.ToFlexibleServerHighAvailabilityPtrOutputWithContext(context.Background())
+}
+
+func (i *flexibleServerHighAvailabilityPtrType) ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerHighAvailabilityPtrOutput)
+}
+
+type FlexibleServerHighAvailabilityOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerHighAvailabilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityOutput() FlexibleServerHighAvailabilityOutput {
+	return o
+}
+
+func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityOutput {
+	return o
+}
+
+func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityPtrOutput() FlexibleServerHighAvailabilityPtrOutput {
+	return o.ToFlexibleServerHighAvailabilityPtrOutputWithContext(context.Background())
+}
+
+func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerHighAvailability) *FlexibleServerHighAvailability {
+		return &v
+	}).(FlexibleServerHighAvailabilityPtrOutput)
+}
+
+// The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+func (o FlexibleServerHighAvailabilityOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v FlexibleServerHighAvailability) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+func (o FlexibleServerHighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlexibleServerHighAvailability) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+type FlexibleServerHighAvailabilityPtrOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerHighAvailabilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (o FlexibleServerHighAvailabilityPtrOutput) ToFlexibleServerHighAvailabilityPtrOutput() FlexibleServerHighAvailabilityPtrOutput {
+	return o
+}
+
+func (o FlexibleServerHighAvailabilityPtrOutput) ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityPtrOutput {
+	return o
+}
+
+func (o FlexibleServerHighAvailabilityPtrOutput) Elem() FlexibleServerHighAvailabilityOutput {
+	return o.ApplyT(func(v *FlexibleServerHighAvailability) FlexibleServerHighAvailability {
+		if v != nil {
+			return *v
+		}
+		var ret FlexibleServerHighAvailability
+		return ret
+	}).(FlexibleServerHighAvailabilityOutput)
+}
+
+// The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+func (o FlexibleServerHighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerHighAvailability) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerHighAvailability) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StandbyAvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlexibleServerMaintenanceWindow struct {
+	// The day of week for maintenance window. Defaults to `0`.
+	DayOfWeek *int `pulumi:"dayOfWeek"`
+	// The day of week for maintenance window. Defaults to `0`.
+	StartHour *int `pulumi:"startHour"`
+	// The start minute for maintenance window. Defaults to `0`.
+	StartMinute *int `pulumi:"startMinute"`
+}
+
+// FlexibleServerMaintenanceWindowInput is an input type that accepts FlexibleServerMaintenanceWindowArgs and FlexibleServerMaintenanceWindowOutput values.
+// You can construct a concrete instance of `FlexibleServerMaintenanceWindowInput` via:
+//
+//          FlexibleServerMaintenanceWindowArgs{...}
+type FlexibleServerMaintenanceWindowInput interface {
+	pulumi.Input
+
+	ToFlexibleServerMaintenanceWindowOutput() FlexibleServerMaintenanceWindowOutput
+	ToFlexibleServerMaintenanceWindowOutputWithContext(context.Context) FlexibleServerMaintenanceWindowOutput
+}
+
+type FlexibleServerMaintenanceWindowArgs struct {
+	// The day of week for maintenance window. Defaults to `0`.
+	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
+	// The day of week for maintenance window. Defaults to `0`.
+	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
+	// The start minute for maintenance window. Defaults to `0`.
+	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+}
+
+func (FlexibleServerMaintenanceWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerMaintenanceWindow)(nil)).Elem()
+}
+
+func (i FlexibleServerMaintenanceWindowArgs) ToFlexibleServerMaintenanceWindowOutput() FlexibleServerMaintenanceWindowOutput {
+	return i.ToFlexibleServerMaintenanceWindowOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerMaintenanceWindowArgs) ToFlexibleServerMaintenanceWindowOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerMaintenanceWindowOutput)
+}
+
+func (i FlexibleServerMaintenanceWindowArgs) ToFlexibleServerMaintenanceWindowPtrOutput() FlexibleServerMaintenanceWindowPtrOutput {
+	return i.ToFlexibleServerMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerMaintenanceWindowArgs) ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerMaintenanceWindowOutput).ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx)
+}
+
+// FlexibleServerMaintenanceWindowPtrInput is an input type that accepts FlexibleServerMaintenanceWindowArgs, FlexibleServerMaintenanceWindowPtr and FlexibleServerMaintenanceWindowPtrOutput values.
+// You can construct a concrete instance of `FlexibleServerMaintenanceWindowPtrInput` via:
+//
+//          FlexibleServerMaintenanceWindowArgs{...}
+//
+//  or:
+//
+//          nil
+type FlexibleServerMaintenanceWindowPtrInput interface {
+	pulumi.Input
+
+	ToFlexibleServerMaintenanceWindowPtrOutput() FlexibleServerMaintenanceWindowPtrOutput
+	ToFlexibleServerMaintenanceWindowPtrOutputWithContext(context.Context) FlexibleServerMaintenanceWindowPtrOutput
+}
+
+type flexibleServerMaintenanceWindowPtrType FlexibleServerMaintenanceWindowArgs
+
+func FlexibleServerMaintenanceWindowPtr(v *FlexibleServerMaintenanceWindowArgs) FlexibleServerMaintenanceWindowPtrInput {
+	return (*flexibleServerMaintenanceWindowPtrType)(v)
+}
+
+func (*flexibleServerMaintenanceWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerMaintenanceWindow)(nil)).Elem()
+}
+
+func (i *flexibleServerMaintenanceWindowPtrType) ToFlexibleServerMaintenanceWindowPtrOutput() FlexibleServerMaintenanceWindowPtrOutput {
+	return i.ToFlexibleServerMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *flexibleServerMaintenanceWindowPtrType) ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerMaintenanceWindowPtrOutput)
+}
+
+type FlexibleServerMaintenanceWindowOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerMaintenanceWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerMaintenanceWindow)(nil)).Elem()
+}
+
+func (o FlexibleServerMaintenanceWindowOutput) ToFlexibleServerMaintenanceWindowOutput() FlexibleServerMaintenanceWindowOutput {
+	return o
+}
+
+func (o FlexibleServerMaintenanceWindowOutput) ToFlexibleServerMaintenanceWindowOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowOutput {
+	return o
+}
+
+func (o FlexibleServerMaintenanceWindowOutput) ToFlexibleServerMaintenanceWindowPtrOutput() FlexibleServerMaintenanceWindowPtrOutput {
+	return o.ToFlexibleServerMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (o FlexibleServerMaintenanceWindowOutput) ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerMaintenanceWindow) *FlexibleServerMaintenanceWindow {
+		return &v
+	}).(FlexibleServerMaintenanceWindowPtrOutput)
+}
+
+// The day of week for maintenance window. Defaults to `0`.
+func (o FlexibleServerMaintenanceWindowOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
+}
+
+// The day of week for maintenance window. Defaults to `0`.
+func (o FlexibleServerMaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.StartHour }).(pulumi.IntPtrOutput)
+}
+
+// The start minute for maintenance window. Defaults to `0`.
+func (o FlexibleServerMaintenanceWindowOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
+}
+
+type FlexibleServerMaintenanceWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerMaintenanceWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerMaintenanceWindow)(nil)).Elem()
+}
+
+func (o FlexibleServerMaintenanceWindowPtrOutput) ToFlexibleServerMaintenanceWindowPtrOutput() FlexibleServerMaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o FlexibleServerMaintenanceWindowPtrOutput) ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o FlexibleServerMaintenanceWindowPtrOutput) Elem() FlexibleServerMaintenanceWindowOutput {
+	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) FlexibleServerMaintenanceWindow {
+		if v != nil {
+			return *v
+		}
+		var ret FlexibleServerMaintenanceWindow
+		return ret
+	}).(FlexibleServerMaintenanceWindowOutput)
+}
+
+// The day of week for maintenance window. Defaults to `0`.
+func (o FlexibleServerMaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.IntPtrOutput)
+}
+
+// The day of week for maintenance window. Defaults to `0`.
+func (o FlexibleServerMaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartHour
+	}).(pulumi.IntPtrOutput)
+}
+
+// The start minute for maintenance window. Defaults to `0`.
+func (o FlexibleServerMaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartMinute
+	}).(pulumi.IntPtrOutput)
+}
+
+type FlexibleServerStorage struct {
+	// Should Storage Auto Grow be enabled? Defaults to `true`.
+	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
+	// The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
+	Iops *int `pulumi:"iops"`
+	// The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+	SizeGb *int `pulumi:"sizeGb"`
+}
+
+// FlexibleServerStorageInput is an input type that accepts FlexibleServerStorageArgs and FlexibleServerStorageOutput values.
+// You can construct a concrete instance of `FlexibleServerStorageInput` via:
+//
+//          FlexibleServerStorageArgs{...}
+type FlexibleServerStorageInput interface {
+	pulumi.Input
+
+	ToFlexibleServerStorageOutput() FlexibleServerStorageOutput
+	ToFlexibleServerStorageOutputWithContext(context.Context) FlexibleServerStorageOutput
+}
+
+type FlexibleServerStorageArgs struct {
+	// Should Storage Auto Grow be enabled? Defaults to `true`.
+	AutoGrowEnabled pulumi.BoolPtrInput `pulumi:"autoGrowEnabled"`
+	// The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+	SizeGb pulumi.IntPtrInput `pulumi:"sizeGb"`
+}
+
+func (FlexibleServerStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerStorage)(nil)).Elem()
+}
+
+func (i FlexibleServerStorageArgs) ToFlexibleServerStorageOutput() FlexibleServerStorageOutput {
+	return i.ToFlexibleServerStorageOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerStorageArgs) ToFlexibleServerStorageOutputWithContext(ctx context.Context) FlexibleServerStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerStorageOutput)
+}
+
+func (i FlexibleServerStorageArgs) ToFlexibleServerStoragePtrOutput() FlexibleServerStoragePtrOutput {
+	return i.ToFlexibleServerStoragePtrOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerStorageArgs) ToFlexibleServerStoragePtrOutputWithContext(ctx context.Context) FlexibleServerStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerStorageOutput).ToFlexibleServerStoragePtrOutputWithContext(ctx)
+}
+
+// FlexibleServerStoragePtrInput is an input type that accepts FlexibleServerStorageArgs, FlexibleServerStoragePtr and FlexibleServerStoragePtrOutput values.
+// You can construct a concrete instance of `FlexibleServerStoragePtrInput` via:
+//
+//          FlexibleServerStorageArgs{...}
+//
+//  or:
+//
+//          nil
+type FlexibleServerStoragePtrInput interface {
+	pulumi.Input
+
+	ToFlexibleServerStoragePtrOutput() FlexibleServerStoragePtrOutput
+	ToFlexibleServerStoragePtrOutputWithContext(context.Context) FlexibleServerStoragePtrOutput
+}
+
+type flexibleServerStoragePtrType FlexibleServerStorageArgs
+
+func FlexibleServerStoragePtr(v *FlexibleServerStorageArgs) FlexibleServerStoragePtrInput {
+	return (*flexibleServerStoragePtrType)(v)
+}
+
+func (*flexibleServerStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerStorage)(nil)).Elem()
+}
+
+func (i *flexibleServerStoragePtrType) ToFlexibleServerStoragePtrOutput() FlexibleServerStoragePtrOutput {
+	return i.ToFlexibleServerStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *flexibleServerStoragePtrType) ToFlexibleServerStoragePtrOutputWithContext(ctx context.Context) FlexibleServerStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerStoragePtrOutput)
+}
+
+type FlexibleServerStorageOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerStorage)(nil)).Elem()
+}
+
+func (o FlexibleServerStorageOutput) ToFlexibleServerStorageOutput() FlexibleServerStorageOutput {
+	return o
+}
+
+func (o FlexibleServerStorageOutput) ToFlexibleServerStorageOutputWithContext(ctx context.Context) FlexibleServerStorageOutput {
+	return o
+}
+
+func (o FlexibleServerStorageOutput) ToFlexibleServerStoragePtrOutput() FlexibleServerStoragePtrOutput {
+	return o.ToFlexibleServerStoragePtrOutputWithContext(context.Background())
+}
+
+func (o FlexibleServerStorageOutput) ToFlexibleServerStoragePtrOutputWithContext(ctx context.Context) FlexibleServerStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerStorage) *FlexibleServerStorage {
+		return &v
+	}).(FlexibleServerStoragePtrOutput)
+}
+
+// Should Storage Auto Grow be enabled? Defaults to `true`.
+func (o FlexibleServerStorageOutput) AutoGrowEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlexibleServerStorage) *bool { return v.AutoGrowEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
+func (o FlexibleServerStorageOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlexibleServerStorage) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+func (o FlexibleServerStorageOutput) SizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlexibleServerStorage) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
+}
+
+type FlexibleServerStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerStorage)(nil)).Elem()
+}
+
+func (o FlexibleServerStoragePtrOutput) ToFlexibleServerStoragePtrOutput() FlexibleServerStoragePtrOutput {
+	return o
+}
+
+func (o FlexibleServerStoragePtrOutput) ToFlexibleServerStoragePtrOutputWithContext(ctx context.Context) FlexibleServerStoragePtrOutput {
+	return o
+}
+
+func (o FlexibleServerStoragePtrOutput) Elem() FlexibleServerStorageOutput {
+	return o.ApplyT(func(v *FlexibleServerStorage) FlexibleServerStorage {
+		if v != nil {
+			return *v
+		}
+		var ret FlexibleServerStorage
+		return ret
+	}).(FlexibleServerStorageOutput)
+}
+
+// Should Storage Auto Grow be enabled? Defaults to `true`.
+func (o FlexibleServerStoragePtrOutput) AutoGrowEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerStorage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoGrowEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
+func (o FlexibleServerStoragePtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+func (o FlexibleServerStoragePtrOutput) SizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeGb
+	}).(pulumi.IntPtrOutput)
+}
+
 type ServerIdentity struct {
 	// The Client ID of the Service Principal assigned to this MySQL Server.
 	PrincipalId *string `pulumi:"principalId"`
@@ -916,6 +1422,12 @@ func (o GetServerThreatDetectionPolicyArrayOutput) Index(i pulumi.IntInput) GetS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerHighAvailabilityInput)(nil)).Elem(), FlexibleServerHighAvailabilityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerHighAvailabilityPtrInput)(nil)).Elem(), FlexibleServerHighAvailabilityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerMaintenanceWindowInput)(nil)).Elem(), FlexibleServerMaintenanceWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerMaintenanceWindowPtrInput)(nil)).Elem(), FlexibleServerMaintenanceWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerStorageInput)(nil)).Elem(), FlexibleServerStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerStoragePtrInput)(nil)).Elem(), FlexibleServerStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityInput)(nil)).Elem(), ServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityPtrInput)(nil)).Elem(), ServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerStorageProfileInput)(nil)).Elem(), ServerStorageProfileArgs{})
@@ -926,6 +1438,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerThreatDetectionPolicyInput)(nil)).Elem(), GetServerThreatDetectionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerThreatDetectionPolicyArrayInput)(nil)).Elem(), GetServerThreatDetectionPolicyArray{})
+	pulumi.RegisterOutputType(FlexibleServerHighAvailabilityOutput{})
+	pulumi.RegisterOutputType(FlexibleServerHighAvailabilityPtrOutput{})
+	pulumi.RegisterOutputType(FlexibleServerMaintenanceWindowOutput{})
+	pulumi.RegisterOutputType(FlexibleServerMaintenanceWindowPtrOutput{})
+	pulumi.RegisterOutputType(FlexibleServerStorageOutput{})
+	pulumi.RegisterOutputType(FlexibleServerStoragePtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityOutput{})
 	pulumi.RegisterOutputType(ServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServerStorageProfileOutput{})

@@ -123,7 +123,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly kubeAdminConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeAdminConfig[]>;
     /**
-     * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+     * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
      */
     public /*out*/ readonly kubeConfigRaw!: pulumi.Output<string>;
     /**
@@ -364,7 +364,7 @@ export interface KubernetesClusterState {
      */
     kubeAdminConfigs?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeAdminConfig>[]>;
     /**
-     * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+     * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
      */
     kubeConfigRaw?: pulumi.Input<string>;
     /**

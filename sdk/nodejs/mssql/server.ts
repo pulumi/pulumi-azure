@@ -123,6 +123,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
+     */
+    public readonly primaryUserAssignedIdentityId!: pulumi.Output<string>;
+    /**
      * Whether public network access is allowed for this server. Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
@@ -166,6 +170,7 @@ export class Server extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["primaryUserAssignedIdentityId"] = state ? state.primaryUserAssignedIdentityId : undefined;
             inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["restorableDroppedDatabaseIds"] = state ? state.restorableDroppedDatabaseIds : undefined;
@@ -194,6 +199,7 @@ export class Server extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -254,6 +260,10 @@ export interface ServerState {
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
+     */
+    primaryUserAssignedIdentityId?: pulumi.Input<string>;
     /**
      * Whether public network access is allowed for this server. Defaults to `true`.
      */
@@ -318,6 +328,10 @@ export interface ServerArgs {
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
+     */
+    primaryUserAssignedIdentityId?: pulumi.Input<string>;
     /**
      * Whether public network access is allowed for this server. Defaults to `true`.
      */

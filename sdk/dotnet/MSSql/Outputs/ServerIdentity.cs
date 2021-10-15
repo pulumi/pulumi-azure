@@ -22,9 +22,13 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+        /// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primary_user_assigned_identity_id`.
+        /// </summary>
+        public readonly ImmutableArray<string> UserAssignedIdentityIds;
 
         [OutputConstructor]
         private ServerIdentity(
@@ -32,11 +36,14 @@ namespace Pulumi.Azure.MSSql.Outputs
 
             string? tenantId,
 
-            string type)
+            string type,
+
+            ImmutableArray<string> userAssignedIdentityIds)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentityIds = userAssignedIdentityIds;
         }
     }
 }

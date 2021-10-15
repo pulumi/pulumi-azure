@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
+ * Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory using SQL API.
  *
  * ## Import
  *

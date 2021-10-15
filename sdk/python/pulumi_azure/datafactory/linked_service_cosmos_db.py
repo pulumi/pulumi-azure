@@ -431,7 +431,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
+        Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory using SQL API.
 
         ## Import
 
@@ -464,7 +464,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
                  args: LinkedServiceCosmosDbArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
+        Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory using SQL API.
 
         ## Import
 
