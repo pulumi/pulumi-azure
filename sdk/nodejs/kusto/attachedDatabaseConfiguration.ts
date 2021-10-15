@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,13 +36,26 @@ import * as utilities from "../utilities";
  *     location: rg.location,
  *     clusterName: azurerm_kusto_cluster.cluster2.name,
  * });
- * const example = new azure.kusto.AttachedDatabaseConfiguration("example", {
+ * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
+ *     resourceGroupName: rg.name,
+ *     location: rg.location,
+ *     clusterName: azurerm_kusto_cluster.cluster2.name,
+ * });
+ * const exampleAttachedDatabaseConfiguration = new azure.kusto.AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration", {
  *     resourceGroupName: rg.name,
  *     location: rg.location,
  *     clusterName: followerCluster.name,
  *     clusterResourceId: followedCluster.id,
- *     databaseName: "*",
+ *     databaseName: exampleDatabase.name,
  *     defaultPrincipalModificationsKind: "None",
+ *     sharing: {
+ *         externalTablesToExcludes: ["ExternalTable2"],
+ *         externalTablesToIncludes: ["ExternalTable1"],
+ *         materializedViewsToExcludes: ["MaterializedViewTable2"],
+ *         materializedViewsToIncludes: ["MaterializedViewTable1"],
+ *         tablesToExcludes: ["Table2"],
+ *         tablesToIncludes: ["Table1"],
+ *     },
  * });
  * ```
  *
@@ -113,6 +127,10 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
      * Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A `sharing` block as defined below.
+     */
+    public readonly sharing!: pulumi.Output<outputs.kusto.AttachedDatabaseConfigurationSharing | undefined>;
 
     /**
      * Create a AttachedDatabaseConfiguration resource with the given unique name, arguments, and options.
@@ -135,6 +153,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["sharing"] = state ? state.sharing : undefined;
         } else {
             const args = argsOrState as AttachedDatabaseConfigurationArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -156,6 +175,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sharing"] = args ? args.sharing : undefined;
             inputs["attachedDatabaseNames"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -201,6 +221,10 @@ export interface AttachedDatabaseConfigurationState {
      * Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A `sharing` block as defined below.
+     */
+    sharing?: pulumi.Input<inputs.kusto.AttachedDatabaseConfigurationSharing>;
 }
 
 /**
@@ -235,4 +259,8 @@ export interface AttachedDatabaseConfigurationArgs {
      * Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `sharing` block as defined below.
+     */
+    sharing?: pulumi.Input<inputs.kusto.AttachedDatabaseConfigurationSharing>;
 }

@@ -39,6 +39,8 @@ type AttachedDatabaseConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `sharing` block as defined below.
+	Sharing AttachedDatabaseConfigurationSharingPtrOutput `pulumi:"sharing"`
 }
 
 // NewAttachedDatabaseConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -98,6 +100,8 @@ type attachedDatabaseConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `sharing` block as defined below.
+	Sharing *AttachedDatabaseConfigurationSharing `pulumi:"sharing"`
 }
 
 type AttachedDatabaseConfigurationState struct {
@@ -117,6 +121,8 @@ type AttachedDatabaseConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A `sharing` block as defined below.
+	Sharing AttachedDatabaseConfigurationSharingPtrInput
 }
 
 func (AttachedDatabaseConfigurationState) ElementType() reflect.Type {
@@ -138,6 +144,8 @@ type attachedDatabaseConfigurationArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `sharing` block as defined below.
+	Sharing *AttachedDatabaseConfigurationSharing `pulumi:"sharing"`
 }
 
 // The set of arguments for constructing a AttachedDatabaseConfiguration resource.
@@ -156,6 +164,8 @@ type AttachedDatabaseConfigurationArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A `sharing` block as defined below.
+	Sharing AttachedDatabaseConfigurationSharingPtrInput
 }
 
 func (AttachedDatabaseConfigurationArgs) ElementType() reflect.Type {

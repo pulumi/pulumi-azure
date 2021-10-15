@@ -9,6 +9,7 @@ export * from "./activeDirectoryAdministrator";
 export * from "./configuration";
 export * from "./database";
 export * from "./firewallRule";
+export * from "./flexibleServer";
 export * from "./getServer";
 export * from "./server";
 export * from "./serverKey";
@@ -19,6 +20,7 @@ import { ActiveDirectoryAdministrator } from "./activeDirectoryAdministrator";
 import { Configuration } from "./configuration";
 import { Database } from "./database";
 import { FirewallRule } from "./firewallRule";
+import { FlexibleServer } from "./flexibleServer";
 import { Server } from "./server";
 import { ServerKey } from "./serverKey";
 import { VirtualNetworkRule } from "./virtualNetworkRule";
@@ -35,6 +37,8 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "azure:mysql/firewallRule:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
+            case "azure:mysql/flexibleServer:FlexibleServer":
+                return new FlexibleServer(name, <any>undefined, { urn })
             case "azure:mysql/server:Server":
                 return new Server(name, <any>undefined, { urn })
             case "azure:mysql/serverKey:ServerKey":
@@ -50,6 +54,7 @@ pulumi.runtime.registerResourceModule("azure", "mysql/activeDirectoryAdministrat
 pulumi.runtime.registerResourceModule("azure", "mysql/configuration", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/database", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/firewallRule", _module)
+pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/server", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/serverKey", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/virtualNetworkRule", _module)

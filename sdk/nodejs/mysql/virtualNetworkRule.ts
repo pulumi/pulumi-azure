@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     administratorLogin: "mysqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
- *     skuName: "B_Gen5_2",
+ *     skuName: "GP_Gen5_2",
  *     storageMb: 5120,
  *     version: "5.7",
  *     backupRetentionDays: 7,

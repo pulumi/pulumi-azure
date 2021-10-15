@@ -56,7 +56,7 @@ namespace Pulumi.Azure.MySql
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             AdministratorLogin = "mysqladminun",
     ///             AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             SkuName = "B_Gen5_2",
+    ///             SkuName = "GP_Gen5_2",
     ///             StorageMb = 5120,
     ///             Version = "5.7",
     ///             BackupRetentionDays = 7,

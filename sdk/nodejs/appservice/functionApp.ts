@@ -101,8 +101,10 @@ import * as utilities from "../utilities";
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     osType: "linux",
+ *     version: "~3",
  * });
  * ```
+ * > **Note:** Version `~3` is required for Linux Function Apps.
  *
  * ## Import
  *
@@ -154,6 +156,8 @@ export class FunctionApp extends pulumi.CustomResource {
     public readonly authSettings!: pulumi.Output<outputs.appservice.FunctionAppAuthSettings>;
     /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+     *
+     * @deprecated This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
      */
     public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
     /**
@@ -356,6 +360,8 @@ export interface FunctionAppState {
     authSettings?: pulumi.Input<inputs.appservice.FunctionAppAuthSettings>;
     /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+     *
+     * @deprecated This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
      */
     clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
@@ -474,6 +480,8 @@ export interface FunctionAppArgs {
     authSettings?: pulumi.Input<inputs.appservice.FunctionAppAuthSettings>;
     /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+     *
+     * @deprecated This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
      */
     clientAffinityEnabled?: pulumi.Input<boolean>;
     /**

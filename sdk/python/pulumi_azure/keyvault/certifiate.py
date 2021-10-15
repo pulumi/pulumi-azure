@@ -26,7 +26,7 @@ class CertifiateArgs:
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input['CertifiateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "certificate_policy", certificate_policy)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
@@ -89,7 +89,7 @@ class CertifiateArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
@@ -122,7 +122,7 @@ class _CertifiateState:
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secret_id: The ID of the associated Key Vault Secret.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] thumbprint: The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
         :param pulumi.Input[str] version: The current version of the Key Vault Certificate.
         """
@@ -249,7 +249,7 @@ class _CertifiateState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
@@ -505,7 +505,7 @@ class Certifiate(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -798,7 +798,7 @@ class Certifiate(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secret_id: The ID of the associated Key Vault Secret.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] thumbprint: The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
         :param pulumi.Input[str] version: The current version of the Key Vault Certificate.
         """
@@ -887,7 +887,7 @@ class Certifiate(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 

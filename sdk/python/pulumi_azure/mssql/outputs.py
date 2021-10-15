@@ -284,7 +284,6 @@ class DatabaseThreatDetectionPolicy(dict):
         :param str state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-        :param str use_server_default: Should the default server policy be used? Defaults to `Disabled`.
         """
         if disabled_alerts is not None:
             pulumi.set(__self__, "disabled_alerts", disabled_alerts)
@@ -362,9 +361,6 @@ class DatabaseThreatDetectionPolicy(dict):
     @property
     @pulumi.getter(name="useServerDefault")
     def use_server_default(self) -> Optional[str]:
-        """
-        Should the default server policy be used? Defaults to `Disabled`.
-        """
         return pulumi.get(self, "use_server_default")
 
 
@@ -738,6 +734,8 @@ class ServerIdentity(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "userAssignedIdentityIds":
+            suggest = "user_assigned_identity_ids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServerIdentity. Access the value via the '{suggest}' property getter instead.")
@@ -753,23 +751,27 @@ class ServerIdentity(dict):
     def __init__(__self__, *,
                  type: str,
                  principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None):
+                 tenant_id: Optional[str] = None,
+                 user_assigned_identity_ids: Optional[Sequence[str]] = None):
         """
-        :param str type: Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+        :param str type: Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param str tenant_id: (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+        :param Sequence[str] user_assigned_identity_ids: Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primary_user_assigned_identity_id`.
         """
         pulumi.set(__self__, "type", type)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+        if user_assigned_identity_ids is not None:
+            pulumi.set(__self__, "user_assigned_identity_ids", user_assigned_identity_ids)
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+        Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
         """
         return pulumi.get(self, "type")
 
@@ -788,6 +790,14 @@ class ServerIdentity(dict):
         (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
         """
         return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityIds")
+    def user_assigned_identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primary_user_assigned_identity_id`.
+        """
+        return pulumi.get(self, "user_assigned_identity_ids")
 
 
 @pulumi.output_type
@@ -1458,15 +1468,18 @@ class GetServerIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: str):
+                 type: str,
+                 user_assigned_identity_ids: Sequence[str]):
         """
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         :param str type: The identity type of the Microsoft SQL Server.
+        :param Sequence[str] user_assigned_identity_ids: A list of the User Assigned Identities of this SQL Server.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "user_assigned_identity_ids", user_assigned_identity_ids)
 
     @property
     @pulumi.getter(name="principalId")
@@ -1491,5 +1504,13 @@ class GetServerIdentityResult(dict):
         The identity type of the Microsoft SQL Server.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityIds")
+    def user_assigned_identity_ids(self) -> Sequence[str]:
+        """
+        A list of the User Assigned Identities of this SQL Server.
+        """
+        return pulumi.get(self, "user_assigned_identity_ids")
 
 

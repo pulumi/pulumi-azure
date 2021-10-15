@@ -146,7 +146,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<Outputs.KubernetesClusterKubeAdminConfig>> KubeAdminConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+        /// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         /// </summary>
         [Output("kubeConfigRaw")]
         public Output<string> KubeConfigRaw { get; private set; } = null!;
@@ -601,7 +601,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+        /// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         /// </summary>
         [Input("kubeConfigRaw")]
         public Input<string>? KubeConfigRaw { get; set; }

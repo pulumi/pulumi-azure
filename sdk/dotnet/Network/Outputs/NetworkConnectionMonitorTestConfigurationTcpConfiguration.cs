@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class NetworkConnectionMonitorTestConfigurationTcpConfiguration
     {
         /// <summary>
+        /// The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+        /// </summary>
+        public readonly string? DestinationPortBehavior;
+        /// <summary>
         /// The port for the Tcp connection.
         /// </summary>
         public readonly int Port;
@@ -24,10 +28,13 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private NetworkConnectionMonitorTestConfigurationTcpConfiguration(
+            string? destinationPortBehavior,
+
             int port,
 
             bool? traceRouteEnabled)
         {
+            DestinationPortBehavior = destinationPortBehavior;
             Port = port;
             TraceRouteEnabled = traceRouteEnabled;
         }

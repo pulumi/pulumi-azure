@@ -131,6 +131,10 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.appservice.AppServiceIdentity>;
     /**
+     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     */
+    public readonly keyVaultReferenceIdentityId!: pulumi.Output<string>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -208,6 +212,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["logs"] = state ? state.logs : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -239,6 +244,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["logs"] = args ? args.logs : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -314,6 +320,10 @@ export interface AppServiceState {
      * A Managed Service Identity block as defined below.
      */
     identity?: pulumi.Input<inputs.appservice.AppServiceIdentity>;
+    /**
+     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     */
+    keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -412,6 +422,10 @@ export interface AppServiceArgs {
      * A Managed Service Identity block as defined below.
      */
     identity?: pulumi.Input<inputs.appservice.AppServiceIdentity>;
+    /**
+     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     */
+    keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

@@ -68,6 +68,9 @@ class FunctionAppArgs:
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
         if client_affinity_enabled is not None:
+            warnings.warn("""This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""")
+        if client_affinity_enabled is not None:
             pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if client_cert_mode is not None:
             pulumi.set(__self__, "client_cert_mode", client_cert_mode)
@@ -436,6 +439,9 @@ class _FunctionAppState:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
+        if client_affinity_enabled is not None:
+            warnings.warn("""This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""")
         if client_affinity_enabled is not None:
             pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if client_cert_mode is not None:
@@ -939,8 +945,10 @@ class FunctionApp(pulumi.CustomResource):
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            os_type="linux")
+            os_type="linux",
+            version="~3")
         ```
+        > **Note:** Version `~3` is required for Linux Function Apps.
 
         ## Import
 
@@ -1067,8 +1075,10 @@ class FunctionApp(pulumi.CustomResource):
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            os_type="linux")
+            os_type="linux",
+            version="~3")
         ```
+        > **Note:** Version `~3` is required for Linux Function Apps.
 
         ## Import
 
@@ -1132,6 +1142,9 @@ class FunctionApp(pulumi.CustomResource):
             __props__.__dict__["app_service_plan_id"] = app_service_plan_id
             __props__.__dict__["app_settings"] = app_settings
             __props__.__dict__["auth_settings"] = auth_settings
+            if client_affinity_enabled is not None and not opts.urn:
+                warnings.warn("""This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""", DeprecationWarning)
+                pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""")
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["client_cert_mode"] = client_cert_mode
             __props__.__dict__["connection_strings"] = connection_strings

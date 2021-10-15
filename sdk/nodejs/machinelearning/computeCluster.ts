@@ -154,7 +154,7 @@ export class ComputeCluster extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
      */
     public readonly vmPriority!: pulumi.Output<string>;
     /**
@@ -266,7 +266,7 @@ export interface ComputeClusterState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
      */
     vmPriority?: pulumi.Input<string>;
     /**
@@ -320,7 +320,7 @@ export interface ComputeClusterArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
      */
     vmPriority: pulumi.Input<string>;
     /**

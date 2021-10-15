@@ -26,6 +26,22 @@ __all__ = [
     'BudgetSubscriptionFilterTag',
     'BudgetSubscriptionNotification',
     'BudgetSubscriptionTimePeriod',
+    'GetBudgetResourceGroupFilterResult',
+    'GetBudgetResourceGroupFilterDimensionResult',
+    'GetBudgetResourceGroupFilterNotResult',
+    'GetBudgetResourceGroupFilterNotDimensionResult',
+    'GetBudgetResourceGroupFilterNotTagResult',
+    'GetBudgetResourceGroupFilterTagResult',
+    'GetBudgetResourceGroupNotificationResult',
+    'GetBudgetResourceGroupTimePeriodResult',
+    'GetBudgetSubscriptionFilterResult',
+    'GetBudgetSubscriptionFilterDimensionResult',
+    'GetBudgetSubscriptionFilterNotResult',
+    'GetBudgetSubscriptionFilterNotDimensionResult',
+    'GetBudgetSubscriptionFilterNotTagResult',
+    'GetBudgetSubscriptionFilterTagResult',
+    'GetBudgetSubscriptionNotificationResult',
+    'GetBudgetSubscriptionTimePeriodResult',
 ]
 
 @pulumi.output_type
@@ -858,5 +874,667 @@ class BudgetSubscriptionTimePeriod(dict):
         The end date for the budget. If not set this will be 10 years after the start date.
         """
         return pulumi.get(self, "end_date")
+
+
+@pulumi.output_type
+class GetBudgetResourceGroupFilterResult(dict):
+    def __init__(__self__, *,
+                 dimensions: Sequence['outputs.GetBudgetResourceGroupFilterDimensionResult'],
+                 nots: Sequence['outputs.GetBudgetResourceGroupFilterNotResult'],
+                 tags: Sequence['outputs.GetBudgetResourceGroupFilterTagResult']):
+        """
+        :param Sequence['GetBudgetResourceGroupFilterDimensionArgs'] dimensions: A `dimension` block as defined below.
+        :param Sequence['GetBudgetResourceGroupFilterNotArgs'] nots: A `not` block as defined below.
+        :param Sequence['GetBudgetResourceGroupFilterTagArgs'] tags: A `tag` block as defined below.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "nots", nots)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Sequence['outputs.GetBudgetResourceGroupFilterDimensionResult']:
+        """
+        A `dimension` block as defined below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter
+    def nots(self) -> Sequence['outputs.GetBudgetResourceGroupFilterNotResult']:
+        """
+        A `not` block as defined below.
+        """
+        return pulumi.get(self, "nots")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.GetBudgetResourceGroupFilterTagResult']:
+        """
+        A `tag` block as defined below.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetBudgetResourceGroupFilterDimensionResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of this Consumption Budget.
+        :param str operator: The operator used for comparison.
+        :param Sequence[str] values: A list of values for the tag.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Consumption Budget.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator used for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of values for the tag.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetBudgetResourceGroupFilterNotResult(dict):
+    def __init__(__self__, *,
+                 dimensions: Sequence['outputs.GetBudgetResourceGroupFilterNotDimensionResult'],
+                 tags: Sequence['outputs.GetBudgetResourceGroupFilterNotTagResult']):
+        """
+        :param Sequence['GetBudgetResourceGroupFilterNotDimensionArgs'] dimensions: A `dimension` block as defined below.
+        :param Sequence['GetBudgetResourceGroupFilterNotTagArgs'] tags: A `tag` block as defined below.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Sequence['outputs.GetBudgetResourceGroupFilterNotDimensionResult']:
+        """
+        A `dimension` block as defined below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.GetBudgetResourceGroupFilterNotTagResult']:
+        """
+        A `tag` block as defined below.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetBudgetResourceGroupFilterNotDimensionResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of this Consumption Budget.
+        :param str operator: The operator used for comparison.
+        :param Sequence[str] values: A list of values for the tag.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Consumption Budget.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator used for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of values for the tag.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetBudgetResourceGroupFilterNotTagResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of this Consumption Budget.
+        :param str operator: The operator used for comparison.
+        :param Sequence[str] values: A list of values for the tag.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Consumption Budget.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator used for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of values for the tag.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetBudgetResourceGroupFilterTagResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of this Consumption Budget.
+        :param str operator: The operator used for comparison.
+        :param Sequence[str] values: A list of values for the tag.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Consumption Budget.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator used for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of values for the tag.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetBudgetResourceGroupNotificationResult(dict):
+    def __init__(__self__, *,
+                 contact_emails: Sequence[str],
+                 contact_groups: Sequence[str],
+                 contact_roles: Sequence[str],
+                 enabled: bool,
+                 operator: str,
+                 threshold: int):
+        """
+        :param Sequence[str] contact_emails: A list of email addresses to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_groups: A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_roles: A list of contact roles to send the budget notification to when the threshold is exceeded.
+        :param bool enabled: Whether the notification is enabled.
+        :param str operator: The operator used for comparison.
+        :param int threshold: Threshold value associated with the notification.
+        """
+        pulumi.set(__self__, "contact_emails", contact_emails)
+        pulumi.set(__self__, "contact_groups", contact_groups)
+        pulumi.set(__self__, "contact_roles", contact_roles)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="contactEmails")
+    def contact_emails(self) -> Sequence[str]:
+        """
+        A list of email addresses to send the budget notification to when the threshold is exceeded.
+        """
+        return pulumi.get(self, "contact_emails")
+
+    @property
+    @pulumi.getter(name="contactGroups")
+    def contact_groups(self) -> Sequence[str]:
+        """
+        A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+        """
+        return pulumi.get(self, "contact_groups")
+
+    @property
+    @pulumi.getter(name="contactRoles")
+    def contact_roles(self) -> Sequence[str]:
+        """
+        A list of contact roles to send the budget notification to when the threshold is exceeded.
+        """
+        return pulumi.get(self, "contact_roles")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether the notification is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator used for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> int:
+        """
+        Threshold value associated with the notification.
+        """
+        return pulumi.get(self, "threshold")
+
+
+@pulumi.output_type
+class GetBudgetResourceGroupTimePeriodResult(dict):
+    def __init__(__self__, *,
+                 end_date: str,
+                 start_date: str):
+        """
+        :param str end_date: The end date for the budget.
+        :param str start_date: The start date for the budget.
+        """
+        pulumi.set(__self__, "end_date", end_date)
+        pulumi.set(__self__, "start_date", start_date)
+
+    @property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> str:
+        """
+        The end date for the budget.
+        """
+        return pulumi.get(self, "end_date")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> str:
+        """
+        The start date for the budget.
+        """
+        return pulumi.get(self, "start_date")
+
+
+@pulumi.output_type
+class GetBudgetSubscriptionFilterResult(dict):
+    def __init__(__self__, *,
+                 dimensions: Sequence['outputs.GetBudgetSubscriptionFilterDimensionResult'],
+                 nots: Sequence['outputs.GetBudgetSubscriptionFilterNotResult'],
+                 tags: Sequence['outputs.GetBudgetSubscriptionFilterTagResult']):
+        """
+        :param Sequence['GetBudgetSubscriptionFilterDimensionArgs'] dimensions: A `dimension` block as defined above.
+        :param Sequence['GetBudgetSubscriptionFilterNotArgs'] nots: A `not` block as defined below.
+        :param Sequence['GetBudgetSubscriptionFilterTagArgs'] tags: A `tag` block as defined below.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "nots", nots)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Sequence['outputs.GetBudgetSubscriptionFilterDimensionResult']:
+        """
+        A `dimension` block as defined above.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter
+    def nots(self) -> Sequence['outputs.GetBudgetSubscriptionFilterNotResult']:
+        """
+        A `not` block as defined below.
+        """
+        return pulumi.get(self, "nots")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.GetBudgetSubscriptionFilterTagResult']:
+        """
+        A `tag` block as defined below.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetBudgetSubscriptionFilterDimensionResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of this Consumption Budget.
+        :param str operator: The operator to used for comparison.
+        :param Sequence[str] values: A list of values for the tag.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Consumption Budget.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator to used for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of values for the tag.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetBudgetSubscriptionFilterNotResult(dict):
+    def __init__(__self__, *,
+                 dimensions: Sequence['outputs.GetBudgetSubscriptionFilterNotDimensionResult'],
+                 tags: Sequence['outputs.GetBudgetSubscriptionFilterNotTagResult']):
+        """
+        :param Sequence['GetBudgetSubscriptionFilterNotDimensionArgs'] dimensions: A `dimension` block as defined above.
+        :param Sequence['GetBudgetSubscriptionFilterNotTagArgs'] tags: A `tag` block as defined below.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Sequence['outputs.GetBudgetSubscriptionFilterNotDimensionResult']:
+        """
+        A `dimension` block as defined above.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.GetBudgetSubscriptionFilterNotTagResult']:
+        """
+        A `tag` block as defined below.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetBudgetSubscriptionFilterNotDimensionResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of this Consumption Budget.
+        :param str operator: The operator to used for comparison.
+        :param Sequence[str] values: A list of values for the tag.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Consumption Budget.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator to used for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of values for the tag.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetBudgetSubscriptionFilterNotTagResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of this Consumption Budget.
+        :param str operator: The operator to used for comparison.
+        :param Sequence[str] values: A list of values for the tag.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Consumption Budget.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator to used for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of values for the tag.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetBudgetSubscriptionFilterTagResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of this Consumption Budget.
+        :param str operator: The operator to used for comparison.
+        :param Sequence[str] values: A list of values for the tag.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Consumption Budget.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator to used for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of values for the tag.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetBudgetSubscriptionNotificationResult(dict):
+    def __init__(__self__, *,
+                 contact_emails: Sequence[str],
+                 contact_groups: Sequence[str],
+                 contact_roles: Sequence[str],
+                 enabled: bool,
+                 operator: str,
+                 threshold: int):
+        """
+        :param Sequence[str] contact_emails: A list of email addresses to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_groups: A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_roles: A list of contact roles to send the budget notification to when the threshold is exceeded.
+        :param bool enabled: Whether the notification is enabled.
+        :param str operator: The operator to used for comparison.
+        :param int threshold: Threshold value associated with the notification.
+        """
+        pulumi.set(__self__, "contact_emails", contact_emails)
+        pulumi.set(__self__, "contact_groups", contact_groups)
+        pulumi.set(__self__, "contact_roles", contact_roles)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="contactEmails")
+    def contact_emails(self) -> Sequence[str]:
+        """
+        A list of email addresses to send the budget notification to when the threshold is exceeded.
+        """
+        return pulumi.get(self, "contact_emails")
+
+    @property
+    @pulumi.getter(name="contactGroups")
+    def contact_groups(self) -> Sequence[str]:
+        """
+        A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+        """
+        return pulumi.get(self, "contact_groups")
+
+    @property
+    @pulumi.getter(name="contactRoles")
+    def contact_roles(self) -> Sequence[str]:
+        """
+        A list of contact roles to send the budget notification to when the threshold is exceeded.
+        """
+        return pulumi.get(self, "contact_roles")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether the notification is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator to used for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> int:
+        """
+        Threshold value associated with the notification.
+        """
+        return pulumi.get(self, "threshold")
+
+
+@pulumi.output_type
+class GetBudgetSubscriptionTimePeriodResult(dict):
+    def __init__(__self__, *,
+                 end_date: str,
+                 start_date: str):
+        """
+        :param str end_date: The end date for the budget.
+        :param str start_date: The start date for the budget.
+        """
+        pulumi.set(__self__, "end_date", end_date)
+        pulumi.set(__self__, "start_date", start_date)
+
+    @property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> str:
+        """
+        The end date for the budget.
+        """
+        return pulumi.get(self, "end_date")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> str:
+        """
+        The start date for the budget.
+        """
+        return pulumi.get(self, "start_date")
 
 

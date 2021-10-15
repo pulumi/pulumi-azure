@@ -100,6 +100,12 @@ namespace Pulumi.Azure.EventHub
         public Output<Outputs.EventSubscriptionDeliveryIdentity?> DeliveryIdentity { get; private set; } = null!;
 
         /// <summary>
+        /// A `delivery_property` block as defined below.
+        /// </summary>
+        [Output("deliveryProperties")]
+        public Output<ImmutableArray<Outputs.EventSubscriptionDeliveryProperty>> DeliveryProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventDeliverySchema")]
@@ -283,6 +289,18 @@ namespace Pulumi.Azure.EventHub
         [Input("deliveryIdentity")]
         public Input<Inputs.EventSubscriptionDeliveryIdentityArgs>? DeliveryIdentity { get; set; }
 
+        [Input("deliveryProperties")]
+        private InputList<Inputs.EventSubscriptionDeliveryPropertyArgs>? _deliveryProperties;
+
+        /// <summary>
+        /// A `delivery_property` block as defined below.
+        /// </summary>
+        public InputList<Inputs.EventSubscriptionDeliveryPropertyArgs> DeliveryProperties
+        {
+            get => _deliveryProperties ?? (_deliveryProperties = new InputList<Inputs.EventSubscriptionDeliveryPropertyArgs>());
+            set => _deliveryProperties = value;
+        }
+
         /// <summary>
         /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         /// </summary>
@@ -439,6 +457,18 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("deliveryIdentity")]
         public Input<Inputs.EventSubscriptionDeliveryIdentityGetArgs>? DeliveryIdentity { get; set; }
+
+        [Input("deliveryProperties")]
+        private InputList<Inputs.EventSubscriptionDeliveryPropertyGetArgs>? _deliveryProperties;
+
+        /// <summary>
+        /// A `delivery_property` block as defined below.
+        /// </summary>
+        public InputList<Inputs.EventSubscriptionDeliveryPropertyGetArgs> DeliveryProperties
+        {
+            get => _deliveryProperties ?? (_deliveryProperties = new InputList<Inputs.EventSubscriptionDeliveryPropertyGetArgs>());
+            set => _deliveryProperties = value;
+        }
 
         /// <summary>
         /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.

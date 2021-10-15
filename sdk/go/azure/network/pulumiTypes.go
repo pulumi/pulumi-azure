@@ -12081,6 +12081,8 @@ func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput) Roun
 }
 
 type NetworkConnectionMonitorTestConfigurationTcpConfiguration struct {
+	// The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+	DestinationPortBehavior *string `pulumi:"destinationPortBehavior"`
 	// The port for the Tcp connection.
 	Port int `pulumi:"port"`
 	// Should path evaluation with trace route be enabled? Defaults to `true`.
@@ -12099,6 +12101,8 @@ type NetworkConnectionMonitorTestConfigurationTcpConfigurationInput interface {
 }
 
 type NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs struct {
+	// The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+	DestinationPortBehavior pulumi.StringPtrInput `pulumi:"destinationPortBehavior"`
 	// The port for the Tcp connection.
 	Port pulumi.IntInput `pulumi:"port"`
 	// Should path evaluation with trace route be enabled? Defaults to `true`.
@@ -12182,6 +12186,13 @@ func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) ToNetwo
 	}).(NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput)
 }
 
+// The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) DestinationPortBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationTcpConfiguration) *string {
+		return v.DestinationPortBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
 // The port for the Tcp connection.
 func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationTcpConfiguration) int { return v.Port }).(pulumi.IntOutput)
@@ -12214,6 +12225,16 @@ func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) Elem
 		var ret NetworkConnectionMonitorTestConfigurationTcpConfiguration
 		return ret
 	}).(NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput)
+}
+
+// The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) DestinationPortBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationTcpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPortBehavior
+	}).(pulumi.StringPtrOutput)
 }
 
 // The port for the Tcp connection.

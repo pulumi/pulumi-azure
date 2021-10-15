@@ -75,6 +75,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinkedServiceAzureTableStorage{}
 	case "azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb":
 		r = &LinkedServiceCosmosDb{}
+	case "azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi":
+		r = &LinkedServiceCosmosDbMongoApi{}
 	case "azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2":
 		r = &LinkedServiceDataLakeStorageGen2{}
 	case "azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault":
@@ -255,6 +257,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/linkedServiceCosmosDb",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/linkedServiceCosmosDbMongoApi",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

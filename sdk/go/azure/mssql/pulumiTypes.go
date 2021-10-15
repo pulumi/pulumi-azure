@@ -565,7 +565,7 @@ type DatabaseThreatDetectionPolicy struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
-	// Should the default server policy be used? Defaults to `Disabled`.
+	// Deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
 	UseServerDefault *string `pulumi:"useServerDefault"`
 }
 
@@ -595,7 +595,7 @@ type DatabaseThreatDetectionPolicyArgs struct {
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
-	// Should the default server policy be used? Defaults to `Disabled`.
+	// Deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
 	UseServerDefault pulumi.StringPtrInput `pulumi:"useServerDefault"`
 }
 
@@ -711,7 +711,7 @@ func (o DatabaseThreatDetectionPolicyOutput) StorageEndpoint() pulumi.StringPtrO
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// Should the default server policy be used? Defaults to `Disabled`.
+// Deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
 func (o DatabaseThreatDetectionPolicyOutput) UseServerDefault() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.UseServerDefault }).(pulumi.StringPtrOutput)
 }
@@ -810,7 +810,7 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should the default server policy be used? Defaults to `Disabled`.
+// Deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
 func (o DatabaseThreatDetectionPolicyPtrOutput) UseServerDefault() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
 		if v == nil {
@@ -1931,8 +1931,10 @@ type ServerIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
 	Type string `pulumi:"type"`
+	// Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primaryUserAssignedIdentityId`.
+	UserAssignedIdentityIds []string `pulumi:"userAssignedIdentityIds"`
 }
 
 // ServerIdentityInput is an input type that accepts ServerIdentityArgs and ServerIdentityOutput values.
@@ -1951,8 +1953,10 @@ type ServerIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
 	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primaryUserAssignedIdentityId`.
+	UserAssignedIdentityIds pulumi.StringArrayInput `pulumi:"userAssignedIdentityIds"`
 }
 
 func (ServerIdentityArgs) ElementType() reflect.Type {
@@ -2042,9 +2046,14 @@ func (o ServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
 func (o ServerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primaryUserAssignedIdentityId`.
+func (o ServerIdentityOutput) UserAssignedIdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerIdentity) []string { return v.UserAssignedIdentityIds }).(pulumi.StringArrayOutput)
 }
 
 type ServerIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -2091,7 +2100,7 @@ func (o ServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
 func (o ServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerIdentity) *string {
 		if v == nil {
@@ -2099,6 +2108,16 @@ func (o ServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primaryUserAssignedIdentityId`.
+func (o ServerIdentityPtrOutput) UserAssignedIdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityIds
+	}).(pulumi.StringArrayOutput)
 }
 
 type ServerVulnerabilityAssessmentRecurringScans struct {
@@ -3908,6 +3927,8 @@ type GetServerIdentity struct {
 	TenantId string `pulumi:"tenantId"`
 	// The identity type of the Microsoft SQL Server.
 	Type string `pulumi:"type"`
+	// A list of the User Assigned Identities of this SQL Server.
+	UserAssignedIdentityIds []string `pulumi:"userAssignedIdentityIds"`
 }
 
 // GetServerIdentityInput is an input type that accepts GetServerIdentityArgs and GetServerIdentityOutput values.
@@ -3928,6 +3949,8 @@ type GetServerIdentityArgs struct {
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// The identity type of the Microsoft SQL Server.
 	Type pulumi.StringInput `pulumi:"type"`
+	// A list of the User Assigned Identities of this SQL Server.
+	UserAssignedIdentityIds pulumi.StringArrayInput `pulumi:"userAssignedIdentityIds"`
 }
 
 func (GetServerIdentityArgs) ElementType() reflect.Type {
@@ -3994,6 +4017,11 @@ func (o GetServerIdentityOutput) TenantId() pulumi.StringOutput {
 // The identity type of the Microsoft SQL Server.
 func (o GetServerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of the User Assigned Identities of this SQL Server.
+func (o GetServerIdentityOutput) UserAssignedIdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServerIdentity) []string { return v.UserAssignedIdentityIds }).(pulumi.StringArrayOutput)
 }
 
 type GetServerIdentityArrayOutput struct{ *pulumi.OutputState }

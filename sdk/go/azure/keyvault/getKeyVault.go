@@ -57,6 +57,8 @@ type LookupKeyVaultArgs struct {
 type LookupKeyVaultResult struct {
 	// One or more `accessPolicy` blocks as defined below.
 	AccessPolicies []GetKeyVaultAccessPolicy `pulumi:"accessPolicies"`
+	// Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
+	EnableRbacAuthorization bool `pulumi:"enableRbacAuthorization"`
 	// Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
 	EnabledForDeployment bool `pulumi:"enabledForDeployment"`
 	// Can Azure Disk Encryption retrieve secrets from the Key Vault?
@@ -123,6 +125,11 @@ func (o LookupKeyVaultResultOutput) ToLookupKeyVaultResultOutputWithContext(ctx 
 // One or more `accessPolicy` blocks as defined below.
 func (o LookupKeyVaultResultOutput) AccessPolicies() GetKeyVaultAccessPolicyArrayOutput {
 	return o.ApplyT(func(v LookupKeyVaultResult) []GetKeyVaultAccessPolicy { return v.AccessPolicies }).(GetKeyVaultAccessPolicyArrayOutput)
+}
+
+// Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
+func (o LookupKeyVaultResultOutput) EnableRbacAuthorization() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.EnableRbacAuthorization }).(pulumi.BoolOutput)
 }
 
 // Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?

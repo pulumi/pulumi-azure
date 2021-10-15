@@ -144,11 +144,13 @@ namespace Pulumi.Azure.AppService
     ///             StorageAccountName = exampleAccount.Name,
     ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///             OsType = "linux",
+    ///             Version = "~3",
     ///         });
     ///     }
     /// 
     /// }
     /// ```
+    /// &gt; **Note:** Version `~3` is required for Linux Function Apps.
     /// 
     /// ## Import
     /// 

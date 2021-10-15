@@ -97,7 +97,7 @@ type KubernetesCluster struct {
 	KubeAdminConfigRaw pulumi.StringOutput `pulumi:"kubeAdminConfigRaw"`
 	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigs KubernetesClusterKubeAdminConfigArrayOutput `pulumi:"kubeAdminConfigs"`
-	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
 	KubeConfigRaw pulumi.StringOutput `pulumi:"kubeConfigRaw"`
 	// A `kubeConfig` block as defined below.
 	KubeConfigs KubernetesClusterKubeConfigArrayOutput `pulumi:"kubeConfigs"`
@@ -203,7 +203,7 @@ type kubernetesClusterState struct {
 	KubeAdminConfigRaw *string `pulumi:"kubeAdminConfigRaw"`
 	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigs []KubernetesClusterKubeAdminConfig `pulumi:"kubeAdminConfigs"`
-	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
 	KubeConfigRaw *string `pulumi:"kubeConfigRaw"`
 	// A `kubeConfig` block as defined below.
 	KubeConfigs []KubernetesClusterKubeConfig `pulumi:"kubeConfigs"`
@@ -275,7 +275,7 @@ type KubernetesClusterState struct {
 	KubeAdminConfigRaw pulumi.StringPtrInput
 	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigs KubernetesClusterKubeAdminConfigArrayInput
-	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
 	KubeConfigRaw pulumi.StringPtrInput
 	// A `kubeConfig` block as defined below.
 	KubeConfigs KubernetesClusterKubeConfigArrayInput

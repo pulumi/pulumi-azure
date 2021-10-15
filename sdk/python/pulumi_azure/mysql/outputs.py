@@ -9,12 +9,188 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'FlexibleServerHighAvailability',
+    'FlexibleServerMaintenanceWindow',
+    'FlexibleServerStorage',
     'ServerIdentity',
     'ServerStorageProfile',
     'ServerThreatDetectionPolicy',
     'GetServerIdentityResult',
     'GetServerThreatDetectionPolicyResult',
 ]
+
+@pulumi.output_type
+class FlexibleServerHighAvailability(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "standbyAvailabilityZone":
+            suggest = "standby_availability_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlexibleServerHighAvailability. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlexibleServerHighAvailability.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlexibleServerHighAvailability.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: str,
+                 standby_availability_zone: Optional[str] = None):
+        """
+        :param str mode: The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+        :param str standby_availability_zone: The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if standby_availability_zone is not None:
+            pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="standbyAvailabilityZone")
+    def standby_availability_zone(self) -> Optional[str]:
+        """
+        The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+        """
+        return pulumi.get(self, "standby_availability_zone")
+
+
+@pulumi.output_type
+class FlexibleServerMaintenanceWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMinute":
+            suggest = "start_minute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlexibleServerMaintenanceWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlexibleServerMaintenanceWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlexibleServerMaintenanceWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_week: Optional[int] = None,
+                 start_hour: Optional[int] = None,
+                 start_minute: Optional[int] = None):
+        """
+        :param int day_of_week: The day of week for maintenance window. Defaults to `0`.
+        :param int start_hour: The day of week for maintenance window. Defaults to `0`.
+        :param int start_minute: The start minute for maintenance window. Defaults to `0`.
+        """
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if start_hour is not None:
+            pulumi.set(__self__, "start_hour", start_hour)
+        if start_minute is not None:
+            pulumi.set(__self__, "start_minute", start_minute)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[int]:
+        """
+        The day of week for maintenance window. Defaults to `0`.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> Optional[int]:
+        """
+        The day of week for maintenance window. Defaults to `0`.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @property
+    @pulumi.getter(name="startMinute")
+    def start_minute(self) -> Optional[int]:
+        """
+        The start minute for maintenance window. Defaults to `0`.
+        """
+        return pulumi.get(self, "start_minute")
+
+
+@pulumi.output_type
+class FlexibleServerStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoGrowEnabled":
+            suggest = "auto_grow_enabled"
+        elif key == "sizeGb":
+            suggest = "size_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlexibleServerStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlexibleServerStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlexibleServerStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_grow_enabled: Optional[bool] = None,
+                 iops: Optional[int] = None,
+                 size_gb: Optional[int] = None):
+        """
+        :param bool auto_grow_enabled: Should Storage Auto Grow be enabled? Defaults to `true`.
+        :param int iops: The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
+        :param int size_gb: The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+        """
+        if auto_grow_enabled is not None:
+            pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if size_gb is not None:
+            pulumi.set(__self__, "size_gb", size_gb)
+
+    @property
+    @pulumi.getter(name="autoGrowEnabled")
+    def auto_grow_enabled(self) -> Optional[bool]:
+        """
+        Should Storage Auto Grow be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_grow_enabled")
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        """
+        The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="sizeGb")
+    def size_gb(self) -> Optional[int]:
+        """
+        The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+        """
+        return pulumi.get(self, "size_gb")
+
 
 @pulumi.output_type
 class ServerIdentity(dict):

@@ -74,6 +74,10 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKeyVaultAccessPolicyResult> AccessPolicies;
         /// <summary>
+        /// Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
+        /// </summary>
+        public readonly bool EnableRbacAuthorization;
+        /// <summary>
         /// Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
         /// </summary>
         public readonly bool EnabledForDeployment;
@@ -122,6 +126,8 @@ namespace Pulumi.Azure.KeyVault
         private GetKeyVaultResult(
             ImmutableArray<Outputs.GetKeyVaultAccessPolicyResult> accessPolicies,
 
+            bool enableRbacAuthorization,
+
             bool enabledForDeployment,
 
             bool enabledForDiskEncryption,
@@ -151,6 +157,7 @@ namespace Pulumi.Azure.KeyVault
             string vaultUri)
         {
             AccessPolicies = accessPolicies;
+            EnableRbacAuthorization = enableRbacAuthorization;
             EnabledForDeployment = enabledForDeployment;
             EnabledForDiskEncryption = enabledForDiskEncryption;
             EnabledForTemplateDeployment = enabledForTemplateDeployment;

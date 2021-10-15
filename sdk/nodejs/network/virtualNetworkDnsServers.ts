@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Virtual Network DNS Servers can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers exampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/dnsServers/default
+ * ```
+ */
 export class VirtualNetworkDnsServers extends pulumi.CustomResource {
     /**
      * Get an existing VirtualNetworkDnsServers resource's state with the given name, ID, and optional extra
@@ -32,7 +41,13 @@ export class VirtualNetworkDnsServers extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualNetworkDnsServers.__pulumiType;
     }
 
+    /**
+     * List of IP addresses of DNS servers
+     */
     public readonly dnsServers!: pulumi.Output<string[] | undefined>;
+    /**
+     * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+     */
     public readonly virtualNetworkId!: pulumi.Output<string>;
 
     /**
@@ -69,7 +84,13 @@ export class VirtualNetworkDnsServers extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VirtualNetworkDnsServers resources.
  */
 export interface VirtualNetworkDnsServersState {
+    /**
+     * List of IP addresses of DNS servers
+     */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+     */
     virtualNetworkId?: pulumi.Input<string>;
 }
 
@@ -77,6 +98,12 @@ export interface VirtualNetworkDnsServersState {
  * The set of arguments for constructing a VirtualNetworkDnsServers resource.
  */
 export interface VirtualNetworkDnsServersArgs {
+    /**
+     * List of IP addresses of DNS servers
+     */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+     */
     virtualNetworkId: pulumi.Input<string>;
 }

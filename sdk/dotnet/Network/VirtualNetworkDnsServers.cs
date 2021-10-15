@@ -9,12 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Virtual Network DNS Servers can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers exampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/dnsServers/default
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers")]
     public partial class VirtualNetworkDnsServers : Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of IP addresses of DNS servers
+        /// </summary>
         [Output("dnsServers")]
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("virtualNetworkId")]
         public Output<string> VirtualNetworkId { get; private set; } = null!;
 
@@ -66,12 +81,19 @@ namespace Pulumi.Azure.Network
     {
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
+
+        /// <summary>
+        /// List of IP addresses of DNS servers
+        /// </summary>
         public InputList<string> DnsServers
         {
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
 
+        /// <summary>
+        /// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId", required: true)]
         public Input<string> VirtualNetworkId { get; set; } = null!;
 
@@ -84,12 +106,19 @@ namespace Pulumi.Azure.Network
     {
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
+
+        /// <summary>
+        /// List of IP addresses of DNS servers
+        /// </summary>
         public InputList<string> DnsServers
         {
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
 
+        /// <summary>
+        /// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 

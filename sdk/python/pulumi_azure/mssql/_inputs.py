@@ -227,7 +227,6 @@ class DatabaseThreatDetectionPolicyArgs:
         :param pulumi.Input[str] state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-        :param pulumi.Input[str] use_server_default: Should the default server policy be used? Defaults to `Disabled`.
         """
         if disabled_alerts is not None:
             pulumi.set(__self__, "disabled_alerts", disabled_alerts)
@@ -243,6 +242,9 @@ class DatabaseThreatDetectionPolicyArgs:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
             pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+        if use_server_default is not None:
+            warnings.warn("""This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider""", DeprecationWarning)
+            pulumi.log.warn("""use_server_default is deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider""")
         if use_server_default is not None:
             pulumi.set(__self__, "use_server_default", use_server_default)
 
@@ -333,9 +335,6 @@ class DatabaseThreatDetectionPolicyArgs:
     @property
     @pulumi.getter(name="useServerDefault")
     def use_server_default(self) -> Optional[pulumi.Input[str]]:
-        """
-        Should the default server policy be used? Defaults to `Disabled`.
-        """
         return pulumi.get(self, "use_server_default")
 
     @use_server_default.setter
@@ -707,23 +706,27 @@ class ServerIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
-                 tenant_id: Optional[pulumi.Input[str]] = None):
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param pulumi.Input[str] tenant_id: (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identity_ids: Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primary_user_assigned_identity_id`.
         """
         pulumi.set(__self__, "type", type)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+        if user_assigned_identity_ids is not None:
+            pulumi.set(__self__, "user_assigned_identity_ids", user_assigned_identity_ids)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+        Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
         """
         return pulumi.get(self, "type")
 
@@ -754,6 +757,18 @@ class ServerIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityIds")
+    def user_assigned_identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primary_user_assigned_identity_id`.
+        """
+        return pulumi.get(self, "user_assigned_identity_ids")
+
+    @user_assigned_identity_ids.setter
+    def user_assigned_identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identity_ids", value)
 
 
 @pulumi.input_type

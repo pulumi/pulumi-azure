@@ -529,7 +529,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-        :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+        :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArgs']]] kube_configs: A `kube_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
@@ -782,7 +782,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="kubeConfigRaw")
     def kube_config_raw(self) -> Optional[pulumi.Input[str]]:
         """
-        Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+        Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         """
         return pulumi.get(self, "kube_config_raw")
 
@@ -1351,7 +1351,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-        :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+        :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeConfigArgs']]]] kube_configs: A `kube_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
@@ -1519,7 +1519,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="kubeConfigRaw")
     def kube_config_raw(self) -> pulumi.Output[str]:
         """
-        Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+        Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         """
         return pulumi.get(self, "kube_config_raw")
 

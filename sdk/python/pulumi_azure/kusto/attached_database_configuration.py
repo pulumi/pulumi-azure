@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['AttachedDatabaseConfigurationArgs', 'AttachedDatabaseConfiguration']
 
@@ -19,7 +21,8 @@ class AttachedDatabaseConfigurationArgs:
                  resource_group_name: pulumi.Input[str],
                  default_principal_modification_kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 sharing: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']] = None):
         """
         The set of arguments for constructing a AttachedDatabaseConfiguration resource.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
@@ -29,6 +32,7 @@ class AttachedDatabaseConfigurationArgs:
         :param pulumi.Input[str] default_principal_modification_kind: The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
         :param pulumi.Input[str] location: Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
+        :param pulumi.Input['AttachedDatabaseConfigurationSharingArgs'] sharing: A `sharing` block as defined below.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
@@ -40,6 +44,8 @@ class AttachedDatabaseConfigurationArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sharing is not None:
+            pulumi.set(__self__, "sharing", sharing)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -125,6 +131,18 @@ class AttachedDatabaseConfigurationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def sharing(self) -> Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']]:
+        """
+        A `sharing` block as defined below.
+        """
+        return pulumi.get(self, "sharing")
+
+    @sharing.setter
+    def sharing(self, value: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']]):
+        pulumi.set(self, "sharing", value)
+
 
 @pulumi.input_type
 class _AttachedDatabaseConfigurationState:
@@ -136,7 +154,8 @@ class _AttachedDatabaseConfigurationState:
                  default_principal_modification_kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None):
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sharing: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']] = None):
         """
         Input properties used for looking up and filtering AttachedDatabaseConfiguration resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] attached_database_names: The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
@@ -147,6 +166,7 @@ class _AttachedDatabaseConfigurationState:
         :param pulumi.Input[str] location: Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
+        :param pulumi.Input['AttachedDatabaseConfigurationSharingArgs'] sharing: A `sharing` block as defined below.
         """
         if attached_database_names is not None:
             pulumi.set(__self__, "attached_database_names", attached_database_names)
@@ -164,6 +184,8 @@ class _AttachedDatabaseConfigurationState:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sharing is not None:
+            pulumi.set(__self__, "sharing", sharing)
 
     @property
     @pulumi.getter(name="attachedDatabaseNames")
@@ -261,6 +283,18 @@ class _AttachedDatabaseConfigurationState:
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
 
+    @property
+    @pulumi.getter
+    def sharing(self) -> Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']]:
+        """
+        A `sharing` block as defined below.
+        """
+        return pulumi.get(self, "sharing")
+
+    @sharing.setter
+    def sharing(self, value: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']]):
+        pulumi.set(self, "sharing", value)
+
 
 class AttachedDatabaseConfiguration(pulumi.CustomResource):
     @overload
@@ -274,6 +308,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sharing: Optional[pulumi.Input[pulumi.InputType['AttachedDatabaseConfigurationSharingArgs']]] = None,
                  __props__=None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Attached Database Configuration
@@ -295,6 +330,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['AttachedDatabaseConfigurationSharingArgs']] sharing: A `sharing` block as defined below.
         """
         ...
     @overload
@@ -335,6 +371,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sharing: Optional[pulumi.Input[pulumi.InputType['AttachedDatabaseConfigurationSharingArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -362,6 +399,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sharing"] = sharing
             __props__.__dict__["attached_database_names"] = None
         super(AttachedDatabaseConfiguration, __self__).__init__(
             'azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration',
@@ -380,7 +418,8 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             default_principal_modification_kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'AttachedDatabaseConfiguration':
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            sharing: Optional[pulumi.Input[pulumi.InputType['AttachedDatabaseConfigurationSharingArgs']]] = None) -> 'AttachedDatabaseConfiguration':
         """
         Get an existing AttachedDatabaseConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -396,6 +435,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['AttachedDatabaseConfigurationSharingArgs']] sharing: A `sharing` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -409,6 +449,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["sharing"] = sharing
         return AttachedDatabaseConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -474,4 +515,12 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def sharing(self) -> pulumi.Output[Optional['outputs.AttachedDatabaseConfigurationSharing']]:
+        """
+        A `sharing` block as defined below.
+        """
+        return pulumi.get(self, "sharing")
 

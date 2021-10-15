@@ -11,11 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Virtual Network DNS Servers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers exampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/dnsServers/default
+// ```
 type VirtualNetworkDnsServers struct {
 	pulumi.CustomResourceState
 
-	DnsServers       pulumi.StringArrayOutput `pulumi:"dnsServers"`
-	VirtualNetworkId pulumi.StringOutput      `pulumi:"virtualNetworkId"`
+	// List of IP addresses of DNS servers
+	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
+	// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+	VirtualNetworkId pulumi.StringOutput `pulumi:"virtualNetworkId"`
 }
 
 // NewVirtualNetworkDnsServers registers a new resource with the given unique name, arguments, and options.
@@ -50,12 +59,16 @@ func GetVirtualNetworkDnsServers(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkDnsServers resources.
 type virtualNetworkDnsServersState struct {
-	DnsServers       []string `pulumi:"dnsServers"`
-	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	// List of IP addresses of DNS servers
+	DnsServers []string `pulumi:"dnsServers"`
+	// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 }
 
 type VirtualNetworkDnsServersState struct {
-	DnsServers       pulumi.StringArrayInput
+	// List of IP addresses of DNS servers
+	DnsServers pulumi.StringArrayInput
+	// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringPtrInput
 }
 
@@ -64,13 +77,17 @@ func (VirtualNetworkDnsServersState) ElementType() reflect.Type {
 }
 
 type virtualNetworkDnsServersArgs struct {
-	DnsServers       []string `pulumi:"dnsServers"`
-	VirtualNetworkId string   `pulumi:"virtualNetworkId"`
+	// List of IP addresses of DNS servers
+	DnsServers []string `pulumi:"dnsServers"`
+	// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+	VirtualNetworkId string `pulumi:"virtualNetworkId"`
 }
 
 // The set of arguments for constructing a VirtualNetworkDnsServers resource.
 type VirtualNetworkDnsServersArgs struct {
-	DnsServers       pulumi.StringArrayInput
+	// List of IP addresses of DNS servers
+	DnsServers pulumi.StringArrayInput
+	// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringInput
 }
 

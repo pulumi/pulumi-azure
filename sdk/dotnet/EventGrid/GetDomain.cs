@@ -128,12 +128,18 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public readonly string Location;
         public readonly string Name;
+        /// <summary>
+        /// The primary access key associated with the EventGrid Domain.
+        /// </summary>
         public readonly string PrimaryAccessKey;
         /// <summary>
         /// Whether or not public network access is allowed for this server.
         /// </summary>
         public readonly bool? PublicNetworkAccessEnabled;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// The secondary access key associated with the EventGrid Domain.
+        /// </summary>
         public readonly string SecondaryAccessKey;
         /// <summary>
         /// A mapping of tags assigned to the EventGrid Domain.

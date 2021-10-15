@@ -153,6 +153,12 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.AppServiceIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        /// </summary>
+        [Output("keyVaultReferenceIdentityId")]
+        public Output<string> KeyVaultReferenceIdentityId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -349,6 +355,12 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.AppServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        /// </summary>
+        [Input("keyVaultReferenceIdentityId")]
+        public Input<string>? KeyVaultReferenceIdentityId { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -498,6 +510,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AppServiceIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        /// </summary>
+        [Input("keyVaultReferenceIdentityId")]
+        public Input<string>? KeyVaultReferenceIdentityId { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

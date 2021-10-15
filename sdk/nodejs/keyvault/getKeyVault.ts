@@ -58,6 +58,10 @@ export interface GetKeyVaultResult {
      */
     readonly accessPolicies: outputs.keyvault.GetKeyVaultAccessPolicy[];
     /**
+     * Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
+     */
+    readonly enableRbacAuthorization: boolean;
+    /**
      * Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
      */
     readonly enabledForDeployment: boolean;

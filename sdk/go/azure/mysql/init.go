@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Database{}
 	case "azure:mysql/firewallRule:FirewallRule":
 		r = &FirewallRule{}
+	case "azure:mysql/flexibleServer:FlexibleServer":
+		r = &FlexibleServer{}
 	case "azure:mysql/server:Server":
 		r = &Server{}
 	case "azure:mysql/serverKey:ServerKey":
@@ -66,6 +68,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mysql/firewallRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mysql/flexibleServer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

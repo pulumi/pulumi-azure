@@ -271,7 +271,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly secretId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -373,7 +373,7 @@ export interface CertificateState {
      */
     secretId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -407,7 +407,7 @@ export interface CertificateArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

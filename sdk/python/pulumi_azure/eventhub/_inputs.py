@@ -46,6 +46,7 @@ __all__ = [
     'EventSubscriptionAzureFunctionEndpointArgs',
     'EventSubscriptionDeadLetterIdentityArgs',
     'EventSubscriptionDeliveryIdentityArgs',
+    'EventSubscriptionDeliveryPropertyArgs',
     'EventSubscriptionEventhubEndpointArgs',
     'EventSubscriptionHybridConnectionEndpointArgs',
     'EventSubscriptionRetryPolicyArgs',
@@ -2036,6 +2037,91 @@ class EventSubscriptionDeliveryIdentityArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class EventSubscriptionDeliveryPropertyArgs:
+    def __init__(__self__, *,
+                 header_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 secret: Optional[pulumi.Input[bool]] = None,
+                 source_field: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] header_name: The name of the header to send on to the destination
+        :param pulumi.Input[str] type: Either `Static` or `Dynamic`
+        :param pulumi.Input[bool] secret: True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
+        :param pulumi.Input[str] source_field: If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+        :param pulumi.Input[str] value: If the `type` is `Static`, then provide the value to use
+        """
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "type", type)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[str]:
+        """
+        The name of the header to send on to the destination
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Either `Static` or `Dynamic`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+        """
+        return pulumi.get(self, "source_field")
+
+    @source_field.setter
+    def source_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_field", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the `type` is `Static`, then provide the value to use
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

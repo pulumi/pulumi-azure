@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class NetworkConnectionMonitorTestConfigurationTcpConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+        /// </summary>
+        [Input("destinationPortBehavior")]
+        public Input<string>? DestinationPortBehavior { get; set; }
+
+        /// <summary>
         /// The port for the Tcp connection.
         /// </summary>
         [Input("port", required: true)]

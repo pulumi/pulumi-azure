@@ -2446,6 +2446,1866 @@ func (o BudgetSubscriptionTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetBudgetResourceGroupFilter struct {
+	// A `dimension` block as defined below.
+	Dimensions []GetBudgetResourceGroupFilterDimension `pulumi:"dimensions"`
+	// A `not` block as defined below.
+	Nots []GetBudgetResourceGroupFilterNot `pulumi:"nots"`
+	// A `tag` block as defined below.
+	Tags []GetBudgetResourceGroupFilterTag `pulumi:"tags"`
+}
+
+// GetBudgetResourceGroupFilterInput is an input type that accepts GetBudgetResourceGroupFilterArgs and GetBudgetResourceGroupFilterOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupFilterInput` via:
+//
+//          GetBudgetResourceGroupFilterArgs{...}
+type GetBudgetResourceGroupFilterInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupFilterOutput() GetBudgetResourceGroupFilterOutput
+	ToGetBudgetResourceGroupFilterOutputWithContext(context.Context) GetBudgetResourceGroupFilterOutput
+}
+
+type GetBudgetResourceGroupFilterArgs struct {
+	// A `dimension` block as defined below.
+	Dimensions GetBudgetResourceGroupFilterDimensionArrayInput `pulumi:"dimensions"`
+	// A `not` block as defined below.
+	Nots GetBudgetResourceGroupFilterNotArrayInput `pulumi:"nots"`
+	// A `tag` block as defined below.
+	Tags GetBudgetResourceGroupFilterTagArrayInput `pulumi:"tags"`
+}
+
+func (GetBudgetResourceGroupFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupFilter)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupFilterArgs) ToGetBudgetResourceGroupFilterOutput() GetBudgetResourceGroupFilterOutput {
+	return i.ToGetBudgetResourceGroupFilterOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupFilterArgs) ToGetBudgetResourceGroupFilterOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterOutput)
+}
+
+// GetBudgetResourceGroupFilterArrayInput is an input type that accepts GetBudgetResourceGroupFilterArray and GetBudgetResourceGroupFilterArrayOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupFilterArrayInput` via:
+//
+//          GetBudgetResourceGroupFilterArray{ GetBudgetResourceGroupFilterArgs{...} }
+type GetBudgetResourceGroupFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupFilterArrayOutput() GetBudgetResourceGroupFilterArrayOutput
+	ToGetBudgetResourceGroupFilterArrayOutputWithContext(context.Context) GetBudgetResourceGroupFilterArrayOutput
+}
+
+type GetBudgetResourceGroupFilterArray []GetBudgetResourceGroupFilterInput
+
+func (GetBudgetResourceGroupFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupFilter)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupFilterArray) ToGetBudgetResourceGroupFilterArrayOutput() GetBudgetResourceGroupFilterArrayOutput {
+	return i.ToGetBudgetResourceGroupFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupFilterArray) ToGetBudgetResourceGroupFilterArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterArrayOutput)
+}
+
+type GetBudgetResourceGroupFilterOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupFilter)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupFilterOutput) ToGetBudgetResourceGroupFilterOutput() GetBudgetResourceGroupFilterOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterOutput) ToGetBudgetResourceGroupFilterOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterOutput {
+	return o
+}
+
+// A `dimension` block as defined below.
+func (o GetBudgetResourceGroupFilterOutput) Dimensions() GetBudgetResourceGroupFilterDimensionArrayOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilter) []GetBudgetResourceGroupFilterDimension { return v.Dimensions }).(GetBudgetResourceGroupFilterDimensionArrayOutput)
+}
+
+// A `not` block as defined below.
+func (o GetBudgetResourceGroupFilterOutput) Nots() GetBudgetResourceGroupFilterNotArrayOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilter) []GetBudgetResourceGroupFilterNot { return v.Nots }).(GetBudgetResourceGroupFilterNotArrayOutput)
+}
+
+// A `tag` block as defined below.
+func (o GetBudgetResourceGroupFilterOutput) Tags() GetBudgetResourceGroupFilterTagArrayOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilter) []GetBudgetResourceGroupFilterTag { return v.Tags }).(GetBudgetResourceGroupFilterTagArrayOutput)
+}
+
+type GetBudgetResourceGroupFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupFilter)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupFilterArrayOutput) ToGetBudgetResourceGroupFilterArrayOutput() GetBudgetResourceGroupFilterArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterArrayOutput) ToGetBudgetResourceGroupFilterArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetResourceGroupFilter {
+		return vs[0].([]GetBudgetResourceGroupFilter)[vs[1].(int)]
+	}).(GetBudgetResourceGroupFilterOutput)
+}
+
+type GetBudgetResourceGroupFilterDimension struct {
+	// The name of this Consumption Budget.
+	Name string `pulumi:"name"`
+	// The operator used for comparison.
+	Operator string `pulumi:"operator"`
+	// A list of values for the tag.
+	Values []string `pulumi:"values"`
+}
+
+// GetBudgetResourceGroupFilterDimensionInput is an input type that accepts GetBudgetResourceGroupFilterDimensionArgs and GetBudgetResourceGroupFilterDimensionOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupFilterDimensionInput` via:
+//
+//          GetBudgetResourceGroupFilterDimensionArgs{...}
+type GetBudgetResourceGroupFilterDimensionInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupFilterDimensionOutput() GetBudgetResourceGroupFilterDimensionOutput
+	ToGetBudgetResourceGroupFilterDimensionOutputWithContext(context.Context) GetBudgetResourceGroupFilterDimensionOutput
+}
+
+type GetBudgetResourceGroupFilterDimensionArgs struct {
+	// The name of this Consumption Budget.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator used for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values for the tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetBudgetResourceGroupFilterDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupFilterDimension)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupFilterDimensionArgs) ToGetBudgetResourceGroupFilterDimensionOutput() GetBudgetResourceGroupFilterDimensionOutput {
+	return i.ToGetBudgetResourceGroupFilterDimensionOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupFilterDimensionArgs) ToGetBudgetResourceGroupFilterDimensionOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterDimensionOutput)
+}
+
+// GetBudgetResourceGroupFilterDimensionArrayInput is an input type that accepts GetBudgetResourceGroupFilterDimensionArray and GetBudgetResourceGroupFilterDimensionArrayOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupFilterDimensionArrayInput` via:
+//
+//          GetBudgetResourceGroupFilterDimensionArray{ GetBudgetResourceGroupFilterDimensionArgs{...} }
+type GetBudgetResourceGroupFilterDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupFilterDimensionArrayOutput() GetBudgetResourceGroupFilterDimensionArrayOutput
+	ToGetBudgetResourceGroupFilterDimensionArrayOutputWithContext(context.Context) GetBudgetResourceGroupFilterDimensionArrayOutput
+}
+
+type GetBudgetResourceGroupFilterDimensionArray []GetBudgetResourceGroupFilterDimensionInput
+
+func (GetBudgetResourceGroupFilterDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupFilterDimension)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupFilterDimensionArray) ToGetBudgetResourceGroupFilterDimensionArrayOutput() GetBudgetResourceGroupFilterDimensionArrayOutput {
+	return i.ToGetBudgetResourceGroupFilterDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupFilterDimensionArray) ToGetBudgetResourceGroupFilterDimensionArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterDimensionArrayOutput)
+}
+
+type GetBudgetResourceGroupFilterDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupFilterDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupFilterDimension)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupFilterDimensionOutput) ToGetBudgetResourceGroupFilterDimensionOutput() GetBudgetResourceGroupFilterDimensionOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterDimensionOutput) ToGetBudgetResourceGroupFilterDimensionOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterDimensionOutput {
+	return o
+}
+
+// The name of this Consumption Budget.
+func (o GetBudgetResourceGroupFilterDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator used for comparison.
+func (o GetBudgetResourceGroupFilterDimensionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterDimension) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values for the tag.
+func (o GetBudgetResourceGroupFilterDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetBudgetResourceGroupFilterDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupFilterDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupFilterDimension)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupFilterDimensionArrayOutput) ToGetBudgetResourceGroupFilterDimensionArrayOutput() GetBudgetResourceGroupFilterDimensionArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterDimensionArrayOutput) ToGetBudgetResourceGroupFilterDimensionArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterDimensionArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterDimensionArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupFilterDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetResourceGroupFilterDimension {
+		return vs[0].([]GetBudgetResourceGroupFilterDimension)[vs[1].(int)]
+	}).(GetBudgetResourceGroupFilterDimensionOutput)
+}
+
+type GetBudgetResourceGroupFilterNot struct {
+	// A `dimension` block as defined below.
+	Dimensions []GetBudgetResourceGroupFilterNotDimension `pulumi:"dimensions"`
+	// A `tag` block as defined below.
+	Tags []GetBudgetResourceGroupFilterNotTag `pulumi:"tags"`
+}
+
+// GetBudgetResourceGroupFilterNotInput is an input type that accepts GetBudgetResourceGroupFilterNotArgs and GetBudgetResourceGroupFilterNotOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupFilterNotInput` via:
+//
+//          GetBudgetResourceGroupFilterNotArgs{...}
+type GetBudgetResourceGroupFilterNotInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupFilterNotOutput() GetBudgetResourceGroupFilterNotOutput
+	ToGetBudgetResourceGroupFilterNotOutputWithContext(context.Context) GetBudgetResourceGroupFilterNotOutput
+}
+
+type GetBudgetResourceGroupFilterNotArgs struct {
+	// A `dimension` block as defined below.
+	Dimensions GetBudgetResourceGroupFilterNotDimensionArrayInput `pulumi:"dimensions"`
+	// A `tag` block as defined below.
+	Tags GetBudgetResourceGroupFilterNotTagArrayInput `pulumi:"tags"`
+}
+
+func (GetBudgetResourceGroupFilterNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupFilterNot)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupFilterNotArgs) ToGetBudgetResourceGroupFilterNotOutput() GetBudgetResourceGroupFilterNotOutput {
+	return i.ToGetBudgetResourceGroupFilterNotOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupFilterNotArgs) ToGetBudgetResourceGroupFilterNotOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterNotOutput)
+}
+
+// GetBudgetResourceGroupFilterNotArrayInput is an input type that accepts GetBudgetResourceGroupFilterNotArray and GetBudgetResourceGroupFilterNotArrayOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupFilterNotArrayInput` via:
+//
+//          GetBudgetResourceGroupFilterNotArray{ GetBudgetResourceGroupFilterNotArgs{...} }
+type GetBudgetResourceGroupFilterNotArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupFilterNotArrayOutput() GetBudgetResourceGroupFilterNotArrayOutput
+	ToGetBudgetResourceGroupFilterNotArrayOutputWithContext(context.Context) GetBudgetResourceGroupFilterNotArrayOutput
+}
+
+type GetBudgetResourceGroupFilterNotArray []GetBudgetResourceGroupFilterNotInput
+
+func (GetBudgetResourceGroupFilterNotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupFilterNot)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupFilterNotArray) ToGetBudgetResourceGroupFilterNotArrayOutput() GetBudgetResourceGroupFilterNotArrayOutput {
+	return i.ToGetBudgetResourceGroupFilterNotArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupFilterNotArray) ToGetBudgetResourceGroupFilterNotArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterNotArrayOutput)
+}
+
+type GetBudgetResourceGroupFilterNotOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupFilterNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupFilterNot)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupFilterNotOutput) ToGetBudgetResourceGroupFilterNotOutput() GetBudgetResourceGroupFilterNotOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotOutput) ToGetBudgetResourceGroupFilterNotOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotOutput {
+	return o
+}
+
+// A `dimension` block as defined below.
+func (o GetBudgetResourceGroupFilterNotOutput) Dimensions() GetBudgetResourceGroupFilterNotDimensionArrayOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterNot) []GetBudgetResourceGroupFilterNotDimension {
+		return v.Dimensions
+	}).(GetBudgetResourceGroupFilterNotDimensionArrayOutput)
+}
+
+// A `tag` block as defined below.
+func (o GetBudgetResourceGroupFilterNotOutput) Tags() GetBudgetResourceGroupFilterNotTagArrayOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterNot) []GetBudgetResourceGroupFilterNotTag { return v.Tags }).(GetBudgetResourceGroupFilterNotTagArrayOutput)
+}
+
+type GetBudgetResourceGroupFilterNotArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupFilterNotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupFilterNot)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupFilterNotArrayOutput) ToGetBudgetResourceGroupFilterNotArrayOutput() GetBudgetResourceGroupFilterNotArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotArrayOutput) ToGetBudgetResourceGroupFilterNotArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupFilterNotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetResourceGroupFilterNot {
+		return vs[0].([]GetBudgetResourceGroupFilterNot)[vs[1].(int)]
+	}).(GetBudgetResourceGroupFilterNotOutput)
+}
+
+type GetBudgetResourceGroupFilterNotDimension struct {
+	// The name of this Consumption Budget.
+	Name string `pulumi:"name"`
+	// The operator used for comparison.
+	Operator string `pulumi:"operator"`
+	// A list of values for the tag.
+	Values []string `pulumi:"values"`
+}
+
+// GetBudgetResourceGroupFilterNotDimensionInput is an input type that accepts GetBudgetResourceGroupFilterNotDimensionArgs and GetBudgetResourceGroupFilterNotDimensionOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupFilterNotDimensionInput` via:
+//
+//          GetBudgetResourceGroupFilterNotDimensionArgs{...}
+type GetBudgetResourceGroupFilterNotDimensionInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupFilterNotDimensionOutput() GetBudgetResourceGroupFilterNotDimensionOutput
+	ToGetBudgetResourceGroupFilterNotDimensionOutputWithContext(context.Context) GetBudgetResourceGroupFilterNotDimensionOutput
+}
+
+type GetBudgetResourceGroupFilterNotDimensionArgs struct {
+	// The name of this Consumption Budget.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator used for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values for the tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetBudgetResourceGroupFilterNotDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupFilterNotDimension)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupFilterNotDimensionArgs) ToGetBudgetResourceGroupFilterNotDimensionOutput() GetBudgetResourceGroupFilterNotDimensionOutput {
+	return i.ToGetBudgetResourceGroupFilterNotDimensionOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupFilterNotDimensionArgs) ToGetBudgetResourceGroupFilterNotDimensionOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterNotDimensionOutput)
+}
+
+// GetBudgetResourceGroupFilterNotDimensionArrayInput is an input type that accepts GetBudgetResourceGroupFilterNotDimensionArray and GetBudgetResourceGroupFilterNotDimensionArrayOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupFilterNotDimensionArrayInput` via:
+//
+//          GetBudgetResourceGroupFilterNotDimensionArray{ GetBudgetResourceGroupFilterNotDimensionArgs{...} }
+type GetBudgetResourceGroupFilterNotDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupFilterNotDimensionArrayOutput() GetBudgetResourceGroupFilterNotDimensionArrayOutput
+	ToGetBudgetResourceGroupFilterNotDimensionArrayOutputWithContext(context.Context) GetBudgetResourceGroupFilterNotDimensionArrayOutput
+}
+
+type GetBudgetResourceGroupFilterNotDimensionArray []GetBudgetResourceGroupFilterNotDimensionInput
+
+func (GetBudgetResourceGroupFilterNotDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupFilterNotDimension)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupFilterNotDimensionArray) ToGetBudgetResourceGroupFilterNotDimensionArrayOutput() GetBudgetResourceGroupFilterNotDimensionArrayOutput {
+	return i.ToGetBudgetResourceGroupFilterNotDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupFilterNotDimensionArray) ToGetBudgetResourceGroupFilterNotDimensionArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterNotDimensionArrayOutput)
+}
+
+type GetBudgetResourceGroupFilterNotDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupFilterNotDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupFilterNotDimension)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupFilterNotDimensionOutput) ToGetBudgetResourceGroupFilterNotDimensionOutput() GetBudgetResourceGroupFilterNotDimensionOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotDimensionOutput) ToGetBudgetResourceGroupFilterNotDimensionOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotDimensionOutput {
+	return o
+}
+
+// The name of this Consumption Budget.
+func (o GetBudgetResourceGroupFilterNotDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterNotDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator used for comparison.
+func (o GetBudgetResourceGroupFilterNotDimensionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterNotDimension) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values for the tag.
+func (o GetBudgetResourceGroupFilterNotDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterNotDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetBudgetResourceGroupFilterNotDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupFilterNotDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupFilterNotDimension)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupFilterNotDimensionArrayOutput) ToGetBudgetResourceGroupFilterNotDimensionArrayOutput() GetBudgetResourceGroupFilterNotDimensionArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotDimensionArrayOutput) ToGetBudgetResourceGroupFilterNotDimensionArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotDimensionArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotDimensionArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupFilterNotDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetResourceGroupFilterNotDimension {
+		return vs[0].([]GetBudgetResourceGroupFilterNotDimension)[vs[1].(int)]
+	}).(GetBudgetResourceGroupFilterNotDimensionOutput)
+}
+
+type GetBudgetResourceGroupFilterNotTag struct {
+	// The name of this Consumption Budget.
+	Name string `pulumi:"name"`
+	// The operator used for comparison.
+	Operator string `pulumi:"operator"`
+	// A list of values for the tag.
+	Values []string `pulumi:"values"`
+}
+
+// GetBudgetResourceGroupFilterNotTagInput is an input type that accepts GetBudgetResourceGroupFilterNotTagArgs and GetBudgetResourceGroupFilterNotTagOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupFilterNotTagInput` via:
+//
+//          GetBudgetResourceGroupFilterNotTagArgs{...}
+type GetBudgetResourceGroupFilterNotTagInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupFilterNotTagOutput() GetBudgetResourceGroupFilterNotTagOutput
+	ToGetBudgetResourceGroupFilterNotTagOutputWithContext(context.Context) GetBudgetResourceGroupFilterNotTagOutput
+}
+
+type GetBudgetResourceGroupFilterNotTagArgs struct {
+	// The name of this Consumption Budget.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator used for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values for the tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetBudgetResourceGroupFilterNotTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupFilterNotTag)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupFilterNotTagArgs) ToGetBudgetResourceGroupFilterNotTagOutput() GetBudgetResourceGroupFilterNotTagOutput {
+	return i.ToGetBudgetResourceGroupFilterNotTagOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupFilterNotTagArgs) ToGetBudgetResourceGroupFilterNotTagOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterNotTagOutput)
+}
+
+// GetBudgetResourceGroupFilterNotTagArrayInput is an input type that accepts GetBudgetResourceGroupFilterNotTagArray and GetBudgetResourceGroupFilterNotTagArrayOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupFilterNotTagArrayInput` via:
+//
+//          GetBudgetResourceGroupFilterNotTagArray{ GetBudgetResourceGroupFilterNotTagArgs{...} }
+type GetBudgetResourceGroupFilterNotTagArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupFilterNotTagArrayOutput() GetBudgetResourceGroupFilterNotTagArrayOutput
+	ToGetBudgetResourceGroupFilterNotTagArrayOutputWithContext(context.Context) GetBudgetResourceGroupFilterNotTagArrayOutput
+}
+
+type GetBudgetResourceGroupFilterNotTagArray []GetBudgetResourceGroupFilterNotTagInput
+
+func (GetBudgetResourceGroupFilterNotTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupFilterNotTag)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupFilterNotTagArray) ToGetBudgetResourceGroupFilterNotTagArrayOutput() GetBudgetResourceGroupFilterNotTagArrayOutput {
+	return i.ToGetBudgetResourceGroupFilterNotTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupFilterNotTagArray) ToGetBudgetResourceGroupFilterNotTagArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterNotTagArrayOutput)
+}
+
+type GetBudgetResourceGroupFilterNotTagOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupFilterNotTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupFilterNotTag)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupFilterNotTagOutput) ToGetBudgetResourceGroupFilterNotTagOutput() GetBudgetResourceGroupFilterNotTagOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotTagOutput) ToGetBudgetResourceGroupFilterNotTagOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotTagOutput {
+	return o
+}
+
+// The name of this Consumption Budget.
+func (o GetBudgetResourceGroupFilterNotTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterNotTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator used for comparison.
+func (o GetBudgetResourceGroupFilterNotTagOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterNotTag) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values for the tag.
+func (o GetBudgetResourceGroupFilterNotTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterNotTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetBudgetResourceGroupFilterNotTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupFilterNotTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupFilterNotTag)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupFilterNotTagArrayOutput) ToGetBudgetResourceGroupFilterNotTagArrayOutput() GetBudgetResourceGroupFilterNotTagArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotTagArrayOutput) ToGetBudgetResourceGroupFilterNotTagArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotTagArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotTagArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupFilterNotTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetResourceGroupFilterNotTag {
+		return vs[0].([]GetBudgetResourceGroupFilterNotTag)[vs[1].(int)]
+	}).(GetBudgetResourceGroupFilterNotTagOutput)
+}
+
+type GetBudgetResourceGroupFilterTag struct {
+	// The name of this Consumption Budget.
+	Name string `pulumi:"name"`
+	// The operator used for comparison.
+	Operator string `pulumi:"operator"`
+	// A list of values for the tag.
+	Values []string `pulumi:"values"`
+}
+
+// GetBudgetResourceGroupFilterTagInput is an input type that accepts GetBudgetResourceGroupFilterTagArgs and GetBudgetResourceGroupFilterTagOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupFilterTagInput` via:
+//
+//          GetBudgetResourceGroupFilterTagArgs{...}
+type GetBudgetResourceGroupFilterTagInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupFilterTagOutput() GetBudgetResourceGroupFilterTagOutput
+	ToGetBudgetResourceGroupFilterTagOutputWithContext(context.Context) GetBudgetResourceGroupFilterTagOutput
+}
+
+type GetBudgetResourceGroupFilterTagArgs struct {
+	// The name of this Consumption Budget.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator used for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values for the tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetBudgetResourceGroupFilterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupFilterTag)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupFilterTagArgs) ToGetBudgetResourceGroupFilterTagOutput() GetBudgetResourceGroupFilterTagOutput {
+	return i.ToGetBudgetResourceGroupFilterTagOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupFilterTagArgs) ToGetBudgetResourceGroupFilterTagOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterTagOutput)
+}
+
+// GetBudgetResourceGroupFilterTagArrayInput is an input type that accepts GetBudgetResourceGroupFilterTagArray and GetBudgetResourceGroupFilterTagArrayOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupFilterTagArrayInput` via:
+//
+//          GetBudgetResourceGroupFilterTagArray{ GetBudgetResourceGroupFilterTagArgs{...} }
+type GetBudgetResourceGroupFilterTagArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupFilterTagArrayOutput() GetBudgetResourceGroupFilterTagArrayOutput
+	ToGetBudgetResourceGroupFilterTagArrayOutputWithContext(context.Context) GetBudgetResourceGroupFilterTagArrayOutput
+}
+
+type GetBudgetResourceGroupFilterTagArray []GetBudgetResourceGroupFilterTagInput
+
+func (GetBudgetResourceGroupFilterTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupFilterTag)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupFilterTagArray) ToGetBudgetResourceGroupFilterTagArrayOutput() GetBudgetResourceGroupFilterTagArrayOutput {
+	return i.ToGetBudgetResourceGroupFilterTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupFilterTagArray) ToGetBudgetResourceGroupFilterTagArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterTagArrayOutput)
+}
+
+type GetBudgetResourceGroupFilterTagOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupFilterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupFilterTag)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupFilterTagOutput) ToGetBudgetResourceGroupFilterTagOutput() GetBudgetResourceGroupFilterTagOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterTagOutput) ToGetBudgetResourceGroupFilterTagOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterTagOutput {
+	return o
+}
+
+// The name of this Consumption Budget.
+func (o GetBudgetResourceGroupFilterTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator used for comparison.
+func (o GetBudgetResourceGroupFilterTagOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterTag) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values for the tag.
+func (o GetBudgetResourceGroupFilterTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupFilterTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetBudgetResourceGroupFilterTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupFilterTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupFilterTag)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupFilterTagArrayOutput) ToGetBudgetResourceGroupFilterTagArrayOutput() GetBudgetResourceGroupFilterTagArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterTagArrayOutput) ToGetBudgetResourceGroupFilterTagArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterTagArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupFilterTagArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupFilterTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetResourceGroupFilterTag {
+		return vs[0].([]GetBudgetResourceGroupFilterTag)[vs[1].(int)]
+	}).(GetBudgetResourceGroupFilterTagOutput)
+}
+
+type GetBudgetResourceGroupNotification struct {
+	// A list of email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails []string `pulumi:"contactEmails"`
+	// A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+	ContactGroups []string `pulumi:"contactGroups"`
+	// A list of contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles []string `pulumi:"contactRoles"`
+	// Whether the notification is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The operator used for comparison.
+	Operator string `pulumi:"operator"`
+	// Threshold value associated with the notification.
+	Threshold int `pulumi:"threshold"`
+}
+
+// GetBudgetResourceGroupNotificationInput is an input type that accepts GetBudgetResourceGroupNotificationArgs and GetBudgetResourceGroupNotificationOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupNotificationInput` via:
+//
+//          GetBudgetResourceGroupNotificationArgs{...}
+type GetBudgetResourceGroupNotificationInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupNotificationOutput() GetBudgetResourceGroupNotificationOutput
+	ToGetBudgetResourceGroupNotificationOutputWithContext(context.Context) GetBudgetResourceGroupNotificationOutput
+}
+
+type GetBudgetResourceGroupNotificationArgs struct {
+	// A list of email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
+	// A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
+	// A list of contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
+	// Whether the notification is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The operator used for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Threshold value associated with the notification.
+	Threshold pulumi.IntInput `pulumi:"threshold"`
+}
+
+func (GetBudgetResourceGroupNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupNotification)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupNotificationArgs) ToGetBudgetResourceGroupNotificationOutput() GetBudgetResourceGroupNotificationOutput {
+	return i.ToGetBudgetResourceGroupNotificationOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupNotificationArgs) ToGetBudgetResourceGroupNotificationOutputWithContext(ctx context.Context) GetBudgetResourceGroupNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupNotificationOutput)
+}
+
+// GetBudgetResourceGroupNotificationArrayInput is an input type that accepts GetBudgetResourceGroupNotificationArray and GetBudgetResourceGroupNotificationArrayOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupNotificationArrayInput` via:
+//
+//          GetBudgetResourceGroupNotificationArray{ GetBudgetResourceGroupNotificationArgs{...} }
+type GetBudgetResourceGroupNotificationArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupNotificationArrayOutput() GetBudgetResourceGroupNotificationArrayOutput
+	ToGetBudgetResourceGroupNotificationArrayOutputWithContext(context.Context) GetBudgetResourceGroupNotificationArrayOutput
+}
+
+type GetBudgetResourceGroupNotificationArray []GetBudgetResourceGroupNotificationInput
+
+func (GetBudgetResourceGroupNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupNotification)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupNotificationArray) ToGetBudgetResourceGroupNotificationArrayOutput() GetBudgetResourceGroupNotificationArrayOutput {
+	return i.ToGetBudgetResourceGroupNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupNotificationArray) ToGetBudgetResourceGroupNotificationArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupNotificationArrayOutput)
+}
+
+type GetBudgetResourceGroupNotificationOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupNotification)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupNotificationOutput) ToGetBudgetResourceGroupNotificationOutput() GetBudgetResourceGroupNotificationOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupNotificationOutput) ToGetBudgetResourceGroupNotificationOutputWithContext(ctx context.Context) GetBudgetResourceGroupNotificationOutput {
+	return o
+}
+
+// A list of email addresses to send the budget notification to when the threshold is exceeded.
+func (o GetBudgetResourceGroupNotificationOutput) ContactEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupNotification) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
+}
+
+// A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+func (o GetBudgetResourceGroupNotificationOutput) ContactGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupNotification) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
+}
+
+// A list of contact roles to send the budget notification to when the threshold is exceeded.
+func (o GetBudgetResourceGroupNotificationOutput) ContactRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupNotification) []string { return v.ContactRoles }).(pulumi.StringArrayOutput)
+}
+
+// Whether the notification is enabled.
+func (o GetBudgetResourceGroupNotificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The operator used for comparison.
+func (o GetBudgetResourceGroupNotificationOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupNotification) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Threshold value associated with the notification.
+func (o GetBudgetResourceGroupNotificationOutput) Threshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupNotification) int { return v.Threshold }).(pulumi.IntOutput)
+}
+
+type GetBudgetResourceGroupNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupNotification)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupNotificationArrayOutput) ToGetBudgetResourceGroupNotificationArrayOutput() GetBudgetResourceGroupNotificationArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupNotificationArrayOutput) ToGetBudgetResourceGroupNotificationArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupNotificationArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupNotificationArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetResourceGroupNotification {
+		return vs[0].([]GetBudgetResourceGroupNotification)[vs[1].(int)]
+	}).(GetBudgetResourceGroupNotificationOutput)
+}
+
+type GetBudgetResourceGroupTimePeriod struct {
+	// The end date for the budget.
+	EndDate string `pulumi:"endDate"`
+	// The start date for the budget.
+	StartDate string `pulumi:"startDate"`
+}
+
+// GetBudgetResourceGroupTimePeriodInput is an input type that accepts GetBudgetResourceGroupTimePeriodArgs and GetBudgetResourceGroupTimePeriodOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupTimePeriodInput` via:
+//
+//          GetBudgetResourceGroupTimePeriodArgs{...}
+type GetBudgetResourceGroupTimePeriodInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupTimePeriodOutput() GetBudgetResourceGroupTimePeriodOutput
+	ToGetBudgetResourceGroupTimePeriodOutputWithContext(context.Context) GetBudgetResourceGroupTimePeriodOutput
+}
+
+type GetBudgetResourceGroupTimePeriodArgs struct {
+	// The end date for the budget.
+	EndDate pulumi.StringInput `pulumi:"endDate"`
+	// The start date for the budget.
+	StartDate pulumi.StringInput `pulumi:"startDate"`
+}
+
+func (GetBudgetResourceGroupTimePeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupTimePeriod)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupTimePeriodArgs) ToGetBudgetResourceGroupTimePeriodOutput() GetBudgetResourceGroupTimePeriodOutput {
+	return i.ToGetBudgetResourceGroupTimePeriodOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupTimePeriodArgs) ToGetBudgetResourceGroupTimePeriodOutputWithContext(ctx context.Context) GetBudgetResourceGroupTimePeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupTimePeriodOutput)
+}
+
+// GetBudgetResourceGroupTimePeriodArrayInput is an input type that accepts GetBudgetResourceGroupTimePeriodArray and GetBudgetResourceGroupTimePeriodArrayOutput values.
+// You can construct a concrete instance of `GetBudgetResourceGroupTimePeriodArrayInput` via:
+//
+//          GetBudgetResourceGroupTimePeriodArray{ GetBudgetResourceGroupTimePeriodArgs{...} }
+type GetBudgetResourceGroupTimePeriodArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetResourceGroupTimePeriodArrayOutput() GetBudgetResourceGroupTimePeriodArrayOutput
+	ToGetBudgetResourceGroupTimePeriodArrayOutputWithContext(context.Context) GetBudgetResourceGroupTimePeriodArrayOutput
+}
+
+type GetBudgetResourceGroupTimePeriodArray []GetBudgetResourceGroupTimePeriodInput
+
+func (GetBudgetResourceGroupTimePeriodArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupTimePeriod)(nil)).Elem()
+}
+
+func (i GetBudgetResourceGroupTimePeriodArray) ToGetBudgetResourceGroupTimePeriodArrayOutput() GetBudgetResourceGroupTimePeriodArrayOutput {
+	return i.ToGetBudgetResourceGroupTimePeriodArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetResourceGroupTimePeriodArray) ToGetBudgetResourceGroupTimePeriodArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupTimePeriodArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupTimePeriodArrayOutput)
+}
+
+type GetBudgetResourceGroupTimePeriodOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupTimePeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetResourceGroupTimePeriod)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupTimePeriodOutput) ToGetBudgetResourceGroupTimePeriodOutput() GetBudgetResourceGroupTimePeriodOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupTimePeriodOutput) ToGetBudgetResourceGroupTimePeriodOutputWithContext(ctx context.Context) GetBudgetResourceGroupTimePeriodOutput {
+	return o
+}
+
+// The end date for the budget.
+func (o GetBudgetResourceGroupTimePeriodOutput) EndDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupTimePeriod) string { return v.EndDate }).(pulumi.StringOutput)
+}
+
+// The start date for the budget.
+func (o GetBudgetResourceGroupTimePeriodOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupTimePeriod) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+type GetBudgetResourceGroupTimePeriodArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetResourceGroupTimePeriodArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetResourceGroupTimePeriod)(nil)).Elem()
+}
+
+func (o GetBudgetResourceGroupTimePeriodArrayOutput) ToGetBudgetResourceGroupTimePeriodArrayOutput() GetBudgetResourceGroupTimePeriodArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupTimePeriodArrayOutput) ToGetBudgetResourceGroupTimePeriodArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupTimePeriodArrayOutput {
+	return o
+}
+
+func (o GetBudgetResourceGroupTimePeriodArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupTimePeriodOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetResourceGroupTimePeriod {
+		return vs[0].([]GetBudgetResourceGroupTimePeriod)[vs[1].(int)]
+	}).(GetBudgetResourceGroupTimePeriodOutput)
+}
+
+type GetBudgetSubscriptionFilter struct {
+	// A `dimension` block as defined above.
+	Dimensions []GetBudgetSubscriptionFilterDimension `pulumi:"dimensions"`
+	// A `not` block as defined below.
+	Nots []GetBudgetSubscriptionFilterNot `pulumi:"nots"`
+	// A `tag` block as defined below.
+	Tags []GetBudgetSubscriptionFilterTag `pulumi:"tags"`
+}
+
+// GetBudgetSubscriptionFilterInput is an input type that accepts GetBudgetSubscriptionFilterArgs and GetBudgetSubscriptionFilterOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionFilterInput` via:
+//
+//          GetBudgetSubscriptionFilterArgs{...}
+type GetBudgetSubscriptionFilterInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionFilterOutput() GetBudgetSubscriptionFilterOutput
+	ToGetBudgetSubscriptionFilterOutputWithContext(context.Context) GetBudgetSubscriptionFilterOutput
+}
+
+type GetBudgetSubscriptionFilterArgs struct {
+	// A `dimension` block as defined above.
+	Dimensions GetBudgetSubscriptionFilterDimensionArrayInput `pulumi:"dimensions"`
+	// A `not` block as defined below.
+	Nots GetBudgetSubscriptionFilterNotArrayInput `pulumi:"nots"`
+	// A `tag` block as defined below.
+	Tags GetBudgetSubscriptionFilterTagArrayInput `pulumi:"tags"`
+}
+
+func (GetBudgetSubscriptionFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionFilter)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionFilterArgs) ToGetBudgetSubscriptionFilterOutput() GetBudgetSubscriptionFilterOutput {
+	return i.ToGetBudgetSubscriptionFilterOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionFilterArgs) ToGetBudgetSubscriptionFilterOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterOutput)
+}
+
+// GetBudgetSubscriptionFilterArrayInput is an input type that accepts GetBudgetSubscriptionFilterArray and GetBudgetSubscriptionFilterArrayOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionFilterArrayInput` via:
+//
+//          GetBudgetSubscriptionFilterArray{ GetBudgetSubscriptionFilterArgs{...} }
+type GetBudgetSubscriptionFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionFilterArrayOutput() GetBudgetSubscriptionFilterArrayOutput
+	ToGetBudgetSubscriptionFilterArrayOutputWithContext(context.Context) GetBudgetSubscriptionFilterArrayOutput
+}
+
+type GetBudgetSubscriptionFilterArray []GetBudgetSubscriptionFilterInput
+
+func (GetBudgetSubscriptionFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionFilter)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionFilterArray) ToGetBudgetSubscriptionFilterArrayOutput() GetBudgetSubscriptionFilterArrayOutput {
+	return i.ToGetBudgetSubscriptionFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionFilterArray) ToGetBudgetSubscriptionFilterArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterArrayOutput)
+}
+
+type GetBudgetSubscriptionFilterOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionFilter)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionFilterOutput) ToGetBudgetSubscriptionFilterOutput() GetBudgetSubscriptionFilterOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterOutput) ToGetBudgetSubscriptionFilterOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterOutput {
+	return o
+}
+
+// A `dimension` block as defined above.
+func (o GetBudgetSubscriptionFilterOutput) Dimensions() GetBudgetSubscriptionFilterDimensionArrayOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilter) []GetBudgetSubscriptionFilterDimension { return v.Dimensions }).(GetBudgetSubscriptionFilterDimensionArrayOutput)
+}
+
+// A `not` block as defined below.
+func (o GetBudgetSubscriptionFilterOutput) Nots() GetBudgetSubscriptionFilterNotArrayOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilter) []GetBudgetSubscriptionFilterNot { return v.Nots }).(GetBudgetSubscriptionFilterNotArrayOutput)
+}
+
+// A `tag` block as defined below.
+func (o GetBudgetSubscriptionFilterOutput) Tags() GetBudgetSubscriptionFilterTagArrayOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilter) []GetBudgetSubscriptionFilterTag { return v.Tags }).(GetBudgetSubscriptionFilterTagArrayOutput)
+}
+
+type GetBudgetSubscriptionFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionFilter)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionFilterArrayOutput) ToGetBudgetSubscriptionFilterArrayOutput() GetBudgetSubscriptionFilterArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterArrayOutput) ToGetBudgetSubscriptionFilterArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetSubscriptionFilter {
+		return vs[0].([]GetBudgetSubscriptionFilter)[vs[1].(int)]
+	}).(GetBudgetSubscriptionFilterOutput)
+}
+
+type GetBudgetSubscriptionFilterDimension struct {
+	// The name of this Consumption Budget.
+	Name string `pulumi:"name"`
+	// The operator to used for comparison.
+	Operator string `pulumi:"operator"`
+	// A list of values for the tag.
+	Values []string `pulumi:"values"`
+}
+
+// GetBudgetSubscriptionFilterDimensionInput is an input type that accepts GetBudgetSubscriptionFilterDimensionArgs and GetBudgetSubscriptionFilterDimensionOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionFilterDimensionInput` via:
+//
+//          GetBudgetSubscriptionFilterDimensionArgs{...}
+type GetBudgetSubscriptionFilterDimensionInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionFilterDimensionOutput() GetBudgetSubscriptionFilterDimensionOutput
+	ToGetBudgetSubscriptionFilterDimensionOutputWithContext(context.Context) GetBudgetSubscriptionFilterDimensionOutput
+}
+
+type GetBudgetSubscriptionFilterDimensionArgs struct {
+	// The name of this Consumption Budget.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator to used for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values for the tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetBudgetSubscriptionFilterDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionFilterDimension)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionFilterDimensionArgs) ToGetBudgetSubscriptionFilterDimensionOutput() GetBudgetSubscriptionFilterDimensionOutput {
+	return i.ToGetBudgetSubscriptionFilterDimensionOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionFilterDimensionArgs) ToGetBudgetSubscriptionFilterDimensionOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterDimensionOutput)
+}
+
+// GetBudgetSubscriptionFilterDimensionArrayInput is an input type that accepts GetBudgetSubscriptionFilterDimensionArray and GetBudgetSubscriptionFilterDimensionArrayOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionFilterDimensionArrayInput` via:
+//
+//          GetBudgetSubscriptionFilterDimensionArray{ GetBudgetSubscriptionFilterDimensionArgs{...} }
+type GetBudgetSubscriptionFilterDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionFilterDimensionArrayOutput() GetBudgetSubscriptionFilterDimensionArrayOutput
+	ToGetBudgetSubscriptionFilterDimensionArrayOutputWithContext(context.Context) GetBudgetSubscriptionFilterDimensionArrayOutput
+}
+
+type GetBudgetSubscriptionFilterDimensionArray []GetBudgetSubscriptionFilterDimensionInput
+
+func (GetBudgetSubscriptionFilterDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionFilterDimension)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionFilterDimensionArray) ToGetBudgetSubscriptionFilterDimensionArrayOutput() GetBudgetSubscriptionFilterDimensionArrayOutput {
+	return i.ToGetBudgetSubscriptionFilterDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionFilterDimensionArray) ToGetBudgetSubscriptionFilterDimensionArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterDimensionArrayOutput)
+}
+
+type GetBudgetSubscriptionFilterDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionFilterDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionFilterDimension)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionFilterDimensionOutput) ToGetBudgetSubscriptionFilterDimensionOutput() GetBudgetSubscriptionFilterDimensionOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterDimensionOutput) ToGetBudgetSubscriptionFilterDimensionOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterDimensionOutput {
+	return o
+}
+
+// The name of this Consumption Budget.
+func (o GetBudgetSubscriptionFilterDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator to used for comparison.
+func (o GetBudgetSubscriptionFilterDimensionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterDimension) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values for the tag.
+func (o GetBudgetSubscriptionFilterDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetBudgetSubscriptionFilterDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionFilterDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionFilterDimension)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionFilterDimensionArrayOutput) ToGetBudgetSubscriptionFilterDimensionArrayOutput() GetBudgetSubscriptionFilterDimensionArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterDimensionArrayOutput) ToGetBudgetSubscriptionFilterDimensionArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterDimensionArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterDimensionArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionFilterDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetSubscriptionFilterDimension {
+		return vs[0].([]GetBudgetSubscriptionFilterDimension)[vs[1].(int)]
+	}).(GetBudgetSubscriptionFilterDimensionOutput)
+}
+
+type GetBudgetSubscriptionFilterNot struct {
+	// A `dimension` block as defined above.
+	Dimensions []GetBudgetSubscriptionFilterNotDimension `pulumi:"dimensions"`
+	// A `tag` block as defined below.
+	Tags []GetBudgetSubscriptionFilterNotTag `pulumi:"tags"`
+}
+
+// GetBudgetSubscriptionFilterNotInput is an input type that accepts GetBudgetSubscriptionFilterNotArgs and GetBudgetSubscriptionFilterNotOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionFilterNotInput` via:
+//
+//          GetBudgetSubscriptionFilterNotArgs{...}
+type GetBudgetSubscriptionFilterNotInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionFilterNotOutput() GetBudgetSubscriptionFilterNotOutput
+	ToGetBudgetSubscriptionFilterNotOutputWithContext(context.Context) GetBudgetSubscriptionFilterNotOutput
+}
+
+type GetBudgetSubscriptionFilterNotArgs struct {
+	// A `dimension` block as defined above.
+	Dimensions GetBudgetSubscriptionFilterNotDimensionArrayInput `pulumi:"dimensions"`
+	// A `tag` block as defined below.
+	Tags GetBudgetSubscriptionFilterNotTagArrayInput `pulumi:"tags"`
+}
+
+func (GetBudgetSubscriptionFilterNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionFilterNot)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionFilterNotArgs) ToGetBudgetSubscriptionFilterNotOutput() GetBudgetSubscriptionFilterNotOutput {
+	return i.ToGetBudgetSubscriptionFilterNotOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionFilterNotArgs) ToGetBudgetSubscriptionFilterNotOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterNotOutput)
+}
+
+// GetBudgetSubscriptionFilterNotArrayInput is an input type that accepts GetBudgetSubscriptionFilterNotArray and GetBudgetSubscriptionFilterNotArrayOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionFilterNotArrayInput` via:
+//
+//          GetBudgetSubscriptionFilterNotArray{ GetBudgetSubscriptionFilterNotArgs{...} }
+type GetBudgetSubscriptionFilterNotArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionFilterNotArrayOutput() GetBudgetSubscriptionFilterNotArrayOutput
+	ToGetBudgetSubscriptionFilterNotArrayOutputWithContext(context.Context) GetBudgetSubscriptionFilterNotArrayOutput
+}
+
+type GetBudgetSubscriptionFilterNotArray []GetBudgetSubscriptionFilterNotInput
+
+func (GetBudgetSubscriptionFilterNotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionFilterNot)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionFilterNotArray) ToGetBudgetSubscriptionFilterNotArrayOutput() GetBudgetSubscriptionFilterNotArrayOutput {
+	return i.ToGetBudgetSubscriptionFilterNotArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionFilterNotArray) ToGetBudgetSubscriptionFilterNotArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterNotArrayOutput)
+}
+
+type GetBudgetSubscriptionFilterNotOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionFilterNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionFilterNot)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionFilterNotOutput) ToGetBudgetSubscriptionFilterNotOutput() GetBudgetSubscriptionFilterNotOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotOutput) ToGetBudgetSubscriptionFilterNotOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotOutput {
+	return o
+}
+
+// A `dimension` block as defined above.
+func (o GetBudgetSubscriptionFilterNotOutput) Dimensions() GetBudgetSubscriptionFilterNotDimensionArrayOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterNot) []GetBudgetSubscriptionFilterNotDimension { return v.Dimensions }).(GetBudgetSubscriptionFilterNotDimensionArrayOutput)
+}
+
+// A `tag` block as defined below.
+func (o GetBudgetSubscriptionFilterNotOutput) Tags() GetBudgetSubscriptionFilterNotTagArrayOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterNot) []GetBudgetSubscriptionFilterNotTag { return v.Tags }).(GetBudgetSubscriptionFilterNotTagArrayOutput)
+}
+
+type GetBudgetSubscriptionFilterNotArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionFilterNotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionFilterNot)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionFilterNotArrayOutput) ToGetBudgetSubscriptionFilterNotArrayOutput() GetBudgetSubscriptionFilterNotArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotArrayOutput) ToGetBudgetSubscriptionFilterNotArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionFilterNotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetSubscriptionFilterNot {
+		return vs[0].([]GetBudgetSubscriptionFilterNot)[vs[1].(int)]
+	}).(GetBudgetSubscriptionFilterNotOutput)
+}
+
+type GetBudgetSubscriptionFilterNotDimension struct {
+	// The name of this Consumption Budget.
+	Name string `pulumi:"name"`
+	// The operator to used for comparison.
+	Operator string `pulumi:"operator"`
+	// A list of values for the tag.
+	Values []string `pulumi:"values"`
+}
+
+// GetBudgetSubscriptionFilterNotDimensionInput is an input type that accepts GetBudgetSubscriptionFilterNotDimensionArgs and GetBudgetSubscriptionFilterNotDimensionOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionFilterNotDimensionInput` via:
+//
+//          GetBudgetSubscriptionFilterNotDimensionArgs{...}
+type GetBudgetSubscriptionFilterNotDimensionInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionFilterNotDimensionOutput() GetBudgetSubscriptionFilterNotDimensionOutput
+	ToGetBudgetSubscriptionFilterNotDimensionOutputWithContext(context.Context) GetBudgetSubscriptionFilterNotDimensionOutput
+}
+
+type GetBudgetSubscriptionFilterNotDimensionArgs struct {
+	// The name of this Consumption Budget.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator to used for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values for the tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetBudgetSubscriptionFilterNotDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionFilterNotDimension)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionFilterNotDimensionArgs) ToGetBudgetSubscriptionFilterNotDimensionOutput() GetBudgetSubscriptionFilterNotDimensionOutput {
+	return i.ToGetBudgetSubscriptionFilterNotDimensionOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionFilterNotDimensionArgs) ToGetBudgetSubscriptionFilterNotDimensionOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterNotDimensionOutput)
+}
+
+// GetBudgetSubscriptionFilterNotDimensionArrayInput is an input type that accepts GetBudgetSubscriptionFilterNotDimensionArray and GetBudgetSubscriptionFilterNotDimensionArrayOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionFilterNotDimensionArrayInput` via:
+//
+//          GetBudgetSubscriptionFilterNotDimensionArray{ GetBudgetSubscriptionFilterNotDimensionArgs{...} }
+type GetBudgetSubscriptionFilterNotDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionFilterNotDimensionArrayOutput() GetBudgetSubscriptionFilterNotDimensionArrayOutput
+	ToGetBudgetSubscriptionFilterNotDimensionArrayOutputWithContext(context.Context) GetBudgetSubscriptionFilterNotDimensionArrayOutput
+}
+
+type GetBudgetSubscriptionFilterNotDimensionArray []GetBudgetSubscriptionFilterNotDimensionInput
+
+func (GetBudgetSubscriptionFilterNotDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionFilterNotDimension)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionFilterNotDimensionArray) ToGetBudgetSubscriptionFilterNotDimensionArrayOutput() GetBudgetSubscriptionFilterNotDimensionArrayOutput {
+	return i.ToGetBudgetSubscriptionFilterNotDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionFilterNotDimensionArray) ToGetBudgetSubscriptionFilterNotDimensionArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterNotDimensionArrayOutput)
+}
+
+type GetBudgetSubscriptionFilterNotDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionFilterNotDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionFilterNotDimension)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionFilterNotDimensionOutput) ToGetBudgetSubscriptionFilterNotDimensionOutput() GetBudgetSubscriptionFilterNotDimensionOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotDimensionOutput) ToGetBudgetSubscriptionFilterNotDimensionOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotDimensionOutput {
+	return o
+}
+
+// The name of this Consumption Budget.
+func (o GetBudgetSubscriptionFilterNotDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterNotDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator to used for comparison.
+func (o GetBudgetSubscriptionFilterNotDimensionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterNotDimension) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values for the tag.
+func (o GetBudgetSubscriptionFilterNotDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterNotDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetBudgetSubscriptionFilterNotDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionFilterNotDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionFilterNotDimension)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionFilterNotDimensionArrayOutput) ToGetBudgetSubscriptionFilterNotDimensionArrayOutput() GetBudgetSubscriptionFilterNotDimensionArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotDimensionArrayOutput) ToGetBudgetSubscriptionFilterNotDimensionArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotDimensionArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotDimensionArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionFilterNotDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetSubscriptionFilterNotDimension {
+		return vs[0].([]GetBudgetSubscriptionFilterNotDimension)[vs[1].(int)]
+	}).(GetBudgetSubscriptionFilterNotDimensionOutput)
+}
+
+type GetBudgetSubscriptionFilterNotTag struct {
+	// The name of this Consumption Budget.
+	Name string `pulumi:"name"`
+	// The operator to used for comparison.
+	Operator string `pulumi:"operator"`
+	// A list of values for the tag.
+	Values []string `pulumi:"values"`
+}
+
+// GetBudgetSubscriptionFilterNotTagInput is an input type that accepts GetBudgetSubscriptionFilterNotTagArgs and GetBudgetSubscriptionFilterNotTagOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionFilterNotTagInput` via:
+//
+//          GetBudgetSubscriptionFilterNotTagArgs{...}
+type GetBudgetSubscriptionFilterNotTagInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionFilterNotTagOutput() GetBudgetSubscriptionFilterNotTagOutput
+	ToGetBudgetSubscriptionFilterNotTagOutputWithContext(context.Context) GetBudgetSubscriptionFilterNotTagOutput
+}
+
+type GetBudgetSubscriptionFilterNotTagArgs struct {
+	// The name of this Consumption Budget.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator to used for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values for the tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetBudgetSubscriptionFilterNotTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionFilterNotTag)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionFilterNotTagArgs) ToGetBudgetSubscriptionFilterNotTagOutput() GetBudgetSubscriptionFilterNotTagOutput {
+	return i.ToGetBudgetSubscriptionFilterNotTagOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionFilterNotTagArgs) ToGetBudgetSubscriptionFilterNotTagOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterNotTagOutput)
+}
+
+// GetBudgetSubscriptionFilterNotTagArrayInput is an input type that accepts GetBudgetSubscriptionFilterNotTagArray and GetBudgetSubscriptionFilterNotTagArrayOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionFilterNotTagArrayInput` via:
+//
+//          GetBudgetSubscriptionFilterNotTagArray{ GetBudgetSubscriptionFilterNotTagArgs{...} }
+type GetBudgetSubscriptionFilterNotTagArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionFilterNotTagArrayOutput() GetBudgetSubscriptionFilterNotTagArrayOutput
+	ToGetBudgetSubscriptionFilterNotTagArrayOutputWithContext(context.Context) GetBudgetSubscriptionFilterNotTagArrayOutput
+}
+
+type GetBudgetSubscriptionFilterNotTagArray []GetBudgetSubscriptionFilterNotTagInput
+
+func (GetBudgetSubscriptionFilterNotTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionFilterNotTag)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionFilterNotTagArray) ToGetBudgetSubscriptionFilterNotTagArrayOutput() GetBudgetSubscriptionFilterNotTagArrayOutput {
+	return i.ToGetBudgetSubscriptionFilterNotTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionFilterNotTagArray) ToGetBudgetSubscriptionFilterNotTagArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterNotTagArrayOutput)
+}
+
+type GetBudgetSubscriptionFilterNotTagOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionFilterNotTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionFilterNotTag)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionFilterNotTagOutput) ToGetBudgetSubscriptionFilterNotTagOutput() GetBudgetSubscriptionFilterNotTagOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotTagOutput) ToGetBudgetSubscriptionFilterNotTagOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotTagOutput {
+	return o
+}
+
+// The name of this Consumption Budget.
+func (o GetBudgetSubscriptionFilterNotTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterNotTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator to used for comparison.
+func (o GetBudgetSubscriptionFilterNotTagOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterNotTag) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values for the tag.
+func (o GetBudgetSubscriptionFilterNotTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterNotTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetBudgetSubscriptionFilterNotTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionFilterNotTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionFilterNotTag)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionFilterNotTagArrayOutput) ToGetBudgetSubscriptionFilterNotTagArrayOutput() GetBudgetSubscriptionFilterNotTagArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotTagArrayOutput) ToGetBudgetSubscriptionFilterNotTagArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotTagArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotTagArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionFilterNotTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetSubscriptionFilterNotTag {
+		return vs[0].([]GetBudgetSubscriptionFilterNotTag)[vs[1].(int)]
+	}).(GetBudgetSubscriptionFilterNotTagOutput)
+}
+
+type GetBudgetSubscriptionFilterTag struct {
+	// The name of this Consumption Budget.
+	Name string `pulumi:"name"`
+	// The operator to used for comparison.
+	Operator string `pulumi:"operator"`
+	// A list of values for the tag.
+	Values []string `pulumi:"values"`
+}
+
+// GetBudgetSubscriptionFilterTagInput is an input type that accepts GetBudgetSubscriptionFilterTagArgs and GetBudgetSubscriptionFilterTagOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionFilterTagInput` via:
+//
+//          GetBudgetSubscriptionFilterTagArgs{...}
+type GetBudgetSubscriptionFilterTagInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionFilterTagOutput() GetBudgetSubscriptionFilterTagOutput
+	ToGetBudgetSubscriptionFilterTagOutputWithContext(context.Context) GetBudgetSubscriptionFilterTagOutput
+}
+
+type GetBudgetSubscriptionFilterTagArgs struct {
+	// The name of this Consumption Budget.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator to used for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values for the tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetBudgetSubscriptionFilterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionFilterTag)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionFilterTagArgs) ToGetBudgetSubscriptionFilterTagOutput() GetBudgetSubscriptionFilterTagOutput {
+	return i.ToGetBudgetSubscriptionFilterTagOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionFilterTagArgs) ToGetBudgetSubscriptionFilterTagOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterTagOutput)
+}
+
+// GetBudgetSubscriptionFilterTagArrayInput is an input type that accepts GetBudgetSubscriptionFilterTagArray and GetBudgetSubscriptionFilterTagArrayOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionFilterTagArrayInput` via:
+//
+//          GetBudgetSubscriptionFilterTagArray{ GetBudgetSubscriptionFilterTagArgs{...} }
+type GetBudgetSubscriptionFilterTagArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionFilterTagArrayOutput() GetBudgetSubscriptionFilterTagArrayOutput
+	ToGetBudgetSubscriptionFilterTagArrayOutputWithContext(context.Context) GetBudgetSubscriptionFilterTagArrayOutput
+}
+
+type GetBudgetSubscriptionFilterTagArray []GetBudgetSubscriptionFilterTagInput
+
+func (GetBudgetSubscriptionFilterTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionFilterTag)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionFilterTagArray) ToGetBudgetSubscriptionFilterTagArrayOutput() GetBudgetSubscriptionFilterTagArrayOutput {
+	return i.ToGetBudgetSubscriptionFilterTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionFilterTagArray) ToGetBudgetSubscriptionFilterTagArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterTagArrayOutput)
+}
+
+type GetBudgetSubscriptionFilterTagOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionFilterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionFilterTag)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionFilterTagOutput) ToGetBudgetSubscriptionFilterTagOutput() GetBudgetSubscriptionFilterTagOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterTagOutput) ToGetBudgetSubscriptionFilterTagOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterTagOutput {
+	return o
+}
+
+// The name of this Consumption Budget.
+func (o GetBudgetSubscriptionFilterTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator to used for comparison.
+func (o GetBudgetSubscriptionFilterTagOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterTag) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values for the tag.
+func (o GetBudgetSubscriptionFilterTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionFilterTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetBudgetSubscriptionFilterTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionFilterTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionFilterTag)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionFilterTagArrayOutput) ToGetBudgetSubscriptionFilterTagArrayOutput() GetBudgetSubscriptionFilterTagArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterTagArrayOutput) ToGetBudgetSubscriptionFilterTagArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterTagArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionFilterTagArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionFilterTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetSubscriptionFilterTag {
+		return vs[0].([]GetBudgetSubscriptionFilterTag)[vs[1].(int)]
+	}).(GetBudgetSubscriptionFilterTagOutput)
+}
+
+type GetBudgetSubscriptionNotification struct {
+	// A list of email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails []string `pulumi:"contactEmails"`
+	// A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+	ContactGroups []string `pulumi:"contactGroups"`
+	// A list of contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles []string `pulumi:"contactRoles"`
+	// Whether the notification is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The operator to used for comparison.
+	Operator string `pulumi:"operator"`
+	// Threshold value associated with the notification.
+	Threshold int `pulumi:"threshold"`
+}
+
+// GetBudgetSubscriptionNotificationInput is an input type that accepts GetBudgetSubscriptionNotificationArgs and GetBudgetSubscriptionNotificationOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionNotificationInput` via:
+//
+//          GetBudgetSubscriptionNotificationArgs{...}
+type GetBudgetSubscriptionNotificationInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionNotificationOutput() GetBudgetSubscriptionNotificationOutput
+	ToGetBudgetSubscriptionNotificationOutputWithContext(context.Context) GetBudgetSubscriptionNotificationOutput
+}
+
+type GetBudgetSubscriptionNotificationArgs struct {
+	// A list of email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
+	// A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
+	// A list of contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
+	// Whether the notification is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The operator to used for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Threshold value associated with the notification.
+	Threshold pulumi.IntInput `pulumi:"threshold"`
+}
+
+func (GetBudgetSubscriptionNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionNotification)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionNotificationArgs) ToGetBudgetSubscriptionNotificationOutput() GetBudgetSubscriptionNotificationOutput {
+	return i.ToGetBudgetSubscriptionNotificationOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionNotificationArgs) ToGetBudgetSubscriptionNotificationOutputWithContext(ctx context.Context) GetBudgetSubscriptionNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionNotificationOutput)
+}
+
+// GetBudgetSubscriptionNotificationArrayInput is an input type that accepts GetBudgetSubscriptionNotificationArray and GetBudgetSubscriptionNotificationArrayOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionNotificationArrayInput` via:
+//
+//          GetBudgetSubscriptionNotificationArray{ GetBudgetSubscriptionNotificationArgs{...} }
+type GetBudgetSubscriptionNotificationArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionNotificationArrayOutput() GetBudgetSubscriptionNotificationArrayOutput
+	ToGetBudgetSubscriptionNotificationArrayOutputWithContext(context.Context) GetBudgetSubscriptionNotificationArrayOutput
+}
+
+type GetBudgetSubscriptionNotificationArray []GetBudgetSubscriptionNotificationInput
+
+func (GetBudgetSubscriptionNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionNotification)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionNotificationArray) ToGetBudgetSubscriptionNotificationArrayOutput() GetBudgetSubscriptionNotificationArrayOutput {
+	return i.ToGetBudgetSubscriptionNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionNotificationArray) ToGetBudgetSubscriptionNotificationArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionNotificationArrayOutput)
+}
+
+type GetBudgetSubscriptionNotificationOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionNotification)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionNotificationOutput) ToGetBudgetSubscriptionNotificationOutput() GetBudgetSubscriptionNotificationOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionNotificationOutput) ToGetBudgetSubscriptionNotificationOutputWithContext(ctx context.Context) GetBudgetSubscriptionNotificationOutput {
+	return o
+}
+
+// A list of email addresses to send the budget notification to when the threshold is exceeded.
+func (o GetBudgetSubscriptionNotificationOutput) ContactEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionNotification) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
+}
+
+// A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+func (o GetBudgetSubscriptionNotificationOutput) ContactGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionNotification) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
+}
+
+// A list of contact roles to send the budget notification to when the threshold is exceeded.
+func (o GetBudgetSubscriptionNotificationOutput) ContactRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionNotification) []string { return v.ContactRoles }).(pulumi.StringArrayOutput)
+}
+
+// Whether the notification is enabled.
+func (o GetBudgetSubscriptionNotificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The operator to used for comparison.
+func (o GetBudgetSubscriptionNotificationOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionNotification) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Threshold value associated with the notification.
+func (o GetBudgetSubscriptionNotificationOutput) Threshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionNotification) int { return v.Threshold }).(pulumi.IntOutput)
+}
+
+type GetBudgetSubscriptionNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionNotification)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionNotificationArrayOutput) ToGetBudgetSubscriptionNotificationArrayOutput() GetBudgetSubscriptionNotificationArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionNotificationArrayOutput) ToGetBudgetSubscriptionNotificationArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionNotificationArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionNotificationArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetSubscriptionNotification {
+		return vs[0].([]GetBudgetSubscriptionNotification)[vs[1].(int)]
+	}).(GetBudgetSubscriptionNotificationOutput)
+}
+
+type GetBudgetSubscriptionTimePeriod struct {
+	// The end date for the budget.
+	EndDate string `pulumi:"endDate"`
+	// The start date for the budget.
+	StartDate string `pulumi:"startDate"`
+}
+
+// GetBudgetSubscriptionTimePeriodInput is an input type that accepts GetBudgetSubscriptionTimePeriodArgs and GetBudgetSubscriptionTimePeriodOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionTimePeriodInput` via:
+//
+//          GetBudgetSubscriptionTimePeriodArgs{...}
+type GetBudgetSubscriptionTimePeriodInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionTimePeriodOutput() GetBudgetSubscriptionTimePeriodOutput
+	ToGetBudgetSubscriptionTimePeriodOutputWithContext(context.Context) GetBudgetSubscriptionTimePeriodOutput
+}
+
+type GetBudgetSubscriptionTimePeriodArgs struct {
+	// The end date for the budget.
+	EndDate pulumi.StringInput `pulumi:"endDate"`
+	// The start date for the budget.
+	StartDate pulumi.StringInput `pulumi:"startDate"`
+}
+
+func (GetBudgetSubscriptionTimePeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionTimePeriod)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionTimePeriodArgs) ToGetBudgetSubscriptionTimePeriodOutput() GetBudgetSubscriptionTimePeriodOutput {
+	return i.ToGetBudgetSubscriptionTimePeriodOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionTimePeriodArgs) ToGetBudgetSubscriptionTimePeriodOutputWithContext(ctx context.Context) GetBudgetSubscriptionTimePeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionTimePeriodOutput)
+}
+
+// GetBudgetSubscriptionTimePeriodArrayInput is an input type that accepts GetBudgetSubscriptionTimePeriodArray and GetBudgetSubscriptionTimePeriodArrayOutput values.
+// You can construct a concrete instance of `GetBudgetSubscriptionTimePeriodArrayInput` via:
+//
+//          GetBudgetSubscriptionTimePeriodArray{ GetBudgetSubscriptionTimePeriodArgs{...} }
+type GetBudgetSubscriptionTimePeriodArrayInput interface {
+	pulumi.Input
+
+	ToGetBudgetSubscriptionTimePeriodArrayOutput() GetBudgetSubscriptionTimePeriodArrayOutput
+	ToGetBudgetSubscriptionTimePeriodArrayOutputWithContext(context.Context) GetBudgetSubscriptionTimePeriodArrayOutput
+}
+
+type GetBudgetSubscriptionTimePeriodArray []GetBudgetSubscriptionTimePeriodInput
+
+func (GetBudgetSubscriptionTimePeriodArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionTimePeriod)(nil)).Elem()
+}
+
+func (i GetBudgetSubscriptionTimePeriodArray) ToGetBudgetSubscriptionTimePeriodArrayOutput() GetBudgetSubscriptionTimePeriodArrayOutput {
+	return i.ToGetBudgetSubscriptionTimePeriodArrayOutputWithContext(context.Background())
+}
+
+func (i GetBudgetSubscriptionTimePeriodArray) ToGetBudgetSubscriptionTimePeriodArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionTimePeriodArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionTimePeriodArrayOutput)
+}
+
+type GetBudgetSubscriptionTimePeriodOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionTimePeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBudgetSubscriptionTimePeriod)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionTimePeriodOutput) ToGetBudgetSubscriptionTimePeriodOutput() GetBudgetSubscriptionTimePeriodOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionTimePeriodOutput) ToGetBudgetSubscriptionTimePeriodOutputWithContext(ctx context.Context) GetBudgetSubscriptionTimePeriodOutput {
+	return o
+}
+
+// The end date for the budget.
+func (o GetBudgetSubscriptionTimePeriodOutput) EndDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionTimePeriod) string { return v.EndDate }).(pulumi.StringOutput)
+}
+
+// The start date for the budget.
+func (o GetBudgetSubscriptionTimePeriodOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionTimePeriod) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+type GetBudgetSubscriptionTimePeriodArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBudgetSubscriptionTimePeriodArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBudgetSubscriptionTimePeriod)(nil)).Elem()
+}
+
+func (o GetBudgetSubscriptionTimePeriodArrayOutput) ToGetBudgetSubscriptionTimePeriodArrayOutput() GetBudgetSubscriptionTimePeriodArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionTimePeriodArrayOutput) ToGetBudgetSubscriptionTimePeriodArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionTimePeriodArrayOutput {
+	return o
+}
+
+func (o GetBudgetSubscriptionTimePeriodArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionTimePeriodOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetSubscriptionTimePeriod {
+		return vs[0].([]GetBudgetSubscriptionTimePeriod)[vs[1].(int)]
+	}).(GetBudgetSubscriptionTimePeriodOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupFilterInput)(nil)).Elem(), BudgetResourceGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupFilterPtrInput)(nil)).Elem(), BudgetResourceGroupFilterArgs{})
@@ -2479,6 +4339,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionNotificationArrayInput)(nil)).Elem(), BudgetSubscriptionNotificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionTimePeriodInput)(nil)).Elem(), BudgetSubscriptionTimePeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionTimePeriodPtrInput)(nil)).Elem(), BudgetSubscriptionTimePeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterInput)(nil)).Elem(), GetBudgetResourceGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterArrayInput)(nil)).Elem(), GetBudgetResourceGroupFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterDimensionInput)(nil)).Elem(), GetBudgetResourceGroupFilterDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterDimensionArrayInput)(nil)).Elem(), GetBudgetResourceGroupFilterDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterNotInput)(nil)).Elem(), GetBudgetResourceGroupFilterNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterNotArrayInput)(nil)).Elem(), GetBudgetResourceGroupFilterNotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterNotDimensionInput)(nil)).Elem(), GetBudgetResourceGroupFilterNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterNotDimensionArrayInput)(nil)).Elem(), GetBudgetResourceGroupFilterNotDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterNotTagInput)(nil)).Elem(), GetBudgetResourceGroupFilterNotTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterNotTagArrayInput)(nil)).Elem(), GetBudgetResourceGroupFilterNotTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterTagInput)(nil)).Elem(), GetBudgetResourceGroupFilterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterTagArrayInput)(nil)).Elem(), GetBudgetResourceGroupFilterTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupNotificationInput)(nil)).Elem(), GetBudgetResourceGroupNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupNotificationArrayInput)(nil)).Elem(), GetBudgetResourceGroupNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupTimePeriodInput)(nil)).Elem(), GetBudgetResourceGroupTimePeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupTimePeriodArrayInput)(nil)).Elem(), GetBudgetResourceGroupTimePeriodArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionFilterInput)(nil)).Elem(), GetBudgetSubscriptionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionFilterArrayInput)(nil)).Elem(), GetBudgetSubscriptionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionFilterDimensionInput)(nil)).Elem(), GetBudgetSubscriptionFilterDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionFilterDimensionArrayInput)(nil)).Elem(), GetBudgetSubscriptionFilterDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionFilterNotInput)(nil)).Elem(), GetBudgetSubscriptionFilterNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionFilterNotArrayInput)(nil)).Elem(), GetBudgetSubscriptionFilterNotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionFilterNotDimensionInput)(nil)).Elem(), GetBudgetSubscriptionFilterNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionFilterNotDimensionArrayInput)(nil)).Elem(), GetBudgetSubscriptionFilterNotDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionFilterNotTagInput)(nil)).Elem(), GetBudgetSubscriptionFilterNotTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionFilterNotTagArrayInput)(nil)).Elem(), GetBudgetSubscriptionFilterNotTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionFilterTagInput)(nil)).Elem(), GetBudgetSubscriptionFilterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionFilterTagArrayInput)(nil)).Elem(), GetBudgetSubscriptionFilterTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionNotificationInput)(nil)).Elem(), GetBudgetSubscriptionNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionNotificationArrayInput)(nil)).Elem(), GetBudgetSubscriptionNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionTimePeriodInput)(nil)).Elem(), GetBudgetSubscriptionTimePeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionTimePeriodArrayInput)(nil)).Elem(), GetBudgetSubscriptionTimePeriodArray{})
 	pulumi.RegisterOutputType(BudgetResourceGroupFilterOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupFilterPtrOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupFilterDimensionOutput{})
@@ -2511,4 +4403,36 @@ func init() {
 	pulumi.RegisterOutputType(BudgetSubscriptionNotificationArrayOutput{})
 	pulumi.RegisterOutputType(BudgetSubscriptionTimePeriodOutput{})
 	pulumi.RegisterOutputType(BudgetSubscriptionTimePeriodPtrOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterDimensionOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterNotOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterNotArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterNotDimensionOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterNotDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterNotTagOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterNotTagArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterTagOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterTagArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupNotificationOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupNotificationArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupTimePeriodOutput{})
+	pulumi.RegisterOutputType(GetBudgetResourceGroupTimePeriodArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionFilterOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionFilterDimensionOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionFilterDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionFilterNotOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionFilterNotArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionFilterNotDimensionOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionFilterNotDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionFilterNotTagOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionFilterNotTagArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionFilterTagOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionFilterTagArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionNotificationOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionNotificationArrayOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionTimePeriodOutput{})
+	pulumi.RegisterOutputType(GetBudgetSubscriptionTimePeriodArrayOutput{})
 }

@@ -33,6 +33,7 @@ from .linked_service_azure_search import *
 from .linked_service_azure_sql_database import *
 from .linked_service_azure_table_storage import *
 from .linked_service_cosmos_db import *
+from .linked_service_cosmos_db_mongo_api import *
 from .linked_service_data_lake_storage_gen2 import *
 from .linked_service_key_vault import *
 from .linked_service_kusto import *

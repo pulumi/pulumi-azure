@@ -66,9 +66,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         [Input("storageEndpoint")]
         public Input<string>? StorageEndpoint { get; set; }
 
-        /// <summary>
-        /// Should the default server policy be used? Defaults to `Disabled`.
-        /// </summary>
         [Input("useServerDefault")]
         public Input<string>? UseServerDefault { get; set; }
 
