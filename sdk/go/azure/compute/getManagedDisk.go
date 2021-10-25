@@ -53,8 +53,6 @@ type LookupManagedDiskArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Availability Zones where the Managed Disk exists.
-	Zones []string `pulumi:"zones"`
 }
 
 // A collection of values returned by getManagedDisk.
@@ -107,8 +105,6 @@ type LookupManagedDiskOutputArgs struct {
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// A list of Availability Zones where the Managed Disk exists.
-	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 func (LookupManagedDiskOutputArgs) ElementType() reflect.Type {

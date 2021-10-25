@@ -13,7 +13,9 @@ __all__ = [
     'SparkPoolAutoPause',
     'SparkPoolAutoScale',
     'SparkPoolLibraryRequirement',
+    'SparkPoolSparkConfig',
     'SqlPoolRestore',
+    'SqlPoolVulnerabilityAssessmentBaselineBaseline',
     'SqlPoolVulnerabilityAssessmentRecurringScans',
     'WorkspaceAadAdmin',
     'WorkspaceAzureDevopsRepo',
@@ -167,6 +169,35 @@ class SparkPoolLibraryRequirement(dict):
 
 
 @pulumi.output_type
+class SparkPoolSparkConfig(dict):
+    def __init__(__self__, *,
+                 content: str,
+                 filename: str):
+        """
+        :param str content: The contents of a spark configuration.
+        :param str filename: The name of the file where the spark configuration `content` will be stored.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        """
+        The contents of a spark configuration.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def filename(self) -> str:
+        """
+        The name of the file where the spark configuration `content` will be stored.
+        """
+        return pulumi.get(self, "filename")
+
+
+@pulumi.output_type
 class SqlPoolRestore(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -212,6 +243,24 @@ class SqlPoolRestore(dict):
         The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
         """
         return pulumi.get(self, "source_database_id")
+
+
+@pulumi.output_type
+class SqlPoolVulnerabilityAssessmentBaselineBaseline(dict):
+    def __init__(__self__, *,
+                 results: Sequence[str]):
+        """
+        :param Sequence[str] results: Specifies a list of rule baseline result.
+        """
+        pulumi.set(__self__, "results", results)
+
+    @property
+    @pulumi.getter
+    def results(self) -> Sequence[str]:
+        """
+        Specifies a list of rule baseline result.
+        """
+        return pulumi.get(self, "results")
 
 
 @pulumi.output_type

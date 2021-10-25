@@ -248,7 +248,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             backup_retention_days=7,
             geo_redundant_backup_enabled=False,
             auto_grow_enabled=True,
-            administrator_login="psqladminun",
+            administrator_login="psqladmin",
             administrator_login_password="H@Sh1CoR3!",
             version="9.5",
             ssl_enforcement_enabled=True)
@@ -309,7 +309,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
                 ),
             ])
         example_secret = azure.keyvault.Secret("exampleSecret",
-            value=pulumi.Output.all(example_server.name, example_database.name, example_server.name).apply(lambda exampleServerName, exampleDatabaseName, exampleServerName1: f"Server={example_server_name}.postgres.database.azure.com;Database={example_database_name};Port=5432;User Id=psqladminun@{example_server_name1};Password=H@Sh1CoR3!;Ssl Mode=Require;"),
+            value=pulumi.Output.all(example_server.name, example_database.name, example_server.name).apply(lambda exampleServerName, exampleDatabaseName, exampleServerName1: f"Server={example_server_name}.postgres.database.azure.com;Database={example_database_name};Port=5432;User Id=psqladmin@{example_server_name1};Password=H@Sh1CoR3!;Ssl Mode=Require;"),
             key_vault_id=example_key_vault.id)
         example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql",
             resource_group_name=example_resource_group.name,
@@ -372,7 +372,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             backup_retention_days=7,
             geo_redundant_backup_enabled=False,
             auto_grow_enabled=True,
-            administrator_login="psqladminun",
+            administrator_login="psqladmin",
             administrator_login_password="H@Sh1CoR3!",
             version="9.5",
             ssl_enforcement_enabled=True)
@@ -433,7 +433,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
                 ),
             ])
         example_secret = azure.keyvault.Secret("exampleSecret",
-            value=pulumi.Output.all(example_server.name, example_database.name, example_server.name).apply(lambda exampleServerName, exampleDatabaseName, exampleServerName1: f"Server={example_server_name}.postgres.database.azure.com;Database={example_database_name};Port=5432;User Id=psqladminun@{example_server_name1};Password=H@Sh1CoR3!;Ssl Mode=Require;"),
+            value=pulumi.Output.all(example_server.name, example_database.name, example_server.name).apply(lambda exampleServerName, exampleDatabaseName, exampleServerName1: f"Server={example_server_name}.postgres.database.azure.com;Database={example_database_name};Port=5432;User Id=psqladmin@{example_server_name1};Password=H@Sh1CoR3!;Ssl Mode=Require;"),
             key_vault_id=example_key_vault.id)
         example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql",
             resource_group_name=example_resource_group.name,

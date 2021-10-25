@@ -33,7 +33,6 @@ export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promi
     return pulumi.runtime.invoke("azure:redis/getCache:getCache", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "zones": args.zones,
     }, opts);
 }
 
@@ -49,7 +48,6 @@ export interface GetCacheArgs {
      * The name of the resource group the Redis cache instance is located in.
      */
     resourceGroupName: string;
-    zones?: string[];
 }
 
 /**
@@ -145,5 +143,4 @@ export interface GetCacheOutputArgs {
      * The name of the resource group the Redis cache instance is located in.
      */
     resourceGroupName: pulumi.Input<string>;
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -32,7 +32,6 @@ export function getManagedDisk(args: GetManagedDiskArgs, opts?: pulumi.InvokeOpt
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "tags": args.tags,
-        "zones": args.zones,
     }, opts);
 }
 
@@ -52,10 +51,6 @@ export interface GetManagedDiskArgs {
      * A mapping of tags assigned to the resource.
      */
     tags?: {[key: string]: string};
-    /**
-     * A list of Availability Zones where the Managed Disk exists.
-     */
-    zones?: string[];
 }
 
 /**
@@ -139,8 +134,4 @@ export interface GetManagedDiskOutputArgs {
      * A mapping of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A list of Availability Zones where the Managed Disk exists.
-     */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

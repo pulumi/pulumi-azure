@@ -51,7 +51,7 @@ import (
 // 			BackupRetentionDays:        pulumi.Int(7),
 // 			GeoRedundantBackupEnabled:  pulumi.Bool(false),
 // 			AutoGrowEnabled:            pulumi.Bool(true),
-// 			AdministratorLogin:         pulumi.String("psqladminun"),
+// 			AdministratorLogin:         pulumi.String("psqladmin"),
 // 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
 // 			Version:                    pulumi.String("9.5"),
 // 			SslEnforcementEnabled:      pulumi.Bool(true),
@@ -140,7 +140,7 @@ import (
 // 				exampleServerName := _args[0].(string)
 // 				exampleDatabaseName := _args[1].(string)
 // 				exampleServerName1 := _args[2].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v", "Server=", exampleServerName, ".postgres.database.azure.com;Database=", exampleDatabaseName, ";Port=5432;User Id=psqladminun@", exampleServerName1, ";Password=H@Sh1CoR3!;Ssl Mode=Require;"), nil
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v", "Server=", exampleServerName, ".postgres.database.azure.com;Database=", exampleDatabaseName, ";Port=5432;User Id=psqladmin@", exampleServerName1, ";Password=H@Sh1CoR3!;Ssl Mode=Require;"), nil
 // 			}).(pulumi.StringOutput),
 // 			KeyVaultId: exampleKeyVault.ID(),
 // 		})

@@ -289,7 +289,6 @@ class AwaitableGetCacheResult(GetCacheResult):
 
 def get_cache(name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
-              zones: Optional[Sequence[str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
     Use this data source to access information about an existing Redis Cache
@@ -313,7 +312,6 @@ def get_cache(name: Optional[str] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['zones'] = zones
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -349,7 +347,6 @@ def get_cache(name: Optional[str] = None,
 @_utilities.lift_output_func(get_cache)
 def get_cache_output(name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     zones: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
     """
     Use this data source to access information about an existing Redis Cache

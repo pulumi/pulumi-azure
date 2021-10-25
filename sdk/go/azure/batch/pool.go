@@ -156,6 +156,8 @@ type Pool struct {
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScale PoolFixedScalePtrOutput `pulumi:"fixedScale"`
+	// An `identity` block as defined below.
+	Identity PoolIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode pulumi.IntPtrOutput `pulumi:"maxTasksPerNode"`
 	// A map of custom batch pool metadata.
@@ -233,6 +235,8 @@ type poolState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScale *PoolFixedScale `pulumi:"fixedScale"`
+	// An `identity` block as defined below.
+	Identity *PoolIdentity `pulumi:"identity"`
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode *int `pulumi:"maxTasksPerNode"`
 	// A map of custom batch pool metadata.
@@ -267,6 +271,8 @@ type PoolState struct {
 	DisplayName pulumi.StringPtrInput
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScale PoolFixedScalePtrInput
+	// An `identity` block as defined below.
+	Identity PoolIdentityPtrInput
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode pulumi.IntPtrInput
 	// A map of custom batch pool metadata.
@@ -305,6 +311,8 @@ type poolArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScale *PoolFixedScale `pulumi:"fixedScale"`
+	// An `identity` block as defined below.
+	Identity *PoolIdentity `pulumi:"identity"`
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode *int `pulumi:"maxTasksPerNode"`
 	// A map of custom batch pool metadata.
@@ -340,6 +348,8 @@ type PoolArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScale PoolFixedScalePtrInput
+	// An `identity` block as defined below.
+	Identity PoolIdentityPtrInput
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode pulumi.IntPtrInput
 	// A map of custom batch pool metadata.

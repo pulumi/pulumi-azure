@@ -91,7 +91,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
@@ -176,7 +176,7 @@ export interface LoadBalancerState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -210,7 +210,7 @@ export interface LoadBalancerArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
      */
     sku?: pulumi.Input<string>;
     /**

@@ -81,6 +81,12 @@ namespace Pulumi.Azure.Lb
         [Output("backendPort")]
         public Output<int> BackendPort { get; private set; } = null!;
 
+        /// <summary>
+        /// Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// </summary>
+        [Output("floatingIpEnabled")]
+        public Output<bool?> FloatingIpEnabled { get; private set; } = null!;
+
         [Output("frontendIpConfigurationId")]
         public Output<string> FrontendIpConfigurationId { get; private set; } = null!;
 
@@ -101,6 +107,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Output("frontendPortStart")]
         public Output<int> FrontendPortStart { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
+        /// </summary>
+        [Output("idleTimeoutInMinutes")]
+        public Output<int?> IdleTimeoutInMinutes { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Load Balancer in which to create the NAT pool.
@@ -125,6 +137,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        /// </summary>
+        [Output("tcpResetEnabled")]
+        public Output<bool?> TcpResetEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -179,6 +197,12 @@ namespace Pulumi.Azure.Lb
         public Input<int> BackendPort { get; set; } = null!;
 
         /// <summary>
+        /// Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// </summary>
+        [Input("floatingIpEnabled")]
+        public Input<bool>? FloatingIpEnabled { get; set; }
+
+        /// <summary>
         /// The name of the frontend IP configuration exposing this rule.
         /// </summary>
         [Input("frontendIpConfigurationName", required: true)]
@@ -195,6 +219,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("frontendPortStart", required: true)]
         public Input<int> FrontendPortStart { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
+        /// </summary>
+        [Input("idleTimeoutInMinutes")]
+        public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         /// <summary>
         /// The ID of the Load Balancer in which to create the NAT pool.
@@ -220,6 +250,12 @@ namespace Pulumi.Azure.Lb
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        /// </summary>
+        [Input("tcpResetEnabled")]
+        public Input<bool>? TcpResetEnabled { get; set; }
+
         public NatPoolArgs()
         {
         }
@@ -232,6 +268,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("backendPort")]
         public Input<int>? BackendPort { get; set; }
+
+        /// <summary>
+        /// Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// </summary>
+        [Input("floatingIpEnabled")]
+        public Input<bool>? FloatingIpEnabled { get; set; }
 
         [Input("frontendIpConfigurationId")]
         public Input<string>? FrontendIpConfigurationId { get; set; }
@@ -253,6 +295,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("frontendPortStart")]
         public Input<int>? FrontendPortStart { get; set; }
+
+        /// <summary>
+        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
+        /// </summary>
+        [Input("idleTimeoutInMinutes")]
+        public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         /// <summary>
         /// The ID of the Load Balancer in which to create the NAT pool.
@@ -277,6 +325,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        /// </summary>
+        [Input("tcpResetEnabled")]
+        public Input<bool>? TcpResetEnabled { get; set; }
 
         public NatPoolState()
         {

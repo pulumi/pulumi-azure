@@ -57,7 +57,7 @@ import (
 // 		_, err = iot.NewSecurityDeviceGroup(ctx, "exampleSecurityDeviceGroup", &iot.SecurityDeviceGroupArgs{
 // 			IothubId: exampleIoTHub.ID(),
 // 			AllowRule: &iot.SecurityDeviceGroupAllowRuleArgs{
-// 				ConnectionToIpNotAlloweds: pulumi.StringArray{
+// 				ConnectionToIpsNotAlloweds: pulumi.StringArray{
 // 					pulumi.String("10.0.0.0/24"),
 // 				},
 // 			},

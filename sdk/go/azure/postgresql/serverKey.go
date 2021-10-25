@@ -50,7 +50,7 @@ import (
 // 		exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
 // 			Location:                   pulumi.Any(azurerm_resource_group.Test.Location),
 // 			ResourceGroupName:          pulumi.Any(azurerm_resource_group.Test.Name),
-// 			AdministratorLogin:         pulumi.String("psqladminun"),
+// 			AdministratorLogin:         pulumi.String("psqladmin"),
 // 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
 // 			SkuName:                    pulumi.String("GP_Gen5_2"),
 // 			Version:                    pulumi.String("11"),

@@ -31,7 +31,7 @@ namespace Pulumi.Azure.PostgreSql
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
     ///             Version = "12",
-    ///             AdministratorLogin = "psqladminun",
+    ///             AdministratorLogin = "psqladmin",
     ///             AdministratorPassword = "H@Sh1CoR3!",
     ///             StorageMb = 32768,
     ///             SkuName = "GP_Standard_D4s_v3",

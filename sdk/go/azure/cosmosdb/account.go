@@ -56,6 +56,9 @@ import (
 // 				&cosmosdb.AccountCapabilityArgs{
 // 					Name: pulumi.String("MongoDBv3.4"),
 // 				},
+// 				&cosmosdb.AccountCapabilityArgs{
+// 					Name: pulumi.String("EnableMongo"),
+// 				},
 // 			},
 // 			ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
 // 				ConsistencyLevel:     pulumi.String("BoundedStaleness"),

@@ -58,10 +58,19 @@ type LookupVirtualMachineResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A `identity` block as defined below.
-	Identities        []GetVirtualMachineIdentity `pulumi:"identities"`
-	Location          string                      `pulumi:"location"`
-	Name              string                      `pulumi:"name"`
-	ResourceGroupName string                      `pulumi:"resourceGroupName"`
+	// *
+	Identities []GetVirtualMachineIdentity `pulumi:"identities"`
+	Location   string                      `pulumi:"location"`
+	Name       string                      `pulumi:"name"`
+	// The Primary Private IP Address assigned to this Virtual Machine.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// A list of Private IP Addresses assigned to this Virtual Machine.
+	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
+	// The Primary Public IP Address assigned to this Virtual Machine.
+	PublicIpAddress string `pulumi:"publicIpAddress"`
+	// A list of the Public IP Addresses assigned to this Virtual Machine.
+	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
 }
 
 func LookupVirtualMachineOutput(ctx *pulumi.Context, args LookupVirtualMachineOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineResultOutput {
@@ -106,6 +115,7 @@ func (o LookupVirtualMachineResultOutput) Id() pulumi.StringOutput {
 }
 
 // A `identity` block as defined below.
+// *
 func (o LookupVirtualMachineResultOutput) Identities() GetVirtualMachineIdentityArrayOutput {
 	return o.ApplyT(func(v LookupVirtualMachineResult) []GetVirtualMachineIdentity { return v.Identities }).(GetVirtualMachineIdentityArrayOutput)
 }
@@ -116,6 +126,26 @@ func (o LookupVirtualMachineResultOutput) Location() pulumi.StringOutput {
 
 func (o LookupVirtualMachineResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualMachineResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Primary Private IP Address assigned to this Virtual Machine.
+func (o LookupVirtualMachineResultOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// A list of Private IP Addresses assigned to this Virtual Machine.
+func (o LookupVirtualMachineResultOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The Primary Public IP Address assigned to this Virtual Machine.
+func (o LookupVirtualMachineResultOutput) PublicIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) string { return v.PublicIpAddress }).(pulumi.StringOutput)
+}
+
+// A list of the Public IP Addresses assigned to this Virtual Machine.
+func (o LookupVirtualMachineResultOutput) PublicIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupVirtualMachineResultOutput) ResourceGroupName() pulumi.StringOutput {

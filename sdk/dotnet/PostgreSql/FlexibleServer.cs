@@ -80,7 +80,7 @@ namespace Pulumi.Azure.PostgreSql
     ///             Version = "12",
     ///             DelegatedSubnetId = exampleSubnet.Id,
     ///             PrivateDnsZoneId = exampleZone.Id,
-    ///             AdministratorLogin = "psqladminun",
+    ///             AdministratorLogin = "psqladmin",
     ///             AdministratorPassword = "H@Sh1CoR3!",
     ///             StorageMb = 32768,
     ///             SkuName = "GP_Standard_D4s_v3",
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
-        /// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
         /// </summary>
         [Output("zone")]
         public Output<string> Zone { get; private set; } = null!;
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
@@ -527,7 +527,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

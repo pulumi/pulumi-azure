@@ -13,7 +13,7 @@ import (
 type FlexibleServerHighAvailability struct {
 	// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
 	Mode string `pulumi:"mode"`
-	// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+	// The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -31,7 +31,7 @@ type FlexibleServerHighAvailabilityInput interface {
 type FlexibleServerHighAvailabilityArgs struct {
 	// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+	// The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
 	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -117,7 +117,7 @@ func (o FlexibleServerHighAvailabilityOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+// The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
 func (o FlexibleServerHighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -156,7 +156,7 @@ func (o FlexibleServerHighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+// The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
 func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerHighAvailability) *string {
 		if v == nil {

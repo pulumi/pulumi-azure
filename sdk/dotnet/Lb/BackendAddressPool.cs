@@ -103,6 +103,12 @@ namespace Pulumi.Azure.Lb
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more `tunnel_interface` blocks as defined below.
+        /// </summary>
+        [Output("tunnelInterfaces")]
+        public Output<ImmutableArray<Outputs.BackendAddressPoolTunnelInterface>> TunnelInterfaces { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BackendAddressPool resource with the given unique name, arguments, and options.
@@ -173,6 +179,18 @@ namespace Pulumi.Azure.Lb
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("tunnelInterfaces")]
+        private InputList<Inputs.BackendAddressPoolTunnelInterfaceArgs>? _tunnelInterfaces;
+
+        /// <summary>
+        /// One or more `tunnel_interface` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.BackendAddressPoolTunnelInterfaceArgs> TunnelInterfaces
+        {
+            get => _tunnelInterfaces ?? (_tunnelInterfaces = new InputList<Inputs.BackendAddressPoolTunnelInterfaceArgs>());
+            set => _tunnelInterfaces = value;
+        }
+
         public BackendAddressPoolArgs()
         {
         }
@@ -239,6 +257,18 @@ namespace Pulumi.Azure.Lb
 
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("tunnelInterfaces")]
+        private InputList<Inputs.BackendAddressPoolTunnelInterfaceGetArgs>? _tunnelInterfaces;
+
+        /// <summary>
+        /// One or more `tunnel_interface` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.BackendAddressPoolTunnelInterfaceGetArgs> TunnelInterfaces
+        {
+            get => _tunnelInterfaces ?? (_tunnelInterfaces = new InputList<Inputs.BackendAddressPoolTunnelInterfaceGetArgs>());
+            set => _tunnelInterfaces = value;
+        }
 
         public BackendAddressPoolState()
         {

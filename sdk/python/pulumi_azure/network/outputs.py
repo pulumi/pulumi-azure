@@ -6527,6 +6527,8 @@ class NetworkInterfaceIpConfiguration(dict):
         suggest = None
         if key == "privateIpAddressAllocation":
             suggest = "private_ip_address_allocation"
+        elif key == "gatewayLoadBalancerFrontendIpConfigurationId":
+            suggest = "gateway_load_balancer_frontend_ip_configuration_id"
         elif key == "privateIpAddress":
             suggest = "private_ip_address"
         elif key == "privateIpAddressVersion":
@@ -6550,6 +6552,7 @@ class NetworkInterfaceIpConfiguration(dict):
     def __init__(__self__, *,
                  name: str,
                  private_ip_address_allocation: str,
+                 gateway_load_balancer_frontend_ip_configuration_id: Optional[str] = None,
                  primary: Optional[bool] = None,
                  private_ip_address: Optional[str] = None,
                  private_ip_address_version: Optional[str] = None,
@@ -6558,6 +6561,7 @@ class NetworkInterfaceIpConfiguration(dict):
         """
         :param str name: A name used for this IP Configuration.
         :param str private_ip_address_allocation: The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        :param str gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
         :param bool primary: Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
         :param str private_ip_address: The Static IP Address which should be used.
         :param str private_ip_address_version: The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
@@ -6566,6 +6570,8 @@ class NetworkInterfaceIpConfiguration(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_ip_address_allocation", private_ip_address_allocation)
+        if gateway_load_balancer_frontend_ip_configuration_id is not None:
+            pulumi.set(__self__, "gateway_load_balancer_frontend_ip_configuration_id", gateway_load_balancer_frontend_ip_configuration_id)
         if primary is not None:
             pulumi.set(__self__, "primary", primary)
         if private_ip_address is not None:
@@ -6592,6 +6598,14 @@ class NetworkInterfaceIpConfiguration(dict):
         The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
         """
         return pulumi.get(self, "private_ip_address_allocation")
+
+    @property
+    @pulumi.getter(name="gatewayLoadBalancerFrontendIpConfigurationId")
+    def gateway_load_balancer_frontend_ip_configuration_id(self) -> Optional[str]:
+        """
+        The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        """
+        return pulumi.get(self, "gateway_load_balancer_frontend_ip_configuration_id")
 
     @property
     @pulumi.getter

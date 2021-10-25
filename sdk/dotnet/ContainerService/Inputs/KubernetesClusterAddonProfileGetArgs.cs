@@ -48,6 +48,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("omsAgent")]
         public Input<Inputs.KubernetesClusterAddonProfileOmsAgentGetArgs>? OmsAgent { get; set; }
 
+        /// <summary>
+        /// An `open_service_mesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+        /// </summary>
+        [Input("openServiceMesh")]
+        public Input<Inputs.KubernetesClusterAddonProfileOpenServiceMeshGetArgs>? OpenServiceMesh { get; set; }
+
         public KubernetesClusterAddonProfileGetArgs()
         {
         }

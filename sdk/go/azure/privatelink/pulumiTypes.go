@@ -661,7 +661,7 @@ type EndpointPrivateServiceConnection struct {
 	Name string `pulumi:"name"`
 	// The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
 	PrivateConnectionResourceAlias *string `pulumi:"privateConnectionResourceAlias"`
-	// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
+	// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
 	PrivateConnectionResourceId *string `pulumi:"privateConnectionResourceId"`
 	// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
@@ -689,7 +689,7 @@ type EndpointPrivateServiceConnectionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
 	PrivateConnectionResourceAlias pulumi.StringPtrInput `pulumi:"privateConnectionResourceAlias"`
-	// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
+	// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
 	PrivateConnectionResourceId pulumi.StringPtrInput `pulumi:"privateConnectionResourceId"`
 	// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
@@ -791,7 +791,7 @@ func (o EndpointPrivateServiceConnectionOutput) PrivateConnectionResourceAlias()
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.PrivateConnectionResourceAlias }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
+// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
 func (o EndpointPrivateServiceConnectionOutput) PrivateConnectionResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.PrivateConnectionResourceId }).(pulumi.StringPtrOutput)
 }
@@ -865,7 +865,7 @@ func (o EndpointPrivateServiceConnectionPtrOutput) PrivateConnectionResourceAlia
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
+// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
 func (o EndpointPrivateServiceConnectionPtrOutput) PrivateConnectionResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
 		if v == nil {

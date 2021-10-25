@@ -86,6 +86,7 @@ from .virtual_hub import *
 from .virtual_hub_connection import *
 from .virtual_hub_ip import *
 from .virtual_hub_route_table import *
+from .virtual_hub_route_table_route import *
 from .virtual_network import *
 from .virtual_network_dns_servers import *
 from .virtual_network_gateway import *

@@ -13,7 +13,9 @@ __all__ = [
     'SparkPoolAutoPauseArgs',
     'SparkPoolAutoScaleArgs',
     'SparkPoolLibraryRequirementArgs',
+    'SparkPoolSparkConfigArgs',
     'SqlPoolRestoreArgs',
+    'SqlPoolVulnerabilityAssessmentBaselineBaselineArgs',
     'SqlPoolVulnerabilityAssessmentRecurringScansArgs',
     'WorkspaceAadAdminArgs',
     'WorkspaceAzureDevopsRepoArgs',
@@ -158,6 +160,43 @@ class SparkPoolLibraryRequirementArgs:
 
 
 @pulumi.input_type
+class SparkPoolSparkConfigArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 filename: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] content: The contents of a spark configuration.
+        :param pulumi.Input[str] filename: The name of the file where the spark configuration `content` will be stored.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        The contents of a spark configuration.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> pulumi.Input[str]:
+        """
+        The name of the file where the spark configuration `content` will be stored.
+        """
+        return pulumi.get(self, "filename")
+
+    @filename.setter
+    def filename(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filename", value)
+
+
+@pulumi.input_type
 class SqlPoolRestoreArgs:
     def __init__(__self__, *,
                  point_in_time: pulumi.Input[str],
@@ -192,6 +231,28 @@ class SqlPoolRestoreArgs:
     @source_database_id.setter
     def source_database_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_database_id", value)
+
+
+@pulumi.input_type
+class SqlPoolVulnerabilityAssessmentBaselineBaselineArgs:
+    def __init__(__self__, *,
+                 results: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] results: Specifies a list of rule baseline result.
+        """
+        pulumi.set(__self__, "results", results)
+
+    @property
+    @pulumi.getter
+    def results(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of rule baseline result.
+        """
+        return pulumi.get(self, "results")
+
+    @results.setter
+    def results(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "results", value)
 
 
 @pulumi.input_type

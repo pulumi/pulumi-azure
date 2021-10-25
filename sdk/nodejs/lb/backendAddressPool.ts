@@ -97,6 +97,10 @@ export class BackendAddressPool extends pulumi.CustomResource {
      * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * One or more `tunnelInterface` blocks as defined below.
+     */
+    public readonly tunnelInterfaces!: pulumi.Output<outputs.lb.BackendAddressPoolTunnelInterface[] | undefined>;
 
     /**
      * Create a BackendAddressPool resource with the given unique name, arguments, and options.
@@ -118,6 +122,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["outboundRules"] = state ? state.outboundRules : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["tunnelInterfaces"] = state ? state.tunnelInterfaces : undefined;
         } else {
             const args = argsOrState as BackendAddressPoolArgs | undefined;
             if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
@@ -127,6 +132,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
             inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
             inputs["backendIpConfigurations"] = undefined /*out*/;
             inputs["loadBalancingRules"] = undefined /*out*/;
             inputs["outboundRules"] = undefined /*out*/;
@@ -170,6 +176,10 @@ export interface BackendAddressPoolState {
      * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * One or more `tunnelInterface` blocks as defined below.
+     */
+    tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolTunnelInterface>[]>;
 }
 
 /**
@@ -192,4 +202,8 @@ export interface BackendAddressPoolArgs {
      * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * One or more `tunnelInterface` blocks as defined below.
+     */
+    tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolTunnelInterface>[]>;
 }

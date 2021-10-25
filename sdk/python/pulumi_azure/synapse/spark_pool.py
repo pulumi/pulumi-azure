@@ -20,9 +20,14 @@ class SparkPoolArgs:
                  synapse_workspace_id: pulumi.Input[str],
                  auto_pause: Optional[pulumi.Input['SparkPoolAutoPauseArgs']] = None,
                  auto_scale: Optional[pulumi.Input['SparkPoolAutoScaleArgs']] = None,
+                 cache_size: Optional[pulumi.Input[int]] = None,
+                 compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_executor_allocation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirement: Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
+                 session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
+                 spark_config: Optional[pulumi.Input['SparkPoolSparkConfigArgs']] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_log_folder: Optional[pulumi.Input[str]] = None,
                  spark_version: Optional[pulumi.Input[str]] = None,
@@ -34,9 +39,14 @@ class SparkPoolArgs:
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input['SparkPoolAutoPauseArgs'] auto_pause: An `auto_pause` block as defined below.
         :param pulumi.Input['SparkPoolAutoScaleArgs'] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input[int] cache_size: The cache size in the Spark Pool.
+        :param pulumi.Input[bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_executor_allocation_enabled: Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
         :param pulumi.Input['SparkPoolLibraryRequirementArgs'] library_requirement: A `library_requirement` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input[bool] session_level_packages_enabled: Indicates whether session level packages are enabled or not. Defaults to `false`.
+        :param pulumi.Input['SparkPoolSparkConfigArgs'] spark_config: A `spark_config` block as defined below.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
         :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
         :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` and `3.1`. Defaults to `2.4`.
@@ -49,12 +59,22 @@ class SparkPoolArgs:
             pulumi.set(__self__, "auto_pause", auto_pause)
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
+        if cache_size is not None:
+            pulumi.set(__self__, "cache_size", cache_size)
+        if compute_isolation_enabled is not None:
+            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+        if dynamic_executor_allocation_enabled is not None:
+            pulumi.set(__self__, "dynamic_executor_allocation_enabled", dynamic_executor_allocation_enabled)
         if library_requirement is not None:
             pulumi.set(__self__, "library_requirement", library_requirement)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if node_count is not None:
             pulumi.set(__self__, "node_count", node_count)
+        if session_level_packages_enabled is not None:
+            pulumi.set(__self__, "session_level_packages_enabled", session_level_packages_enabled)
+        if spark_config is not None:
+            pulumi.set(__self__, "spark_config", spark_config)
         if spark_events_folder is not None:
             pulumi.set(__self__, "spark_events_folder", spark_events_folder)
         if spark_log_folder is not None:
@@ -125,6 +145,42 @@ class SparkPoolArgs:
         pulumi.set(self, "auto_scale", value)
 
     @property
+    @pulumi.getter(name="cacheSize")
+    def cache_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The cache size in the Spark Pool.
+        """
+        return pulumi.get(self, "cache_size")
+
+    @cache_size.setter
+    def cache_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_size", value)
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        """
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @compute_isolation_enabled.setter
+    def compute_isolation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compute_isolation_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicExecutorAllocationEnabled")
+    def dynamic_executor_allocation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_executor_allocation_enabled")
+
+    @dynamic_executor_allocation_enabled.setter
+    def dynamic_executor_allocation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_executor_allocation_enabled", value)
+
+    @property
     @pulumi.getter(name="libraryRequirement")
     def library_requirement(self) -> Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']]:
         """
@@ -159,6 +215,30 @@ class SparkPoolArgs:
     @node_count.setter
     def node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "node_count", value)
+
+    @property
+    @pulumi.getter(name="sessionLevelPackagesEnabled")
+    def session_level_packages_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether session level packages are enabled or not. Defaults to `false`.
+        """
+        return pulumi.get(self, "session_level_packages_enabled")
+
+    @session_level_packages_enabled.setter
+    def session_level_packages_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "session_level_packages_enabled", value)
+
+    @property
+    @pulumi.getter(name="sparkConfig")
+    def spark_config(self) -> Optional[pulumi.Input['SparkPoolSparkConfigArgs']]:
+        """
+        A `spark_config` block as defined below.
+        """
+        return pulumi.get(self, "spark_config")
+
+    @spark_config.setter
+    def spark_config(self, value: Optional[pulumi.Input['SparkPoolSparkConfigArgs']]):
+        pulumi.set(self, "spark_config", value)
 
     @property
     @pulumi.getter(name="sparkEventsFolder")
@@ -214,11 +294,16 @@ class _SparkPoolState:
     def __init__(__self__, *,
                  auto_pause: Optional[pulumi.Input['SparkPoolAutoPauseArgs']] = None,
                  auto_scale: Optional[pulumi.Input['SparkPoolAutoScaleArgs']] = None,
+                 cache_size: Optional[pulumi.Input[int]] = None,
+                 compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_executor_allocation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirement: Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
                  node_size_family: Optional[pulumi.Input[str]] = None,
+                 session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
+                 spark_config: Optional[pulumi.Input['SparkPoolSparkConfigArgs']] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_log_folder: Optional[pulumi.Input[str]] = None,
                  spark_version: Optional[pulumi.Input[str]] = None,
@@ -228,11 +313,16 @@ class _SparkPoolState:
         Input properties used for looking up and filtering SparkPool resources.
         :param pulumi.Input['SparkPoolAutoPauseArgs'] auto_pause: An `auto_pause` block as defined below.
         :param pulumi.Input['SparkPoolAutoScaleArgs'] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input[int] cache_size: The cache size in the Spark Pool.
+        :param pulumi.Input[bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_executor_allocation_enabled: Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
         :param pulumi.Input['SparkPoolLibraryRequirementArgs'] library_requirement: A `library_requirement` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+        :param pulumi.Input[bool] session_level_packages_enabled: Indicates whether session level packages are enabled or not. Defaults to `false`.
+        :param pulumi.Input['SparkPoolSparkConfigArgs'] spark_config: A `spark_config` block as defined below.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
         :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
         :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` and `3.1`. Defaults to `2.4`.
@@ -243,6 +333,12 @@ class _SparkPoolState:
             pulumi.set(__self__, "auto_pause", auto_pause)
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
+        if cache_size is not None:
+            pulumi.set(__self__, "cache_size", cache_size)
+        if compute_isolation_enabled is not None:
+            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+        if dynamic_executor_allocation_enabled is not None:
+            pulumi.set(__self__, "dynamic_executor_allocation_enabled", dynamic_executor_allocation_enabled)
         if library_requirement is not None:
             pulumi.set(__self__, "library_requirement", library_requirement)
         if name is not None:
@@ -253,6 +349,10 @@ class _SparkPoolState:
             pulumi.set(__self__, "node_size", node_size)
         if node_size_family is not None:
             pulumi.set(__self__, "node_size_family", node_size_family)
+        if session_level_packages_enabled is not None:
+            pulumi.set(__self__, "session_level_packages_enabled", session_level_packages_enabled)
+        if spark_config is not None:
+            pulumi.set(__self__, "spark_config", spark_config)
         if spark_events_folder is not None:
             pulumi.set(__self__, "spark_events_folder", spark_events_folder)
         if spark_log_folder is not None:
@@ -287,6 +387,42 @@ class _SparkPoolState:
     @auto_scale.setter
     def auto_scale(self, value: Optional[pulumi.Input['SparkPoolAutoScaleArgs']]):
         pulumi.set(self, "auto_scale", value)
+
+    @property
+    @pulumi.getter(name="cacheSize")
+    def cache_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The cache size in the Spark Pool.
+        """
+        return pulumi.get(self, "cache_size")
+
+    @cache_size.setter
+    def cache_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_size", value)
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        """
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @compute_isolation_enabled.setter
+    def compute_isolation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compute_isolation_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicExecutorAllocationEnabled")
+    def dynamic_executor_allocation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_executor_allocation_enabled")
+
+    @dynamic_executor_allocation_enabled.setter
+    def dynamic_executor_allocation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_executor_allocation_enabled", value)
 
     @property
     @pulumi.getter(name="libraryRequirement")
@@ -347,6 +483,30 @@ class _SparkPoolState:
     @node_size_family.setter
     def node_size_family(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "node_size_family", value)
+
+    @property
+    @pulumi.getter(name="sessionLevelPackagesEnabled")
+    def session_level_packages_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether session level packages are enabled or not. Defaults to `false`.
+        """
+        return pulumi.get(self, "session_level_packages_enabled")
+
+    @session_level_packages_enabled.setter
+    def session_level_packages_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "session_level_packages_enabled", value)
+
+    @property
+    @pulumi.getter(name="sparkConfig")
+    def spark_config(self) -> Optional[pulumi.Input['SparkPoolSparkConfigArgs']]:
+        """
+        A `spark_config` block as defined below.
+        """
+        return pulumi.get(self, "spark_config")
+
+    @spark_config.setter
+    def spark_config(self, value: Optional[pulumi.Input['SparkPoolSparkConfigArgs']]):
+        pulumi.set(self, "spark_config", value)
 
     @property
     @pulumi.getter(name="sparkEventsFolder")
@@ -416,11 +576,16 @@ class SparkPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_pause: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoPauseArgs']]] = None,
                  auto_scale: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']]] = None,
+                 cache_size: Optional[pulumi.Input[int]] = None,
+                 compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_executor_allocation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirement: Optional[pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
                  node_size_family: Optional[pulumi.Input[str]] = None,
+                 session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
+                 spark_config: Optional[pulumi.Input[pulumi.InputType['SparkPoolSparkConfigArgs']]] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_log_folder: Optional[pulumi.Input[str]] = None,
                  spark_version: Optional[pulumi.Input[str]] = None,
@@ -429,43 +594,6 @@ class SparkPool(pulumi.CustomResource):
                  __props__=None):
         """
         Manages a Synapse Spark Pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!")
-        example_spark_pool = azure.synapse.SparkPool("exampleSparkPool",
-            synapse_workspace_id=example_workspace.id,
-            node_size_family="MemoryOptimized",
-            node_size="Small",
-            auto_scale=azure.synapse.SparkPoolAutoScaleArgs(
-                max_node_count=50,
-                min_node_count=3,
-            ),
-            auto_pause=azure.synapse.SparkPoolAutoPauseArgs(
-                delay_in_minutes=15,
-            ),
-            tags={
-                "ENV": "Production",
-            })
-        ```
 
         ## Import
 
@@ -479,11 +607,16 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SparkPoolAutoPauseArgs']] auto_pause: An `auto_pause` block as defined below.
         :param pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input[int] cache_size: The cache size in the Spark Pool.
+        :param pulumi.Input[bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_executor_allocation_enabled: Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']] library_requirement: A `library_requirement` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+        :param pulumi.Input[bool] session_level_packages_enabled: Indicates whether session level packages are enabled or not. Defaults to `false`.
+        :param pulumi.Input[pulumi.InputType['SparkPoolSparkConfigArgs']] spark_config: A `spark_config` block as defined below.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
         :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
         :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` and `3.1`. Defaults to `2.4`.
@@ -498,43 +631,6 @@ class SparkPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Spark Pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!")
-        example_spark_pool = azure.synapse.SparkPool("exampleSparkPool",
-            synapse_workspace_id=example_workspace.id,
-            node_size_family="MemoryOptimized",
-            node_size="Small",
-            auto_scale=azure.synapse.SparkPoolAutoScaleArgs(
-                max_node_count=50,
-                min_node_count=3,
-            ),
-            auto_pause=azure.synapse.SparkPoolAutoPauseArgs(
-                delay_in_minutes=15,
-            ),
-            tags={
-                "ENV": "Production",
-            })
-        ```
 
         ## Import
 
@@ -561,11 +657,16 @@ class SparkPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_pause: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoPauseArgs']]] = None,
                  auto_scale: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']]] = None,
+                 cache_size: Optional[pulumi.Input[int]] = None,
+                 compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_executor_allocation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirement: Optional[pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
                  node_size_family: Optional[pulumi.Input[str]] = None,
+                 session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
+                 spark_config: Optional[pulumi.Input[pulumi.InputType['SparkPoolSparkConfigArgs']]] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_log_folder: Optional[pulumi.Input[str]] = None,
                  spark_version: Optional[pulumi.Input[str]] = None,
@@ -585,6 +686,9 @@ class SparkPool(pulumi.CustomResource):
 
             __props__.__dict__["auto_pause"] = auto_pause
             __props__.__dict__["auto_scale"] = auto_scale
+            __props__.__dict__["cache_size"] = cache_size
+            __props__.__dict__["compute_isolation_enabled"] = compute_isolation_enabled
+            __props__.__dict__["dynamic_executor_allocation_enabled"] = dynamic_executor_allocation_enabled
             __props__.__dict__["library_requirement"] = library_requirement
             __props__.__dict__["name"] = name
             __props__.__dict__["node_count"] = node_count
@@ -594,6 +698,8 @@ class SparkPool(pulumi.CustomResource):
             if node_size_family is None and not opts.urn:
                 raise TypeError("Missing required property 'node_size_family'")
             __props__.__dict__["node_size_family"] = node_size_family
+            __props__.__dict__["session_level_packages_enabled"] = session_level_packages_enabled
+            __props__.__dict__["spark_config"] = spark_config
             __props__.__dict__["spark_events_folder"] = spark_events_folder
             __props__.__dict__["spark_log_folder"] = spark_log_folder
             __props__.__dict__["spark_version"] = spark_version
@@ -613,11 +719,16 @@ class SparkPool(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_pause: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoPauseArgs']]] = None,
             auto_scale: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']]] = None,
+            cache_size: Optional[pulumi.Input[int]] = None,
+            compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+            dynamic_executor_allocation_enabled: Optional[pulumi.Input[bool]] = None,
             library_requirement: Optional[pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_count: Optional[pulumi.Input[int]] = None,
             node_size: Optional[pulumi.Input[str]] = None,
             node_size_family: Optional[pulumi.Input[str]] = None,
+            session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
+            spark_config: Optional[pulumi.Input[pulumi.InputType['SparkPoolSparkConfigArgs']]] = None,
             spark_events_folder: Optional[pulumi.Input[str]] = None,
             spark_log_folder: Optional[pulumi.Input[str]] = None,
             spark_version: Optional[pulumi.Input[str]] = None,
@@ -632,11 +743,16 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SparkPoolAutoPauseArgs']] auto_pause: An `auto_pause` block as defined below.
         :param pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input[int] cache_size: The cache size in the Spark Pool.
+        :param pulumi.Input[bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_executor_allocation_enabled: Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']] library_requirement: A `library_requirement` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+        :param pulumi.Input[bool] session_level_packages_enabled: Indicates whether session level packages are enabled or not. Defaults to `false`.
+        :param pulumi.Input[pulumi.InputType['SparkPoolSparkConfigArgs']] spark_config: A `spark_config` block as defined below.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
         :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
         :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` and `3.1`. Defaults to `2.4`.
@@ -649,11 +765,16 @@ class SparkPool(pulumi.CustomResource):
 
         __props__.__dict__["auto_pause"] = auto_pause
         __props__.__dict__["auto_scale"] = auto_scale
+        __props__.__dict__["cache_size"] = cache_size
+        __props__.__dict__["compute_isolation_enabled"] = compute_isolation_enabled
+        __props__.__dict__["dynamic_executor_allocation_enabled"] = dynamic_executor_allocation_enabled
         __props__.__dict__["library_requirement"] = library_requirement
         __props__.__dict__["name"] = name
         __props__.__dict__["node_count"] = node_count
         __props__.__dict__["node_size"] = node_size
         __props__.__dict__["node_size_family"] = node_size_family
+        __props__.__dict__["session_level_packages_enabled"] = session_level_packages_enabled
+        __props__.__dict__["spark_config"] = spark_config
         __props__.__dict__["spark_events_folder"] = spark_events_folder
         __props__.__dict__["spark_log_folder"] = spark_log_folder
         __props__.__dict__["spark_version"] = spark_version
@@ -676,6 +797,30 @@ class SparkPool(pulumi.CustomResource):
         An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         """
         return pulumi.get(self, "auto_scale")
+
+    @property
+    @pulumi.getter(name="cacheSize")
+    def cache_size(self) -> pulumi.Output[Optional[int]]:
+        """
+        The cache size in the Spark Pool.
+        """
+        return pulumi.get(self, "cache_size")
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        """
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @property
+    @pulumi.getter(name="dynamicExecutorAllocationEnabled")
+    def dynamic_executor_allocation_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_executor_allocation_enabled")
 
     @property
     @pulumi.getter(name="libraryRequirement")
@@ -716,6 +861,22 @@ class SparkPool(pulumi.CustomResource):
         The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
         """
         return pulumi.get(self, "node_size_family")
+
+    @property
+    @pulumi.getter(name="sessionLevelPackagesEnabled")
+    def session_level_packages_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether session level packages are enabled or not. Defaults to `false`.
+        """
+        return pulumi.get(self, "session_level_packages_enabled")
+
+    @property
+    @pulumi.getter(name="sparkConfig")
+    def spark_config(self) -> pulumi.Output[Optional['outputs.SparkPoolSparkConfig']]:
+        """
+        A `spark_config` block as defined below.
+        """
+        return pulumi.get(self, "spark_config")
 
     @property
     @pulumi.getter(name="sparkEventsFolder")

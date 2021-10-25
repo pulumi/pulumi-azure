@@ -12,40 +12,79 @@ namespace Pulumi.Azure.Iot.Inputs
 
     public sealed class SecurityDeviceGroupAllowRuleArgs : Pulumi.ResourceArgs
     {
-        [Input("connectionToIpNotAlloweds")]
-        private InputList<string>? _connectionToIpNotAlloweds;
+        [Input("connectionFromIpsNotAlloweds")]
+        private InputList<string>? _connectionFromIpsNotAlloweds;
 
         /// <summary>
-        /// Specifies which Ip is not allowed to be connected to in current device group.
+        /// Specifies which IP is not allowed to be connected to in current device group for inbound connection.
         /// </summary>
+        public InputList<string> ConnectionFromIpsNotAlloweds
+        {
+            get => _connectionFromIpsNotAlloweds ?? (_connectionFromIpsNotAlloweds = new InputList<string>());
+            set => _connectionFromIpsNotAlloweds = value;
+        }
+
+        [Input("connectionToIpNotAlloweds")]
+        private InputList<string>? _connectionToIpNotAlloweds;
+        [Obsolete(@"This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes")]
         public InputList<string> ConnectionToIpNotAlloweds
         {
             get => _connectionToIpNotAlloweds ?? (_connectionToIpNotAlloweds = new InputList<string>());
             set => _connectionToIpNotAlloweds = value;
         }
 
-        [Input("localUserNotAlloweds")]
-        private InputList<string>? _localUserNotAlloweds;
+        [Input("connectionToIpsNotAlloweds")]
+        private InputList<string>? _connectionToIpsNotAlloweds;
 
         /// <summary>
-        /// Specifies which local user is not allowed to Login in current device group.
+        /// Specifies which IP is not allowed to be connected to in current device group for outbound connection.
         /// </summary>
+        public InputList<string> ConnectionToIpsNotAlloweds
+        {
+            get => _connectionToIpsNotAlloweds ?? (_connectionToIpsNotAlloweds = new InputList<string>());
+            set => _connectionToIpsNotAlloweds = value;
+        }
+
+        [Input("localUserNotAlloweds")]
+        private InputList<string>? _localUserNotAlloweds;
+        [Obsolete(@"This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes")]
         public InputList<string> LocalUserNotAlloweds
         {
             get => _localUserNotAlloweds ?? (_localUserNotAlloweds = new InputList<string>());
             set => _localUserNotAlloweds = value;
         }
 
-        [Input("processNotAlloweds")]
-        private InputList<string>? _processNotAlloweds;
+        [Input("localUsersNotAlloweds")]
+        private InputList<string>? _localUsersNotAlloweds;
 
         /// <summary>
-        /// Specifies which process is not allowed to be executed in current device group.
+        /// Specifies which local user is not allowed to Login in current device group.
         /// </summary>
+        public InputList<string> LocalUsersNotAlloweds
+        {
+            get => _localUsersNotAlloweds ?? (_localUsersNotAlloweds = new InputList<string>());
+            set => _localUsersNotAlloweds = value;
+        }
+
+        [Input("processNotAlloweds")]
+        private InputList<string>? _processNotAlloweds;
+        [Obsolete(@"This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes")]
         public InputList<string> ProcessNotAlloweds
         {
             get => _processNotAlloweds ?? (_processNotAlloweds = new InputList<string>());
             set => _processNotAlloweds = value;
+        }
+
+        [Input("processesNotAlloweds")]
+        private InputList<string>? _processesNotAlloweds;
+
+        /// <summary>
+        /// Specifies which process is not allowed to be executed in current device group.
+        /// </summary>
+        public InputList<string> ProcessesNotAlloweds
+        {
+            get => _processesNotAlloweds ?? (_processesNotAlloweds = new InputList<string>());
+            set => _processesNotAlloweds = value;
         }
 
         public SecurityDeviceGroupAllowRuleArgs()

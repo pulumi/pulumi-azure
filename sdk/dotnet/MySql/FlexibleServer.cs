@@ -77,7 +77,7 @@ namespace Pulumi.Azure.MySql
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
-    ///             AdministratorLogin = "psqladminun",
+    ///             AdministratorLogin = "psqladmin",
     ///             AdministratorPassword = "H@Sh1CoR3!",
     ///             BackupRetentionDays = 7,
     ///             DelegatedSubnetId = exampleSubnet.Id,

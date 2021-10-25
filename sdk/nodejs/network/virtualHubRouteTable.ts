@@ -107,7 +107,7 @@ export class VirtualHubRouteTable extends pulumi.CustomResource {
     /**
      * A `route` block as defined below.
      */
-    public readonly routes!: pulumi.Output<outputs.network.VirtualHubRouteTableRoute[] | undefined>;
+    public readonly routes!: pulumi.Output<outputs.network.VirtualHubRouteTableRoute[]>;
     /**
      * The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
      */

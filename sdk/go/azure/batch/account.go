@@ -71,6 +71,8 @@ type Account struct {
 
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint pulumi.StringOutput `pulumi:"accountEndpoint"`
+	// An `identity` block as defined below.
+	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference AccountKeyVaultReferencePtrOutput `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -127,6 +129,8 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint *string `pulumi:"accountEndpoint"`
+	// An `identity` block as defined below.
+	Identity *AccountIdentity `pulumi:"identity"`
 	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference *AccountKeyVaultReference `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -152,6 +156,8 @@ type accountState struct {
 type AccountState struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity AccountIdentityPtrInput
 	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference AccountKeyVaultReferencePtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -179,6 +185,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// An `identity` block as defined below.
+	Identity *AccountIdentity `pulumi:"identity"`
 	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference *AccountKeyVaultReference `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -199,6 +207,8 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// An `identity` block as defined below.
+	Identity AccountIdentityPtrInput
 	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference AccountKeyVaultReferencePtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

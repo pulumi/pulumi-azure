@@ -72,18 +72,6 @@ namespace Pulumi.Azure.Compute
             set => _tags = value;
         }
 
-        [Input("zones")]
-        private List<string>? _zones;
-
-        /// <summary>
-        /// A list of Availability Zones where the Managed Disk exists.
-        /// </summary>
-        public List<string> Zones
-        {
-            get => _zones ?? (_zones = new List<string>());
-            set => _zones = value;
-        }
-
         public GetManagedDiskArgs()
         {
         }

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     version: "12",
- *     administratorLogin: "psqladminun",
+ *     administratorLogin: "psqladmin",
  *     administratorPassword: "H@Sh1CoR3!",
  *     storageMb: 32768,
  *     skuName: "GP_Standard_D4s_v3",

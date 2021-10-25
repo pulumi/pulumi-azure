@@ -21,6 +21,7 @@ __all__ = [
     'IotHubDpsSku',
     'SecurityDeviceGroupAllowRule',
     'SecurityDeviceGroupRangeRule',
+    'SecuritySolutionAdditionalWorkspace',
     'SecuritySolutionRecommendationsEnabled',
     'TimeSeriesInsightsGen2EnvironmentStorage',
     'TimeSeriesInsightsReferenceDataSetKeyProperty',
@@ -772,12 +773,20 @@ class SecurityDeviceGroupAllowRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "connectionToIpNotAlloweds":
+        if key == "connectionFromIpsNotAlloweds":
+            suggest = "connection_from_ips_not_alloweds"
+        elif key == "connectionToIpNotAlloweds":
             suggest = "connection_to_ip_not_alloweds"
+        elif key == "connectionToIpsNotAlloweds":
+            suggest = "connection_to_ips_not_alloweds"
         elif key == "localUserNotAlloweds":
             suggest = "local_user_not_alloweds"
+        elif key == "localUsersNotAlloweds":
+            suggest = "local_users_not_alloweds"
         elif key == "processNotAlloweds":
             suggest = "process_not_alloweds"
+        elif key == "processesNotAlloweds":
+            suggest = "processes_not_alloweds"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SecurityDeviceGroupAllowRule. Access the value via the '{suggest}' property getter instead.")
@@ -791,44 +800,80 @@ class SecurityDeviceGroupAllowRule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 connection_from_ips_not_alloweds: Optional[Sequence[str]] = None,
                  connection_to_ip_not_alloweds: Optional[Sequence[str]] = None,
+                 connection_to_ips_not_alloweds: Optional[Sequence[str]] = None,
                  local_user_not_alloweds: Optional[Sequence[str]] = None,
-                 process_not_alloweds: Optional[Sequence[str]] = None):
+                 local_users_not_alloweds: Optional[Sequence[str]] = None,
+                 process_not_alloweds: Optional[Sequence[str]] = None,
+                 processes_not_alloweds: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] connection_to_ip_not_alloweds: Specifies which Ip is not allowed to be connected to in current device group.
-        :param Sequence[str] local_user_not_alloweds: Specifies which local user is not allowed to Login in current device group.
-        :param Sequence[str] process_not_alloweds: Specifies which process is not allowed to be executed in current device group.
+        :param Sequence[str] connection_from_ips_not_alloweds: Specifies which IP is not allowed to be connected to in current device group for inbound connection.
+        :param Sequence[str] connection_to_ips_not_alloweds: Specifies which IP is not allowed to be connected to in current device group for outbound connection.
+        :param Sequence[str] local_users_not_alloweds: Specifies which local user is not allowed to Login in current device group.
+        :param Sequence[str] processes_not_alloweds: Specifies which process is not allowed to be executed in current device group.
         """
+        if connection_from_ips_not_alloweds is not None:
+            pulumi.set(__self__, "connection_from_ips_not_alloweds", connection_from_ips_not_alloweds)
         if connection_to_ip_not_alloweds is not None:
             pulumi.set(__self__, "connection_to_ip_not_alloweds", connection_to_ip_not_alloweds)
+        if connection_to_ips_not_alloweds is not None:
+            pulumi.set(__self__, "connection_to_ips_not_alloweds", connection_to_ips_not_alloweds)
         if local_user_not_alloweds is not None:
             pulumi.set(__self__, "local_user_not_alloweds", local_user_not_alloweds)
+        if local_users_not_alloweds is not None:
+            pulumi.set(__self__, "local_users_not_alloweds", local_users_not_alloweds)
         if process_not_alloweds is not None:
             pulumi.set(__self__, "process_not_alloweds", process_not_alloweds)
+        if processes_not_alloweds is not None:
+            pulumi.set(__self__, "processes_not_alloweds", processes_not_alloweds)
+
+    @property
+    @pulumi.getter(name="connectionFromIpsNotAlloweds")
+    def connection_from_ips_not_alloweds(self) -> Optional[Sequence[str]]:
+        """
+        Specifies which IP is not allowed to be connected to in current device group for inbound connection.
+        """
+        return pulumi.get(self, "connection_from_ips_not_alloweds")
 
     @property
     @pulumi.getter(name="connectionToIpNotAlloweds")
     def connection_to_ip_not_alloweds(self) -> Optional[Sequence[str]]:
-        """
-        Specifies which Ip is not allowed to be connected to in current device group.
-        """
         return pulumi.get(self, "connection_to_ip_not_alloweds")
+
+    @property
+    @pulumi.getter(name="connectionToIpsNotAlloweds")
+    def connection_to_ips_not_alloweds(self) -> Optional[Sequence[str]]:
+        """
+        Specifies which IP is not allowed to be connected to in current device group for outbound connection.
+        """
+        return pulumi.get(self, "connection_to_ips_not_alloweds")
 
     @property
     @pulumi.getter(name="localUserNotAlloweds")
     def local_user_not_alloweds(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "local_user_not_alloweds")
+
+    @property
+    @pulumi.getter(name="localUsersNotAlloweds")
+    def local_users_not_alloweds(self) -> Optional[Sequence[str]]:
         """
         Specifies which local user is not allowed to Login in current device group.
         """
-        return pulumi.get(self, "local_user_not_alloweds")
+        return pulumi.get(self, "local_users_not_alloweds")
 
     @property
     @pulumi.getter(name="processNotAlloweds")
     def process_not_alloweds(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "process_not_alloweds")
+
+    @property
+    @pulumi.getter(name="processesNotAlloweds")
+    def processes_not_alloweds(self) -> Optional[Sequence[str]]:
         """
         Specifies which process is not allowed to be executed in current device group.
         """
-        return pulumi.get(self, "process_not_alloweds")
+        return pulumi.get(self, "processes_not_alloweds")
 
 
 @pulumi.output_type
@@ -880,6 +925,54 @@ class SecurityDeviceGroupRangeRule(dict):
         The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SecuritySolutionAdditionalWorkspace(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataTypes":
+            suggest = "data_types"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecuritySolutionAdditionalWorkspace. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecuritySolutionAdditionalWorkspace.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecuritySolutionAdditionalWorkspace.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_types: Sequence[str],
+                 workspace_id: str):
+        """
+        :param Sequence[str] data_types: A list of data types which sent to workspace. Possible values are `Alerts` and `RawEvents`.
+        :param str workspace_id: The resource ID of the Log Analytics Workspace.
+        """
+        pulumi.set(__self__, "data_types", data_types)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="dataTypes")
+    def data_types(self) -> Sequence[str]:
+        """
+        A list of data types which sent to workspace. Possible values are `Alerts` and `RawEvents`.
+        """
+        return pulumi.get(self, "data_types")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        The resource ID of the Log Analytics Workspace.
+        """
+        return pulumi.get(self, "workspace_id")
 
 
 @pulumi.output_type

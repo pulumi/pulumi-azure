@@ -8,46 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Synapse Spark Pool.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     accountKind: "StorageV2",
- *     isHnsEnabled: "true",
- * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
- * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
- *     sqlAdministratorLogin: "sqladminuser",
- *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
- * });
- * const exampleSparkPool = new azure.synapse.SparkPool("exampleSparkPool", {
- *     synapseWorkspaceId: exampleWorkspace.id,
- *     nodeSizeFamily: "MemoryOptimized",
- *     nodeSize: "Small",
- *     autoScale: {
- *         maxNodeCount: 50,
- *         minNodeCount: 3,
- *     },
- *     autoPause: {
- *         delayInMinutes: 15,
- *     },
- *     tags: {
- *         ENV: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Synapse Spark Pool can be imported using the `resource id`, e.g.
@@ -93,6 +53,18 @@ export class SparkPool extends pulumi.CustomResource {
      */
     public readonly autoScale!: pulumi.Output<outputs.synapse.SparkPoolAutoScale | undefined>;
     /**
+     * The cache size in the Spark Pool.
+     */
+    public readonly cacheSize!: pulumi.Output<number | undefined>;
+    /**
+     * Indicates whether compute isolation is enabled or not. Defaults to `false`.
+     */
+    public readonly computeIsolationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
+     */
+    public readonly dynamicExecutorAllocationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `libraryRequirement` block as defined below.
      */
     public readonly libraryRequirement!: pulumi.Output<outputs.synapse.SparkPoolLibraryRequirement | undefined>;
@@ -112,6 +84,14 @@ export class SparkPool extends pulumi.CustomResource {
      * The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
      */
     public readonly nodeSizeFamily!: pulumi.Output<string>;
+    /**
+     * Indicates whether session level packages are enabled or not. Defaults to `false`.
+     */
+    public readonly sessionLevelPackagesEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * A `sparkConfig` block as defined below.
+     */
+    public readonly sparkConfig!: pulumi.Output<outputs.synapse.SparkPoolSparkConfig | undefined>;
     /**
      * The Spark events folder. Defaults to `/events`.
      */
@@ -148,11 +128,16 @@ export class SparkPool extends pulumi.CustomResource {
             const state = argsOrState as SparkPoolState | undefined;
             inputs["autoPause"] = state ? state.autoPause : undefined;
             inputs["autoScale"] = state ? state.autoScale : undefined;
+            inputs["cacheSize"] = state ? state.cacheSize : undefined;
+            inputs["computeIsolationEnabled"] = state ? state.computeIsolationEnabled : undefined;
+            inputs["dynamicExecutorAllocationEnabled"] = state ? state.dynamicExecutorAllocationEnabled : undefined;
             inputs["libraryRequirement"] = state ? state.libraryRequirement : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nodeCount"] = state ? state.nodeCount : undefined;
             inputs["nodeSize"] = state ? state.nodeSize : undefined;
             inputs["nodeSizeFamily"] = state ? state.nodeSizeFamily : undefined;
+            inputs["sessionLevelPackagesEnabled"] = state ? state.sessionLevelPackagesEnabled : undefined;
+            inputs["sparkConfig"] = state ? state.sparkConfig : undefined;
             inputs["sparkEventsFolder"] = state ? state.sparkEventsFolder : undefined;
             inputs["sparkLogFolder"] = state ? state.sparkLogFolder : undefined;
             inputs["sparkVersion"] = state ? state.sparkVersion : undefined;
@@ -171,11 +156,16 @@ export class SparkPool extends pulumi.CustomResource {
             }
             inputs["autoPause"] = args ? args.autoPause : undefined;
             inputs["autoScale"] = args ? args.autoScale : undefined;
+            inputs["cacheSize"] = args ? args.cacheSize : undefined;
+            inputs["computeIsolationEnabled"] = args ? args.computeIsolationEnabled : undefined;
+            inputs["dynamicExecutorAllocationEnabled"] = args ? args.dynamicExecutorAllocationEnabled : undefined;
             inputs["libraryRequirement"] = args ? args.libraryRequirement : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["nodeCount"] = args ? args.nodeCount : undefined;
             inputs["nodeSize"] = args ? args.nodeSize : undefined;
             inputs["nodeSizeFamily"] = args ? args.nodeSizeFamily : undefined;
+            inputs["sessionLevelPackagesEnabled"] = args ? args.sessionLevelPackagesEnabled : undefined;
+            inputs["sparkConfig"] = args ? args.sparkConfig : undefined;
             inputs["sparkEventsFolder"] = args ? args.sparkEventsFolder : undefined;
             inputs["sparkLogFolder"] = args ? args.sparkLogFolder : undefined;
             inputs["sparkVersion"] = args ? args.sparkVersion : undefined;
@@ -202,6 +192,18 @@ export interface SparkPoolState {
      */
     autoScale?: pulumi.Input<inputs.synapse.SparkPoolAutoScale>;
     /**
+     * The cache size in the Spark Pool.
+     */
+    cacheSize?: pulumi.Input<number>;
+    /**
+     * Indicates whether compute isolation is enabled or not. Defaults to `false`.
+     */
+    computeIsolationEnabled?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
+     */
+    dynamicExecutorAllocationEnabled?: pulumi.Input<boolean>;
+    /**
      * A `libraryRequirement` block as defined below.
      */
     libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement>;
@@ -221,6 +223,14 @@ export interface SparkPoolState {
      * The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
      */
     nodeSizeFamily?: pulumi.Input<string>;
+    /**
+     * Indicates whether session level packages are enabled or not. Defaults to `false`.
+     */
+    sessionLevelPackagesEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `sparkConfig` block as defined below.
+     */
+    sparkConfig?: pulumi.Input<inputs.synapse.SparkPoolSparkConfig>;
     /**
      * The Spark events folder. Defaults to `/events`.
      */
@@ -256,6 +266,18 @@ export interface SparkPoolArgs {
      */
     autoScale?: pulumi.Input<inputs.synapse.SparkPoolAutoScale>;
     /**
+     * The cache size in the Spark Pool.
+     */
+    cacheSize?: pulumi.Input<number>;
+    /**
+     * Indicates whether compute isolation is enabled or not. Defaults to `false`.
+     */
+    computeIsolationEnabled?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
+     */
+    dynamicExecutorAllocationEnabled?: pulumi.Input<boolean>;
+    /**
      * A `libraryRequirement` block as defined below.
      */
     libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement>;
@@ -275,6 +297,14 @@ export interface SparkPoolArgs {
      * The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
      */
     nodeSizeFamily: pulumi.Input<string>;
+    /**
+     * Indicates whether session level packages are enabled or not. Defaults to `false`.
+     */
+    sessionLevelPackagesEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `sparkConfig` block as defined below.
+     */
+    sparkConfig?: pulumi.Input<inputs.synapse.SparkPoolSparkConfig>;
     /**
      * The Spark events folder. Defaults to `/events`.
      */

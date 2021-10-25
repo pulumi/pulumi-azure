@@ -20,6 +20,7 @@ class RuleArgs:
                  protocol: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+                 backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
                  enable_floating_ip: Optional[pulumi.Input[bool]] = None,
                  enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
@@ -35,7 +36,7 @@ class RuleArgs:
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
-        :param pulumi.Input[str] backend_address_pool_id: A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
         :param pulumi.Input[bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
         :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
@@ -51,7 +52,12 @@ class RuleArgs:
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if backend_address_pool_id is not None:
+            warnings.warn("""This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider""", DeprecationWarning)
+            pulumi.log.warn("""backend_address_pool_id is deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider""")
+        if backend_address_pool_id is not None:
             pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
+        if backend_address_pool_ids is not None:
+            pulumi.set(__self__, "backend_address_pool_ids", backend_address_pool_ids)
         if disable_outbound_snat is not None:
             pulumi.set(__self__, "disable_outbound_snat", disable_outbound_snat)
         if enable_floating_ip is not None:
@@ -142,14 +148,23 @@ class RuleArgs:
     @property
     @pulumi.getter(name="backendAddressPoolId")
     def backend_address_pool_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        A reference to a Backend Address Pool over which this Load Balancing Rule operates.
-        """
         return pulumi.get(self, "backend_address_pool_id")
 
     @backend_address_pool_id.setter
     def backend_address_pool_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "backend_address_pool_id", value)
+
+    @property
+    @pulumi.getter(name="backendAddressPoolIds")
+    def backend_address_pool_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        """
+        return pulumi.get(self, "backend_address_pool_ids")
+
+    @backend_address_pool_ids.setter
+    def backend_address_pool_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "backend_address_pool_ids", value)
 
     @property
     @pulumi.getter(name="disableOutboundSnat")
@@ -240,6 +255,7 @@ class RuleArgs:
 class _RuleState:
     def __init__(__self__, *,
                  backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+                 backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backend_port: Optional[pulumi.Input[int]] = None,
                  disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
                  enable_floating_ip: Optional[pulumi.Input[bool]] = None,
@@ -256,7 +272,7 @@ class _RuleState:
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
-        :param pulumi.Input[str] backend_address_pool_id: A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
         :param pulumi.Input[bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
         :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
@@ -272,7 +288,12 @@ class _RuleState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         """
         if backend_address_pool_id is not None:
+            warnings.warn("""This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider""", DeprecationWarning)
+            pulumi.log.warn("""backend_address_pool_id is deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider""")
+        if backend_address_pool_id is not None:
             pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
+        if backend_address_pool_ids is not None:
+            pulumi.set(__self__, "backend_address_pool_ids", backend_address_pool_ids)
         if backend_port is not None:
             pulumi.set(__self__, "backend_port", backend_port)
         if disable_outbound_snat is not None:
@@ -305,14 +326,23 @@ class _RuleState:
     @property
     @pulumi.getter(name="backendAddressPoolId")
     def backend_address_pool_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        A reference to a Backend Address Pool over which this Load Balancing Rule operates.
-        """
         return pulumi.get(self, "backend_address_pool_id")
 
     @backend_address_pool_id.setter
     def backend_address_pool_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "backend_address_pool_id", value)
+
+    @property
+    @pulumi.getter(name="backendAddressPoolIds")
+    def backend_address_pool_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        """
+        return pulumi.get(self, "backend_address_pool_ids")
+
+    @backend_address_pool_ids.setter
+    def backend_address_pool_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "backend_address_pool_ids", value)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -486,6 +516,7 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+                 backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backend_port: Optional[pulumi.Input[int]] = None,
                  disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
                  enable_floating_ip: Optional[pulumi.Input[bool]] = None,
@@ -542,7 +573,7 @@ class Rule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] backend_address_pool_id: A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
         :param pulumi.Input[bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
         :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
@@ -619,6 +650,7 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+                 backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backend_port: Optional[pulumi.Input[int]] = None,
                  disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
                  enable_floating_ip: Optional[pulumi.Input[bool]] = None,
@@ -644,7 +676,11 @@ class Rule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RuleArgs.__new__(RuleArgs)
 
+            if backend_address_pool_id is not None and not opts.urn:
+                warnings.warn("""This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider""", DeprecationWarning)
+                pulumi.log.warn("""backend_address_pool_id is deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider""")
             __props__.__dict__["backend_address_pool_id"] = backend_address_pool_id
+            __props__.__dict__["backend_address_pool_ids"] = backend_address_pool_ids
             if backend_port is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_port'")
             __props__.__dict__["backend_port"] = backend_port
@@ -682,6 +718,7 @@ class Rule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+            backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             backend_port: Optional[pulumi.Input[int]] = None,
             disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
             enable_floating_ip: Optional[pulumi.Input[bool]] = None,
@@ -703,7 +740,7 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] backend_address_pool_id: A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
         :param pulumi.Input[bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
         :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
@@ -723,6 +760,7 @@ class Rule(pulumi.CustomResource):
         __props__ = _RuleState.__new__(_RuleState)
 
         __props__.__dict__["backend_address_pool_id"] = backend_address_pool_id
+        __props__.__dict__["backend_address_pool_ids"] = backend_address_pool_ids
         __props__.__dict__["backend_port"] = backend_port
         __props__.__dict__["disable_outbound_snat"] = disable_outbound_snat
         __props__.__dict__["enable_floating_ip"] = enable_floating_ip
@@ -742,10 +780,15 @@ class Rule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="backendAddressPoolId")
     def backend_address_pool_id(self) -> pulumi.Output[str]:
-        """
-        A reference to a Backend Address Pool over which this Load Balancing Rule operates.
-        """
         return pulumi.get(self, "backend_address_pool_id")
+
+    @property
+    @pulumi.getter(name="backendAddressPoolIds")
+    def backend_address_pool_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        """
+        return pulumi.get(self, "backend_address_pool_ids")
 
     @property
     @pulumi.getter(name="backendPort")

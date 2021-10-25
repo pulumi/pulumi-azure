@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * const exampleServer = new azure.postgresql.Server("exampleServer", {
  *     location: azurerm_resource_group.test.location,
  *     resourceGroupName: azurerm_resource_group.test.name,
- *     administratorLogin: "psqladminun",
+ *     administratorLogin: "psqladmin",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     skuName: "GP_Gen5_2",
  *     version: "11",

@@ -91,6 +91,8 @@ type BackendAddressPool struct {
 	OutboundRules pulumi.StringArrayOutput `pulumi:"outboundRules"`
 	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// One or more `tunnelInterface` blocks as defined below.
+	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayOutput `pulumi:"tunnelInterfaces"`
 }
 
 // NewBackendAddressPool registers a new resource with the given unique name, arguments, and options.
@@ -139,6 +141,8 @@ type backendAddressPoolState struct {
 	OutboundRules []string `pulumi:"outboundRules"`
 	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// One or more `tunnelInterface` blocks as defined below.
+	TunnelInterfaces []BackendAddressPoolTunnelInterface `pulumi:"tunnelInterfaces"`
 }
 
 type BackendAddressPoolState struct {
@@ -156,6 +160,8 @@ type BackendAddressPoolState struct {
 	OutboundRules pulumi.StringArrayInput
 	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 	ResourceGroupName pulumi.StringPtrInput
+	// One or more `tunnelInterface` blocks as defined below.
+	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayInput
 }
 
 func (BackendAddressPoolState) ElementType() reflect.Type {
@@ -171,6 +177,8 @@ type backendAddressPoolArgs struct {
 	Name *string `pulumi:"name"`
 	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// One or more `tunnelInterface` blocks as defined below.
+	TunnelInterfaces []BackendAddressPoolTunnelInterface `pulumi:"tunnelInterfaces"`
 }
 
 // The set of arguments for constructing a BackendAddressPool resource.
@@ -183,6 +191,8 @@ type BackendAddressPoolArgs struct {
 	Name pulumi.StringPtrInput
 	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 	ResourceGroupName pulumi.StringPtrInput
+	// One or more `tunnelInterface` blocks as defined below.
+	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayInput
 }
 
 func (BackendAddressPoolArgs) ElementType() reflect.Type {

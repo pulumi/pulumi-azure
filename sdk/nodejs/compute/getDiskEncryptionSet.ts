@@ -40,6 +40,10 @@ export interface GetDiskEncryptionSetArgs {
  */
 export interface GetDiskEncryptionSetResult {
     /**
+     * Is the Azure Disk Encryption Set Key automatically rotated to latest version?
+     */
+    readonly autoKeyRotationEnabled: boolean;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

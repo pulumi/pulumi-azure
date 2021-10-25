@@ -67,7 +67,7 @@ import (
 // 				BackupRetentionDays: pulumi.Int(7),
 // 				GeoRedundantBackup:  pulumi.String("Disabled"),
 // 			},
-// 			AdministratorLogin:         pulumi.String("psqladminun"),
+// 			AdministratorLogin:         pulumi.String("psqladmin"),
 // 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
 // 			Version:                    pulumi.String("9.5"),
 // 			SslEnforcement:             pulumi.String("Enabled"),

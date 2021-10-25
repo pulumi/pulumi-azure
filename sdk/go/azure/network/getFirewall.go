@@ -51,8 +51,6 @@ type LookupFirewallArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Azure Firewall exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The availability zones in which the Azure Firewall is created.
-	Zones []string `pulumi:"zones"`
 }
 
 // A collection of values returned by getFirewall.
@@ -100,8 +98,6 @@ type LookupFirewallOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the Azure Firewall exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// The availability zones in which the Azure Firewall is created.
-	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 func (LookupFirewallOutputArgs) ElementType() reflect.Type {

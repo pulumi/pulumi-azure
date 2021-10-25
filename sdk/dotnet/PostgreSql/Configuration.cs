@@ -39,7 +39,7 @@ namespace Pulumi.Azure.PostgreSql
     ///             BackupRetentionDays = 7,
     ///             GeoRedundantBackupEnabled = false,
     ///             AutoGrowEnabled = true,
-    ///             AdministratorLogin = "psqladminun",
+    ///             AdministratorLogin = "psqladmin",
     ///             AdministratorLoginPassword = "H@Sh1CoR3!",
     ///             Version = "9.5",
     ///             SslEnforcementEnabled = true,

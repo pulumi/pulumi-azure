@@ -53,6 +53,10 @@ namespace Pulumi.Azure.CosmosDB
     ///                 {
     ///                     Name = "MongoDBv3.4",
     ///                 },
+    ///                 new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///                 {
+    ///                     Name = "EnableMongo",
+    ///                 },
     ///             },
     ///             ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
     ///             {

@@ -68,6 +68,14 @@ export class SecuritySolution extends pulumi.CustomResource {
     }
 
     /**
+     * A `additionalWorkspace` block as defined below.
+     */
+    public readonly additionalWorkspaces!: pulumi.Output<outputs.iot.SecuritySolutionAdditionalWorkspace[] | undefined>;
+    /**
+     * A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+     */
+    public readonly disabledDataSources!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies the Display Name for this Iot Security Solution.
      */
     public readonly displayName!: pulumi.Output<string>;
@@ -133,6 +141,8 @@ export class SecuritySolution extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecuritySolutionState | undefined;
+            inputs["additionalWorkspaces"] = state ? state.additionalWorkspaces : undefined;
+            inputs["disabledDataSources"] = state ? state.disabledDataSources : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["eventsToExports"] = state ? state.eventsToExports : undefined;
@@ -157,6 +167,8 @@ export class SecuritySolution extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["additionalWorkspaces"] = args ? args.additionalWorkspaces : undefined;
+            inputs["disabledDataSources"] = args ? args.disabledDataSources : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["eventsToExports"] = args ? args.eventsToExports : undefined;
@@ -182,6 +194,14 @@ export class SecuritySolution extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecuritySolution resources.
  */
 export interface SecuritySolutionState {
+    /**
+     * A `additionalWorkspace` block as defined below.
+     */
+    additionalWorkspaces?: pulumi.Input<pulumi.Input<inputs.iot.SecuritySolutionAdditionalWorkspace>[]>;
+    /**
+     * A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+     */
+    disabledDataSources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the Display Name for this Iot Security Solution.
      */
@@ -240,6 +260,14 @@ export interface SecuritySolutionState {
  * The set of arguments for constructing a SecuritySolution resource.
  */
 export interface SecuritySolutionArgs {
+    /**
+     * A `additionalWorkspace` block as defined below.
+     */
+    additionalWorkspaces?: pulumi.Input<pulumi.Input<inputs.iot.SecuritySolutionAdditionalWorkspace>[]>;
+    /**
+     * A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+     */
+    disabledDataSources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the Display Name for this Iot Security Solution.
      */

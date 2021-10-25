@@ -4278,7 +4278,7 @@ export namespace appservice {
 
     export interface SlotSiteConfig {
         /**
-         * Are Managed Identity Credential used for Azure Container Registry pull
+         * Are Managed Identity Credentials used for Azure Container Registry pull
          */
         acrUseManagedIdentityCredentials?: boolean;
         /**
@@ -4286,16 +4286,13 @@ export namespace appservice {
          */
         acrUserManagedIdentityClientId?: string;
         /**
-         * Should the app be loaded at all times? Defaults to `false`.
+         * Should the slot be loaded at all times? Defaults to `false`.
          */
         alwaysOn?: boolean;
         /**
          * App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
          */
         appCommandLine?: string;
-        /**
-         * The name of the slot to automatically swap to during deployment
-         */
         autoSwapSlotName?: string;
         /**
          * A `cors` block as defined below.
@@ -4309,7 +4306,13 @@ export namespace appservice {
          * The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: string;
+        /**
+         * State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+         */
         ftpsState: string;
+        /**
+         * The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
+         */
         healthCheckPath?: string;
         /**
          * Is HTTP2 Enabled on this App Service? Defaults to `false`.
@@ -4320,7 +4323,7 @@ export namespace appservice {
          */
         ipRestrictions: outputs.appservice.SlotSiteConfigIpRestriction[];
         /**
-         * The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+         * The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
          */
         javaContainer?: string;
         /**
@@ -4331,6 +4334,9 @@ export namespace appservice {
          * The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
          */
         javaVersion?: string;
+        /**
+         * Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+         */
         linuxFxVersion: string;
         /**
          * Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
@@ -4344,9 +4350,12 @@ export namespace appservice {
          * The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
          */
         minTlsVersion: string;
+        /**
+         * The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+         */
         numberOfWorkers: number;
         /**
-         * The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+         * The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
          */
         phpVersion?: string;
         /**
@@ -4361,21 +4370,33 @@ export namespace appservice {
          * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
          */
         remoteDebuggingVersion: string;
+        /**
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         */
         scmIpRestrictions: outputs.appservice.SlotSiteConfigScmIpRestriction[];
         /**
          * The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
          */
         scmType: string;
+        /**
+         * IP security restrictions for scm to use main. Defaults to false.
+         */
         scmUseMainIpRestriction?: boolean;
         /**
          * Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
          */
         use32BitWorkerProcess?: boolean;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
         vnetRouteAllEnabled: boolean;
         /**
          * Should WebSockets be enabled?
          */
         websocketsEnabled: boolean;
+        /**
+         * The Windows Docker container image (`DOCKER|<user/image:tag>`)
+         */
         windowsFxVersion: string;
     }
 
@@ -4790,6 +4811,25 @@ export namespace backup {
 }
 
 export namespace batch {
+    export interface AccountIdentity {
+        /**
+         * Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+         */
+        tenantId: string;
+        /**
+         * The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+         */
+        type: string;
+    }
+
     export interface AccountKeyVaultReference {
         /**
          * The Azure identifier of the Azure KeyVault to use.
@@ -5098,6 +5138,17 @@ export namespace batch {
         targetLowPriorityNodes?: number;
     }
 
+    export interface PoolIdentity {
+        /**
+         * Specifies a list of user assigned identity ids.
+         */
+        identityIds: string[];
+        /**
+         * The identity type of the Batch Account. Only possible values is `UserAssigned`.
+         */
+        type: string;
+    }
+
     export interface PoolNetworkConfiguration {
         /**
          * A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
@@ -5254,7 +5305,6 @@ export namespace batch {
          */
         version?: string;
     }
-
 }
 
 export namespace blueprint {
@@ -8772,6 +8822,10 @@ export namespace containerservice {
          * A `omsAgent` block.
          */
         omsAgents: outputs.containerservice.GetKubernetesClusterAddonProfileOmsAgent[];
+        /**
+         * An `openServiceMesh` block.
+         */
+        openServiceMeshes: outputs.containerservice.GetKubernetesClusterAddonProfileOpenServiceMesh[];
     }
 
     export interface GetKubernetesClusterAddonProfileAzurePolicy {
@@ -8869,6 +8923,13 @@ export namespace containerservice {
          * The ID of the User Assigned Identity assigned to the Kubelets.
          */
         userAssignedIdentityId: string;
+    }
+
+    export interface GetKubernetesClusterAddonProfileOpenServiceMesh {
+        /**
+         * Is Role Based Access Control enabled?
+         */
+        enabled: boolean;
     }
 
     export interface GetKubernetesClusterAgentPoolProfile {
@@ -9456,6 +9517,10 @@ export namespace containerservice {
          * A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
          */
         omsAgent?: outputs.containerservice.KubernetesClusterAddonProfileOmsAgent;
+        /**
+         * An `openServiceMesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+         */
+        openServiceMesh?: outputs.containerservice.KubernetesClusterAddonProfileOpenServiceMesh;
     }
 
     export interface KubernetesClusterAddonProfileAciConnectorLinux {
@@ -9568,6 +9633,13 @@ export namespace containerservice {
          * The ID of a user assigned identity.
          */
         userAssignedIdentityId: string;
+    }
+
+    export interface KubernetesClusterAddonProfileOpenServiceMesh {
+        /**
+         * Is Open Service Mesh enabled?
+         */
+        enabled: boolean;
     }
 
     export interface KubernetesClusterAutoScalerProfile {
@@ -10424,6 +10496,10 @@ export namespace containerservice {
          * A location where the container registry should be geo-replicated.
          */
         location: string;
+        /**
+         * Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+         */
+        regionalEndpointEnabled?: boolean;
         /**
          * A mapping of tags to assign to this replication location.
          */
@@ -18233,17 +18309,33 @@ export namespace iot {
 
     export interface SecurityDeviceGroupAllowRule {
         /**
-         * Specifies which Ip is not allowed to be connected to in current device group.
+         * Specifies which IP is not allowed to be connected to in current device group for inbound connection.
+         */
+        connectionFromIpsNotAlloweds?: string[];
+        /**
+         * @deprecated This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
          */
         connectionToIpNotAlloweds?: string[];
         /**
-         * Specifies which local user is not allowed to Login in current device group.
+         * Specifies which IP is not allowed to be connected to in current device group for outbound connection.
+         */
+        connectionToIpsNotAlloweds?: string[];
+        /**
+         * @deprecated This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
          */
         localUserNotAlloweds?: string[];
         /**
-         * Specifies which process is not allowed to be executed in current device group.
+         * Specifies which local user is not allowed to Login in current device group.
+         */
+        localUsersNotAlloweds?: string[];
+        /**
+         * @deprecated This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
          */
         processNotAlloweds?: string[];
+        /**
+         * Specifies which process is not allowed to be executed in current device group.
+         */
+        processesNotAlloweds?: string[];
     }
 
     export interface SecurityDeviceGroupRangeRule {
@@ -18263,6 +18355,17 @@ export namespace iot {
          * The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
          */
         type: string;
+    }
+
+    export interface SecuritySolutionAdditionalWorkspace {
+        /**
+         * A list of data types which sent to workspace. Possible values are `Alerts` and `RawEvents`.
+         */
+        dataTypes: string[];
+        /**
+         * The resource ID of the Log Analytics Workspace.
+         */
+        workspaceId: string;
     }
 
     export interface SecuritySolutionRecommendationsEnabled {
@@ -19049,6 +19152,25 @@ export namespace lb {
         virtualNetworkId: string;
     }
 
+    export interface BackendAddressPoolTunnelInterface {
+        /**
+         * The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+         */
+        identifier: number;
+        /**
+         * The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+         */
+        port: number;
+        /**
+         * The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
+         */
+        protocol: string;
+        /**
+         * The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+         */
+        type: string;
+    }
+
     export interface GetBackendAddressPoolBackendAddress {
         /**
          * The Static IP address for this Load Balancer within the Virtual Network.
@@ -19112,6 +19234,10 @@ export namespace lb {
          * `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
          */
         availabilityZone: string;
+        /**
+         * The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+         */
+        gatewayLoadBalancerFrontendIpConfigurationId: string;
         /**
          * The id of the Frontend IP Configuration.
          */
@@ -22199,6 +22325,10 @@ export namespace mssql {
 
     export interface ServerAzureadAdministrator {
         /**
+         * (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
+         */
+        azureadAuthenticationOnly: boolean;
+        /**
          * (Required)  The login username of the Azure AD Administrator of this SQL Server.
          */
         loginUsername: string;
@@ -25046,6 +25176,10 @@ export namespace network {
 
     export interface NetworkInterfaceIpConfiguration {
         /**
+         * The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+         */
+        gatewayLoadBalancerFrontendIpConfigurationId: string;
+        /**
          * A name used for this IP Configuration.
          */
         name: string;
@@ -26377,7 +26511,7 @@ export namespace postgresql {
          */
         mode: string;
         /**
-         * The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+         * The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
          */
         standbyAvailabilityZone: string;
     }
@@ -26683,7 +26817,7 @@ export namespace privatelink {
          */
         privateConnectionResourceAlias?: string;
         /**
-         * The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
+         * The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
          */
         privateConnectionResourceId?: string;
         /**
@@ -29037,6 +29171,17 @@ export namespace synapse {
         filename: string;
     }
 
+    export interface SparkPoolSparkConfig {
+        /**
+         * The contents of a spark configuration.
+         */
+        content: string;
+        /**
+         * The name of the file where the spark configuration `content` will be stored.
+         */
+        filename: string;
+    }
+
     export interface SqlPoolRestore {
         /**
          * Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
@@ -29046,6 +29191,13 @@ export namespace synapse {
          * The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
          */
         sourceDatabaseId: string;
+    }
+
+    export interface SqlPoolVulnerabilityAssessmentBaselineBaseline {
+        /**
+         * Specifies a list of rule baseline result.
+         */
+        results: string[];
     }
 
     export interface SqlPoolVulnerabilityAssessmentRecurringScans {

@@ -82,7 +82,7 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -176,7 +176,7 @@ export interface IntegrationRuntimeRuleState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -222,7 +222,7 @@ export interface IntegrationRuntimeRuleArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**

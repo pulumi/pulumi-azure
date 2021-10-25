@@ -21,7 +21,7 @@ class GetVirtualMachineResult:
     """
     A collection of values returned by getVirtualMachine.
     """
-    def __init__(__self__, id=None, identities=None, location=None, name=None, resource_group_name=None):
+    def __init__(__self__, id=None, identities=None, location=None, name=None, private_ip_address=None, private_ip_addresses=None, public_ip_address=None, public_ip_addresses=None, resource_group_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -34,6 +34,18 @@ class GetVirtualMachineResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_ip_address and not isinstance(private_ip_address, str):
+            raise TypeError("Expected argument 'private_ip_address' to be a str")
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_addresses and not isinstance(private_ip_addresses, list):
+            raise TypeError("Expected argument 'private_ip_addresses' to be a list")
+        pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if public_ip_address and not isinstance(public_ip_address, str):
+            raise TypeError("Expected argument 'public_ip_address' to be a str")
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if public_ip_addresses and not isinstance(public_ip_addresses, list):
+            raise TypeError("Expected argument 'public_ip_addresses' to be a list")
+        pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -51,6 +63,7 @@ class GetVirtualMachineResult:
     def identities(self) -> Sequence['outputs.GetVirtualMachineIdentityResult']:
         """
         A `identity` block as defined below.
+        *
         """
         return pulumi.get(self, "identities")
 
@@ -63,6 +76,38 @@ class GetVirtualMachineResult:
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> str:
+        """
+        The Primary Private IP Address assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Sequence[str]:
+        """
+        A list of Private IP Addresses assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "private_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> str:
+        """
+        The Primary Public IP Address assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter(name="publicIpAddresses")
+    def public_ip_addresses(self) -> Sequence[str]:
+        """
+        A list of the Public IP Addresses assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "public_ip_addresses")
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -80,6 +125,10 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             identities=self.identities,
             location=self.location,
             name=self.name,
+            private_ip_address=self.private_ip_address,
+            private_ip_addresses=self.private_ip_addresses,
+            public_ip_address=self.public_ip_address,
+            public_ip_addresses=self.public_ip_addresses,
             resource_group_name=self.resource_group_name)
 
 
@@ -118,6 +167,10 @@ def get_virtual_machine(name: Optional[str] = None,
         identities=__ret__.identities,
         location=__ret__.location,
         name=__ret__.name,
+        private_ip_address=__ret__.private_ip_address,
+        private_ip_addresses=__ret__.private_ip_addresses,
+        public_ip_address=__ret__.public_ip_address,
+        public_ip_addresses=__ret__.public_ip_addresses,
         resource_group_name=__ret__.resource_group_name)
 
 

@@ -51,8 +51,7 @@ type LookupCacheArgs struct {
 	// The name of the Redis cache
 	Name string `pulumi:"name"`
 	// The name of the resource group the Redis cache instance is located in.
-	ResourceGroupName string   `pulumi:"resourceGroupName"`
-	Zones             []string `pulumi:"zones"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getCache.
@@ -112,8 +111,7 @@ type LookupCacheOutputArgs struct {
 	// The name of the Redis cache
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group the Redis cache instance is located in.
-	ResourceGroupName pulumi.StringInput      `pulumi:"resourceGroupName"`
-	Zones             pulumi.StringArrayInput `pulumi:"zones"`
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 func (LookupCacheOutputArgs) ElementType() reflect.Type {

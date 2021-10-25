@@ -38,7 +38,7 @@ namespace Pulumi.Azure.DataProtection
     ///             BackupRetentionDays = 7,
     ///             GeoRedundantBackupEnabled = false,
     ///             AutoGrowEnabled = true,
-    ///             AdministratorLogin = "psqladminun",
+    ///             AdministratorLogin = "psqladmin",
     ///             AdministratorLoginPassword = "H@Sh1CoR3!",
     ///             Version = "9.5",
     ///             SslEnforcementEnabled = true,
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.DataProtection
     ///                 var exampleServerName = values.Item1;
     ///                 var exampleDatabaseName = values.Item2;
     ///                 var exampleServerName1 = values.Item3;
-    ///                 return $"Server={exampleServerName}.postgres.database.azure.com;Database={exampleDatabaseName};Port=5432;User Id=psqladminun@{exampleServerName1};Password=H@Sh1CoR3!;Ssl Mode=Require;";
+    ///                 return $"Server={exampleServerName}.postgres.database.azure.com;Database={exampleDatabaseName};Port=5432;User Id=psqladmin@{exampleServerName1};Password=H@Sh1CoR3!;Ssl Mode=Require;";
     ///             }),
     ///             KeyVaultId = exampleKeyVault.Id,
     ///         });

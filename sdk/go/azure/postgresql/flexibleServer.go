@@ -88,7 +88,7 @@ import (
 // 			Version:               pulumi.String("12"),
 // 			DelegatedSubnetId:     exampleSubnet.ID(),
 // 			PrivateDnsZoneId:      exampleZone.ID(),
-// 			AdministratorLogin:    pulumi.String("psqladminun"),
+// 			AdministratorLogin:    pulumi.String("psqladmin"),
 // 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
 // 			StorageMb:             pulumi.Int(32768),
 // 			SkuName:               pulumi.String("GP_Standard_D4s_v3"),
@@ -155,7 +155,7 @@ type FlexibleServer struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
-	// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
 	Zone pulumi.StringOutput `pulumi:"zone"`
 }
 
@@ -233,7 +233,7 @@ type flexibleServerState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version *string `pulumi:"version"`
-	// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
 	Zone *string `pulumi:"zone"`
 }
 
@@ -280,7 +280,7 @@ type FlexibleServerState struct {
 	Tags pulumi.StringMapInput
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version pulumi.StringPtrInput
-	// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
 	Zone pulumi.StringPtrInput
 }
 
@@ -323,7 +323,7 @@ type flexibleServerArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version *string `pulumi:"version"`
-	// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
 	Zone *string `pulumi:"zone"`
 }
 
@@ -363,7 +363,7 @@ type FlexibleServerArgs struct {
 	Tags pulumi.StringMapInput
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version pulumi.StringPtrInput
-	// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
 	Zone pulumi.StringPtrInput
 }
 

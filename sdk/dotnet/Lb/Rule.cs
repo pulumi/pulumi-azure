@@ -72,11 +72,14 @@ namespace Pulumi.Azure.Lb
     [AzureResourceType("azure:lb/rule:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
-        /// <summary>
-        /// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
-        /// </summary>
         [Output("backendAddressPoolId")]
         public Output<string> BackendAddressPoolId { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        /// </summary>
+        [Output("backendAddressPoolIds")]
+        public Output<ImmutableArray<string>> BackendAddressPoolIds { get; private set; } = null!;
 
         /// <summary>
         /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
@@ -205,11 +208,20 @@ namespace Pulumi.Azure.Lb
 
     public sealed class RuleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
-        /// </summary>
         [Input("backendAddressPoolId")]
         public Input<string>? BackendAddressPoolId { get; set; }
+
+        [Input("backendAddressPoolIds")]
+        private InputList<string>? _backendAddressPoolIds;
+
+        /// <summary>
+        /// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        /// </summary>
+        public InputList<string> BackendAddressPoolIds
+        {
+            get => _backendAddressPoolIds ?? (_backendAddressPoolIds = new InputList<string>());
+            set => _backendAddressPoolIds = value;
+        }
 
         /// <summary>
         /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
@@ -296,11 +308,20 @@ namespace Pulumi.Azure.Lb
 
     public sealed class RuleState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
-        /// </summary>
         [Input("backendAddressPoolId")]
         public Input<string>? BackendAddressPoolId { get; set; }
+
+        [Input("backendAddressPoolIds")]
+        private InputList<string>? _backendAddressPoolIds;
+
+        /// <summary>
+        /// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        /// </summary>
+        public InputList<string> BackendAddressPoolIds
+        {
+            get => _backendAddressPoolIds ?? (_backendAddressPoolIds = new InputList<string>());
+            set => _backendAddressPoolIds = value;
+        }
 
         /// <summary>
         /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.

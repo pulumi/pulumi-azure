@@ -69,6 +69,10 @@ import (
 type SecuritySolution struct {
 	pulumi.CustomResourceState
 
+	// A `additionalWorkspace` block as defined below.
+	AdditionalWorkspaces SecuritySolutionAdditionalWorkspaceArrayOutput `pulumi:"additionalWorkspaces"`
+	// A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+	DisabledDataSources pulumi.StringArrayOutput `pulumi:"disabledDataSources"`
 	// Specifies the Display Name for this Iot Security Solution.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Is the Iot Security Solution enabled? Defaults to `true`.
@@ -135,6 +139,10 @@ func GetSecuritySolution(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecuritySolution resources.
 type securitySolutionState struct {
+	// A `additionalWorkspace` block as defined below.
+	AdditionalWorkspaces []SecuritySolutionAdditionalWorkspace `pulumi:"additionalWorkspaces"`
+	// A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+	DisabledDataSources []string `pulumi:"disabledDataSources"`
 	// Specifies the Display Name for this Iot Security Solution.
 	DisplayName *string `pulumi:"displayName"`
 	// Is the Iot Security Solution enabled? Defaults to `true`.
@@ -164,6 +172,10 @@ type securitySolutionState struct {
 }
 
 type SecuritySolutionState struct {
+	// A `additionalWorkspace` block as defined below.
+	AdditionalWorkspaces SecuritySolutionAdditionalWorkspaceArrayInput
+	// A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+	DisabledDataSources pulumi.StringArrayInput
 	// Specifies the Display Name for this Iot Security Solution.
 	DisplayName pulumi.StringPtrInput
 	// Is the Iot Security Solution enabled? Defaults to `true`.
@@ -197,6 +209,10 @@ func (SecuritySolutionState) ElementType() reflect.Type {
 }
 
 type securitySolutionArgs struct {
+	// A `additionalWorkspace` block as defined below.
+	AdditionalWorkspaces []SecuritySolutionAdditionalWorkspace `pulumi:"additionalWorkspaces"`
+	// A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+	DisabledDataSources []string `pulumi:"disabledDataSources"`
 	// Specifies the Display Name for this Iot Security Solution.
 	DisplayName string `pulumi:"displayName"`
 	// Is the Iot Security Solution enabled? Defaults to `true`.
@@ -227,6 +243,10 @@ type securitySolutionArgs struct {
 
 // The set of arguments for constructing a SecuritySolution resource.
 type SecuritySolutionArgs struct {
+	// A `additionalWorkspace` block as defined below.
+	AdditionalWorkspaces SecuritySolutionAdditionalWorkspaceArrayInput
+	// A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+	DisabledDataSources pulumi.StringArrayInput
 	// Specifies the Display Name for this Iot Security Solution.
 	DisplayName pulumi.StringInput
 	// Is the Iot Security Solution enabled? Defaults to `true`.

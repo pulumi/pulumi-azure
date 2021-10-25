@@ -566,14 +566,18 @@ class ServerAzureadAdministratorArgs:
     def __init__(__self__, *,
                  login_username: pulumi.Input[str],
                  object_id: pulumi.Input[str],
+                 azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] login_username: (Required)  The login username of the Azure AD Administrator of this SQL Server.
         :param pulumi.Input[str] object_id: (Required) The object id of the Azure AD Administrator of this SQL Server.
+        :param pulumi.Input[bool] azuread_authentication_only: (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administrator_login`).
         :param pulumi.Input[str] tenant_id: (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
         """
         pulumi.set(__self__, "login_username", login_username)
         pulumi.set(__self__, "object_id", object_id)
+        if azuread_authentication_only is not None:
+            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
@@ -600,6 +604,18 @@ class ServerAzureadAdministratorArgs:
     @object_id.setter
     def object_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="azureadAuthenticationOnly")
+    def azuread_authentication_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administrator_login`).
+        """
+        return pulumi.get(self, "azuread_authentication_only")
+
+    @azuread_authentication_only.setter
+    def azuread_authentication_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azuread_authentication_only", value)
 
     @property
     @pulumi.getter(name="tenantId")

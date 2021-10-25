@@ -12,65 +12,6 @@ namespace Pulumi.Azure.Synapse
     /// <summary>
     /// Manages a Synapse Spark Pool.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             AccountKind = "StorageV2",
-    ///             IsHnsEnabled = true,
-    ///         });
-    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///         });
-    ///         var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new Azure.Synapse.WorkspaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///             SqlAdministratorLogin = "sqladminuser",
-    ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         });
-    ///         var exampleSparkPool = new Azure.Synapse.SparkPool("exampleSparkPool", new Azure.Synapse.SparkPoolArgs
-    ///         {
-    ///             SynapseWorkspaceId = exampleWorkspace.Id,
-    ///             NodeSizeFamily = "MemoryOptimized",
-    ///             NodeSize = "Small",
-    ///             AutoScale = new Azure.Synapse.Inputs.SparkPoolAutoScaleArgs
-    ///             {
-    ///                 MaxNodeCount = 50,
-    ///                 MinNodeCount = 3,
-    ///             },
-    ///             AutoPause = new Azure.Synapse.Inputs.SparkPoolAutoPauseArgs
-    ///             {
-    ///                 DelayInMinutes = 15,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "ENV", "Production" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Synapse Spark Pool can be imported using the `resource id`, e.g.
@@ -93,6 +34,24 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Output("autoScale")]
         public Output<Outputs.SparkPoolAutoScale?> AutoScale { get; private set; } = null!;
+
+        /// <summary>
+        /// The cache size in the Spark Pool.
+        /// </summary>
+        [Output("cacheSize")]
+        public Output<int?> CacheSize { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        /// </summary>
+        [Output("computeIsolationEnabled")]
+        public Output<bool?> ComputeIsolationEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
+        /// </summary>
+        [Output("dynamicExecutorAllocationEnabled")]
+        public Output<bool?> DynamicExecutorAllocationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A `library_requirement` block as defined below.
@@ -123,6 +82,18 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Output("nodeSizeFamily")]
         public Output<string> NodeSizeFamily { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether session level packages are enabled or not. Defaults to `false`.
+        /// </summary>
+        [Output("sessionLevelPackagesEnabled")]
+        public Output<bool?> SessionLevelPackagesEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// A `spark_config` block as defined below.
+        /// </summary>
+        [Output("sparkConfig")]
+        public Output<Outputs.SparkPoolSparkConfig?> SparkConfig { get; private set; } = null!;
 
         /// <summary>
         /// The Spark events folder. Defaults to `/events`.
@@ -213,6 +184,24 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.SparkPoolAutoScaleArgs>? AutoScale { get; set; }
 
         /// <summary>
+        /// The cache size in the Spark Pool.
+        /// </summary>
+        [Input("cacheSize")]
+        public Input<int>? CacheSize { get; set; }
+
+        /// <summary>
+        /// Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        /// </summary>
+        [Input("computeIsolationEnabled")]
+        public Input<bool>? ComputeIsolationEnabled { get; set; }
+
+        /// <summary>
+        /// Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
+        /// </summary>
+        [Input("dynamicExecutorAllocationEnabled")]
+        public Input<bool>? DynamicExecutorAllocationEnabled { get; set; }
+
+        /// <summary>
         /// A `library_requirement` block as defined below.
         /// </summary>
         [Input("libraryRequirement")]
@@ -241,6 +230,18 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("nodeSizeFamily", required: true)]
         public Input<string> NodeSizeFamily { get; set; } = null!;
+
+        /// <summary>
+        /// Indicates whether session level packages are enabled or not. Defaults to `false`.
+        /// </summary>
+        [Input("sessionLevelPackagesEnabled")]
+        public Input<bool>? SessionLevelPackagesEnabled { get; set; }
+
+        /// <summary>
+        /// A `spark_config` block as defined below.
+        /// </summary>
+        [Input("sparkConfig")]
+        public Input<Inputs.SparkPoolSparkConfigArgs>? SparkConfig { get; set; }
 
         /// <summary>
         /// The Spark events folder. Defaults to `/events`.
@@ -298,6 +299,24 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.SparkPoolAutoScaleGetArgs>? AutoScale { get; set; }
 
         /// <summary>
+        /// The cache size in the Spark Pool.
+        /// </summary>
+        [Input("cacheSize")]
+        public Input<int>? CacheSize { get; set; }
+
+        /// <summary>
+        /// Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        /// </summary>
+        [Input("computeIsolationEnabled")]
+        public Input<bool>? ComputeIsolationEnabled { get; set; }
+
+        /// <summary>
+        /// Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
+        /// </summary>
+        [Input("dynamicExecutorAllocationEnabled")]
+        public Input<bool>? DynamicExecutorAllocationEnabled { get; set; }
+
+        /// <summary>
         /// A `library_requirement` block as defined below.
         /// </summary>
         [Input("libraryRequirement")]
@@ -326,6 +345,18 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("nodeSizeFamily")]
         public Input<string>? NodeSizeFamily { get; set; }
+
+        /// <summary>
+        /// Indicates whether session level packages are enabled or not. Defaults to `false`.
+        /// </summary>
+        [Input("sessionLevelPackagesEnabled")]
+        public Input<bool>? SessionLevelPackagesEnabled { get; set; }
+
+        /// <summary>
+        /// A `spark_config` block as defined below.
+        /// </summary>
+        [Input("sparkConfig")]
+        public Input<Inputs.SparkPoolSparkConfigGetArgs>? SparkConfig { get; set; }
 
         /// <summary>
         /// The Spark events folder. Defaults to `/events`.

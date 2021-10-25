@@ -14,29 +14,48 @@ namespace Pulumi.Azure.Iot.Outputs
     public sealed class SecurityDeviceGroupAllowRule
     {
         /// <summary>
-        /// Specifies which Ip is not allowed to be connected to in current device group.
+        /// Specifies which IP is not allowed to be connected to in current device group for inbound connection.
         /// </summary>
+        public readonly ImmutableArray<string> ConnectionFromIpsNotAlloweds;
         public readonly ImmutableArray<string> ConnectionToIpNotAlloweds;
+        /// <summary>
+        /// Specifies which IP is not allowed to be connected to in current device group for outbound connection.
+        /// </summary>
+        public readonly ImmutableArray<string> ConnectionToIpsNotAlloweds;
+        public readonly ImmutableArray<string> LocalUserNotAlloweds;
         /// <summary>
         /// Specifies which local user is not allowed to Login in current device group.
         /// </summary>
-        public readonly ImmutableArray<string> LocalUserNotAlloweds;
+        public readonly ImmutableArray<string> LocalUsersNotAlloweds;
+        public readonly ImmutableArray<string> ProcessNotAlloweds;
         /// <summary>
         /// Specifies which process is not allowed to be executed in current device group.
         /// </summary>
-        public readonly ImmutableArray<string> ProcessNotAlloweds;
+        public readonly ImmutableArray<string> ProcessesNotAlloweds;
 
         [OutputConstructor]
         private SecurityDeviceGroupAllowRule(
+            ImmutableArray<string> connectionFromIpsNotAlloweds,
+
             ImmutableArray<string> connectionToIpNotAlloweds,
+
+            ImmutableArray<string> connectionToIpsNotAlloweds,
 
             ImmutableArray<string> localUserNotAlloweds,
 
-            ImmutableArray<string> processNotAlloweds)
+            ImmutableArray<string> localUsersNotAlloweds,
+
+            ImmutableArray<string> processNotAlloweds,
+
+            ImmutableArray<string> processesNotAlloweds)
         {
+            ConnectionFromIpsNotAlloweds = connectionFromIpsNotAlloweds;
             ConnectionToIpNotAlloweds = connectionToIpNotAlloweds;
+            ConnectionToIpsNotAlloweds = connectionToIpsNotAlloweds;
             LocalUserNotAlloweds = localUserNotAlloweds;
+            LocalUsersNotAlloweds = localUsersNotAlloweds;
             ProcessNotAlloweds = processNotAlloweds;
+            ProcessesNotAlloweds = processesNotAlloweds;
         }
     }
 }

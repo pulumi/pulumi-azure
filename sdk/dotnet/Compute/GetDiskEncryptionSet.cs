@@ -43,6 +43,10 @@ namespace Pulumi.Azure.Compute
     public sealed class GetDiskEncryptionSetResult
     {
         /// <summary>
+        /// Is the Azure Disk Encryption Set Key automatically rotated to latest version?
+        /// </summary>
+        public readonly bool AutoKeyRotationEnabled;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -59,6 +63,8 @@ namespace Pulumi.Azure.Compute
 
         [OutputConstructor]
         private GetDiskEncryptionSetResult(
+            bool autoKeyRotationEnabled,
+
             string id,
 
             string location,
@@ -69,6 +75,7 @@ namespace Pulumi.Azure.Compute
 
             ImmutableDictionary<string, string> tags)
         {
+            AutoKeyRotationEnabled = autoKeyRotationEnabled;
             Id = id;
             Location = location;
             Name = name;

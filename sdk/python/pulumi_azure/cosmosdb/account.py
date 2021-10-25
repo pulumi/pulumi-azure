@@ -1106,6 +1106,9 @@ class Account(pulumi.CustomResource):
                 azure.cosmosdb.AccountCapabilityArgs(
                     name="MongoDBv3.4",
                 ),
+                azure.cosmosdb.AccountCapabilityArgs(
+                    name="EnableMongo",
+                ),
             ],
             consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
                 consistency_level="BoundedStaleness",
@@ -1196,6 +1199,9 @@ class Account(pulumi.CustomResource):
                 ),
                 azure.cosmosdb.AccountCapabilityArgs(
                     name="MongoDBv3.4",
+                ),
+                azure.cosmosdb.AccountCapabilityArgs(
+                    name="EnableMongo",
                 ),
             ],
             consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(

@@ -18,6 +18,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+        /// </summary>
+        public readonly bool? RegionalEndpointEnabled;
+        /// <summary>
         /// A mapping of tags to assign to this replication location.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -30,11 +34,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
         private RegistryGeoreplication(
             string location,
 
+            bool? regionalEndpointEnabled,
+
             ImmutableDictionary<string, string>? tags,
 
             bool? zoneRedundancyEnabled)
         {
             Location = location;
+            RegionalEndpointEnabled = regionalEndpointEnabled;
             Tags = tags;
             ZoneRedundancyEnabled = zoneRedundancyEnabled;
         }

@@ -18,6 +18,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
+        /// <summary>
+        /// Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+        /// </summary>
+        [Input("regionalEndpointEnabled")]
+        public Input<bool>? RegionalEndpointEnabled { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 

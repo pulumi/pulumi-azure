@@ -19,6 +19,10 @@ namespace Pulumi.Azure.Lb.Outputs
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
+        /// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        /// </summary>
+        public readonly string? GatewayLoadBalancerFrontendIpConfigurationId;
+        /// <summary>
         /// The id of the Frontend IP Configuration.
         /// </summary>
         public readonly string? Id;
@@ -68,6 +72,8 @@ namespace Pulumi.Azure.Lb.Outputs
         private LoadBalancerFrontendIpConfiguration(
             string? availabilityZone,
 
+            string? gatewayLoadBalancerFrontendIpConfigurationId,
+
             string? id,
 
             ImmutableArray<string> inboundNatRules,
@@ -93,6 +99,7 @@ namespace Pulumi.Azure.Lb.Outputs
             string? zones)
         {
             AvailabilityZone = availabilityZone;
+            GatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
             Id = id;
             InboundNatRules = inboundNatRules;
             LoadBalancerRules = loadBalancerRules;

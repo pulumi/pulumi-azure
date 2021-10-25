@@ -10,6 +10,200 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccountIdentity struct {
+	// Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+	TenantId *string `pulumi:"tenantId"`
+	// The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// AccountIdentityInput is an input type that accepts AccountIdentityArgs and AccountIdentityOutput values.
+// You can construct a concrete instance of `AccountIdentityInput` via:
+//
+//          AccountIdentityArgs{...}
+type AccountIdentityInput interface {
+	pulumi.Input
+
+	ToAccountIdentityOutput() AccountIdentityOutput
+	ToAccountIdentityOutputWithContext(context.Context) AccountIdentityOutput
+}
+
+type AccountIdentityArgs struct {
+	// Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AccountIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountIdentity)(nil)).Elem()
+}
+
+func (i AccountIdentityArgs) ToAccountIdentityOutput() AccountIdentityOutput {
+	return i.ToAccountIdentityOutputWithContext(context.Background())
+}
+
+func (i AccountIdentityArgs) ToAccountIdentityOutputWithContext(ctx context.Context) AccountIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput)
+}
+
+func (i AccountIdentityArgs) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
+	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i AccountIdentityArgs) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput).ToAccountIdentityPtrOutputWithContext(ctx)
+}
+
+// AccountIdentityPtrInput is an input type that accepts AccountIdentityArgs, AccountIdentityPtr and AccountIdentityPtrOutput values.
+// You can construct a concrete instance of `AccountIdentityPtrInput` via:
+//
+//          AccountIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountIdentityPtrInput interface {
+	pulumi.Input
+
+	ToAccountIdentityPtrOutput() AccountIdentityPtrOutput
+	ToAccountIdentityPtrOutputWithContext(context.Context) AccountIdentityPtrOutput
+}
+
+type accountIdentityPtrType AccountIdentityArgs
+
+func AccountIdentityPtr(v *AccountIdentityArgs) AccountIdentityPtrInput {
+	return (*accountIdentityPtrType)(v)
+}
+
+func (*accountIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountIdentity)(nil)).Elem()
+}
+
+func (i *accountIdentityPtrType) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
+	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
+}
+
+type AccountIdentityOutput struct{ *pulumi.OutputState }
+
+func (AccountIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountIdentity)(nil)).Elem()
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityOutput() AccountIdentityOutput {
+	return o
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityOutputWithContext(ctx context.Context) AccountIdentityOutput {
+	return o
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
+	return o.ToAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
+		return &v
+	}).(AccountIdentityPtrOutput)
+}
+
+// Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+func (o AccountIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+func (o AccountIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccountIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountIdentity)(nil)).Elem()
+}
+
+func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
+	return o
+}
+
+func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
+	return o
+}
+
+func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
+	return o.ApplyT(func(v *AccountIdentity) AccountIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccountIdentity
+		return ret
+	}).(AccountIdentityOutput)
+}
+
+// Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+func (o AccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccountKeyVaultReference struct {
 	// The Azure identifier of the Azure KeyVault to use.
 	Id string `pulumi:"id"`
@@ -911,6 +1105,162 @@ func (o PoolFixedScalePtrOutput) TargetLowPriorityNodes() pulumi.IntPtrOutput {
 		}
 		return v.TargetLowPriorityNodes
 	}).(pulumi.IntPtrOutput)
+}
+
+type PoolIdentity struct {
+	// Specifies a list of user assigned identity ids.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The identity type of the Batch Account. Only possible values is `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// PoolIdentityInput is an input type that accepts PoolIdentityArgs and PoolIdentityOutput values.
+// You can construct a concrete instance of `PoolIdentityInput` via:
+//
+//          PoolIdentityArgs{...}
+type PoolIdentityInput interface {
+	pulumi.Input
+
+	ToPoolIdentityOutput() PoolIdentityOutput
+	ToPoolIdentityOutputWithContext(context.Context) PoolIdentityOutput
+}
+
+type PoolIdentityArgs struct {
+	// Specifies a list of user assigned identity ids.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The identity type of the Batch Account. Only possible values is `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PoolIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolIdentity)(nil)).Elem()
+}
+
+func (i PoolIdentityArgs) ToPoolIdentityOutput() PoolIdentityOutput {
+	return i.ToPoolIdentityOutputWithContext(context.Background())
+}
+
+func (i PoolIdentityArgs) ToPoolIdentityOutputWithContext(ctx context.Context) PoolIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolIdentityOutput)
+}
+
+func (i PoolIdentityArgs) ToPoolIdentityPtrOutput() PoolIdentityPtrOutput {
+	return i.ToPoolIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i PoolIdentityArgs) ToPoolIdentityPtrOutputWithContext(ctx context.Context) PoolIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolIdentityOutput).ToPoolIdentityPtrOutputWithContext(ctx)
+}
+
+// PoolIdentityPtrInput is an input type that accepts PoolIdentityArgs, PoolIdentityPtr and PoolIdentityPtrOutput values.
+// You can construct a concrete instance of `PoolIdentityPtrInput` via:
+//
+//          PoolIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type PoolIdentityPtrInput interface {
+	pulumi.Input
+
+	ToPoolIdentityPtrOutput() PoolIdentityPtrOutput
+	ToPoolIdentityPtrOutputWithContext(context.Context) PoolIdentityPtrOutput
+}
+
+type poolIdentityPtrType PoolIdentityArgs
+
+func PoolIdentityPtr(v *PoolIdentityArgs) PoolIdentityPtrInput {
+	return (*poolIdentityPtrType)(v)
+}
+
+func (*poolIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolIdentity)(nil)).Elem()
+}
+
+func (i *poolIdentityPtrType) ToPoolIdentityPtrOutput() PoolIdentityPtrOutput {
+	return i.ToPoolIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *poolIdentityPtrType) ToPoolIdentityPtrOutputWithContext(ctx context.Context) PoolIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolIdentityPtrOutput)
+}
+
+type PoolIdentityOutput struct{ *pulumi.OutputState }
+
+func (PoolIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolIdentity)(nil)).Elem()
+}
+
+func (o PoolIdentityOutput) ToPoolIdentityOutput() PoolIdentityOutput {
+	return o
+}
+
+func (o PoolIdentityOutput) ToPoolIdentityOutputWithContext(ctx context.Context) PoolIdentityOutput {
+	return o
+}
+
+func (o PoolIdentityOutput) ToPoolIdentityPtrOutput() PoolIdentityPtrOutput {
+	return o.ToPoolIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o PoolIdentityOutput) ToPoolIdentityPtrOutputWithContext(ctx context.Context) PoolIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolIdentity) *PoolIdentity {
+		return &v
+	}).(PoolIdentityPtrOutput)
+}
+
+// Specifies a list of user assigned identity ids.
+func (o PoolIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PoolIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The identity type of the Batch Account. Only possible values is `UserAssigned`.
+func (o PoolIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PoolIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (PoolIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolIdentity)(nil)).Elem()
+}
+
+func (o PoolIdentityPtrOutput) ToPoolIdentityPtrOutput() PoolIdentityPtrOutput {
+	return o
+}
+
+func (o PoolIdentityPtrOutput) ToPoolIdentityPtrOutputWithContext(ctx context.Context) PoolIdentityPtrOutput {
+	return o
+}
+
+func (o PoolIdentityPtrOutput) Elem() PoolIdentityOutput {
+	return o.ApplyT(func(v *PoolIdentity) PoolIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret PoolIdentity
+		return ret
+	}).(PoolIdentityOutput)
+}
+
+// Specifies a list of user assigned identity ids.
+func (o PoolIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PoolIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The identity type of the Batch Account. Only possible values is `UserAssigned`.
+func (o PoolIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type PoolNetworkConfiguration struct {
@@ -3929,6 +4279,8 @@ func (o GetPoolStorageImageReferenceArrayOutput) Index(i pulumi.IntInput) GetPoo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountKeyVaultReferenceInput)(nil)).Elem(), AccountKeyVaultReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountKeyVaultReferencePtrInput)(nil)).Elem(), AccountKeyVaultReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolAutoScaleInput)(nil)).Elem(), PoolAutoScaleArgs{})
@@ -3941,6 +4293,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolContainerConfigurationContainerRegistryArrayInput)(nil)).Elem(), PoolContainerConfigurationContainerRegistryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolFixedScaleInput)(nil)).Elem(), PoolFixedScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolFixedScalePtrInput)(nil)).Elem(), PoolFixedScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolIdentityInput)(nil)).Elem(), PoolIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolIdentityPtrInput)(nil)).Elem(), PoolIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNetworkConfigurationInput)(nil)).Elem(), PoolNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNetworkConfigurationPtrInput)(nil)).Elem(), PoolNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNetworkConfigurationEndpointConfigurationInput)(nil)).Elem(), PoolNetworkConfigurationEndpointConfigurationArgs{})
@@ -3983,6 +4337,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskUserIdentityAutoUserArrayInput)(nil)).Elem(), GetPoolStartTaskUserIdentityAutoUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStorageImageReferenceInput)(nil)).Elem(), GetPoolStorageImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStorageImageReferenceArrayInput)(nil)).Elem(), GetPoolStorageImageReferenceArray{})
+	pulumi.RegisterOutputType(AccountIdentityOutput{})
+	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountKeyVaultReferenceOutput{})
 	pulumi.RegisterOutputType(AccountKeyVaultReferencePtrOutput{})
 	pulumi.RegisterOutputType(PoolAutoScaleOutput{})
@@ -3995,6 +4351,8 @@ func init() {
 	pulumi.RegisterOutputType(PoolContainerConfigurationContainerRegistryArrayOutput{})
 	pulumi.RegisterOutputType(PoolFixedScaleOutput{})
 	pulumi.RegisterOutputType(PoolFixedScalePtrOutput{})
+	pulumi.RegisterOutputType(PoolIdentityOutput{})
+	pulumi.RegisterOutputType(PoolIdentityPtrOutput{})
 	pulumi.RegisterOutputType(PoolNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(PoolNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PoolNetworkConfigurationEndpointConfigurationOutput{})

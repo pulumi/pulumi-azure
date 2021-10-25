@@ -6252,29 +6252,36 @@ class SlotSiteConfigArgs:
                  websockets_enabled: Optional[pulumi.Input[bool]] = None,
                  windows_fx_version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] acr_use_managed_identity_credentials: Are Managed Identity Credential used for Azure Container Registry pull
+        :param pulumi.Input[bool] acr_use_managed_identity_credentials: Are Managed Identity Credentials used for Azure Container Registry pull
         :param pulumi.Input[str] acr_user_managed_identity_client_id: If using User Managed Identity, the User Managed Identity Client Id
-        :param pulumi.Input[bool] always_on: Should the app be loaded at all times? Defaults to `false`.
+        :param pulumi.Input[bool] always_on: Should the slot be loaded at all times? Defaults to `false`.
         :param pulumi.Input[str] app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
-        :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap to during deployment
         :param pulumi.Input['SlotSiteConfigCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: The ordering of default documents to load, if an address isn't specified.
         :param pulumi.Input[str] dotnet_framework_version: The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        :param pulumi.Input[str] health_check_path: The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         :param pulumi.Input[bool] http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]] ip_restrictions: A list of objects representing ip restrictions as defined below.
-        :param pulumi.Input[str] java_container: The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+        :param pulumi.Input[str] java_container: The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
         :param pulumi.Input[str] java_container_version: The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
         :param pulumi.Input[str] java_version: The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+        :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
         :param pulumi.Input[bool] local_mysql_enabled: Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
         :param pulumi.Input[str] managed_pipeline_mode: The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-        :param pulumi.Input[str] php_version: The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+        :param pulumi.Input[int] number_of_workers: The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+        :param pulumi.Input[str] php_version: The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
         :param pulumi.Input[str] python_version: The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
         :param pulumi.Input[bool] remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+        :param pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         :param pulumi.Input[str] scm_type: The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        :param pulumi.Input[bool] scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
         :param pulumi.Input[bool] use32_bit_worker_process: Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
+        :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param pulumi.Input[bool] websockets_enabled: Should WebSockets be enabled?
+        :param pulumi.Input[str] windows_fx_version: The Windows Docker container image (`DOCKER|<user/image:tag>`)
         """
         if acr_use_managed_identity_credentials is not None:
             pulumi.set(__self__, "acr_use_managed_identity_credentials", acr_use_managed_identity_credentials)
@@ -6343,7 +6350,7 @@ class SlotSiteConfigArgs:
     @pulumi.getter(name="acrUseManagedIdentityCredentials")
     def acr_use_managed_identity_credentials(self) -> Optional[pulumi.Input[bool]]:
         """
-        Are Managed Identity Credential used for Azure Container Registry pull
+        Are Managed Identity Credentials used for Azure Container Registry pull
         """
         return pulumi.get(self, "acr_use_managed_identity_credentials")
 
@@ -6367,7 +6374,7 @@ class SlotSiteConfigArgs:
     @pulumi.getter(name="alwaysOn")
     def always_on(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the app be loaded at all times? Defaults to `false`.
+        Should the slot be loaded at all times? Defaults to `false`.
         """
         return pulumi.get(self, "always_on")
 
@@ -6390,9 +6397,6 @@ class SlotSiteConfigArgs:
     @property
     @pulumi.getter(name="autoSwapSlotName")
     def auto_swap_slot_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the slot to automatically swap to during deployment
-        """
         return pulumi.get(self, "auto_swap_slot_name")
 
     @auto_swap_slot_name.setter
@@ -6438,6 +6442,9 @@ class SlotSiteConfigArgs:
     @property
     @pulumi.getter(name="ftpsState")
     def ftps_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        """
         return pulumi.get(self, "ftps_state")
 
     @ftps_state.setter
@@ -6447,6 +6454,9 @@ class SlotSiteConfigArgs:
     @property
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
+        """
         return pulumi.get(self, "health_check_path")
 
     @health_check_path.setter
@@ -6481,7 +6491,7 @@ class SlotSiteConfigArgs:
     @pulumi.getter(name="javaContainer")
     def java_container(self) -> Optional[pulumi.Input[str]]:
         """
-        The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+        The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
         """
         return pulumi.get(self, "java_container")
 
@@ -6516,6 +6526,9 @@ class SlotSiteConfigArgs:
     @property
     @pulumi.getter(name="linuxFxVersion")
     def linux_fx_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+        """
         return pulumi.get(self, "linux_fx_version")
 
     @linux_fx_version.setter
@@ -6561,6 +6574,9 @@ class SlotSiteConfigArgs:
     @property
     @pulumi.getter(name="numberOfWorkers")
     def number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+        """
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
@@ -6571,7 +6587,7 @@ class SlotSiteConfigArgs:
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+        The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
         """
         return pulumi.get(self, "php_version")
 
@@ -6618,6 +6634,9 @@ class SlotSiteConfigArgs:
     @property
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]]]:
+        """
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        """
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
@@ -6639,6 +6658,9 @@ class SlotSiteConfigArgs:
     @property
     @pulumi.getter(name="scmUseMainIpRestriction")
     def scm_use_main_ip_restriction(self) -> Optional[pulumi.Input[bool]]:
+        """
+        IP security restrictions for scm to use main. Defaults to false.
+        """
         return pulumi.get(self, "scm_use_main_ip_restriction")
 
     @scm_use_main_ip_restriction.setter
@@ -6660,6 +6682,9 @@ class SlotSiteConfigArgs:
     @property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @vnet_route_all_enabled.setter
@@ -6681,6 +6706,9 @@ class SlotSiteConfigArgs:
     @property
     @pulumi.getter(name="windowsFxVersion")
     def windows_fx_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Windows Docker container image (`DOCKER|<user/image:tag>`)
+        """
         return pulumi.get(self, "windows_fx_version")
 
     @windows_fx_version.setter

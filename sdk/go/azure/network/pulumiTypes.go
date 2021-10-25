@@ -12391,6 +12391,8 @@ func (o NetworkConnectionMonitorTestGroupArrayOutput) Index(i pulumi.IntInput) N
 }
 
 type NetworkInterfaceIpConfiguration struct {
+	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+	GatewayLoadBalancerFrontendIpConfigurationId *string `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
 	// A name used for this IP Configuration.
 	Name string `pulumi:"name"`
 	// Is this the Primary IP Configuration? Must be `true` for the first `ipConfiguration` when multiple are specified. Defaults to `false`.
@@ -12419,6 +12421,8 @@ type NetworkInterfaceIpConfigurationInput interface {
 }
 
 type NetworkInterfaceIpConfigurationArgs struct {
+	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+	GatewayLoadBalancerFrontendIpConfigurationId pulumi.StringPtrInput `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
 	// A name used for this IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Is this the Primary IP Configuration? Must be `true` for the first `ipConfiguration` when multiple are specified. Defaults to `false`.
@@ -12484,6 +12488,11 @@ func (o NetworkInterfaceIpConfigurationOutput) ToNetworkInterfaceIpConfiguration
 
 func (o NetworkInterfaceIpConfigurationOutput) ToNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) NetworkInterfaceIpConfigurationOutput {
 	return o
+}
+
+// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+func (o NetworkInterfaceIpConfigurationOutput) GatewayLoadBalancerFrontendIpConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) *string { return v.GatewayLoadBalancerFrontendIpConfigurationId }).(pulumi.StringPtrOutput)
 }
 
 // A name used for this IP Configuration.
@@ -16627,7 +16636,7 @@ func (o VirtualHubRouteArrayOutput) Index(i pulumi.IntInput) VirtualHubRouteOutp
 	}).(VirtualHubRouteOutput)
 }
 
-type VirtualHubRouteTableRoute struct {
+type VirtualHubRouteTableRouteType struct {
 	// A list of destination addresses for this route.
 	Destinations []string `pulumi:"destinations"`
 	// The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
@@ -16640,18 +16649,18 @@ type VirtualHubRouteTableRoute struct {
 	NextHopType *string `pulumi:"nextHopType"`
 }
 
-// VirtualHubRouteTableRouteInput is an input type that accepts VirtualHubRouteTableRouteArgs and VirtualHubRouteTableRouteOutput values.
-// You can construct a concrete instance of `VirtualHubRouteTableRouteInput` via:
+// VirtualHubRouteTableRouteTypeInput is an input type that accepts VirtualHubRouteTableRouteTypeArgs and VirtualHubRouteTableRouteTypeOutput values.
+// You can construct a concrete instance of `VirtualHubRouteTableRouteTypeInput` via:
 //
-//          VirtualHubRouteTableRouteArgs{...}
-type VirtualHubRouteTableRouteInput interface {
+//          VirtualHubRouteTableRouteTypeArgs{...}
+type VirtualHubRouteTableRouteTypeInput interface {
 	pulumi.Input
 
-	ToVirtualHubRouteTableRouteOutput() VirtualHubRouteTableRouteOutput
-	ToVirtualHubRouteTableRouteOutputWithContext(context.Context) VirtualHubRouteTableRouteOutput
+	ToVirtualHubRouteTableRouteTypeOutput() VirtualHubRouteTableRouteTypeOutput
+	ToVirtualHubRouteTableRouteTypeOutputWithContext(context.Context) VirtualHubRouteTableRouteTypeOutput
 }
 
-type VirtualHubRouteTableRouteArgs struct {
+type VirtualHubRouteTableRouteTypeArgs struct {
 	// A list of destination addresses for this route.
 	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
 	// The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
@@ -16664,100 +16673,100 @@ type VirtualHubRouteTableRouteArgs struct {
 	NextHopType pulumi.StringPtrInput `pulumi:"nextHopType"`
 }
 
-func (VirtualHubRouteTableRouteArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubRouteTableRoute)(nil)).Elem()
+func (VirtualHubRouteTableRouteTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubRouteTableRouteType)(nil)).Elem()
 }
 
-func (i VirtualHubRouteTableRouteArgs) ToVirtualHubRouteTableRouteOutput() VirtualHubRouteTableRouteOutput {
-	return i.ToVirtualHubRouteTableRouteOutputWithContext(context.Background())
+func (i VirtualHubRouteTableRouteTypeArgs) ToVirtualHubRouteTableRouteTypeOutput() VirtualHubRouteTableRouteTypeOutput {
+	return i.ToVirtualHubRouteTableRouteTypeOutputWithContext(context.Background())
 }
 
-func (i VirtualHubRouteTableRouteArgs) ToVirtualHubRouteTableRouteOutputWithContext(ctx context.Context) VirtualHubRouteTableRouteOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTableRouteOutput)
+func (i VirtualHubRouteTableRouteTypeArgs) ToVirtualHubRouteTableRouteTypeOutputWithContext(ctx context.Context) VirtualHubRouteTableRouteTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTableRouteTypeOutput)
 }
 
-// VirtualHubRouteTableRouteArrayInput is an input type that accepts VirtualHubRouteTableRouteArray and VirtualHubRouteTableRouteArrayOutput values.
-// You can construct a concrete instance of `VirtualHubRouteTableRouteArrayInput` via:
+// VirtualHubRouteTableRouteTypeArrayInput is an input type that accepts VirtualHubRouteTableRouteTypeArray and VirtualHubRouteTableRouteTypeArrayOutput values.
+// You can construct a concrete instance of `VirtualHubRouteTableRouteTypeArrayInput` via:
 //
-//          VirtualHubRouteTableRouteArray{ VirtualHubRouteTableRouteArgs{...} }
-type VirtualHubRouteTableRouteArrayInput interface {
+//          VirtualHubRouteTableRouteTypeArray{ VirtualHubRouteTableRouteTypeArgs{...} }
+type VirtualHubRouteTableRouteTypeArrayInput interface {
 	pulumi.Input
 
-	ToVirtualHubRouteTableRouteArrayOutput() VirtualHubRouteTableRouteArrayOutput
-	ToVirtualHubRouteTableRouteArrayOutputWithContext(context.Context) VirtualHubRouteTableRouteArrayOutput
+	ToVirtualHubRouteTableRouteTypeArrayOutput() VirtualHubRouteTableRouteTypeArrayOutput
+	ToVirtualHubRouteTableRouteTypeArrayOutputWithContext(context.Context) VirtualHubRouteTableRouteTypeArrayOutput
 }
 
-type VirtualHubRouteTableRouteArray []VirtualHubRouteTableRouteInput
+type VirtualHubRouteTableRouteTypeArray []VirtualHubRouteTableRouteTypeInput
 
-func (VirtualHubRouteTableRouteArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualHubRouteTableRoute)(nil)).Elem()
+func (VirtualHubRouteTableRouteTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualHubRouteTableRouteType)(nil)).Elem()
 }
 
-func (i VirtualHubRouteTableRouteArray) ToVirtualHubRouteTableRouteArrayOutput() VirtualHubRouteTableRouteArrayOutput {
-	return i.ToVirtualHubRouteTableRouteArrayOutputWithContext(context.Background())
+func (i VirtualHubRouteTableRouteTypeArray) ToVirtualHubRouteTableRouteTypeArrayOutput() VirtualHubRouteTableRouteTypeArrayOutput {
+	return i.ToVirtualHubRouteTableRouteTypeArrayOutputWithContext(context.Background())
 }
 
-func (i VirtualHubRouteTableRouteArray) ToVirtualHubRouteTableRouteArrayOutputWithContext(ctx context.Context) VirtualHubRouteTableRouteArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTableRouteArrayOutput)
+func (i VirtualHubRouteTableRouteTypeArray) ToVirtualHubRouteTableRouteTypeArrayOutputWithContext(ctx context.Context) VirtualHubRouteTableRouteTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTableRouteTypeArrayOutput)
 }
 
-type VirtualHubRouteTableRouteOutput struct{ *pulumi.OutputState }
+type VirtualHubRouteTableRouteTypeOutput struct{ *pulumi.OutputState }
 
-func (VirtualHubRouteTableRouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubRouteTableRoute)(nil)).Elem()
+func (VirtualHubRouteTableRouteTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubRouteTableRouteType)(nil)).Elem()
 }
 
-func (o VirtualHubRouteTableRouteOutput) ToVirtualHubRouteTableRouteOutput() VirtualHubRouteTableRouteOutput {
+func (o VirtualHubRouteTableRouteTypeOutput) ToVirtualHubRouteTableRouteTypeOutput() VirtualHubRouteTableRouteTypeOutput {
 	return o
 }
 
-func (o VirtualHubRouteTableRouteOutput) ToVirtualHubRouteTableRouteOutputWithContext(ctx context.Context) VirtualHubRouteTableRouteOutput {
+func (o VirtualHubRouteTableRouteTypeOutput) ToVirtualHubRouteTableRouteTypeOutputWithContext(ctx context.Context) VirtualHubRouteTableRouteTypeOutput {
 	return o
 }
 
 // A list of destination addresses for this route.
-func (o VirtualHubRouteTableRouteOutput) Destinations() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VirtualHubRouteTableRoute) []string { return v.Destinations }).(pulumi.StringArrayOutput)
+func (o VirtualHubRouteTableRouteTypeOutput) Destinations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualHubRouteTableRouteType) []string { return v.Destinations }).(pulumi.StringArrayOutput)
 }
 
 // The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
-func (o VirtualHubRouteTableRouteOutput) DestinationsType() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualHubRouteTableRoute) string { return v.DestinationsType }).(pulumi.StringOutput)
+func (o VirtualHubRouteTableRouteTypeOutput) DestinationsType() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualHubRouteTableRouteType) string { return v.DestinationsType }).(pulumi.StringOutput)
 }
 
 // The name which should be used for this route.
-func (o VirtualHubRouteTableRouteOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualHubRouteTableRoute) string { return v.Name }).(pulumi.StringOutput)
+func (o VirtualHubRouteTableRouteTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualHubRouteTableRouteType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The next hop's resource ID.
-func (o VirtualHubRouteTableRouteOutput) NextHop() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualHubRouteTableRoute) string { return v.NextHop }).(pulumi.StringOutput)
+func (o VirtualHubRouteTableRouteTypeOutput) NextHop() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualHubRouteTableRouteType) string { return v.NextHop }).(pulumi.StringOutput)
 }
 
 // The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
-func (o VirtualHubRouteTableRouteOutput) NextHopType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualHubRouteTableRoute) *string { return v.NextHopType }).(pulumi.StringPtrOutput)
+func (o VirtualHubRouteTableRouteTypeOutput) NextHopType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualHubRouteTableRouteType) *string { return v.NextHopType }).(pulumi.StringPtrOutput)
 }
 
-type VirtualHubRouteTableRouteArrayOutput struct{ *pulumi.OutputState }
+type VirtualHubRouteTableRouteTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (VirtualHubRouteTableRouteArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualHubRouteTableRoute)(nil)).Elem()
+func (VirtualHubRouteTableRouteTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualHubRouteTableRouteType)(nil)).Elem()
 }
 
-func (o VirtualHubRouteTableRouteArrayOutput) ToVirtualHubRouteTableRouteArrayOutput() VirtualHubRouteTableRouteArrayOutput {
+func (o VirtualHubRouteTableRouteTypeArrayOutput) ToVirtualHubRouteTableRouteTypeArrayOutput() VirtualHubRouteTableRouteTypeArrayOutput {
 	return o
 }
 
-func (o VirtualHubRouteTableRouteArrayOutput) ToVirtualHubRouteTableRouteArrayOutputWithContext(ctx context.Context) VirtualHubRouteTableRouteArrayOutput {
+func (o VirtualHubRouteTableRouteTypeArrayOutput) ToVirtualHubRouteTableRouteTypeArrayOutputWithContext(ctx context.Context) VirtualHubRouteTableRouteTypeArrayOutput {
 	return o
 }
 
-func (o VirtualHubRouteTableRouteArrayOutput) Index(i pulumi.IntInput) VirtualHubRouteTableRouteOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualHubRouteTableRoute {
-		return vs[0].([]VirtualHubRouteTableRoute)[vs[1].(int)]
-	}).(VirtualHubRouteTableRouteOutput)
+func (o VirtualHubRouteTableRouteTypeArrayOutput) Index(i pulumi.IntInput) VirtualHubRouteTableRouteTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualHubRouteTableRouteType {
+		return vs[0].([]VirtualHubRouteTableRouteType)[vs[1].(int)]
+	}).(VirtualHubRouteTableRouteTypeOutput)
 }
 
 type VirtualNetworkDdosProtectionPlan struct {
@@ -25471,8 +25480,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubConnectionRoutingStaticVnetRouteArrayInput)(nil)).Elem(), VirtualHubConnectionRoutingStaticVnetRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteInput)(nil)).Elem(), VirtualHubRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteArrayInput)(nil)).Elem(), VirtualHubRouteArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTableRouteInput)(nil)).Elem(), VirtualHubRouteTableRouteArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTableRouteArrayInput)(nil)).Elem(), VirtualHubRouteTableRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTableRouteTypeInput)(nil)).Elem(), VirtualHubRouteTableRouteTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTableRouteTypeArrayInput)(nil)).Elem(), VirtualHubRouteTableRouteTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkDdosProtectionPlanInput)(nil)).Elem(), VirtualNetworkDdosProtectionPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkDdosProtectionPlanPtrInput)(nil)).Elem(), VirtualNetworkDdosProtectionPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayBgpSettingsInput)(nil)).Elem(), VirtualNetworkGatewayBgpSettingsArgs{})
@@ -25800,8 +25809,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualHubConnectionRoutingStaticVnetRouteArrayOutput{})
 	pulumi.RegisterOutputType(VirtualHubRouteOutput{})
 	pulumi.RegisterOutputType(VirtualHubRouteArrayOutput{})
-	pulumi.RegisterOutputType(VirtualHubRouteTableRouteOutput{})
-	pulumi.RegisterOutputType(VirtualHubRouteTableRouteArrayOutput{})
+	pulumi.RegisterOutputType(VirtualHubRouteTableRouteTypeOutput{})
+	pulumi.RegisterOutputType(VirtualHubRouteTableRouteTypeArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkDdosProtectionPlanOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkDdosProtectionPlanPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsOutput{})

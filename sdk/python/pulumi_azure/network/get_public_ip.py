@@ -196,7 +196,6 @@ class AwaitableGetPublicIPResult(GetPublicIPResult):
 def get_public_ip(name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   tags: Optional[Mapping[str, str]] = None,
-                  zones: Optional[Sequence[str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPResult:
     """
     Use this data source to access information about an existing Public IP Address.
@@ -265,7 +264,6 @@ def get_public_ip(name: Optional[str] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
-    __args__['zones'] = zones
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -294,7 +292,6 @@ def get_public_ip(name: Optional[str] = None,
 def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                         zones: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIPResult]:
     """
     Use this data source to access information about an existing Public IP Address.

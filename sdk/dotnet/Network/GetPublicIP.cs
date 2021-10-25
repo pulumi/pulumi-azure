@@ -165,14 +165,6 @@ namespace Pulumi.Azure.Network
             set => _tags = value;
         }
 
-        [Input("zones")]
-        private List<string>? _zones;
-        public List<string> Zones
-        {
-            get => _zones ?? (_zones = new List<string>());
-            set => _zones = value;
-        }
-
         public GetPublicIPArgs()
         {
         }

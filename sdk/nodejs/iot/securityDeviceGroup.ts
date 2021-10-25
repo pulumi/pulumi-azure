@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * const exampleSecurityDeviceGroup = new azure.iot.SecurityDeviceGroup("exampleSecurityDeviceGroup", {
  *     iothubId: exampleIoTHub.id,
  *     allowRule: {
- *         connectionToIpNotAlloweds: ["10.0.0.0/24"],
+ *         connectionToIpsNotAlloweds: ["10.0.0.0/24"],
  *     },
  *     rangeRules: [{
  *         type: "ActiveConnectionsNotInAllowedRange",

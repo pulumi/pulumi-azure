@@ -379,7 +379,7 @@ class VirtualHubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualHubRouteTableRoute']]]:
+    def routes(self) -> pulumi.Output[Sequence['outputs.VirtualHubRouteTableRoute']]:
         """
         A `route` block as defined below.
         """

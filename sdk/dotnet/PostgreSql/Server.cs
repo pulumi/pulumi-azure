@@ -30,7 +30,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AdministratorLogin = "psqladminun",
+    ///             AdministratorLogin = "psqladmin",
     ///             AdministratorLoginPassword = "H@Sh1CoR3!",
     ///             SkuName = "GP_Gen5_4",
     ///             Version = "9.6",
