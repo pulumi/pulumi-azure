@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 4.24.0 (2021-10-26)
 * Upgrade to v2.82.0 of the AzureRM Terraform Provider
   * Please note the following breaking changes to some inputs:
   * `azure.compute.getManagedDisk` no longer has the `zones` input.  This input was not used in calculating results.
@@ -9,8 +14,6 @@ CHANGELOG
   * `azure.network.getPublicIpPrefix` no longer has the `zones` input.  This input was not used in calculating results.
   * `azure.network.getPublicIP` no longer has the `zones` input.  This input was not used in calculating results.
   * `azure.network.getFirewall` no longer has the `zones` input.  This input was not used in calculating results.
-
----
 
 ## 4.23.0 (2021-10-15)
 * Upgrade to v2.81.0 of the AzureRM Terraform Provider
